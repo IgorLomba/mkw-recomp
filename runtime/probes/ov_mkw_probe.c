@@ -12,6 +12,7 @@
 
 #include "kernel.h"
 #include "host.h"
+#include "ov.h"
 #include "ov_probe.h"
 #include "platform/platform.h"
 
@@ -82,6 +83,24 @@ static void probe_offline(void) {
           "GetFriendList: %d friends", *count);
     printf("net: nifm, friends, ldn and nsd answer as a console with no network: %d of %d results as expected\n",
            (int)(sizeof cases / sizeof *cases) - bad, (int)(sizeof cases / sizeof *cases));
+
+    // MKW_LAN=1: a local network request is connected and reports an address; an internet one stays unavailable
+    plat_setenv("MKW_LAN", "1");
+    CALL("nifm::SetLocalNetworkMode", 0);
+    CHECK(CALL("nifm::IsNetworkAvailable") == 0, "MKW_LAN: an internet request stays unavailable");
+    CALL("nifm::SetLocalNetworkMode", 1);
+    uint8_t *ip = b;
+    memset(b, 0, 0x20);
+    int have = !ov_lan_address(b + 0x18, b + 0x1c);   // a machine with no IPv4 address (CI) answers no network
+    uint64_t r = CALL("nifm::GetCurrentIpConfigInfo", U(ip), U(ip + 4), U(ip + 8), U(ip + 12), U(ip + 16));
+    CHECK(CALL("nifm::IsNetworkAvailable") == 1 && CALL("nifm::HandleNetworkRequestErrorResult") == 0,
+          "MKW_LAN: local network available");
+    CHECK(have ? r == 0 && ip[0] && ip[4] == 255 : (uint32_t)r == NIFM_R_NO_NETWORK,
+          "MKW_LAN: address %u.%u.%u.%u mask %u.%u.%u.%u", ip[0], ip[1], ip[2], ip[3], ip[4], ip[5], ip[6], ip[7]);
+    printf("net: MKW_LAN, local network mode connected at %u.%u.%u.%u/%u.%u.%u.%u\n", ip[0], ip[1], ip[2], ip[3],
+           ip[4], ip[5], ip[6], ip[7]);
+    CALL("nifm::SetLocalNetworkMode", 0);
+    plat_setenv("MKW_LAN", "");
 }
 
 // ---- account: the one local user, its network service account unavailable

@@ -28,6 +28,8 @@ typedef SOCKET HostSock;
 #else
 #include <errno.h>
 #include <fcntl.h>
+#include <arpa/inet.h>
+#include <ifaddrs.h>
 #include <netinet/in.h>
 #include <poll.h>
 #include <sys/eventfd.h>
@@ -39,7 +41,9 @@ typedef int HostSock;
 #define host_poll poll
 #endif
 
+#include "cfg.h"
 #include "host.h"
+#include "ov.h"
 #include "platform/platform.h"
 
 // Linux errno values the game reads (its numbering on every host)
@@ -450,6 +454,46 @@ static void ov_eventfd_write(Cpu *c) {
     if (sl) fail(G_ENOSYS);
 #endif
     ret_x(c, (uint64_t)(int64_t)r);
+}
+
+// ---- the LAN address nifm reports (ov_net.c): MKW_LAN_IP, else the address a datagram to a public one would leave
+// from (connect on a datagram socket sends nothing), with its interface's mask. Pia builds its broadcast from both.
+int ov_lan_address(uint8_t ip[4], uint8_t mask[4]) {
+    struct in_addr a = {0};
+    const char *want = cfg_get("MKW_LAN_IP");
+#ifdef _WIN32
+    WSADATA wsa;
+    if (WSAStartup(MAKEWORD(2, 2), &wsa)) return -1;
+#endif
+    if (want && *want) {
+        if (inet_pton(AF_INET, want, &a) != 1) rt_log("nifm: MKW_LAN_IP %s is not an IPv4 address", want);
+    } else {
+        HostSock s = socket(AF_INET, SOCK_DGRAM, 0);
+        struct sockaddr_in d = {.sin_family = AF_INET, .sin_port = htons(9), .sin_addr.s_addr = htonl(0x08080808)};
+        struct sockaddr_in me;
+        socklen_t len = sizeof me;
+        if (s != HOST_BAD && !connect(s, (struct sockaddr *)&d, sizeof d) &&
+            !getsockname(s, (struct sockaddr *)&me, &len))
+            a = me.sin_addr;
+        if (s != HOST_BAD) host_close(s);
+    }
+    if (!a.s_addr) return -1;
+    memcpy(ip, &a, 4);
+    const uint8_t c24[4] = {255, 255, 255, 0};
+    memcpy(mask, c24, 4);   // ponytail: Windows keeps /24 (home LANs); GetAdaptersAddresses if one is not
+#ifndef _WIN32
+    struct ifaddrs *list, *i;
+    if (!getifaddrs(&list)) {
+        for (i = list; i; i = i->ifa_next)
+            if (i->ifa_addr && i->ifa_netmask && i->ifa_addr->sa_family == AF_INET &&
+                ((struct sockaddr_in *)i->ifa_addr)->sin_addr.s_addr == a.s_addr) {
+                memcpy(mask, &((struct sockaddr_in *)i->ifa_netmask)->sin_addr, 4);
+                break;
+            }
+        freeifaddrs(list);
+    }
+#endif
+    return 0;
 }
 
 // ---- names: no resolver offline (online play would need one); EAI_FAIL is 4 in the console's AiErrno
