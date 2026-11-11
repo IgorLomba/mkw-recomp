@@ -91,44 +91,4 @@ HOST_OVERRIDE("_ZN2nn3nsd9ResolveExEPNS0_4FqdnERKS1_", ov_nsd_none);
 // ---- nn::prepo: play reports are built by the SDK's own code and never sent.
 HOST_OVERRIDE("_ZN2nn5prepo28RequestImmediateTransmissionEv", ov_ok);
 
-// ---- nn::socket: the online mode's sockets (issue #63: picking it reached the SDK's IPC to the bsd service and stopped
-// the game). Initialize "succeeds" (MKW ignores its result, main+0x2247900) and every socket call fails as with the
-// network down, so the game takes its no-connection path. The byte-order and address-text helpers are the SDK's own
-// code and need no service.
-#define SOCK_ENETDOWN 50   // the BSD errno nn::socket uses
-#define SOCK_EAI_FAIL 4
-static void ov_sock_fail(Cpu *c) { ret_x(c, (uint64_t)-1); }
-static void ov_sock_errno(Cpu *c) { ret_x(c, SOCK_ENETDOWN); }
-static void ov_sock_initialized(Cpu *c) { ret_x(c, 1); }
-// int GetAddrInfo(const char *node, const char *service, const AddrInfo *hints, AddrInfo **res)
-static void ov_sock_addrinfo(Cpu *c) {
-    uint64_t *res = arg_p(c, 3);
-    if (res) *res = 0;
-    ret_x(c, SOCK_EAI_FAIL);
-}
-
-HOST_OVERRIDE("_ZN2nn6socket8internal10InitializeEi", ov_ok);
-HOST_OVERRIDE("_ZN2nn6socket12SetAllocatorEPNS_14MemoryResourceE", ov_nothing);
-HOST_OVERRIDE("_ZN2nn6socket8FinalizeEv", ov_ok);
-HOST_OVERRIDE("_ZN2nn6socket13IsInitializedEv", ov_sock_initialized);
-HOST_OVERRIDE("_ZN2nn6socket12GetLastErrnoEv", ov_sock_errno);
-HOST_OVERRIDE("_ZN2nn6socket12GetLastErrorEv", ov_sock_errno);
-HOST_OVERRIDE("_ZN2nn6socket6SocketEiii", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket6SocketENS0_6FamilyENS0_4TypeENS0_8ProtocolE", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket7EventFdEmNS0_12EventFdFlagsE", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket11EventFdReadEiPm", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket12EventFdWriteEim", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket4BindEiPKNS0_8SockAddrEj", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket4BindEiPK8sockaddrj", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket10SetSockOptEiNS0_5LevelENS0_6OptionEPKvj", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket6SendToEiPKvmiPK8sockaddrj", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket6SendToEiPKvmNS0_7MsgFlagEPKNS0_8SockAddrEj", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket8RecvFromEiPvmiP8sockaddrPj", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket8RecvFromEiPvmNS0_7MsgFlagEPNS0_8SockAddrEPj", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket4PollEP6pollfdmi", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket8ShutdownEii", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket5CloseEi", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket11GetAddrInfoEPKcS2_PK8addrinfoPPS3_", ov_sock_addrinfo);
-HOST_OVERRIDE("_ZN2nn6socket11GetAddrInfoEPKcS2_PKNS0_8AddrInfoEPPS3_", ov_sock_addrinfo);
-HOST_OVERRIDE("_ZN2nn6socket12FreeAddrInfoEP8addrinfo", ov_nothing);
-HOST_OVERRIDE("_ZN2nn6socket12FreeAddrInfoEPNS0_8AddrInfoE", ov_nothing);
+// ---- nn::socket: ov_socket.c, over the host's sockets (it also covers #63: Initialize needs no bsd service).

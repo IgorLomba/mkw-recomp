@@ -1,0 +1,486 @@
+// nn::socket for MKW: the console's BSD sockets over the host's, so the game's own network library (Pia, linked in
+// main: nn::pia::lan for LAN play, nn::pia::local over ldn) can reach other machines. main imports only datagram calls
+// (Socket, Bind, SendTo, RecvFrom, Poll, SetSockOpt, Shutdown, Close, EventFd*), no Connect/Listen/Accept.
+//
+// What differs between the console and the host, and what each side uses:
+// - sockaddr: the console's is FreeBSD's (sin_len, then a one-byte family); the host's has a two-byte family.
+// - Option levels and names, message flags and the type's creation flags are FreeBSD's (SOL_SOCKET 0xffff, SO_BROADCAST
+//   0x20, MSG_DONTWAIT 0x80, SOCK_NONBLOCK as 2 << 28). Values from Ryujinx (MIT) @ 4d5a19d,
+//   src/Ryujinx.HLE/HOS/Services/Sockets/Bsd/Types: BsdSocketOption.cs, BsdSocketFlags.cs, BsdSocketCreationFlags.cs,
+//   EventFdFlags.cs, BsdSockAddr.cs, PollEventTypeMask.cs.
+// - errno is Linux's: the game compares GetLastErrno with 11 for EAGAIN (main+0x14c562c) and Ryujinx answers with its
+//   LinuxError; on Linux the host's errno goes through as is, on Windows WSA errors are mapped to it.
+// - poll events are the same bits on both (POLLIN 1, POLLOUT 4, POLLERR 8, POLLHUP 0x10, POLLNVAL 0x20).
+//
+// Guest descriptors are indexes into a table of host sockets: Windows' SOCKET does not fit an int, and the game gets the
+// small numbers a console gives. A call that can wait (Poll with a timeout, RecvFrom on a blocking socket) gives its
+// virtual core up meanwhile (kern_core_away), as audio and NVN waits do, so a waiting network thread holds no core.
+#include <stdint.h>
+#include <string.h>
+
+#ifdef _WIN32
+#include <winsock2.h>
+#include <ws2tcpip.h>
+typedef SOCKET HostSock;
+#define HOST_BAD INVALID_SOCKET
+#define host_close closesocket
+#define host_poll WSAPoll
+#else
+#include <errno.h>
+#include <fcntl.h>
+#include <netinet/in.h>
+#include <poll.h>
+#include <sys/eventfd.h>
+#include <sys/socket.h>
+#include <unistd.h>
+typedef int HostSock;
+#define HOST_BAD (-1)
+#define host_close close
+#define host_poll poll
+#endif
+
+#include "host.h"
+#include "platform/platform.h"
+
+// Linux errno values the game reads (its numbering on every host)
+enum { G_EINTR = 4, G_EIO = 5, G_EBADF = 9, G_EAGAIN = 11, G_EACCES = 13, G_EINVAL = 22, G_EMFILE = 24,
+       G_ENOSYS = 38, G_ENOTSOCK = 88, G_EMSGSIZE = 90, G_ENOPROTOOPT = 92, G_EAFNOSUPPORT = 97,
+       G_EADDRINUSE = 98, G_EADDRNOTAVAIL = 99, G_ENETUNREACH = 101, G_ECONNRESET = 104, G_ENOBUFS = 105,
+       G_ETIMEDOUT = 110, G_EHOSTUNREACH = 113 };
+
+// FreeBSD values of the console's side
+#define B_SOL_SOCKET 0xffff
+#define B_AF_INET 2
+#define B_SOCK_NONBLOCK (2u << 28)
+#define B_SOCK_FLAGS (0xfu << 28)
+#define B_MSG_OOB 0x1
+#define B_MSG_PEEK 0x2
+#define B_MSG_DONTROUTE 0x4
+#define B_MSG_WAITALL 0x40
+#define B_MSG_DONTWAIT 0x80
+#define B_EFD_SEMAPHORE 1
+#define B_EFD_NONBLOCK 4
+// poll events: the console's and Linux's bits; WSAPoll's differ (POLLIN is 0x300 there)
+enum { G_POLLIN = 1, G_POLLPRI = 2, G_POLLOUT = 4, G_POLLERR = 8, G_POLLHUP = 0x10, G_POLLNVAL = 0x20 };
+#ifdef _WIN32
+static short ev_host(int g) {
+    return (short)((g & G_POLLIN ? POLLRDNORM : 0) | (g & G_POLLPRI ? POLLRDBAND : 0) | (g & G_POLLOUT ? POLLWRNORM : 0));
+}
+static int ev_guest(int h) {
+    return (h & (POLLRDNORM | POLLRDBAND) ? G_POLLIN : 0) | (h & POLLPRI ? G_POLLPRI : 0) |
+           (h & POLLWRNORM ? G_POLLOUT : 0) | (h & POLLERR ? G_POLLERR : 0) | (h & POLLHUP ? G_POLLHUP : 0) |
+           (h & POLLNVAL ? G_POLLNVAL : 0);
+}
+#else
+static short ev_host(int g) { return (short)(g & 0x3f); }
+static int ev_guest(int h) { return h & 0x3f; }
+#endif
+
+#define NSOCK 64   // ponytail: fixed table; Pia opens a handful, raise it if MKW_LOG shows "no free socket"
+
+typedef struct {
+    int used, nonblock, eventfd;
+    HostSock s;
+} Slot;
+static Slot slots[NSOCK];
+static int ready;
+static _Thread_local int last_errno;   // per host thread: each guest thread is one (kernel.c)
+
+static void fail(int e) { last_errno = e; }
+
+#ifdef _WIN32
+static int host_errno(void) {
+    switch (WSAGetLastError()) {
+    case WSAEWOULDBLOCK: return G_EAGAIN;
+    case WSAEINTR: return G_EINTR;
+    case WSAEBADF: case WSAENOTSOCK: return G_ENOTSOCK;
+    case WSAEACCES: return G_EACCES;
+    case WSAEINVAL: return G_EINVAL;
+    case WSAEMFILE: return G_EMFILE;
+    case WSAEMSGSIZE: return G_EMSGSIZE;
+    case WSAENOPROTOOPT: return G_ENOPROTOOPT;
+    case WSAEAFNOSUPPORT: return G_EAFNOSUPPORT;
+    case WSAEADDRINUSE: return G_EADDRINUSE;
+    case WSAEADDRNOTAVAIL: return G_EADDRNOTAVAIL;
+    case WSAENETUNREACH: return G_ENETUNREACH;
+    case WSAECONNRESET: return G_ECONNRESET;
+    case WSAENOBUFS: return G_ENOBUFS;
+    case WSAETIMEDOUT: return G_ETIMEDOUT;
+    case WSAEHOSTUNREACH: return G_EHOSTUNREACH;
+    default: return G_EIO;
+    }
+}
+#else
+static int host_errno(void) { return errno; }
+#endif
+
+static Slot *slot_of(int fd) {
+    if (fd < 0 || fd >= NSOCK || !slots[fd].used) return fail(G_EBADF), NULL;
+    return &slots[fd];
+}
+
+static int slot_new(HostSock s, int eventfd) {
+    for (int i = 0; i < NSOCK; i++)
+        if (!__atomic_exchange_n(&slots[i].used, 1, __ATOMIC_ACQ_REL)) {
+            slots[i].s = s, slots[i].nonblock = 0, slots[i].eventfd = eventfd;
+            return i;
+        }
+    rt_log("socket: no free socket (%d in use)", NSOCK);
+    return -1;
+}
+
+static int set_nonblock(HostSock s) {
+#ifdef _WIN32
+    u_long on = 1;
+    return ioctlsocket(s, FIONBIO, &on);
+#else
+    return fcntl(s, F_SETFL, fcntl(s, F_GETFL) | O_NONBLOCK);
+#endif
+}
+
+// FreeBSD sockaddr_in (len, family, port, addr, zero[8]) <-> the host's; only IPv4 (all main asks for)
+static int addr_in(const uint8_t *b, uint32_t len, struct sockaddr_in *h) {
+    if (!b || len < 8 || b[1] != B_AF_INET) return fail(G_EAFNOSUPPORT), -1;
+    memset(h, 0, sizeof *h);
+    h->sin_family = AF_INET;
+    memcpy(&h->sin_port, b + 2, 2);
+    memcpy(&h->sin_addr, b + 4, 4);
+    return 0;
+}
+
+static void addr_out(const struct sockaddr_in *h, uint8_t *b, uint32_t *len) {
+    if (!b || !len) return;
+    uint8_t g[16] = {16, B_AF_INET};
+    memcpy(g + 2, &h->sin_port, 2);
+    memcpy(g + 4, &h->sin_addr, 4);
+    memcpy(b, g, *len < 16 ? *len : 16);
+    *len = 16;
+}
+
+static int msg_flags(int f, int *dontwait) {
+    int h = 0;
+    if (f & B_MSG_OOB) h |= MSG_OOB;
+    if (f & B_MSG_PEEK) h |= MSG_PEEK;
+    if (f & B_MSG_DONTROUTE) h |= MSG_DONTROUTE;
+    if (f & B_MSG_WAITALL) h |= MSG_WAITALL;
+    *dontwait = (f & B_MSG_DONTWAIT) != 0;   // Windows has no MSG_DONTWAIT: done with a poll below on every host
+    return h;
+}
+
+// ---- lifetime
+// Result internal::Initialize(int concurrency)
+static void ov_init(Cpu *c) {
+#ifdef _WIN32
+    WSADATA wsa;
+    if (!ready && WSAStartup(MAKEWORD(2, 2), &wsa)) {
+        ret_x(c, 1);
+        return;
+    }
+#endif
+    ready = 1;
+    ret_x(c, 0);
+}
+static void ov_finalize(Cpu *c) { ret_x(c, 0); }   // sockets stay open until Close, as the game closes them first
+static void ov_is_initialized(Cpu *c) { ret_x(c, ready); }
+static void ov_nothing(Cpu *c) { (void)c; }
+static void ov_last_errno(Cpu *c) { ret_x(c, (uint32_t)last_errno); }
+
+// ---- sockets
+// int Socket(int family, int type, int protocol)
+static void ov_socket(Cpu *c) {
+    int family = (int)arg_x(c, 0), protocol = (int)arg_x(c, 2);
+    uint32_t type = (uint32_t)arg_x(c, 1);
+    if (family != B_AF_INET) {
+        fail(G_EAFNOSUPPORT);
+        ret_x(c, (uint64_t)-1);
+        return;
+    }
+    HostSock s = socket(AF_INET, (int)(type & ~B_SOCK_FLAGS), protocol);
+    if (s == HOST_BAD) {
+        fail(host_errno());
+        ret_x(c, (uint64_t)-1);
+        return;
+    }
+    int fd = slot_new(s, 0);
+    if (fd < 0) {
+        host_close(s);
+        fail(G_EMFILE);
+    } else if (type & B_SOCK_NONBLOCK) {
+        set_nonblock(s);
+        slots[fd].nonblock = 1;
+    }
+    ret_x(c, (uint64_t)(int64_t)fd);
+}
+
+// int Close(int fd)
+static void ov_close(Cpu *c) {
+    Slot *sl = slot_of((int)arg_x(c, 0));
+    if (!sl) {
+        ret_x(c, (uint64_t)-1);
+        return;
+    }
+    host_close(sl->s);
+    __atomic_store_n(&sl->used, 0, __ATOMIC_RELEASE);
+    ret_x(c, 0);
+}
+
+// int Shutdown(int fd, int how): SHUT_RD/WR/RDWR are 0/1/2 everywhere
+static void ov_shutdown(Cpu *c) {
+    Slot *sl = slot_of((int)arg_x(c, 0));
+    int r = sl ? shutdown(sl->s, (int)arg_x(c, 1)) : -1;
+    if (sl && r < 0) fail(host_errno());
+    ret_x(c, (uint64_t)(int64_t)r);
+}
+
+// int Bind(int fd, const sockaddr *addr, socklen_t len)
+static void ov_bind(Cpu *c) {
+    Slot *sl = slot_of((int)arg_x(c, 0));
+    struct sockaddr_in a;
+    int r = -1;
+    if (sl && !addr_in(arg_p(c, 1), (uint32_t)arg_x(c, 2), &a)) {
+        r = bind(sl->s, (struct sockaddr *)&a, sizeof a);
+        if (r < 0) fail(host_errno());
+    }
+    ret_x(c, (uint64_t)(int64_t)r);
+}
+
+// int SetSockOpt(int fd, int level, int option, const void *value, socklen_t len)
+static void ov_setsockopt(Cpu *c) {
+    Slot *sl = slot_of((int)arg_x(c, 0));
+    int level = (int)arg_x(c, 1), opt = (int)arg_x(c, 2), hl = -1, ho = -1;
+    const void *v = arg_p(c, 3);
+    uint32_t len = (uint32_t)arg_x(c, 4);
+    if (!sl) {
+        ret_x(c, (uint64_t)-1);
+        return;
+    }
+    if (level == B_SOL_SOCKET) {
+        hl = SOL_SOCKET;
+        switch (opt) {
+        case 0x4: ho = SO_REUSEADDR; break;
+#ifdef SO_REUSEPORT
+        case 0x200: ho = SO_REUSEPORT; break;
+#else
+        case 0x200: ho = SO_REUSEADDR; break;
+#endif
+        case 0x8: ho = SO_KEEPALIVE; break;
+        case 0x20: ho = SO_BROADCAST; break;
+        case 0x80: ho = SO_LINGER; break;
+        case 0x1001: ho = SO_SNDBUF; break;
+        case 0x1002: ho = SO_RCVBUF; break;
+        case 0x800: ret_x(c, 0); return;   // SO_NOSIGPIPE: the host never raises SIGPIPE for datagrams
+        }
+    } else if (level == IPPROTO_IP) {
+        hl = IPPROTO_IP;
+        switch (opt) {
+        case 3: ho = IP_TOS; break;
+        case 4: ho = IP_TTL; break;
+        case 9: ho = IP_MULTICAST_IF; break;
+        case 10: ho = IP_MULTICAST_TTL; break;
+        case 11: ho = IP_MULTICAST_LOOP; break;
+        case 12: ho = IP_ADD_MEMBERSHIP; break;
+        case 13: ho = IP_DROP_MEMBERSHIP; break;
+        }
+    }
+    if (ho < 0) {
+        // ponytail: an option with no host equivalent is accepted and logged, so Pia's setup goes on; map it when the
+        // log names one that matters
+        rt_log("socket: SetSockOpt level %#x option %#x (%u bytes) not mapped, accepted", level, opt, len);
+        ret_x(c, 0);
+        return;
+    }
+    int r = setsockopt(sl->s, hl, ho, v, (socklen_t)len);
+    if (r < 0) fail(host_errno());
+    ret_x(c, (uint64_t)(int64_t)r);
+}
+
+// Waits up to ms (-1: forever) for fd to be readable, giving the virtual core up meanwhile; 1 readable, 0 timeout
+static int wait_readable(HostSock s, int ms) {
+    struct pollfd p = {.fd = s, .events = POLLIN};
+    int away = ms ? kern_core_away() : 0;
+    int r = host_poll(&p, 1, ms);
+    kern_core_back(&away);
+    return r > 0;
+}
+
+// ssize_t RecvFrom(int fd, void *buf, size_t n, int flags, sockaddr *from, socklen_t *fromlen)
+static void ov_recvfrom(Cpu *c) {
+    Slot *sl = slot_of((int)arg_x(c, 0));
+    if (!sl) {
+        ret_x(c, (uint64_t)-1);
+        return;
+    }
+    int dontwait, hf = msg_flags((int)arg_x(c, 3), &dontwait);
+    if (!wait_readable(sl->s, dontwait || sl->nonblock ? 0 : -1)) {
+        fail(G_EAGAIN);
+        ret_x(c, (uint64_t)-1);
+        return;
+    }
+    struct sockaddr_in a;
+    socklen_t alen = sizeof a;
+#ifdef _WIN32
+    int n = recvfrom(sl->s, arg_p(c, 1), (int)arg_x(c, 2), hf, (struct sockaddr *)&a, &alen);
+#else
+    ssize_t n = recvfrom(sl->s, arg_p(c, 1), (size_t)arg_x(c, 2), hf | MSG_DONTWAIT, (struct sockaddr *)&a, &alen);
+#endif
+    if (n < 0) fail(host_errno());
+    else addr_out(&a, arg_p(c, 4), arg_p(c, 5));
+    ret_x(c, (uint64_t)(int64_t)n);
+}
+
+// ssize_t SendTo(int fd, const void *buf, size_t n, int flags, const sockaddr *to, socklen_t tolen)
+static void ov_sendto(Cpu *c) {
+    Slot *sl = slot_of((int)arg_x(c, 0));
+    if (!sl) {
+        ret_x(c, (uint64_t)-1);
+        return;
+    }
+    int dontwait, hf = msg_flags((int)arg_x(c, 3), &dontwait);
+    struct sockaddr_in a, *to = NULL;
+    if (arg_p(c, 4)) {
+        if (addr_in(arg_p(c, 4), (uint32_t)arg_x(c, 5), &a)) {
+            ret_x(c, (uint64_t)-1);
+            return;
+        }
+        to = &a;
+    }
+    // ponytail: a datagram send does not wait on a LAN, so MSG_DONTWAIT changes nothing here
+    int64_t n = sendto(sl->s, arg_p(c, 1), (int)arg_x(c, 2), hf, (struct sockaddr *)to, to ? sizeof a : 0);
+    if (n < 0) fail(host_errno());
+    ret_x(c, (uint64_t)n);
+}
+
+// int Poll(pollfd *fds, nfds_t n, int timeout_ms): the console's pollfd is {int fd; short events, revents}
+typedef struct {
+    int32_t fd;
+    int16_t events, revents;
+} GPollFd;
+
+static void ov_poll(Cpu *c) {
+    GPollFd *g = arg_p(c, 0);
+    uint64_t n = arg_x(c, 1);
+    int ms = (int)arg_x(c, 2);
+    struct pollfd h[NSOCK];
+    if (n > NSOCK) {
+        fail(G_EINVAL);
+        ret_x(c, (uint64_t)-1);
+        return;
+    }
+    int nvalid = 0;
+    for (uint64_t i = 0; i < n; i++) {
+        int fd = g[i].fd;
+        g[i].revents = 0;
+        h[i].fd = HOST_BAD, h[i].events = 0, h[i].revents = 0;
+        if (fd < 0) continue;   // ignored, as poll(2) does
+        if (fd >= NSOCK || !slots[fd].used) {
+            g[i].revents = G_POLLNVAL;
+            continue;
+        }
+        h[i].fd = slots[fd].s, h[i].events = ev_host(g[i].events);
+        nvalid++;
+    }
+    int invalid = 0;
+    for (uint64_t i = 0; i < n; i++) invalid += g[i].revents != 0;
+    int r = 0;
+    if (!nvalid && !invalid && ms) {   // nothing to watch: poll(2) still sleeps its timeout
+        int away = kern_core_away();
+        if (ms > 0) plat_sleep_ms((uint32_t)ms);
+        else rt_log("socket: Poll with no descriptors and no timeout");
+        kern_core_back(&away);
+    }
+    if (nvalid) {
+        int away = (ms && !invalid) ? kern_core_away() : 0;
+        r = host_poll(h, (unsigned)n, invalid ? 0 : ms);
+        kern_core_back(&away);
+        if (r < 0) {
+            fail(host_errno());
+            ret_x(c, (uint64_t)-1);
+            return;
+        }
+        for (uint64_t i = 0; i < n; i++)
+            if (h[i].fd != HOST_BAD) g[i].revents = (int16_t)ev_guest(h[i].revents);
+    }
+    r = 0;
+    for (uint64_t i = 0; i < n; i++) r += g[i].revents != 0;
+    ret_x(c, (uint64_t)(int64_t)r);
+}
+
+// ---- eventfd: Linux's own, with the console's flags (semaphore 1, nonblocking 4)
+// int EventFd(uint64_t initval, EventFdFlags flags)
+static void ov_eventfd(Cpu *c) {
+#ifdef _WIN32
+    // ponytail: no eventfd on Windows; needed only if Pia polls one there (loopback socket pair then)
+    fail(G_ENOSYS);
+    ret_x(c, (uint64_t)-1);
+#else
+    uint32_t f = (uint32_t)arg_x(c, 1);
+    int e = eventfd((unsigned)arg_x(c, 0), (f & B_EFD_SEMAPHORE ? EFD_SEMAPHORE : 0) | EFD_CLOEXEC);
+    int fd = e < 0 ? -1 : slot_new(e, 1);
+    if (e < 0) fail(errno);
+    else if (fd < 0) close(e), fail(G_EMFILE);
+    else if (f & B_EFD_NONBLOCK) set_nonblock(e), slots[fd].nonblock = 1;
+    ret_x(c, (uint64_t)(int64_t)fd);
+#endif
+}
+
+// int EventFdRead(int fd, uint64_t *value) / int EventFdWrite(int fd, uint64_t value)
+static void ov_eventfd_read(Cpu *c) {
+    Slot *sl = slot_of((int)arg_x(c, 0));
+    int r = -1;
+#ifndef _WIN32
+    if (sl && (sl->nonblock || wait_readable(sl->s, -1))) {
+        r = read(sl->s, arg_p(c, 1), 8) == 8 ? 0 : -1;
+        if (r < 0) fail(errno);
+    }
+#else
+    if (sl) fail(G_ENOSYS);
+#endif
+    ret_x(c, (uint64_t)(int64_t)r);
+}
+static void ov_eventfd_write(Cpu *c) {
+    Slot *sl = slot_of((int)arg_x(c, 0));
+    int r = -1;
+#ifndef _WIN32
+    uint64_t v = arg_x(c, 1);
+    if (sl) {
+        r = write(sl->s, &v, 8) == 8 ? 0 : -1;
+        if (r < 0) fail(errno);
+    }
+#else
+    if (sl) fail(G_ENOSYS);
+#endif
+    ret_x(c, (uint64_t)(int64_t)r);
+}
+
+// ---- names: no resolver offline (online play would need one); EAI_FAIL is 4 in the console's AiErrno
+static void ov_getaddrinfo(Cpu *c) {
+    void **out = arg_p(c, 3);
+    if (out) *out = NULL;
+    ret_x(c, 4);
+}
+
+HOST_OVERRIDE("_ZN2nn6socket8internal10InitializeEi", ov_init);
+HOST_OVERRIDE("_ZN2nn6socket8FinalizeEv", ov_finalize);
+HOST_OVERRIDE("_ZN2nn6socket13IsInitializedEv", ov_is_initialized);
+HOST_OVERRIDE("_ZN2nn6socket12SetAllocatorEPNS_14MemoryResourceE", ov_nothing);
+HOST_OVERRIDE("_ZN2nn6socket12GetLastErrnoEv", ov_last_errno);
+HOST_OVERRIDE("_ZN2nn6socket12GetLastErrorEv", ov_last_errno);   // nn::socket::Errno: the same numbers
+HOST_OVERRIDE("_ZN2nn6socket6SocketEiii", ov_socket);
+HOST_OVERRIDE("_ZN2nn6socket6SocketENS0_6FamilyENS0_4TypeENS0_8ProtocolE", ov_socket);
+HOST_OVERRIDE("_ZN2nn6socket5CloseEi", ov_close);
+HOST_OVERRIDE("_ZN2nn6socket8ShutdownEii", ov_shutdown);
+HOST_OVERRIDE("_ZN2nn6socket4BindEiPK8sockaddrj", ov_bind);
+HOST_OVERRIDE("_ZN2nn6socket4BindEiPKNS0_8SockAddrEj", ov_bind);
+HOST_OVERRIDE("_ZN2nn6socket10SetSockOptEiNS0_5LevelENS0_6OptionEPKvj", ov_setsockopt);
+HOST_OVERRIDE("_ZN2nn6socket8RecvFromEiPvmiP8sockaddrPj", ov_recvfrom);
+HOST_OVERRIDE("_ZN2nn6socket8RecvFromEiPvmNS0_7MsgFlagEPNS0_8SockAddrEPj", ov_recvfrom);
+HOST_OVERRIDE("_ZN2nn6socket6SendToEiPKvmiPK8sockaddrj", ov_sendto);
+HOST_OVERRIDE("_ZN2nn6socket6SendToEiPKvmNS0_7MsgFlagEPKNS0_8SockAddrEj", ov_sendto);
+HOST_OVERRIDE("_ZN2nn6socket4PollEP6pollfdmi", ov_poll);
+HOST_OVERRIDE("_ZN2nn6socket7EventFdEmNS0_12EventFdFlagsE", ov_eventfd);
+HOST_OVERRIDE("_ZN2nn6socket11EventFdReadEiPm", ov_eventfd_read);
+HOST_OVERRIDE("_ZN2nn6socket12EventFdWriteEim", ov_eventfd_write);
+HOST_OVERRIDE("_ZN2nn6socket11GetAddrInfoEPKcS2_PK8addrinfoPPS3_", ov_getaddrinfo);
+HOST_OVERRIDE("_ZN2nn6socket11GetAddrInfoEPKcS2_PKNS0_8AddrInfoEPPS3_", ov_getaddrinfo);
+HOST_OVERRIDE("_ZN2nn6socket12FreeAddrInfoEP8addrinfo", ov_nothing);   // nothing to free: GetAddrInfo gives none
+HOST_OVERRIDE("_ZN2nn6socket12FreeAddrInfoEPNS0_8AddrInfoE", ov_nothing);

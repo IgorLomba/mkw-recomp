@@ -2,7 +2,8 @@
 // with no network, the account's network service account stays unavailable, oe and time give MKW's version, scale and
 // clock answers, the touch screen reads no touches, and the VP9 decoder (ov_codec.c) decodes frames this probe encodes
 // with libvpx, through the player's call sequence: image pools, slots, Submit, Acquire, a sync point event, the frame's
-// properties and its NV12 picture. H.264, AV1 and VP8 stop with a named fatal (child processes, ov_probe.c).
+// properties and its NV12 picture. H.264, AV1 and VP8 stop with a named fatal (child processes, ov_probe.c). Sockets
+// (ov_socket.c) send and receive datagrams over the host's loopback.
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -303,9 +304,88 @@ static void probe_codec(void) {
            "pools, slots, sync point events and NV12 reads\n", W, H, good, FRAMES + 1);
 }
 
+// ---- socket (ov_socket.c): datagrams over the host's loopback with the console's sockaddr, flags and errno, an
+// empty nonblocking read, poll, eventfd, and every overload once
+static void probe_socket(void) {
+    enum { AF = 2, DGRAM = 2, UDP = 17, NONBLOCK = 2 << 28, SOL = 0xffff, EAGAIN_ = 11, EBADF_ = 9 };
+    uint8_t *b = ovp_alloc(0x400);
+    uint8_t *ab = b, *aa = b + 0x10, *from = b + 0x20, *buf = b + 0x40;
+    uint32_t *fromlen = (uint32_t *)(b + 0x80), *one = (uint32_t *)(b + 0x84);
+    uint64_t *val = (uint64_t *)(b + 0x88);
+    int32_t *pfd = (int32_t *)(b + 0x90);
+    void **res = (void **)(b + 0xb0);
+    CALL("socket::SetAllocator", 0);
+    CHECK(CALL("socket::internal::Initialize", 4) == 0, "Initialize");
+    CHECK(CALL("socket::IsInitialized") == 1, "IsInitialized");
+    int sa = (int)CALL("socket::Socket", AF, DGRAM, UDP);
+    int sb = (int)CALL("socket::Socket (Family)", AF, DGRAM | NONBLOCK, UDP);
+    CHECK(sa >= 0 && sb >= 0 && sa != sb, "Socket: %d %d", sa, sb);
+    *one = 1;
+    CHECK((int)CALL("socket::SetSockOpt", sb, SOL, 0x4, U(one), 4) == 0, "SetSockOpt SO_REUSEADDR");
+    CHECK((int)CALL("socket::SetSockOpt", sa, SOL, 0x20, U(one), 4) == 0, "SetSockOpt SO_BROADCAST");
+    CHECK((int)CALL("socket::SetSockOpt", sa, SOL, 0x1015, U(one), 4) == 0, "SetSockOpt unmapped option accepted");
+    // FreeBSD sockaddr_in: len, family, port (big endian), 127.0.0.1; a free port from 47000
+    const uint8_t lo[4] = {127, 0, 0, 1};
+    int port = 0;
+    for (int p = 47000; p < 47040 && !port; p++) {
+        memset(ab, 0, 16);
+        ab[0] = 16, ab[1] = AF, ab[2] = (uint8_t)(p >> 8), ab[3] = (uint8_t)p;
+        memcpy(ab + 4, lo, 4);
+        if ((int)CALL("socket::Bind", sb, U(ab), 16) == 0) port = p;
+    }
+    memset(aa, 0, 16);
+    aa[0] = 16, aa[1] = AF;
+    memcpy(aa + 4, lo, 4);
+    CHECK(port && (int)CALL("socket::Bind (SockAddr)", sa, U(aa), 16) == 0, "Bind: port %d", port);
+    // nothing to read: -1 and EAGAIN, on the nonblocking socket and with MSG_DONTWAIT on the blocking one
+    *fromlen = 16;
+    CHECK((int64_t)CALL("socket::RecvFrom", sb, U(buf), 64, 0, U(from), U(fromlen)) == -1 &&
+              CALL("socket::GetLastErrno") == EAGAIN_, "RecvFrom on an empty nonblocking socket");
+    CHECK((int64_t)CALL("socket::RecvFrom (MsgFlag)", sa, U(buf), 64, 0x80, U(from), U(fromlen)) == -1 &&
+              CALL("socket::GetLastError") == EAGAIN_, "RecvFrom with MSG_DONTWAIT");
+    memcpy(buf, "hello", 5);
+    CHECK((int64_t)CALL("socket::SendTo", sa, U(buf), 5, 0, U(ab), 16) == 5, "SendTo");
+    pfd[0] = sb, pfd[1] = 1;     // events POLLIN, revents 0
+    pfd[2] = 63, pfd[3] = 1;     // a descriptor never opened
+    int n = (int)CALL("socket::Poll", U(pfd), 2, 1000);
+    CHECK(n == 2 && (pfd[1] >> 16 & 1) && (pfd[3] >> 16) == 0x20, "Poll: %d ready, revents %#x %#x", n,
+          (uint32_t)pfd[1] >> 16, (uint32_t)pfd[3] >> 16);
+    memset(buf, 0, 8);
+    memset(from, 0xee, 16);
+    *fromlen = 16;
+    int64_t got = (int64_t)CALL("socket::RecvFrom", sb, U(buf), 64, 0, U(from), U(fromlen));
+    CHECK(got == 5 && !memcmp(buf, "hello", 5) && from[0] == 16 && from[1] == AF && !memcmp(from + 4, lo, 4) &&
+              *fromlen == 16, "RecvFrom: %lld bytes, from len %u family %u", (long long)got, from[0], from[1]);
+    CHECK((int64_t)CALL("socket::SendTo (MsgFlag)", sa, U(buf), 3, 0x80, U(ab), 16) == 3, "SendTo with MSG_DONTWAIT");
+    *fromlen = 16;
+    CHECK((int64_t)CALL("socket::RecvFrom (MsgFlag)", sb, U(buf), 64, 0, U(from), U(fromlen)) == 3, "RecvFrom 2");
+    int sh = (int)CALL("socket::Shutdown", sa, 2);   // a datagram socket with no peer: 0, or ENOTCONN (107)
+    CHECK(sh == 0 || CALL("socket::GetLastErrno") == 107, "Shutdown: %d", sh);
+#ifndef _WIN32
+    int e = (int)CALL("socket::EventFd", 0, 4);
+    *val = 0;
+    CHECK(e >= 0 && (int)CALL("socket::EventFdWrite", e, 3) == 0 && (int)CALL("socket::EventFdRead", e, U(val)) == 0 &&
+              *val == 3, "EventFd: %d, read %llu", e, (unsigned long long)*val);
+    CHECK((int)CALL("socket::Close", e) == 0, "Close eventfd");
+#else
+    CHECK((int)CALL("socket::EventFd", 0, 4) == -1 && (int)CALL("socket::EventFdWrite", 0, 1) == -1 &&
+              (int)CALL("socket::EventFdRead", 0, U(val)) == -1, "EventFd unsupported on Windows");
+#endif
+    CHECK((int)CALL("socket::Close", sa) == 0 && (int)CALL("socket::Close", sb) == 0, "Close");
+    CHECK((int)CALL("socket::Close", sa) == -1 && CALL("socket::GetLastErrno") == EBADF_, "Close twice: EBADF");
+    *res = b;
+    CHECK(CALL("socket::GetAddrInfo", U("example.com"), 0, 0, U(res)) != 0 && !*res, "GetAddrInfo offline");
+    CHECK(CALL("socket::GetAddrInfo (AddrInfo)", U("example.com"), 0, 0, U(res)) != 0, "GetAddrInfo (AddrInfo)");
+    CALL("socket::FreeAddrInfo", 0);
+    CALL("socket::FreeAddrInfo (AddrInfo)", 0);
+    CHECK(CALL("socket::Finalize") == 0, "Finalize");
+    printf("socket: UDP on loopback port %d through the console's sockaddr, poll, EAGAIN and eventfd\n", port);
+}
+
 void probe_mkw_services(void) {
     probe_offline();
     probe_account_mkw();
     probe_system_mkw();
     probe_codec();
+    probe_socket();
 }
