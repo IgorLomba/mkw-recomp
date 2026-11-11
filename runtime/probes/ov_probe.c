@@ -56,6 +56,7 @@ static Ov ovs[] = {
     {"prepo.AddInternetConnectionStatus", "_ZN2nn5prepo27AddInternetConnectionStatusEPNS0_10PlayReportEPKcS4_S4_"},
     {"nfp.Mount", "_ZN2nn3nfp5MountERKNS0_12DeviceHandleENS0_9ModelTypeENS0_11MountTargetE"},
     {"err.ShowError", "_ZN2nn3err9ShowErrorENS_6ResultE"},
+    {"err.ShowErrorVariant", "_ZN2nn3err9ShowErrorERKNS0_18ErrorResultVariantE"},
     // SDK-internal (section 5.2)
     {"nndiagStartup", "nndiagStartup"},
     {"aoc.Initialize", "_ZN2nn3aoc10InitializeEv"},
@@ -101,6 +102,7 @@ static Ov ovs[] = {
     {"hid.GetNpadStates.Handheld", "_ZN2nn3hid13GetNpadStatesEPNS0_17NpadHandheldStateEiRKj"},
     {"hid.SetNpadJoyHoldType", "_ZN2nn3hid18SetNpadJoyHoldTypeENS0_15NpadJoyHoldTypeE"},
     {"hid.DisconnectNpad", "_ZN2nn3hid14DisconnectNpadERKj"},
+    {"hid.SwapNpadAssignment", "_ZN2nn3hid18SwapNpadAssignmentERKjS2_"},
     {"hid.ShowControllerSupport",
      "_ZN2nn3hid21ShowControllerSupportEPNS0_27ControllerSupportResultInfoERKNS0_20ControllerSupportArgE"},
     {"hid.GetVibrationDeviceHandles",
@@ -353,6 +355,8 @@ static void probe_applet(void) {
     uint8_t handles[64] = {0};
     CHECK((uint32_t)CALL("nfp.Mount", U(handles), 0, 0) == 0x8073, "nfp Mount: not device-not-found");
     CALL("err.ShowError", 0x2a8);
+    uint32_t variant[3] = {2, 2306, 501};   // an ErrorCode, as the wireless menu passes
+    CALL("err.ShowErrorVariant", U(variant));
     CALL("nndiagStartup", 0);
     CALL("aoc.Initialize", 0);
 
@@ -595,6 +599,10 @@ static void probe_input(void) {
     probe_two_players(pid);
 
     probe_feedback(pid, style);
+    uint32_t swap[2] = {0, 1};   // swapped and back: player 1 keeps its controller
+    CALL("hid.SwapNpadAssignment", U(&swap[0]), U(&swap[1]));
+    CALL("hid.SwapNpadAssignment", U(&swap[0]), U(&swap[1]));
+    CHECK((uint32_t)CALL("hid.GetNpadStyleSet", U(&pid)) == style, "a swap there and back changes player 1's style set");
     CALL("hid.DisconnectNpad", U(&pid));
     CHECK((uint32_t)CALL("hid.GetNpadStyleSet", U(&pid)) == 0, "a disconnected controller keeps its style set");
     printf("hid: player 1 on a %s controller (id %#x), no buttons; player 2 on a virtual gamepad after the applet\n",

@@ -245,6 +245,20 @@ static void ov_show_error(Cpu *c) {
            caller(c, lr, sizeof lr));
 }
 
+// void err::ShowError(const ErrorResultVariant &): the same dialog, which MKW's menus use ("Mode sans fil local"
+// crashed in applet::CreateLibraryApplet, 11/11/2026). The variant is {u32 state; then at +4 a Result (state 1) or an
+// ErrorCode {u32 category, u32 number} (state 2)}: sdk+0x378020 and +0x378038 write it.
+static void ov_show_error_variant(Cpu *c) {
+    uint32_t v[3] = {0};
+    char lr[96];
+    uint64_t p = arg_x(c, 0);
+    if (p) memcpy(v, (const void *)(uintptr_t)p, sizeof v);
+    if (v[0] == 2) rt_log("err: game error dialog %04u-%04u (error code) from %s", v[1], v[2], caller(c, lr, sizeof lr));
+    else if (v[0] == 1) rt_log("err: game error dialog %04u-%04u (result %#x) from %s", 2000 + (v[1] & 0x1ff),
+                               (v[1] >> 9) & 0x1fff, v[1], caller(c, lr, sizeof lr));
+    else rt_log("err: game error dialog without an error (state %u) from %s", v[0], caller(c, lr, sizeof lr));
+}
+
 // ==== SDK-internal initialisation (services.c)
 static void ov_diag_startup(Cpu *c) { (void)c; rt_log("diag: host diagnostics"); }
 static void ov_aoc_initialize(Cpu *c) { (void)c; rt_log("aoc: no add-on content"); }
@@ -738,6 +752,7 @@ HOST_OVERRIDE("_ZN2nn5prepo28RequestImmediateTransmissionEv", ov_result_ok);
 HOST_OVERRIDE("_ZN2nn5prepo27AddInternetConnectionStatusEPNS0_10PlayReportEPKcS4_S4_", ov_result_ok);
 HOST_OVERRIDE("_ZN2nn3nfp5MountERKNS0_12DeviceHandleENS0_9ModelTypeENS0_11MountTargetE", ov_nfp_no_device);
 HOST_OVERRIDE("_ZN2nn3err9ShowErrorENS_6ResultE", ov_show_error);
+HOST_OVERRIDE("_ZN2nn3err9ShowErrorERKNS0_18ErrorResultVariantE", ov_show_error_variant);
 
 HOST_OVERRIDE("nndiagStartup", ov_diag_startup);
 HOST_OVERRIDE("_ZN2nn3aoc10InitializeEv", ov_aoc_initialize);
