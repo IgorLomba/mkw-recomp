@@ -289,6 +289,14 @@ static void ov_show_error_variant(Cpu *c) {
     else rt_log("err: game error dialog without an error (state %u) from %s", v[0], caller(c, lr, sizeof lr));
 }
 
+// void crypto::GenerateCryptographicallyRandomBytes(void *out, size_t size): the SDK asks the csrng service; the host's
+// generator answers. Pia calls it when the LAN session starts (main+0x154c468; lan11, 11/11/2026: IPC fatal there).
+static void ov_random_bytes(Cpu *c) {
+    void *out = (void *)(uintptr_t)arg_x(c, 0);
+    size_t n = (size_t)arg_x(c, 1);
+    if (n && (!out || !plat_random(out, n))) rt_fatal("crypto: no %zu random bytes from the system", n);
+}
+
 // ==== SDK-internal initialisation (services.c)
 static void ov_diag_startup(Cpu *c) { (void)c; rt_log("diag: host diagnostics"); }
 static void ov_aoc_initialize(Cpu *c) { (void)c; rt_log("aoc: no add-on content"); }
@@ -783,6 +791,7 @@ HOST_OVERRIDE("_ZN2nn5prepo27AddInternetConnectionStatusEPNS0_10PlayReportEPKcS4
 HOST_OVERRIDE("_ZN2nn3nfp5MountERKNS0_12DeviceHandleENS0_9ModelTypeENS0_11MountTargetE", ov_nfp_no_device);
 HOST_OVERRIDE("_ZN2nn3err9ShowErrorENS_6ResultE", ov_show_error);
 HOST_OVERRIDE("_ZN2nn3err9ShowErrorERKNS0_18ErrorResultVariantE", ov_show_error_variant);
+HOST_OVERRIDE("_ZN2nn6crypto36GenerateCryptographicallyRandomBytesEPvm", ov_random_bytes);
 
 HOST_OVERRIDE("nndiagStartup", ov_diag_startup);
 HOST_OVERRIDE("_ZN2nn3aoc10InitializeEv", ov_aoc_initialize);
