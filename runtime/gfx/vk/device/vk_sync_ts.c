@@ -107,6 +107,8 @@ void vk_ts_end(VkCommandBuffer cb, uint64_t fence) {
     ts_cur = -1;
 }
 
+int vk_ts_pending(void) { return ts_cur >= 0; }
+
 // An empty submission records no command buffer: its pair is never written.
 void vk_ts_drop(void) {
     if (ts_cur < 0) return;

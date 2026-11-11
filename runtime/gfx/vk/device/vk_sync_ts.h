@@ -13,4 +13,5 @@ void vk_ts_close(VkCommandBuffer cb, int pair, uint64_t fence);   // before vkEn
 void vk_ts_begin(VkCommandBuffer cb);                             // the part being recorded
 void vk_ts_end(VkCommandBuffer cb, uint64_t fence);
 void vk_ts_drop(void);                                            // an empty submission: its pair is never written
+int vk_ts_pending(void);                                          // the part being recorded is timed
 #endif

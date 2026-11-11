@@ -323,6 +323,9 @@ static void chunk_record(int k, int t, int again) {
         vk_exec_op(ex, h);
     }
     vk_exec_chunk_end(ex);
+    // Ended here, on the thread whose pool it comes from: the replay thread that submits it must not touch it, as this
+    // thread may then be recording its next chunk from the same pool (vk_sync_split_with).
+    vkEndCommandBuffer(c->cb);
     vk_exec_cond_use(NULL, 0);
     vk_completion_defer(NULL);
     vk_exec_frame_cur = &vk_exec_frame_all;
@@ -440,7 +443,8 @@ static void send_ready(int wait) {
                 plat_mutex_unlock(&P.lock);
             }
             Chunk *c = &P.ch[k];
-            if (vk_usnap_regions() && wrong_hits(c)) vkEndCommandBuffer(c->cb), chunk_record(k, 0, 1), P.n_again++;
+            // the first recording was ended by its thread (chunk_record); the second is on this thread's pool
+            if (vk_usnap_regions() && wrong_hits(c)) chunk_record(k, 0, 1), P.n_again++;
             vk_exec_frame_add(&c->counters);
             for (int i = 0; i < c->done.n; i++) vk_completion_add(c->done.e[i].fence, c->done.e[i].fn, c->done.e[i].arg);
             if (c->drops && k < P.nch - 1) P.drops_early += c->drops;
