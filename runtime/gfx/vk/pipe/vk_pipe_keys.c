@@ -735,12 +735,17 @@ void vk_pipeline_prewarm(void) {
     if (stalled)
         for (i--; i < nt; i++) plat_thread_detach(t[i]);
     plat_mutex_lock(&P.lock);
-    if (stalled) {
+    // then the jobs a pool worker took, under the same rule: the joins only watch the prewarm's own threads, and a pool
+    // worker's build the driver never returned held the boot for good
+    while (K.left && !stalled) {
+        uint32_t done = K.built + K.failed;
+        if (done != last) last = done, last_t = now_ms();
+        if ((stalled = now_ms() - last_t >= PREWARM_STALL_MS)) break;
+        plat_cond_wait_ms(&done_cv, &P.lock, 2000);
+    }
+    if (stalled)
         rt_log("vk_pipeline: prewarm: no pipeline finished in %u ms; the game starts, %u pipelines still building in the "
                "background", PREWARM_STALL_MS, K.left);
-    } else {
-        while (K.left) plat_cond_wait(&done_cv, &P.lock);   // jobs a pool worker took
-    }
     rt_log("vk_pipeline: prewarm: %zu records in %s: %u pipelines built, %u failed, %u already built, %u dropped "
            "(shader not loaded); shaders %.0f ms, pipelines %.0f ms on %d threads, total %.0f ms",
            n, K.path, K.built, K.failed, known, dropped, t1 - t0, now_ms() - t1, nt, now_ms() - t0);
