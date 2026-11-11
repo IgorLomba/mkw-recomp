@@ -10,7 +10,13 @@ log=build/run/$n.log fifo=build/run/$n.ctl
 # A run is a service (job start) or a scope named job-NAME-PID (job run, as race.sh starts it): stop whichever is live.
 if [ "${1:-}" = stop ]; then
   units=$(systemctl --user list-units --no-legend --plain --state=active "job-$n.service" "job-$n-*.scope" 2>/dev/null | awk '{print $1}')
-  [ -n "$units" ] || { echo "ctl: $n is not running" >&2; exit 1; }
+  if [ -z "$units" ]; then
+    # Without a job runner job.sh starts the run with nohup, no unit: the run is the mkw writing build/run/NAME.log
+    # (11/11/2026: "not running" left each run up to its timeout, and the next one refused to start).
+    pids=$(for p in $(pgrep -x mkw); do [ "$(readlink "/proc/$p/fd/1")" = "$PWD/$log" ] && echo "$p"; done)
+    [ -n "$pids" ] || { echo "ctl: $n is not running" >&2; exit 1; }
+    kill $pids; echo "ctl: $n stopped (pid $pids)"; exit 0
+  fi
   systemctl --user stop $units; echo "ctl: $n stopped ($units)"; exit 0
 fi
 [ -p "$fifo" ] && pgrep -x mkw >/dev/null || { echo "ctl: $n is not running" >&2; exit 1; }
