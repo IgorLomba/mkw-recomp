@@ -244,16 +244,23 @@ static void aspect_set(const RtGame *g) {
 }
 
 // The output set: with MKW_RESOLUTION not original, that resolution's lines at 16:9 (720: 1280x720) in place of the
-// 2560x1440 the game fixes in code; with original, the window's lines when fewer than 1440 (Adrià 08/11/2026: the
-// present shrank 2560x1440 to a 1080-line window with its 2x2 bilinear blit, jagged edges, nit-off; a smaller output
-// goes through FSR instead). MKW_OUTPUT_PATCH=0 keeps 2560x1440 at any resolution. With MKW_ASPECT wider than 16:9,
-// the width is the lines times that aspect (1440 lines when nothing else sets them).
+// 2560x1440 the game fixes in code; with original, the lines the picture gets in the window when fewer than 1440
+// (Adrià 08/11/2026: the present shrank 2560x1440 to a 1080-line window with its 2x2 bilinear blit, jagged edges,
+// nit-off; a smaller output goes through FSR instead). MKW_OUTPUT_PATCH=0 keeps 2560x1440 at any resolution. With
+// MKW_ASPECT wider than 16:9, the width is the lines times that aspect (1440 lines when nothing else sets them).
 static void output_size(const RtGame *g) {
     const char *res = cfg_value("MKW_RESOLUTION"), *off = cfg_get("MKW_OUTPUT_PATCH");
     int lines = strcmp(res, "original") ? atoi(res) : 0;
     if (!lines) {
-        int win = gfx_window_lines();
-        if (win >= 360 && win < 1440) lines = win;
+        // the lines the picture gets in the window: fewer than the window's when it is narrower than the picture and
+        // the present letterboxes it (gfx_fit_rect, MKW_PICTURE_FIT=keep). A 16:9 picture on the Steam Deck's
+        // 1280x800 gets 720, and an output of 800 lines (1422x800, 1.23 times the pixels) was shrunk to them.
+        int w = 0, h = 0;
+        if (gfx_window_shape(&w, &h)) {
+            float a = aspect_out ? aspect_out : 16.0f / 9;
+            if (w > 0 && strcmp(cfg_value("MKW_PICTURE_FIT"), "stretch") && w < h * a) h = (int)(w / a + 0.5f);
+            if (h >= 360 && h < 1440) lines = h;
+        }
     }
     if (!lines && aspect_out) lines = 1440;
     for (int i = 0; i < g->npatch_sets; i++) {
