@@ -197,4 +197,5 @@ static inline double audio_pitch(float pitch) { return pitch > 64 ? 64.0 : pitch
 // The output device (audio_mixer.c), for IAudioDevice (audren_sf.c): one, which does not change.
 extern const char audio_device_name[];  // "AudioTvOutput"
 float audio_device_volume(void);
+int audio_output_channels(void);        // 2 or 6 (5.1): what the game is told and the output opens with
 void audio_device_set_volume(float v);

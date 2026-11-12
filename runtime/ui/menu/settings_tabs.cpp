@@ -252,6 +252,12 @@ static void tab_game(float scale) {
 static void tab_sound(float scale) {
     opt_begin("##sound", scale);
     opt_slider("MKW_VOLUME", UI_MENU_VOLUME, 0, 100, UI_MENU_VOLUME_DESC, 5, "%.0f %%");
+    {   // the game's 5.1 mix on a 6-channel output (audio/audio_mixer.c audio_output_channels), at the next start
+        static const char *const vals[] = {"auto", "2", "6"};
+        const char *names[3] = {menu_text(UI_MENU_FPS_AUTO), menu_text(UI_MENU_SPEAKERS_STEREO),
+                                menu_text(UI_MENU_SPEAKERS_51)};
+        opt_choice_list("MKW_AUDIO_CHANNELS", UI_MENU_SPEAKERS, vals, names, 3, UI_MENU_SPEAKERS_DESC);
+    }
     opt_end();
 }
 

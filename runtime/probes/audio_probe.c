@@ -101,7 +101,7 @@ static void probe_client(Cpu *c) {
     rt_call(c, stub(SYM_DEVICE_NAME), 1, (uint64_t)(uintptr_t)name);
     int channels = (int)rt_call(c, stub(SYM_CHANNELS), 0);
     printf("sdk: GetActiveAudioOutputDeviceName -> \"%s\", channels %d\n", name, channels);
-    CHECK(!strcmp(name, audio_device_name) && channels == 2, "SDK audio device");
+    CHECK(!strcmp(name, audio_device_name) && channels == audio_output_channels(), "SDK audio device");
     rt_call(c, stub(SYM_STOP), 2, handle[0], handle[1]);
     rt_call(c, stub(SYM_CLOSE), 2, handle[0], handle[1]);
     printf("sdk: CloseAudioRenderer: renderers running %ld\n", audren_renderers_live());

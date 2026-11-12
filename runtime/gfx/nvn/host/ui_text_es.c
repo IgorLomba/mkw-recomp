@@ -120,6 +120,9 @@ const char *const text_es[UI_TEXT_COUNT] = {
     [UI_MENU_MODE_DOCKED] = "Televisor", [UI_MENU_MODE_HANDHELD] = "Portátil",
 
     [UI_MENU_VOLUME] = "Volumen", [UI_MENU_VOLUME_DESC] = "Volumen general del juego.",
+    [UI_MENU_SPEAKERS] = "Altavoces", [UI_MENU_SPEAKERS_STEREO] = "Estéreo", [UI_MENU_SPEAKERS_51] = "Envolvente 5.1",
+    [UI_MENU_SPEAKERS_DESC] = "«Automático» da la mezcla envolvente 5.1 del juego cuando la salida de sonido del sistema "
+                              "tiene 6 canales o más, y estéreo si no. Se aplica al volver a arrancar.",
 
     [UI_MENU_MOTION] = "Control por movimiento", [UI_MENU_MOTION_DESC] = "Girar inclinando el mando.",
     [UI_MENU_RUMBLE_STRENGTH] = "Fuerza de la vibración",

@@ -119,6 +119,9 @@ const char *const text_ru[UI_TEXT_COUNT] = {
     [UI_MENU_MODE_DOCKED] = "В док-станции", [UI_MENU_MODE_HANDHELD] = "Портативный",
 
     [UI_MENU_VOLUME] = "Громкость", [UI_MENU_VOLUME_DESC] = "Общая громкость игры.",
+    [UI_MENU_SPEAKERS] = "Динамики", [UI_MENU_SPEAKERS_STEREO] = "Стерео", [UI_MENU_SPEAKERS_51] = "Объёмный 5.1",
+    [UI_MENU_SPEAKERS_DESC] = "«Авто» включает объёмный звук 5.1 игры, когда звуковой выход системы имеет 6 каналов "
+                              "или больше, иначе стерео. Применяется при следующем запуске.",
 
     [UI_MENU_MOTION] = "Управление движением", [UI_MENU_MOTION_DESC] = "Руление наклоном контроллера.",
     [UI_MENU_RUMBLE_STRENGTH] = "Сила вибрации",

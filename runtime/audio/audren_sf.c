@@ -183,7 +183,7 @@ static void device_event(Cpu *c) {   // Query*Event(Out<NativeHandle>)
     out_handle(c, 1, kern_event_readable(ev));
     ok(c);
 }
-static void device_channels(Cpu *c) { ST32(arg_x(c, 1), 2), ok(c); }   // GetActiveChannelCount(Out<int>)
+static void device_channels(Cpu *c) { ST32(arg_x(c, 1), audio_output_channels()), ok(c); }   // GetActiveChannelCount
 // Switch 2: SetAudioDeviceOutputVolumeAutoTuneEnabled(bool) / IsAudioDeviceOutputVolumeAutoTuneEnabled(Out<bool>):
 // no automatic volume tuning here; setting it changes nothing.
 static void device_set_autotune(Cpu *c) { ok(c); }

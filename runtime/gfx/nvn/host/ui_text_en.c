@@ -116,6 +116,9 @@ const char *const text_en[UI_TEXT_COUNT] = {
     [UI_MENU_MODE_DOCKED] = "Docked", [UI_MENU_MODE_HANDHELD] = "Handheld",
 
     [UI_MENU_VOLUME] = "Volume", [UI_MENU_VOLUME_DESC] = "Master volume of the game.",
+    [UI_MENU_SPEAKERS] = "Speakers", [UI_MENU_SPEAKERS_STEREO] = "Stereo", [UI_MENU_SPEAKERS_51] = "5.1 surround",
+    [UI_MENU_SPEAKERS_DESC] = "Automatic gives the game's 5.1 surround mix when the system's sound output has 6 channels "
+                              "or more, and stereo otherwise. Applies at the next start.",
 
     [UI_MENU_MOTION] = "Motion controls", [UI_MENU_MOTION_DESC] = "Steering by tilting the controller.",
     [UI_MENU_RUMBLE_STRENGTH] = "Vibration strength",
