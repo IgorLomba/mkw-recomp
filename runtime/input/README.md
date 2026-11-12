@@ -6,6 +6,7 @@
 | `input_script.*` | Button script (`MKW_INPUT_SCRIPT`; a `p<N> ` prefix presses for player N, also through `ctl press`; paused while an `MKW_SEQ_HOLD` phase lasts; a `<phase>+<ticks> BUTTON` line counts from the start of that phase, with `MKW_SEQ_WATCH=1`); the A button of `MKW_SKIP_MOVIES` (`core/hacks/skip.c`) and `MKW_CTL` presses |
 | `input_sdl.*`, `input_wsys.h` | SDL3 back end |
 | `motion_fusion.c` | Gyro and accelerometer |
+| `switch2_proto.h` | The Switch 2 controllers' Bluetooth LE protocol (Pro Controller 2, Joy-Con 2: GATT ids, handshake, reports, stick calibration, rumble, pairing), from seedds/mkw-neo (MIT) with our button bits; checked by `tests/test_switch2.py`. No transport yet: SDL has these controllers over USB only |
 
 Default keyboard (`input_map.c`, changeable in the `.ini`):
 
