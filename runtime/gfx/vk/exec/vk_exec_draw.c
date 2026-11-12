@@ -170,7 +170,11 @@ static const GfxShader *cached_shader(VkExec *ex, int st, const uint8_t *ctl, co
     const GfxShader *s = gfx_shader_get(ctl, code, &a);
     if (!s) warn_once(W_SHADER, "a stage %d shader of program %llu has no prepared SPIR-V: draws with it are skipped", st,
                       (unsigned long long)serial);
-    else if (set) {   // in front, the least recently used way drops out
+    // in front, the least recently used way drops out. A program without prepared SPIR-V is kept too (s NULL): each of
+    // its draws hashed its code and looked for the file again: 4.9 us each on the replay thread (a capture replayed
+    // with a tenth of the programs removed, 11/11/2026), and a run with 19 programs missing did it 4 000 times a frame
+    // (fg3, 11/11/2026)
+    if (set) {
         memmove(&set[1], &set[0], (SHADER_WAYS - 1) * sizeof *set);
         set[0] = (ShaderEnt){.serial = serial, .stage = st, .used = 1, .a = a, .s = s};
     }
