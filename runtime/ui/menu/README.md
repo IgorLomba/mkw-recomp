@@ -5,6 +5,7 @@ The in-game menu (F1) and what it shares with the start screen: look, settings t
 | File | What it is |
 |---|---|
 | `menu.cpp`, `menu.h` | Menu core: ImGui state, event queue, controller navigation, Vulkan back end and pages; no window system |
+| `menu_notice.cpp`, `menu_notice.h` | `menu_notice`: a timed line at the top of the picture, menu open or not (missing controllers) |
 | `menu_sdl.cpp` | Event adapter for the SDL3 window |
 | `settings_tabs.cpp`, `settings_tabs.h` | The settings tabs (bar and rows of each tab), shared by the menu and the start screen |
 | `menu_look.cpp`, `menu_look.h` | Colours, sizes and fonts of the menu and the start screen (embedded Roboto) |

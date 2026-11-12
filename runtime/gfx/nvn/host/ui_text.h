@@ -78,6 +78,7 @@ typedef enum {
     UI_BINDS_CANCEL_HINT,     // "Esc cancels, or wait %d s"
     UI_BINDS_TAKEN,           // "%s was taken from %s": the key, the action that lost it
     UI_BINDS_SWAPPED,         // "%s swapped with %s": the two actions
+    UI_NOTICE_PADS_MISSING,   // "%d players need a controller each: %d connected" (ov_input.c, controller applet)
     UI_BINDS_RESET, UI_BINDS_RESET_DESC,
     // the actions, in action order (input_map.h B_A .. B_SR_DOWN)
     UI_BIND_A, UI_BIND_B, UI_BIND_X, UI_BIND_Y, UI_BIND_LCLICK, UI_BIND_RCLICK, UI_BIND_L, UI_BIND_R, UI_BIND_ZL,

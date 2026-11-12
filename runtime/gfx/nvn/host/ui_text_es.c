@@ -148,6 +148,8 @@ const char *const text_es[UI_TEXT_COUNT] = {
     [UI_BINDS_PRESS_PAD] = "Pulsa un botón del mando para %s",
     [UI_BINDS_CANCEL_HINT] = "Esc cancela, o espera %d s",
     [UI_BINDS_TAKEN] = "%s se ha quitado de %s", [UI_BINDS_SWAPPED] = "%s intercambiado con %s",
+    [UI_NOTICE_PADS_MISSING] = "%d jugadores necesitan un mando cada uno: hay %d. "
+                               "El teclado solo cuenta para el jugador 1.",
     [UI_BINDS_RESET] = "Restablecer todos los botones",
     [UI_BINDS_RESET_DESC] = "Vuelven las teclas y los botones del mando por defecto. La disposición de botones de "
                             "arriba vuelve a valer: los botones del mando reasignados se quedan donde los pusiste "

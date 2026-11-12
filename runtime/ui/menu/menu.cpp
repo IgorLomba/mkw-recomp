@@ -21,6 +21,7 @@
 #include "backends/imgui_impl_vulkan.h"
 #include "ui/menu/binds_page.h"
 #include "ui/menu/menu_look.h"
+#include "ui/menu/menu_notice.h"
 #include "ui/menu/settings_tabs.h"
 #include "ui/menu/option_rows.h"
 
@@ -607,7 +608,7 @@ extern "C" int menu_overlay_frame(uint64_t frame, const MenuTarget *t, const cha
             settings_select(0);
             set_open(1);
             open = true;
-        } else if (!g_perf_mode) {
+        } else if (!g_perf_mode && !menu_notice_shown()) {
             return 0;
         }
     }
@@ -656,6 +657,7 @@ extern "C" int menu_overlay_frame(uint64_t frame, const MenuTarget *t, const cha
     ImGui::NewFrame();
     if (open) layout_menu(t->width, t->height, scale);
     perf_draw(t, scale);
+    menu_notice_draw((float)t->width, scale);
     ImGui::Render();
     if (open) g_save_pending = opt_save_tick(0);
     g_cost_ns += plat_now_ns() - t0;

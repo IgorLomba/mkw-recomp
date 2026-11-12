@@ -143,6 +143,8 @@ const char *const text_en[UI_TEXT_COUNT] = {
     [UI_BINDS_PRESS_PAD] = "Press a controller button for %s",
     [UI_BINDS_CANCEL_HINT] = "Esc cancels, or wait %d s",
     [UI_BINDS_TAKEN] = "%s was taken from %s", [UI_BINDS_SWAPPED] = "%s swapped with %s",
+    [UI_NOTICE_PADS_MISSING] = "%d players need a controller each: %d connected. "
+                               "The keyboard only counts for player 1.",
     [UI_BINDS_RESET] = "Reset all buttons",
     [UI_BINDS_RESET_DESC] = "Back to the default keys and controller buttons. The button layout above applies again: remapped controller buttons stay where you put them until this reset.",
     [UI_BIND_A] = "A", [UI_BIND_B] = "B", [UI_BIND_X] = "X", [UI_BIND_Y] = "Y",
