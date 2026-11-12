@@ -226,9 +226,12 @@ def build(lang: str, out: Path, romfs: Path | None = None, strict: bool = True) 
     if bad and strict:
         raise SystemExit(f"{lang}.tsv: unknown labels or changed tags: {', '.join(bad[:10])}")
     if bad:
-        print(f"{lang}: {len(bad)} of {len(texts)} texts do not match this copy of the game, left in {base}",
-              file=sys.stderr)
-        texts = {k: v for k, v in texts.items() if k not in set(bad)}
+        print(
+            f"{lang}: {len(bad)} of {len(texts)} texts do not match this copy of the game, left in {base}",
+            file=sys.stderr,
+        )
+        drop = set(bad)
+        texts = {k: v for k, v in texts.items() if k not in drop}
     manifest = []
     for arc in sorted(folder.glob("*.msarc")):
         orig = arc.read_bytes()
