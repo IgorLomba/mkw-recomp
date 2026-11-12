@@ -1,8 +1,10 @@
 // Adapted from MacNativeGames games/totk/runtime/romfs.c @ b75be8cf (MIT, Copyright (c) 2026 MacNativeGames
 // contributors).
 // Read-only game RomFS: the dump's loose romfs/ directory (rt_config()->romfs), walked at fs_init into an in-memory
-// index of paths and sizes; each file is opened by its host path when the game opens it. Reads are positional
-// (platform.h plat_file_pread), so threads read in parallel without a file-pointer lock. totk-pc-recomp's packed
+// index of paths and sizes; each file is opened by its host path when the game opens it. Or, when rt_config()->romfs
+// is a .nup package (nup.c), the index comes from its table of contents: a raw file is read in place at its offset in
+// the package (one shared handle), a zstd-packed one is decompressed whole into memory when the game opens it. Reads are
+// positional (platform.h plat_file_pread), so threads read in parallel without a file-pointer lock. totk-pc-recomp's packed
 // romfs.bin (its index, SHA-256 proof and mapping) has no MKW counterpart.
 //
 // Overlays: files listed in a directory's manifest.tsv are served in place of the originals. Each line names a RomFS
@@ -21,6 +23,7 @@
 #include "cfg.h"
 #include "fs.h"
 #include "host.h"
+#include "nup.h"
 #include "ov.h"
 #include "romfs_path.h"
 #include "platform/platform.h"
@@ -40,12 +43,16 @@ typedef struct { uint64_t index, size; char *path, *name; Identity id; } Overlay
 static uint8_t *index_bytes;
 static size_t index_size;
 static uint64_t file_count, strings_offset;
-static char loose_root[2048];   // set by load_loose_index
+static char loose_root[2048];   // the loose folder or the package (load_loose_index, load_package_index)
 static char mount_name[32];
 static PlatMutex lock = PLAT_MUTEX_INIT;
 static uint64_t handles[NH];         // file index + 1; 0 is free
 static uint32_t handle_ovl[NH];      // overlay slot + 1 of an open handle, 0 = original
-static PlatFile *handle_file[NH];    // the handle's open overlay file, when handle_ovl is set
+static PlatFile *handle_file[NH];    // the handle's open file: an overlay's, a loose file's or the shared package
+static uint64_t handle_base[NH];     // where the file starts in handle_file (a package's raw file), else 0
+static uint8_t *handle_mem[NH];      // a package's zstd file, decompressed at open (handle_file NULL)
+static Nup *package;                 // the RomFS is a .nup package; its rows are package_rows, in index order
+static const NupEntry *package_rows;
 static Overlay *overlays;            // sorted by RomFS index after overlay_init
 static size_t noverlay, overlay_cap;
 static char **added;                 // RomFS paths of the added files, sorted; added[k] is index file_count + k
@@ -107,6 +114,25 @@ static void sha_range(PlatFile *f, uint64_t offset, uint64_t size, char hex[65],
     sha256_final(&h, d);
     free(buf);
     hex32(d, hex);
+}
+
+static PlatFile *row_open(uint64_t i, uint64_t *base, uint8_t **mem);
+
+// SHA-256 of RomFS row i's original bytes.
+static void sha_row(uint64_t i, char hex[65]) {
+    uint64_t base;
+    uint8_t *mem = NULL;
+    PlatFile *f = row_open(i, &base, &mem);
+    if (!f && !mem) rt_fatal("RomFS: %s unreadable", entry_name(entry(i)));
+    if (mem) {
+        uint8_t d[32];
+        sha256(mem, entry(i).size, d);
+        hex32(d, hex);
+        free(mem);
+        return;
+    }
+    sha_range(f, base, entry(i).size, hex, 0);
+    if (!package) plat_file_close(f);
 }
 
 // ---- index lookup
@@ -189,13 +215,7 @@ static void overlay_load(const char *dir) {
         Entry e = {0};
         if (known) {
             e = entry(i);
-            char orig_file[4200];
-            need(snprintf(orig_file, sizeof orig_file, "%s/%s", loose_root, name) < (int)sizeof orig_file,
-                 "overlay original path");
-            PlatFile *of = open_read(orig_file);
-            if (!of) rt_fatal("RomFS overlay: original %s missing", orig_file);
-            sha_range(of, 0, e.size, hex, 0);
-            plat_file_close(of);
+            sha_row(i, hex);
             if (strcmp(hex, orig)) rt_fatal("RomFS overlay: the original of %s has SHA-256 %s, %s/manifest.tsv says %s",
                                             name, hex, dir, orig);
         } else {
@@ -396,20 +416,78 @@ static void load_loose_index(const char *dir) {
     loose_files = NULL;
 }
 
-// The host path of RomFS file i.
-static PlatFile *loose_open(uint64_t i) {
+// The index from a .nup package's RomFS rows (sorted by name as the loose walk's), each at its offset in the package.
+static void load_package_index(const char *path) {
+    need(snprintf(loose_root, sizeof loose_root, "%s", path) < (int)sizeof loose_root, "RomFS path");
+    package = nup_open(path);
+    if (!package) rt_fatal("RomFS package %s unreadable (see the log)", path);
+    file_count = nup_entries(package, NUP_ROMFS, &package_rows);
+    if (!file_count) rt_fatal("RomFS package %s has no RomFS files", path);
+    size_t strings = 0;
+    for (uint64_t i = 0; i < file_count; i++) strings += strlen(package_rows[i].name) + 1;
+    strings_offset = 24 + file_count * 24;
+    index_size = (size_t)strings_offset + strings;
+    index_bytes = malloc(index_size);
+    need(index_bytes != NULL, "package index memory");
+    memcpy(index_bytes, "MKW_RFS1", 8);
+    memcpy(index_bytes + 8, &file_count, 8);
+    memcpy(index_bytes + 16, &strings_offset, 8);
+    uint32_t at = 0;
+    for (uint64_t i = 0; i < file_count; i++) {
+        uint32_t len = (uint32_t)strlen(package_rows[i].name) + 1;
+        Entry e = {package_rows[i].offset, package_rows[i].size, at, len};
+        memcpy(index_bytes + 24 + i * 24, &e, sizeof e);
+        memcpy(index_bytes + strings_offset + at, package_rows[i].name, len);
+        at += len;
+    }
+}
+
+// RomFS row i's bytes: an open file and where they start in it (a loose file: the caller closes it; the package: shared,
+// never closed), or for a zstd-packed package file, the whole file decompressed in *mem (malloc'd) and NULL returned.
+static PlatFile *row_open(uint64_t i, uint64_t *base, uint8_t **mem) {
+    *base = 0;
+    *mem = NULL;
+    if (package) {
+        if (!package_rows[i].zstd) {
+            *base = package_rows[i].offset;
+            return nup_file(package);
+        }
+        *mem = nup_read(package, &package_rows[i]);
+        if (!*mem) rt_fatal("RomFS: %s in %s does not decompress", package_rows[i].name, loose_root);
+        return NULL;
+    }
     char path[4096];
     need(snprintf(path, sizeof path, "%s/%s", loose_root, entry_name(entry(i))) < (int)sizeof path, "RomFS path");
     return open_read(path);
 }
 
+uint8_t *romfs_read_whole(const char *rel, uint64_t *size) {
+    uint64_t i = lower(rel), base;
+    if (i >= file_count || strcmp(entry_name(entry(i)), rel)) return NULL;
+    uint8_t *mem;
+    PlatFile *f = row_open(i, &base, &mem);
+    *size = entry(i).size;
+    if (mem || !f) return mem;
+    mem = malloc(*size ? *size : 1);
+    for (uint64_t done = 0; mem && done < *size;) {
+        uint32_t want = *size - done > READ_CHUNK ? READ_CHUNK : (uint32_t)(*size - done);
+        int64_t n = plat_file_pread(f, mem + done, want, base + done);
+        if (n <= 0) free(mem), mem = NULL;
+        else done += (uint64_t)n;
+    }
+    if (!package) plat_file_close(f);
+    return mem;
+}
+
 static void init_once(void *param) {
     (void)param;
     double t0 = now_s();
-    load_loose_index(rt_config()->romfs);
+    const char *src = rt_config()->romfs;
+    if (nup_is(src)) load_package_index(src);
+    else load_loose_index(src);
     overlay_init();
-    rt_log("RomFS ready: %llu loose files under %s, %zu overlays, %zu added, %.2f s", (unsigned long long)file_count,
-           loose_root, noverlay, nadded, now_s() - t0);
+    rt_log("RomFS ready: %llu %s %s, %zu overlays, %zu added, %.2f s", (unsigned long long)file_count,
+           package ? "files in the package" : "loose files under", loose_root, noverlay, nadded, now_s() - t0);
 }
 
 void fs_init(void) {
@@ -436,7 +514,8 @@ const char *romfs_entry(uint64_t i, uint64_t *offset, uint64_t *size) {
 }
 
 const char *romfs_source_path(uint64_t i, char *buf, size_t n) {
-    if (i >= file_count) return NULL;
+    if (i >= file_count || (package && package_rows[i].zstd)) return NULL;
+    if (package) return snprintf(buf, n, "%s", loose_root) < (int)n ? buf : NULL;
     return snprintf(buf, n, "%s/%s", loose_root, entry_name(entry(i))) < (int)n ? buf : NULL;
 }
 
@@ -479,9 +558,11 @@ uint32_t romfs_open(uint64_t *out, const char *path, int mode) {
     if (i == UINT64_MAX) return FS_R_PATH_NOT_FOUND;
     uint32_t ov = overlay_slot(i);
     PlatFile *f = NULL;
+    uint64_t base = 0;
+    uint8_t *mem = NULL;
     if (!ov && i < file_count) {
-        f = loose_open(i);
-        if (!f) return FS_R_PATH_NOT_FOUND;
+        f = row_open(i, &base, &mem);
+        if (!f && !mem) return FS_R_PATH_NOT_FOUND;
     }
     if (ov) {
         const Overlay *o = &overlays[ov - 1];
@@ -497,6 +578,8 @@ uint32_t romfs_open(uint64_t *out, const char *path, int mode) {
             handles[j] = i + 1;
             handle_ovl[j] = ov;
             handle_file[j] = f;
+            handle_base[j] = base;
+            handle_mem[j] = mem;
             *out = ROMFS_HANDLE_BASE + j;
             plat_mutex_unlock(&lock);
             return 0;
@@ -505,14 +588,16 @@ uint32_t romfs_open(uint64_t *out, const char *path, int mode) {
     rt_fatal("RomFS file handle table full (%d)", NH);
 }
 
-// The handle's open file (the overlay's or the original's) and its size.
-static int handle_source(uint64_t h, PlatFile **f, uint64_t *size) {
+// The handle's open file (the overlay's or the original's), where its bytes start, or its bytes in memory, and its size.
+static int handle_source(uint64_t h, PlatFile **f, uint64_t *base, uint8_t **mem, uint64_t *size) {
     if (!romfs_handle(h)) return 0;
     uint64_t j = h - ROMFS_HANDLE_BASE;
     plat_mutex_lock_shared(&lock);
     uint64_t i = handles[j];
     uint32_t ov = handle_ovl[j];
     PlatFile *of = handle_file[j];
+    *base = handle_base[j];
+    *mem = handle_mem[j];
     plat_mutex_unlock_shared(&lock);
     if (!i) return 0;
     *f = of;
@@ -522,13 +607,20 @@ static int handle_source(uint64_t h, PlatFile **f, uint64_t *size) {
 
 uint32_t romfs_read(uint64_t *out, uint64_t h, int64_t offset, void *buffer, uint64_t size) {
     PlatFile *f;
-    uint64_t fsize;
-    if (!out || offset < 0 || !handle_source(h, &f, &fsize)) return FS_R_INVALID;
+    uint64_t fsize, base;
+    uint8_t *mem;
+    if (!out || offset < 0 || !handle_source(h, &f, &base, &mem, &fsize)) return FS_R_INVALID;
     if ((uint64_t)offset > fsize || (!buffer && size)) return FS_R_INVALID;
     uint64_t n = size < fsize - (uint64_t)offset ? size : fsize - (uint64_t)offset, done = 0;
+    if (mem) {
+        mem_thaw((uintptr_t)buffer, n);
+        memcpy(buffer, mem + offset, n);
+        *out = n;
+        return 0;
+    }
     while (done < n) {
         uint32_t chunk = n - done > READ_CHUNK ? READ_CHUNK : (uint32_t)(n - done);
-        int64_t r = read_at(f, (uint8_t *)buffer + done, chunk, (uint64_t)offset + done);
+        int64_t r = read_at(f, (uint8_t *)buffer + done, chunk, base + (uint64_t)offset + done);
         if (r <= 0) rt_fatal("RomFS read failure at %#llx", (unsigned long long)(offset + done));
         done += (uint64_t)r;
     }
@@ -538,25 +630,30 @@ uint32_t romfs_read(uint64_t *out, uint64_t h, int64_t offset, void *buffer, uin
 
 uint32_t romfs_size(int64_t *out, uint64_t h) {
     PlatFile *f;
-    uint64_t size;
-    if (!out || !handle_source(h, &f, &size)) return FS_R_INVALID;
+    uint64_t size, base;
+    uint8_t *mem;
+    if (!out || !handle_source(h, &f, &base, &mem, &size)) return FS_R_INVALID;
     *out = (int64_t)size;
     return 0;
 }
 
 void romfs_close(uint64_t h) {
     PlatFile *f;
-    uint64_t size;
-    if (!handle_source(h, &f, &size))
+    uint64_t size, base;
+    uint8_t *mem;
+    if (!handle_source(h, &f, &base, &mem, &size))
         rt_fatal("RomFS: close of invalid file handle %#llx", (unsigned long long)h);
     uint64_t j = h - ROMFS_HANDLE_BASE;
     plat_mutex_lock(&lock);
-    PlatFile *of = handle_file[j];   // an overlay's, or a loose RomFS file's
+    PlatFile *of = handle_file[j];   // an overlay's, a loose RomFS file's or the shared package
+    int shared = !handle_ovl[j] && package;
     handles[j] = 0;
     handle_ovl[j] = 0;
     handle_file[j] = NULL;
+    handle_mem[j] = NULL;
     plat_mutex_unlock(&lock);
-    if (of) plat_file_close(of);
+    if (of && !shared) plat_file_close(of);
+    free(mem);
 }
 
 uint32_t romfs_entry_type(int *out, const char *path) {

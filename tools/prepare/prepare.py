@@ -18,13 +18,17 @@ Steps, into --game (the folder of mkw / mkw.exe):
   warm      the game run once for a minute: the driver's pipeline cache and the pipeline keys for the first start
   cleanup   setup-work removed but its obj/: the next update compiles only the chunks whose C changed (gamecode.py)
 
+The copy is loose exefs/ and romfs/ folders, or a .nup package (the Switch 2 dump format, nup.py): --source names the
+package file itself. From a package, exefs/ is extracted, romfs/ extracted (copy) or the package itself
+linked (the runtime reads its RomFS in place).
+
 Output: one event per line on stdout, for the start screen: "step <name>", "progress <done> <total>", "skip <name>",
 "done", "error <code> <detail>". Exit codes: 0 done, 1 failed, 2 bad command line. The start screen shows its own
 translated text per code with the detail inside: source (no earlier setup to repeat), nogame (the folder, without
 exefs/main and romfs/), encrypted (exefs/main, not an NSO), version (main's build id), romfs (its file count), failed
 (a tool's English message) and io (the system's); logs/setup.log gets the English message whole.
 
-Usage: python prepare.py --source DIR --game DIR [--romfs copy|link] [--jobs N] [--cc CMD] [--glslc PATH]
+Usage: python prepare.py --source DIR|FILE.nup --game DIR [--romfs copy|link] [--jobs N] [--cc CMD] [--glslc PATH]
                          [--target linux|windows]
 Without --source (the launcher after an update, tools/prepare/update.py): the copy and the RomFS mode of the last
 setup in --game, from its setup-state.json; only the steps whose key changed run again.
@@ -49,6 +53,7 @@ import game_texts  # (build_all: the game's texts in ca, gl, eu)
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from gamecode import compile_game
+from nup import Nup, is_nup
 from machine import (
     Failed,
     crt_spec,
@@ -63,7 +68,7 @@ from machine import (
 import update  # (ca_file)
 
 PREP_VERSION = 1  # bump when a step's output changes meaning: every step runs again
-from versions import Version, detect, main_build_id  # (build build.py put recomp/ on the path)
+from versions import Version, build_id_of, detect_id  # (build build.py put recomp/ on the path)
 ROMFS_MARGIN = 0.95  # a few short still passes: some dumping tools skip empty files
 STEPS = ("check", "exefs", "romfs", "generate", "compile", "shaders", "warm", "cleanup")
 WARM_SECONDS = 60  # the driver cache is saved every 20 s and the pipeline keys every 2 (vk_pipeline.c, vk_pipe_keys.c)
@@ -71,7 +76,11 @@ WARM_SECONDS = 60  # the driver cache is saved every 20 s and the pipeline keys 
 
 # ---- check
 def find_game(src: Path) -> tuple[Path, Path]:
-    """exefs/ and romfs/ in src or up to two levels below it."""
+    """src a .nup package (both are then its path), else exefs/ and romfs/ in src or up to two levels below it."""
+    if src.is_file():
+        if is_nup(src):
+            return src, src
+        raise Failed(f"{src} is not a .nup package")
     for depth in range(3):
         for d in [src, *src.glob("/".join(["*"] * depth))] if depth else [src]:
             if (d / "exefs/main").is_file() and (d / "romfs").is_dir():
@@ -90,16 +99,23 @@ def count_files(top: Path, enough: int) -> int:
 
 def check(src: Path) -> tuple[Path, Path, Version]:
     exefs, romfs = find_game(src)
+    if exefs.is_file():  # a .nup package
+        nup = Nup(exefs)
+        if "main" not in nup.files("exefs"):
+            raise Failed(f"{exefs} has no exefs/main", "nogame", str(exefs))
+        head, where = nup.read(nup.files("exefs")["main"])[:0x48], f"{exefs}::exefs/main"
+    else:
+        head, where = (exefs / "main").read_bytes()[:0x48], str(exefs / "main")
     try:
-        got = main_build_id(exefs)
+        got = build_id_of(head, where)
     except ValueError:
-        raise Failed(f"{exefs / 'main'} is not an NSO: decrypted exefs needed", "encrypted", str(exefs / "main")) from None
+        raise Failed(f"{where} is not an NSO: decrypted exefs needed", "encrypted", where) from None
     try:
-        v = detect(exefs)
+        v = detect_id(got)
     except ValueError as e:
         raise Failed(str(e), "version", got) from None
     need = int(v.romfs_files * ROMFS_MARGIN)
-    n = count_files(romfs, need)
+    n = len(Nup(romfs).files("romfs")) if romfs.is_file() else count_files(romfs, need)
     if n < need:
         raise Failed(f"the RomFS has {n} files, {v.name} has {v.romfs_files}: an incomplete copy", "romfs", str(n))
     emit("version", v.name)
@@ -268,7 +284,11 @@ def save_state(game: Path, state: dict) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--source", type=Path, help="the folder with the player's exefs/ and romfs/ (default: the last's)")
+    ap.add_argument(
+        "--source",
+        type=Path,
+        help="the folder with the player's exefs/ and romfs/, or their .nup package (default: the last's)",
+    )
     ap.add_argument("--game", type=Path, required=True, help="the folder of mkw / mkw.exe")
     ap.add_argument("--romfs", choices=("copy", "link"), help="(default: the last setup's, else copy)")
     ap.add_argument("--jobs", type=int, default=0, help="parallel jobs (default: from cores and memory)")
@@ -283,7 +303,10 @@ def main() -> None:
     game = args.game.resolve()
     state = load_state(game)
     if not args.source:  # the last setup's; before 0.1.5 the state kept them only in its keys
-        last = state.get("source") or (str(Path(state["done"]["exefs"]).parent) if "exefs" in state["done"] else "")
+        done_exefs = Path(state["done"]["exefs"]) if "exefs" in state["done"] else None
+        last = state.get("source") or (
+            str(done_exefs if done_exefs.is_file() else done_exefs.parent) if done_exefs else ""
+        )
         if not last:
             emit("error", "source", "no earlier setup in this folder")
             sys.exit(2)
@@ -327,9 +350,15 @@ def main() -> None:
                 continue
             emit("step", step)
             if step == "exefs":
-                copy_tree(exefs_src, game / "exefs", sum(1 for p in exefs_src.iterdir() if p.is_file()))
+                if exefs_src.is_file():
+                    Nup(exefs_src).extract("exefs", game / "exefs", lambda d, t: emit("progress", d, t))
+                else:
+                    copy_tree(exefs_src, game / "exefs", sum(1 for p in exefs_src.iterdir() if p.is_file()))
             elif step == "romfs":
-                if args.romfs == "copy":
+                if args.romfs == "copy" and romfs_src.is_file():
+                    Nup(romfs_src).extract("romfs", romfs, lambda d, t: emit("progress", d, t))
+                    ini_set(game / "mkw.ini", "romfs", "romfs")
+                elif args.romfs == "copy":
                     copy_tree(romfs_src, romfs, version.romfs_files)
                     ini_set(game / "mkw.ini", "romfs", "romfs")
                 else:

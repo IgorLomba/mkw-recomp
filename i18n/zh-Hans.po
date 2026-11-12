@@ -1624,6 +1624,10 @@ msgctxt "UI_LAUNCH_PICK"
 msgid "Choose folder"
 msgstr "选择文件夹"
 
+msgctxt "UI_LAUNCH_PICK_NUP"
+msgid "Choose .nup file"
+msgstr "选择 .nup 文件"
+
 msgctxt "UI_LAUNCH_ROMFS_MODE"
 msgid "RomFS (23 GB)"
 msgstr "RomFS（23 GB）"

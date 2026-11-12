@@ -43,9 +43,11 @@ const char *romfs_resolution_overlay(void);   // MKW_RESOLUTION's overlay, NULL 
 void romfs_resolution_external(void);         // the overlay came from MKW_ROMFS_PATCHES instead
 int romfs_resolution_lines(void);             // lines applied at start: 0 the game's own, -1 MKW_ROMFS_PATCHES's
 const char *romfs_entry(uint64_t i, uint64_t *offset, uint64_t *size);   // path, image offset and size of index row i
-// The host file holding row i's bytes (the row's own file under the loose RomFS), overlays aside; NULL when buf is too
-// small
+// The host file holding row i's bytes (the row's own file under the loose RomFS, or the .nup package), overlays aside;
+// NULL when buf is too small or the row is stored compressed in the package
 const char *romfs_source_path(uint64_t i, char *buf, size_t n);
+// A whole RomFS file by its path (no overlays), malloc'd; NULL when missing or unreadable. Inside fs_init too.
+uint8_t *romfs_read_whole(const char *path, uint64_t *size);
 size_t romfs_overlay_count(void);
 const char *romfs_overlay(size_t k, const char **file, uint64_t *size, int *is_added);   // RomFS path of overlay k
 void fs_trace(const char *what, const char *path);         // MKW_TRACE=fs: one line per open

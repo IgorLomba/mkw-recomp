@@ -59,7 +59,7 @@ static struct {
     Page shot_page;
     int shot_tab;
     char exe_dir[1024];
-    char source[1024];              // the player's copy, from the folder dialog
+    char source[1024];              // the player's copy: a folder, or a .nup file, from the dialogs
     int link_romfs;                 // 0 copy it into the game folder, 1 use it where it is
     int tools;                      // the setup tools are there
     char shortcut_note[1200];       // what the shortcut button did
@@ -334,6 +334,10 @@ static void page_files(float w, float h) {
         ImGui::SameLine();
         ImGui::TextUnformatted(L.source[0] ? L.source : "-");
         if (ImGui::Button(menu_text(UI_LAUNCH_PICK))) SDL_ShowOpenFolderDialog(picked, nullptr, L.win, nullptr, false);
+        ImGui::SameLine();
+        static const SDL_DialogFileFilter kNup[] = {{"Switch 2 package (.nup)", "nup"}};
+        if (ImGui::Button(menu_text(UI_LAUNCH_PICK_NUP)))   // the dump as one .nup file (tools/prepare/nup.py)
+            SDL_ShowOpenFileDialog(picked, nullptr, L.win, kNup, 1, nullptr, false);
         ImGui::TextDisabled("%s", menu_text(UI_LAUNCH_ROMFS_MODE));
         ImGui::RadioButton(menu_text(UI_LAUNCH_ROMFS_COPY), &L.link_romfs, 0);
         ImGui::SameLine();

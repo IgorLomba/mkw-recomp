@@ -93,10 +93,9 @@ static const char *write_overlay(int lines, float lod) {
     char *cut = k ? plat_last_sep(exe) : NULL;
     if (!cut) return NULL;
     *cut = 0;
-    snprintf(path, sizeof path, "%s/%s", rt_config()->romfs, ARCHIVE);
     uint64_t zn = 0;
-    uint8_t *z = plat_file_read(path, &zn);
-    if (!z) { rt_log("resolution: %s missing: the game's own resolution", path); return NULL; }
+    uint8_t *z = romfs_read_whole(ARCHIVE, &zn);   // a loose RomFS or a .nup package
+    if (!z) { rt_log("resolution: %s missing from %s: the game's own resolution", ARCHIVE, rt_config()->romfs); return NULL; }
     uint8_t osha[32];
     char ohex[65];
     sha256(z, zn, osha);

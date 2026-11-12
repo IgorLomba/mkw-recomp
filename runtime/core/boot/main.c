@@ -1,6 +1,6 @@
 // mkw entry: reserves the guest address space, parses the command line and runs one mode.
 //
-//   mkw [--exefs DIR] [--romfs DIR] [--profile DIR] <mode>
+//   mkw [--exefs DIR] [--romfs DIR|FILE.nup] [--nup FILE.nup] [--profile DIR] <mode>
 //     --selftest        layout, dispatch table and host-function registry; needs no game files
 //     --replay DIR      a frame capture (MKW_CAPTURE, runtime/gfx/cap) replayed through the back end, no game
 //     --probe-loader    load and relocate the modules, check them against the measured 1.2.1 values
@@ -456,7 +456,7 @@ static int selftest(void) {
 }
 
 static int usage(const char *argv0) {
-    fprintf(stderr, "usage: %s [--exefs DIR] [--romfs DIR] [--profile DIR] [--launcher | --play | --selftest | --probe-loader | "
+    fprintf(stderr, "usage: %s [--exefs DIR] [--romfs DIR|FILE.nup] [--nup FILE.nup] [--profile DIR] [--launcher | --play | --selftest | --probe-loader | "
                     "--probe-cfg | --probe-kernel | --probe-audio | --probe-services | --probe-fs | --probe-gfx-abi | "
                     "--probe-nvn | --probe-nvn-tex | --probe-window | --probe-vkmem | "
                     "--probe-vkexec | --probe-astc | --probe-framegen | --probe-texpre | --texpre | --boot |--seconds S [--shot PNG]]\n", argv0);
@@ -491,7 +491,8 @@ static void portable_paths(RtConfig *c) {
     if (!cut) return;
     *cut = 0;
     c->exefs = portable_path(exe, "MKW_EXEFS", "exefs", "main.npdm", pp_exefs, sizeof pp_exefs, c->exefs);
-    // MKW reads the RomFS as loose files: a romfs/ folder next to the executable, as exefs/.
+    // The RomFS: a romfs/ folder of loose files next to the executable, as exefs/ (MKW_ROMFS, mkw.ini's romfs and
+    // --romfs may also name a .nup package, romfs.c).
     c->romfs = portable_path(exe, "MKW_ROMFS", "romfs", NULL, pp_romfs, sizeof pp_romfs, c->romfs);
     c->profile = portable_path(exe, "MKW_PROFILE_DIR", "profile", ".", pp_profile, sizeof pp_profile, c->profile);
     if (!*c->profile) {   // the player's build bakes no path in: saves go to profile/ beside the executable
@@ -511,7 +512,9 @@ static int want_launcher(int argc, char **argv) {
     int asked = 0;
     for (int i = 1; i < argc; i++) {
         if (!strcmp(argv[i], "--launcher")) asked = 1;
-        else if (!strcmp(argv[i], "--exefs") || !strcmp(argv[i], "--romfs") || !strcmp(argv[i], "--profile")) i++;
+        else if (!strcmp(argv[i], "--exefs") || !strcmp(argv[i], "--romfs") || !strcmp(argv[i], "--nup") ||
+                 !strcmp(argv[i], "--profile"))
+            i++;
         else return 0;   // --play, a mode, --seconds: straight in
     }
     return asked || !rt_game_builtin();
@@ -554,7 +557,9 @@ int main(int argc, char **argv) {
     }
     const char *mode = NULL;
     for (int i = 1; i < argc; i++) {
-        const char **path = !strcmp(argv[i], "--exefs") ? &cfg.exefs : !strcmp(argv[i], "--romfs") ? &cfg.romfs
+        // --romfs takes the loose romfs/ folder or a .nup package (romfs.c); --nup is the same, named for the package
+        const char **path = !strcmp(argv[i], "--exefs") ? &cfg.exefs
+                          : !strcmp(argv[i], "--romfs") || !strcmp(argv[i], "--nup") ? &cfg.romfs
                           : !strcmp(argv[i], "--profile") ? &cfg.profile : NULL;
         if (path) {
             if (++i == argc) return usage(argv[0]);

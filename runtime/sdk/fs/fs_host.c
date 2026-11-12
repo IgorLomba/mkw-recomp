@@ -1339,10 +1339,14 @@ static void probe_paths(void) {
            bad ? "FAIL" : "ok");
 }
 
-static PlatFile *source_open(uint64_t i) {
+// The host file of RomFS row *i; a row stored compressed in a .nup package has none to compare with, so *i moves on to
+// the next row that has one.
+static PlatFile *source_open(uint64_t *i) {
     char src[4200];
-    PlatFile *f = romfs_source_path(i, src, sizeof src) ? plat_file_open(src) : NULL;
-    if (!f) rt_fatal("probe-fs: cannot open the host file of RomFS row %llu", (unsigned long long)i);
+    uint64_t count = romfs_file_count();
+    while (*i + 1 < count && !romfs_source_path(*i, src, sizeof src)) ++*i;
+    PlatFile *f = romfs_source_path(*i, src, sizeof src) ? plat_file_open(src) : NULL;
+    if (!f) rt_fatal("probe-fs: cannot open the host file of RomFS row %llu", (unsigned long long)*i);
     return f;
 }
 
@@ -1359,13 +1363,13 @@ static uint64_t probe_romfs(void) {
     uint64_t step = count / SAMPLES, bytes = 0, sampled = 0, deep = 0, high = 0, largest = 0, lsize = 0;
     char path[4200], sample[4200] = "";
     for (uint64_t i = 0, size; i < count; i++)
-        if (romfs_entry(i, NULL, &size) && size > lsize) largest = i, lsize = size;
+        if (romfs_entry(i, NULL, &size) && size > lsize && romfs_source_path(i, path, sizeof path)) largest = i, lsize = size;
     for (uint64_t k = 0; k <= SAMPLES && step; k++) {   // k == SAMPLES: the largest file, beyond the 64
         uint64_t i = k < SAMPLES ? k * step : largest, off, size, h = 0;
         int64_t fsize = -1;
         int type = -1;
+        PlatFile *image = source_open(&i);
         const char *name = romfs_entry(i, &off, &size);
-        PlatFile *image = source_open(i);
         snprintf(path, sizeof path, "rom:/%s", name);
         if (!*sample && strchr(name, '/') && size >= 256) snprintf(sample, sizeof sample, "%s", name);
         int ok = RES(S_ENTRY_TYPE, U(&type), U(path)) == 0 && type == FS_ENTRY_FILE;
@@ -1400,7 +1404,7 @@ static uint64_t probe_romfs(void) {
     need(*sample, "no sampled file in a folder");
     uint64_t si = 0;
     while (strcmp(romfs_entry(si, &off, &size), sample)) si++;
-    PlatFile *image = source_open(si);
+    PlatFile *image = source_open(&si);
     int same = 1;
     for (int slashes = 1; slashes <= 3; slashes++) {
         snprintf(path, sizeof path, "rom:%.*s%s", slashes, "///", sample);

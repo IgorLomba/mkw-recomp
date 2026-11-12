@@ -31,15 +31,22 @@ VERSIONS = (
 )
 
 
-def main_build_id(exefs: Path) -> str:
-    head = (Path(exefs) / "main").read_bytes()[:0x48]
+def build_id_of(head: bytes, where: str = "exefs/main") -> str:
+    """The build id of exefs/main from its first 0x48 bytes (a folder's file or a .nup package's entry)."""
     if head[:4] != b"NSO0":
-        raise ValueError(f"{Path(exefs) / 'main'} is not an NSO: decrypted exefs needed")
+        raise ValueError(f"{where} is not an NSO: decrypted exefs needed")
     return head[0x40:0x48].hex()
 
 
+def main_build_id(exefs: Path) -> str:
+    return build_id_of((Path(exefs) / "main").read_bytes()[:0x48], str(Path(exefs) / "main"))
+
+
 def detect(exefs: Path) -> Version:
-    got = main_build_id(exefs)
+    return detect_id(main_build_id(exefs))
+
+
+def detect_id(got: str) -> Version:
     for v in VERSIONS:
         if v.main_build_id == got:
             return v

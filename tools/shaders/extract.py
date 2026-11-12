@@ -6,13 +6,14 @@ tcs, +0x18 tes, +0x20 gs, +0x28 ps, +0x30 cs); NVN2 changed the control section 
 and the code: graphics stages start with a 0x80-byte program header (SPH), compute stages are bare SASS SM86.
 BNSH walk adapted from totk-pc-recomp tools/shader_census.py @ c3b9a4e (MIT).
 
-Usage: uv run tools/shaders/extract.py [--romfs DIR] [--out build/shaders] [--everything]
+Usage: uv run tools/shaders/extract.py [--romfs DIR|FILE.nup] [--out build/shaders] [--everything]
 Writes <sha1>.ctl and <sha1>.code per stage and index.csv (sha1, stage, code bytes, source file, program index), and
 <sha1>.c1 with the program's own constants (bank c[1]) when it has any: a BRX's jump table lives there.
 """
 
 import argparse
 import csv
+import functools
 import hashlib
 import itertools
 import os
@@ -165,21 +166,47 @@ def containers(name: str, data: bytes, depth: int = 0) -> list[tuple[str, bytes]
     return out
 
 
+@functools.cache  # parsed once per process: the scan's workers read many files of one package
+def package(romfs: Path):
+    """The .nup package (tools/prepare/nup.py) when --romfs names one, else None for a loose romfs/ folder."""
+    if not romfs.is_file():
+        return None
+    sys.path.insert(0, str(ROOT / "tools/prepare"))
+    from nup import Nup
+
+    return Nup(romfs)
+
+
 def archives(romfs: Path):
     """(name, bytes) of every BNSH container and agl package under romfs/Shader."""
+    if nup := package(romfs):
+        files = nup.files("romfs")
+        for name in (n for n in files if n.startswith("Shader/") and n.count("/") == 1 and n.endswith(".zs")):
+            yield from containers(name.split("/")[1], nup.read(files[name]))
+        return
     for path in sorted((romfs / "Shader").glob("*.zs")):
         yield from containers(path.name, path.read_bytes())
+
+
+def read_source(path: str) -> bytes:
+    """A host file, or "<package>::<RomFS path>" for a file in a .nup package."""
+    if "::" in path:
+        nup_path, name = path.split("::", 1)
+        nup = package(Path(nup_path))
+        return nup.read(nup.files("romfs")[name])
+    return Path(path).read_bytes()
 
 
 def scan_one(path: str) -> list[tuple[str, bytes]]:
     """containers() of one RomFS file or NSO (NSO: its LZ4 segments, where main keeps two BNSH of its own,
     main+0x3328000 and main+0x3345000)."""
-    if Path(path).read_bytes()[:4] == b"NSO0":
+    data = read_source(path)
+    if data[:4] == b"NSO0":
         sys.path.insert(0, str(ROOT / "recomp"))
         from nso import Nso
 
         return containers(path, bytes(Nso(path).image))
-    return containers(path, Path(path).read_bytes())
+    return containers(path, data)
 
 
 # Where 1.0.0 keeps every distinct stage outside romfs/Shader: a scan of every file (21.7 GiB) found none elsewhere
@@ -192,8 +219,14 @@ def everywhere(romfs: Path, exefs: Path, everything: bool = False):
     import os
     from concurrent.futures import ProcessPoolExecutor
 
-    tops = [romfs] if everything else [romfs / d for d in SHADER_DIRS]
-    files = [str(p) for top in tops for p in top.rglob("*") if p.is_file() and "Shader" not in p.parts]
+    if nup := package(romfs):
+        names = nup.files("romfs")
+        if not everything:
+            names = [n for n in names if n.split("/", 1)[0] in SHADER_DIRS]
+        files = [f"{romfs}::{n}" for n in names if not n.startswith("Shader/") and "/Shader/" not in n]
+    else:
+        tops = [romfs] if everything else [romfs / d for d in SHADER_DIRS]
+        files = [str(p) for top in tops for p in top.rglob("*") if p.is_file() and "Shader" not in p.parts]
     files += [str(p) for p in sorted(exefs.glob("*")) if p.name in ("main", "sdk") or p.name.startswith("subsdk")]
     with ProcessPoolExecutor(os.cpu_count()) as pool:
         for found in pool.map(scan_one, files, chunksize=64):
