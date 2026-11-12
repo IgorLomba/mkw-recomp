@@ -30,6 +30,7 @@ Galician and Basque, 5.1 sound, and fixes for crashes and freezes reported since
 - Brazilian Portuguese: a Brazilian system picks the game's Brazilian Portuguese (discussion #42, #134 by
   @GabrielAndrade419).
 - **5.1 surround sound** when the system's output has 6 channels (discussion #90).
+- A new start screen: dark, with the port's logo and no game art (#70, by @ViniciusStanula); the F1 menu keeps its look.
 - A notice on screen when the players chosen lack controllers (#106, #160).
 - The game stopped when swapping two controllers' players (#123).
 - 16 GB machines keep their pipeline workers (#132).
@@ -48,7 +49,8 @@ Galician and Basque, 5.1 sound, and fixes for crashes and freezes reported since
   GPUs (Turnip) reach the menus and races without blue lines, and Linux on AArch64 builds from source (#170, #171,
   #173, by @titooo7; no AArch64 package yet).
 - Diagnostics: a log line when the game waits too long for its frame, saying what the submission was doing (#138), and
-  GPU breadcrumbs on more commands (#43).
+  GPU breadcrumbs on more commands (#43); `MKW_RTSTATS` and `MKW_DUMP_DRAWS` for rendering bugs that log no error (#80,
+  by @guillo1990).
 
 ### Tested
 
