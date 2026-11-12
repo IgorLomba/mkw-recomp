@@ -7,9 +7,9 @@ Windows. It needs your own copy of the game, dumped from your own console: nothi
 or in its releases.
 
 **It is a recompilation, not an emulator.** The game's AArch64 code is translated to C ahead of time and compiled
-for x86-64; there is no CPU interpreter or JIT. The GPU is not emulated either: NVN2, the Switch 2 graphics API, is
-reimplemented on top of Vulkan at the API level, and the game's SM86 shaders are translated to SPIR-V ahead of time.
-Nintendo SDK functions (`nn::*`) are replaced by name with our own code.
+for the PC's CPU (x86-64, or AArch64 on Linux); there is no CPU interpreter or JIT. The GPU is not emulated either:
+NVN2, the Switch 2 graphics API, is reimplemented on top of Vulkan at the API level, and the game's SM86 shaders are
+translated to SPIR-V ahead of time. Nintendo SDK functions (`nn::*`) are replaced by name with our own code.
 
 ## Status
 
@@ -77,8 +77,9 @@ reach, and a frame over 33.3 ms runs the race slower than real time.
 4. When a newer release is out, the start screen offers it (**Update to vX**): it downloads it, checks it, replaces
    the program and sets up again only what changed. **Settings → Menu → Check for updates** turns the check off.
 
-Requirements: x86-64 CPU with AVX2, a GPU with Vulkan 1.3 (`VK_EXT_mesh_shader` recommended; without it, task and
-mesh shaders run as compute), 16 GB of RAM recommended.
+Requirements: x86-64 CPU with AVX2 (or, built from source on Linux, AArch64 with ARMv8.2: LSE, FP16, RCpc, DotProd,
+CRC32), a GPU with Vulkan 1.3 (`VK_EXT_mesh_shader` recommended; without it, task and mesh shaders run as compute),
+16 GB of RAM recommended.
 
 ## Extra features
 
