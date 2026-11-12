@@ -70,7 +70,7 @@ import update  # (ca_file)
 PREP_VERSION = 1  # bump when a step's output changes meaning: every step runs again
 from versions import Version, build_id_of, detect_id  # (build build.py put recomp/ on the path)
 ROMFS_MARGIN = 0.95  # a few short still passes: some dumping tools skip empty files
-SHADER_DIRS = ("Effect", "Layout", "Lib")  # the RomFS folders extract.py reads shaders from (its SHADER_DIRS)
+SHADER_DIRS = ("Effect", "Layout", "Lib")  # extract.py's SHADER_DIRS: with Shader/, the RomFS folders it reads
 STEPS = ("check", "exefs", "romfs", "generate", "compile", "shaders", "warm", "cleanup")
 WARM_SECONDS = 60  # the driver cache is saved every 20 s and the pipeline keys every 2 (vk_pipeline.c, vk_pipe_keys.c)
 
@@ -418,7 +418,7 @@ def main() -> None:
                 compile_game(game, game / "exefs", work, cc, args.target, jobs)
             elif step == "shaders":
                 # extract.py reads a .nup itself; a .nx's shader archives are unpacked first
-                src_romfs = loose_romfs(game, romfs, work, *SHADER_DIRS) if is_nx(romfs) else romfs
+                src_romfs = loose_romfs(game, romfs, work, "Shader", *SHADER_DIRS) if is_nx(romfs) else romfs
                 shaders(game / "exefs", src_romfs, game, work, glslc, args.jobs or shader_jobs(), cc)
             elif step == "warm":
                 warm(game, work)

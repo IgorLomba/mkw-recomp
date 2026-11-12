@@ -1357,6 +1357,14 @@ static uint64_t probe_romfs(void) {
     CHECK(RES(S_MOUNT_ROM, U("rom"), 0, 0) == 0, "MountRom(\"rom\") again");
     CHECK(RES(S_MOUNT_ROM, U("../x"), 0, 0) == FS_R_INVALID, "MountRom with a bad name");
     probe_paths();
+    char any[4200];
+    uint64_t first = 0;
+    while (first < count && !romfs_source_path(first, any, sizeof any)) first++;
+    if (first == count) {   // a .nx package: every row is read through its blocks, no host bytes to compare with
+        rt_log("probe-fs: %llu RomFS files, all inside a .nx package: reads not compared (mkw --unpack checks them)",
+               (unsigned long long)count);
+        return count;
+    }
 
     uint8_t *a = malloc(HEAD_BYTES), *b = malloc(HEAD_BYTES);
     need(a && b, "probe buffers");
