@@ -327,6 +327,10 @@ def save_state(game: Path, state: dict) -> None:
 
 
 def main() -> None:
+    # This Python runs with -I, but the tools it starts (gen.py, spec.py, translate.py and their workers) would take the
+    # player's PYTHONPATH or PYTHONHOME and load another Python's modules: "Module use of python312.dll conflicts" (#177)
+    for k in [k for k in os.environ if k.startswith("PYTHON")]:
+        del os.environ[k]
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument(
         "--source",

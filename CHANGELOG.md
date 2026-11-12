@@ -11,6 +11,8 @@ its issue, #N), `### Tested` (what was run from the packages before publishing) 
 - Settings > Sound > Mute in background: no sound while the game window is not in front (off by default).
 - Settings > Controls > Stick dead zone (8 % by default): round instead of per axis, and the tilt past it starts from
   zero, so small moves just outside it are no longer lost; raise it if the kart drifts with the stick at rest.
+- The setup no longer fails at "generate" with "Module use of python312.dll conflicts with this version of Python"
+  (#177) when another Python's `PYTHONPATH` or `PYTHONHOME` is set on the machine.
 
 ## 0.1.9
 
