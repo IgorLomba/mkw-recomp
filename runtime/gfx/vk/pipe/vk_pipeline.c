@@ -149,6 +149,14 @@ int ensure_init(void) {
     // dynamic and their offsets go with the bind; sets are allocated, as push sets cannot be kept.
     P.draw_cache = cfg_get("MKW_DRAW_CACHE") && atoi(cfg_get("MKW_DRAW_CACHE"));
     P.max_dyn_ubo = p2.properties.limits.maxDescriptorSetUniformBuffersDynamic;
+    // MKW_VK_SHARED_LIMIT=<bytes>: less workgroup memory than the device has, to check spirv_clamp_shared's cut and
+    // wrap on a desktop GPU as on Adreno 7xx's 32 KiB
+    uint32_t sdev = p2.properties.limits.maxComputeSharedMemorySize;
+    const char *sl = cfg_get("MKW_VK_SHARED_LIMIT");
+    P.smem_limit = sl && *sl && (uint32_t)atoi(sl) && (uint32_t)atoi(sl) < sdev ? (uint32_t)atoi(sl) : sdev;
+    if (P.smem_limit != sdev)
+        rt_log("vk_pipeline: workgroup memory limited to %u bytes (MKW_VK_SHARED_LIMIT; the device has %u)", P.smem_limit,
+               sdev);
     if (P.draw_cache)
         rt_log("vk_pipeline: draw cache on (MKW_DRAW_CACHE): sets kept across frames, up to %u dynamic uniform buffers "
                "a layout", P.max_dyn_ubo);
@@ -542,6 +550,15 @@ VkShaderModule make_module(const uint32_t *w, uint64_t words) {
     uint64_t fixed_n = 0;
     uint32_t *fixed = spirv_fixup(w, words, &fixed_n);
     if (fixed) w = fixed, words = fixed_n;
+    uint32_t from = 0, to = 0, smax = P.smem_limit;
+    uint32_t *clamped = spirv_clamp_shared(w, words, smax, &fixed_n, &from, &to);
+    if (clamped) {
+        if (from != to)
+            LOG_ONCE("vk_pipeline: compute shaders declare up to %u bytes of shared memory, the limit is %u: cut to %u",
+                     from, smax, to);
+        free(fixed);
+        fixed = clamped, w = fixed, words = fixed_n;
+    }
     VkShaderModuleCreateInfo ci = {.sType = VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO, .codeSize = (size_t)words * 4, .pCode = w};
     VkShaderModule m = VK_NULL_HANDLE;
     VkResult r = vkCreateShaderModule(P.device, &ci, NULL, &m);
