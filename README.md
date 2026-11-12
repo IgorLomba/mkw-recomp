@@ -13,14 +13,15 @@ Nintendo SDK functions (`nn::*`) are replaced by name with our own code.
 
 ## Status
 
-Early, and moving fast. On 09/11/2026:
+Early, and moving fast. On 12/11/2026:
 
 - It boots, plays the intro movies, goes through the menus and races, on Linux and on Windows.
 - The start screen sets the game up from your copy on your machine (generates and compiles the C, translates the
   shaders, warms up the pipeline cache) and holds every setting: display, graphics quality, controls, hacks.
-- Races run at about 30 fps on a Radeon 660M at 720p and below that on a GTX 1050 Ti at 1080p; 60 fps is the goal.
-  Below 60 fps, choose Settings > Screen > Frame rate > 30: the Automatic one (the console's) flips between 60 and 30
-  for now and the race runs in slow motion. See [Performance](#performance).
+- Races, from players' logs: 60 fps on an RX 7900 XTX at 4K and an RX 9070 XT; about 47 fps on an RTX 3060 at 1080p;
+  30-35 fps on an RTX 3050 Laptop at 720p and our Radeon 660M at 720p; below 30 on 4 GB cards (GTX 1650 SUPER, GTX
+  1050 Ti, RX 5500 XT) at 1080p. Frame rate on Automatic (the console's) drops to 30 when 60 is out of reach; a
+  frame over 33 ms runs the race slower than real time. See [Performance](#performance).
 - Frame generation (Settings > Screen > Frame generation, off by default): frames made between the game's, so a race
   at 30 fps is shown at 60, or at 60 on a 240 Hz monitor at 240. Smoother, not faster: the game's own frame rate stays
   the same, the picture is up to one frame later, and fast motion and the minimap can smear.
