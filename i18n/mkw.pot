@@ -1,0 +1,1731 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: mkw-recomp\nMIME-Version: 1.0\nContent-Type: text/plain; "
+"charset=UTF-8\nContent-Transfer-Encoding: 8bit\n"
+
+#. The software keyboard's starting text: at most 9 UTF-16 units, no '@' '%' '\'.
+msgctxt "UI_SWKBD_DEFAULT_NAME"
+msgid "Player"
+msgstr ""
+
+msgctxt "UI_MENU_TITLE"
+msgid "Settings"
+msgstr ""
+
+msgctxt "UI_MENU_TAB_SCREEN"
+msgid "Screen"
+msgstr ""
+
+msgctxt "UI_MENU_TAB_GAME"
+msgid "Game"
+msgstr ""
+
+msgctxt "UI_MENU_TAB_SOUND"
+msgid "Sound"
+msgstr ""
+
+msgctxt "UI_MENU_TAB_CONTROLS"
+msgid "Controls"
+msgstr ""
+
+msgctxt "UI_MENU_TAB_MENU"
+msgid "Menu"
+msgstr ""
+
+msgctxt "UI_MENU_TAB_ADVANCED"
+msgid "Advanced"
+msgstr ""
+
+msgctxt "UI_MENU_TAB_GRAPHICS"
+msgid "Graphics"
+msgstr ""
+
+msgctxt "UI_MENU_TAB_HACKS"
+msgid "Hacks"
+msgstr ""
+
+msgctxt "UI_MENU_HACKS_WARNING"
+msgid ""
+"Experimental: shortcuts the console does not have, for playing and testing faster. They can "
+"change how the game behaves."
+msgstr ""
+
+msgctxt "UI_MENU_TURBO"
+msgid "Turbo"
+msgstr ""
+
+msgctxt "UI_MENU_TURBO_DESC"
+msgid ""
+"The whole game runs faster: menus, movies, loads and races. Hold or press F2. The screen shows at "
+"most 60 frames a second."
+msgstr ""
+
+msgctxt "UI_MENU_TURBO_HOLD"
+msgid "Hold F2"
+msgstr ""
+
+msgctxt "UI_MENU_TURBO_TOGGLE"
+msgid "F2 on/off"
+msgstr ""
+
+msgctxt "UI_MENU_TURBO_SPEED"
+msgid "Turbo speed"
+msgstr ""
+
+msgctxt "UI_MENU_TURBO_SPEED_DESC"
+msgid "How many times faster. A slow PC may not reach it."
+msgstr ""
+
+msgctxt "UI_MENU_SKIP_MOVIES"
+msgid "Skip movies"
+msgstr ""
+
+msgctxt "UI_MENU_SKIP_MOVIES_DESC"
+msgid "Skips the cup and course openings as soon as they start."
+msgstr ""
+
+msgctxt "UI_MENU_SEED"
+msgid "Same randomness every time"
+msgstr ""
+
+msgctxt "UI_MENU_SEED_DESC"
+msgid ""
+"The game draws the same random numbers in every session: the same title course, the same items. "
+"For testing."
+msgstr ""
+
+msgctxt "UI_MENU_FREEZE_KEYS"
+msgid "Freeze keys"
+msgstr ""
+
+msgctxt "UI_MENU_FREEZE_KEYS_DESC"
+msgid ""
+"F3 stops the game on the frame on screen and starts it again; F4 moves it on by one frame. To "
+"look at a moment closely."
+msgstr ""
+
+msgctxt "UI_MENU_UNLOCK_ALL"
+msgid "Unlock everything"
+msgstr ""
+
+msgctxt "UI_MENU_UNLOCK_ALL_DESC"
+msgid ""
+"Every driver and outfit, vehicle and sticker, and the Special Cup. It goes into your save when "
+"the game saves: turning it off does not lock them again."
+msgstr ""
+
+msgctxt "UI_MENU_QUICK_RACE"
+msgid "Straight to"
+msgstr ""
+
+msgctxt "UI_MENU_QUICK_RACE_DESC"
+msgid ""
+"Goes through the menus by itself at start. Time trial: Mario, standard kart and the course the "
+"game offers (always the same with «Same randomness every time»), no rivals. Free roam: the open "
+"world. The controller still works."
+msgstr ""
+
+msgctxt "UI_MENU_QUICK_RACE_TT"
+msgid "Time trial"
+msgstr ""
+
+msgctxt "UI_MENU_QUICK_RACE_FREE"
+msgid "Free roam"
+msgstr ""
+
+msgctxt "UI_MENU_ANISO"
+msgid "Texture filtering"
+msgstr ""
+
+msgctxt "UI_MENU_ANISO_DESC"
+msgid ""
+"Sharpness of textures seen far away or at a low angle, such as the road ahead. Game uses what "
+"each texture asks for. Impact on frame rate: low."
+msgstr ""
+
+msgctxt "UI_MENU_ANISO_GAME"
+msgid "Game"
+msgstr ""
+
+msgctxt "UI_MENU_TEX_QUALITY"
+msgid "Texture quality"
+msgstr ""
+
+msgctxt "UI_MENU_TEX_QUALITY_DESC"
+msgid ""
+"Detail of the game's own textures. Half and Quarter skip their finest levels: less memory traffic "
+"on the graphics card, blurrier surfaces up close. Impact on frame rate: low."
+msgstr ""
+
+msgctxt "UI_MENU_TEX_QUALITY_FULL"
+msgid "Full"
+msgstr ""
+
+msgctxt "UI_MENU_TEX_QUALITY_HALF"
+msgid "Half"
+msgstr ""
+
+msgctxt "UI_MENU_TEX_QUALITY_QUARTER"
+msgid "Quarter"
+msgstr ""
+
+msgctxt "UI_MENU_DETAIL"
+msgid "Detail distance"
+msgstr ""
+
+msgctxt "UI_MENU_DETAIL_DESC"
+msgid ""
+"How far objects keep their detailed models before switching to simpler ones. Console is the "
+"Switch 2's. Impact on frame rate: low."
+msgstr ""
+
+msgctxt "UI_MENU_DETAIL_LOW"
+msgid "Low"
+msgstr ""
+
+msgctxt "UI_MENU_DETAIL_MEDIUM"
+msgid "Medium"
+msgstr ""
+
+msgctxt "UI_MENU_DETAIL_CONSOLE"
+msgid "Console"
+msgstr ""
+
+msgctxt "UI_MENU_DETAIL_HIGH"
+msgid "High"
+msgstr ""
+
+msgctxt "UI_MENU_DETAIL_ULTRA"
+msgid "Very high"
+msgstr ""
+
+msgctxt "UI_MENU_SHADOW"
+msgid "Shadow quality"
+msgstr ""
+
+msgctxt "UI_MENU_SHADOW_DESC"
+msgid ""
+"Size of the map the game draws shadows from. Smaller is lighter for the graphics card, with "
+"blurrier shadow edges. Console is 3072 docked and 2048 handheld. Impact on frame rate: low."
+msgstr ""
+
+msgctxt "UI_MENU_CONTINUE"
+msgid "Continue"
+msgstr ""
+
+msgctxt "UI_MENU_QUIT"
+msgid "Quit game"
+msgstr ""
+
+msgctxt "UI_MENU_ON"
+msgid "On"
+msgstr ""
+
+msgctxt "UI_MENU_OFF"
+msgid "Off"
+msgstr ""
+
+msgctxt "UI_MENU_AUTO"
+msgid "Automatic"
+msgstr ""
+
+msgctxt "UI_MENU_DEFAULT_MARK"
+msgid "default"
+msgstr ""
+
+msgctxt "UI_MENU_AFTER_RESTART"
+msgid "after restart"
+msgstr ""
+
+msgctxt "UI_MENU_SET_BY_ENV"
+msgid "set by environment variable"
+msgstr ""
+
+msgctxt "UI_MENU_SAVE_FAILED"
+msgid "could not save settings"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_VERSION"
+msgid "MKW Recomp %s, game %s"
+msgstr ""
+
+msgctxt "UI_MENU_FULLSCREEN"
+msgid "Fullscreen"
+msgstr ""
+
+msgctxt "UI_MENU_FULLSCREEN_DESC"
+msgid "Fills the screen with the game; F11 toggles it."
+msgstr ""
+
+msgctxt "UI_MENU_WINDOW_SIZE"
+msgid "Window size"
+msgstr ""
+
+msgctxt "UI_MENU_WINDOW_SIZE_DESC"
+msgid "Size of the game window when not fullscreen."
+msgstr ""
+
+msgctxt "UI_MENU_QUALITY"
+msgid "Quality"
+msgstr ""
+
+msgctxt "UI_MENU_QUALITY_DESC"
+msgid ""
+"Sets the rows below at once. Console looks like the Switch 2; Low and Medium are lighter for the "
+"graphics card, High and Very high sharper. Changing a row makes it Custom. The internal "
+"resolution is what changes the frame rate most."
+msgstr ""
+
+msgctxt "UI_MENU_QUALITY_CUSTOM"
+msgid "Custom"
+msgstr ""
+
+msgctxt "UI_MENU_RESOLUTION"
+msgid "Internal resolution"
+msgstr ""
+
+msgctxt "UI_MENU_RESOLUTION_DESC"
+msgid ""
+"Lines the game renders its scenes at, then scaled to the window. Lower is faster: 720p suits "
+"integrated graphics. Original is the console's (up to 1440p)."
+msgstr ""
+
+msgctxt "UI_MENU_RESOLUTION_ORIGINAL"
+msgid "Original"
+msgstr ""
+
+msgctxt "UI_MENU_ASPECT"
+msgid "Aspect ratio"
+msgstr ""
+
+msgctxt "UI_MENU_ASPECT_DESC"
+msgid ""
+"Wider than 16:9 shows more of the course at the sides, for ultrawide screens. 16:9 is the "
+"console's; Window takes the window's or monitor's shape. Menus stay stretched for now."
+msgstr ""
+
+msgctxt "UI_MENU_ASPECT_WINDOW"
+msgid "Window"
+msgstr ""
+
+msgctxt "UI_MENU_PRESENT"
+msgid "Presentation"
+msgstr ""
+
+msgctxt "UI_MENU_PRESENT_DESC"
+msgid "How finished frames reach the screen."
+msgstr ""
+
+msgctxt "UI_MENU_PRESENT_MAILBOX"
+msgid "Mailbox"
+msgstr ""
+
+msgctxt "UI_MENU_PRESENT_VSYNC"
+msgid "VSync"
+msgstr ""
+
+msgctxt "UI_MENU_PRESENT_IMMEDIATE"
+msgid "Immediate"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_PRESENT_IN_USE"
+msgid "in use: %s"
+msgstr ""
+
+msgctxt "UI_MENU_GPU"
+msgid "Graphics card"
+msgstr ""
+
+msgctxt "UI_MENU_GPU_DESC"
+msgid "The Vulkan device that draws the game."
+msgstr ""
+
+msgctxt "UI_MENU_GPU_AUTO"
+msgid "Automatic"
+msgstr ""
+
+msgctxt "UI_MENU_PERF_OVERLAY"
+msgid "Performance overlay"
+msgstr ""
+
+msgctxt "UI_MENU_PERF_OVERLAY_DESC"
+msgid ""
+"Frame rate in the top right corner. Full adds frame times with a graph, CPU, GPU and memory load, "
+"temperatures and the render thread's waits. F10 cycles the modes."
+msgstr ""
+
+msgctxt "UI_MENU_PERF_OFF"
+msgid "Off"
+msgstr ""
+
+msgctxt "UI_MENU_PERF_FPS"
+msgid "FPS"
+msgstr ""
+
+msgctxt "UI_MENU_PERF_FULL"
+msgid "Full"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_PERF_LINE_FPS"
+msgid "%.0f fps"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_PERF_LINE_FPS_FG"
+msgid "%.0f/%.0f fps"
+msgstr ""
+
+msgctxt "UI_MENU_FPS"
+msgid "Frame rate"
+msgstr ""
+
+msgctxt "UI_MENU_FPS_DESC"
+msgid ""
+"Frames per second the game aims for. Automatic is the console's: 60, or 30 when a frame takes too "
+"long. If your computer cannot hold 60, choose 30 so the race runs at its real speed."
+msgstr ""
+
+msgctxt "UI_MENU_FPS_AUTO"
+msgid "Automatic"
+msgstr ""
+
+msgctxt "UI_MENU_FRAMEGEN"
+msgid "Frame generation"
+msgstr ""
+
+msgctxt "UI_MENU_FRAMEGEN_DESC"
+msgid ""
+"Shows frames made between the game's own: 2x turns 30 fps into 60. Automatic makes as many as "
+"your monitor's refresh rate has room for. Adds up to one frame of delay, and fast motion can "
+"smear. Not on the console."
+msgstr ""
+
+msgctxt "UI_MENU_GRAPHICS"
+msgid "Picture"
+msgstr ""
+
+msgctxt "UI_MENU_UPSCALER"
+msgid "Scaling to the window"
+msgstr ""
+
+msgctxt "UI_MENU_UPSCALER_DESC"
+msgid ""
+"How the picture is scaled when the window is larger than the game resolution. FSR keeps edges and "
+"detail sharper than bilinear."
+msgstr ""
+
+msgctxt "UI_MENU_UPSCALER_FSR"
+msgid "AMD FSR 1"
+msgstr ""
+
+msgctxt "UI_MENU_UPSCALER_BILINEAR"
+msgid "Bilinear"
+msgstr ""
+
+msgctxt "UI_MENU_PICTURE_FIT"
+msgid "Picture shape"
+msgstr ""
+
+msgctxt "UI_MENU_PICTURE_FIT_DESC"
+msgid ""
+"When the window's shape differs from the game resolution's (a 16:9 game on the Steam Deck's 16:10 "
+"screen), keep the picture's proportions with black bars, or stretch it over the whole window."
+msgstr ""
+
+msgctxt "UI_MENU_PICTURE_FIT_KEEP"
+msgid "Keep (bars)"
+msgstr ""
+
+msgctxt "UI_MENU_PICTURE_FIT_STRETCH"
+msgid "Stretch"
+msgstr ""
+
+msgctxt "UI_MENU_HDR"
+msgid "HDR"
+msgstr ""
+
+msgctxt "UI_MENU_HDR_DESC"
+msgid ""
+"Automatic shows the game's own HDR picture when the display is in HDR (on Windows, Settings > "
+"Display > Use HDR), as the console does; its brightness follows the system's HDR settings. Off "
+"always shows the standard picture. Applies at once."
+msgstr ""
+
+msgctxt "UI_MENU_SHARPNESS"
+msgid "FSR sharpness"
+msgstr ""
+
+msgctxt "UI_MENU_SHARPNESS_DESC"
+msgid "Sharpening after FSR scaling; 0 turns it off."
+msgstr ""
+
+msgctxt "UI_MENU_GAME_LANG"
+msgid "Game language"
+msgstr ""
+
+msgctxt "UI_MENU_GAME_LANG_DESC"
+msgid "Language of the game's text and voices."
+msgstr ""
+
+msgctxt "UI_MENU_GAME_LANG_AUTO"
+msgid "Automatic"
+msgstr ""
+
+msgctxt "UI_MENU_OPERATION_MODE"
+msgid "Console mode"
+msgstr ""
+
+msgctxt "UI_MENU_OPERATION_MODE_DESC"
+msgid ""
+"Whether the game thinks it runs docked or handheld. Docked, it draws the scene smaller and "
+"enlarges it with its own scaler; handheld, at the full internal resolution with smaller shadows: "
+"sharper, but more work for the graphics card."
+msgstr ""
+
+msgctxt "UI_MENU_MODE_DOCKED"
+msgid "Docked"
+msgstr ""
+
+msgctxt "UI_MENU_MODE_HANDHELD"
+msgid "Handheld"
+msgstr ""
+
+msgctxt "UI_MENU_VOLUME"
+msgid "Volume"
+msgstr ""
+
+msgctxt "UI_MENU_VOLUME_DESC"
+msgid "Master volume of the game."
+msgstr ""
+
+msgctxt "UI_MENU_SPEAKERS"
+msgid "Speakers"
+msgstr ""
+
+msgctxt "UI_MENU_SPEAKERS_STEREO"
+msgid "Stereo"
+msgstr ""
+
+msgctxt "UI_MENU_SPEAKERS_51"
+msgid "5.1 surround"
+msgstr ""
+
+msgctxt "UI_MENU_SPEAKERS_DESC"
+msgid ""
+"Automatic gives the game's 5.1 surround mix when the system's sound output has 6 channels or "
+"more, and stereo otherwise. Applies at the next start."
+msgstr ""
+
+msgctxt "UI_MENU_MOTION"
+msgid "Motion controls"
+msgstr ""
+
+msgctxt "UI_MENU_MOTION_DESC"
+msgid "Steering by tilting the controller."
+msgstr ""
+
+msgctxt "UI_MENU_RUMBLE_STRENGTH"
+msgid "Vibration strength"
+msgstr ""
+
+msgctxt "UI_MENU_RUMBLE_STRENGTH_DESC"
+msgid "How strong the controller vibrates."
+msgstr ""
+
+msgctxt "UI_MENU_RUMBLE_CURVE"
+msgid "Vibration curve"
+msgstr ""
+
+msgctxt "UI_MENU_RUMBLE_CURVE_DESC"
+msgid "Lower values make weak vibration stronger."
+msgstr ""
+
+msgctxt "UI_MENU_RUMBLE_TRIGGERS"
+msgid "Trigger vibration (Xbox)"
+msgstr ""
+
+msgctxt "UI_MENU_RUMBLE_TRIGGERS_DESC"
+msgid "Vibrates the triggers of an Xbox controller too."
+msgstr ""
+
+msgctxt "UI_MENU_PAD_LAYOUT"
+msgid "Button layout"
+msgstr ""
+
+msgctxt "UI_MENU_PAD_LAYOUT_DESC"
+msgid ""
+"Which button is A. Nintendo: the right one, as on a Switch. Xbox: the bottom one, as labelled on "
+"an Xbox controller (cross on a PlayStation controller). Automatic picks Nintendo for controllers "
+"with Nintendo labels and Xbox for the others."
+msgstr ""
+
+msgctxt "UI_MENU_PAD_LAYOUT_AUTO"
+msgid "Automatic"
+msgstr ""
+
+msgctxt "UI_MENU_PAD_LAYOUT_NINTENDO"
+msgid "Nintendo (A right)"
+msgstr ""
+
+msgctxt "UI_MENU_PAD_LAYOUT_XBOX"
+msgid "Xbox (A bottom)"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_PAD_LAYOUT_IN_USE"
+msgid "in use: %s"
+msgstr ""
+
+msgctxt "UI_MENU_MOUSE_SENS"
+msgid "Mouse camera sensitivity"
+msgstr ""
+
+msgctxt "UI_MENU_MOUSE_SENS_DESC"
+msgid "How fast the mouse turns the camera."
+msgstr ""
+
+msgctxt "UI_MENU_BUTTON_ICONS"
+msgid "Button icons"
+msgstr ""
+
+msgctxt "UI_MENU_BUTTON_ICONS_DESC"
+msgid ""
+"Which buttons the game's prompts show. Automatic follows the device you used last: the "
+"controller's own buttons (Xbox or PlayStation), or your keys and mouse. The icons follow your "
+"remapped buttons."
+msgstr ""
+
+msgctxt "UI_MENU_ICONS_NINTENDO"
+msgid "Nintendo"
+msgstr ""
+
+msgctxt "UI_MENU_ICONS_XBOX"
+msgid "Xbox"
+msgstr ""
+
+msgctxt "UI_MENU_ICONS_PLAYSTATION"
+msgid "PlayStation"
+msgstr ""
+
+msgctxt "UI_MENU_ICONS_KEYBOARD"
+msgid "Keyboard"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_ICONS_IN_USE"
+msgid "in use: %s"
+msgstr ""
+
+msgctxt "UI_BINDS_HELP"
+msgid ""
+"Select a cell and press A or Enter, then the key, mouse button or controller button. Delete or X "
+"clears a cell. A key in use moves here; a controller button swaps with the one it replaces."
+msgstr ""
+
+msgctxt "UI_BINDS_COL_KEY1"
+msgid "Key 1"
+msgstr ""
+
+msgctxt "UI_BINDS_COL_KEY2"
+msgid "Key 2"
+msgstr ""
+
+msgctxt "UI_BINDS_COL_PAD"
+msgid "Controller"
+msgstr ""
+
+msgctxt "UI_BINDS_GROUP_BUTTONS"
+msgid "Buttons"
+msgstr ""
+
+msgctxt "UI_BINDS_GROUP_MOVE"
+msgid "Movement"
+msgstr ""
+
+msgctxt "UI_BINDS_GROUP_CAMERA"
+msgid "Camera"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_BINDS_PRESS_KEY"
+msgid "Press a key or mouse button for %s"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_BINDS_PRESS_PAD"
+msgid "Press a controller button for %s"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_BINDS_CANCEL_HINT"
+msgid "Esc cancels, or wait %d s"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_BINDS_TAKEN"
+msgid "%s was taken from %s"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_BINDS_SWAPPED"
+msgid "%s swapped with %s"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_NOTICE_PADS_MISSING"
+msgid "%d players need a controller each: %d connected. The keyboard only counts for player 1."
+msgstr ""
+
+msgctxt "UI_BINDS_RESET"
+msgid "Reset all buttons"
+msgstr ""
+
+msgctxt "UI_BINDS_RESET_DESC"
+msgid ""
+"Back to the default keys and controller buttons. The button layout above applies again: remapped "
+"controller buttons stay where you put them until this reset."
+msgstr ""
+
+msgctxt "UI_BIND_A"
+msgid "A"
+msgstr ""
+
+msgctxt "UI_BIND_B"
+msgid "B"
+msgstr ""
+
+msgctxt "UI_BIND_X"
+msgid "X"
+msgstr ""
+
+msgctxt "UI_BIND_Y"
+msgid "Y"
+msgstr ""
+
+msgctxt "UI_BIND_LCLICK"
+msgid "Left stick click"
+msgstr ""
+
+msgctxt "UI_BIND_RCLICK"
+msgid "Right stick click"
+msgstr ""
+
+msgctxt "UI_BIND_L"
+msgid "L"
+msgstr ""
+
+msgctxt "UI_BIND_R"
+msgid "R"
+msgstr ""
+
+msgctxt "UI_BIND_ZL"
+msgid "ZL"
+msgstr ""
+
+msgctxt "UI_BIND_ZR"
+msgid "ZR"
+msgstr ""
+
+msgctxt "UI_BIND_PLUS"
+msgid "Plus"
+msgstr ""
+
+msgctxt "UI_BIND_MINUS"
+msgid "Minus"
+msgstr ""
+
+msgctxt "UI_BIND_LEFT"
+msgid "D-pad left"
+msgstr ""
+
+msgctxt "UI_BIND_UP"
+msgid "D-pad up"
+msgstr ""
+
+msgctxt "UI_BIND_RIGHT"
+msgid "D-pad right"
+msgstr ""
+
+msgctxt "UI_BIND_DOWN"
+msgid "D-pad down"
+msgstr ""
+
+msgctxt "UI_BIND_LSTICK_LEFT"
+msgid "Steer left"
+msgstr ""
+
+msgctxt "UI_BIND_LSTICK_UP"
+msgid "Stick up"
+msgstr ""
+
+msgctxt "UI_BIND_LSTICK_RIGHT"
+msgid "Steer right"
+msgstr ""
+
+msgctxt "UI_BIND_LSTICK_DOWN"
+msgid "Stick down"
+msgstr ""
+
+msgctxt "UI_BIND_RSTICK_LEFT"
+msgid "Camera left"
+msgstr ""
+
+msgctxt "UI_BIND_RSTICK_UP"
+msgid "Camera up"
+msgstr ""
+
+msgctxt "UI_BIND_RSTICK_RIGHT"
+msgid "Camera right"
+msgstr ""
+
+msgctxt "UI_BIND_RSTICK_DOWN"
+msgid "Camera down"
+msgstr ""
+
+msgctxt "UI_BIND_DESC_A"
+msgid "Accelerate; confirm in menus."
+msgstr ""
+
+msgctxt "UI_BIND_DESC_B"
+msgid "Brake, reverse; back in menus."
+msgstr ""
+
+msgctxt "UI_BIND_DESC_X"
+msgid "Rear view."
+msgstr ""
+
+msgctxt "UI_BIND_DESC_Y"
+msgid "World map (free roam)."
+msgstr ""
+
+msgctxt "UI_BIND_DESC_LCLICK"
+msgid "No action in the game's control list."
+msgstr ""
+
+msgctxt "UI_BIND_DESC_RCLICK"
+msgid "No action in the game's control list."
+msgstr ""
+
+msgctxt "UI_BIND_DESC_L"
+msgid "Use an item."
+msgstr ""
+
+msgctxt "UI_BIND_DESC_R"
+msgid "Hop, drift, charge jump, trick."
+msgstr ""
+
+msgctxt "UI_BIND_DESC_ZL"
+msgid "Use an item."
+msgstr ""
+
+msgctxt "UI_BIND_DESC_ZR"
+msgid "Hop, drift, charge jump, trick."
+msgstr ""
+
+msgctxt "UI_BIND_DESC_PLUS"
+msgid "Pause, settings."
+msgstr ""
+
+msgctxt "UI_BIND_DESC_MINUS"
+msgid "Photo mode."
+msgstr ""
+
+msgctxt "UI_BIND_DESC_DPAD"
+msgid "Down rewinds; all four move in menus."
+msgstr ""
+
+msgctxt "UI_BIND_DESC_MOVE"
+msgid "Steers like the left stick. The controller's left stick always works too."
+msgstr ""
+
+msgctxt "UI_BIND_DESC_CAMERA"
+msgid ""
+"Turns the camera like the right stick. The mouse and the controller's right stick always work too."
+msgstr ""
+
+msgctxt "UI_KEY_SPACE"
+msgid "Space"
+msgstr ""
+
+msgctxt "UI_KEY_TAB"
+msgid "Tab"
+msgstr ""
+
+msgctxt "UI_KEY_LSHIFT"
+msgid "Left Shift"
+msgstr ""
+
+msgctxt "UI_KEY_LCTRL"
+msgid "Left Ctrl"
+msgstr ""
+
+msgctxt "UI_KEY_UP"
+msgid "Up arrow"
+msgstr ""
+
+msgctxt "UI_KEY_DOWN"
+msgid "Down arrow"
+msgstr ""
+
+msgctxt "UI_KEY_LEFT"
+msgid "Left arrow"
+msgstr ""
+
+msgctxt "UI_KEY_RIGHT"
+msgid "Right arrow"
+msgstr ""
+
+msgctxt "UI_KEY_MOUSE_L"
+msgid "Left mouse"
+msgstr ""
+
+msgctxt "UI_KEY_MOUSE_R"
+msgid "Right mouse"
+msgstr ""
+
+msgctxt "UI_KEY_MOUSE_M"
+msgid "Middle mouse"
+msgstr ""
+
+msgctxt "UI_KEY_MOUSE_X1"
+msgid "Mouse 4"
+msgstr ""
+
+msgctxt "UI_KEY_MOUSE_X2"
+msgid "Mouse 5"
+msgstr ""
+
+msgctxt "UI_KEY_ENTER"
+msgid "Enter"
+msgstr ""
+
+msgctxt "UI_KEY_BACKSPACE"
+msgid "Backspace"
+msgstr ""
+
+msgctxt "UI_KEY_RSHIFT"
+msgid "Right Shift"
+msgstr ""
+
+msgctxt "UI_KEY_RCTRL"
+msgid "Right Ctrl"
+msgstr ""
+
+msgctxt "UI_KEY_LALT"
+msgid "Alt"
+msgstr ""
+
+msgctxt "UI_KEY_CAPSLOCK"
+msgid "Caps Lock"
+msgstr ""
+
+msgctxt "UI_KEY_INSERT"
+msgid "Insert"
+msgstr ""
+
+msgctxt "UI_KEY_DELETE"
+msgid "Delete"
+msgstr ""
+
+msgctxt "UI_KEY_HOME"
+msgid "Home"
+msgstr ""
+
+msgctxt "UI_KEY_END"
+msgid "End"
+msgstr ""
+
+msgctxt "UI_KEY_PAGEUP"
+msgid "Page Up"
+msgstr ""
+
+msgctxt "UI_KEY_PAGEDOWN"
+msgid "Page Down"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_KEY_NUM_FMT"
+msgid "Num %s"
+msgstr ""
+
+msgctxt "UI_PAD_SOUTH"
+msgid "Bottom button"
+msgstr ""
+
+msgctxt "UI_PAD_EAST"
+msgid "Right button"
+msgstr ""
+
+msgctxt "UI_PAD_WEST"
+msgid "Left button"
+msgstr ""
+
+msgctxt "UI_PAD_NORTH"
+msgid "Top button"
+msgstr ""
+
+msgctxt "UI_PAD_LSTICK"
+msgid "Left stick"
+msgstr ""
+
+msgctxt "UI_PAD_RSTICK"
+msgid "Right stick"
+msgstr ""
+
+msgctxt "UI_PAD_L"
+msgid "Left bumper"
+msgstr ""
+
+msgctxt "UI_PAD_R"
+msgid "Right bumper"
+msgstr ""
+
+msgctxt "UI_PAD_START"
+msgid "Start"
+msgstr ""
+
+msgctxt "UI_PAD_BACK"
+msgid "Back"
+msgstr ""
+
+msgctxt "UI_PAD_DPAD_LEFT"
+msgid "D-pad left"
+msgstr ""
+
+msgctxt "UI_PAD_DPAD_UP"
+msgid "D-pad up"
+msgstr ""
+
+msgctxt "UI_PAD_DPAD_RIGHT"
+msgid "D-pad right"
+msgstr ""
+
+msgctxt "UI_PAD_DPAD_DOWN"
+msgid "D-pad down"
+msgstr ""
+
+msgctxt "UI_PAD_ZL"
+msgid "Left trigger"
+msgstr ""
+
+msgctxt "UI_PAD_ZR"
+msgid "Right trigger"
+msgstr ""
+
+msgctxt "UI_PAD_CROSS"
+msgid "Cross"
+msgstr ""
+
+msgctxt "UI_PAD_CIRCLE"
+msgid "Circle"
+msgstr ""
+
+msgctxt "UI_PAD_SQUARE"
+msgid "Square"
+msgstr ""
+
+msgctxt "UI_PAD_TRIANGLE"
+msgid "Triangle"
+msgstr ""
+
+msgctxt "UI_MENU_MENU_LANG"
+msgid "Menu language"
+msgstr ""
+
+msgctxt "UI_MENU_MENU_LANG_DESC"
+msgid "Language of this menu and the overlay."
+msgstr ""
+
+msgctxt "UI_MENU_MENU_LANG_AUTO"
+msgid "Automatic (from the system)"
+msgstr ""
+
+msgctxt "UI_MENU_ADV_WARNING"
+msgid "These settings are for testing and troubleshooting. Change them only when you know why."
+msgstr ""
+
+msgctxt "UI_MENU_GROUP_SCHED"
+msgid "Scheduling"
+msgstr ""
+
+msgctxt "UI_MENU_GROUP_SHADERS"
+msgid "Shaders and pipelines"
+msgstr ""
+
+msgctxt "UI_MENU_GROUP_TEXMEM"
+msgid "Textures and memory"
+msgstr ""
+
+msgctxt "UI_MENU_GROUP_FIXES"
+msgid "Render fixes"
+msgstr ""
+
+msgctxt "UI_MENU_GROUP_VULKAN"
+msgid "Vulkan"
+msgstr ""
+
+msgctxt "UI_MENU_GROUP_DIAG"
+msgid "Diagnostics"
+msgstr ""
+
+msgctxt "UI_MENU_ASYNC_PREEMPT"
+msgid "Virtual core preemption"
+msgstr ""
+
+msgctxt "UI_MENU_ASYNC_PREEMPT_DESC"
+msgid "Lets a game thread interrupt another one on the same virtual core."
+msgstr ""
+
+msgctxt "UI_MENU_PREEMPT_OFF"
+msgid "Off"
+msgstr ""
+
+msgctxt "UI_MENU_PREEMPT_ON"
+msgid "On"
+msgstr ""
+
+msgctxt "UI_MENU_PREEMPT_INHERIT"
+msgid "Inheritance only"
+msgstr ""
+
+msgctxt "UI_MENU_REPLAY_ASYNC"
+msgid "GPU frame prep on its own thread"
+msgstr ""
+
+msgctxt "UI_MENU_REPLAY_ASYNC_DESC"
+msgid ""
+"Prepares frames for the GPU on a separate thread instead of the game thread. Adds up to one frame "
+"of latency."
+msgstr ""
+
+msgctxt "UI_MENU_FREE_CORES"
+msgid "Virtual core gate"
+msgstr ""
+
+msgctxt "UI_MENU_FREE_CORES_DESC"
+msgid "Lets only one thread run per virtual core, as on the console."
+msgstr ""
+
+msgctxt "UI_MENU_TIMER_1MS"
+msgid "1 ms Windows timer"
+msgstr ""
+
+msgctxt "UI_MENU_TIMER_1MS_DESC"
+msgid "Raises the system timer resolution to 1 ms for steadier frame pacing."
+msgstr ""
+
+msgctxt "UI_MENU_PIPE_WAIT"
+msgid "Waiting draw handling"
+msgstr ""
+
+msgctxt "UI_MENU_PIPE_WAIT_DESC"
+msgid ""
+"Default keeps the current scheduling with a reserved worker for waiting draws; Old (draw) uses "
+"the previous scheduling."
+msgstr ""
+
+msgctxt "UI_MENU_PIPE_WAIT_DEFAULT"
+msgid "Default"
+msgstr ""
+
+msgctxt "UI_MENU_PIPE_WAIT_DRAW"
+msgid "Old (draw)"
+msgstr ""
+
+msgctxt "UI_MENU_PIPE_SKIP"
+msgid "Draws skipped while a pipeline builds"
+msgstr ""
+
+msgctxt "UI_MENU_PIPE_SKIP_DESC"
+msgid "Which draws are dropped instead of waiting for their pipeline."
+msgstr ""
+
+msgctxt "UI_MENU_PIPE_SKIP_STRICT"
+msgid "Strict"
+msgstr ""
+
+msgctxt "UI_MENU_PIPE_SKIP_ANY"
+msgid "Any"
+msgstr ""
+
+msgctxt "UI_MENU_PIPE_SKIP_FULLSCREEN"
+msgid "Fullscreen passes"
+msgstr ""
+
+msgctxt "UI_MENU_PIPE_PREBUILD"
+msgid "Pipeline prebuild"
+msgstr ""
+
+msgctxt "UI_MENU_PIPE_PREBUILD_DESC"
+msgid "Builds known pipelines ahead of time."
+msgstr ""
+
+msgctxt "UI_MENU_GPL"
+msgid "Graphics pipeline library"
+msgstr ""
+
+msgctxt "UI_MENU_GPL_DESC"
+msgid "Uses the Vulkan pipeline library extension; turn off if your driver misbehaves with it."
+msgstr ""
+
+msgctxt "UI_MENU_ASTC"
+msgid "ASTC texture decoding"
+msgstr ""
+
+msgctxt "UI_MENU_ASTC_DESC"
+msgid "Where compressed ASTC textures are decoded."
+msgstr ""
+
+msgctxt "UI_MENU_ASTC_AUTO"
+msgid "Automatic"
+msgstr ""
+
+msgctxt "UI_MENU_ASTC_GPU"
+msgid "GPU shader"
+msgstr ""
+
+msgctxt "UI_MENU_ASTC_NATIVE"
+msgid "Native"
+msgstr ""
+
+msgctxt "UI_MENU_ASTC_CPU"
+msgid "CPU"
+msgstr ""
+
+msgctxt "UI_MENU_MEMORY"
+msgid "GPU memory mode"
+msgstr ""
+
+msgctxt "UI_MENU_MEMORY_DESC"
+msgid "How game memory is shared with the GPU."
+msgstr ""
+
+msgctxt "UI_MENU_MEMORY_AUTO"
+msgid "Automatic"
+msgstr ""
+
+msgctxt "UI_MENU_MEMORY_IMPORT"
+msgid "Import"
+msgstr ""
+
+msgctxt "UI_MENU_MEMORY_MIRROR"
+msgid "Mirror"
+msgstr ""
+
+msgctxt "UI_MENU_MEMORY_VERIFY"
+msgid "Verify"
+msgstr ""
+
+msgctxt "UI_MENU_TEX_ALIAS"
+msgid "Texture aliasing"
+msgstr ""
+
+msgctxt "UI_MENU_TEX_ALIAS_DESC"
+msgid ""
+"A new texture created over a live texture's memory starts with that content instead of empty."
+msgstr ""
+
+msgctxt "UI_MENU_FIX_C0"
+msgid "Constant buffer fix"
+msgstr ""
+
+msgctxt "UI_MENU_FIX_C0_DESC"
+msgid ""
+"Fills the driver-reserved constant bank c0 (storage sizes, dispatch size, point size, base "
+"instance) instead of reading zeros."
+msgstr ""
+
+msgctxt "UI_MENU_FIX_ZERO"
+msgid "Zero new GPU memory"
+msgstr ""
+
+msgctxt "UI_MENU_FIX_ZERO_DESC"
+msgid "New GPU memory pools start zero-filled, as Switch memory does."
+msgstr ""
+
+msgctxt "UI_MENU_BIND_SKIP"
+msgid "Skip repeated binds"
+msgstr ""
+
+msgctxt "UI_MENU_BIND_SKIP_DESC"
+msgid "Optimisation: skips bindings that did not change."
+msgstr ""
+
+msgctxt "UI_MENU_SHADER_MEMO"
+msgid "Shader memo"
+msgstr ""
+
+msgctxt "UI_MENU_SHADER_MEMO_DESC"
+msgid "Optimisation: remembers shader lookups."
+msgstr ""
+
+msgctxt "UI_MENU_PIPE_MEMO"
+msgid "Pipeline memo"
+msgstr ""
+
+msgctxt "UI_MENU_PIPE_MEMO_DESC"
+msgid "Optimisation: reuses the previous draw's pipeline when its state repeats."
+msgstr ""
+
+msgctxt "UI_MENU_TEX_MEMO"
+msgid "Texture binding memo"
+msgstr ""
+
+msgctxt "UI_MENU_TEX_MEMO_DESC"
+msgid "Optimisation: remembers texture descriptors between draws."
+msgstr ""
+
+msgctxt "UI_MENU_DESC_TEMPLATE"
+msgid "Descriptor templates"
+msgstr ""
+
+msgctxt "UI_MENU_DESC_TEMPLATE_DESC"
+msgid "Optimisation: updates descriptors in bulk."
+msgstr ""
+
+msgctxt "UI_MENU_PUSH_SKIP"
+msgid "Skip repeated push constants"
+msgstr ""
+
+msgctxt "UI_MENU_PUSH_SKIP_DESC"
+msgid "Optimisation: skips push constants that did not change."
+msgstr ""
+
+msgctxt "UI_MENU_SPLIT_DRAWS"
+msgid "Early GPU submission"
+msgstr ""
+
+msgctxt "UI_MENU_SPLIT_DRAWS_DESC"
+msgid ""
+"Submits GPU work in parts every N draws between passes so the GPU starts earlier; 0 turns it off."
+msgstr ""
+
+msgctxt "UI_MENU_VK_VALIDATION"
+msgid "Validation layer"
+msgstr ""
+
+msgctxt "UI_MENU_VK_VALIDATION_DESC"
+msgid "Checks every Vulkan call and slows the game down a lot."
+msgstr ""
+
+msgctxt "UI_MENU_VK_VALIDATION_MISSING"
+msgid "The validation layer is not installed."
+msgstr ""
+
+msgctxt "UI_MENU_VK_DYN_VERTEX"
+msgid "Dynamic vertex state"
+msgstr ""
+
+msgctxt "UI_MENU_VK_DYN_VERTEX_DESC"
+msgid "Forces dynamic vertex input on or off; the default depends on the GPU."
+msgstr ""
+
+msgctxt "UI_MENU_VK_SUBGROUP_PIN"
+msgid "Pin subgroup size"
+msgstr ""
+
+msgctxt "UI_MENU_VK_SUBGROUP_PIN_DESC"
+msgid "Fixes the shader subgroup size."
+msgstr ""
+
+msgctxt "UI_MENU_TRACE"
+msgid "Performance log"
+msgstr ""
+
+msgctxt "UI_MENU_TRACE_DESC"
+msgid "Writes frame timings to a file."
+msgstr ""
+
+msgctxt "UI_MENU_FLIGHT"
+msgid "Flight recorder"
+msgstr ""
+
+msgctxt "UI_MENU_FLIGHT_DESC"
+msgid "Keeps a short history and saves it when a frame freezes."
+msgstr ""
+
+msgctxt "UI_MENU_FLIGHT_SPIKE_MS"
+msgid "Freeze threshold (ms)"
+msgstr ""
+
+msgctxt "UI_MENU_FLIGHT_SPIKE_MS_DESC"
+msgid "Frame time that counts as a freeze."
+msgstr ""
+
+msgctxt "UI_MENU_INPUT_RECORD"
+msgid "Input recording"
+msgstr ""
+
+msgctxt "UI_MENU_INPUT_RECORD_DESC"
+msgid "Writes your inputs to a file for bug reports."
+msgstr ""
+
+msgctxt "UI_MENU_OPEN_LOG"
+msgid "Open log folder"
+msgstr ""
+
+msgctxt "UI_MENU_OPEN_LOG_DESC"
+msgid "Shows the folder with the log files."
+msgstr ""
+
+msgctxt "UI_MENU_COPY_INFO"
+msgid "Copy system info"
+msgstr ""
+
+msgctxt "UI_MENU_COPY_INFO_DESC"
+msgid "Copies GPU, driver, CPU, RAM and changed settings to the clipboard."
+msgstr ""
+
+msgctxt "UI_MENU_COPY_INFO_DONE"
+msgid "Copied"
+msgstr ""
+
+msgctxt "UI_MENU_ACTION_FAILED"
+msgid "did not work"
+msgstr ""
+
+msgctxt "UI_MENU_RESET"
+msgid "Reset all settings to defaults"
+msgstr ""
+
+msgctxt "UI_MENU_RESET_DESC"
+msgid "Applies to every tab."
+msgstr ""
+
+msgctxt "UI_MENU_RESET_CONFIRM"
+msgid "Reset every setting to its default?"
+msgstr ""
+
+msgctxt "UI_MENU_RESET_YES"
+msgid "Reset"
+msgstr ""
+
+msgctxt "UI_MENU_RESET_NO"
+msgid "Cancel"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FPS"
+msgid "%.0f FPS"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FRAME_MS"
+msgid "%.1f ms"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_GAME_PCT"
+msgid "game %.0f%%"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_MAX_MS"
+msgid "max %.1f ms"
+msgstr ""
+
+msgctxt "UI_MENU_OV_GPU"
+msgid "GPU"
+msgstr ""
+
+msgctxt "UI_MENU_OV_CPU"
+msgid "CPU"
+msgstr ""
+
+msgctxt "UI_MENU_OV_RAM"
+msgid "RAM"
+msgstr ""
+
+msgctxt "UI_MENU_OV_VRAM"
+msgid "VRAM"
+msgstr ""
+
+msgctxt "UI_MENU_OV_NONE"
+msgid "-"
+msgstr ""
+
+msgctxt "UI_MENU_OV_REPLAY"
+msgid "GPU frame prep"
+msgstr ""
+
+msgctxt "UI_MENU_OV_GPU_TIME"
+msgid "GPU busy per frame"
+msgstr ""
+
+msgctxt "UI_MENU_OV_PIPE_WAIT"
+msgid "Pipeline waits"
+msgstr ""
+
+msgctxt "UI_MENU_OV_TEX_UPLOADS"
+msgid "Texture uploads"
+msgstr ""
+
+msgctxt "UI_MENU_OV_MAIN_CPU"
+msgid "Game main thread CPU"
+msgstr ""
+
+msgctxt "UI_MENU_OV_RENDER_CPU"
+msgid "Render thread CPU"
+msgstr ""
+
+msgctxt "UI_MENU_OV_SLOW"
+msgid "Frames over 33 ms"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_PER_MIN"
+msgid "%.0f last minute"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_PCT"
+msgid "%.0f%%"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_TEMP"
+msgid "%.0f °C"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_POWER"
+msgid "%.0f W"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_MHZ"
+msgid "%.0f MHz"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_GB"
+msgid "%.1f GB"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_GB_OF"
+msgid "/ %.1f GB"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_GAME_GB"
+msgid "game %.1f GB"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_MS"
+msgid "%.2f ms"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_PER_FRAME"
+msgid "%.1f per frame"
+msgstr ""
+
+msgctxt "UI_MENU_OV_WINDOW"
+msgid "Window"
+msgstr ""
+
+msgctxt "UI_MENU_OV_OUTPUT"
+msgid "Game image"
+msgstr ""
+
+msgctxt "UI_MENU_OV_INTERNAL"
+msgid "Internal resolution"
+msgstr ""
+
+msgctxt "UI_MENU_OV_SCALING"
+msgid "Scaling"
+msgstr ""
+
+msgctxt "UI_MENU_OV_PRESENT"
+msgid "Presentation"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_SIZE"
+msgid "%ux%u"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_FSR"
+msgid "AMD FSR 1, sharpness %d%%"
+msgstr ""
+
+msgctxt "UI_MENU_OV_SCALE_NONE"
+msgid "none (1:1)"
+msgstr ""
+
+msgctxt "UI_MENU_OV_SCALE_BILINEAR"
+msgid "bilinear"
+msgstr ""
+
+msgctxt "UI_LAUNCH_SUBTITLE"
+msgid "Static recompilation for PC"
+msgstr ""
+
+msgctxt "UI_LAUNCH_PLAY"
+msgid "Play"
+msgstr ""
+
+msgctxt "UI_LAUNCH_SETTINGS"
+msgid "Settings"
+msgstr ""
+
+msgctxt "UI_LAUNCH_FILES"
+msgid "Game files"
+msgstr ""
+
+msgctxt "UI_LAUNCH_QUIT"
+msgid "Quit"
+msgstr ""
+
+msgctxt "UI_LAUNCH_BACK"
+msgid "Back"
+msgstr ""
+
+msgctxt "UI_LAUNCH_FILES_READY"
+msgid "Game files ready (version 1.0.0)"
+msgstr ""
+
+msgctxt "UI_LAUNCH_FILES_MISSING"
+msgid "Game files not set up"
+msgstr ""
+
+msgctxt "UI_LAUNCH_FILES_FOLDER"
+msgid "Game folder"
+msgstr ""
+
+msgctxt "UI_LAUNCH_FILES_HELP"
+msgid ""
+"The game does not come with the port: it needs your own copy of Mario Kart World 1.0.0, dumped "
+"from your console (the exefs and romfs folders). The setup checks its version, builds the game "
+"code on this computer and translates the shaders."
+msgstr ""
+
+msgctxt "UI_LAUNCH_NO_TOOLS"
+msgid "The setup tools are missing: the setup/ folder that comes with the program."
+msgstr ""
+
+msgctxt "UI_LAUNCH_SOURCE"
+msgid "Your copy"
+msgstr ""
+
+msgctxt "UI_LAUNCH_PICK"
+msgid "Choose folder"
+msgstr ""
+
+msgctxt "UI_LAUNCH_ROMFS_MODE"
+msgid "RomFS (23 GB)"
+msgstr ""
+
+msgctxt "UI_LAUNCH_ROMFS_COPY"
+msgid "Copy into the game folder"
+msgstr ""
+
+msgctxt "UI_LAUNCH_ROMFS_LINK"
+msgid "Use it where it is"
+msgstr ""
+
+msgctxt "UI_LAUNCH_SETUP"
+msgid "Set up"
+msgstr ""
+
+msgctxt "UI_LAUNCH_SETUP_AGAIN"
+msgid "Set up again"
+msgstr ""
+
+msgctxt "UI_LAUNCH_CANCEL"
+msgid "Cancel"
+msgstr ""
+
+msgctxt "UI_LAUNCH_SETUP_DONE"
+msgid "Set up finished: the game is ready."
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_SETUP_FAILED"
+msgid "Set up failed: %s"
+msgstr ""
+
+msgctxt "UI_LAUNCH_STEP_CHECK"
+msgid "Check the copy"
+msgstr ""
+
+msgctxt "UI_LAUNCH_STEP_EXEFS"
+msgid "Copy exefs"
+msgstr ""
+
+msgctxt "UI_LAUNCH_STEP_ROMFS"
+msgid "RomFS"
+msgstr ""
+
+msgctxt "UI_LAUNCH_STEP_GENERATE"
+msgid "Generate the game code"
+msgstr ""
+
+msgctxt "UI_LAUNCH_STEP_COMPILE"
+msgid "Compile the game code"
+msgstr ""
+
+msgctxt "UI_LAUNCH_STEP_SHADERS"
+msgid "Translate the shaders"
+msgstr ""
+
+msgctxt "UI_LAUNCH_STEP_WARM"
+msgid "Warm up the graphics (one minute)"
+msgstr ""
+
+msgctxt "UI_LAUNCH_STEP_CLEANUP"
+msgid "Clean up"
+msgstr ""
+
+msgctxt "UI_LAUNCH_STEP_KEPT"
+msgid "kept"
+msgstr ""
+
+msgctxt "UI_LAUNCH_SHORTCUT"
+msgid "Desktop shortcut"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_SHORTCUT_DONE"
+msgid "Shortcut made: %s"
+msgstr ""
+
+msgctxt "UI_LAUNCH_SHORTCUT_FAILED"
+msgid "Could not make the shortcut"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_UPDATE"
+msgid "Update to %s (%d MB)"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_UPDATE_FETCHING"
+msgid "Downloading %s"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_UPDATE_FAILED"
+msgid "Update failed: %s"
+msgstr ""
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_UPDATED"
+msgid "Updated to %s: setting up again what it changed"
+msgstr ""
+
+msgctxt "UI_MENU_UPDATE_CHECK"
+msgid "Check for updates"
+msgstr ""
+
+msgctxt "UI_MENU_UPDATE_CHECK_DESC"
+msgid ""
+"At start, ask GitHub for a newer release of the port and offer it on the start screen (a few "
+"seconds at most, nothing offline)."
+msgstr ""

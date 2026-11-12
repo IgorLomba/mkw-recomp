@@ -7,7 +7,8 @@ parallel. Each job can take several hundred MB, so the job count comes from a me
 Flags, libraries and the module glue follow totk-pc-recomp tools/build_game.py on its Linux port branch (linux-port
 @ eccf4dd, MIT): GEN_FLAGS, RT_FLAGS, LINK_FLAGS, LINK_LIBS and module_glue(). build/obj/rt/modules.c carries the game
 code's tables (runtime/core/boot/gamelib.h: module layout, function tables, the SHA-256 of each ExeFS file read now from the
-game copy, patch sets); build/obj/rt/defaults.c the default game paths.
+game copy, patch sets); build/obj/rt/defaults.c the default game paths; build/obj/rt/i18n/ the menu texts
+of every language, from i18n/*.po (tools/i18n/catalog.py).
 
 --target windows cross-compiles build/mkw.exe from Linux with llvm-mingw and the MSYS2 UCRT64 libraries that
 tools/build/windeps.py puts in build/win (totk-pc-recomp's --toolchain build: its LLVM_LINK_LIBS). Objects go to
@@ -27,6 +28,9 @@ import subprocess
 import sys
 from dataclasses import dataclass
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "i18n"))
+import catalog  # noqa: E402  (tools/i18n: the text catalogs from i18n/*.po)
 
 ROOT = Path(__file__).resolve().parents[2]
 RUNTIME = ROOT / "runtime"
@@ -220,7 +224,8 @@ def ninja_file(target: Target, gen: Path, out: Path, rt_extra: list[str], dist: 
         libs.append(str(lib))
         lines.append(f"build {lib}: ar {' '.join(objs)}")
     rt_objs = []
-    rt_srcs = [*runtime_sources(target), out / "rt/defaults.c"] + ([] if dist else [out / "rt/modules.c"])
+    rt_srcs = [*runtime_sources(target), out / "rt/defaults.c", *sorted((out / "rt/i18n").glob("ui_text_*.c"))]
+    rt_srcs += [] if dist else [out / "rt/modules.c"]
     for src in rt_srcs:
         rel = src.relative_to(RUNTIME) if src.is_relative_to(RUNTIME) else Path(src.name)
         obj = out / "rt" / rel.with_suffix(".o")
@@ -304,6 +309,7 @@ def main() -> None:
     for path, text in glue:
         if not path.exists() or path.read_text() != text:  # an unchanged file keeps its mtime: no rebuild
             path.write_text(text)
+    catalog.generate(args.out / "rt/i18n")  # the menu texts of every language (i18n/*.po)
     # which headers the library is built with, for the start screen (runtime/core/boot/gamelib.c rt_game_present)
     if dist:
         dist.mkdir(parents=True, exist_ok=True)

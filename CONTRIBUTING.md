@@ -45,6 +45,12 @@
   default; `tools/git/cfg_rows.py` checks it.
 - Commits follow [Conventional Commits](https://www.conventionalcommits.org/) (`fix(sm86): ...`), in English.
 
+## Translations
+
+The menu, start screen and setup texts are in `i18n/` as gettext `.po` files, one per language (see
+[i18n/README.md](i18n/README.md)). The first versions of most languages are machine-assisted: corrections from native
+speakers are very welcome, edited in Poedit or any text editor and sent as a pull request.
+
 ## Pull requests
 
 The [pull request template](.github/pull_request_template.md) is the checklist for these rules.

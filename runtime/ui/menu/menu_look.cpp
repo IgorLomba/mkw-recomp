@@ -3,6 +3,7 @@
 // 575ad88e02f9a89a9a885d90039d48af33c982f4, MIT, Copyright (c) 2026 Revivedx and the Savage Wind Recomp contributors,
 // Copyright (c) 2026 Peiikai).
 #include <stdlib.h>
+#include <string.h>
 
 #include "ui/menu/menu_look.h"
 
@@ -58,9 +59,16 @@ static const struct { const char *lang; UiTextId name; } kCjk[] = {
     {"zh-Hant", UI_MENU_LANGNAME_ZH_HANT},
 };
 
+static const char *g_font_lang;   // the menu language the atlas was built for
+
+int menu_look_fonts_stale(void) { return g_font_lang != menu_lang(); }
+
+// A CJK menu language takes the glyphs of its whole catalog from the system font; the other rows only the names of
+// the CJK languages in the language lists. Without the system font the CJK menu shows boxes.
 void menu_look_fonts(float scale) {
     enum { N = sizeof kCjk / sizeof *kCjk };
     static ImVector<ImWchar> ranges[N];   // read when the texture is built, after this returns
+    g_font_lang = menu_lang();
     ImFontAtlas *fa = ImGui::GetIO().Fonts;
     fa->Clear();
     ImFontConfig fc;
@@ -75,13 +83,16 @@ void menu_look_fonts(float scale) {
         merged++;
         ImFontGlyphRangesBuilder b;
         b.AddText(ui_text_in("en", kCjk[i].name));
+        if (!strcmp(kCjk[i].lang, g_font_lang))
+            for (int id = 0; id < UI_TEXT_COUNT; id++) b.AddText(ui_text_in(g_font_lang, (UiTextId)id));
         ranges[i].clear();
         b.BuildRanges(&ranges[i]);
         ImFontConfig mc;
         mc.MergeMode = true;   // the atlas frees data (IM_FREE is free by default)
         fa->AddFontFromMemoryTTF(data, (int)size, 26.0f * scale, &mc, ranges[i].Data);
     }
-    rt_log("menu: font atlas at %.1f px, language names from %d of %d system fonts", 26.0f * scale, merged, (int)N);
+    rt_log("menu: font atlas at %.1f px for menu language %s, CJK glyphs from %d of %d system fonts", 26.0f * scale,
+           g_font_lang, merged, (int)N);
 }
 
 ImFont *menu_look_font_big(float scale) {

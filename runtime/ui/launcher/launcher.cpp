@@ -116,7 +116,7 @@ static void parse_test(void) {
 }
 
 static void restyle(float scale) {
-    if (scale == L.scale) return;
+    if (scale == L.scale && !menu_look_fonts_stale()) return;
     ImGui::GetStyle() = L.base_style;
     ImGui::GetStyle().ScaleAllSizes(scale);
     menu_look_fonts(scale);

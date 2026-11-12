@@ -619,7 +619,7 @@ extern "C" int menu_overlay_frame(uint64_t frame, const MenuTarget *t, const cha
     uint64_t t0 = plat_now_ns();
     if (!g_ctx_ok) make_context();
     float scale = menu_look_scale(t->height);
-    if (!vk_up(t) || (g_font_scale != scale && !fonts_up(scale))) {
+    if (!vk_up(t) || ((g_font_scale != scale || menu_look_fonts_stale()) && !fonts_up(scale))) {
         rt_log("menu: Dear ImGui Vulkan back end set-up failed; the menu stays closed");
         g_failed.store(1);
         set_open(0);

@@ -811,41 +811,36 @@ static void probe_fonts(void) {
            (unsigned long long)size, path);
 }
 
-// The host catalog (ui_text.c): every menu id has its own English and Russian text, the software keyboard keeps its
-// game-language rows, and menu_text follows MKW_MENU_LANG.
+// The host catalog (ui_text.c, generated from i18n/*.po): every language has its own text for every menu id, the
+// software keyboard keeps its game-language rows, and menu_text follows MKW_MENU_LANG in each language.
 static void probe_menu_text(void) {
-    static const char *const langs[] = {"en", "ja", "fr", "de", "it", "es", "nl", "pt", "ru", "zh-Hans", "zh-Hant", "ko"};
-    for (int id = UI_MENU_FIRST; id <= UI_MENU_LAST_ID; id++) {
-        CHECK(ui_text_defined("en", (UiTextId)id) && ui_text_defined("ru", (UiTextId)id), "menu text id %d lacks en or ru", id);
-        CHECK(*ui_text_in("en", (UiTextId)id) && *ui_text_in("ru", (UiTextId)id), "menu text id %d is empty", id);
-    }
+    static const char *const langs[] = {"en", "ja", "fr", "de", "it", "es", "nl", "pt", "pt-BR", "ru", "zh-Hans",
+                                        "zh-Hant", "ko"};
+    enum { N = sizeof langs / sizeof *langs };
+    for (size_t i = 0; i < N; i++)
+        for (int id = UI_MENU_FIRST; id <= UI_MENU_LAST_ID; id++)
+            CHECK(ui_text_defined(langs[i], (UiTextId)id) && *ui_text_in(langs[i], (UiTextId)id),
+                  "menu text id %d lacks %s", id, langs[i]);
     CHECK(!ui_text_defined("en", UI_TEXT_COUNT) && !*ui_text_in("ru", UI_TEXT_COUNT), "an id past the catalog gives text");
-    // other languages fall back to English for the menu, and keep their own keyboard texts
-    CHECK(!strcmp(ui_text_in("ja", UI_MENU_CONTINUE), ui_text_in("en", UI_MENU_CONTINUE)), "ja menu text is not English");
+    CHECK(strcmp(ui_text_in("ja", UI_MENU_CONTINUE), ui_text_in("en", UI_MENU_CONTINUE)), "ja menu text is English");
     CHECK(!strcmp(ui_text_in("ru", UI_SWKBD_DEFAULT_NAME), "Игрок") &&
           !strcmp(ui_text_in("de", UI_SWKBD_DEFAULT_NAME), "Spieler"), "keyboard texts changed");
     // language names: the same string in every row
     for (int id = UI_MENU_LANGNAME_EN; id <= UI_MENU_LANGNAME_KO; id++)
-        for (size_t i = 1; i < sizeof langs / sizeof *langs; i++)
+        for (size_t i = 1; i < N; i++)
             CHECK(!strcmp(ui_text_in(langs[i], (UiTextId)id), ui_text_in("en", (UiTextId)id)), "language name %d differs in %s", id, langs[i]);
     CHECK(!strcmp(ui_text_in("en", UI_MENU_LANGNAME_RU), "Русский"), "Russian is not shown as Russian");
-    // the overlay formats keep their conversions
+    // the overlay formats keep their conversions (tests/test_ui_text.py checks every entry)
     CHECK(strstr(ui_text_in("ru", UI_MENU_OV_GAME_PCT), "%.0f%%") && strstr(ui_text_in("ru", UI_MENU_OV_MAX_MS), "%.1f"),
           "overlay format lost its conversion");
-    // menu_text follows the setting live
-    cfg_set("MKW_MENU_LANG", "ru");
-    CHECK(menu_text(UI_MENU_CONTINUE) == ui_text_in("ru", UI_MENU_CONTINUE), "menu_text ignores MENU_LANG=ru");
-    cfg_set("MKW_MENU_LANG", "en");
-    CHECK(menu_text(UI_MENU_CONTINUE) == ui_text_in("en", UI_MENU_CONTINUE), "menu_text did not follow MENU_LANG=en");
-    // Spanish: every menu and start screen text, as English and Russian
-    for (int id = UI_MENU_FIRST; id <= UI_MENU_LAST_ID; id++)
-        CHECK(ui_text_defined("es", (UiTextId)id), "menu text id %d lacks es", id);
-    cfg_set("MKW_MENU_LANG", "es");
-    CHECK(menu_text(UI_LAUNCH_PLAY) == ui_text_in("es", UI_LAUNCH_PLAY), "menu_text ignores MENU_LANG=es");
+    // menu_text follows the setting live, in every language
+    for (size_t i = 0; i < N; i++) {
+        cfg_set("MKW_MENU_LANG", langs[i]);
+        CHECK(menu_text(UI_LAUNCH_PLAY) == ui_text_in(langs[i], UI_LAUNCH_PLAY), "menu_text ignores MENU_LANG=%s", langs[i]);
+    }
     cfg_set("MKW_MENU_LANG", "");
-    const char *sys = plat_ui_language();
-    const char *want = !strncmp(sys, "ru", 2) ? "ru" : !strncmp(sys, "es", 2) ? "es" : "en";
-    CHECK(menu_text(UI_LAUNCH_PLAY) == ui_text_in(want, UI_LAUNCH_PLAY), "menu_text auto ignores the system language");
+    CHECK(menu_text(UI_LAUNCH_PLAY) == ui_text_in(menu_lang(), UI_LAUNCH_PLAY), "menu_text auto differs from menu_lang");
+    printf("  menu language with the system's %s: %s\n", plat_ui_language(), menu_lang());
 }
 
 static void probe_main(Cpu *c) {
