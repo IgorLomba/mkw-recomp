@@ -30,27 +30,34 @@ def structure(stmts: list[str], branches: dict[int, tuple[int, str | None]]) -> 
             return lines
     except Fail:
         pass
-    d_stmts, d_branches, d_mk, d_nb = _dup_tails(stmts, branches, mk, nb)
-    lines = _structure(d_stmts, d_branches)
-    if flow_sim.diff(mk, nb, _structure(d_mk, d_nb), 4):
-        raise Fail
-    return lines
+    for joins_only in (True, False):  # the tails fall-through also reaches first, then every one
+        try:
+            d_stmts, d_branches, d_mk, d_nb = _dup_tails(stmts, branches, mk, nb, joins_only)
+            lines = _structure(d_stmts, d_branches)
+            if not flow_sim.diff(mk, nb, _structure(d_mk, d_nb), 4):
+                return lines
+        except Fail:
+            pass
+    raise Fail
 
 
 TAIL_MAX = 16  # instructions copied per jump at most
 
 
-def _dup_tails(stmts: list[str], branches: dict[int, tuple[int, str | None]], mk: list[str], nb: dict):
+def _dup_tails(
+    stmts: list[str], branches: dict[int, tuple[int, str | None]], mk: list[str], nb: dict, joins_only: bool
+):
     """A forward jump into a join that runs a few instructions and jumps on, `@P BRA t ... t: x; BRA j`, gets its own
     copy of [t, BRA j): `@!P skip; x; BRA j`. ptxas merges equal tails of if / else chains so, and the jump then lands
     in the middle of a sibling's else-part, which no nesting expresses (FS 63a69b46…, the draw that gave up on AMD's
     Windows driver after 30 s in 10 logs of #111's group, 12/11/2026). The copies keep their instruction's marker and
     each jump its condition's name, so flow_sim compares the result with the original graph. Fail when nothing applies.
-    Returns the new stmts and branches, and the same for flow_sim (mk, nb)."""
+    joins_only: only the tails the instruction before also falls into (a jump that lands only where other jumps do,
+    as in FS 9f0b96fd…, needs the second pass). Returns the new stmts and branches, and the same for flow_sim (mk, nb)."""
     tails: dict[int, tuple[int, int, int]] = {}  # jump -> (t, u, j): copy [t, u), then jump to j
     for k, (t, c) in branches.items():
-        if t <= k + 1 or t >= len(stmts) or t - 1 in branches and branches[t - 1][1] is None:
-            continue  # backward, next, past the end, or no fall-through into t (not a join)
+        if t <= k + 1 or t >= len(stmts) or joins_only and t - 1 in branches and branches[t - 1][1] is None:
+            continue  # backward, next, past the end, or (first pass) no fall-through into t
         u = t
         while u < len(stmts) and u not in branches and u - t <= TAIL_MAX:
             u += 1

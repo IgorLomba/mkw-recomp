@@ -32,7 +32,7 @@ def test_jump_into_a_shared_tail():
     lines = flow.structure(stmts, branches)
     assert not any("switch" in x for x in lines)
     mk, nb = flow_sim.markers(stmts), flow_sim.named(branches)
-    d = flow._dup_tails(stmts, branches, mk, nb)
+    d = flow._dup_tails(stmts, branches, mk, nb, True)
     assert flow_sim.diff(mk, nb, flow._structure(d[2], d[3]), 64) is None
 
 
@@ -41,5 +41,5 @@ def test_no_tail_to_copy():
     branches = {0: (3, "p0"), 2: (4, None)}
     stmts = program(5, branches)
     with pytest.raises(flow.Fail):
-        flow._dup_tails(stmts, branches, flow_sim.markers(stmts), flow_sim.named(branches))
+        flow._dup_tails(stmts, branches, flow_sim.markers(stmts), flow_sim.named(branches), False)
     assert flow.structure(stmts, branches)
