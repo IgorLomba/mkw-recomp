@@ -15,7 +15,7 @@ except `texpre_probe.c` and `fg_probe.c`.
 | `nvn_probe.c` | `--probe-nvn` | The NVN front end over the null back end, called as the game calls it |
 | `nvn_tex_probe.c` | `--probe-nvn-tex` | Size, alignment and mip offsets of textures (`nvn_tex.c`) |
 | `ov_probe.c`, `ov_probe.h` | `--probe-services` | Each replacement of `runtime/sdk/` called through its synthetic address; all 189 must be bound by some MKW module |
-| `ov_mkw_probe.c`, `ov_mkw_list.h` | `--probe-services` | MKW's own: the 96 replacements only MKW imports (offline network, account, `oe`, clock, touch and the VP9 decoder with frames the test encodes itself) |
+| `ov_mkw_probe.c`, `ov_mkw_list.h` | `--probe-services` | MKW's own: the 121 replacements only MKW imports (offline network and sockets, account, `oe`, clock, touch and the VP9 decoder with frames the test encodes itself) |
 | `tex_probe.c` | `--probe-vkmem` | Texture memory: block-linear copies, ASTC, format table, imported pools |
 | `texpre_probe.c` | `--probe-texpre` | MKW's own: quality of the GPU BC7 against `bc7enc` on the game's textures, listed in `MKW_TEXPRE_PROBE_LIST` |
 | `vk_exec_probe.c` | `--probe-vkexec` | Vulkan replay: fence values, completion order, empty submits |

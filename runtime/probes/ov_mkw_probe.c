@@ -32,7 +32,9 @@ static uint64_t sdk(const char *name) {
     return a;
 }
 
-// ---- nifm, friends, ldn, nsd: every call with writable guest buffers in x0..x7, its result against the table
+enum { SOCK_ENETDOWN = 50, SOCK_EAI_FAIL = 4 };
+
+// ---- nifm, friends, ldn, nsd, socket: every call with writable guest buffers in x0..x7, its result against the table
 static void probe_offline(void) {
     enum { VOID = -1 };
     static const struct { const char *key; int64_t want; } cases[] = {
@@ -55,6 +57,8 @@ static void probe_offline(void) {
         {"ldn::SetStationAcceptPolicy", LDN_R_DISABLED}, {"ldn::Reject", LDN_R_DISABLED},
         {"ldn::AttachStateChangeEvent", VOID},
         {"nsd::GetEnvironmentIdentifier", NIFM_R_NO_NETWORK}, {"nsd::ResolveEx", NIFM_R_NO_NETWORK},
+        // nn::socket as with the network down (ov_net.c): every socket call -1, errno ENETDOWN
+        {"socket::internal::Initialize", 0}, {"socket::SetAllocator", VOID}, {"socket::Finalize", 0}, {"socket::IsInitialized", 1}, {"socket::GetLastErrno", SOCK_ENETDOWN}, {"socket::GetLastError", SOCK_ENETDOWN}, {"socket::Socket(int)", -1}, {"socket::Socket", -1}, {"socket::EventFd", -1}, {"socket::EventFdRead", -1}, {"socket::EventFdWrite", -1}, {"socket::Bind", -1}, {"socket::Bind(sockaddr)", -1}, {"socket::SetSockOpt", -1}, {"socket::SendTo(sockaddr)", -1}, {"socket::SendTo", -1}, {"socket::RecvFrom(sockaddr)", -1}, {"socket::RecvFrom", -1}, {"socket::Poll", -1}, {"socket::Shutdown", -1}, {"socket::Close", -1}, {"socket::GetAddrInfo(addrinfo)", SOCK_EAI_FAIL}, {"socket::GetAddrInfo", SOCK_EAI_FAIL}, {"socket::FreeAddrInfo(addrinfo)", VOID}, {"socket::FreeAddrInfo", VOID},
     };
     uint8_t *b = ovp_alloc(8 * 0x400);
     int bad = 0;
