@@ -53,7 +53,7 @@ Galician and Basque, 5.1 sound, and fixes for crashes and freezes reported since
   a pipeline the driver never returns (#131), and a faster shader lookup (#129), by @guillo1990; replay chunks ended on
   their own thread (#141, by @riyadhHDA); development runs capped and stoppable (#145, by @EdouardSence); Adreno
   GPUs (Turnip) reach the menus and races without blue lines, and Linux on AArch64 builds from source (#170, #171,
-  #173, by @titooo7; no AArch64 package yet).
+  #173, #176, by @titooo7; no AArch64 package yet).
 - Diagnostics: a log line when the game waits too long for its frame, saying what the submission was doing (#138), and
   GPU breadcrumbs on more commands (#43); `MKW_RTSTATS` and `MKW_DUMP_DRAWS` for rendering bugs that log no error (#80,
   by @guillo1990).
