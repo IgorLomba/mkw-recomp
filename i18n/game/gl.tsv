@@ -1,0 +1,1276 @@
+# Galician for the game's own texts (tools/i18n/game_texts.py): "label<TAB>text", over the game's Spain Spanish (EUes).
+# Untranslated labels stay in Spanish. Control tags ({0E ...}, {0F ...}) are kept as the dump gives them.
+LayoutMsg/Damage_00/T_Msg_00	ASEMELLA!
+LayoutMsg/DialogTimeAttack_00/DialogTimeAttack_00:L_DialogBtn_00/T_Text_00	Si
+LayoutMsg/DialogTimeAttack_00/DialogTimeAttack_00:L_DialogBtn_01/T_Text_00	Non
+LayoutMsg/DialogTimeAttack_00/DialogTimeAttack_00:L_DialogBtn_02/T_Text_00	Aceptar
+LayoutMsg/Dialog_00/L_DialogBtnC_00/T_Text_00	Aceptar
+LayoutMsg/Dialog_00/T_Group_00	ID do grupo
+LayoutMsg/FriendList_00/T_Friend_00	Amizade
+LayoutMsg/FriendList_00/T_Rec_00	Estatísticas de xogo
+LayoutMsg/FriendList_00/T_You_00	Ti
+LayoutMsg/FriendList_00/FriendList_00:L_Go_00/T_Text_00	Unirse
+LayoutMsg/FriendList_00/T_Rec_01	Participantes
+LayoutMsg/Hit_00/T_Msg_00	TOMA!
+LayoutMsg/MenuGameSelect_01/T_Msg_00	Compite en 4 circuítos!
+LayoutMsg/MenuGameSelect_01/T_Msg_01	Tenta aguantar ata o final!
+LayoutMsg/MenuGameSelect_01/T_Msg_02	Logra a túa mellor marca!
+LayoutMsg/MenuGameSelect_01/T_Msg_03	Ti pos as regras!
+LayoutMsg/MenuGameSelect_01/T_Msg_04	Compite con regras personalizadas!
+LayoutMsg/MenuManual_00/MenuManual_00:L_Headline_00/T_Btn_00	Técnicas
+LayoutMsg/MenuManual_00/MenuManual_00:L_Headline_01/T_Btn_00	Obxectos
+LayoutMsg/MenuManual_00/MenuManual_00:L_Headline_02/T_Btn_00	Regras
+LayoutMsg/MenuManual_00/MenuManual_00:L_Headline_03/T_Btn_00	Modo libre
+LayoutMsg/MenuPlayModeSelect_00/MenuPlayModeSelect_00:L_Btn_00/T_Btn_00	Un xogador
+LayoutMsg/MenuPlayModeSelect_00/MenuPlayModeSelect_00:L_Btn_01/T_Btn_00	Multixogador
+LayoutMsg/MenuPlayModeSelect_00/MenuPlayModeSelect_00:L_Btn_02/T_Btn_00	En liña
+LayoutMsg/MenuTimeAttack_00/MenuTimeAttack_00:L_MenuBtn_00/T_Text_00	En solitario
+LayoutMsg/MenuTimeAttack_00/MenuTimeAttack_00:L_MenuBtn_01/T_Text_00	Retar pantasma
+LayoutMsg/MenuTimeAttack_00/MenuTimeAttack_00:L_MenuBtn_02/T_Text_00	Ver pantasma
+LayoutMsg/MenuTimeAttack_00/MenuTimeAttack_00:L_MenuBtn_03/T_Text_00	Ver clasificación
+LayoutMsg/MenuTimeAttack_00/MenuTimeAttack_00:L_MenuBtn_04/T_Text_00	Subir pantasma
+LayoutMsg/OnlineMenu_00/L_Btn_00/T_Btn_00	Carreira
+LayoutMsg/OnlineMenu_00/L_Btn_01/T_Btn_00	Supervivencia
+LayoutMsg/OnlineMenu_00/L_Btn_02/T_Btn_00	Batalla
+LayoutMsg/OnlineMenu_00/L_Btn_03/T_Btn_00	Amizades
+LayoutMsg/PhotoMode_00/T_Attention_00	Punto de vista
+LayoutMsg/PhotoMode_00/T_End_00	Rematar
+LayoutMsg/PhotoMode_00/T_Face_00	Xesto
+LayoutMsg/PhotoMode_00/T_Gide_00	Guía
+LayoutMsg/PhotoMode_00/T_Posechange_00	Pose
+LayoutMsg/PhotoMode_00/T_Roll_00	Inclinación
+LayoutMsg/PhotoMode_00/T_Take_00	Facer a foto
+LayoutMsg/PhotoMode_00/T_Zoom_00	Zoom
+LayoutMsg/Retry_00/T_Retry_00	Tentar de novo
+LayoutMsg/RuleSelect_00/T_Change_00	Confirmar as regras
+LayoutMsg/TeamSelect_00/TeamSelect_00:$DialogBtnS_00/T_Text_00	Aceptar
+LayoutMsg/TitleLogo_00/T_Press_00	Preme {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}
+LayoutMsg/Watching_00/T_Text_01	EN DIRECTO
+MsgMain/BattleCourse/1701	Circuíto Mario Bros.
+MsgMain/BattleCourse/1702	Areas Mordedoras
+MsgMain/BattleCourse/1703	Estadio Peach
+MsgMain/BattleCourse/1704	Xungla Dino Dino
+MsgMain/BattleCourse/1705	Gran Donut
+MsgMain/BattleCourse/1706	Cidade Salina
+MsgMain/BattleCourse/1707	Pradaría Mu-Mu
+MsgMain/BattleCourse/1708	DK Alpino
+MsgMain/Course(adjust)/Adjust_Name_Race_AirshipFortress_A_00	{0E 0000 0002 0002 005F}Fortaleza Aérea{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_BigTree_A_00	{0E 0000 0002 0002 005F}Aldea Arbórea{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_Cave_A_00	{0E 0000 0002 0002 005F}Gruta Dente de León{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_Central_A_00	{0E 0000 0002 0002 005F}Estadio Peach{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_ChocoMountain_A_00	{0E 0000 0002 0002 005F}Monte Chocolate{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_Cinema_A_00	{0E 0000 0002 0002 005F}Cine Boo{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_Coaster_A_00	{0E 0000 0002 0002 005F}Canón Ferroviario{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_DesertHills_A_00	{0E 0000 0002 0002 005F}Deserto Sol-Sol{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_DinoBones_A_00	{0E 0000 0002 0002 005F}Caverna Ósea{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_DinoDinoJungle_A_00	{0E 0000 0002 0002 005F}Xungla Dino Dino{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_DKJungleParkway_A_00	{0E 0000 0002 0002 005F}Sabana Salpicante{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_DKPass_A_00	{0E 0000 0002 0002 005F}DK Alpino{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_DonkeyKong_A_00	{0E 0000 0002 0002 005F}Porto Espacial DK{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_FirstCircuit_A_00	{0E 0000 0002 0002 005F}Circuíto Mario Bros.{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_IceBuildings_A_00	{0E 0000 0002 0002 005F}Ceos Xeados{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_KoopaTroopaBeach_A_00	{0E 0000 0002 0002 005F}Praia Koopa{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_LagoonCity_A_00	{0E 0000 0002 0002 005F}Cidade Salina{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_Lava_A_00	{0E 0000 0002 0002 005F}Castelo de Bowser{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_MooMooFarm_A_00	{0E 0000 0002 0002 005F}Pradaría Mu-Mu{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_RaftingRiver_A_00	{0E 0000 0002 0002 005F}Cascadas Cheep Cheep{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_Rainbow_A_00	{0E 0000 0002 0002 005F}Senda Arco da Vella{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_SFCMarioCircuit_G_00	{0E 0000 0002 0002 005F}Circuíto Mario{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_ShyGuyBazaar_A_00	{0E 0000 0002 0002 005F}Bazar Shy Guy{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_SnowMountain_A_00	{0E 0000 0002 0002 005F}Miradoiro Estelar{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_StormClouds_A_00	{0E 0000 0002 0002 005F}Templo do Bloque ?{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_ToadFactory_A_00	{0E 0000 0002 0002 005F}Fábrica de Toad{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_WarioShipyard_A_00	{0E 0000 0002 0002 005F}Galeón de Wario{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_WarioStadium_A_00	{0E 0000 0002 0002 005F}Estadio Wario{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_WestCity_D_00	{0E 0000 0002 0002 005F}Cidade Coroa{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_PeachBeach_D_00	{0E 0000 0002 0002 005F}Praia Peach{0E 0000 0002 0002 0064}
+MsgMain/Course/Name_Race_AirshipFortress_A_00	Fortaleza Aérea
+MsgMain/Course/Name_Race_BigTree_A_00	Aldea Arbórea
+MsgMain/Course/Name_Race_Cave_A_00	Gruta Dente de León
+MsgMain/Course/Name_Race_Central_A_00	Estadio Peach
+MsgMain/Course/Name_Race_ChocoMountain_A_00	Monte Chocolate
+MsgMain/Course/Name_Race_Cinema_A_00	Cine Boo
+MsgMain/Course/Name_Race_Coaster_A_00	Canón Ferroviario
+MsgMain/Course/Name_Race_DesertHills_A_00	Deserto Sol-Sol
+MsgMain/Course/Name_Race_DinoBones_A_00	Caverna Ósea
+MsgMain/Course/Name_Race_DinoDinoJungle_A_00	Xungla Dino Dino
+MsgMain/Course/Name_Race_DKJungleParkway_A_00	Sabana Salpicante
+MsgMain/Course/Name_Race_DKPass_A_00	DK Alpino
+MsgMain/Course/Name_Race_DonkeyKong_A_00	Porto Espacial DK
+MsgMain/Course/Name_Race_FirstCircuit_A_00	Circuíto Mario Bros.
+MsgMain/Course/Name_Race_IceBuildings_A_00	Ceos Xeados
+MsgMain/Course/Name_Race_KoopaTroopaBeach_A_00	Praia Koopa
+MsgMain/Course/Name_Race_LagoonCity_A_00	Cidade Salina
+MsgMain/Course/Name_Race_Lava_A_00	Castelo de Bowser
+MsgMain/Course/Name_Race_MooMooFarm_A_00	Pradaría Mu-Mu
+MsgMain/Course/Name_Race_RaftingRiver_A_00	Cascadas Cheep Cheep
+MsgMain/Course/Name_Race_Rainbow_A_00	Senda Arco da Vella
+MsgMain/Course/Name_Race_SFCMarioCircuit_G_00	Circuíto Mario
+MsgMain/Course/Name_Race_ShyGuyBazaar_A_00	Bazar Shy Guy
+MsgMain/Course/Name_Race_SnowMountain_A_00	Miradoiro Estelar
+MsgMain/Course/Name_Race_StormClouds_A_00	Templo do Bloque ?
+MsgMain/Course/Name_Race_ToadFactory_A_00	Fábrica de Toad
+MsgMain/Course/Name_Race_WarioShipyard_A_00	Galeón de Wario
+MsgMain/Course/Name_Race_WarioStadium_A_00	Estadio Wario
+MsgMain/Course/Name_Race_WestCity_D_00	Cidade Coroa
+MsgMain/Course/Name_Race_PeachBeach_D_00	Praia Peach
+MsgMain/CourseArea(adjust)/Name_AirshipFortress_00	{0E 0000 0002 0002 005F}Fortaleza Aérea{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_BigTree_00	{0E 0000 0002 0002 005F}Aldea Arbórea{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_Cave_00	{0E 0000 0002 0002 005F}Gruta Dente de León{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_Central_00	{0E 0000 0002 0002 005F}Estadio Peach{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_ChocoMountain_00	{0E 0000 0002 0002 005F}Monte Chocolate{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_Cinema_00	{0E 0000 0002 0002 005F}Cine Boo{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_Coaster	{0E 0000 0002 0002 005F}Canón Ferroviario{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_DesertHills_00	{0E 0000 0002 0002 005F}Deserto Sol-Sol{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_DinoBones_00	{0E 0000 0002 0002 005F}Caverna Ósea{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_DinoDinoJungle_00	{0E 0000 0002 0002 005F}Xungla Dino Dino{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_DKJungleParkway_00	{0E 0000 0002 0002 005F}Sabana Salpicante{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_DKPass_00	{0E 0000 0002 0002 005F}DK Alpino{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_DonkeyKong	{0E 0000 0002 0002 005F}Porto Espacial DK{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_FirstCircuit	{0E 0000 0002 0002 005F}Circuíto Mario Bros.{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_IceBuildings_00	{0E 0000 0002 0002 005F}Ceos Xeados{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_KoopaTroopaBeach_00	{0E 0000 0002 0002 005F}Praia Koopa{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_LagoonCity_00	{0E 0000 0002 0002 005F}Cidade Salina{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_Lava_00	{0E 0000 0002 0002 005F}Castelo de Bowser{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_MooMooFarm_00	{0E 0000 0002 0002 005F}Pradaría Mu-Mu{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_PeachBeach_00	{0E 0000 0002 0002 005F}Praia Peach{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_RaftingRiver_00	{0E 0000 0002 0002 005F}Cascadas Cheep Cheep{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_Rainbow_00	{0E 0000 0002 0002 005F}Senda Arco da Vella{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_SFCMarioCircuit_00	{0E 0000 0002 0002 005F}Circuíto Mario{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_ShyGuyBazaar_00	{0E 0000 0002 0002 005F}Bazar Shy Guy{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_SnowMountain_00	{0E 0000 0002 0002 005F}Miradoiro Estelar{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_StormClouds_00	{0E 0000 0002 0002 005F}Templo do Bloque ?{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_ToadFactory_00	{0E 0000 0002 0002 005F}Fábrica de Toad{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_WarioShipyard_00	{0E 0000 0002 0002 005F}Galeón de Wario{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_WarioStadium	{0E 0000 0002 0002 005F}Estadio Wario{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_WestCity	{0E 0000 0002 0002 005F}Cidade Coroa{0E 0000 0002 0002 0064}
+MsgMain/CourseArea/Name_AirshipFortress_00	Fortaleza Aérea
+MsgMain/CourseArea/Name_BigTree_00	Aldea Arbórea
+MsgMain/CourseArea/Name_Cave_00	Gruta Dente de León
+MsgMain/CourseArea/Name_Central_00	Estadio Peach
+MsgMain/CourseArea/Name_ChocoMountain_00	Monte Chocolate
+MsgMain/CourseArea/Name_Cinema_00	Cine Boo
+MsgMain/CourseArea/Name_Coaster	Canón Ferroviario
+MsgMain/CourseArea/Name_DesertHills_00	Deserto Sol-Sol
+MsgMain/CourseArea/Name_DinoBones_00	Caverna Ósea
+MsgMain/CourseArea/Name_DinoDinoJungle_00	Xungla Dino Dino
+MsgMain/CourseArea/Name_DKJungleParkway_00	Sabana Salpicante
+MsgMain/CourseArea/Name_DKPass_00	DK Alpino
+MsgMain/CourseArea/Name_DonkeyKong	Porto Espacial DK
+MsgMain/CourseArea/Name_FirstCircuit	Circuíto Mario Bros.
+MsgMain/CourseArea/Name_IceBuildings_00	Ceos Xeados
+MsgMain/CourseArea/Name_KoopaTroopaBeach_00	Praia Koopa
+MsgMain/CourseArea/Name_LagoonCity_00	Cidade Salina
+MsgMain/CourseArea/Name_Lava_00	Castelo de Bowser
+MsgMain/CourseArea/Name_MooMooFarm_00	Pradaría Mu-Mu
+MsgMain/CourseArea/Name_PeachBeach_00	Praia Peach
+MsgMain/CourseArea/Name_RaftingRiver_00	Cascadas Cheep Cheep
+MsgMain/CourseArea/Name_Rainbow_00	Senda Arco da Vella
+MsgMain/CourseArea/Name_SFCMarioCircuit_00	Circuíto Mario
+MsgMain/CourseArea/Name_ShyGuyBazaar_00	Bazar Shy Guy
+MsgMain/CourseArea/Name_SnowMountain_00	Miradoiro Estelar
+MsgMain/CourseArea/Name_StormClouds_00	Templo do Bloque ?
+MsgMain/CourseArea/Name_ToadFactory_00	Fábrica de Toad
+MsgMain/CourseArea/Name_WarioShipyard_00	Galeón de Wario
+MsgMain/CourseArea/Name_WarioStadium	Estadio Wario
+MsgMain/CourseArea/Name_WestCity	Cidade Coroa
+MsgMain/Driver/Driver_MarioRacing_00	Piloto pro
+MsgMain/Driver/Driver_MarioSheriff_00	Vaqueiro
+MsgMain/Driver/Driver_MarioDesert_00	Oasis
+MsgMain/Driver/Driver_MarioOmatsuri_00	Festival
+MsgMain/Driver/Driver_MarioCasual_00	Trotamundos
+MsgMain/Driver/Driver_MarioPilot_00	Aviador
+MsgMain/Driver/Driver_MarioVacance_00	Turista
+MsgMain/Driver/Driver_MarioOffroad_00	Todoterreo
+MsgMain/Driver/Driver_MarioMechanic_00	Mecánico
+MsgMain/Driver/Driver_LuigiRacing_00	Piloto pro
+MsgMain/Driver/Driver_LuigiLagoonCity_00	Gondoleiro
+MsgMain/Driver/Driver_LuigiDesert_00	Oasis
+MsgMain/Driver/Driver_LuigiOmatsuri_00	Festival
+MsgMain/Driver/Driver_LuigiFarmer_00	Granxeiro
+MsgMain/Driver/Driver_LuigiCasual_00	Trotamundos
+MsgMain/Driver/Driver_LuigiMechanic_00	Mecánico
+MsgMain/Driver/Driver_LuigiOffroad_00	Todoterreo
+MsgMain/Driver/Driver_PeachCasual_00	Trotamundos
+MsgMain/Driver/Driver_PeachLagoonCity_00	Turista
+MsgMain/Driver/Driver_PeachFarmer_00	Granxeira
+MsgMain/Driver/Driver_PeachRacing_00	Piloto pro
+MsgMain/Driver/Driver_PeachPilot_00	Aviadora
+MsgMain/Driver/Driver_PeachResort_00	Vacacións
+MsgMain/Driver/Driver_PeachOffroad_00	Motorista
+MsgMain/Driver/Driver_PeachYukata_00	Festival
+MsgMain/Driver/Driver_DaisySwim_00	Traxe de baño
+MsgMain/Driver/Driver_DaisyLagoonCity_00	Vacacións
+MsgMain/Driver/Driver_DaisyDesert_00	Oasis
+MsgMain/Driver/Driver_DaisyRacing_00	Piloto pro
+MsgMain/Driver/Driver_DaisyCasual_00	Trotamundos
+MsgMain/Driver/Driver_DaisyOffroad_00	Motorista
+MsgMain/Driver/Driver_YoshiDelivery_00	Comida rápida
+MsgMain/Driver/Driver_YoshiIce_00	Xeado
+MsgMain/Driver/Driver_YoshiRacing_00	Piloto pro
+MsgMain/Driver/Driver_YoshiSwim_00	Traxe de baño
+MsgMain/Driver/Driver_YoshiStadium_00	Rebelde
+MsgMain/Driver/Driver_YoshiCasual_00	Trotamundos
+MsgMain/Driver/Driver_YoshiHachimaki_00	Festival
+MsgMain/Driver/Driver_YoshiMovie_00	Aristócrata
+MsgMain/Driver/Driver_KinopioEngineer_00	Maquinista
+MsgMain/Driver/Driver_KinopioDiner_00	Hamburguesa
+MsgMain/Driver/Driver_KinopioRacing_00	Piloto pro
+MsgMain/Driver/Driver_KinopioExplore_00	Explorador
+MsgMain/Driver/Driver_KoopaRiders_00	Rebelde
+MsgMain/Driver/Driver_KoopaRacing_00	Piloto pro
+MsgMain/Driver/Driver_KoopaOffroad_00	Todoterreo
+MsgMain/Driver/Driver_KoopaHotrod_00	Reactor
+MsgMain/Driver/Driver_DKOffroad_00	Todoterreo
+MsgMain/Driver/Driver_WarioDesert_00	Oasis
+MsgMain/Driver/Driver_WarioDiner_00	Rebelde
+MsgMain/Driver/Driver_WarioFactory_00	Obreiro
+MsgMain/Driver/Driver_WarioRacing_00	Piloto pro
+MsgMain/Driver/Driver_WarioFairy_00	Abellón
+MsgMain/Driver/Driver_WarioPirate_00	Pirata
+MsgMain/Driver/Driver_WarioStadium_00	Vándalo
+MsgMain/Driver/Driver_WaluigiRacing_00	Piloto pro
+MsgMain/Driver/Driver_WaluigiHorror_00	Vampiro
+MsgMain/Driver/Driver_WaluigiDiner_00	Rebelde
+MsgMain/Driver/Driver_WaluigiStadium_00	Vándalo
+MsgMain/Driver/Driver_WaluigiMariachi_00	Mariachi
+MsgMain/Driver/Driver_RosettaRacing_00	Piloto pro
+MsgMain/Driver/Driver_RosettaCasual_00	Trotamundos
+MsgMain/Driver/Driver_RosettaAurora_00	Aurora
+MsgMain/Driver/Driver_RosettaOffroad_00	Motorista
+MsgMain/Driver/Driver_PaulineOffroad_00	Motorista
+MsgMain/Driver/Driver_BabyMarioSwim_00	Traxe de baño
+MsgMain/Driver/Driver_BabyMarioFactory_00	Obreiro
+MsgMain/Driver/Driver_BabyMarioRacing_00	Piloto pro
+MsgMain/Driver/Driver_BabyLuigiFactory_00	Obreiro
+MsgMain/Driver/Driver_BabyLuigiRacing_00	Piloto pro
+MsgMain/Driver/Driver_BabyPeachMarine_00	Mariñeira
+MsgMain/Driver/Driver_BabyPeachExplore_00	Exploradora
+MsgMain/Driver/Driver_BabyPeachCasual_00	Trotamundos
+MsgMain/Driver/Driver_BabyPeachRacing_00	Piloto pro
+MsgMain/Driver/Driver_BabyDaisyMarine_00	Mariñeira
+MsgMain/Driver/Driver_BabyDaisyExplore_00	Exploradora
+MsgMain/Driver/Driver_BabyDaisyRacing_00	Piloto pro
+MsgMain/Driver/Driver_BabyDaisyCasual_00	Trotamundos
+MsgMain/Driver/Driver_BabyRosettaMarine_00	Mariñeira
+MsgMain/Driver/Driver_BabyRosettaExplore_00	Exploradora
+MsgMain/Driver/Driver_BabyRosettaCasual_00	Trotamundos
+MsgMain/Driver/Driver_BabyRosettaRacing_00	Piloto pro
+MsgMain/Driver/Driver_KinopicoConductor_00	Revisora
+MsgMain/Driver/Driver_KinopicoIce_00	Xeado
+MsgMain/Driver/Driver_KinopicoRacing_00	Piloto pro
+MsgMain/Driver/Driver_KinopicoExplore_00	Exploradora
+MsgMain/Driver/Driver_KoopaJrRiders_00	Rebelde
+MsgMain/Driver/Driver_KoopaJrScout_00	Explorador
+MsgMain/Driver/Driver_KoopaJrRacing_00	Piloto pro
+MsgMain/Driver/Driver_CatherineLagoonCity_00	Vacacións
+MsgMain/Driver/Driver_CatherineRacing_00	Piloto pro
+MsgMain/Driver/Driver_NokonokoRunner_00	Corredor
+MsgMain/Driver/Driver_NokonokoRacing_00	Piloto pro
+MsgMain/Driver/Driver_NokonokoFlagman_00	Obreiro
+MsgMain/Driver/Driver_NokonokoSailor_00	Mariñeiro
+MsgMain/Driver/Driver_NokonokoOffroad_00	Todoterreo
+MsgMain/Driver/Driver_HeyhoSnow_00	Snowboard
+MsgMain/Driver/Driver_HeyhoRacing_00	Boxes
+MsgMain/Driver/Driver_JugemAngler_00	Pescador
+MsgMain/Driver/Driver_JugemRacing_00	Boxes
+MsgMain/Driver/Driver_KingTeresaMovie_00	Aristócrata
+MsgMain/Driver/Driver_KingTeresaPirate_00	Pirata
+MsgMain/Driver/Driver_KingTeresaRacing_00	Piloto pro
+MsgMain/DriverCategoryName/Driver_BabyDaisy	Bebé Daisy
+MsgMain/DriverCategoryName/Driver_BabyLuigi	Bebé Luigi
+MsgMain/DriverCategoryName/Driver_BabyMario	Bebé Mario
+MsgMain/DriverCategoryName/Driver_BabyPeach	Bebé Peach
+MsgMain/DriverCategoryName/Driver_BabyRosetta	Bebé Estela
+MsgMain/DriverCategoryName/Driver_Catherine	Birdo
+MsgMain/DriverCategoryName/Driver_DK	Donkey Kong
+MsgMain/DriverCategoryName/Driver_Daisy	Daisy
+MsgMain/DriverCategoryName/Driver_Heyho	Shy Guy
+MsgMain/DriverCategoryName/Driver_Jugem	Lakitu
+MsgMain/DriverCategoryName/Driver_KingTeresa	Rei Boo
+MsgMain/DriverCategoryName/Driver_Kinopico	Toadette
+MsgMain/DriverCategoryName/Driver_Kinopio	Toad
+MsgMain/DriverCategoryName/Driver_Koopa	Bowser
+MsgMain/DriverCategoryName/Driver_KoopaJr	Bowsy
+MsgMain/DriverCategoryName/Driver_Luigi	Luigi
+MsgMain/DriverCategoryName/Driver_Mario	Mario
+MsgMain/DriverCategoryName/Driver_Nokonoko	Koopa
+MsgMain/DriverCategoryName/Driver_Pauline	Pauline
+MsgMain/DriverCategoryName/Driver_Peach	Peach
+MsgMain/DriverCategoryName/Driver_Rosetta	Estela
+MsgMain/DriverCategoryName/Driver_Waluigi	Waluigi
+MsgMain/DriverCategoryName/Driver_Wario	Wario
+MsgMain/DriverCategoryName/Driver_Yoshi	Yoshi
+MsgMain/DriverCategoryName/Driver_Basabasa	Swooper
+MsgMain/DriverCategoryName/Driver_Bull	Placapum
+MsgMain/DriverCategoryName/Driver_Choropoo	Monty Mole
+MsgMain/DriverCategoryName/Driver_Cow	Vaca
+MsgMain/DriverCategoryName/Driver_Crab	Cangrexo
+MsgMain/DriverCategoryName/Driver_Gabon	Spike
+MsgMain/DriverCategoryName/Driver_Hacchin	Abellón
+MsgMain/DriverCategoryName/Driver_HammerBros	Irmán Martelo
+MsgMain/DriverCategoryName/Driver_Lifton	Golfiño
+MsgMain/DriverCategoryName/Driver_PackunFlower	Planta Piraña
+MsgMain/DriverCategoryName/Driver_Penguin	Pingüín
+MsgMain/DriverCategoryName/Driver_Pukupuku	Cheep Cheep
+MsgMain/DriverCategoryName/Driver_Sambo	Pokey
+MsgMain/DriverCategoryName/Driver_Kuribo	Goomba
+MsgMain/DriverCategoryName/Driver_FishBone	Peixeso
+MsgMain/DriverCategoryName/Driver_Gamane	Monorrá
+MsgMain/DriverCategoryName/Driver_Karon	Ósiños
+MsgMain/DriverCategoryName/Driver_Poihana	Picocuac
+MsgMain/DriverCategoryName/Driver_Snowman	Boneco de neve
+MsgMain/DriverCategoryName/Driver_Teren	Fantasmón
+MsgMain/DriverCategoryName/Driver_Monte	Forestano
+MsgMain/DriverCategoryName/Driver_Tuccondor	Picacóndor
+MsgMain/DriverCategoryName/Driver_Patatenten	Marchimotas Alado
+MsgMain/DriverCategoryName/Driver_Totten	Caco Gazapo
+MsgMain/DriverCategoryName/Driver_Hanachan	Floruga
+MsgMain/DriverCategoryName/Driver_Poo	Tortopo
+MsgMain/GrandprixCupName/Name_Banana	Copa Plátano
+MsgMain/GrandprixCupName/Name_Flower	Copa Flor
+MsgMain/GrandprixCupName/Name_Kinoko	Copa Cogomelo
+MsgMain/GrandprixCupName/Name_Konoha	Copa Folla
+MsgMain/GrandprixCupName/Name_Koura	Copa Carapaza
+MsgMain/GrandprixCupName/Name_Star	Copa Estrela
+MsgMain/GrandprixCupName/Name_Thunder	Copa Raio
+MsgMain/GrandprixCupName/Name_Special	Copa Especial
+MsgMain/GrandprixCupName/Name_GP09	Rally Turbo
+MsgMain/GrandprixCupName/Name_GP10	Rally Xeo
+MsgMain/GrandprixCupName/Name_GP11	Rally Lúa
+MsgMain/GrandprixCupName/Name_GP12	Rally Espiñas
+MsgMain/GrandprixCupName/Name_GP13	Rally Cereixas
+MsgMain/GrandprixCupName/Name_GP14	Rally Landra
+MsgMain/GrandprixCupName/Name_GP15	Rally Nube
+MsgMain/GrandprixCupName/Name_GP16	Rally Corazón
+MsgMain/Help/HelpButton_01	Manual
+MsgMain/Help/HelpMenu_01	Técnicas
+MsgMain/Help/HelpMenu_02	Obxectos
+MsgMain/Help/HelpMenu_03	Regras
+MsgMain/Help/HelpMenu_04	Modo libre
+MsgMain/Help/Technique_01	Turbosaída
+MsgMain/Help/Technique_02	Derrapaxe
+MsgMain/Help/Technique_03	Miniturbo
+MsgMain/Help/Technique_04	Salto con acelerón
+MsgMain/Help/Technique_05	Xiro no sitio
+MsgMain/Help/Technique_06	Salto cargado
+MsgMain/Help/Technique_07	Esvarar por varandas
+MsgMain/Help/Technique_08	Circular por muros
+MsgMain/Help/Technique_09	Rebobinar
+MsgMain/Help/Technique_101	Turbosaída
+MsgMain/Help/Technique_102	Derrapaxe
+MsgMain/Help/Technique_103	Miniturbo
+MsgMain/Help/Technique_104	Salto con acelerón
+MsgMain/Help/Technique_105	Xiro no sitio
+MsgMain/Help/Technique_106	Salto cargado
+MsgMain/Help/Technique_107	Esvarar por varandas
+MsgMain/Help/Technique_108	Circular por muros
+MsgMain/Help/Technique_109	Rebobinar
+MsgMain/Help/Technique_201	Ao comezo da carreira, cando a conta\natrás vaia polo 2, mantén premido {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} ({0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF})\npara efectuar unha turbosaída.
+MsgMain/Help/Technique_202	Mantén premido {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} mentres aceleras con {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} ({0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF})\ne inclinas {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} para tomar as curvas de forma máis\npechada sen perder velocidade.
+MsgMain/Help/Technique_203	Se saen faíscas das rodas ao prolongar o derrapaxe,\nsolta {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} para dar un acelerón. Aguanta ata que\nestas cambien de cor (ata 3 veces co volante\nintelixente desactivado) para potenciar o acelerón.
+MsgMain/Help/Technique_204	Ao pasar por unha rampla ou unha superficie similar,\npreme {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} no momento xusto para efectuar\nunha pirueta no aire e lograr un breve acelerón.
+MsgMain/Help/Technique_205	Podes cambiar de dirección rapidamente\nse inclinas {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} e á vez manteñs premidos\n{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} ({0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}) e {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} ({0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}).
+MsgMain/Help/Technique_206	Se manteñs premido {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} uns instantes mentres\navanzas en liña recta con {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} ({0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}), sairán\nfaíscas das rodas. Nese momento, solta {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}\ne inclina {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} para saltar na dirección desexada.
+MsgMain/Help/Technique_207	É posible circular sobre elementos estreitos\ncomo varandas e tendidos eléctricos. Incluso\npodes subirte a eles dando un salto cargado.
+MsgMain/Help/Technique_208	Se efectúas un salto con acelerón ou un salto\ncargado en dirección a unha parede, poderás\ncircular brevemente por ela.
+MsgMain/Help/Technique_209	Se manteñs premido {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}, podes facer que\no teu vehículo volva a unha posición anterior.
+MsgMain/Help/Item_01	Plátano
+MsgMain/Help/Item_02	Trío de plátanos
+MsgMain/Help/Item_03	Cogomelo turbo
+MsgMain/Help/Item_04	Trío de cogomelos turbo
+MsgMain/Help/Item_05	Cogomelo turbo dourado
+MsgMain/Help/Item_06	Megacogomelo
+MsgMain/Help/Item_07	Carapaza verde
+MsgMain/Help/Item_08	Trío de carapazas verdes
+MsgMain/Help/Item_09	Carapaza vermella
+MsgMain/Help/Item_10	Trío de carapazas vermellas
+MsgMain/Help/Item_11	Carapaza de espiñas
+MsgMain/Help/Item_12	Carapaza de moedas
+MsgMain/Help/Item_13	Flor de lume
+MsgMain/Help/Item_14	Flor de xeo
+MsgMain/Help/Item_15	Flor búmerang
+MsgMain/Help/Item_16	Bill Bala
+MsgMain/Help/Item_17	Bob-omb
+MsgMain/Help/Item_18	Martelo
+MsgMain/Help/Item_19	Superbuzina
+MsgMain/Help/Item_20	Bloque ?
+MsgMain/Help/Item_21	Moeda
+MsgMain/Help/Item_22	Boo
+MsgMain/Help/Item_23	Blooper
+MsgMain/Help/Item_24	Kamek
+MsgMain/Help/Item_25	Pluma
+MsgMain/Help/Item_26	Superestrela
+MsgMain/Help/Item_27	Raio
+MsgMain/Help/Item_28	Comida turbo
+MsgMain/Help/Item_101	Calquera vehículo que o toque\nesvarará.
+MsgMain/Help/Item_102	Tres plátanos que xiran arredor do\nteu vehículo. Preme {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000} para soltalos\nun a un.
+MsgMain/Help/Item_103	Dá un acelerón.
+MsgMain/Help/Item_104	Tres cogomelos que xiran arredor\ndo teu vehículo. Preme {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000} para usalos\nun a un.
+MsgMain/Help/Item_105	Durante un tempo, permite activar\no efecto do cogomelo turbo\npremendo {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000} repetidamente.
+MsgMain/Help/Item_106	Agranda o teu vehículo e a ti por\nuns instantes, o que che permite\nesmagar os teus rivais. Tamén che\noutorga un extra de velocidade.
+MsgMain/Help/Item_107	Sae disparada en liña recta e fai\nenvorcar o primeiro vehículo que alcanza.
+MsgMain/Help/Item_108	Tres carapazas verdes que xiran\narredor do teu vehículo. Preme {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}\npara lanzalas unha a unha.
+MsgMain/Help/Item_109	Persegue o vehículo que vai diante\nde ti e fai envorcar o primeiro que\nse cruce no seu camiño.
+MsgMain/Help/Item_110	Tres carapazas vermellas que xiran\narredor do teu vehículo. Preme {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}\npara lanzalas unha a unha.
+MsgMain/Help/Item_111	Vai directa ao vehículo que encabeza\na carreira e fai que envorquen este\ne calquera outro que se interpoña\nno seu camiño. Non parará ata\nque alcance o líder da carreira!
+MsgMain/Help/Item_112	Segue o trazado do circuíto mentres\nxera moedas e fai envorcar os\nvehículos que se crucen con ela.
+MsgMain/Help/Item_113	Permíteche lanzar bólas de lume\ndurante uns instantes premendo {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}.\nSe alcanzan algún vehículo, este\ndará voltas sen control.
+MsgMain/Help/Item_114	Permíteche lanzar bólas de xeo\ndurante uns instantes premendo {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}.\nQuen resulte alcanzado por elas\nperderá o control do seu vehículo.
+MsgMain/Help/Item_115	Permíteche lanzar premendo {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000} un\nbúmerang que fará dar voltas sen\ncontrol aos vehículos que alcance.
+MsgMain/Help/Item_116	Convértete por uns instantes nun\nBill Bala que voa automaticamente\na toda velocidade cara á meta.\nFarás envorcar calquera vehículo\nque se interpoña no teu camiño.
+MsgMain/Help/Item_117	Unha vez lanzada, estoupará tras uns\ninstantes ou se alguén choca contra ela.\nA explosión fará envorcar ou dar voltas\naos vehículos que alcance!
+MsgMain/Help/Item_118	Permíteche lanzar varios martelos\npremendo {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}. Provocarás accidentes\nse lles zorregas a outros vehículos.
+MsgMain/Help/Item_119	Pega un bocinazo a todo volume\ne lanza polos aires os vehículos\ne obxectos que estean preto.
+MsgMain/Help/Item_120	Xera unha moeda cada vez que\npremes {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}. Tamén aumenta\nlixeiramente a velocidade.
+MsgMain/Help/Item_121	Incrementa en dúas o teu contador de\nmoedas. Cantas máis teñas, máis\nrápido correrá o teu vehículo.
+MsgMain/Help/Item_122	Fai invisible o teu vehículo, polo que\nnon lle afectan certos obstáculos como\nos plátanos ou carapazas. Ademais,\npodes roubarlles obxectos aos rivais!
+MsgMain/Help/Item_123	Lanza tinta aos rivais e dificulta\na súa visión durante uns instantes.
+MsgMain/Help/Item_124	Invoca a Kamek para que provoque\nefectos dos máis dispares cos seus\npoderes máxicos.
+MsgMain/Help/Item_125	Permíteche elevarte a gran altura para\nevitar plátanos ou carapazas. Nas\nbatallas, se golpeas os rivais no\naire, roubaralles globos ou moedas.
+MsgMain/Help/Item_126	Fai que sexas invulnerable durante uns\ninstantes e aumenta a túa velocidade.\nOs vehículos que choquen contigo\nenvorcarán.
+MsgMain/Help/Item_127	Fai dar voltas sen control a todos\nos teus opoñentes e déixaos sen obxectos.\nTamén reduce por uns instantes\no seu tamaño e velocidade.
+MsgMain/Help/Item_128	Un apetitoso bocado que che fai\ndar un acelerón e ademais podería\nfacerte cambiar de aspecto.
+MsgMain/Help/Rule_01	Grand Prix
+MsgMain/Help/Rule_02	Supervivencia
+MsgMain/Help/Rule_03	Contrarreloxo
+MsgMain/Help/Rule_04	Carreira VS.
+MsgMain/Help/Rule_05	Batalla de globos
+MsgMain/Help/Rule_06	Batalla de moedas
+MsgMain/Help/Rule_101	Grand Prix
+MsgMain/Help/Rule_102	Supervivencia
+MsgMain/Help/Rule_103	Contrarreloxo
+MsgMain/Help/Rule_104	Carreira VS.
+MsgMain/Help/Rule_105	Batalla de globos
+MsgMain/Help/Rule_106	Batalla de moedas
+MsgMain/Help/Rule_201	Loita por coroar o podio\nnunha copa de 4 carreiras!
+MsgMain/Help/Rule_202	Unha carreira eliminatoria por\ntodo o mundo!
+MsgMain/Help/Rule_203	Supera os teus mellores tempos en solitario!
+MsgMain/Help/Rule_204	Compite seguindo as túas propias regras!
+MsgMain/Help/Rule_205	Emprega obxectos e rebenta globos!
+MsgMain/Help/Rule_206	Gaña quen consiga máis moedas!
+MsgMain/Help/Rule_301	Tras cada carreira, gáñanse puntos en función do\nposto logrado. A túa posición na clasificación\nxeral do campionato dependerá dos puntos\nsumados ao final das 4 carreiras.
+MsgMain/Help/Rule_302	Unha carreira ininterrompida na que os\nparticipantes deberán tentar manterse\nos postos clasificatorios como sexa!
+MsgMain/Help/Rule_303	Elixe o circuíto que queiras entre os dispoñibles.\nA clave para lograr tempos cada vez mellores é\nempregar os cogomelos turbo con perizia!
+MsgMain/Help/Rule_304	Elixe ao teu gusto distintos axustes, como o número\nde carreiras ou a distribución por equipos.
+MsgMain/Help/Rule_305	Consegue puntos rebentando os globos dos\nrivais! Tamén podes roubarllos chocando\ncontra eles coa axuda dun cogomelo turbo.
+MsgMain/Help/Rule_306	Golpea cos obxectos os teus opoñentes para\nque soltem moedas. Tamén podes\nroubarllas chocando contra eles coa\naxuda dun cogomelo turbo.
+MsgMain/Help/Rule_401	O modo Grand Prix permite participar en 7 copas\ndistintas. Que ocorrerá se as completas todas?
+MsgMain/Help/Rule_402	Ao pasar por cada unha das 5 metas intermedias,\nreduce o número de participantes. Aguanta\nsen que te eliminen e tenta alcanzar o primeiro\nposto ao final!
+MsgMain/Help/Rule_403	Compite contra os pantasmas doutros xogadores.\nQuizais poidas aprender algún truco deles!
+MsgMain/Help/Rule_404	Se elixes «Xira» na pantalla de axustes,\na competición desenvolverase enlazando\ncircuítos ao longo de todo o mundo!
+MsgMain/Help/Rule_405	Se te quedas sen globos, acabouse o que se daba...
+MsgMain/Help/Rule_406	As moedas amósanse no minimapa.\nNon lle quites o ollo de enriba!
+MsgMain/Help/FreeRun_01	Interruptores P
+MsgMain/Help/FreeRun_02	Paneis ?
+MsgMain/Help/FreeRun_03	Medallas de Peach
+MsgMain/Help/FreeRun_04	Moedas
+MsgMain/Help/FreeRun_05	Local de Yoshi
+MsgMain/Help/FreeRun_06	Modo fotos
+MsgMain/Help/FreeRun_101	Toca un interruptor P para comezar unha misión!\nSe che resulta difícil completala, lembra que a\nperseveranza é a clave do éxito!
+MsgMain/Help/FreeRun_102	Podes toparte con paneis ? nos lugares\nmáis insospeitados. Tenta atopar todos\nos posibles!
+MsgMain/Help/FreeRun_103	Reloucentes medallas de Peach están\nagochadas por todo o mundo. Cantas pensas que\nhaberá en total?
+MsgMain/Help/FreeRun_104	Se reúnes moedas abondo, poderás\ndesbloquear novos vehículos. Din\nas malas linguas que hai montañas\ndelas por aí!
+MsgMain/Help/FreeRun_105	Atoparás comida turbo en diferentes puntos\ndo mapa. Estes apetitosos manxares poden\ncambiar o aspecto de varios pilotos!
+MsgMain/Help/FreeRun_106	Podes sacar fotos premendo {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}. Busca o mellor\nenquadre, esboza un sorriso e... dispara!
+MsgMain/MachineType/Vehicle_Amb	Bigote Vingador
+MsgMain/MachineType/Vehicle_Bds	Raio GTI
+MsgMain/MachineType/Vehicle_Blk	Mecatriciclo
+MsgMain/MachineType/Vehicle_Bsn	Gran Corno
+MsgMain/MachineType/Vehicle_Bul	Placapum XL
+MsgMain/MachineType/Vehicle_Crp	Rei da Lagoa
+MsgMain/MachineType/Vehicle_Dkn	Hipertubaxe
+MsgMain/MachineType/Vehicle_Dmp	Volcorredor
+MsgMain/MachineType/Vehicle_Esp	Trineo Estelar
+MsgMain/MachineType/Vehicle_H2o	Turbonu B
+MsgMain/MachineType/Vehicle_Hrl	Minitractor
+MsgMain/MachineType/Vehicle_Hvc	R.O.B. OT
+MsgMain/MachineType/Vehicle_Kgs	Blooper BB
+MsgMain/MachineType/Vehicle_Lob	Tricrustáceo
+MsgMain/MachineType/Vehicle_Mhb	Moto Hipersónica
+MsgMain/MachineType/Vehicle_Mov	Fama Fugaz
+MsgMain/MachineType/Vehicle_Mqn	Abellón-móbil
+MsgMain/MachineType/Vehicle_Ocn	Descaposapo
+MsgMain/MachineType/Vehicle_Ptn	Marchimotas GTI
+MsgMain/MachineType/Vehicle_Rbn	Coquetomóbil
+MsgMain/MachineType/Vehicle_Rcb	Radio Rauda
+MsgMain/MachineType/Vehicle_Rcc	Calcinador Turbo
+MsgMain/MachineType/Vehicle_Rlb	Moto Todoterreo
+MsgMain/MachineType/Vehicle_Rlk	Kart Todoterreo
+MsgMain/MachineType/Vehicle_Sct	Cuquimoto
+MsgMain/MachineType/Vehicle_Skl	Tubiturbo
+MsgMain/MachineType/Vehicle_Snd	Surcadunas
+MsgMain/MachineType/Vehicle_Snm	Pavor Esvarante
+MsgMain/MachineType/Vehicle_Stb	Moto estándar
+MsgMain/MachineType/Vehicle_Stk	Kart estándar
+MsgMain/MachineType/Vehicle_Stm	Locomoto
+MsgMain/MachineType/Vehicle_Tbt	Cachivacheiro
+MsgMain/MachineType/Vehicle_Dlp	Velocigolfiño
+MsgMain/MachineType/Vehicle_Rkt	Kartonauta III
+MsgMain/MachineType/Vehicle_Pfm	Corazón Rexio
+MsgMain/MachineType/Vehicle_Cpt	Turboalfombra
+MsgMain/MachineType/Vehicle_Wtm	Montaondas Dorrie
+MsgMain/MachineType/Vehicle_Alt	Velocirreptil
+MsgMain/MachineType/Vehicle_Kpv	O Destrutor
+MsgMain/MachineType/Vehicle_Bil	Automo Bill
+MsgMain/Menu/2001	Aceptar
+MsgMain/Menu/2003	Si
+MsgMain/Menu/2004	Non
+MsgMain/Menu/2051	Preme {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}
+MsgMain/Menu/2053	Ordenar
+MsgMain/Menu/2054	Detalles
+MsgMain/Menu/2055	Velocidade
+MsgMain/Menu/2056	Aceleración
+MsgMain/Menu/2057	Peso
+MsgMain/Menu/2058	Manexo
+MsgMain/Menu/2059	Aleatorio
+MsgMain/Menu/2101	Un xogador
+MsgMain/Menu/2102	Multixogador
+MsgMain/Menu/2103	En liña
+MsgMain/Menu/2104	Sen fíos
+MsgMain/Menu/2105	Pegatinas
+MsgMain/Menu/2106	Partida LAN
+MsgMain/Menu/2110	Mapa
+MsgMain/Menu/2111	Modo libre
+MsgMain/Menu/2120	{0E 0000 0002 0002 0046} {0E 0000 0002 0002 0064}1{0E 0000 0002 0002 0032}X{0E 0000 0002 0002 0064}
+MsgMain/Menu/2121	{0E 0000 0002 0002 0046} {0E 0000 0002 0002 0064}2{0E 0000 0002 0002 0032}X{0E 0000 0002 0002 0064}
+MsgMain/Menu/2122	{0E 0000 0002 0002 0046} {0E 0000 0002 0002 0064}3{0E 0000 0002 0002 0032}X{0E 0000 0002 0002 0064}
+MsgMain/Menu/2123	{0E 0000 0002 0002 0046} {0E 0000 0002 0002 0064}4{0E 0000 0002 0002 0032}X{0E 0000 0002 0002 0064}
+MsgMain/Menu/2201	Grand Prix
+MsgMain/Menu/2202	Supervivencia
+MsgMain/Menu/2203	Contrarreloxo
+MsgMain/Menu/2204	Carreira VS.
+MsgMain/Menu/2205	Batalla
+MsgMain/Menu/2211	Compite en 4 circuítos!
+MsgMain/Menu/2212	Tenta aguantar ata o final!
+MsgMain/Menu/2213	Logra a túa mellor marca!
+MsgMain/Menu/2214	Ti pos as regras!
+MsgMain/Menu/2215	Compite con regras personalizadas!
+MsgMain/Menu/2216	Ata 24 xogadores á vez!
+MsgMain/Menu/2217	Unha carreira eliminatoria de 24 pilotos!
+MsgMain/Menu/2219	Ata 24 xogadores enfróntanse entre si!
+MsgMain/Menu/2231	Enfróntate aos teus amigos!
+MsgMain/Menu/2221	Comezar Grand Prix
+MsgMain/Menu/2222	Comezar supervivencia
+MsgMain/Menu/2223	Comezar contrarreloxo
+MsgMain/Menu/2224	Comezar repetición
+MsgMain/Menu/2225	Comezar carreira
+MsgMain/Menu/2226	Comezar batalla
+MsgMain/Menu/2227	Queres saír?
+MsgMain/Menu/2228	Queres saír?
+MsgMain/Menu/2229	Queres volver á\npantalla do título?
+MsgMain/Menu/2235	Espello
+MsgMain/Menu/2240	cc
+MsgMain/Menu/2261	En solitario
+MsgMain/Menu/2262	Retar pantasma
+MsgMain/Menu/2263	Ver pantasma
+MsgMain/Menu/2264	Ver clasificación
+MsgMain/Menu/2272	Subir pantasma
+MsgMain/Menu/2266	Queres descargar os datos\ndeste corredor pantasma?
+MsgMain/Menu/2268	Queres borrar os datos\ndo corredor pantasma?
+MsgMain/Menu/2269	Borráronse os datos\ndo corredor pantasma.
+MsgMain/Menu/2270	Descargando datos\ndo corredor pantasma...
+MsgMain/Menu/2271	Descargouse\no corredor pantasma!\nQueres iniciar a carreira xa?
+MsgMain/Menu/2273	Queres subir os datos\ndo corredor pantasma?
+MsgMain/Menu/2274	Aínda non creaches datos\nde corredor pantasma\nneste circuíto.
+MsgMain/Menu/2275	Non podes descargar os datos\ndo teu propio corredor pantasma.
+MsgMain/Menu/2276	Imposible descargar máis datos de\ncorredores pantasma. {0E 0000 0003 0002 0000}Borralos\ntodos{0E 0000 0003 0002 FFFF} para liberar espazo?
+MsgMain/Menu/2277	Os datos de corredores pantasma\n{0E 0000 0003 0002 0000}eliminaranse permanentemente{0E 0000 0003 0002 FFFF}.\nSeguro que queres continuar?
+MsgMain/Menu/2278	Borráronse todos os datos de\ncorredores pantasma descargados.
+MsgMain/Menu/2281	Xa descargaches os datos\ndeste corredor pantasma.
+MsgMain/Menu/2282	Estes son {0E 0000 0003 0002 0000}os datos do teu\npropio corredor pantasma{0E 0000 0003 0002 FFFF}.\nSeguro que queres borralos?
+MsgMain/Menu/2301	Categoría
+MsgMain/Menu/2302	50 cc
+MsgMain/Menu/2303	100 cc
+MsgMain/Menu/2304	150 cc
+MsgMain/Menu/2306	Espello
+MsgMain/Menu/2308	Omitir
+MsgMain/Menu/2311	Nivel CPU
+MsgMain/Menu/2312	Fácil
+MsgMain/Menu/2313	Normal
+MsgMain/Menu/2314	Difícil
+MsgMain/Menu/2315	Sen CPU
+MsgMain/Menu/2321	Circuítos
+MsgMain/Menu/2322	Xira
+MsgMain/Menu/2323	Á escolla
+MsgMain/Menu/2324	Aleatorio
+MsgMain/Menu/2331	Carreiras
+MsgMain/Menu/2332	3 carreiras
+MsgMain/Menu/2333	4 carreiras
+MsgMain/Menu/2334	5 carreiras
+MsgMain/Menu/2335	6 carreiras
+MsgMain/Menu/2336	8 carreiras
+MsgMain/Menu/2337	12 carreiras
+MsgMain/Menu/2338	16 carreiras
+MsgMain/Menu/2339	32 carreiras
+MsgMain/Menu/2351	Equipos
+MsgMain/Menu/2352	Sen equipos
+MsgMain/Menu/2353	2 equipos
+MsgMain/Menu/2354	3 equipos
+MsgMain/Menu/2355	4 equipos
+MsgMain/Menu/2371	Roldas
+MsgMain/Menu/2372	3 roldas
+MsgMain/Menu/2373	4 roldas
+MsgMain/Menu/2374	5 roldas
+MsgMain/Menu/2375	6 roldas
+MsgMain/Menu/2376	8 roldas
+MsgMain/Menu/2381	Intervalos
+MsgMain/Menu/2382	10 segundos
+MsgMain/Menu/2383	1 minuto
+MsgMain/Menu/2384	5 minutos
+MsgMain/Menu/2391	Obxectos
+MsgMain/Menu/2392	Normais
+MsgMain/Menu/2393	Tolos
+MsgMain/Menu/2402	Carreira VS.
+MsgMain/Menu/2404	Supervivencia
+MsgMain/Menu/2405	Batalla de globos
+MsgMain/Menu/2406	Batalla de moedas
+MsgMain/Menu/3003	Queres correr en modo libre?
+MsgMain/Menu/3004	Vas volver á\npantalla do título.
+MsgMain/Menu/5001	Carreira
+MsgMain/Menu/5002	Supervivencia
+MsgMain/Menu/5004	Amizades
+MsgMain/Menu/5005	Crear un grupo
+MsgMain/Menu/5006	Buscar por ID de grupo
+MsgMain/Menu/5007	Unirse
+MsgMain/Menu/5008	Grupo
+MsgMain/Menu/5009	Batalla
+MsgMain/Menu/5013	Buscando xogadores...
+MsgMain/Menu/5014	A carreira está a piques de comezar!
+MsgMain/Menu/5017	Decidiuse o circuíto!
+MsgMain/Menu/5019	Non podes unirte á partida. Agarda uns momentos.
+MsgMain/Menu/5020	Uniches á partida!
+MsgMain/Menu/5021	{0E 0001 0001 0004 0000 0000} uniuse á partida!
+MsgMain/Menu/5022	Decidíronse as regras!
+MsgMain/Menu/5023	Próxima carreira en: {0E 0001 0000 0004 0000 0000}
+MsgMain/Menu/5024	Próxima batalla en: {0E 0001 0000 0004 0000 0000}
+MsgMain/Menu/5026	Participarás na seguinte carreira. Agarda...
+MsgMain/Menu/5027	Participarás na seguinte batalla. Agarda...
+MsgMain/Menu/5028	Agardando por outros xogadores...
+MsgMain/Menu/5029	{0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000} Comezar a xogar
+MsgMain/Menu/5030	{0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000} Comezar a xogar
+MsgMain/Menu/5031	A batalla está a piques de comezar!
+MsgMain/Menu/5032	Agarda a que se decidan as regras.
+MsgMain/Menu/5033	Interrompeuse\na conexión.
+MsgMain/Menu/5034	Non foi posible unirse á supervivencia.
+MsgMain/Menu/5035	Toca reunir dous pilotos moi separados.
+MsgMain/Menu/5101	Aleatorio
+MsgMain/Menu/5102	Cambiar
+MsgMain/Menu/5202	Queres crear un\ngrupo para competir\ncon outros xogadores?
+MsgMain/Menu/5204	O ID introducido non coincide\ncon o de ningún grupo.
+MsgMain/Menu/5209	ID do grupo
+MsgMain/Menu/5212	Estatísticas de xogo
+MsgMain/Menu/5213	Ti
+MsgMain/Menu/5214	Amizade
+MsgMain/Menu/5215	-
+MsgMain/Menu/5218	Introduce o ID do grupo.
+MsgMain/Menu/5220	Agarda un momento...
+MsgMain/Menu/5221	Queres abandonar\neste grupo?
+MsgMain/Menu/5301	O grupo está completo.\nAgarda un pouco...
+MsgMain/Menu/5302	Produciuse\nun erro de conexión.
+MsgMain/Menu/5304	Non se atopa o grupo\nao que querías unirte.
+MsgMain/Menu/5305	Produciuse\nun erro de conexión.
+MsgMain/Menu/5307	Produciuse\nun erro de conexión.
+MsgMain/Menu/5308	Produciuse\nun erro de conexión.
+MsgMain/Menu/5320	Reuniches {0E 0001 0000 0004 0000 0000} moedas\ne desbloqueaches\nun novo {0E 0000 0003 0002 0000}vehículo{0E 0000 0003 0002 FFFF}!
+MsgMain/Menu/5313	Non tes amizades rexistradas.
+MsgMain/Menu/5314	Non hai grupos aos que unirse.
+MsgMain/Menu/5315	Confirmar as regras
+MsgMain/Menu/5316	Participantes
+MsgMain/Menu/5347	Modo fotos
+MsgMain/Menu/5328	Punto de vista
+MsgMain/Menu/5329	Enfoque
+MsgMain/Menu/5333	Rematar
+MsgMain/Menu/5334	Xesto
+MsgMain/Menu/5335	Marco
+MsgMain/Menu/5336	Guía
+MsgMain/Menu/5340	Pose
+MsgMain/Menu/5341	Inclinación
+MsgMain/Menu/5342	Facer a foto
+MsgMain/Menu/5345	Zoom
+MsgMain/Menu/5348	Enfoque: ningún
+MsgMain/Menu/5349	Enfoque: personaxe
+MsgMain/Menu/5350	Enfoque: centrado
+MsgMain/Menu/5353	Queres deixar\nde facer fotos?
+MsgMain/Menu/5354	Si
+MsgMain/Menu/5355	Non
+MsgMain/Menu/5370	Marco: ningún
+MsgMain/Menu/5371	Marco: 1
+MsgMain/Menu/5372	Marco: 2
+MsgMain/Menu/5373	Marco: 3
+MsgMain/Menu/5374	Marco: 4
+MsgMain/Menu/5375	Marco: 5
+MsgMain/Menu/5376	Marco: 6
+MsgMain/Menu/5377	Marco: 7
+MsgMain/Menu/5378	Marco: 8
+MsgMain/Menu/5379	Marco: 9
+MsgMain/Menu/5380	Marco: 10
+MsgMain/Menu/5381	Marco: 11
+MsgMain/Menu/5382	Marco: 12
+MsgMain/Menu/5383	Marco: 13
+MsgMain/Mission/Mission_RC_WL_00	Elude os Goombas e obtén as moedas azuis!
+MsgMain/Mission/Mission_RC_WL_03	Obtén as moedas azuis da ponte!
+MsgMain/Mission/Mission_RC_WL_04	Percorre os vagóns e obtén as moedas azuis!
+MsgMain/Mission/Mission_RC_WL_05	Obtén as moedas azuis con acrobacias aéreas!
+MsgMain/Mission/Mission_RC_WL_08	Obtén as moedas azuis de tubo en tubo!
+MsgMain/Mission/Mission_WT_WL_00	Supera a liña defensiva!
+MsgMain/Mission/Mission_WT_WL_01	Segue o atallo de bloques cara ao Estadio Wario!
+MsgMain/Mission/Mission_WT_WL_04	Percorre a toda mecha a ruta de rodas!
+MsgMain/Mission/Mission_WT_WL_05	Adianta o tren sobre o armazón da ponte!
+MsgMain/Mission/Mission_WT_WL_06	Ascende ata a ponte colgante!
+MsgMain/Mission/Mission_WT_WL_08	Planea ata a ponte de ferro e atravésaa!
+MsgMain/Mission/Mission_WT_WL_09	Sobe ao tráiler e completa a escena de acción!
+MsgMain/Mission/Mission_WT_WL_10	Percorre o atallo cara ao Circuíto Mario Bros.!
+MsgMain/Mission/Mission_WT_WL_11	Alcanza o banderín sobre o cogomelo xigante!
+MsgMain/Mission/Mission_WT_WL_12	Aproveita os tornados para chegar ao banderín!
+MsgMain/Mission/Mission_WT_WL_13	Ábrete paso con acelerós entre os residuos!
+MsgMain/Mission/Mission_WT2_WL_00	Sulca o deserto usando obxectos!
+MsgMain/Mission/Mission_WT2_WL_01	Compite cos Shy Guys na corrente!
+MsgMain/Mission/Mission_WT2_WL_05	Percorre o canón augas arriba!
+MsgMain/Mission/Mission_WT2_WL_06	Ábrete camiño pola ruta misteriosa!
+MsgMain/Mission/Mission_WT2_WL_07	Supera o percorrido pasando por rampas e vigas!
+MsgMain/Mission/Mission_WT2_WL_08	Ascende a toda présa salvando desniveis!
+MsgMain/Mission/Mission_WT2_WL_09	Demostra como circulas polos muros!
+MsgMain/Mission/Mission_WT2_WL_10	Exhibe as túas dotes de equilibrista pola ponte!
+MsgMain/Mission/Mission_WT2_WL_11	Voa para ir picar algo no local de Yoshi!
+MsgMain/Mission/Mission_WT2_WL_12	Gaña altura aproveitando os cactus!
+MsgMain/Mission/Mission_WT2_WL_13	Elude os armadillos de camiño á meta!
+MsgMain/Mission/Mission_WT2_WL_14	Segue a ruta que marca o helicóptero!
+MsgMain/Mission/Mission_WT2_WL_15	Ponte a proba no desafío especial n.º 6!
+MsgMain/Mission/Mission_WT2_WL_18	Ascende saltando polas rampas!
+MsgMain/Mission/Mission_WT3_WL_01	Resiste polo árido terreo ata chegar á meta!
+MsgMain/Mission/Mission_WT3_WL_02	Disputa a carreira espontánea polo canón!
+MsgMain/Mission/Mission_WT3_WL_03	Completa a carreira mediante múltiples piruetas!
+MsgMain/Mission/Mission_WT3_WL_04	Alcanza os cumes de rochosos cogomelos!
+MsgMain/Mission/Mission_RC_WL_02	Obtén as moedas azuis rodeando a hamburguesa!
+MsgMain/Mission/Mission_WT_WL_03	Acelera polas bancadas e chega á meta!
+MsgMain/Mission/Mission_WT2_WL_04	Alcanza a meta enchéndote sen parar!
+MsgMain/Mission/Mission_RC_WL_07	Obtén as moedas con piruetas de carril en carril!
+MsgMain/Mission/Mission_WT_WL_02	Compite en velocidade co tren!
+MsgMain/Mission/Mission_WT2_WL_02	Ascende contra o reloxo polo Canón Ferroviario!
+MsgMain/Mission/Mission_RC_WL_06	Obtén as moedas azuis polas alturas!
+MsgMain/Mission/Mission_WT2_WL_16	Completa o percorrido por aros e chamas!
+MsgMain/Mission/Mission_WT2_WL_17	Atravesa os aros polos tellados!
+MsgMain/Mission/Mission_RC_DT_00	Obtén as moedas azuis sen afundirte!
+MsgMain/Mission/Mission_RC_DT_01	Obtén as moedas azuis da area!
+MsgMain/Mission/Mission_RC_DT_03	Faite coas moedas azuis desperdigadas!
+MsgMain/Mission/Mission_RC_DT_04	Obtén as moedas azuis do oasis seco!
+MsgMain/Mission/Mission_RC_DT_05	Obtén as moedas azuis paseando polo bazar!
+MsgMain/Mission/Mission_RC_DT_06	Sulca os aires para obter as moedas azuis!
+MsgMain/Mission/Mission_RC_DT_07	Recolle as moedas azuis polo oasis!
+MsgMain/Mission/Mission_RC_DT_08	Obtén as moedas azuis sobre as cordas!
+MsgMain/Mission/Mission_WT_DT_00	Pasa voando xunto aos temibles tornados!
+MsgMain/Mission/Mission_WT_DT_01	Supera a emboscada dos Irmáns Martelo!
+MsgMain/Mission/Mission_WT_DT_02	Ascende esquivando os Chomps Cadea!
+MsgMain/Mission/Mission_WT_DT_03	Rebasa os Shy Guys competindo río arriba!
+MsgMain/Mission/Mission_WT_DT_04	Alcanza a meta a través do mar de area!
+MsgMain/Mission/Mission_WT_DT_05	Sae pitando e salta sobre o banderín!
+MsgMain/Mission/Mission_WT_DT_06	Fai bo uso do turbo para chegar á meta!
+MsgMain/Mission/Mission_WT_DT_07	Segue a sinuosa ruta ata a meta!
+MsgMain/Mission/Mission_WT_DT_08	Supera o desafío de nivel 2 dos Shy Guys!
+MsgMain/Mission/Mission_WT_DT_09	Supera o desafío de nivel 1 dos Shy Guys!
+MsgMain/Mission/Mission_WT_DT_10	Chega á meta con moitas rodas de tracción!
+MsgMain/Mission/Mission_WT_DT_11	Salva os desniveis de tubo en tubo!
+MsgMain/Mission/Mission_WT_DT_12	Corre a maratón desértica a acelerón limpo!
+MsgMain/Mission/Mission_WT_DT_13	Ascende evitando os Tokotokos!
+MsgMain/Mission/Mission_WT_DT_14	Ábrete paso polo labirinto de bloques!
+MsgMain/Mission/Mission_WT_DT_15	Sobe polos navíos naufragados e chega á meta!
+MsgMain/Mission/Mission_WT_DT_16	Sorteia os Batadóns!
+MsgMain/Mission/Mission_WT_DT_17	Percorre a longa vía férrea ata a meta!
+MsgMain/Mission/Mission_WT2_DT_00	Navega polo río ata saír ao mar!
+MsgMain/Mission/Mission_WT2_DT_01	Avanza saltando de columna en columna!
+MsgMain/Mission/Mission_WT2_DT_02	Conduce ao longo do muro exterior para colarte!
+MsgMain/Mission/Mission_WT2_DT_03	Percorre a ponte facendo alarde de piruetas!
+MsgMain/Mission/Mission_WT2_DT_04	Sorteia as Fogolinas no túnel!
+MsgMain/Mission/Mission_WT2_DT_05	Evita os Pokeys danzantes!
+MsgMain/Mission/Mission_WT2_DT_06	Voa ata o banderín de meta da estación!
+MsgMain/Mission/Mission_WT2_DT_07	Supera o desafío de nivel 3 dos Shy Guys!
+MsgMain/Mission/Mission_WT2_DT_08	Persegue os Tokotokos!
+MsgMain/Mission/Mission_WT2_DT_09	Sobe ata o cume para fuxir do deserto!
+MsgMain/Mission/Mission_WT2_DT_10	Cruza o deserto e as montañas ata a meta!
+MsgMain/Mission/Mission_WT2_DT_11	Fai piruetas por todas partes no Bazar Shy Guy!
+MsgMain/Mission/Mission_WT2_DT_12	Atravesa a tormenta de auga e moedas!
+MsgMain/Mission/Mission_WT3_DT_00	Supera a dura carreira desértica!
+MsgMain/Mission/Mission_RC_VL_02	Obtén as moedas azuis pola estreita senda!
+MsgMain/Mission/Mission_RC_VL_04	Obtén as moedas azuis nas augas termais!
+MsgMain/Mission/Mission_RC_VL_05	Colle as moedas azuis e evita as Rochas Picudas!
+MsgMain/Mission/Mission_RC_VL_06	Evita os Broncos e obtén as moedas azuis!
+MsgMain/Mission/Mission_RC_VL_07	Obtén as moedas azuis sobre as varandas!
+MsgMain/Mission/Mission_RC_VL_08	Faite coas moedas azuis do cemiterio!
+MsgMain/Mission/Mission_RC_VL_09	Recupera as moedas azuis esparexidas!
+MsgMain/Mission/Mission_RC_VL_11	Obtén as moedas azuis da gran escaleira!
+MsgMain/Mission/Mission_RC_VL_12	Salta polas varandas e obtén as moedas!
+MsgMain/Mission/Mission_WT_VL_02	Voa sobre o lago de lava sen torrarte!
+MsgMain/Mission/Mission_WT_VL_03	Evita os Rocorrampas ou úsaos para pasar!
+MsgMain/Mission/Mission_WT_VL_04	Sobe ao tráiler e arrasa con todo!
+MsgMain/Mission/Mission_WT_VL_05	Ábrete paso pola ruta infestada de Ósiños!
+MsgMain/Mission/Mission_WT_VL_06	Vai ás augas termais evitando os Peixesos!
+MsgMain/Mission/Mission_WT_VL_07	Atravesa a horda de Neumatóncheres!
+MsgMain/Mission/Mission_WT_VL_08	Cruza o armazón da ponte afundida!
+MsgMain/Mission/Mission_WT_VL_10	Lánzate á tormenta volcánica como Bill Bala!
+MsgMain/Mission/Mission_WT_VL_11	Voa ata a Fortaleza Aérea!
+MsgMain/Mission/Mission_WT_VL_12	Evita os ataques dos Irmáns Lume!
+MsgMain/Mission/Mission_WT2_VL_04	Pon a proba a túa resistencia á lava!
+MsgMain/Mission/Mission_WT2_VL_05	Acelera pola ruta dereita usando cogomelos!
+MsgMain/Mission/Mission_WT2_VL_06	Mantén o equilibrio sobre os cables!
+MsgMain/Mission/Mission_WT2_VL_07	Segue a ruta esquerda sen usar cogomelos!
+MsgMain/Mission/Mission_WT2_VL_08	Percorre a zona de xurros termais!
+MsgMain/Mission/Mission_WT2_VL_09	Completa a ruta das Pirañas Piromanas!
+MsgMain/Mission/Mission_WT2_VL_10	Percorre a zona magmática en helicóptero!
+MsgMain/Mission/Mission_WT2_VL_11	Percorre os muros encadeando piruetas!
+MsgMain/Mission/Mission_WT2_VL_12	Supera o slalom de tubos e aros!
+MsgMain/Mission/Mission_WT2_VL_13	Evita as electrificantes pisadas de sumo!
+MsgMain/Mission/Mission_WT2_VL_16	Cruza polos ocos dos armazóns!
+MsgMain/Mission/Mission_WT2_VL_17	Alcanza a parte superior da fortaleza!
+MsgMain/Mission/Mission_WT2_VL_18	Sobe por unha grúa e esquiva a outra!
+MsgMain/Mission/Mission_WT2_VL_20	Aterra no burato tras un longo voo!
+MsgMain/Mission/Mission_WT3_VL_01	Pilla aperitivos nunha carreira polo Gran Donut!
+MsgMain/Mission/Mission_WT_VL_00	Supera as múltiples liñas de Tortopos!
+MsgMain/Mission/Mission_WT2_VL_00	Alcanza o alto da torre sinuosa!
+MsgMain/Mission/Mission_WT2_VL_02	Corre contra o reloxo na Fortaleza Aérea!
+MsgMain/Mission/Mission_RC_VL_01	Obtén as moedas azuis pola zona culinaria!
+MsgMain/Mission/Mission_WT_VL_01	Salta pola muralla do Castelo de Bowser!
+MsgMain/Mission/Mission_WT2_VL_03	Evita a lava executando piruetas!
+MsgMain/Mission/Mission_WT3_VL_00	Compite nun circuíto cheo de secuaces de Bowser!
+MsgMain/Mission/Mission_RC_VL_10	Mantén o equilibrio e obtén as moedas azuis!
+MsgMain/Mission/Mission_RC_VL_15	Evita as bólas de lume e obtén as moedas azuis!
+MsgMain/Mission/Mission_WT2_VL_14	Demostra a túa habilidade para circular por muros!
+MsgMain/Mission/Mission_RC_FS_03	Obtén as moedas azuis da ruta en oito!
+MsgMain/Mission/Mission_RC_FS_04	Obtén as moedas azuis que vixían as Florugas!
+MsgMain/Mission/Mission_RC_FS_05	Faite coas moedas azuis sen afundirte!
+MsgMain/Mission/Mission_RC_FS_06	Reúne as moedas azuis sorteando o tráfico!
+MsgMain/Mission/Mission_RC_FS_07	Pesca as moedas azuis entre as Acuarañas!
+MsgMain/Mission/Mission_RC_FS_08	Obtén as moedas azuis do campamento!
+MsgMain/Mission/Mission_RC_FS_09	Obtén as moedas azuis do bosque pantasmal!
+MsgMain/Mission/Mission_WT_FS_02	Segue o camiño evitando os aprazibles alces!
+MsgMain/Mission/Mission_WT_FS_03	Ascende pola corda ata a meta!
+MsgMain/Mission/Mission_WT_FS_04	Pasa voando por riba da estatua de Mario!
+MsgMain/Mission/Mission_WT_FS_05	Aproveita as pétalas para alcanzar a mazá!
+MsgMain/Mission/Mission_WT_FS_06	Percorre o Circuíto Mario saltando sen parar!
+MsgMain/Mission/Mission_WT_FS_07	Persegue o tren e segue polas vías!
+MsgMain/Mission/Mission_WT_FS_08	Evita os ataques dos Spikes e chega á meta!
+MsgMain/Mission/Mission_WT_FS_09	Practica acrobacias e aterra facendo piruetas!
+MsgMain/Mission/Mission_WT_FS_10	Goza dunha escapada polo río e o bosque!
+MsgMain/Mission/Mission_WT_FS_11	Déixate conducir polas Hedras Piraña!
+MsgMain/Mission/Mission_WT_FS_12	Vai contracorrente co poder das estrelas!
+MsgMain/Mission/Mission_WT_FS_13	Esvara por cable e carrís ata a meta!
+MsgMain/Mission/Mission_WT2_FS_05	Foxe a toda présa do bosque pantasmal!
+MsgMain/Mission/Mission_WT2_FS_06	Planea graciosamente entre as árbores!
+MsgMain/Mission/Mission_WT2_FS_07	Percorre as pontes do pantano encantado!
+MsgMain/Mission/Mission_WT2_FS_08	Circula a contracorrente para alcanzar a meta!
+MsgMain/Mission/Mission_WT2_FS_09	Supera o pantano grazas ás superestrelas!
+MsgMain/Mission/Mission_WT2_FS_10	Elude o tráfico circulando mesmo por muros!
+MsgMain/Mission/Mission_WT2_FS_11	Salta pola angosta ruta!
+MsgMain/Mission/Mission_WT2_FS_12	Baixa pola corrente ata a Aldea Arbórea!
+MsgMain/Mission/Mission_WT2_FS_13	Elude as Plantas Piraña que che pechan o paso!
+MsgMain/Mission/Mission_WT2_FS_14	Sorteia o tráfico e os Placapums!
+MsgMain/Mission/Mission_WT3_FS_01	Circula por un homenaxe ao Val Pantasma 1!
+MsgMain/Mission/Mission_WT3_FS_02	Circula por un homenaxe ao Val Pantasma 2!
+MsgMain/Mission/Mission_WT3_FS_03	Circula por un homenaxe ao Val Pantasma 3!
+MsgMain/Mission/Mission_WT3_FS_05	Segue unha espesa ruta polo bosque!
+MsgMain/Mission/Mission_RC_FS_01	Obtén as moedas azuis polo val de lirios!
+MsgMain/Mission/Mission_WT_FS_01	Atravesa a chuvia de landras!
+MsgMain/Mission/Mission_WT2_FS_00	Colle altura coas Hedras Piraña!
+MsgMain/Mission/Mission_WT2_FS_02	Esquiva as Florugas de camiño á meta!
+MsgMain/Mission/Mission_RC_FS_00	Obtén as moedas azuis pola torre de control!
+MsgMain/Mission/Mission_WT_FS_00	Usa a rampla para dar un salto incrible!
+MsgMain/Mission/Mission_WT2_FS_01	Supera o esixente reto contra o reloxo!
+MsgMain/Mission/Mission_RC_FS_02	Sobe ás grúas nun percorrido de cine!
+MsgMain/Mission/Mission_WT2_FS_03	Adéntrate nun arrepiante universo de película!
+MsgMain/Mission/Mission_WT2_FS_04	Percorre as varandas da sala de cine!
+MsgMain/Mission/Mission_WT3_FS_04	Métete de cheo na película e chega á meta!
+MsgMain/Mission/Mission_RC_IC_05	Obtén as moedas azuis nun slalom!
+MsgMain/Mission/Mission_RC_IC_07	Obtén as moedas azuis entre Pokeys Polares!
+MsgMain/Mission/Mission_RC_IC_09	Obtén as moedas azuis do desfile de pingüíns!
+MsgMain/Mission/Mission_RC_IC_10	Obtén as moedas azuis entre idas e vindas!
+MsgMain/Mission/Mission_RC_IC_11	Obtén as moedas azuis entre Pirañas Xeo!
+MsgMain/Mission/Mission_RC_IC_12	Obtén as moedas azuis dos bonecos de neve!
+MsgMain/Mission/Mission_RC_IC_13	Obtén as moedas azuis esquivando ataques!
+MsgMain/Mission/Mission_RC_IC_14	Obtén as moedas azuis a base de piruetas!
+MsgMain/Mission/Mission_RC_IC_15	Evita os Fuzzys e obtén as moedas azuis!
+MsgMain/Mission/Mission_RC_IC_16	Obtén as moedas esquivando as bólas de neve!
+MsgMain/Mission/Mission_WT2_IC_02	Sobrevoa as pendentes nevadas!
+MsgMain/Mission/Mission_WT2_IC_03	Esquiva os pingüíns pola pista glacial!
+MsgMain/Mission/Mission_WT2_IC_04	Descende como un tolo polo campo nevado!
+MsgMain/Mission/Mission_WT2_IC_07	Corre contra o tempo... e o vento!
+MsgMain/Mission/Mission_WT2_IC_08	Alcanza o alto do pico nevado!
+MsgMain/Mission/Mission_WT2_IC_09	Cólate polo atasco e chega á meta!
+MsgMain/Mission/Mission_WT2_IC_10	Sobe ao tren para chegar ata a meta!
+MsgMain/Mission/Mission_WT2_IC_15	Ábrete camiño lanzando bólas de lume!
+MsgMain/Mission/Mission_WT2_IC_16	Cruza o exercicio de patinaxe dos Goombas!
+MsgMain/Mission/Mission_WT2_IC_17	Descende sorteando as bólas de neve!
+MsgMain/Mission/Mission_WT2_IC_18	Segue a senda esquivando as bólas de neve!
+MsgMain/Mission/Mission_WT2_IC_19	Atravesa o tráfico e alcanza a pista de esquí!
+MsgMain/Mission/Mission_WT2_IC_20	Usa os cogomelos para chegar á estación!
+MsgMain/Mission/Mission_WT2_IC_22	Supera os obstáculos do lago!
+MsgMain/Mission/Mission_WT2_IC_23	Sulca os aires tras o tren da neve!
+MsgMain/Mission/Mission_WT2_IC_24	Tenta a sorte coas carapazas verdes!
+MsgMain/Mission/Mission_WT2_IC_26	Segue a esvaradía pendente ata a meta!
+MsgMain/Mission/Mission_WT2_IC_30	Supera o perigo dunha ruta a medio construír!
+MsgMain/Mission/Mission_WT2_IC_31	Márcate un récord planeando longas distancias!
+MsgMain/Mission/Mission_WT3_IC_00	Circula por un homenaxe ao Lago Vainilla!
+MsgMain/Mission/Mission_RC_IC_02	Obtén as moedas azuis do observatorio!
+MsgMain/Mission/Mission_WT2_IC_05	Evita os ataques dos Irmáns Xeado!
+MsgMain/Mission/Mission_WT2_IC_28	Supera o reto acelerando ao máximo!
+MsgMain/Mission/Mission_WT_IC_02	Alcanza o cumio do xeado xiratorio!
+MsgMain/Mission/Mission_WT2_IC_11	Escapa polo desfiladeiro de xeado!
+MsgMain/Mission/Mission_WT2_IC_32	Usa un cogomelo a tempo para cruzar a meta!
+MsgMain/Mission/Mission_RC_IC_04	Obtén as moedas azuis de DK Alpino!
+MsgMain/Mission/Mission_WT2_IC_12	Ponte a proba no desafío especial n.º 5!
+MsgMain/Mission/Mission_WT2_IC_13	Alcanza a meta percorrendo as bancadas baleiras!
+MsgMain/Mission/Mission_WT2_IC_14	Irrompe na competición de snowboard!
+MsgMain/Mission/Mission_RC_PL_01	Obtén as moedas azuis na caverna!
+MsgMain/Mission/Mission_WT_PL_02	Sobe pola ponte dos Marchimotas Alados!
+MsgMain/Mission/Mission_WT2_PL_03	Salta, salta, salta... e volve saltar!
+MsgMain/Mission/Mission_WT2_PL_04	Ponte a proba no desafío especial n.º 3!
+MsgMain/Mission/Mission_RC_PL_04	Obtén as moedas azuis do xardín zen!
+MsgMain/Mission/Mission_WT_PL_05	Atopa a paz ascendendo polas cascadas!
+MsgMain/Mission/Mission_WT2_PL_07	Fai soar a campá da harmonía!
+MsgMain/Mission/Mission_RC_RT_03	Conduce con clase e obtén as moedas azuis!
+MsgMain/Mission/Mission_RC_RT_04	Obtén as moedas azuis do remuíño!
+MsgMain/Mission/Mission_RC_RT_05	Afronta o temporal e obtén as moedas azuis!
+MsgMain/Mission/Mission_RC_RT_06	Respira o aire mariño e recolle moedas azuis!
+MsgMain/Mission/Mission_RC_RT_07	Obtén as moedas azuis dos Goombas ociosos!
+MsgMain/Mission/Mission_RC_RT_08	Obtén as moedas azuis na festa de praia!
+MsgMain/Mission/Mission_WT_RT_02	Sobe ás Manta Rampas para alcanzar a meta!
+MsgMain/Mission/Mission_WT_RT_03	A serea canta desde o outro lado: vai con ela!
+MsgMain/Mission/Mission_WT_RT_04	Voa en dirección a Cidade Salina!
+MsgMain/Mission/Mission_WT_RT_05	Alcanza o banderín de meta sen esnaquizarte!
+MsgMain/Mission/Mission_WT_RT_06	Emprega as túas mellores técnicas sobre a auga!
+MsgMain/Mission/Mission_WT_RT_07	Déixate levar polos tornados das ventiscas!
+MsgMain/Mission/Mission_WT_RT_08	Supera a barreira dos Irmáns Búmerang!
+MsgMain/Mission/Mission_WT_RT_09	Sobrevoa o muíño de vento!
+MsgMain/Mission/Mission_WT_RT_10	Diríxete coma un raio cara á praia!
+MsgMain/Mission/Mission_WT2_RT_04	Salta coma un Cheep Cheep na auga!
+MsgMain/Mission/Mission_WT2_RT_05	Percorre as illas ata chegar á meta!
+MsgMain/Mission/Mission_WT2_RT_06	Sulca as ondas en presenza dos Besulbos!
+MsgMain/Mission/Mission_WT2_RT_07	Utiliza a pluma con maestría e alcanza a meta!
+MsgMain/Mission/Mission_WT2_RT_08	Usa as flores como ascensor!
+MsgMain/Mission/Mission_WT2_RT_09	Busca a brisa mariña máis alá dos muíños!
+MsgMain/Mission/Mission_WT2_RT_10	Supera o mar embravecido!
+MsgMain/Mission/Mission_WT2_RT_11	Percorre os tellados de Cidade Salina!
+MsgMain/Mission/Mission_WT2_RT_12	Descende en zigzag ata a meta!
+MsgMain/Mission/Mission_WT2_RT_13	Segue os tubos e os bloques suspendidos!
+MsgMain/Mission/Mission_WT2_RT_14	Monta no lombo dos Hidragóns!
+MsgMain/Mission/Mission_WT3_RT_00	Participa na carreira pola illa deserta!
+MsgMain/Mission/Mission_RC_RT_01	Obtén as moedas azuis entre restos de navíos!
+MsgMain/Mission/Mission_WT_RT_01	Segue a senda de moedas ata a meta!
+MsgMain/Mission/Mission_WT2_RT_01	Voa sen pausa de torre a torre!
+MsgMain/Mission/Mission_RC_RT_00	Obtén as moedas azuis da atraínte serea!
+MsgMain/Mission/Mission_WT_RT_00	Acelera atravesando caixas con cogomelos!
+MsgMain/Mission/Mission_WT2_RT_00	Toma o atallo cara á meta sen mollarte!
+MsgMain/Mission/Mission_WT2_RT_02	Voa ata a zona máis exclusiva da torre!
+MsgMain/Mission/Mission_WT2_RT_03	Atravesa a cidade acelerando con cogomelos!
+MsgMain/Mission/Mission_WT2_RT_15	Atravesa o desfile acuático de Shy Guys!
+MsgMain/Mission/Mission_RC_JG_02	Obtén as moedas azuis grazas aos crocodilos!
+MsgMain/Mission/Mission_RC_JG_03	Obtén as moedas azuis polas cordas frouxas!
+MsgMain/Mission/Mission_RC_JG_05	As Hedras Piraña guían as moedas azuis!
+MsgMain/Mission/Mission_RC_JG_06	Faite coas moedas azuis pola xungla!
+MsgMain/Mission/Mission_RC_JG_07	Obtén as moedas azuis do ceo da sabana!
+MsgMain/Mission/Mission_RC_JG_08	Obtén as moedas azuis de lianas en lianas!
+MsgMain/Mission/Mission_RC_JG_09	Priva as Plantas Piraña das moedas azuis!
+MsgMain/Mission/Mission_RC_JG_10	Recolle as moedas azuis evitando as xirafas!
+MsgMain/Mission/Mission_RC_JG_11	Dá media volta e obtén as moedas azuis!
+MsgMain/Mission/Mission_RC_JG_12	Obtén as moedas azuis polo safari fluvial!
+MsgMain/Mission/Mission_RC_JG_13	Obtén as moedas azuis polos géiseres!
+MsgMain/Mission/Mission_WT_JG_02	Sulca os ceos e sobrevoa o val fluvial!
+MsgMain/Mission/Mission_WT_JG_03	Chega á meta entre nubes e bloques xigantes!
+MsgMain/Mission/Mission_WT_JG_04	Que non te arrolen as estampidas de bisontes!
+MsgMain/Mission/Mission_WT_JG_05	Conduce con perizia para sortear as cebras!
+MsgMain/Mission/Mission_WT_JG_06	Aproveita as plumas para alcanzar a meta!
+MsgMain/Mission/Mission_WT_JG_07	Voa por riba das cascadas!
+MsgMain/Mission/Mission_WT_JG_08	Fai proba de audacia e salta pola cascada!
+MsgMain/Mission/Mission_WT_JG_09	Usa os tricerátops como plataforma!
+MsgMain/Mission/Mission_WT_JG_10	Alcanza a meta pasando sobre os elefantes!
+MsgMain/Mission/Mission_WT_JG_11	Conta cos crocodilos para saír do paso!
+MsgMain/Mission/Mission_WT_JG_12	Acepta o reto de circular por unha cascada!
+MsgMain/Mission/Mission_WT_JG_13	Atravesa a cascada evitando os refugallos!
+MsgMain/Mission/Mission_WT2_JG_04	Ábrete paso entre os navíos de turistas!
+MsgMain/Mission/Mission_WT2_JG_05	Voa sen medo; os tiranosauros rex non morden!
+MsgMain/Mission/Mission_WT2_JG_06	Percorre o longo lombo dos braquiosauros!
+MsgMain/Mission/Mission_WT2_JG_08	Voa alto ata o xigantesco bloque aéreo!
+MsgMain/Mission/Mission_WT2_JG_09	Percorre a sabana saltando de rocha en rocha!
+MsgMain/Mission/Mission_WT2_JG_11	Percorre a sabana e as súas cascadas!
+MsgMain/Mission/Mission_WT2_JG_12	Ábrete paso entre os dinosauros da xungla!
+MsgMain/Mission/Mission_WT2_JG_13	Sobe ao tráiler que vai en fuga!
+MsgMain/Mission/Mission_WT2_JG_14	Ascende polo enrevesado sendeiro montañoso!
+MsgMain/Mission/Mission_WT3_JG_00	Disputa unha carreira de resistencia pola sabana!
+MsgMain/Mission/Mission_WT3_JG_01	Sorteia os dinosauros por terra e aire!
+MsgMain/Mission/Mission_RC_JG_01	Obtén as moedas azuis nas ruínas do ouro!
+MsgMain/Mission/Mission_WT_JG_01	Rebota sobre as nubes!
+MsgMain/Mission/Mission_WT2_JG_03	Percorre o arduo sendeiro que leva ás ruínas!
+MsgMain/Mission/Mission_RC_JG_00	Obtén as moedas azuis da dinocúpula!
+MsgMain/Mission/Mission_WT2_JG_00	Sulca os ceos e cruza a dinocúpula!
+MsgMain/Mission/Mission_WT2_JG_01	Ponte a proba no desafío especial n.º 4!
+MsgMain/Mission/Mission_WT2_JG_02	Confía de todo no lombo dos dinosauros!
+MsgMain/Mission/Mission_WT2_JG_10	Voa máis e máis alto entre as nubes!
+MsgMain/Mission/Mission_RC_BS_04	Obtén as moedas azuis a bocinazo limpo!
+MsgMain/Mission/Mission_RC_BS_05	Traza un oito para obter as moedas azuis!
+MsgMain/Mission/Mission_RC_BS_06	Recupera as moedas azuis do remuíño!
+MsgMain/Mission/Mission_RC_BS_08	Obtén as moedas azuis sen perder o equilibrio!
+MsgMain/Mission/Mission_RC_BS_09	Pilota con precisión e obtén as moedas azuis!
+MsgMain/Mission/Mission_RC_BS_10	Obtén as moedas azuis e, de paso, aperitivos!
+MsgMain/Mission/Mission_WT_BS_03	Acelera e sobe pola rampla antes de que estoupe!
+MsgMain/Mission/Mission_WT_BS_04	Alcanza a meta coa axuda doutros vehículos!
+MsgMain/Mission/Mission_WT_BS_05	Pon rumbo á cidade sobre o tren exprés!
+MsgMain/Mission/Mission_WT_BS_07	Ascende ata o maior dos trofeos!
+MsgMain/Mission/Mission_WT_BS_08	Sobe, sobe e sobe para gozar das vistas!
+MsgMain/Mission/Mission_WT2_BS_04	Supera o reto acrobático do porto espacial!
+MsgMain/Mission/Mission_WT2_BS_05	Voa pola ruta secreta de barrís canón!
+MsgMain/Mission/Mission_WT2_BS_06	Segue a ruta fluvial cara á cidade!
+MsgMain/Mission/Mission_WT2_BS_07	Aproveita un voo gratuíto á cidade!
+MsgMain/Mission/Mission_WT2_BS_08	Alcanza o banderín con milimétrica precisión!
+MsgMain/Mission/Mission_WT2_BS_10	Que non te freen o tráfico dentro dos túneles!
+MsgMain/Mission/Mission_WT2_BS_11	Supera a trepidante proba da ponte!
+MsgMain/Mission/Mission_WT2_BS_12	Alcanza a meta entre bancos de peixes!
+MsgMain/Mission/Mission_WT2_BS_13	Pon rumbo á praia urbana!
+MsgMain/Mission/Mission_WT2_BS_14	Supera o percorrido con forma de oito!
+MsgMain/Mission/Mission_WT2_BS_15	Ponte a proba no desafío especial n.º 1!
+MsgMain/Mission/Mission_WT2_BS_16	Completa un aprazible paseo ata a meta!
+MsgMain/Mission/Mission_WT2_BS_17	Alcanza a Praia Koopa a salto limpo!
+MsgMain/Mission/Mission_WT2_BS_18	Pasa as baleas de camiño ao Estadio Peach!
+MsgMain/Mission/Mission_WT2_BS_19	Embárcate nunha perigosa viaxe á cidade!
+MsgMain/Mission/Mission_WT2_BS_20	Supera o percorrido de intrigantes Ermiconos!
+MsgMain/Mission/Mission_WT2_BS_21	Percorre as rúas cheas de dinosauros!
+MsgMain/Mission/Mission_WT3_BS_02	Compite nunha carreira de praia!
+MsgMain/Mission/Mission_RC_BS_03	Obtén as moedas azuis entre os obstáculos!
+MsgMain/Mission/Mission_WT2_BS_03	Esvara polas cordas ata o cume!
+MsgMain/Mission/Mission_WT3_BS_01	Circula por un homenaxe á Praia Koopa 1!
+MsgMain/Mission/Mission_RC_BS_01	Obtén as moedas da rampla de lanzamento!
+MsgMain/Mission/Mission_WT_BS_01	Regresa aos alicerces do Porto Espacial DK!
+MsgMain/Mission/Mission_WT2_BS_01	Lembra o DONKEY KONG clásico!
+MsgMain/Mission/Mission_RC_BS_00	Obtén as moedas azuis no sinuoso parque!
+MsgMain/Mission/Mission_RC_BS_02	Obtén as moedas azuis usando as varandas!
+MsgMain/Mission/Mission_WT_BS_00	Evita os secuaces de Bowser e chega á meta!
+MsgMain/Mission/Mission_WT_BS_02	Vai a toda mecha ao aparcadoiro da praia!
+MsgMain/Mission/Mission_WT2_BS_00	Percorre os tellados de Cidade Coroa!
+MsgMain/Mission/Mission_WT2_BS_02	Derrapa con maestría polo aparcadoiro!
+MsgMain/Mission/Mission_WT3_BS_00	Fai gala de resistencia polas rúas da cidade!
+MsgMain/Mission/Mission_RC_PL_05	Obtén as moedas azuis entre follas que caen!
+MsgMain/Mission/Mission_RC_PL_06	Obtén as moedas azuis do tendido eléctrico!
+MsgMain/Mission/Mission_RC_PL_07	Obtén as moedas azuis entre Marchimotas Alados!
+MsgMain/Mission/Mission_RC_PL_08	Busca as moedas azuis pola pradaría!
+MsgMain/Mission/Mission_RC_PL_09	Obtén as moedas azuis entre muros rochosos!
+MsgMain/Mission/Mission_RC_PL_10	Reúne as moedas azuis polas cordas frouxas!
+MsgMain/Mission/Mission_RC_PL_11	Baixa polo río e obtén as moedas azuis!
+MsgMain/Mission/Mission_RC_PL_12	Brinca! Déixate caer! Obtén as moedas azuis!
+MsgMain/Mission/Mission_RC_PL_13	Obtén as moedas azuis entre fardos de palla!
+MsgMain/Mission/Mission_RC_PL_14	Obtén as moedas azuis... sen esquecer a última!
+MsgMain/Mission/Mission_RC_PL_15	Obtén as moedas azuis pola ruta escénica!
+MsgMain/Mission/Mission_RC_PL_16	Obtén as moedas na Gruta Dente de León!
+MsgMain/Mission/Mission_RC_PL_17	Obtén as moedas azuis ao son dos bloques!
+MsgMain/Mission/Mission_WT_PL_06	Supera o lago sen que se te zampen os peixes!
+MsgMain/Mission/Mission_WT_PL_07	Chega á meta usando as ramplas!
+MsgMain/Mission/Mission_WT_PL_08	Pasa baixo os Señalarcos no momento xusto!
+MsgMain/Mission/Mission_WT_PL_09	Proba a comida para levar do local de Yoshi!
+MsgMain/Mission/Mission_WT_PL_10	Atravesa o tráfico en hora punta!
+MsgMain/Mission/Mission_WT_PL_11	Fai bo uso dos vehículos dos canais!
+MsgMain/Mission/Mission_WT_PL_12	Acurta camiño embistindo co tráiler!
+MsgMain/Mission/Mission_WT_PL_13	Recolle os obxectos que sacan os Super Koopas!
+MsgMain/Mission/Mission_WT_PL_14	Atalla polos xardíns do Estadio Peach!
+MsgMain/Mission/Mission_WT_PL_16	Supera o paso de montaña dentro do tempo!
+MsgMain/Mission/Mission_WT_PL_17	Descende a toda pastilla en dirección ao lago!
+MsgMain/Mission/Mission_WT_PL_19	Chega polo aire ás Cascadas Cheep Cheep!
+MsgMain/Mission/Mission_WT_PL_20	Circula río arriba a toda pastilla!
+MsgMain/Mission/Mission_WT2_PL_09	Cruza o desfiladeiro con sumo coidado!
+MsgMain/Mission/Mission_WT2_PL_10	Toma un atallo non exento de perigo!
+MsgMain/Mission/Mission_WT2_PL_11	Salta a tempo... ao ritmo dos bloques nota!
+MsgMain/Mission/Mission_WT2_PL_12	Dirixe a Hedra Piraña cara á meta!
+MsgMain/Mission/Mission_WT2_PL_13	Demostra a túa habilidade percorrendo pendentes!
+MsgMain/Mission/Mission_WT2_PL_14	Colle o tren ao voo... literalmente!
+MsgMain/Mission/Mission_WT2_PL_15	Brilla co poder das superestrelas!
+MsgMain/Mission/Mission_WT2_PL_16	Tempera os teus nervios para ascender ata o cume!
+MsgMain/Mission/Mission_WT2_PL_17	Sobe ao navío e non deixes que ninguén te deteña!
+MsgMain/Mission/Mission_WT2_PL_18	Persegue a quen se atreva a destrozar a pradaría!
+MsgMain/Mission/Mission_WT2_PL_19	Evita as mordeduras dos Chomps Cadea!
+MsgMain/Mission/Mission_WT2_PL_20	Segue o desvío cara ao Monte Chocolate!
+MsgMain/Mission/Mission_WT2_PL_22	Avanza pola auga e polo aire!
+MsgMain/Mission/Mission_WT3_PL_00	Circula por un homenaxe á Illa Chocolate 2!
+MsgMain/Mission/Mission_WT3_PL_01	Circula por un homenaxe á Illa Chocolate 1!
+MsgMain/Mission/Mission_WT3_PL_03	Participa nunha carreira cos veciños!
+MsgMain/Mission/Mission_WT3_PL_04	Ollo aos Hidragóns cando vaias polo lago!
+MsgMain/Mission/Mission_RC_Island_00	Obtén as moedas azuis no mar de riquezas!
+MsgMain/Mission/Mission_WT_PL_18	Evita os desprendementos de rochas e chocolate!
+MsgMain/Mission/Mission_WT2_PL_21	Acelera a máis non poder polo chocolate líquido!
+MsgMain/Mission/Mission_WT_PL_00	Cólate na proba de prototipos!
+MsgMain/Mission/Mission_WT2_PL_00	Ponte a proba no desafío especial n.º 2!
+MsgMain/Mission/Mission_WT2_PL_01	Explora a Fábrica de Toad!
+MsgMain/Mission/Mission_WT2_PL_02	Encarapítate ao máis alto da grúa!
+MsgMain/Mission/Mission_RC_PL_02	Entra no tubo e colle as moedas azuis!
+MsgMain/Mission/Mission_WT_PL_03	Supera o percorrido cheo de vacas!
+MsgMain/Mission/Mission_WT2_PL_05	Lánzate cara á meta brincando pola pradaría!
+MsgMain/Mission/Mission_RC_PL_03	Reúne as moedas azuis pola torre de control!
+MsgMain/Mission/Mission_WT_PL_04	Sulca os ceos sobre o Estadio Peach!
+MsgMain/Mission/Mission_WT2_PL_06	Avanza con ímpeto cara ao máis alto do arco!
+MsgMain/Race/9001	Continuar
+MsgMain/Race/9002	Saír
+MsgMain/Race/9003	Cambiar de circuíto
+MsgMain/Race/9004	Cambiar de personaxe
+MsgMain/Race/9005	Volver comezar
+MsgMain/Race/9006	Seguinte carreira
+MsgMain/Race/9007	Ver resultados
+MsgMain/Race/9008	Tentar de novo
+MsgMain/Race/9009	Ver repeticións
+MsgMain/Race/9010	Continuar repetición
+MsgMain/Race/9011	Abandonar repetición
+MsgMain/Race/9012	Seguinte roldada
+MsgMain/Race/9013	Retar pantasma
+MsgMain/Race/9014	Repetir desde o principio
+MsgMain/Race/9015	Seguro que queres saír?
+MsgMain/Race/9016	Seguir vendo
+MsgMain/Race/9017	Saír
+MsgMain/Race/9018	Comezar
+MsgMain/Race/9019	Continuar no modo libre
+MsgMain/Race/9020	Abandonar o modo libre
+MsgMain/Race/9021	Cambiar as regras
+MsgMain/Race/9022	Ver datos do grupo
+MsgMain/Race/9023	Axustes do mando
+MsgMain/Race/9025	Ver as regras
+MsgMain/Race/9026	Volver ao modo libre
+MsgMain/Race/9028	Retomar a misión
+MsgMain/Race/9029	Abandonar a misión
+MsgMain/Race/9034	POR AQUÍ
+MsgMain/Race/9035	META
+MsgMain/Race/9036	OBXECTIVO
+MsgMain/Race/9031	Gardouse un corredor pantasma.
+MsgMain/Race/9032	Clasificación decidida!
+MsgMain/Race/9033	Rematou. Quedaches moi atrás.
+MsgMain/Race/9037	Algúns pilotos quedaron moi atrás.
+MsgMain/Race/9101	Queres subir os datos do\nteu novo corredor pantasma?
+MsgMain/Race/9103	Subindo os datos\ndo corredor pantasma...
+MsgMain/Race/9104	Subiuse o\ncorredor pantasma!
+MsgMain/Race/9105	Non se puido subir\no corredor pantasma.
+MsgMain/Race/9106	Xa está dispoñible\na {0E 0000 0003 0002 0000}Copa Especial{0E 0000 0003 0002 FFFF}!
+MsgMain/Race/9107	Xa está dispoñible\no {0E 0000 0003 0002 0000}modo espello{0E 0000 0003 0002 FFFF}!
+MsgMain/Race/9201	Cám. lenta
+MsgMain/Race/9202	Menú
+MsgMain/Race/9203	Cámara
+MsgMain/Race/9204	Pausa
+MsgMain/Race/9205	Retomar
+MsgMain/Race/9221	Axustes
+MsgMain/Race/9222	Volante intelixente
+MsgMain/Race/9223	Si
+MsgMain/Race/9224	Non
+MsgMain/Race/9225	Xiroscopio
+MsgMain/Race/9226	Si
+MsgMain/Race/9227	Non
+MsgMain/Race/9228	Autoaceleración
+MsgMain/Race/9229	Si
+MsgMain/Race/9230	Non
+MsgMain/Race/9231	Autoactivar obxectos
+MsgMain/Race/9232	Si
+MsgMain/Race/9233	Non
+MsgMain/Race/9234	Cámara horizontal
+MsgMain/Race/9235	Normal
+MsgMain/Race/9236	Invertida
+MsgMain/Race/9237	Cámara vertical
+MsgMain/Race/9238	Minimapa
+MsgMain/Race/9239	Comida turbo
+MsgMain/Race/9240	Transforma
+MsgMain/Race/9241	Non transforma
+MsgMain/Race/9281	Obxecto
+MsgMain/Race/9282	Xirar
+MsgMain/Race/9283	Derrapar
+MsgMain/Race/9284	Acelerar
+MsgMain/Race/9301	1.ª carreira
+MsgMain/Race/9302	2.ª carreira
+MsgMain/Race/9303	3.ª carreira
+MsgMain/Race/9304	4.ª carreira
+MsgMain/Race/9305	5.ª carreira
+MsgMain/Race/9306	6.ª carreira
+MsgMain/Race/9307	7.ª carreira
+MsgMain/Race/9308	8.ª carreira
+MsgMain/Race/9309	9.ª carreira
+MsgMain/Race/9310	10.ª carreira
+MsgMain/Race/9311	11.ª carreira
+MsgMain/Race/9312	12.ª carreira
+MsgMain/Race/9313	13.ª carreira
+MsgMain/Race/9314	14.ª carreira
+MsgMain/Race/9315	15.ª carreira
+MsgMain/Race/9316	16.ª carreira
+MsgMain/Race/9317	17.ª carreira
+MsgMain/Race/9318	18.ª carreira
+MsgMain/Race/9319	19.ª carreira
+MsgMain/Race/9320	20.ª carreira
+MsgMain/Race/9321	21.ª carreira
+MsgMain/Race/9322	22.ª carreira
+MsgMain/Race/9323	23.ª carreira
+MsgMain/Race/9324	24.ª carreira
+MsgMain/Race/9325	25.ª carreira
+MsgMain/Race/9326	26.ª carreira
+MsgMain/Race/9327	27.ª carreira
+MsgMain/Race/9328	28.ª carreira
+MsgMain/Race/9329	29.ª carreira
+MsgMain/Race/9330	30.ª carreira
+MsgMain/Race/9331	31.ª carreira
+MsgMain/Race/9399	Última carreira
+MsgMain/Race/9401	1.ª roldada
+MsgMain/Race/9402	2.ª roldada
+MsgMain/Race/9403	3.ª roldada
+MsgMain/Race/9404	4.ª roldada
+MsgMain/Race/9405	5.ª roldada
+MsgMain/Race/9406	6.ª roldada
+MsgMain/Race/9407	7.ª roldada
+MsgMain/Race/9499	Última roldada
+MsgMain/Race/9501	{0E 0000 0002 0002 0032} {0E 0000 0002 0002 0064}Logra o {0E 0000 0003 0002 0004}primeiro posto{0E 0000 0003 0002 FFFF}{0E 0000 0002 0002 0032} {0E 0000 0002 0002 0064}!
+MsgMain/Race/9504	{0E 0000 0002 0002 004B}Entra nos{0E 0000 0002 0002 0064} {0E 0000 0003 0002 0004}4{0E 0000 0003 0002 FFFF} {0E 0000 0002 0002 004B}mellores!{0E 0000 0002 0002 0064}
+MsgMain/Race/9508	{0E 0000 0002 0002 004B}Entra nos{0E 0000 0002 0002 0064} {0E 0000 0003 0002 0004}8{0E 0000 0003 0002 FFFF} {0E 0000 0002 0002 004B}mellores!{0E 0000 0002 0002 0064}
+MsgMain/Race/9512	{0E 0000 0002 0002 004B}Entra nos{0E 0000 0002 0002 0064} {0E 0000 0003 0002 0004}12{0E 0000 0003 0002 FFFF} {0E 0000 0002 0002 004B}mellores!{0E 0000 0002 0002 0064}
+MsgMain/Race/9516	{0E 0000 0002 0002 004B}Entra nos{0E 0000 0002 0002 0064} {0E 0000 0003 0002 0004}16{0E 0000 0003 0002 FFFF} {0E 0000 0002 0002 004B}mellores!{0E 0000 0002 0002 0064}
+MsgMain/Race/9520	{0E 0000 0002 0002 004B}Entra nos{0E 0000 0002 0002 0064} {0E 0000 0003 0002 0004}20{0E 0000 0003 0002 FFFF} {0E 0000 0002 0002 004B}mellores!{0E 0000 0002 0002 0064}
+MsgMain/Race/9604	Non estás entre os 4 mellores.
+MsgMain/Race/9608	Non estás entre os 8 mellores.
+MsgMain/Race/9612	Non estás entre os 12 mellores.
+MsgMain/Race/9616	Non estás entre os 16 mellores.
+MsgMain/Race/9620	Non estás entre os 20 mellores.
+MsgMain/Race/9701	Ola!
+MsgMain/Race/9702	Boa sorte!
+MsgMain/Race/9703	Dámosche a benvida!
+MsgMain/Race/9704	Tratádeme ben!
+MsgMain/Race/9705	Vou dalo todo!
+MsgMain/Race/9706	Imos alá!
+MsgMain/Race/9707	Esperemos por máis xogadores.
+MsgMain/Race/9708	De acordo!
+MsgMain/Race/9709	Que nervios!
+MsgMain/Race/9710	Que emoción!
+MsgMain/Race/9711	Vou facer unha foto!
+MsgMain/Race/9712	Ioupi!
+MsgMain/Race/9713	Que divertido!
+MsgMain/Race/9714	Que pasada!
+MsgMain/Race/9715	Que mágoa!
+MsgMain/Race/9716	Iso non vale!
+MsgMain/Race/9717	Outra vez!
+MsgMain/Race/9718	Xa veredes a próxima vez!
+MsgMain/Race/9719	A última e vou.
+MsgMain/Race/9720	Vou xa.
+MsgMain/Race/9721	Grazas por xogar!
+MsgMain/Race/9722	Moitas grazas!
+MsgMain/Race/9723	Boas noites!
+MsgMain/Race/9724	Adeus!
+MsgMain/Race/9726	Que habilidade!
+MsgMain/Race/9727	Impresionante!
+MsgMain/Race/9728	Coidado!
+MsgMain/Race/9729	Ánimo!
+MsgMain/Race/9730	Segue así!
+MsgMain/Race/9731	Veñaaa!
+MsgMain/Race/9732	Detrás de ti!
+MsgMain/Race/9733	Bravo!
+MsgMain/Race/9750	Estou facendo unha foto.
+MsgMain/Race/9751	Estou nunha carreira.
+MsgMain/Race/9752	Estou en plena batalla.
+MsgMain/Race/9753	Estou observando.
+MsgMain/Race/9936	EN DIRECTO
+MsgMain/Race/9939	ASEMELLA!
+MsgMain/Race/9940	TOMA!
+MsgMain/Sticker/10000	Iniciaches Mario Kart World!
+MsgMain/Sticker/10001	Reuniches {0E 0001 0000 0004 0000 0000}{0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}en total!
+MsgMain/Sticker/10002	Saltos con pirueta: {0E 0001 0000 0004 0000 0000}
+MsgMain/Sticker/10004	Total percorrido: {0E 0001 0000 0004 0000 0000} km
+MsgMain/Sticker/10005	Voaches {0E 0001 0000 0004 0000 0000} km en total!
+MsgMain/Sticker/10006	Disputaches {0E 0001 0000 0004 0000 0000} carreiras!
+MsgMain/Sticker/10008	Panel ? activado!
+MsgMain/Sticker/10009	Obtiveches unha medalla de Peach!
+MsgMain/Sticker/10011	Atrapaches o Caco Gazapo!
+MsgMain/Sticker/10012	Misión Placapum superada!
+MsgMain/Sticker/10013	Misión superada!
+MsgMain/Sticker/10014	Disputaches a Copa Especial!

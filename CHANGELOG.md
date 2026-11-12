@@ -4,6 +4,50 @@ Each version's section is that release's notes: `tools/build/notes.py` puts it i
 updating, known issues, reporting) for the GitHub release. A section has a summary paragraph, `### Changes` (each with
 its issue, #N), `### Tested` (what was run from the packages before publishing) and optionally `### Known issues`.
 
+## 0.1.9
+
+HDR on HDR screens, the menus in 19 languages and the game itself in Catalan, Galician and Basque, 5.1 sound, and
+fixes for crashes and freezes reported since 0.1.8.
+
+### Changes
+
+- **HDR** (#168): Settings > Screen > HDR: Automatic (default) or Off. On a display in HDR the game shows its own HDR
+  picture, as the console does, with the system's peak and paper white; it follows the system's HDR setting live.
+- **Languages**: the menu (F1), the start screen and the setup page in English, Japanese, French, German, Italian,
+  Spanish (Spain and Latin America), Dutch, Portuguese (Portugal and Brazil), Russian, Simplified and Traditional
+  Chinese, Korean, Catalan, Galician, Basque, Polish, Turkish and Ukrainian; Automatic follows the system's language.
+  These first translations are ours: corrections from native speakers are very welcome (`i18n/*.po`, by pull request).
+  The setup's errors (a folder without the game, an encrypted or other version, an incomplete copy) are shown in the
+  menu language.
+- **The game in Catalan, Galician and Basque**: Settings > Game > Language. The game's own texts are rebuilt from your
+  copy at setup (`i18n/game/`); the rest of the game stays in Spanish. A system set to one of them picks it.
+- Brazilian Portuguese: a Brazilian system picks the game's Brazilian Portuguese (discussion #42, #134 by
+  @GabrielAndrade419).
+- **5.1 surround sound** when the system's output has 6 channels (discussion #90).
+- A notice on screen when the players chosen lack controllers (#106, #160).
+- The game stopped when swapping two controllers' players (#123).
+- 16 GB machines keep their pipeline workers (#132).
+- The game stopped on some error screens (#147): they are logged instead of opening the console's error applet.
+- Long freezes on the title or at start (#111 and others): shaders the translator now structures instead of running
+  them as a slow switch; a start that died building pipelines, or a failed present, no longer breaks every next start.
+- Starting on Windows takes 20 s less (#128): the game files are indexed per folder.
+- Game files set up by another version are set up again, also after updating by hand (#50).
+- Saves survive an antivirus or OneDrive holding the file, and only one copy of the game runs per profile.
+- Windows with the window minimized or hidden keeps its timing (no slowdown in the background).
+- Fixes in threads and fibers inherited from the Switch 1 port (core masks, waits on 64-bit values, fibers resumed on
+  another thread).
+- From contributors: the window's picture takes the lines it is shown at (#130), the start no longer waits forever for
+  a pipeline the driver never returns (#131), and a faster shader lookup (#129), by @guillo1990; replay chunks ended on
+  their own thread (#141, by @riyadhHDA); development runs capped and stoppable (#145, by @EdouardSence).
+- Diagnostics: a log line when the game waits too long for its frame, saying what the submission was doing (#138), and
+  GPU breadcrumbs on more commands (#43).
+
+### Tested
+
+From these packages, before publishing:
+
+- (to fill at release)
+
 ## 0.1.8
 
 Frame generation, races that render again on Intel, Adreno and (likely) AMD's Windows driver, a first take on

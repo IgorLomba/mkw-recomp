@@ -11,3 +11,4 @@ player into `lang/<lang>/`, and choosing the language in Settings > Game shows t
 | File | Language |
 |---|---|
 | `ca.tsv` | Catalan |
+| `gl.tsv` | Galician |
