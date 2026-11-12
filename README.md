@@ -60,10 +60,9 @@ reach, and a frame over 33.3 ms runs the race slower than real time.
 
 ## Playing
 
-<p align="center">
-  <img src="docs/images/launcher-setup.png" width="400" alt="The start screen setting the game up from the player's dump">
-  <img src="docs/images/launcher-main.png" width="400" alt="The start screen once the game is set up">
-</p>
+![The start screen once the game is set up](docs/images/launcher-main.png)
+
+![The Game files page, where the setup takes the player's dump](docs/images/launcher-files.png)
 
 1. Dump Mario Kart World 1.0.0 or 1.8.0 from your Switch 2 (`exefs/` and `romfs/`, decrypted; 1.8.0 with the update
    merged into the base game's RomFS), or the same dump packed as one `.nup` or `.nx` file.
@@ -71,7 +70,7 @@ reach, and a frame over 33.3 ms runs the race slower than real time.
    the `.AppImage` (it keeps the game it builds in `~/.local/share/mkw-recomp`; glibc 2.31 or newer: Debian 11,
    Ubuntu 20.04, SteamOS and later), on Windows the `.zip`, unpacked into a folder. Either needs about 30 GB free.
 3. Run the AppImage (`chmod +x` first) or `mkw.exe`, open **Game files**, point it at your dump (**Choose folder** or
-   **Choose .nup or .nx file**) and press **Prepare**.
+   **Choose .nup or .nx file**) and press **Set up**.
    The first setup takes a while (it compiles the whole game and downloads NVIDIA's `nvdisasm` and `ptxas`, 84 MB on
    Linux and 126 MB on Windows, to describe the shader encoding on your machine); after that, **Play**.
 4. When a newer release is out, the start screen offers it (**Update to vX**): it downloads it, checks it, replaces
