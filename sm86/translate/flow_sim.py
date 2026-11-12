@@ -17,6 +17,26 @@ def oracle(seed: int, name: str, occ: int) -> bool:
     return hashlib.blake2b(f"{seed}:{name}:{occ}".encode(), digest_size=1).digest()[0] & 1 == 1
 
 
+def _balanced(s: str) -> bool:
+    depth = 0
+    for ch in s:
+        depth += (ch == "(") - (ch == ")")
+        if depth < 0:
+            return False
+    return depth == 0
+
+
+def _top_or(c: str) -> list[str]:
+    """c split at its " || " outside parentheses."""
+    parts, depth, start = [], 0, 0
+    for k, ch in enumerate(c):
+        depth += (ch == "(") - (ch == ")")
+        if depth == 0 and c.startswith(" || ", k):
+            parts.append(c[start:k])
+            start = k + 4
+    return parts + [c[start:]]
+
+
 class Run:
     def __init__(self, seed: int):
         self.seed, self.occ, self.trace, self.done = seed, {}, [], False
@@ -30,10 +50,15 @@ class Run:
         c = c.strip()
         if c == "true":
             return True
+        parts = _top_or(c)
+        if len(parts) > 1:  # a guarded if (flow.py): left to right, stopping at the first true one, as GLSL does
+            return any(self.cond(p, flags) for p in parts)
+        if c.startswith("(") and c.endswith(")") and len(_top_or(c[1:-1])) == 1 and _balanced(c[1:-1]):
+            return self.cond(c[1:-1], flags)
         if c.startswith("!(") and c.endswith(")"):
             return not self.cond(c[2:-1], flags)
-        if c in flags:
-            return flags[c]
+        if c in flags or re.fullmatch(r"g\d+", c):   # a guard flag no jump has set yet is false, as declared
+            return flags.get(c, False)
         return self.ask(c)
 
     def stmt(self, s: str) -> None:

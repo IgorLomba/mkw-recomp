@@ -214,9 +214,24 @@ def _structure(stmts: list[str], branches: dict[int, tuple[int, str | None]]) ->
     if set(branches) - consumed:
         raise Fail
     flags = [f for _, _, f in gotos]
+    # Where each if's block (both parts) closes: an if that opens and closes inside a guarded stretch tests the guard
+    # first, as every statement there does, so its condition is not read on the way to the join (harmless on the GPU,
+    # but flow_sim counts every read of a branch condition, and the extra ones shifted the next loop pass's answers:
+    # PS a3908a92…, 12/11/2026). One that closes past the jump's target is left alone: guarding it would skip what
+    # follows the target too.
+    ends, stack = {}, []
+    for k in range(n + 1):
+        for x, line in enumerate(before.get(k, [])):
+            if line.startswith("    if (") or line == "    do {":
+                stack.append((k, x))
+            elif line == "    }" or line.startswith("    } while"):
+                ends[stack.pop()] = k
     out = [f"    bool {f} = false;" for f in flags]
     for k in range(n):
-        for line in before.get(k, []):
+        for x, line in enumerate(before.get(k, [])):
+            guard = [f for j, t, f in gotos if j < k and ends.get((k, x), n + 1) <= t]
+            if guard and line.startswith("    if (!(") and line.endswith(")) {"):
+                line = f"    if (!({' || '.join(guard)} || ({line[len('    if (!(') : -len(')) {')]}))) {{"
             out.append(line)
             if line == "    do {" and flags:  # a new pass: no jump of this pass has been taken yet
                 out.append("        " + " ".join(f"{f} = false;" for f in flags))
