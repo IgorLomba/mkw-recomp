@@ -36,9 +36,13 @@ static Fiber *fiber_find(uint64_t addr) {
 
 static void fiber_switch_to(RtThread *t, const Cpu *from, Fiber *to);
 
+// A fiber may resume on another guest thread's host thread, and the compiler may keep tcur's TLS address across
+// plat_fiber_switch: after a switch the thread is read again through this call, never from a local or tcur.
+static __attribute__((noinline)) RtThread *tcur_now(void) { return tcur; }
+
 // After a host fiber switch: release the context left behind, and finish an ExitThread issued on a fiber.
 static void fiber_resumed(void) {
-    RtThread *t = tcur;
+    RtThread *t = tcur_now();
     rt_fpcr_sync(t->cur);   // the host fiber resumes with its own MXCSR (platform.h fibers switch it)
     if (t->leaving) {
         __atomic_store_n(&t->leaving->running, 0, __ATOMIC_RELEASE);
@@ -51,14 +55,14 @@ static void fiber_main(void *p) {
     Fiber *f = p;
     fiber_resumed();
     Cpu *c = f->cpu;
-    tcur->host_depth = 0;   // a new fiber starts at the top level; each context restores its own depth on resume
+    tcur_now()->host_depth = 0;   // a new fiber starts at the top level; each context restores its own depth on resume
     uint64_t next = rt_call(c, f->func, 1, f->arg);
     f->state = F_DONE;
     Fiber *n = NULL;
     if (next && !(n = fiber_find(next)))
         rt_fatal("fiber %#llx returned %#llx, which is not an initialized fiber", (unsigned long long)f->addr,
                  (unsigned long long)next);
-    fiber_switch_to(tcur, c, n);   // NULL: back to the thread's own context
+    fiber_switch_to(tcur_now(), c, n);   // NULL: back to the context of the thread it finished on
     rt_fatal("fiber %#llx resumed after it finished", (unsigned long long)f->addr);
 }
 
@@ -89,7 +93,7 @@ static void fiber_switch_to(RtThread *t, const Cpu *from, Fiber *to) {
     t->cur = dst;
     int depth = t->host_depth;
     plat_fiber_switch(to ? to->host : t->base_fiber);
-    t->host_depth = depth;
+    tcur_now()->host_depth = depth;   // this context's depth, on the thread that resumed it
     fiber_resumed();
 }
 
@@ -147,8 +151,8 @@ void kern_fiber_finalize(Cpu *c) {
 void kern_fiber_switch(Cpu *c) {
     RtThread *t = tcur;
     if (!t) rt_fatal("SwitchToFiber on a host thread");
-    Fiber *to = fiber_find(c->x[0]);
-    if (!to) rt_fatal("SwitchToFiber(%#llx): not an initialized fiber", (unsigned long long)c->x[0]);
+    Fiber *to = c->x[0] ? fiber_find(c->x[0]) : NULL;   // 0, what GetCurrentFiber gives there: the thread's own context
+    if (!to && c->x[0]) rt_fatal("SwitchToFiber(%#llx): not an initialized fiber", (unsigned long long)c->x[0]);
     if (to == t->fiber) return;
     fiber_switch_to(t, c, to);
 }

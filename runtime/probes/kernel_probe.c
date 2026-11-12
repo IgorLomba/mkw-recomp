@@ -25,7 +25,8 @@ static int failures;
 #define CHECK(cond, ...) do { if (!(cond)) { failures++; printf("  FAIL: " __VA_ARGS__); putchar('\n'); } } while (0)
 
 static uint64_t a_lock_waiter, a_cv_waiter, a_cv_order_waiter, a_arb_waiter, a_event_waiter, a_core_worker,
-    a_exit_entry, a_exit_nested, a_fiber_fn, a_fiber_exit_thread, a_fiber_exit_fn, a_tick_worker;
+    a_exit_entry, a_exit_nested, a_fiber_fn, a_fiber_exit_thread, a_fiber_exit_fn, a_tick_worker, a_mover_fn,
+    a_mover_thread, a_ender_fn;
 static uint64_t a_fib_init, a_fib_fin, a_fib_switch, a_fib_cur, tick_stub;
 
 // ---- helpers: SVCs through rt_svc, thread start and join
@@ -532,6 +533,46 @@ static void test_fibers(Cpu *c) {
     CHECK(ok, "fiber ping-pong");
 }
 
+// ---- a fiber started on one thread, which then ends, resumed and finished on another (nn::async moves them so)
+typedef struct { uint64_t fiber, ender; int steps, bad; } MoverJob;
+
+static void ender_fn(Cpu *c) { ret_x(c, 0); }   // finishes at once: back to the thread's own context
+
+static void mover_fn(Cpu *c) {
+    MoverJob *j = arg_p(c, 0);
+    j->steps++;
+    rt_call(c, a_fib_switch, 1, j->ender);   // the first thread gets its own context back and ends
+    j->steps++;                              // resumed by the second thread
+    if (rt_call(c, a_fib_cur, 0) != j->fiber) j->bad++;
+    rt_call(c, a_fib_switch, 1, (uint64_t)0);   // 0, what GetCurrentFiber gives there: the thread's own context
+    j->bad++;                                   // never resumed
+}
+
+static void mover_thread(Cpu *c) {
+    MoverJob *j = arg_p(c, 0);
+    rt_call(c, a_fib_switch, 1, j->fiber);
+    if (rt_call(c, a_fib_cur, 0) != 0) j->bad++;
+    exit_thread(c);
+}
+
+static void test_fiber_move(Cpu *c) {
+    MoverJob j = {.fiber = ga(mem_kernel_alloc(0x100, 16)), .ender = ga(mem_kernel_alloc(0x100, 16))};
+    rt_call(c, a_fib_init, 6, j.fiber, a_mover_fn, ga(&j), ga(mem_kernel_alloc(STACK, 16)), (uint64_t)STACK, (uint64_t)0);
+    rt_call(c, a_fib_init, 6, j.ender, a_ender_fn, 0, ga(mem_kernel_alloc(STACK, 16)), (uint64_t)STACK, (uint64_t)0);
+    uint32_t h = create(c, a_mover_thread, &j, 44, -2);
+    start(c, h);
+    join(c, h);   // the first thread is gone and freed
+    h = create(c, a_mover_thread, &j, 44, -2);
+    start(c, h);
+    join(c, h);
+    rt_call(c, a_fib_fin, 1, j.fiber);
+    rt_call(c, a_fib_fin, 1, j.ender);
+    int ok = j.steps == 2 && !j.bad;
+    printf("fiber moved between threads: started on one that ended, resumed on another and left by SwitchToFiber(0) (%d steps, %d mismatches): %s\n",
+           j.steps, j.bad, ok ? "ok" : "FAIL");
+    CHECK(ok, "fiber moved between threads");
+}
+
 // ---- ExitThread unwinding: from three nested host calls deep, and from a fiber
 typedef struct { int stage, depth, bad; uint64_t fiber, stack; } ExitJob;
 
@@ -661,6 +702,7 @@ static void probe_main(Cpu *c) {
     test_cores(c);
     test_core_args(c);
     test_fibers(c);
+    test_fiber_move(c);
     test_exit(c);
     test_lifted_ticks(c);
     test_exit_process(c);
@@ -736,6 +778,9 @@ int probe_kernel(void) {
     a_fiber_exit_thread = hostfn_register("probe-kernel fiber exit thread", fiber_exit_thread);
     a_fiber_exit_fn = hostfn_register("probe-kernel fiber exit", fiber_exit_fn);
     a_tick_worker = hostfn_register("probe-kernel tick worker", tick_worker);
+    a_mover_fn = hostfn_register("probe-kernel moving fiber", mover_fn);
+    a_mover_thread = hostfn_register("probe-kernel moving fiber thread", mover_thread);
+    a_ender_fn = hostfn_register("probe-kernel ending fiber", ender_fn);
     a_fib_init = hostfn_register(KERN_SYM_INITIALIZE_FIBER, kern_fiber_initialize);   // the loader's addresses
     a_fib_fin = hostfn_register(KERN_SYM_FINALIZE_FIBER, kern_fiber_finalize);
     a_fib_switch = hostfn_register(KERN_SYM_SWITCH_TO_FIBER, kern_fiber_switch);
