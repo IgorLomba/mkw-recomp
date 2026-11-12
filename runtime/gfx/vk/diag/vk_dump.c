@@ -25,15 +25,9 @@
 // before the submission (vk_draw_internal.h upd_note).
 // MKW_DUMP_SKIP_RUNS=1: a render pass with the same targets as the render pass before it is logged but not copied
 // (the terrain decals draw one pass each into the G-buffer and would use up both caps).
-// MKW_DUMP_DRAWS=<from>-<to> or =<16 hex chars of an fs hash> (diagnosis, with MKW_DUMP or an MKW_CTL dump): from the
-// first draw of a pass in that range, or the first draw with that fragment shader, every draw until the targets change
-// also copies the first colour target (draw_<n>_t0_....png, one line per draw in passes.txt). A range or a shader,
-// because pass numbers move between frames (an fs that draws once a frame just before the race's particles, drift7). Copies
-// split and resume rendering with LOAD, so they observe the just-recorded draw; the passes those splits end copy no
-// targets (the snapshots stand for them). MKW_DUMP_DRAWS_RECT=x,y,w,h copies only that rectangle of the target, so the
-// DRAW_CAP snapshots of a long run (the race's particles, ~120 draws) fit in INFLIGHT_CAP.
-// The parts: vk_dump_img.c (formats, image copies and PNGs) and vk_dump_buf.c (MKW_DUMP_BUF), sharing
-// vk_dump_internal.h.
+// MKW_DUMP_DRAWS: a copy of the first colour target after each draw of a run of passes (vk_dump_draws.c).
+// The parts: vk_dump_img.c (formats, image copies and PNGs), vk_dump_buf.c (MKW_DUMP_BUF) and vk_dump_draws.c
+// (MKW_DUMP_DRAWS), sharing vk_dump_internal.h.
 #include <math.h>
 #include <stdarg.h>
 #include <stdio.h>
@@ -76,7 +70,7 @@ uint64_t dump_frame;
 static uint64_t log_from;   // MKW_DUMP_LOG: first frame logged to passes.txt without images
 char dump_dir[400];
 FILE *images_f;
-static FILE *passes_f;
+FILE *passes_f;
 static int seq, finished, copied;      // copied: passes and dispatches of the dump frame whose images were copied
 static int skip_runs, dump_ubo;        // MKW_DUMP_SKIP_RUNS, MKW_DUMP_UBO
 static int luts_only;                  // MKW_CTL "dump DIR lut": only the 3D volumes and small textures, no targets
@@ -84,24 +78,15 @@ static uint32_t want_tex[16][2];       // MKW_DUMP_TEX: slot id and 0, or width 
 static int nwant_tex;
 static uint64_t last_targets;          // targets_sig of the last render pass; 0 after a dispatch
 static const char *pass_skip;          // why the current pass copies nothing, or NULL
-#define DRAW_CAP 256                   // draw snapshots per dump
-static int draw_lo = -1, draw_hi = -1; // MKW_DUMP_DRAWS=<from>-<to>: passes copied after every draw (-1: none)
-static uint32_t draw_rect[4];          // MKW_DUMP_DRAWS_RECT: x, y, w, h of the snapshots (w 0: the whole target)
-static int draw_n;                     // snapshots in the selected run
-static uint64_t draw_fs;               // or the pass that draws with this fragment shader (0: none)
-static int draw_run_on;                // latched through replay's splits of the selected pass
-static uint64_t draw_targets;          // targets of that pass, to stop at the next pass
-static _Thread_local int draw_pending; // this thread recorded a draw selected for a snapshot
 volatile int64_t png_bytes, inflight;
 PlatMutex img_lock = PLAT_MUTEX_INIT;
-static PlatMutex rec_lock = PLAT_MUTEX_INIT;
+PlatMutex rec_lock = PLAT_MUTEX_INIT;
 
 static int active(void) {
     uint64_t f = __atomic_load_n(&gfx_counters.frames, __ATOMIC_RELAXED) + 1;
     return !finished && (f == dump_frame || (log_from && f >= log_from && f < dump_frame));
 }
-static uint64_t frame_now(void) { return __atomic_load_n(&gfx_counters.frames, __ATOMIC_RELAXED) + 1; }
-static uint64_t targets_sig(const VkExec *ex);
+uint64_t frame_now(void) { return __atomic_load_n(&gfx_counters.frames, __ATOMIC_RELAXED) + 1; }
 
 typedef struct { char *s; size_t n, cap; } Str;
 
@@ -124,7 +109,7 @@ __attribute__((format(printf, 2, 3))) static void sp(Str *b, const char *fmt, ..
 
 // SPIR-V hash of a shader. The file is written the first time a logged pass names the shader, not on a hash looked up
 // only to decide whether the pass is the one MKW_DUMP_DRAWS asked for.
-static uint64_t shader_hash(const GfxShader *s) {
+uint64_t shader_hash(const GfxShader *s) {
     static struct { const GfxShader *s; uint64_t h; int wrote; } tab[1024];
     static int n;
     if (!s) return 0;
@@ -386,54 +371,11 @@ static void trace_ubo(VkExec *ex, const VkPipeState *s) {
     fflush(tu_f);
 }
 
-// The caller closes rendering after the actual draw before copying; image-to-buffer copies inside dynamic rendering
-// are invalid and otherwise produce a plausible-looking but unchanged PNG.
-void vk_dump_draw_after(VkExec *ex) {
-    plat_mutex_lock(&rec_lock);
-    if (!draw_pending || !draw_run_on || frame_now() != dump_frame || draw_n >= DRAW_CAP) {
-        draw_pending = 0;
-        plat_mutex_unlock(&rec_lock);
-        return;
-    }
-    draw_pending = 0;
-    int n = draw_n++;
-    plat_mutex_unlock(&rec_lock);
-    int reopen;
-    VkCommandBuffer cb = vk_exec_inline_begin(&reopen);
-    if (!cb) return;
-    const VkExecTarget *t = &ex->color[0];
-    if (!t->image || t->samples > 1 || t->is3d) {
-        vk_exec_inline_end(reopen);
-        return;
-    }
-    uint32_t x = 0, y = 0, w = t->width, h = t->height;
-    if (draw_rect[2] && draw_rect[0] < t->width && draw_rect[1] < t->height) {   // clamped to the target
-        x = draw_rect[0], y = draw_rect[1];
-        w = draw_rect[2] < t->width - x ? draw_rect[2] : t->width - x;
-        h = draw_rect[3] < t->height - y ? draw_rect[3] : t->height - y;
-    }
-    char fn[16], name[160];
-    snprintf(name, sizeof name, "draw_%03d_t0_%ux%u_%d_%s", n, w, h, (int)t->format, fmt_name(t->format, fn));
-    const char *why = copy_region(ex, t->image, t->format, t->aspect, t->level, t->base_layer,
-                                  (VkOffset3D){(int32_t)x, (int32_t)y, 0}, (VkExtent3D){w, h, 1}, w, h, 1, name);
-    plat_mutex_lock(&rec_lock);
-    fprintf(passes_f, "    draw snapshot %s.png at %u,%u of %ux%u%s%s\n", name, x, y, t->width, t->height,
-            why ? " skipped: " : "", why ? why : "");
-    plat_mutex_unlock(&rec_lock);
-    vk_exec_inline_end(reopen);
-}
-
 void vk_dump_draw(VkExec *ex, const VkPipeState *s, VkPipeline p, const VkPipeInfo *info) {
     plat_mutex_lock(&rec_lock);
     trace_ubo(ex, s);
     if (!active()) goto out;
-    draw_pending = 0;
-    if (frame_now() == dump_frame && !draw_run_on) {
-        int match = seq >= draw_lo && seq <= draw_hi;
-        if (draw_fs && shader_hash(s->fs) == draw_fs) match = 1;
-        if (match) draw_run_on = 1, draw_targets = targets_sig(ex);   // draw_n goes on: a later run must not reuse names
-    }
-    if (draw_run_on && frame_now() == dump_frame) draw_pending = 1;
+    draws_select(ex, s, seq);
     pass_draws++;
     uint64_t th = bindings_hash(ex, info);
     for (int i = 0; i < nents; i++)
@@ -503,7 +445,7 @@ static void target_line(VkExec *ex, const VkExecTarget *t, const char *tag, int 
             why ? " skipped: " : "", why ? why : "");
 }
 
-static uint64_t targets_sig(const VkExec *ex) {
+uint64_t targets_sig(const VkExec *ex) {
     uint64_t h = 1469598103934665603ull;
     for (int i = 0; i < 9; i++) {
         const VkExecTarget *t = i < 8 ? &ex->color[i] : &ex->depth;
@@ -586,8 +528,7 @@ void vk_dump_pass_end(VkExec *ex) {
     uint64_t sig = targets_sig(ex);
     pass_decide(skip_runs && sig == last_targets);
     last_targets = sig;
-    if (draw_run_on && targets_sig(ex) != draw_targets) draw_run_on = 0;
-    if (draw_run_on && !pass_skip) pass_skip = "draw snapshots instead";   // a split of the run: its copies stand for it
+    pass_skip = draws_pass_end(sig, pass_skip);
     fprintf(passes_f, "pass %04d: render pass, draws %d, area %ux%u layers %u, fence %llu, frame %llu\n", n, pass_draws,
             ex->pass_w, ex->pass_h, ex->pass_layers, (unsigned long long)ex->fence, (unsigned long long)frame_now());
     for (int i = 0; i < 8; i++) {
@@ -764,7 +705,8 @@ int vk_dump_rearm(const char *d, int ubo, int luts, int log_n) {
     int busy = passes_f != NULL;
     if (!busy) {
         open_dir(d);
-        seq = copied = nluts = nluts_done = stat_n = draw_n = draw_run_on = 0, stat_open = -1, png_bytes = 0;
+        seq = copied = nluts = nluts_done = stat_n = 0, stat_open = -1, png_bytes = 0;
+        draws_reset();
         dump_ubo = ubo, luts_only = luts, log_from = 0, finished = 0;
         if (stat_pool) vkResetQueryPool(vk_ctx()->device, stat_pool, 0, STAT_MAX);
         dump_frame = frame_now() + 1 + (uint64_t)(log_n > 0 ? log_n : 0);
@@ -790,12 +732,7 @@ void vk_dump_init(void) {
         w[0] = (uint32_t)strtoul(q, &q, 10);
         w[1] = *q == 'x' ? (uint32_t)strtoul(q + 1, &q, 10) : 0;
     }
-    const char *dp = cfg_get("MKW_DUMP_DRAWS");
-    if (dp && strlen(dp) == 16) draw_fs = strtoull(dp, NULL, 16);   // one fragment shader, not a pass range
-    else if (dp && sscanf(dp, "%d-%d", &draw_lo, &draw_hi) == 2 && draw_hi - draw_lo > 64) draw_lo = draw_hi = -1;
-    const char *dr = cfg_get("MKW_DUMP_DRAWS_RECT");
-    if (dr && sscanf(dr, "%u,%u,%u,%u", &draw_rect[0], &draw_rect[1], &draw_rect[2], &draw_rect[3]) != 4) draw_rect[2] = 0;
-    if (!draw_rect[3]) draw_rect[2] = 0;
+    draws_init();
     const char *e = cfg_get("MKW_DUMP");
     if (!e || !*e || !(dump_frame = strtoull(e, NULL, 10))) return;
     const char *lf = cfg_get("MKW_DUMP_LOG");

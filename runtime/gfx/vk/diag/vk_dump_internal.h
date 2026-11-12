@@ -1,4 +1,4 @@
-// Internal interface of the frame dump (vk_dump.c, vk_dump_img.c, vk_dump_buf.c): its state and the calls between
+// Internal interface of the frame dump (vk_dump.c, vk_dump_img.c, vk_dump_buf.c, vk_dump_draws.c): its state and the calls between
 // the parts. Everything else goes through vk.h.
 #pragma once
 
@@ -19,7 +19,12 @@ extern char dump_dir[400];
 extern FILE *images_f;
 extern volatile int64_t png_bytes, inflight;
 extern PlatMutex img_lock;
+extern PlatMutex rec_lock;   // the recording side: passes.txt and the per-pass state
+extern FILE *passes_f;
 VmaAllocator dvma(void);
+uint64_t frame_now(void);                  // the frame being recorded
+uint64_t shader_hash(const GfxShader *s);  // SPIR-V hash; sh_<hash>.spv written once a logged pass names it
+uint64_t targets_sig(const VkExec *ex);    // hash of the bound colour and depth targets
 
 // vk_dump_img.c: formats, the copy of an image into a host buffer and its PNGs
 enum { M_UNORM, M_SNORM, M_INT, M_FLOAT, M_DEPTH };   // how a format's values read (mode_of)
@@ -39,3 +44,9 @@ extern uint64_t bd_addr, bd_size, bd_off, bd_stride;
 extern uint32_t bd_w, bd_h;
 extern FILE *bufs_f;
 void buf_snap(VkExec *ex, int pass);
+
+// vk_dump_draws.c: MKW_DUMP_DRAWS, called with rec_lock held
+void draws_init(void);    // reads the environment (vk_dump_init)
+void draws_reset(void);   // a new dump (vk_dump_rearm)
+void draws_select(VkExec *ex, const VkPipeState *s, int pass);   // a draw of pass: starts the run, marks it
+const char *draws_pass_end(uint64_t sig, const char *skip);      // the pass's skip reason, "draw snapshots instead" in a run
