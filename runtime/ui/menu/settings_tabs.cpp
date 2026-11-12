@@ -98,6 +98,8 @@ static void row_game_lang(void) {
         {"nl", UI_MENU_LANGNAME_NL}, {"pt", UI_MENU_LANGNAME_PT}, {"pt-BR", UI_MENU_LANGNAME_PT_BR},
         {"ru", UI_MENU_LANGNAME_RU},
         {"zh-CN", UI_MENU_LANGNAME_ZH_HANS}, {"zh-TW", UI_MENU_LANGNAME_ZH_HANT}, {"ko", UI_MENU_LANGNAME_KO},
+        // ours, rebuilt over the game's Spanish (tools/i18n/game_texts.py)
+        {"ca", UI_MENU_LANGNAME_CA}, {"gl", UI_MENU_LANGNAME_GL}, {"eu", UI_MENU_LANGNAME_EU},
     };
     enum { N = sizeof langs / sizeof *langs + 1 };
     const char *vals[N], *names[N];

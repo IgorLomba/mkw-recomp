@@ -42,7 +42,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]  # the repository, or the package's setup/src
 sys.path.insert(0, str(ROOT / "tools/build"))
+sys.path.insert(0, str(ROOT / "tools/i18n"))
 import build  # (GEN_FLAGS, module_glue, game_id: the same game code as build.py --dist)
+import game_texts  # (build_all: the game's texts in ca, gl, eu)
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from gamecode import compile_game
@@ -341,6 +343,9 @@ def main() -> None:
                 for p in work.glob("*"):
                     if p.is_dir() and p.name != "obj":
                         shutil.rmtree(p, ignore_errors=True)
+                # the languages the game does not ship (ca, gl, eu), from this version's translations (the step runs
+                # at every setup, so an update brings its new texts); about a second
+                game_texts.build_all(game, romfs)
             state["done"][step] = key
             save_state(game, state)
         emit("done")

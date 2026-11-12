@@ -8,7 +8,9 @@
 // Overlays: files listed in a directory's manifest.tsv are served in place of the originals. Each line names a RomFS
 // path, the overlay's size and SHA-256 and the original's SHA-256 ("-" adds a file the RomFS lacks; it is numbered
 // after the RomFS's own files, file_count + k in path order). The directories, in this order: MKW_ROMFS_PATCHES and
-// MKW_ROMFS_MODS; unset or "0" = none. A missing path, a size or hash mismatch or a changed original stops the start.
+// MKW_ROMFS_MODS; unset or "0" = none; then <exe dir>/lang/<code>/ for a language the game does not ship
+// (ov_text_language: its texts rebuilt by the setup, tools/i18n/game_texts.py). A missing path, a size or hash mismatch
+// or a changed original stops the start.
 // An overlay file is opened when the game opens it; its identity (volume, file id, size, last write) is kept from the
 // start check, and an open that finds another file there stops the game.
 #include <stdio.h>
@@ -19,6 +21,7 @@
 #include "cfg.h"
 #include "fs.h"
 #include "host.h"
+#include "ov.h"
 #include "romfs_path.h"
 #include "platform/platform.h"
 #include "sha256.h"
@@ -259,12 +262,24 @@ static void added_init(void) {
     rt_log("RomFS overlay: %zu files added to the RomFS", nadded);
 }
 
+// <exe dir>/lang/<code> for a rebuilt game language, NULL for one the game ships.
+static const char *lang_overlay(void) {
+    static char dir[PLAT_PATH_MAX * 2];
+    const char *code = ov_text_language();
+    int k = code ? plat_exe_path(dir, sizeof dir - 16) : 0;
+    char *cut = k ? plat_last_sep(dir) : NULL;
+    if (!cut) return NULL;
+    snprintf(cut, sizeof dir - (size_t)(cut - dir), "/lang/%s", code);
+    return dir;
+}
+
 static void overlay_init(void) {
     // MKW_ROMFS_PATCHES (the scripts' build/romfs-res) wins; else the resolution setting writes its own
     const char *patches = cfg_get("MKW_ROMFS_PATCHES");
-    const char *dirs[2] = {patches && *patches ? patches : romfs_resolution_overlay(), cfg_get("MKW_ROMFS_MODS")};
+    const char *dirs[3] = {patches && *patches ? patches : romfs_resolution_overlay(), cfg_get("MKW_ROMFS_MODS"),
+                           lang_overlay()};
     if (patches && *patches && strcmp(patches, "0")) romfs_resolution_external();
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < 3; i++)
         if (dirs[i] && *dirs[i] && strcmp(dirs[i], "0")) overlay_load(dirs[i]);
     added_init();
     if (noverlay) qsort(overlays, noverlay, sizeof *overlays, overlay_order);

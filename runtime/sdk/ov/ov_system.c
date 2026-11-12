@@ -92,23 +92,49 @@ static const char *switch_language(const char *tag) {
     return "en-US";
 }
 
+// Languages the game does not ship whose texts we rebuild over one it does (tools/i18n/game_texts.py): the game is told
+// the base, and romfs.c serves the rebuilt archives from <exe dir>/lang/<code>/ (ov_text_language).
+static const struct { const char *code, *base; } kRebuilt[] = {{"ca", "es"}, {"gl", "es"}, {"eu", "es"}};
+
+static const char *rebuilt_base(const char *code) {
+    for (size_t i = 0; i < sizeof kRebuilt / sizeof *kRebuilt; i++)
+        if (!strcmp(code, kRebuilt[i].code)) return kRebuilt[i].base;
+    return NULL;
+}
+
+// The locale tag MKW_LANG falls back to: MKW_LOCALE, else the system's user locale.
+static const char *locale_tag(char *buf, size_t cap) {
+    const char *tag = cfg_get("MKW_LOCALE");
+    if (tag && *tag) return tag;
+    snprintf(buf, cap, "%s", *plat_user_locale() ? plat_user_locale() : "en-US");
+    return buf;
+}
+
+const char *ov_text_language(void) {
+    const char *code = cfg_get("MKW_LANG");
+    if (code && *code) return rebuilt_base(code) ? code : NULL;
+    char sys[85], lang[3] = "";
+    const char *tag = locale_tag(sys, sizeof sys);
+    if (strlen(tag) >= 2 && (!tag[2] || tag[2] == '-' || tag[2] == '_'))
+        lang[0] = (char)tolower((unsigned char)tag[0]), lang[1] = (char)tolower((unsigned char)tag[1]);
+    for (size_t i = 0; i < sizeof kRebuilt / sizeof *kRebuilt; i++)
+        if (!strcmp(lang, kRebuilt[i].code)) return kRebuilt[i].code;
+    return NULL;
+}
+
 // The game's language as a Switch language code (MKW_LANG, else MKW_LOCALE, else the Windows user locale).
 const char *ov_language(void) {
     static const char *const codes[] = {"ja", "en-US", "fr", "de", "it", "es", "zh-CN", "ko", "nl", "pt", "ru",
                                         "zh-TW", "en-GB", "fr-CA", "es-419", "zh-Hans", "zh-Hant", "pt-BR"};
     const char *code = cfg_get("MKW_LANG");   // no fixed default: MKW_LOCALE or the Windows user locale decides when unset
+    if (code && *code && rebuilt_base(code)) return rebuilt_base(code);
     if (code && *code) {
         for (size_t i = 0; i < sizeof codes / sizeof *codes; i++)
             if (!strcmp(code, codes[i])) return codes[i];
         rt_fatal("MKW_LANG '%s' is not a Switch language code", code);
     }
-    const char *tag = cfg_get("MKW_LOCALE");
-    char sys[85] = "en-US";
-    if (!tag || !*tag) {
-        if (*plat_user_locale()) snprintf(sys, sizeof sys, "%s", plat_user_locale());
-        tag = sys;
-    }
-    return switch_language(tag);
+    char sys[85];
+    return switch_language(locale_tag(sys, sizeof sys));
 }
 
 // LanguageCode GetDesiredLanguage(): char[8] in x0
