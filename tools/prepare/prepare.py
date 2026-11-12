@@ -267,6 +267,7 @@ def main() -> None:
     ap.add_argument("--cc", help="the C compiler command (default: the package's zig cc, else clang)")
     ap.add_argument("--glslc", help="(default: the package's, else glslc on PATH)")
     ap.add_argument("--target", choices=("linux", "windows"), default="windows" if os.name == "nt" else "linux")
+    ap.add_argument("--port", default="", help="the port version this setup is for (the start screen's): kept in the state")
     args = ap.parse_args()
     own_children()
     if ca := update.ca_file():  # spec.py downloads NVIDIA's redistributables with this Python (issue #102, NixOS)
@@ -305,6 +306,13 @@ def main() -> None:
             "warm": f"{build.game_id()} {romfs_src}",
         }
         for step in STEPS[1:]:
+            # The start screen sets up again when its version differs (launcher.cpp): an update by hand (a new
+            # AppImage or zip over the old) kept the old steps (#50: 0.1.8 played with 0.1.7's shaders). Kept once the
+            # game is built, before the optional warm-up: a warm-up that keeps failing (#50's hang) must not repeat
+            # the setup at every start.
+            if step == "warm" and args.port:
+                state["port"] = args.port
+                save_state(game, state)
             key = keys.get(step, "")
             if step != "cleanup" and state["done"].get(step) == key:
                 emit("skip", step)

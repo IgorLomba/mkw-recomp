@@ -75,6 +75,21 @@ static void exe_dir(char *out, size_t cap) {
 }
 
 // The Vulkan devices for the Screen tab's GPU row: an instance only to list them.
+// The last setup was made by another version: a player who updated by hand (a new AppImage, or the zip over the old
+// folder) kept the old shaders and game code (#50: 0.1.8 played with 0.1.7's shaders). States from before 0.1.9 keep
+// no version, so they set up again once too; prepare.py runs only the steps whose key changed.
+static int setup_from_other_version(const char *state) {
+    FILE *f = fopen(state, "rb");
+    if (!f) return 0;
+    static char buf[16384];
+    size_t n = fread(buf, 1, sizeof buf - 1, f);
+    fclose(f);
+    buf[n] = 0;
+    char want[96];
+    snprintf(want, sizeof want, "\"port\": \"%s\"", rt_port_version);
+    return !strstr(buf, want);
+}
+
 static void list_gpus(void) {
     VkApplicationInfo ai = {VK_STRUCTURE_TYPE_APPLICATION_INFO};
     ai.apiVersion = VK_API_VERSION_1_3;
@@ -400,7 +415,10 @@ extern "C" int launcher_run(void) {
     if (!rt_game_present() && !L.shot_at) L.page = PAGE_FILES;
     char state[1100];
     snprintf(state, sizeof state, "%s/setup-state.json", L.exe_dir);
-    if (update_just_installed(L.exe_dir, L.updated, sizeof L.updated) && L.tools && plat_file_exists(state)) {
+    int updated = update_just_installed(L.exe_dir, L.updated, sizeof L.updated);
+    int other = !updated && !L.shot_at && setup_from_other_version(state);
+    if ((updated || other) && L.tools && plat_file_exists(state)) {
+        if (other) rt_log("launcher: the game files were set up by another version: setting up again what changed");
         L.page = PAGE_FILES;   // set up again what the new version changed, from the last setup's copy
         setup_start(L.exe_dir, nullptr, 0);
     } else if (!L.shot_at || getenv("MKW_UPDATE_AS")) {

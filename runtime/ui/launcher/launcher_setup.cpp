@@ -11,6 +11,7 @@
 extern "C" {
 #include "platform/platform.h"
 void rt_log(const char *fmt, ...) __attribute__((format(printf, 1, 2)));
+extern const char rt_port_version[];
 }
 
 static const char *const kSteps[SETUP_STEPS] = {"check", "exefs", "romfs", "generate", "compile", "shaders", "warm",
@@ -119,9 +120,10 @@ void setup_start(const char *exe_dir, const char *source, int link_romfs) {
         return;
     }
     // -I: no user site packages or PYTHON* variables, nothing from the working directory
-    const char *args[] = {python, "-I", script, "--game", exe_dir, "--source", source, "--romfs",
-                          link_romfs ? "link" : "copy", nullptr};
-    if (!source) args[5] = nullptr;   // prepare.py takes the last setup's
+    // without a source, prepare.py takes the last setup's (and its RomFS mode) and the arguments end at the version
+    const char *args[] = {python, "-I", script, "--game", exe_dir, "--port", rt_port_version, "--source", source,
+                          "--romfs", link_romfs ? "link" : "copy", nullptr};
+    if (!source) args[7] = nullptr;
     rt_log("setup: %s %s --game %s --source %s --romfs %s", python, script, exe_dir, source ? source : "(last)",
            link_romfs ? "link" : "copy");
     g_proc = SDL_CreateProcess(args, true);
