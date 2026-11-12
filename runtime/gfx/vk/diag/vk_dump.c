@@ -25,8 +25,9 @@
 // before the submission (vk_draw_internal.h upd_note).
 // MKW_DUMP_SKIP_RUNS=1: a render pass with the same targets as the render pass before it is logged but not copied
 // (the terrain decals draw one pass each into the G-buffer and would use up both caps).
-// The parts: vk_dump_img.c (formats, image copies and PNGs) and vk_dump_buf.c (MKW_DUMP_BUF), sharing
-// vk_dump_internal.h.
+// MKW_DUMP_DRAWS: a copy of the first colour target after each draw of a run of passes (vk_dump_draws.c).
+// The parts: vk_dump_img.c (formats, image copies and PNGs), vk_dump_buf.c (MKW_DUMP_BUF) and vk_dump_draws.c
+// (MKW_DUMP_DRAWS), sharing vk_dump_internal.h.
 #include <math.h>
 #include <stdarg.h>
 #include <stdio.h>
@@ -69,7 +70,7 @@ uint64_t dump_frame;
 static uint64_t log_from;   // MKW_DUMP_LOG: first frame logged to passes.txt without images
 char dump_dir[400];
 FILE *images_f;
-static FILE *passes_f;
+FILE *passes_f;
 static int seq, finished, copied;      // copied: passes and dispatches of the dump frame whose images were copied
 static int skip_runs, dump_ubo;        // MKW_DUMP_SKIP_RUNS, MKW_DUMP_UBO
 static int luts_only;                  // MKW_CTL "dump DIR lut": only the 3D volumes and small textures, no targets
@@ -79,13 +80,13 @@ static uint64_t last_targets;          // targets_sig of the last render pass; 0
 static const char *pass_skip;          // why the current pass copies nothing, or NULL
 volatile int64_t png_bytes, inflight;
 PlatMutex img_lock = PLAT_MUTEX_INIT;
-static PlatMutex rec_lock = PLAT_MUTEX_INIT;
+PlatMutex rec_lock = PLAT_MUTEX_INIT;
 
 static int active(void) {
     uint64_t f = __atomic_load_n(&gfx_counters.frames, __ATOMIC_RELAXED) + 1;
     return !finished && (f == dump_frame || (log_from && f >= log_from && f < dump_frame));
 }
-static uint64_t frame_now(void) { return __atomic_load_n(&gfx_counters.frames, __ATOMIC_RELAXED) + 1; }
+uint64_t frame_now(void) { return __atomic_load_n(&gfx_counters.frames, __ATOMIC_RELAXED) + 1; }
 
 typedef struct { char *s; size_t n, cap; } Str;
 
@@ -106,23 +107,41 @@ __attribute__((format(printf, 2, 3))) static void sp(Str *b, const char *fmt, ..
     b->n += (size_t)k;
 }
 
-// SPIR-V hash of a shader; the first time, its SPIR-V goes to sh_<hash>.spv.
-static uint64_t shader_hash(const GfxShader *s) {
-    static struct { const GfxShader *s; uint64_t h; } tab[1024];
+// SPIR-V hash of a shader. The file is written the first time a logged pass names the shader, not on a hash looked up
+// only to decide whether the pass is the one MKW_DUMP_DRAWS asked for.
+uint64_t shader_hash(const GfxShader *s) {
+    static struct { const GfxShader *s; uint64_t h; int wrote; } tab[1024];
     static int n;
     if (!s) return 0;
-    for (int i = 0; i < n; i++)
-        if (tab[i].s == s) return tab[i].h;
-    uint64_t words = 0, h = 0xcbf29ce484222325ull;
-    const uint32_t *w = gfx_shader_spirv(s, &words);
-    const uint8_t *b = (const uint8_t *)w;
-    for (uint64_t i = 0; i < words * 4; i++) h = (h ^ b[i]) * 0x100000001b3ull;
-    char path[600];
-    snprintf(path, sizeof path, "%s/sh_%016llx.spv", dump_dir, (unsigned long long)h);
-    FILE *f = fopen(path, "wb");
-    if (f) fwrite(w, 4, (size_t)words, f), fclose(f);
-    if (n < 1024) tab[n].s = s, tab[n].h = h, n++;
-    return h;
+    int i = 0;
+    while (i < n && tab[i].s != s) i++;
+    if (i == n) {
+        uint64_t words = 0, h = 0xcbf29ce484222325ull;
+        const uint32_t *w = gfx_shader_spirv(s, &words);
+        const uint8_t *b = (const uint8_t *)w;
+        for (uint64_t k = 0; k < words * 4; k++) h = (h ^ b[k]) * 0x100000001b3ull;
+        if (n == 1024) {
+            if (passes_f) {
+                char path[600];
+                snprintf(path, sizeof path, "%s/sh_%016llx.spv", dump_dir, (unsigned long long)h);
+                FILE *f = fopen(path, "wb");
+                if (f) fwrite(w, 4, (size_t)words, f), fclose(f);
+            }
+            return h;
+        }
+        tab[n].s = s, tab[n].h = h, tab[n].wrote = 0;
+        i = n++;
+    }
+    if (passes_f && !tab[i].wrote) {
+        char path[600];
+        uint64_t words = 0;
+        const uint32_t *w = gfx_shader_spirv(s, &words);
+        snprintf(path, sizeof path, "%s/sh_%016llx.spv", dump_dir, (unsigned long long)tab[i].h);
+        FILE *f = fopen(path, "wb");
+        if (f) fwrite(w, 4, (size_t)words, f), fclose(f);
+        tab[i].wrote = 1;
+    }
+    return tab[i].h;
 }
 
 // Per pass: distinct pipeline + texture sets, draws, 3D textures to copy at its end.
@@ -167,7 +186,7 @@ static void flush_luts(VkExec *ex, int n) {
         VkFormat bf = block_format(l->format);
         snprintf(name, sizeof name, "pass_%04d_%s%d_%ux%ux%u_%d_%s%s", n, l->is2d ? "tex" : "lut", l->id, l->w, l->h, l->d,
                  (int)l->format, fmt_name(l->format, fn), bf ? "_blocks" : "");
-        const char *why = bf ? copy_region(ex, l->image, bf, VK_IMAGE_ASPECT_COLOR_BIT, 0, 0, 0,
+        const char *why = bf ? copy_region(ex, l->image, bf, VK_IMAGE_ASPECT_COLOR_BIT, 0, 0, (VkOffset3D){0, 0, 0},
                                            (VkExtent3D){l->w, l->h, l->d}, (l->w + 3) / 4, (l->h + 3) / 4, l->d, name)
                              : copy_out(ex, l->image, l->format, VK_IMAGE_ASPECT_COLOR_BIT, 0, 0, l->w, l->h, l->d, name);
         fprintf(passes_f, "  %s tex %d -> %s.png%s%s\n", l->is2d ? "2D" : "3D", l->id, name, why ? " skipped: " : "",
@@ -356,6 +375,7 @@ void vk_dump_draw(VkExec *ex, const VkPipeState *s, VkPipeline p, const VkPipeIn
     plat_mutex_lock(&rec_lock);
     trace_ubo(ex, s);
     if (!active()) goto out;
+    draws_select(ex, s, seq);
     pass_draws++;
     uint64_t th = bindings_hash(ex, info);
     for (int i = 0; i < nents; i++)
@@ -415,8 +435,8 @@ static void target_line(VkExec *ex, const VkExecTarget *t, const char *tag, int 
     (void)n;
     const char *why = pass_skip ? pass_skip : t->samples > 1 ? "multisampled" :
                       t->blocks ? copy_region(ex, t->image, t->format, t->aspect, t->level, t->is3d ? 0 : t->base_layer,
-                                              t->is3d ? t->base_layer : 0, (VkExtent3D){tw, th, 1}, t->width,
-                                              t->height, 1, name) :
+                                              (VkOffset3D){0, 0, t->is3d ? (int32_t)t->base_layer : 0},
+                                              (VkExtent3D){tw, th, 1}, t->width, t->height, 1, name) :
                       t->is3d ? "3D slice (the volume is dumped as lut<id> where it is sampled)" :
                       copy_out(ex, t->image, t->format, t->aspect, t->level, t->base_layer, t->width, t->height, 1, name);
     fprintf(passes_f, "  %s: nvn %#x %s(%d) %ux%u level %u layers %u+%u samples %u addr %#llx image %p -> %s.png%s%s\n",
@@ -425,7 +445,7 @@ static void target_line(VkExec *ex, const VkExecTarget *t, const char *tag, int 
             why ? " skipped: " : "", why ? why : "");
 }
 
-static uint64_t targets_sig(const VkExec *ex) {
+uint64_t targets_sig(const VkExec *ex) {
     uint64_t h = 1469598103934665603ull;
     for (int i = 0; i < 9; i++) {
         const VkExecTarget *t = i < 8 ? &ex->color[i] : &ex->depth;
@@ -508,6 +528,7 @@ void vk_dump_pass_end(VkExec *ex) {
     uint64_t sig = targets_sig(ex);
     pass_decide(skip_runs && sig == last_targets);
     last_targets = sig;
+    pass_skip = draws_pass_end(sig, pass_skip);
     fprintf(passes_f, "pass %04d: render pass, draws %d, area %ux%u layers %u, fence %llu, frame %llu\n", n, pass_draws,
             ex->pass_w, ex->pass_h, ex->pass_layers, (unsigned long long)ex->fence, (unsigned long long)frame_now());
     for (int i = 0; i < 8; i++) {
@@ -685,6 +706,7 @@ int vk_dump_rearm(const char *d, int ubo, int luts, int log_n) {
     if (!busy) {
         open_dir(d);
         seq = copied = nluts = nluts_done = stat_n = 0, stat_open = -1, png_bytes = 0;
+        draws_reset();
         dump_ubo = ubo, luts_only = luts, log_from = 0, finished = 0;
         if (stat_pool) vkResetQueryPool(vk_ctx()->device, stat_pool, 0, STAT_MAX);
         dump_frame = frame_now() + 1 + (uint64_t)(log_n > 0 ? log_n : 0);
@@ -710,6 +732,7 @@ void vk_dump_init(void) {
         w[0] = (uint32_t)strtoul(q, &q, 10);
         w[1] = *q == 'x' ? (uint32_t)strtoul(q + 1, &q, 10) : 0;
     }
+    draws_init();
     const char *e = cfg_get("MKW_DUMP");
     if (!e || !*e || !(dump_frame = strtoull(e, NULL, 10))) return;
     const char *lf = cfg_get("MKW_DUMP_LOG");
