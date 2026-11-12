@@ -261,6 +261,7 @@ static void tab_sound(float scale) {
                                 menu_text(UI_MENU_SPEAKERS_51)};
         opt_choice_list("MKW_AUDIO_CHANNELS", UI_MENU_SPEAKERS, vals, names, 3, UI_MENU_SPEAKERS_DESC);
     }
+    opt_toggle("MKW_BACKGROUND_MUTE", UI_MENU_BACKGROUND_MUTE, UI_MENU_BACKGROUND_MUTE_DESC);   // audio/audio_mixer.c
     opt_end();
 }
 
@@ -295,6 +296,7 @@ static void tab_controls(float scale) {
     opt_slider("MKW_RUMBLE_STRENGTH", UI_MENU_RUMBLE_STRENGTH, 0, 300, UI_MENU_RUMBLE_STRENGTH_DESC, 10, "%.0f %%");
     opt_slider("MKW_RUMBLE_CURVE", UI_MENU_RUMBLE_CURVE, 0.2f, 1.5f, UI_MENU_RUMBLE_CURVE_DESC, 0.05f, "%.2f");
     opt_toggle("MKW_RUMBLE_TRIGGERS", UI_MENU_RUMBLE_TRIGGERS, UI_MENU_RUMBLE_TRIGGERS_DESC);
+    opt_slider("MKW_STICK_DEADZONE", UI_MENU_STICK_DEADZONE, 0, 40, UI_MENU_STICK_DEADZONE_DESC, 1, "%.0f %%");   // input.c
     opt_slider("MKW_MOUSE_SENS", UI_MENU_MOUSE_SENS, 0, 10, UI_MENU_MOUSE_SENS_DESC, 0.1f, "%.1f");
     binds_rows(scale);
     opt_end();

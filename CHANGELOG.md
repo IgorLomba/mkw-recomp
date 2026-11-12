@@ -4,6 +4,14 @@ Each version's section is that release's notes: `tools/build/notes.py` puts it i
 updating, known issues, reporting) for the GitHub release. A section has a summary paragraph, `### Changes` (each with
 its issue, #N), `### Tested` (what was run from the packages before publishing) and optionally `### Known issues`.
 
+## 0.1.10
+
+### Changes
+
+- Settings > Sound > Mute in background: no sound while the game window is not in front (off by default).
+- Settings > Controls > Stick dead zone (8 % by default): round instead of per axis, and the tilt past it starts from
+  zero, so small moves just outside it are no longer lost; raise it if the kart drifts with the stick at rest.
+
 ## 0.1.9
 
 Mario Kart World 1.8.0 as well as 1.0.0, HDR on HDR screens, the menus in 19 languages and the game itself in Catalan,

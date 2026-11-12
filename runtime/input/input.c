@@ -24,7 +24,7 @@
 #include "vk.h"
 #include "platform/platform.h"
 
-enum { STICK_MAX = 32767, STICK_DEAD = 2500, STICK_DIR = 16384, TRIGGER_ON = 16384, RESCAN_MS = 1000 };
+enum { STICK_MAX = 32767, STICK_DIR = 16384, TRIGGER_ON = 16384, RESCAN_MS = 1000 };
 
 static PlatMutex lock = PLAT_MUTEX_INIT;
 static int state;                    // 0 not started, 1 running, -1 disabled or SDL failed
@@ -91,9 +91,32 @@ static void mouse_camera(int32_t out[2]) {
     out[1] = held[1];
 }
 
-static int32_t axis(int16_t v) {
-    int32_t a = v < -STICK_MAX ? -STICK_MAX : v;
-    return a > -STICK_DEAD && a < STICK_DEAD ? 0 : a;
+static float dead_zone = -1;               // MKW_STICK_DEADZONE as a fraction of full tilt; live (cfg_version)
+static unsigned dead_zone_seen;
+
+static float dead_zone_get(void) {
+    unsigned ver = cfg_version();
+    if (dead_zone >= 0 && ver == dead_zone_seen) return dead_zone;
+    dead_zone_seen = ver;
+    double v = cfg_double("MKW_STICK_DEADZONE");
+    dead_zone = (float)(v < 0 ? 0 : v > 40 ? 0.4 : v / 100);
+    return dead_zone;
+}
+
+// A stick's two axes (SDL's, y down) as the game's (y up): a round dead zone around the centre, and the tilt past it
+// rescaled to the whole range, so a worn stick that rests off centre stays still without losing the small moves just
+// outside it (the old one was per axis, 2500 of 32767, and jumped from 0 to 2500).
+static void stick(int16_t x, int16_t y, int32_t out[2]) {
+    float fx = (x < -STICK_MAX ? -STICK_MAX : x) / (float)STICK_MAX;
+    float fy = (y < -STICK_MAX ? -STICK_MAX : y) / (float)STICK_MAX;
+    float m = sqrtf(fx * fx + fy * fy), d = dead_zone_get();
+    if (m <= d) {
+        out[0] = out[1] = 0;
+        return;
+    }
+    float s = ((m > 1 ? 1 : m) - d) / (1 - d) / m;
+    out[0] = (int32_t)lrintf(fx * s * STICK_MAX);
+    out[1] = -(int32_t)lrintf(fy * s * STICK_MAX);
 }
 
 // Players 2-8 (input_poll_player): one gamepad each, given in connection order to the first player without one; player
@@ -264,10 +287,8 @@ static void gamepad_read(SDL_Gamepad *g, int layout, uint64_t *b, int32_t sl[2],
     uint8_t pd[PAD_COUNT] = {0};
     gamepad_physical(g, pd);
     *b |= input_map_pad_buttons(pd, layout);
-    sl[0] = axis(SDL_GetGamepadAxis(g, SDL_GAMEPAD_AXIS_LEFTX));
-    sl[1] = -axis(SDL_GetGamepadAxis(g, SDL_GAMEPAD_AXIS_LEFTY));
-    sr[0] = axis(SDL_GetGamepadAxis(g, SDL_GAMEPAD_AXIS_RIGHTX));
-    sr[1] = -axis(SDL_GetGamepadAxis(g, SDL_GAMEPAD_AXIS_RIGHTY));
+    stick(SDL_GetGamepadAxis(g, SDL_GAMEPAD_AXIS_LEFTX), SDL_GetGamepadAxis(g, SDL_GAMEPAD_AXIS_LEFTY), sl);
+    stick(SDL_GetGamepadAxis(g, SDL_GAMEPAD_AXIS_RIGHTX), SDL_GetGamepadAxis(g, SDL_GAMEPAD_AXIS_RIGHTY), sr);
 }
 
 // Under lock, state 1: player 1's gamepad inputs by position; 0 without a connected gamepad.

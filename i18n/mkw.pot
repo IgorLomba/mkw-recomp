@@ -524,6 +524,14 @@ msgctxt "UI_MENU_SPEAKERS_51"
 msgid "5.1 surround"
 msgstr ""
 
+msgctxt "UI_MENU_BACKGROUND_MUTE"
+msgid "Mute in background"
+msgstr ""
+
+msgctxt "UI_MENU_BACKGROUND_MUTE_DESC"
+msgid "No sound while the game window is not in front."
+msgstr ""
+
 msgctxt "UI_MENU_SPEAKERS_DESC"
 msgid ""
 "Automatic gives the game's 5.1 surround mix when the system's sound output has 6 channels or "
@@ -596,6 +604,14 @@ msgstr ""
 
 msgctxt "UI_MENU_MOUSE_SENS_DESC"
 msgid "How fast the mouse turns the camera."
+msgstr ""
+
+msgctxt "UI_MENU_STICK_DEADZONE"
+msgid "Stick dead zone"
+msgstr ""
+
+msgctxt "UI_MENU_STICK_DEADZONE_DESC"
+msgid "How far a stick must tilt before it counts. Raise it if the kart drifts with the stick at rest."
 msgstr ""
 
 msgctxt "UI_MENU_BUTTON_ICONS"

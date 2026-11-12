@@ -18,6 +18,7 @@
 #include <SDL3/SDL.h>
 
 #include "cfg.h"
+#include "gfx.h"
 #include "audio_effects.h"
 #include "audio_reverb.h"
 #include "audren.h"
@@ -68,6 +69,18 @@ static float host_volume(void) {
     double pct = cfg_double("MKW_VOLUME");
     v = (float)((pct < 0 ? 0 : pct > 100 ? 100 : pct) / 100);
     return v;
+}
+// MKW_BACKGROUND_MUTE=1: silent while the window is not in front (gfx_present.c's focus, what the game hears as
+// nn::oe's focus state); the voices keep running, only the output is zeroed. Off by default.
+static float background_gain(void) {
+    static int on;
+    static unsigned seen = ~0u;
+    unsigned ver = cfg_version();
+    if (ver != seen) {
+        seen = ver;
+        on = cfg_int("MKW_BACKGROUND_MUTE") != 0;
+    }
+    return on && !gfx_window_focused() ? 0.0f : 1.0f;
 }
 static unsigned audio_revision(const AudioRenderer *r) { unsigned byte = r->revision >> 24; return byte >= '0' ? byte - '0' : 0; }
 static void report_once(Mixer *m, unsigned bit, const char *msg, int value) {
@@ -824,7 +837,7 @@ void audio_mixer_render(AudioRenderer *r, double seconds) {
     const int oc = m->ch;   /* output channels: 2, or 6 in the sink's order */
     memset(lr, 0, sizeof(float) * (size_t)oc * (size_t)frames);
     if (sink && sink->input_count >= 1 && sink->input_count <= 6) {
-        const float gain = host_volume() * atomic_load(&device_volume) * (r->mixes[0].in_use ? r->mixes[0].volume : 1.0f);
+        const float gain = host_volume() * background_gain() * atomic_load(&device_volume) * (r->mixes[0].in_use ? r->mixes[0].volume : 1.0f);
         const float *ch[6] = {0};
         for (uint32_t c = 0; c < sink->input_count; c++) if (sink->inputs[c] >= 0 && sink->inputs[c] < m->nbuf) ch[c] = mixbuf(m, sink->inputs[c]);
         for (int k = 0; k < frames && oc == 6; k++)   /* 5.1 out: each input to its speaker; stereo to FL FR */

@@ -526,6 +526,14 @@ msgctxt "UI_MENU_SPEAKERS_51"
 msgid "5.1 surround"
 msgstr "5.1 环绕声"
 
+msgctxt "UI_MENU_BACKGROUND_MUTE"
+msgid "Mute in background"
+msgstr "后台时静音"
+
+msgctxt "UI_MENU_BACKGROUND_MUTE_DESC"
+msgid "No sound while the game window is not in front."
+msgstr "游戏窗口不在前台时不发出声音。"
+
 msgctxt "UI_MENU_SPEAKERS_DESC"
 msgid ""
 "Automatic gives the game's 5.1 surround mix when the system's sound output has 6 channels or "
@@ -601,6 +609,15 @@ msgstr "鼠标镜头灵敏度"
 msgctxt "UI_MENU_MOUSE_SENS_DESC"
 msgid "How fast the mouse turns the camera."
 msgstr "鼠标转动镜头的速度。"
+
+msgctxt "UI_MENU_STICK_DEADZONE"
+msgid "Stick dead zone"
+msgstr "摇杆死区"
+
+msgctxt "UI_MENU_STICK_DEADZONE_DESC"
+msgid ""
+"How far a stick must tilt before it counts. Raise it if the kart drifts with the stick at rest."
+msgstr "摇杆需要倾斜多少才算输入。松开摇杆时卡丁车仍在移动的话请调高。"
 
 msgctxt "UI_MENU_BUTTON_ICONS"
 msgid "Button icons"
