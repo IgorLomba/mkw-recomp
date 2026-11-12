@@ -14,6 +14,9 @@ Galician and Basque, 5.1 sound, and fixes for crashes and freezes reported since
 - **Game version 1.8.0** (#19, #172 by @flavio-silva): the setup takes a 1.8.0 dump as well as 1.0.0, recognises it by
   its `exefs/main` and builds that version. Tested by its author on Windows up to the title and a race in Toad Harbor;
   on 1.8.0 the ultrawide menus, the shadow map size and the fixed seed have no effect yet.
+- **A dump as one file** (discussion #8, #167 by @Robert-Hoffman04): Game files > Choose .nup or .nx file takes a
+  `.nup` package or a `.nx` (NXFormat) archive where the setup took the `exefs/` and `romfs/` folders; with "Use it
+  where it is" the game reads its files straight from the package, without the 23 GB copy.
 - **HDR** (#168): Settings > Screen > HDR: Automatic (default) or Off. On a display in HDR the game shows its own HDR
   picture, as the console does, with the system's peak and paper white; it follows the system's HDR setting live.
 - **Languages**: the menu (F1), the start screen and the setup page in English, Japanese, French, German, Italian,
