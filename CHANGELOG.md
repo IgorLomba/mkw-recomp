@@ -26,7 +26,8 @@ Galician and Basque, 5.1 sound, and fixes for crashes and freezes reported since
   The setup's errors (a folder without the game, an encrypted or other version, an incomplete copy) are shown in the
   menu language.
 - **The game in Catalan, Galician and Basque**: Settings > Game > Language. The game's own texts are rebuilt from your
-  copy at setup (`i18n/game/`); the rest of the game stays in Spanish. A system set to one of them picks it.
+  copy at setup (`i18n/game/`); the rest of the game stays in Spanish. A system set to one of them picks it. On 1.8.0,
+  81 texts that changed since 1.0.0 stay in Spanish (#178 by @flavio-silva: the setup of a 1.8.0 dump stopped there).
 - Brazilian Portuguese: a Brazilian system picks the game's Brazilian Portuguese (discussion #42, #134 by
   @GabrielAndrade419).
 - **5.1 surround sound** when the system's output has 6 channels (discussion #90).
