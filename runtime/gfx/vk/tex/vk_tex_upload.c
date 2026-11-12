@@ -397,8 +397,9 @@ static int hash_untracked(void) {
     return on;
 }
 
-// After a texture's first upload: its storage's hash, so the first check after it compares with what was uploaded
-// instead of with 0 (an upload more for every texture).
+// Before a texture's first upload: its storage's hash, so the first check after it compares with what was uploaded
+// instead of with 0 (an upload more for every texture). Taken before, a write while uploading only costs one upload
+// more; taken after, it would hide that write.
 static void note_storage(Tex *e) {
     if (!hash_untracked() || !e->t.mem) return;
     e->shash_epoch = submit_epoch;
@@ -421,8 +422,8 @@ void make_fresh(Tex *e) {
     uint64_t size = e->t.L.size;
     if (!e->uploaded) {
         vk_mem_changed(e->pub.addr, size, 0, &e->wgen);   // resets the write bits before the storage is read
-        upload(e);
         note_storage(e);
+        upload(e);
         return;
     }
     uint32_t now;
@@ -443,8 +444,8 @@ void make_fresh_snap(Tex *e) {
     int ch = vk_mem_changed_snap(e->pub.addr, e->t.L.size, e->uploaded ? e->wgen : 0, submit_epoch, &now);
     e->wgen = now;
     if (!e->uploaded) {
-        upload(e);
         note_storage(e);
+        upload(e);
         return;
     }
     e->last_ch = ch;
