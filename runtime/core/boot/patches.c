@@ -158,6 +158,15 @@ static float aspect_widen(float w, float h) {
     float a = w / h, r = a < 1.2f ? 2 * a : a, d = r - 16.0f / 9;
     int on = d < 0.008f && d > -0.008f;
     if (on && (a < 1.2f || w < 1000)) split_at = frame_step_ticks() + 1;
+    // The first distinct views, with the decision: a stretched picture (#122) is a view left out here
+    static float seen[16][2];
+    static volatile int32_t nseen;
+    int n = __atomic_load_n(&nseen, __ATOMIC_ACQUIRE), k = 0;
+    while (k < n && (seen[k][0] != w || seen[k][1] != h)) k++;
+    if (k == n && n < 16 && __atomic_compare_exchange_n(&nseen, &n, n + 1, 0, __ATOMIC_ACQ_REL, __ATOMIC_ACQUIRE)) {
+        seen[n][0] = w, seen[n][1] = h;
+        rt_log("patches: camera view %.0fx%.0f (%.3f): %s", w, h, a, on ? "widened" : "kept");
+    }
     return on ? aspect_scale : 1;
 }
 
