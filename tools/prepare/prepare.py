@@ -87,7 +87,7 @@ def is_nx(path: Path) -> bool:
 
 def unpack(game: Path, pkg: Path, dest: Path | str, *prefixes: str) -> str:
     """Files of a packed dump (.nup or .nx) under dest as loose files, by the runtime: only those under the prefixes
-    ("exefs", "romfs/Mals"). Returns its first line ("unpack: N files, B bytes"); dest "-" counts only."""
+    ("exefs", "romfs/Mals"). Returns its "unpack: N files, B bytes" line (the log lines come first); dest "-" counts only."""
     exe = game / ("mkw.exe" if os.name == "nt" else "mkw")
     p = subprocess.Popen([str(exe), "--unpack", str(pkg), str(dest), *prefixes], stdout=subprocess.PIPE,
                          stderr=subprocess.STDOUT, text=True)  # fmt: skip
@@ -96,7 +96,7 @@ def unpack(game: Path, pkg: Path, dest: Path | str, *prefixes: str) -> str:
         if line.startswith("progress "):
             emit(*line.split())
         else:
-            head = head or line.strip()
+            head = head or (line.strip() if line.startswith("unpack: ") else "")
             tail = (tail + [line.strip()])[-5:]
             sys.stderr.write(line)
     if p.wait():
