@@ -388,11 +388,14 @@ int vk_mem_mirror_pending(void) { return npend; }
 
 void vk_mem_mirror_prologue(VkCommandBuffer cb) {
     if (!npend) return;
+    // #43 (RX 6650 XT, a discrete card: mirror mode) hung after every marked command had finished
+    uint32_t crumb = vk_crumb_op(cb, "mirror copies at the submission's start", (uint32_t)npend, 0);
     mbarrier(cb, VK_PIPELINE_STAGE_2_ALL_COMMANDS_BIT, VK_ACCESS_2_MEMORY_WRITE_BIT, VK_PIPELINE_STAGE_2_COPY_BIT,
              VK_ACCESS_2_TRANSFER_READ_BIT | VK_ACCESS_2_TRANSFER_WRITE_BIT);
     copy_ranges(cb, pend, npend, 1, &mrep.upload_bytes, &mrep.upload_copies);
     mbarrier(cb, VK_PIPELINE_STAGE_2_COPY_BIT, VK_ACCESS_2_TRANSFER_WRITE_BIT, VK_PIPELINE_STAGE_2_ALL_COMMANDS_BIT,
              VK_ACCESS_2_MEMORY_READ_BIT | VK_ACCESS_2_MEMORY_WRITE_BIT);
+    vk_crumb_end(cb, VK_CRUMB_OP, crumb);
     npend = 0;
     mrep.prologues++;
 }

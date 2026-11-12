@@ -348,7 +348,9 @@ static void op_update_ub(VkExec *ex, const p_update_ub *u) {
     memcpy(scratch(ex, u->size, &b, &o), u->data, u->size);
     VK_MEM_PICK(sp);
     VkBufferCopy cp = {o, sp.offset, u->size};
+    uint32_t crumb = vk_crumb_op(ex->cb, "uniform buffer update", u->size, 0);   // #43: commands between marks
     vkCmdCopyBuffer(ex->cb, b, sp.buffer, 1, &cp);
+    vk_crumb_end(ex->cb, VK_CRUMB_OP, crumb);
     vk_mem_gpu_wrote(&sp, u->size);
     vk_usnap_drop(u->dst, u->size);
     ex->recorded++;

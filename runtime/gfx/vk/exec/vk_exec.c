@@ -538,7 +538,12 @@ int vk_exec_op(VkExec *ex, const op_hdr *h) {
     case OP_SET_RT: set_rt(ex, a); break;
     case OP_CLEAR_COLOR: clear_color(ex, a); break;
     case OP_CLEAR_DS: clear_ds(ex, a); break;
-    case OP_BARRIER: vk_exec_barrier(ex); break;
+    case OP_BARRIER: {   // #43: the GPU hung between marks, where only barriers and such were recorded
+        uint32_t crumb = vk_crumb_op(ex->cb, "barrier", 0, 0);
+        vk_exec_barrier(ex);
+        vk_crumb_end(ex->cb, VK_CRUMB_OP, crumb);
+        break;
+    }
     case OP_DRAW_MESH:   // task/mesh pipelines (VK_EXT_mesh_shader) with MKW_MESH=1; else counted, not drawn
         vk_exec_frame.draws_seen++;
         if (mesh_on()) vk_exec_op_draw(ex, h->op, a);

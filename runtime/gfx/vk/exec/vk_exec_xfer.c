@@ -805,7 +805,22 @@ static void clear_tex(VkExec *ex, const p_clear_tex *p) {
     vk_texture_gpu_written(t);
 }
 
+static void xfer_op(VkExec *ex, uint32_t op, const void *payload);
+
 void vk_exec_op_xfer(VkExec *ex, uint32_t op, const void *payload) {
+    // Why: issues #43 and #50 (RADV) hung with every marked pass, dispatch, clear, copy and present step finished: the
+    // GPU was in commands between them. The ops without a mark of their own get one around them (and their barriers).
+    if (op == OP_COPY_B2B || op == OP_CLEAR_TEX || op == OP_CLEAR_BUF || op == OP_REPORT_COUNTER ||
+        op == OP_RESET_COUNTER) {
+        uint32_t crumb = vk_crumb_op(ex->cb, nvn_op_name(op), 0, 0);
+        xfer_op(ex, op, payload);
+        vk_crumb_end(ex->cb, VK_CRUMB_OP, crumb);
+        return;
+    }
+    xfer_op(ex, op, payload);
+}
+
+static void xfer_op(VkExec *ex, uint32_t op, const void *payload) {
     switch (op) {
     case OP_COPY_B2B: copy_b2b(ex, payload); break;
     case OP_COPY_B2T: copy_buffer_image(ex, payload, 1); break;
