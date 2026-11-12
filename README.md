@@ -15,8 +15,8 @@ translated to SPIR-V ahead of time. Nintendo SDK functions (`nn::*`) are replace
 
 Early, and moving fast. On 12/11/2026:
 
-- It boots, plays the intro movies, goes through the menus and races, on Linux and on Windows (x86-64); Linux on
-  AArch64 builds from source (no package yet; tested on an Adreno 740 handheld).
+- It boots, plays the intro movies, goes through the menus and races, on Linux and on Windows (x86-64), and on Linux
+  on AArch64 (its own AppImage; tested on an Adreno 740 handheld).
 - The start screen sets the game up from your copy on your machine (generates and compiles the C, translates the
   shaders, warms up the pipeline cache) and holds every setting: display, graphics quality, controls, hacks.
 - Races run at 60 fps on high-end GPUs and at 30 on mid-range ones; see [Performance](#performance).
@@ -67,7 +67,7 @@ reach, and a frame over 33.3 ms runs the race slower than real time.
 1. Dump Mario Kart World 1.0.0 or 1.8.0 from your Switch 2 (`exefs/` and `romfs/`, decrypted; 1.8.0 with the update
    merged into the base game's RomFS), or the same dump packed as one `.nup` or `.nx` file.
 2. Download the launcher for your system from [Releases](https://github.com/adriadam10/mkw-recomp/releases): on Linux
-   the `.AppImage` (it keeps the game it builds in `~/.local/share/mkw-recomp`; glibc 2.31 or newer: Debian 11,
+   the `.AppImage` (`-aarch64` on ARM; it keeps the game it builds in `~/.local/share/mkw-recomp`; glibc 2.31 or newer: Debian 11,
    Ubuntu 20.04, SteamOS and later), on Windows the `.zip`, unpacked into a folder. Either needs about 30 GB free.
 3. Run the AppImage (`chmod +x` first) or `mkw.exe`, open **Game files**, point it at your dump (**Choose folder** or
    **Choose .nup or .nx file**) and press **Set up**.
@@ -76,7 +76,7 @@ reach, and a frame over 33.3 ms runs the race slower than real time.
 4. When a newer release is out, the start screen offers it (**Update to vX**): it downloads it, checks it, replaces
    the program and sets up again only what changed. **Settings → Menu → Check for updates** turns the check off.
 
-Requirements: x86-64 CPU with AVX2 (or, built from source on Linux, AArch64 with ARMv8.2: LSE, FP16, RCpc, DotProd,
+Requirements: x86-64 CPU with AVX2 (or, on Linux, AArch64 with ARMv8.2: LSE, FP16, RCpc, DotProd,
 CRC32), a GPU with Vulkan 1.3 (`VK_EXT_mesh_shader` recommended; without it, task and mesh shaders run as compute),
 16 GB of RAM recommended.
 

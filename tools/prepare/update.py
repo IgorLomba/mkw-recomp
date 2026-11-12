@@ -25,6 +25,7 @@ import argparse
 import hashlib
 import json
 import os
+import platform
 import re
 import shutil
 import ssl
@@ -38,7 +39,11 @@ from pathlib import Path
 REPO = os.environ.get("MKW_UPDATE_REPO") or "adriadam10/mkw-recomp"
 CHECK_TIMEOUT = 5  # s: the start screen waits for nothing, but a hung request should not linger
 FETCH_TIMEOUT = 30
-ASSET_SUFFIX = {"linux": "-x86_64.AppImage", "windows": "-windows-x64.zip"}  # tools/build/release.py's names
+ASSET_SUFFIX = {  # tools/build/release.py's names
+    "linux": "-x86_64.AppImage",
+    "linux-aarch64": "-aarch64.AppImage",
+    "windows": "-windows-x64.zip",
+}
 CLEAN_WAIT = 20  # s
 OLD_SUFFIX = ".old"  # what the launcher renames the replaced files to (Windows: a running exe cannot be removed)
 
@@ -163,7 +168,8 @@ def clean(args: argparse.Namespace) -> None:
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
-    host = "windows" if os.name == "nt" else "linux"
+    # the package's own Python runs natively, so its machine is the package's: an AArch64 AppImage updates to the same
+    host = "windows" if os.name == "nt" else "linux-aarch64" if platform.machine() in ("aarch64", "arm64") else "linux"
     c = sub.add_parser("check")
     c.add_argument("--version", required=True, help="this program's (rt_port_version)")
     c.add_argument("--os", choices=ASSET_SUFFIX, default=host)

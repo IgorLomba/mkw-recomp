@@ -60,8 +60,8 @@ game copy in `exefs/` and `romfs/` (or `--exefs`/`--romfs`). It needs a driver w
 The runtime and the game code build for 64-bit ARM Linux (ARMv8.2: Cortex-A76 class, Snapdragon 8 Gen 1 and newer),
 cross-built from an x86-64 machine. `--arch aarch64` picks the CPU (default: this machine's); `sysroot.py --arch aarch64`
 assembles a Debian 11 arm64 sysroot (glibc 2.31) in `build/sysroot-aarch64` from archive.debian.org, every package
-checked against the pinned indexes. The `linux-aarch64` CI job builds the runtime this way (not a required check); an
-AppImage is built locally, and not published:
+checked against the pinned indexes. The `linux-aarch64` CI job builds the runtime this way (not a required check), and
+the release workflow publishes its AppImage (`mkw-recomp-<version>-aarch64.AppImage`) since 0.1.9. Locally:
 
 ```sh
 uv run tools/build/sysroot.py --arch aarch64
