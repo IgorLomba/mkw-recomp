@@ -330,7 +330,12 @@ int wsys_hdr(float *sdr_white, float *headroom) {
     if (!g_win) return -1;
     SDL_PropertiesID p = SDL_GetWindowProperties(g_win);
     if (!p || !SDL_HasProperty(p, SDL_PROP_WINDOW_HDR_ENABLED_BOOLEAN)) return -1;
-    if (!SDL_GetBooleanProperty(p, SDL_PROP_WINDOW_HDR_ENABLED_BOOLEAN, false)) return 0;
+    // SDL's X11 driver sets the property but never to true (it cannot know). Inside gamescope (its Xwayland: Steam
+    // Deck's game mode) that is unknown, so the surface's formats decide (gfx_hdr.c: HDR10 only with its HDR on); hdr5,
+    // 12/11/2026, was "not in HDR" there. Elsewhere on X11 it stays SDR: a driver may list HDR10 on an SDR screen.
+    const char *drv = SDL_GetCurrentVideoDriver();
+    int gamescope = drv && !strcmp(drv, "x11") && SDL_getenv("GAMESCOPE_WAYLAND_DISPLAY");
+    if (!SDL_GetBooleanProperty(p, SDL_PROP_WINDOW_HDR_ENABLED_BOOLEAN, false)) return gamescope ? -1 : 0;
     *sdr_white = SDL_GetFloatProperty(p, SDL_PROP_WINDOW_SDR_WHITE_LEVEL_FLOAT, 0.0f);
     *headroom = SDL_GetFloatProperty(p, SDL_PROP_WINDOW_HDR_HEADROOM_FLOAT, 0.0f);
     return 1;
