@@ -74,9 +74,11 @@ static const char *switch_language(const char *tag) {
         p += k;
     }
     if (!strcmp(lang, "ja") || !strcmp(lang, "de") || !strcmp(lang, "it") || !strcmp(lang, "nl") ||
-        !strcmp(lang, "ru") || !strcmp(lang, "ko") || !strcmp(lang, "pt"))
+        !strcmp(lang, "ru") || !strcmp(lang, "ko"))
         return !strcmp(lang, "ja") ? "ja" : !strcmp(lang, "de") ? "de" : !strcmp(lang, "it") ? "it"
-             : !strcmp(lang, "nl") ? "nl" : !strcmp(lang, "ru") ? "ru" : !strcmp(lang, "ko") ? "ko" : "pt";
+             : !strcmp(lang, "nl") ? "nl" : !strcmp(lang, "ru") ? "ru" : "ko";
+    // The game ships Brazilian Portuguese too (romfs USpt, discussion #42); only Brazil's locale picks it
+    if (!strcmp(lang, "pt")) return !strcmp(region, "BR") ? "pt-BR" : "pt";
     if (!strcmp(lang, "fr")) return !strcmp(region, "CA") ? "fr-CA" : "fr";
     if (!strcmp(lang, "es")) return *region && strcmp(region, "ES") ? "es-419" : "es";
     if (!strcmp(lang, "zh"))
