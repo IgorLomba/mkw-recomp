@@ -30,6 +30,9 @@ Galician and Basque, 5.1 sound, and fixes for crashes and freezes reported since
 - Brazilian Portuguese: a Brazilian system picks the game's Brazilian Portuguese (discussion #42, #134 by
   @GabrielAndrade419).
 - **5.1 surround sound** when the system's output has 6 channels (discussion #90).
+- **LAN play** (discussion #148, #144 by @EdouardSence): with `MKW_LAN=1` the title menu opens on the game's
+  hidden LAN Play, which joins games on the same local network over UDP (ports 49152 and 35000). It only reaches
+  local network addresses, never the internet. Off by default; played so far between two instances on one Linux PC.
 - A new start screen: dark, with the port's logo and no game art (#70, by @ViniciusStanula); the F1 menu keeps its look.
 - A notice on screen when the players chosen lack controllers (#106, #160).
 - The game stopped when swapping two controllers' players (#123).

@@ -154,6 +154,16 @@ site aspect main 169aeb0 97ff9f7b 9475d830   # same
 # them with the x row narrowed. The bl overwrites x30, which the function's prologue saved.
 site aspect main 168a624 ad408e82 94761a4f   # ldp q2, q3, [x20, #0x10] -> bl host_ui_rows (patch page + 0xf60)
 
+# LAN play (MKW_LAN=1): the title menu's fourth entry is Wireless Play (ldn, the console's radio, which a PC does not
+# have) or LAN Play, after L+R and a left stick click on it. The page keeps that choice in a byte at +0x77c: its setup
+# (main+0xbf1cf8) clears it, picks the entry's label from it (main+0xbf21a0: message 2104 or 2106 "LAN Play"), and the
+# entry's decision copies it to the menu context (+0x70, main+0xc6cfc0), which takes the menu to the LanLobby state,
+# the LAN session (network mode 3) and nn::socket (ov_socket.c). The combo does not switch the entry here yet, so this
+# set opens the menu with LAN Play chosen: the setup stores w21, 1 since main+0xbf1d2c, instead of zero.
+# Tested: lan19c, 12/11/2026: the entry reads "Mode LAN", and creating a group reaches the character select.
+set lan MKW_LAN 0
+site lan main bf1d44 391df27f 391df275   # strb wzr, [x19, #0x77c] -> strb w21: LAN Play chosen
+
 # Cascaded shadow map size (MKW_SHADOW_SIZE): the game fixes 3072 docked / 2048 handheld
 # in code before this call; main+0x233358 creates the gsys RenderBuffer and reads its width and height from [x0+0x68]
 # and [x0+0x88], as do later passes (shadow_map_reduce_depth). The host function sets them and calls it.

@@ -1,25 +1,56 @@
-// nn::nifm for MKW: the console's network connection manager, answered as a console with no network (the runtime
-// serves no network service). A request "completes" without a connection, so the game takes its offline path.
+// nn::nifm for MKW: the console's network connection manager. By default it answers as a console with no network (the
+// runtime serves no network service): a request "completes" without a connection, so the game takes its offline path.
+// MKW_LAN=1 (a diagnostic knob until LAN play works end to end): a request in local network mode, the one the game
+// makes for its LAN lobby (SetLocalNetworkMode(mode == 3) at main+0x2247a74, then IsNetworkAvailable), is answered as
+// connected, with the host's address (ov_lan_address); Pia then talks over the host's sockets (ov_socket.c). An
+// internet request stays unavailable: there is no server to reach.
 #include <stdint.h>
+#include <string.h>
 
 #include "host.h"
+#include "ov.h"
 
 // nifm results (module 110); the description number is a hypothesis: any failure keeps the game offline.
 #define NIFM_R_NO_NETWORK (110u | (1u << 9))
 
+static int local_mode;   // SetLocalNetworkMode's last value
+
+static int lan_up(void) { return local_mode && ov_lan(); }
+
 static void ov_ok(Cpu *c) { ret_x(c, 0); }
 static void ov_nothing(Cpu *c) { (void)c; }
-static void ov_no_network(Cpu *c) { ret_x(c, NIFM_R_NO_NETWORK); }
+// void SetLocalNetworkMode(bool)
+static void ov_local_mode(Cpu *c) { local_mode = (int)(arg_x(c, 0) & 1); }
 // bool IsNetworkAvailable()
-static void ov_network_available(Cpu *c) { ret_x(c, 0); }
+static void ov_network_available(Cpu *c) { ret_x(c, (uint64_t)lan_up()); }
+// Result HandleNetworkRequestErrorResult()
+static void ov_request_result(Cpu *c) { ret_x(c, lan_up() ? 0 : NIFM_R_NO_NETWORK); }
+static void ov_no_network(Cpu *c) { ret_x(c, NIFM_R_NO_NETWORK); }
+// Result GetCurrentIpConfigInfo(in_addr *ip, in_addr *mask, in_addr *gateway, in_addr *dns1, in_addr *dns2)
+static void ov_ip_config(Cpu *c) {
+    uint8_t ip[4], mask[4], gw[4];
+    if (!lan_up() || ov_lan_address(ip, mask)) {
+        ret_x(c, NIFM_R_NO_NETWORK);
+        return;
+    }
+    for (int i = 0; i < 4; i++) gw[i] = ip[i] & mask[i];
+    gw[3] |= 1;   // a LAN needs no gateway; the usual first address, for whoever prints it
+    const uint8_t *v[5] = {ip, mask, gw, gw, gw};
+    for (int i = 0; i < 5; i++)
+        if (arg_p(c, i)) memcpy(arg_p(c, i), v[i], 4);
+    static int logged;
+    if (!logged++) rt_log("nifm: LAN mode, address %u.%u.%u.%u mask %u.%u.%u.%u (MKW_LAN)", ip[0], ip[1], ip[2], ip[3],
+                          mask[0], mask[1], mask[2], mask[3]);
+    ret_x(c, 0);
+}
 
 HOST_OVERRIDE("_ZN2nn4nifm10InitializeEv", ov_ok);
 HOST_OVERRIDE("_ZN2nn4nifm18IsNetworkAvailableEv", ov_network_available);
-HOST_OVERRIDE("_ZN2nn4nifm19SetLocalNetworkModeEb", ov_nothing);
+HOST_OVERRIDE("_ZN2nn4nifm19SetLocalNetworkModeEb", ov_local_mode);
 HOST_OVERRIDE("_ZN2nn4nifm20CancelNetworkRequestEv", ov_nothing);
 HOST_OVERRIDE("_ZN2nn4nifm27SubmitNetworkRequestAndWaitEv", ov_nothing);
-HOST_OVERRIDE("_ZN2nn4nifm31HandleNetworkRequestErrorResultEv", ov_no_network);
-HOST_OVERRIDE("_ZN2nn4nifm22GetCurrentIpConfigInfoEP7in_addrS2_S2_S2_S2_", ov_no_network);
+HOST_OVERRIDE("_ZN2nn4nifm31HandleNetworkRequestErrorResultEv", ov_request_result);
+HOST_OVERRIDE("_ZN2nn4nifm22GetCurrentIpConfigInfoEP7in_addrS2_S2_S2_S2_", ov_ip_config);
 HOST_OVERRIDE("_ZN2nn4nifm22GetCurrentProxySettingEPNS0_12ProxySettingE", ov_no_network);
 
 // ---- nn::friends: no friend list offline; play history registration is accepted and dropped.
@@ -91,44 +122,4 @@ HOST_OVERRIDE("_ZN2nn3nsd9ResolveExEPNS0_4FqdnERKS1_", ov_nsd_none);
 // ---- nn::prepo: play reports are built by the SDK's own code and never sent.
 HOST_OVERRIDE("_ZN2nn5prepo28RequestImmediateTransmissionEv", ov_ok);
 
-// ---- nn::socket: the online mode's sockets (issue #63: picking it reached the SDK's IPC to the bsd service and stopped
-// the game). Initialize "succeeds" (MKW ignores its result, main+0x2247900) and every socket call fails as with the
-// network down, so the game takes its no-connection path. The byte-order and address-text helpers are the SDK's own
-// code and need no service.
-#define SOCK_ENETDOWN 50   // the BSD errno nn::socket uses
-#define SOCK_EAI_FAIL 4
-static void ov_sock_fail(Cpu *c) { ret_x(c, (uint64_t)-1); }
-static void ov_sock_errno(Cpu *c) { ret_x(c, SOCK_ENETDOWN); }
-static void ov_sock_initialized(Cpu *c) { ret_x(c, 1); }
-// int GetAddrInfo(const char *node, const char *service, const AddrInfo *hints, AddrInfo **res)
-static void ov_sock_addrinfo(Cpu *c) {
-    uint64_t *res = arg_p(c, 3);
-    if (res) *res = 0;
-    ret_x(c, SOCK_EAI_FAIL);
-}
-
-HOST_OVERRIDE("_ZN2nn6socket8internal10InitializeEi", ov_ok);
-HOST_OVERRIDE("_ZN2nn6socket12SetAllocatorEPNS_14MemoryResourceE", ov_nothing);
-HOST_OVERRIDE("_ZN2nn6socket8FinalizeEv", ov_ok);
-HOST_OVERRIDE("_ZN2nn6socket13IsInitializedEv", ov_sock_initialized);
-HOST_OVERRIDE("_ZN2nn6socket12GetLastErrnoEv", ov_sock_errno);
-HOST_OVERRIDE("_ZN2nn6socket12GetLastErrorEv", ov_sock_errno);
-HOST_OVERRIDE("_ZN2nn6socket6SocketEiii", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket6SocketENS0_6FamilyENS0_4TypeENS0_8ProtocolE", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket7EventFdEmNS0_12EventFdFlagsE", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket11EventFdReadEiPm", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket12EventFdWriteEim", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket4BindEiPKNS0_8SockAddrEj", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket4BindEiPK8sockaddrj", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket10SetSockOptEiNS0_5LevelENS0_6OptionEPKvj", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket6SendToEiPKvmiPK8sockaddrj", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket6SendToEiPKvmNS0_7MsgFlagEPKNS0_8SockAddrEj", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket8RecvFromEiPvmiP8sockaddrPj", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket8RecvFromEiPvmNS0_7MsgFlagEPNS0_8SockAddrEPj", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket4PollEP6pollfdmi", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket8ShutdownEii", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket5CloseEi", ov_sock_fail);
-HOST_OVERRIDE("_ZN2nn6socket11GetAddrInfoEPKcS2_PK8addrinfoPPS3_", ov_sock_addrinfo);
-HOST_OVERRIDE("_ZN2nn6socket11GetAddrInfoEPKcS2_PKNS0_8AddrInfoEPPS3_", ov_sock_addrinfo);
-HOST_OVERRIDE("_ZN2nn6socket12FreeAddrInfoEP8addrinfo", ov_nothing);
-HOST_OVERRIDE("_ZN2nn6socket12FreeAddrInfoEPNS0_8AddrInfoE", ov_nothing);
+// ---- nn::socket: ov_socket.c, over the host's sockets (it also covers #63: Initialize needs no bsd service).

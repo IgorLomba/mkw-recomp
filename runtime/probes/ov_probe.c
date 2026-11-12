@@ -57,6 +57,7 @@ static Ov ovs[] = {
     {"nfp.Mount", "_ZN2nn3nfp5MountERKNS0_12DeviceHandleENS0_9ModelTypeENS0_11MountTargetE"},
     {"err.ShowError", "_ZN2nn3err9ShowErrorENS_6ResultE"},
     {"err.ShowErrorVariant", "_ZN2nn3err9ShowErrorERKNS0_18ErrorResultVariantE"},
+    {"crypto.GenerateCryptographicallyRandomBytes", "_ZN2nn6crypto36GenerateCryptographicallyRandomBytesEPvm"},
     // SDK-internal (section 5.2)
     {"nndiagStartup", "nndiagStartup"},
     {"aoc.Initialize", "_ZN2nn3aoc10InitializeEv"},
@@ -377,6 +378,10 @@ static void probe_applet(void) {
     CALL("err.ShowError", 0x2a8);
     uint32_t variant[3] = {2, 2306, 501};   // an ErrorCode, as the wireless menu passes
     CALL("err.ShowErrorVariant", U(variant));
+    uint8_t rnd[2][32] = {{0}};
+    CALL("crypto.GenerateCryptographicallyRandomBytes", U(rnd[0]), sizeof rnd[0]);
+    CALL("crypto.GenerateCryptographicallyRandomBytes", U(rnd[1]), sizeof rnd[1]);
+    CHECK(memcmp(rnd[0], rnd[1], sizeof rnd[0]) && memcmp(rnd[0], (uint8_t[32]){0}, 32), "crypto random bytes: zero or repeated");
     CALL("nndiagStartup", 0);
     CALL("aoc.Initialize", 0);
 
