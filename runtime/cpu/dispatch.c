@@ -47,6 +47,13 @@ void rt_fatal(const char *fmt, ...) {
     rt_vlogf(fmt, ap);
     rt_log_raw("\n", 1);
     va_end(ap);
+    // whether the system was out of memory then: a fatal from a failed allocation reads the same otherwise
+    uint64_t res, prv;
+    float used, total, proc;
+    plat_process_memory(&res, &prv);
+    plat_mem_info(&used, &total, &proc);
+    rt_log("FATAL: memory: process %.0f MiB resident, %.0f MiB private; system %.0f of %.0f MiB in use", res / 1048576.0,
+           prv / 1048576.0, used, total);
     fflush(stdout);
     fflush(stderr);
     _Exit(70);

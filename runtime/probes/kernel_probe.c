@@ -457,8 +457,14 @@ static void test_core_args(Cpu *c) {
     CHECK(sv(c, 0x0F, h, 3, 1u << 4, 0) != 0, "SetThreadCoreMask with the core outside the mask accepted");
     CHECK(sv(c, 0x0F, h, 0, 1u << 6 | 1, 0) != 0, "SetThreadCoreMask with a core outside the process accepted");
     CHECK(sv(c, 0x0F, h, 6, 1u << 6, 0) != 0, "SetThreadCoreMask on core 6 accepted");
-    CHECK(sv(c, 0x0F, h, -2, 0, 0) != 0, "SetThreadCoreMask with an empty mask accepted");
+    CHECK(sv(c, 0x0F, h, -1, 0, 0) != 0, "SetThreadCoreMask with an empty mask accepted");
+    CHECK(sv(c, 0x0F, h, -3, 1u << 1, 0) != 0, "SetThreadCoreMask(-3) with the ideal core outside the new mask accepted");
     CHECK(sv(c, 0x0E, 0, 0, h, 0) == 0 && c->x[1] == 4 && c->x[2] == 0x18, "a refused SetThreadCoreMask changed the thread");
+    // the special ideal cores (svc_types_common.hpp): -1 don't care keeps the mask given, -2 the process's core alone
+    CHECK(sv(c, 0x0F, h, -1, 0x3f, 0) == 0 && sv(c, 0x0E, 0, 0, h, 0) == 0 && c->x[2] == 0x3f,
+          "SetThreadCoreMask(-1, 0x3f): mask %#llx (want 0x3f)", (unsigned long long)c->x[2]);
+    CHECK(sv(c, 0x0F, h, -2, 0, 0) == 0 && sv(c, 0x0E, 0, 0, h, 0) == 0 && c->x[2] == 1,
+          "SetThreadCoreMask(-2): mask %#llx (want 0x1, the process's ideal core)", (unsigned long long)c->x[2]);
     CHECK(sv(c, 0x16, h, 0, 0, 0) == 0, "CloseHandle(thread %#x)", h);
     printf("core arguments: cores 0-%d accepted, %d and masks outside refused: %s\n", PROBE_CORES - 1, PROBE_CORES,
            failures == before ? "ok" : "FAIL");
