@@ -1,6 +1,7 @@
 // Windows implementation of platform.h: CreateThread, QueryPerformanceCounter, high-resolution waitable timers,
 // SRW locks and condition variables.
 // The parts: win32.c (threads, interruption, fibers, time, locks), win32_fs.c, win32_mem.c, win32_sys.c, win32_load.c.
+#define _WIN32_WINNT 0x0A00   // Windows 10, which the game needs anyway (Vulkan 1.3): SetProcessInformation
 #include <intrin.h>
 #include <io.h>
 #include <stdio.h>
@@ -261,8 +262,15 @@ uint64_t plat_counter(void) {
 
 uint64_t plat_counter_hz(void) { return qpc_freq(); }
 
-// The default timer tick is 15.6 ms; a 1 ms wait would cost a full tick.
-void plat_timer_1ms(void) { timeBeginPeriod(1); }
+// The default timer tick is 15.6 ms; a 1 ms wait would cost a full tick. Windows 11 also ignores timeBeginPeriod for a
+// process whose window is minimized or hidden, and may run it on efficiency cores at a lower clock (EcoQoS): both are
+// turned off for this process (the idea from NX2navi's runtime/platform/win32.c, the Win32 calls of Microsoft's docs).
+void plat_timer_1ms(void) {
+    PROCESS_POWER_THROTTLING_STATE s = {PROCESS_POWER_THROTTLING_CURRENT_VERSION,
+        PROCESS_POWER_THROTTLING_EXECUTION_SPEED | PROCESS_POWER_THROTTLING_IGNORE_TIMER_RESOLUTION, 0};
+    SetProcessInformation(GetCurrentProcess(), ProcessPowerThrottling, &s, sizeof s);   // fails before Windows 10 1709
+    timeBeginPeriod(1);
+}
 
 static PlatScale qpc_ns;   // set before main, so no thread reads it half written
 
