@@ -374,9 +374,10 @@ static int test_c0(void) {
     CHECK(a == 0x55660000 && u[0] == 0x100, "c0 0x250 (uniform slot 4) is {%#llx, %#x}", (unsigned long long)a, u[0]);
     for (int i = 0; i < 16; i++) CHECK(!bank[0x310 + i], "c0 0x310 (unbound storage slot 0) byte %d is %02x", i, bank[0x310 + i]);
     CHECK(!bank[0x644] && !bank[0x610], "c0 of a compute stage has graphics words");
-    // NVN2 compute: the program's packed table (2 uniform, 2 storage, 1 texture, 1 image entries from 0x10)
+    // NVN2 compute: the program's packed table (2 uniform, 2 storage, 1 texture, 1 image entries from 0x10, no push
+    // constant words: vk_c0_fill reads the fifth count too, and a 4-byte table let it read whatever byte came next)
     static uint64_t tex[128], img[32];
-    static const uint8_t table[4] = {2, 2, 1, 1};
+    static const uint8_t table[5] = {2, 2, 1, 1, 0};
     tex[0] = 0xab00012, img[0] = 0xcd00034, ubo[1] = (p_bind_buf){5, 1, 0x77880000, 0x40};
     vk_c0_fill(bank, 5, ssbo, ubo, dim, 7, table, tex, img);
     memcpy(&a, bank + 0x20, 8);
