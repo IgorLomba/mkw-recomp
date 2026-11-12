@@ -1708,8 +1708,8 @@ msgid "Choose folder"
 msgstr "Aukeratu karpeta"
 
 msgctxt "UI_LAUNCH_PICK_NUP"
-msgid "Choose .nup file"
-msgstr "Aukeratu .nup fitxategia"
+msgid "Choose .nup or .nx file"
+msgstr "Aukeratu .nup edo .nx fitxategia"
 
 msgctxt "UI_LAUNCH_ROMFS_MODE"
 msgid "RomFS (23 GB)"

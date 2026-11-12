@@ -1700,8 +1700,8 @@ msgid "Choose folder"
 msgstr "Triar carpeta"
 
 msgctxt "UI_LAUNCH_PICK_NUP"
-msgid "Choose .nup file"
-msgstr "Triar fitxer .nup"
+msgid "Choose .nup or .nx file"
+msgstr "Triar fitxer .nup o .nx"
 
 msgctxt "UI_LAUNCH_ROMFS_MODE"
 msgid "RomFS (23 GB)"

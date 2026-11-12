@@ -70,17 +70,54 @@ import update  # (ca_file)
 PREP_VERSION = 1  # bump when a step's output changes meaning: every step runs again
 from versions import Version, build_id_of, detect_id  # (build build.py put recomp/ on the path)
 ROMFS_MARGIN = 0.95  # a few short still passes: some dumping tools skip empty files
+SHADER_DIRS = ("Effect", "Layout", "Lib")  # the RomFS folders extract.py reads shaders from (its SHADER_DIRS)
 STEPS = ("check", "exefs", "romfs", "generate", "compile", "shaders", "warm", "cleanup")
 WARM_SECONDS = 60  # the driver cache is saved every 20 s and the pipeline keys every 2 (vk_pipeline.c, vk_pipe_keys.c)
 
 
 # ---- check
+def is_nx(path: Path) -> bool:
+    """A .nx package (NXFormat): read through the runtime (mkw --unpack, runtime/sdk/fs/nx.cpp), which has its reader."""
+    try:
+        with path.open("rb") as f:
+            return f.read(4) == b"NXAR"
+    except OSError:
+        return False
+
+
+def unpack(game: Path, pkg: Path, dest: Path | str, *prefixes: str) -> str:
+    """Files of a packed dump (.nup or .nx) under dest as loose files, by the runtime: only those under the prefixes
+    ("exefs", "romfs/Mals"). Returns its first line ("unpack: N files, B bytes"); dest "-" counts only."""
+    exe = game / ("mkw.exe" if os.name == "nt" else "mkw")
+    p = subprocess.Popen([str(exe), "--unpack", str(pkg), str(dest), *prefixes], stdout=subprocess.PIPE,
+                         stderr=subprocess.STDOUT, text=True)  # fmt: skip
+    head, tail = "", []
+    for line in p.stdout:
+        if line.startswith("progress "):
+            emit(*line.split())
+        else:
+            head = head or line.strip()
+            tail = (tail + [line.strip()])[-5:]
+            sys.stderr.write(line)
+    if p.wait():
+        raise Failed(f"{pkg} could not be unpacked: {' / '.join(tail)}", "source", str(pkg))
+    return head
+
+
+def loose_romfs(game: Path, romfs: Path, work: Path, *dirs: str) -> Path:
+    """romfs as a folder with at least dirs in it: itself when loose, else those dirs unpacked from the package."""
+    if not romfs.is_file():
+        return romfs
+    unpack(game, romfs, work / "pack", *(f"romfs/{d}" for d in dirs))
+    return work / "pack" / "romfs"
+
+
 def find_game(src: Path) -> tuple[Path, Path]:
-    """src a .nup package (both are then its path), else exefs/ and romfs/ in src or up to two levels below it."""
+    """src a .nup or .nx package (both are then its path), else exefs/ and romfs/ in src or up to two levels below it."""
     if src.is_file():
-        if is_nup(src):
+        if is_nup(src) or is_nx(src):
             return src, src
-        raise Failed(f"{src} is not a .nup package")
+        raise Failed(f"{src} is not a .nup or .nx package", "nogame", str(src))
     for depth in range(3):
         for d in [src, *src.glob("/".join(["*"] * depth))] if depth else [src]:
             if (d / "exefs/main").is_file() and (d / "romfs").is_dir():
@@ -97,9 +134,13 @@ def count_files(top: Path, enough: int) -> int:
     return n
 
 
-def check(src: Path) -> tuple[Path, Path, Version]:
+def check(src: Path, game: Path) -> tuple[Path, Path, Version]:
     exefs, romfs = find_game(src)
-    if exefs.is_file():  # a .nup package
+    if is_nx(exefs):  # a .nx package: its exefs/main through the runtime
+        unpack(game, exefs, game / "setup-work/pack", "exefs/main")
+        main = game / "setup-work/pack/exefs/main"
+        head, where = main.read_bytes()[:0x48], f"{exefs}::exefs/main"
+    elif exefs.is_file():  # a .nup package
         nup = Nup(exefs)
         if "main" not in nup.files("exefs"):
             raise Failed(f"{exefs} has no exefs/main", "nogame", str(exefs))
@@ -115,7 +156,10 @@ def check(src: Path) -> tuple[Path, Path, Version]:
     except ValueError as e:
         raise Failed(str(e), "version", got) from None
     need = int(v.romfs_files * ROMFS_MARGIN)
-    n = len(Nup(romfs).files("romfs")) if romfs.is_file() else count_files(romfs, need)
+    if is_nx(romfs):
+        n = int(unpack(game, romfs, "-", "romfs").split()[1])
+    else:
+        n = len(Nup(romfs).files("romfs")) if romfs.is_file() else count_files(romfs, need)
     if n < need:
         raise Failed(f"the RomFS has {n} files, {v.name} has {v.romfs_files}: an incomplete copy", "romfs", str(n))
     emit("version", v.name)
@@ -326,7 +370,7 @@ def main() -> None:
     try:
         emit("step", "check")
         cc = args.cc.split() if args.cc else default_cc(game, args.target)
-        exefs_src, romfs_src, version = check(src)
+        exefs_src, romfs_src, version = check(src, game)
         romfs = game / "romfs" if args.romfs == "copy" else romfs_src
         keys = {
             "exefs": str(exefs_src),
@@ -350,12 +394,17 @@ def main() -> None:
                 continue
             emit("step", step)
             if step == "exefs":
-                if exefs_src.is_file():
+                if is_nx(exefs_src):
+                    unpack(game, exefs_src, game, "exefs")
+                elif exefs_src.is_file():
                     Nup(exefs_src).extract("exefs", game / "exefs", lambda d, t: emit("progress", d, t))
                 else:
                     copy_tree(exefs_src, game / "exefs", sum(1 for p in exefs_src.iterdir() if p.is_file()))
             elif step == "romfs":
-                if args.romfs == "copy" and romfs_src.is_file():
+                if args.romfs == "copy" and is_nx(romfs_src):
+                    unpack(game, romfs_src, game, "romfs")
+                    ini_set(game / "mkw.ini", "romfs", "romfs")
+                elif args.romfs == "copy" and romfs_src.is_file():
                     Nup(romfs_src).extract("romfs", romfs, lambda d, t: emit("progress", d, t))
                     ini_set(game / "mkw.ini", "romfs", "romfs")
                 elif args.romfs == "copy":
@@ -368,7 +417,9 @@ def main() -> None:
             elif step == "compile":
                 compile_game(game, game / "exefs", work, cc, args.target, jobs)
             elif step == "shaders":
-                shaders(game / "exefs", romfs, game, work, glslc, args.jobs or shader_jobs(), cc)
+                # extract.py reads a .nup itself; a .nx's shader archives are unpacked first
+                src_romfs = loose_romfs(game, romfs, work, *SHADER_DIRS) if is_nx(romfs) else romfs
+                shaders(game / "exefs", src_romfs, game, work, glslc, args.jobs or shader_jobs(), cc)
             elif step == "warm":
                 warm(game, work)
             elif step == "cleanup":
@@ -377,7 +428,8 @@ def main() -> None:
                         shutil.rmtree(p, ignore_errors=True)
                 # the languages the game does not ship (ca, gl, eu), from this version's translations (the step runs
                 # at every setup, so an update brings its new texts); about a second
-                game_texts.build_all(game, romfs)
+                game_texts.build_all(game, loose_romfs(game, romfs, work, "Mals"))
+                shutil.rmtree(work / "pack", ignore_errors=True)
             state["done"][step] = key
             save_state(game, state)
         emit("done")

@@ -81,3 +81,13 @@ def test_package_sources_import(tmp_path: Path) -> None:
     p = subprocess.run([sys.executable, "-I", str(tmp_path / "src/tools/prepare/prepare.py"), "--help"],
                        capture_output=True, text=True, timeout=60)  # fmt: skip
     assert p.returncode == 0, p.stderr
+
+
+def test_find_game_packages(tmp_path: Path) -> None:
+    # a .nup or .nx package is the source as one file (its exefs and romfs both); any other file is refused
+    for name, magic in (("g.nup", b"NUP\x01"), ("g.nx", b"NXAR")):
+        (tmp_path / name).write_bytes(magic + bytes(60))
+        assert prepare.find_game(tmp_path / name) == (tmp_path / name, tmp_path / name)
+    (tmp_path / "g.zip").write_bytes(b"PK\x03\x04" + bytes(60))
+    with pytest.raises(prepare.Failed):
+        prepare.find_game(tmp_path / "g.zip")

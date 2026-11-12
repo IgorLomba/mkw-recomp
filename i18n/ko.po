@@ -1651,8 +1651,8 @@ msgid "Choose folder"
 msgstr "폴더 선택"
 
 msgctxt "UI_LAUNCH_PICK_NUP"
-msgid "Choose .nup file"
-msgstr ".nup 파일 선택"
+msgid "Choose .nup or .nx file"
+msgstr ".nup 또는 .nx 파일 선택"
 
 msgctxt "UI_LAUNCH_ROMFS_MODE"
 msgid "RomFS (23 GB)"

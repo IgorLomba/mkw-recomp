@@ -1,6 +1,7 @@
 // mkw entry: reserves the guest address space, parses the command line and runs one mode.
 //
-//   mkw [--exefs DIR] [--romfs DIR|FILE.nup] [--nup FILE.nup] [--profile DIR] <mode>
+//   mkw [--exefs DIR] [--romfs DIR|FILE.nup|FILE.nx] [--nup FILE] [--profile DIR] <mode>
+//   mkw --unpack PACKAGE DEST [PREFIX...]   a .nup or .nx dump's files written out (sdk/fs/pack_unpack.c)
 //     --selftest        layout, dispatch table and host-function registry; needs no game files
 //     --replay DIR      a frame capture (MKW_CAPTURE, runtime/gfx/cap) replayed through the back end, no game
 //     --probe-loader    load and relocate the modules, check them against the measured 1.2.1 values
@@ -28,6 +29,7 @@
 #include <sys/prctl.h>
 #endif
 #include "cap.h"
+#include "pack.h"
 #include "cfg.h"
 #include "gamelib.h"
 #include "hacks.h"
@@ -456,7 +458,7 @@ static int selftest(void) {
 }
 
 static int usage(const char *argv0) {
-    fprintf(stderr, "usage: %s [--exefs DIR] [--romfs DIR|FILE.nup] [--nup FILE.nup] [--profile DIR] [--launcher | --play | --selftest | --probe-loader | "
+    fprintf(stderr, "usage: %s [--exefs DIR] [--romfs DIR|FILE.nup|FILE.nx] [--nup FILE] [--profile DIR] [--launcher | --play | --selftest | --probe-loader | "
                     "--probe-cfg | --probe-kernel | --probe-audio | --probe-services | --probe-fs | --probe-gfx-abi | "
                     "--probe-nvn | --probe-nvn-tex | --probe-window | --probe-vkmem | "
                     "--probe-vkexec | --probe-astc | --probe-framegen | --probe-texpre | --texpre | --boot |--seconds S [--shot PNG]]\n", argv0);
@@ -528,6 +530,9 @@ static int run_launcher(void) {
 }
 
 int main(int argc, char **argv) {
+    // --unpack PACKAGE DEST [PREFIX...]: a packed dump's files written out (sdk/fs/pack_unpack.c), for the setup; first,
+    // as the setup runs it before the game code exists (no address space, launcher or log file needed)
+    if (argc >= 2 && !strcmp(argv[1], "--unpack")) return pack_unpack_main(argc - 2, argv + 2);
     if (want_launcher(argc, argv)) return run_launcher();
 #ifdef __linux__
     // MKW_ALLOW_PTRACE=1: let a debugger attach (tools/run/stacks.py) under yama ptrace_scope 1, without root.
@@ -557,7 +562,7 @@ int main(int argc, char **argv) {
     }
     const char *mode = NULL;
     for (int i = 1; i < argc; i++) {
-        // --romfs takes the loose romfs/ folder or a .nup package (romfs.c); --nup is the same, named for the package
+        // --romfs takes the loose romfs/ folder or a packed dump, .nup or .nx (romfs.c); --nup is the same
         const char **path = !strcmp(argv[i], "--exefs") ? &cfg.exefs
                           : !strcmp(argv[i], "--romfs") || !strcmp(argv[i], "--nup") ? &cfg.romfs
                           : !strcmp(argv[i], "--profile") ? &cfg.profile : NULL;

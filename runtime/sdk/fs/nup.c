@@ -24,7 +24,7 @@ struct Nup {
     char *path;
     PlatFile *f;
     uint64_t file_size;
-    NupEntry *part[2];
+    PackEntry *part[2];
     size_t count[2];
     Nup *next;
 };
@@ -58,7 +58,7 @@ int nup_is(const char *path) {
 typedef struct {
     const uint8_t *t;                  // the TOC
     uint64_t size, nd, nf, dirs, files, children, pool, pool_size, file_size;
-    NupEntry *out;
+    PackEntry *out;
     size_t n, cap;
     int depth;
     const char *err;
@@ -97,14 +97,14 @@ static void walk(Walk *w, uint64_t dir, const char *prefix) {
             free(path);
             continue;
         }
-        NupEntry e = {path, u64(r + 16), u64(r + 8), u64(r + 24), r[0x40] == 1};
+        PackEntry e = {path, u64(r + 16), u64(r + 8), u64(r + 24), r[0x40] == 1 ? PACK_WHOLE : PACK_RAW, 0};
         if (r[0x40] > 1) w->err = "unknown codec";
-        else if (!e.zstd && e.stored != e.size) w->err = "raw file with a stored size unlike its size";
+        else if (e.kind == PACK_RAW && e.stored != e.size) w->err = "raw file with a stored size unlike its size";
         else if (e.offset > w->file_size || e.stored > w->file_size - e.offset) w->err = "file past the end";
         if (w->err) { free(path); return; }
         if (w->n == w->cap) {
             w->cap = w->cap ? w->cap * 2 : 4096;
-            NupEntry *g = realloc(w->out, w->cap * sizeof *g);
+            PackEntry *g = realloc(w->out, w->cap * sizeof *g);
             if (!g) { free(path); w->err = "memory"; return; }
             w->out = g;
         }
@@ -114,7 +114,7 @@ static void walk(Walk *w, uint64_t dir, const char *prefix) {
 }
 
 static int entry_order(const void *a, const void *b) {
-    return strcmp(((const NupEntry *)a)->name, ((const NupEntry *)b)->name);
+    return strcmp(((const PackEntry *)a)->name, ((const PackEntry *)b)->name);
 }
 
 static Nup *parse(const char *path) {
@@ -187,17 +187,17 @@ Nup *nup_open(const char *path) {
     return n;
 }
 
-size_t nup_entries(Nup *n, int part, const NupEntry **out) {
+size_t nup_entries(Nup *n, int part, const PackEntry **out) {
     *out = n->part[part];
     return n->count[part];
 }
 
 PlatFile *nup_file(Nup *n) { return n->f; }
 
-uint8_t *nup_read(Nup *n, const NupEntry *e) {
+uint8_t *nup_read(Nup *n, const PackEntry *e) {
     uint8_t *dst = malloc(e->size ? e->size : 1);
     if (!dst) return NULL;
-    if (!e->zstd) {
+    if (e->kind == PACK_RAW) {
         if (read_all(n->f, dst, e->size, e->offset)) return dst;
         free(dst);
         return NULL;

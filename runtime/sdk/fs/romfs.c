@@ -2,8 +2,9 @@
 // contributors).
 // Read-only game RomFS: the dump's loose romfs/ directory (rt_config()->romfs), walked at fs_init into an in-memory
 // index of paths and sizes; each file is opened by its host path when the game opens it. Or, when rt_config()->romfs
-// is a .nup package (nup.c), the index comes from its table of contents: a raw file is read in place at its offset in
-// the package (one shared handle), a zstd-packed one is decompressed whole into memory when the game opens it. Reads are
+// is a packed dump (pack.h: .nup or .nx), the index comes from its table of contents: a .nup raw file is read in place at
+// its offset in the package (one shared handle), a .nup zstd file is decompressed whole into memory when the game opens
+// it (one frame per file: no way to start in the middle), a .nx file is read at any offset through its blocks. Reads are
 // positional (platform.h plat_file_pread), so threads read in parallel without a file-pointer lock. totk-pc-recomp's packed
 // romfs.bin (its index, SHA-256 proof and mapping) has no MKW counterpart.
 //
@@ -23,7 +24,7 @@
 #include "cfg.h"
 #include "fs.h"
 #include "host.h"
-#include "nup.h"
+#include "pack.h"
 #include "ov.h"
 #include "romfs_path.h"
 #include "platform/platform.h"
@@ -50,9 +51,9 @@ static uint64_t handles[NH];         // file index + 1; 0 is free
 static uint32_t handle_ovl[NH];      // overlay slot + 1 of an open handle, 0 = original
 static PlatFile *handle_file[NH];    // the handle's open file: an overlay's, a loose file's or the shared package
 static uint64_t handle_base[NH];     // where the file starts in handle_file (a package's raw file), else 0
-static uint8_t *handle_mem[NH];      // a package's zstd file, decompressed at open (handle_file NULL)
-static Nup *package;                 // the RomFS is a .nup package; its rows are package_rows, in index order
-static const NupEntry *package_rows;
+static uint8_t *handle_mem[NH];      // a .nup zstd file, decompressed at open (handle_file NULL)
+static Pack *package;                // the RomFS is a packed dump; its rows are package_rows, in index order
+static const PackEntry *package_rows;
 static Overlay *overlays;            // sorted by RomFS index after overlay_init
 static size_t noverlay, overlay_cap;
 static char **added;                 // RomFS paths of the added files, sorted; added[k] is index file_count + k
@@ -123,6 +124,7 @@ static void sha_row(uint64_t i, char hex[65]) {
     uint64_t base;
     uint8_t *mem = NULL;
     PlatFile *f = row_open(i, &base, &mem);
+    if (!f && !mem && package) mem = pack_read_whole(package, &package_rows[i]);   // a .nx row
     if (!f && !mem) rt_fatal("RomFS: %s unreadable", entry_name(entry(i)));
     if (mem) {
         uint8_t d[32];
@@ -416,12 +418,12 @@ static void load_loose_index(const char *dir) {
     loose_files = NULL;
 }
 
-// The index from a .nup package's RomFS rows (sorted by name as the loose walk's), each at its offset in the package.
+// The index from a packed dump's RomFS rows (sorted by name as the loose walk's).
 static void load_package_index(const char *path) {
     need(snprintf(loose_root, sizeof loose_root, "%s", path) < (int)sizeof loose_root, "RomFS path");
-    package = nup_open(path);
+    package = pack_open(path);
     if (!package) rt_fatal("RomFS package %s unreadable (see the log)", path);
-    file_count = nup_entries(package, NUP_ROMFS, &package_rows);
+    file_count = pack_entries(package, PACK_ROMFS, &package_rows);
     if (!file_count) rt_fatal("RomFS package %s has no RomFS files", path);
     size_t strings = 0;
     for (uint64_t i = 0; i < file_count; i++) strings += strlen(package_rows[i].name) + 1;
@@ -443,17 +445,24 @@ static void load_package_index(const char *path) {
 }
 
 // RomFS row i's bytes: an open file and where they start in it (a loose file: the caller closes it; the package: shared,
-// never closed), or for a zstd-packed package file, the whole file decompressed in *mem (malloc'd) and NULL returned.
+// never closed), or for a .nup zstd file, the whole file decompressed in *mem (malloc'd) and NULL returned; a .nx file
+// gives neither (NULL, *mem NULL): its reads go through pack_read_at.
 static PlatFile *row_open(uint64_t i, uint64_t *base, uint8_t **mem) {
     *base = 0;
     *mem = NULL;
     if (package) {
-        if (!package_rows[i].zstd) {
-            *base = package_rows[i].offset;
-            return nup_file(package);
+        const PackEntry *e = &package_rows[i];
+        if (e->kind == PACK_RAW) {
+            *base = e->offset;
+            return pack_file(package);
         }
-        *mem = nup_read(package, &package_rows[i]);
-        if (!*mem) rt_fatal("RomFS: %s in %s does not decompress", package_rows[i].name, loose_root);
+        if (e->kind == PACK_READ) return NULL;
+        double t0 = now_s();
+        *mem = pack_read_whole(package, e);
+        if (!*mem) rt_fatal("RomFS: %s in %s does not decompress", e->name, loose_root);
+        double ms = (now_s() - t0) * 1e3;
+        if (ms >= 20)   // the game's open waits for it (on the thread that opens; #167 review)
+            rt_log("RomFS: %s (%.1f MB) decompressed in %.0f ms", e->name, e->size / 1e6, ms);
         return NULL;
     }
     char path[4096];
@@ -467,6 +476,7 @@ uint8_t *romfs_read_whole(const char *rel, uint64_t *size) {
     uint8_t *mem;
     PlatFile *f = row_open(i, &base, &mem);
     *size = entry(i).size;
+    if (!f && !mem && package) return pack_read_whole(package, &package_rows[i]);   // a .nx row
     if (mem || !f) return mem;
     mem = malloc(*size ? *size : 1);
     for (uint64_t done = 0; mem && done < *size;) {
@@ -483,11 +493,13 @@ static void init_once(void *param) {
     (void)param;
     double t0 = now_s();
     const char *src = rt_config()->romfs;
-    if (nup_is(src)) load_package_index(src);
+    if (pack_is(src)) load_package_index(src);
     else load_loose_index(src);
     overlay_init();
     rt_log("RomFS ready: %llu %s %s, %zu overlays, %zu added, %.2f s", (unsigned long long)file_count,
-           package ? "files in the package" : "loose files under", loose_root, noverlay, nadded, now_s() - t0);
+           package ? (strcmp(pack_format(package), "nx") ? "files in the .nup package" : "files in the .nx package")
+                   : "loose files under",
+           loose_root, noverlay, nadded, now_s() - t0);
 }
 
 void fs_init(void) {
@@ -514,7 +526,7 @@ const char *romfs_entry(uint64_t i, uint64_t *offset, uint64_t *size) {
 }
 
 const char *romfs_source_path(uint64_t i, char *buf, size_t n) {
-    if (i >= file_count || (package && package_rows[i].zstd)) return NULL;
+    if (i >= file_count || (package && package_rows[i].kind != PACK_RAW)) return NULL;
     if (package) return snprintf(buf, n, "%s", loose_root) < (int)n ? buf : NULL;
     return snprintf(buf, n, "%s/%s", loose_root, entry_name(entry(i))) < (int)n ? buf : NULL;
 }
@@ -562,7 +574,7 @@ uint32_t romfs_open(uint64_t *out, const char *path, int mode) {
     uint8_t *mem = NULL;
     if (!ov && i < file_count) {
         f = row_open(i, &base, &mem);
-        if (!f && !mem) return FS_R_PATH_NOT_FOUND;
+        if (!f && !mem && !(package && package_rows[i].kind == PACK_READ)) return FS_R_PATH_NOT_FOUND;
     }
     if (ov) {
         const Overlay *o = &overlays[ov - 1];
@@ -615,6 +627,14 @@ uint32_t romfs_read(uint64_t *out, uint64_t h, int64_t offset, void *buffer, uin
     if (mem) {
         mem_thaw((uintptr_t)buffer, n);
         memcpy(buffer, mem + offset, n);
+        *out = n;
+        return 0;
+    }
+    if (!f) {   // a .nx row: only the blocks this range touches are read and decoded
+        uint64_t i = handles[h - ROMFS_HANDLE_BASE] - 1;
+        mem_thaw((uintptr_t)buffer, n);
+        if (!pack_read_at(package, &package_rows[i], (uint64_t)offset, buffer, n))
+            rt_fatal("RomFS: read of %s at %#llx failed (see the log)", package_rows[i].name, (unsigned long long)offset);
         *out = n;
         return 0;
     }

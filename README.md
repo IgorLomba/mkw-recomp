@@ -67,14 +67,12 @@ but does not shorten them.
 </p>
 
 1. Dump Mario Kart World 1.0.0 or 1.8.0 from your Switch 2 (`exefs/` and `romfs/`, decrypted; 1.8.0 with the update
-   merged into the base game's RomFS).
-1. Dump Mario Kart World 1.0.0 from your Switch 2: `exefs/` and `romfs/` decrypted, or the single `.nup` file a
-   Switch 2 dump comes as.
+   merged into the base game's RomFS), or the same dump packed as one `.nup` or `.nx` file.
 2. Download the launcher for your system from [Releases](https://github.com/adriadam10/mkw-recomp/releases): on Linux
    the `.AppImage` (it keeps the game it builds in `~/.local/share/mkw-recomp`; glibc 2.31 or newer: Debian 11,
    Ubuntu 20.04, SteamOS and later), on Windows the `.zip`, unpacked into a folder. Either needs about 30 GB free.
 3. Run the AppImage (`chmod +x` first) or `mkw.exe`, open **Game files**, point it at your dump (**Choose folder** or
-   **Choose .nup file**) and press **Prepare**.
+   **Choose .nup or .nx file**) and press **Prepare**.
    The first setup takes a while (it compiles the whole game and downloads NVIDIA's `nvdisasm` and `ptxas`, 84 MB on
    Linux and 126 MB on Windows, to describe the shader encoding on your machine); after that, **Play**.
 4. When a newer release is out, the start screen offers it (**Update to vX**): it downloads it, checks it, replaces
@@ -96,9 +94,10 @@ uv run tools/build/build.py              # build/mkw; --target windows builds mk
 build/mkw
 ```
 
-From a `.nup` dump: `uv run tools/prepare/nup.py extract GAME.nup game --part exefs` gives `game/exefs` (40 MB), and the
-RomFS is read in place with `build/mkw --nup GAME.nup` (or `--romfs GAME.nup`, `MKW_ROMFS`, `romfs =` in `mkw.ini`);
-`tools/shaders/extract.py --romfs GAME.nup` reads it too.
+From a packed dump: `build/mkw --unpack GAME.nup game exefs` (or `GAME.nx`) gives `game/exefs` (40 MB), and the RomFS
+is read in place with `build/mkw --romfs GAME.nup` (`MKW_ROMFS`, `romfs =` in `mkw.ini`); `tools/shaders/extract.py
+--romfs GAME.nup` reads a `.nup` too (a `.nx`'s shader folders: `build/mkw --unpack GAME.nx DIR romfs/Effect
+romfs/Layout romfs/Lib`).
 
 Translating the shaders needs the SM86 encoding specification, generated from NVIDIA's `nvdisasm` (not shipped):
 see [tools/shaders/README.md](tools/shaders/README.md). Everything generated goes to `build/`, never to git.
