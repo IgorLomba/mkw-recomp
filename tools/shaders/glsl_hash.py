@@ -21,6 +21,7 @@ sys.path.insert(0, str(ROOT / "tools/shaders"))
 import glsl
 from extract import trim
 from program import Decoder
+from translate import translator_hash
 
 _dec = None
 
@@ -47,8 +48,13 @@ def one(row: tuple[str, str]) -> tuple[str, str]:
 def main() -> None:
     with (ROOT / "build/shaders/index.csv").open() as f:
         rows = [(r["sha1"], r["stage"]) for r in csv.DictReader(f)]
+    th = translator_hash()
     with ProcessPoolExecutor(os.cpu_count(), initializer=init) as pool:
         res = sorted(pool.map(one, rows, chunksize=16))
+    # workers that started after an edit translate with other code than the first ones: the file would mix both
+    # (12/11/2026: two censuses of the subroutine change taken while the translator was being edited)
+    if translator_hash() != th:
+        sys.exit("glsl_hash: the translator changed during the census: nothing written, run it again")
     Path(sys.argv[1]).write_text("".join(f"{sha}\t{h}\n" for sha, h in res))
     print(f"{len(res)} programs")
 

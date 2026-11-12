@@ -27,6 +27,7 @@ import glsl
 from extract import trim
 from flow_sim import diff, markers, named
 from program import Decoder
+from translate import translator_hash
 
 _dec = None
 _captured: list = []
@@ -83,6 +84,7 @@ def main() -> None:
         rows = rows[:: max(1, len(rows) // args.sample)]
     jobs = [(r["sha1"], r["stage"], str(args.shaders), args.seeds) for r in rows]
     counts: dict[str, int] = {}
+    th = translator_hash()
     with ProcessPoolExecutor(os.cpu_count(), initializer=init) as pool:
         for sha, res in pool.map(check, jobs, chunksize=8):
             key = res.split(" ")[0]
@@ -90,6 +92,8 @@ def main() -> None:
             if key in ("DIFF", "error"):
                 print(sha, res, flush=True)
     print(" ".join(f"{k} {v}" for k, v in sorted(counts.items())))
+    if translator_hash() != th:  # as glsl_hash.py: workers started after an edit checked other code
+        sys.exit("flow_check: the translator changed during the check: these counts are not valid, run it again")
 
 
 if __name__ == "__main__":
