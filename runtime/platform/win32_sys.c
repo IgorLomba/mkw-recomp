@@ -6,6 +6,7 @@
 #include <pdh.h>
 #include <pdhmsg.h>
 #include <psapi.h>
+#include <restartmanager.h>
 #include <shellapi.h>
 #include <shlobj.h>
 #include <shobjidl.h>
@@ -175,7 +176,11 @@ const void *plat_file_map(PlatFile *f) {
     return v;
 }
 
+static __thread DWORD fs_last_error;
+int plat_fs_os_error(void) { return (int)fs_last_error; }
+
 static int fs_err(DWORD e) {
+    fs_last_error = e;
     switch (e) {
     case ERROR_FILE_NOT_FOUND: case ERROR_PATH_NOT_FOUND: case ERROR_DIRECTORY: return PLAT_FS_NOT_FOUND;
     case ERROR_FILE_EXISTS: case ERROR_ALREADY_EXISTS: return PLAT_FS_EXISTS;
@@ -185,12 +190,23 @@ static int fs_err(DWORD e) {
     }
 }
 
+// A symbolic link or junction is a link: removed as a link, never followed. Any other reparse point (OneDrive's cloud
+// placeholders, deduplicated files) is an ordinary file or directory whose content the file system fetches on access.
+static int fs_kind_of(const WIN32_FIND_DATAW *fd) {
+    DWORD a = fd->dwFileAttributes;
+    if (a & FILE_ATTRIBUTE_REPARSE_POINT && (fd->dwReserved0 == IO_REPARSE_TAG_SYMLINK || fd->dwReserved0 == IO_REPARSE_TAG_MOUNT_POINT))
+        return PLAT_FS_LINK;
+    return a & FILE_ATTRIBUTE_DIRECTORY ? PLAT_FS_DIR : PLAT_FS_FILE;
+}
+
 int plat_fs_kind(const char *path) {
     wchar_t w[WPATH];
     if (!widen(path, w, WPATH)) return PLAT_FS_MISSING;
-    DWORD a = GetFileAttributesW(w);
-    if (a == INVALID_FILE_ATTRIBUTES) return PLAT_FS_MISSING;
-    return a & FILE_ATTRIBUTE_REPARSE_POINT ? PLAT_FS_LINK : a & FILE_ATTRIBUTE_DIRECTORY ? PLAT_FS_DIR : PLAT_FS_FILE;
+    WIN32_FIND_DATAW fd;
+    HANDLE h = FindFirstFileW(w, &fd);   // the reparse tag comes with the find data only
+    if (h == INVALID_HANDLE_VALUE) return PLAT_FS_MISSING;
+    FindClose(h);
+    return fs_kind_of(&fd);
 }
 
 int plat_fs_mkdir(const char *path) {
@@ -202,7 +218,15 @@ int plat_fs_mkdir(const char *path) {
 int plat_fs_rmdir(const char *path) {
     wchar_t w[WPATH];
     if (!widen(path, w, WPATH)) return PLAT_FS_ERROR;
-    return RemoveDirectoryW(w) ? PLAT_FS_OK : fs_err(GetLastError());
+    if (RemoveDirectoryW(w)) return PLAT_FS_OK;
+    DWORD e = GetLastError(), a = GetFileAttributesW(w);
+    if (e == ERROR_ACCESS_DENIED && a != INVALID_FILE_ATTRIBUTES && (a & FILE_ATTRIBUTE_READONLY)) {
+        // a read-only directory (copied over from another emulator's save folder) refuses RemoveDirectoryW
+        SetFileAttributesW(w, a & ~(DWORD)FILE_ATTRIBUTE_READONLY);
+        if (RemoveDirectoryW(w)) return PLAT_FS_OK;
+        e = GetLastError();
+    }
+    return fs_err(e);
 }
 
 int plat_fs_unlink(const char *path) {
@@ -248,6 +272,94 @@ void plat_fs_sync_dir(const char *path) {
     }
 }
 
+// Restart Manager (rstrtmgr.dll, loaded on first use) names the processes that hold a file open.
+typedef DWORD(WINAPI *RmStartSession_t)(DWORD *, DWORD, WCHAR *);
+typedef DWORD(WINAPI *RmRegisterResources_t)(DWORD, UINT, LPCWSTR *, UINT, RM_UNIQUE_PROCESS *, UINT, LPCWSTR *);
+typedef DWORD(WINAPI *RmGetList_t)(DWORD, UINT *, UINT *, RM_PROCESS_INFO *, LPDWORD);
+typedef DWORD(WINAPI *RmEndSession_t)(DWORD);
+static struct {
+    INIT_ONCE once;
+    RmStartSession_t start;
+    RmRegisterResources_t add;
+    RmGetList_t list;
+    RmEndSession_t end;
+} rm = {INIT_ONCE_STATIC_INIT};
+
+static BOOL CALLBACK rm_load(INIT_ONCE *o, void *p, void **c) {
+    (void)o, (void)p, (void)c;
+    HMODULE l = plat_lib_open("rstrtmgr.dll");
+    if (!l) return TRUE;
+    rm.add = (RmRegisterResources_t)(void *)GetProcAddress(l, "RmRegisterResources");
+    rm.list = (RmGetList_t)(void *)GetProcAddress(l, "RmGetList");
+    rm.end = (RmEndSession_t)(void *)GetProcAddress(l, "RmEndSession");
+    RmStartSession_t start = (RmStartSession_t)(void *)GetProcAddress(l, "RmStartSession");
+    if (rm.add && rm.list && rm.end) rm.start = start;   // start set: all of them are there
+    return TRUE;
+}
+
+// The files under dir (links not followed), at most BUSY_FILES of them, each a malloc'd path.
+#define BUSY_FILES 256
+typedef struct { LPCWSTR p[BUSY_FILES]; UINT n; } BusyFiles;
+
+static void busy_files(const wchar_t *dir, BusyFiles *f) {
+    wchar_t pat[WPATH + 4];
+    swprintf(pat, WPATH + 4, L"%ls\\*", dir);
+    WIN32_FIND_DATAW fd;
+    HANDLE h = FindFirstFileW(pat, &fd);
+    if (h == INVALID_HANDLE_VALUE) return;
+    do {
+        DWORD a = fd.dwFileAttributes;
+        if (!wcscmp(fd.cFileName, L".") || !wcscmp(fd.cFileName, L"..") || (a & FILE_ATTRIBUTE_REPARSE_POINT)) continue;
+        size_t n = wcslen(dir) + wcslen(fd.cFileName) + 2;
+        wchar_t *p = n <= WPATH ? malloc(n * sizeof *p) : NULL;
+        if (!p) continue;
+        swprintf(p, n, L"%ls\\%ls", dir, fd.cFileName);
+        if (a & FILE_ATTRIBUTE_DIRECTORY) busy_files(p, f), free(p);
+        else f->p[f->n++] = p;
+    } while (f->n < BUSY_FILES && FindNextFileW(h, &fd));
+    FindClose(h);
+}
+
+void plat_fs_busy_reason(const char *dir, char *out, size_t cap) {
+    if (!cap) return;
+    *out = 0;
+    wchar_t w[WPATH];
+    if (!widen(dir, w, WPATH)) return;
+    for (wchar_t *q = w; *q; q++)
+        if (*q == L'/') *q = L'\\';
+    // a rename needs DELETE access to the directory: a folder made by an elevated run can refuse it
+    HANDLE h = CreateFileW(w, DELETE, FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE, NULL, OPEN_EXISTING,
+                           FILE_FLAG_BACKUP_SEMANTICS, NULL);
+    if (h == INVALID_HANDLE_VALUE) {
+        if (GetLastError() == ERROR_ACCESS_DENIED) snprintf(out, cap, "no permission to rename it");
+        return;
+    }
+    CloseHandle(h);
+    InitOnceExecuteOnce(&rm.once, rm_load, NULL, NULL);
+    DWORD session;
+    WCHAR key[CCH_RM_SESSION_KEY + 1] = {0};
+    if (!rm.start || rm.start(&session, 0, key) != ERROR_SUCCESS) return;
+    BusyFiles f = {.n = 0};
+    busy_files(w, &f);
+    RM_PROCESS_INFO info[8];
+    UINT need = 0, n = 8;
+    DWORD reasons = 0, e = f.n ? rm.add(session, f.n, f.p, 0, NULL, 0, NULL) : ERROR_SUCCESS;
+    if (f.n && e == ERROR_SUCCESS) e = rm.list(session, &need, &n, info, &reasons);
+    else n = 0;
+    rm.end(session);
+    for (UINT i = 0; i < f.n; i++) free((void *)f.p[i]);
+    if (e == ERROR_MORE_DATA) snprintf(out, cap, "%u programs hold files in it", need);   // info is not filled then
+    if (e != ERROR_SUCCESS) return;
+    size_t at = 0;
+    for (UINT i = 0; i < n && at < cap; i++) {   // the program's display name ("Windows Explorer") and process id
+        char name[CCH_RM_MAX_APP_NAME + 1];
+        if (!WideCharToMultiByte(CP_UTF8, 0, info[i].strAppName, -1, name, sizeof name, NULL, NULL)) strcpy(name, "?");
+        int k = snprintf(out + at, cap - at, "%s%s %lu", i ? ", " : "", name, info[i].Process.dwProcessId);
+        if (k < 0) break;
+        at += (size_t)k;
+    }
+}
+
 int plat_fs_list(const char *dir, int (*cb)(const char *name, int kind, uint64_t size, void *ctx), void *ctx) {
     wchar_t wd[WPATH], pat[WPATH + 4];
     if (!widen(dir, wd, WPATH)) return PLAT_FS_ERROR;
@@ -259,9 +371,7 @@ int plat_fs_list(const char *dir, int (*cb)(const char *name, int kind, uint64_t
         if (!wcscmp(fd.cFileName, L".") || !wcscmp(fd.cFileName, L"..")) continue;
         char name[1024];
         if (!WideCharToMultiByte(CP_UTF8, 0, fd.cFileName, -1, name, sizeof name, NULL, NULL)) continue;
-        DWORD a = fd.dwFileAttributes;
-        int kind = a & FILE_ATTRIBUTE_REPARSE_POINT ? PLAT_FS_LINK : a & FILE_ATTRIBUTE_DIRECTORY ? PLAT_FS_DIR
-                                                                                                   : PLAT_FS_FILE;
+        int kind = fs_kind_of(&fd);
         if (!cb(name, kind, (uint64_t)fd.nFileSizeHigh << 32 | fd.nFileSizeLow, ctx)) break;
     } while (FindNextFileW(h, &fd));
     FindClose(h);

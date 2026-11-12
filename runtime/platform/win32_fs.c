@@ -157,6 +157,19 @@ int plat_file_set_readonly(const char *path, int on) {
     return SetFileAttributesW(w, on ? a | FILE_ATTRIBUTE_READONLY : a & ~(DWORD)FILE_ATTRIBUTE_READONLY) != 0;
 }
 
+int plat_file_lock(const char *path) {
+    wchar_t w[WPATH];
+    if (!widen(path, w, WPATH)) return -1;
+    HANDLE h = CreateFileW(w, GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE, NULL,
+                           OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+    if (h == INVALID_HANDLE_VALUE) return -1;
+    OVERLAPPED o = {0};
+    if (LockFileEx(h, LOCKFILE_EXCLUSIVE_LOCK | LOCKFILE_FAIL_IMMEDIATELY, 0, 1, 0, &o)) return 1;   // h stays open
+    DWORD e = GetLastError();
+    CloseHandle(h);
+    return e == ERROR_LOCK_VIOLATION ? 0 : -1;
+}
+
 int plat_file_list(const char *dir, const char *ext, int (*cb)(const char *name, void *ctx), void *ctx) {
     wchar_t wd[WPATH], we[64], pat[WPATH + 64];
     if (!widen(dir, wd, WPATH) || !widen(ext, we, 64)) return 0;

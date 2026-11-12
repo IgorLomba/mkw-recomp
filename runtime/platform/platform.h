@@ -291,6 +291,9 @@ static inline int64_t plat_ftell64(FILE *f) { return (int64_t)ftello(f); }
 void plat_file_delete(const char *path);
 int64_t plat_file_size(const char *path);                 // bytes of a file, -1 when missing or unreadable
 int plat_file_set_readonly(const char *path, int on);     // sets or clears the read-only attribute; 1 on success
+// An exclusive lock on path (created if missing), held until the process ends: 1 taken, 0 when another process holds
+// it, -1 when the file cannot be opened. The OS drops it when the process dies, however it dies.
+int plat_file_lock(const char *path);
 // A file that only grows and other processes may read meanwhile: each write lands whole at its end, from any thread,
 // and reaches the file even if the process dies right after (no user-space buffer, no flush to the disk).
 typedef struct PlatAppend PlatAppend;
@@ -322,13 +325,18 @@ enum { PLAT_FS_MISSING = -1, PLAT_FS_FILE, PLAT_FS_DIR, PLAT_FS_LINK };   // pla
                                                                          // reparse point, never followed
 int plat_fs_kind(const char *path);
 int plat_fs_mkdir(const char *path);                      // PLAT_FS_EXISTS when something is there
-int plat_fs_rmdir(const char *path);                      // an empty directory, or a link to one
+int plat_fs_os_error(void);   // the OS error code (GetLastError, errno) of this thread's last failed plat_fs_* call
+int plat_fs_rmdir(const char *path);                      // an empty directory (a read-only one too), or a link to one
 int plat_fs_unlink(const char *path);                     // a file or a link; a read-only one too
 // Renames a file or directory; never replaces (PLAT_FS_EXISTS). durable: the change is on the disk at return.
 int plat_fs_rename(const char *from, const char *to, int durable);
 int plat_fs_link(const char *existing, const char *path); // a hard link
 int plat_fs_links(const char *path);                      // the file's hard link count, 0 when unknown
 void plat_fs_sync_dir(const char *path);                  // a directory's entries to the disk, as far as the FS allows
+// Why dir could not be renamed, for the log: into out "no permission to rename it" when this process may not delete
+// it, else the programs holding a file under it ("explorer.exe 1234, ..."), else an empty string. Windows refuses to
+// rename a directory with any file open under it; elsewhere out is always empty.
+void plat_fs_busy_reason(const char *dir, char *out, size_t cap);
 // cb(name, kind, size, ctx) for each entry of dir but "." and ".."; cb returns 0 to stop. The listing's error.
 int plat_fs_list(const char *dir, int (*cb)(const char *name, int kind, uint64_t size, void *ctx), void *ctx);
 // An existing file for reading and, with write, writing; *err (may be NULL) gets the reason on failure.

@@ -18,6 +18,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/file.h>
 #include <sys/ioctl.h>
 #include <sys/mman.h>
 #include <sys/prctl.h>
@@ -184,6 +185,15 @@ int plat_file_set_readonly(const char *path, int on) {
     return chmod(path, m & 07777) == 0;
 }
 
+int plat_file_lock(const char *path) {
+    int fd = open(path, O_RDWR | O_CREAT | O_CLOEXEC, 0644);
+    if (fd < 0) return -1;
+    if (!flock(fd, LOCK_EX | LOCK_NB)) return 1;   // fd stays open: the lock lives as long as the process
+    int e = errno;
+    close(fd);
+    return e == EWOULDBLOCK ? 0 : -1;
+}
+
 int plat_file_list(const char *dir, const char *ext, int (*cb)(const char *name, void *ctx), void *ctx) {
     DIR *d = opendir(dir);
     if (!d) return 0;
@@ -237,6 +247,8 @@ const void *plat_file_map(PlatFile *f) {
     return v == MAP_FAILED ? NULL : v;
 }
 
+int plat_fs_os_error(void) { return errno; }
+
 static int fs_err(int e) {
     switch (e) {
     case ENOENT: case ENOTDIR: return PLAT_FS_NOT_FOUND;
@@ -255,14 +267,29 @@ int plat_fs_kind(const char *path) {
 
 int plat_fs_mkdir(const char *path) { return mkdir(path, 0755) ? fs_err(errno) : PLAT_FS_OK; }
 
-int plat_fs_rmdir(const char *path) {
+// Deleting needs write access to the directory, not to the entry. A read-only directory (a save folder copied from
+// elsewhere, a read-only directory as Windows' plat_fs_rmdir clears) gets its owner's write bit back once and the
+// removal is retried.
+static int remove_entry(const char *path, int dir) {
+    if (!(dir ? rmdir(path) : unlink(path))) return PLAT_FS_OK;
+    int e = errno;
+    char parent[PATH_MAX];
+    const char *slash = strrchr(path, '/');
     struct stat st;
-    if (!lstat(path, &st) && S_ISLNK(st.st_mode)) return unlink(path) ? fs_err(errno) : PLAT_FS_OK;
-    return rmdir(path) ? fs_err(errno) : PLAT_FS_OK;
+    if ((e != EACCES && e != EPERM) || !slash || (size_t)(slash - path) >= sizeof parent) return fs_err(e);
+    snprintf(parent, sizeof parent, "%.*s", (int)(slash - path), path);
+    if (!*parent || stat(parent, &st) || (st.st_mode & S_IWUSR) || chmod(parent, (st.st_mode & 07777) | S_IWUSR))
+        return fs_err(e);
+    return (dir ? rmdir(path) : unlink(path)) ? fs_err(errno) : PLAT_FS_OK;
 }
 
-// Deleting needs write access to the directory, not to the file: a read-only file goes as any other.
-int plat_fs_unlink(const char *path) { return unlink(path) ? fs_err(errno) : PLAT_FS_OK; }
+int plat_fs_rmdir(const char *path) {
+    struct stat st;
+    if (!lstat(path, &st) && S_ISLNK(st.st_mode)) return remove_entry(path, 0);
+    return remove_entry(path, 1);
+}
+
+int plat_fs_unlink(const char *path) { return remove_entry(path, 0); }
 
 // RENAME_NOREPLACE keeps Windows' rule that a rename never replaces; a file system without it (EINVAL) gets a check
 // first, which another process could race but the save directories are ours.
@@ -292,6 +319,12 @@ void plat_fs_sync_dir(const char *path) {
         fsync(fd);
         close(fd);
     }
+}
+
+// Open files never stop a rename here.
+void plat_fs_busy_reason(const char *dir, char *out, size_t cap) {
+    (void)dir;
+    if (cap) *out = 0;
 }
 
 int plat_fs_list(const char *dir, int (*cb)(const char *name, int kind, uint64_t size, void *ctx), void *ctx) {

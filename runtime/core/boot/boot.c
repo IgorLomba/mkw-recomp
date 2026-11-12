@@ -6,6 +6,7 @@
 // --boot ends at the first nvnBootstrapLoader call (from main+0xcf3a5c in MKW 1.0.0), after every module's
 // constructor flag read 2; it logs the run statistics and exits 0.
 // With --seconds S the run continues past that call; rt_frame_presented ends it once the world clock passed S.
+#include <SDL3/SDL_messagebox.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -347,7 +348,19 @@ static void prewarm_main(void *arg) {
     return;
 }
 
+// One game per profile: a second one (a shortcut clicked twice) would commit over the first's save and double the GPU
+// memory. Told in a box as well as in the log: the player started it and has no log open.
+static void lock_profile(void) {
+    char p[4200];
+    snprintf(p, sizeof p, "%s/instance.lock", rt_config()->profile);
+    if (plat_file_lock(p)) return;   // -1 (cannot open it): played as before, without the guard
+    const char *msg = "Mario Kart World is already running from this folder. Close it before starting it again.";
+    SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "mkw-recomp", msg, NULL);
+    rt_fatal("boot: %s (%s is held)", msg, p);
+}
+
 void rt_boot(void) {
+    lock_profile();
     check_npdm();
     if (!rt_config()->shot) vk_pipeline_async_enable();   // a --shot image must not depend on build timing
     // Shaders and pipelines recorded in earlier runs are made ready while the modules load; the guest waits for them.
