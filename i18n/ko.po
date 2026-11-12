@@ -640,10 +640,9 @@ msgstr "Switch 2 컨트롤러 (Bluetooth)"
 
 msgctxt "UI_MENU_SWITCH2_DESC"
 msgid ""
-"Joy-Con 2 and Pro Controller 2 over Bluetooth, on Linux. To pair one, hold its Sync button with "
-"the game open. Applies at the next start."
-msgstr ""
-"Linux에서 Bluetooth로 Joy-Con 2와 Pro 컨트롤러 2를 사용합니다. 페어링하려면 게임을 연 채로 싱크로 버튼을 길게 누르세요. 다음 실행부터 적용됩니다."
+"Joy-Con 2 and Pro Controller 2 over Bluetooth. To pair one, hold its Sync button with the game "
+"open. Applies at the next start."
+msgstr "Bluetooth로 Joy-Con 2와 Pro 컨트롤러 2를 사용합니다. 페어링하려면 게임을 연 채로 싱크로 버튼을 길게 누르세요. 다음 실행부터 적용됩니다."
 
 msgctxt "UI_MENU_STICK_DEADZONE"
 msgid "Stick dead zone"

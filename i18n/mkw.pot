@@ -611,7 +611,7 @@ msgid "Switch 2 controllers (Bluetooth)"
 msgstr ""
 
 msgctxt "UI_MENU_SWITCH2_DESC"
-msgid "Joy-Con 2 and Pro Controller 2 over Bluetooth, on Linux. To pair one, hold its Sync button with the game open. Applies at the next start."
+msgid "Joy-Con 2 and Pro Controller 2 over Bluetooth. To pair one, hold its Sync button with the game open. Applies at the next start."
 msgstr ""
 
 msgctxt "UI_MENU_STICK_DEADZONE"

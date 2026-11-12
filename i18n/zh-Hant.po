@@ -616,9 +616,9 @@ msgstr "Switch 2 控制器（藍牙）"
 
 msgctxt "UI_MENU_SWITCH2_DESC"
 msgid ""
-"Joy-Con 2 and Pro Controller 2 over Bluetooth, on Linux. To pair one, hold its Sync button with "
-"the game open. Applies at the next start."
-msgstr "在 Linux 上透過藍牙使用 Joy-Con 2 和 Pro 控制器 2。要配對控制器，請在遊戲開啟時按住其同步按鈕。下次啟動時生效。"
+"Joy-Con 2 and Pro Controller 2 over Bluetooth. To pair one, hold its Sync button with the game "
+"open. Applies at the next start."
+msgstr "透過藍牙使用 Joy-Con 2 和 Pro 控制器 2。要配對控制器，請在遊戲開啟時按住其同步按鈕。下次啟動時生效。"
 
 msgctxt "UI_MENU_STICK_DEADZONE"
 msgid "Stick dead zone"
