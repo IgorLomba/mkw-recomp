@@ -25,7 +25,7 @@ static int is_opening(const char *path) {
 }
 
 void skip_file_opened(const char *path) {
-    if (!cfg_bool("MKW_SKIP_MOVIES") || !is_opening(path)) return;
+    if (!is_opening(path) || !cfg_bool("MKW_SKIP_MOVIES")) return;   // the path first: every guest file open comes here
     atomic_store_explicit(&since, frame_step_ticks() + 1, memory_order_relaxed);
     rt_log("skip: %s opened: pressing A until it ends (MKW_SKIP_MOVIES)", path);
 }

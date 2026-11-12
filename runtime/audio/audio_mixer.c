@@ -493,7 +493,7 @@ static void walk_step(Walk *w) {   /* the same transitions as advance_voice in a
 }
 /* Decodes `frames` output samples per channel into out[c][k]; the renderer advances the voice afterwards by the same amount. */
 static void voice_render(AudioRenderer *r, ServerVoice *v, float out[6][MAX_FRAME], int frames) {
-    const double step = v->in.sample_rate * (v->in.pitch > 0 ? v->in.pitch : 1.0) / r->param.sample_rate;
+    const double step = v->in.sample_rate * audio_pitch(v->in.pitch) / r->param.sample_rate;
     Walk w = {v, v->index, v->offset, v->loops_done, {0}, 0, v->adpcm.history[0], v->adpcm.history[1], v->adpcm.buffer, v->adpcm.at};
     memcpy(w.valid, v->valid, sizeof w.valid);
     walk_skip_empty(&w);
@@ -811,6 +811,8 @@ void audio_mixer_render(AudioRenderer *r, double seconds) {
             } else if (sink->input_count >= 2) { l = ch[0] ? ch[0][k] : 0; rr = ch[1] ? ch[1][k] : 0; }
             else l = rr = ch[0] ? ch[0][k] : 0;
             l *= gain; rr *= gain;
+            if (l != l) l = 0;   /* NaN passes the clamp below; a NaN sample from the game would reach the device */
+            if (rr != rr) rr = 0;
             lr[2 * k] = l > 1 ? 1 : l < -1 ? -1 : l; lr[2 * k + 1] = rr > 1 ? 1 : rr < -1 ? -1 : rr;
         }
     } else if (!sink && !circular) report_once(m, 5, "no device sink in use", r->param.sink_count);

@@ -318,11 +318,12 @@ static void request_update(AudioRenderer *r, const uint8_t *input, uint64_t in_s
 // ---- render tick: one frame every sample_count / sample_rate seconds, on a host thread
 static void advance_voice(AudioRenderer *r, ServerVoice *v, double out_seconds) {
     if (!v->in.in_use || v->state != SV_STARTED || !v->in.sample_rate) return;
-    double want = v->fraction + out_seconds * v->in.sample_rate * (v->in.pitch > 0 ? v->in.pitch : 1.0);
+    double want = v->fraction + out_seconds * v->in.sample_rate * audio_pitch(v->in.pitch);
     uint64_t samples = (uint64_t)want;
     v->fraction = want - (double)samples;
     while (samples && v->valid[v->index]) {
         AudrenWaveBuffer *b = &v->buffers[v->index];
+        if (b->end <= b->start && b->loop && b->loop_count < 0) break;   // skip_empty's endless empty loop: it would spin
         uint64_t length = (uint64_t)(b->end - b->start), left = length - v->offset;
         uint64_t step = samples < left ? samples : left;
         v->offset += step;

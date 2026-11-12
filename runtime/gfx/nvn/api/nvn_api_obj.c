@@ -217,7 +217,7 @@ NVN_API(nvnTextureInitialize) {
             o->d.depth, o->d.levels, o->d.format, o->d.target, o->d.flags, (unsigned long long)o->L.size);
     // MKW_TRACE_SHADOW_SIZE=1: the guest call chain that creates the cascaded shadow
     // map (D16, 3 layers; 3072 docked, 2048 handheld), to find where the game picks its size.
-    if (cfg_get("MKW_TRACE_SHADOW_SIZE") && o->d.format == 0x32 && o->d.depth == 3 && o->d.width >= 1024) {
+    if (o->d.format == 0x32 && o->d.depth == 3 && o->d.width >= 1024 && cfg_get("MKW_TRACE_SHADOW_SIZE")) {
         rt_log("nvn: shadow map %ux%ux3 created, lr %#llx", o->d.width, o->d.height, (unsigned long long)c->x[30]);
         kern_backtrace(c);
     }
