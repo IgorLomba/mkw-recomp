@@ -234,17 +234,18 @@ static void pipe_worker(void *arg) {
     return;
 }
 
-// Starts the pool on first use: a quarter of the logical processors, 2 to 4; one on a machine under 16 GB, because
+// Starts the pool on first use: a quarter of the logical processors, 2 to 4; one under 14 GiB of usable RAM, because
 // RADV compiling one of MKW's large pipelines holds gigabytes (heaptrack, run68: 5.2 GB of the process's peak inside
-// vkCreateGraphicsPipelines on three workers, and systemd-oomd ended runs 54-67). MKW_PIPE_WORKERS=<n> sets it. Caller
-// holds P.lock.
+// vkCreateGraphicsPipelines on three workers, and systemd-oomd ended runs 54-67 on a machine with 13.4 GiB usable).
+// The cut is below 16: a 16 GB machine reports 15.3-15.6 GiB after firmware and iGPU reservations (issue #132).
+// MKW_PIPE_WORKERS=<n> sets it. Caller holds P.lock.
 static int workers_start(void) {
     if (A.threads) return 1;
     uint32_t cpus = plat_cpu_count();
     int n = cpus / 4 < 2 ? 2 : cpus / 4 > MAX_WORKERS ? MAX_WORKERS : (int)(cpus / 4);
     float used, total = 0, proc;
     plat_mem_info(&used, &total, &proc);
-    if (total > 0 && total < 16 * 1024) n = 1;
+    if (total > 0 && total < 14 * 1024) n = 1;
     const char *w = cfg_get("MKW_PIPE_WORKERS");
     if (w && atoi(w) > 0) n = atoi(w) > MAX_WORKERS ? MAX_WORKERS : atoi(w);
     for (int i = 0; i < n; i++) {
