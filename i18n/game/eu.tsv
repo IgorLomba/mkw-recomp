@@ -1,0 +1,1276 @@
+# Basque for the game's own texts (tools/i18n/game_texts.py): "label<TAB>text", over the game's Spain Spanish (EUes).
+# Untranslated labels stay in Spanish. Control tags ({0E ...}, {0F ...}) are kept as the dump gives them.
+MsgMain/BattleCourse/1701	Mario Bros. Zirkuitua
+MsgMain/BattleCourse/1702	Harea Hozkaria
+MsgMain/BattleCourse/1703	Peach Estadioa
+MsgMain/BattleCourse/1704	Dino Dino Oihana
+MsgMain/BattleCourse/1705	Donut Handia
+MsgMain/BattleCourse/1706	Gatz Hiria
+MsgMain/BattleCourse/1707	Mu-Mu Larrea
+MsgMain/BattleCourse/1708	DK Alpetarra
+MsgMain/Course(adjust)/Adjust_Name_Race_AirshipFortress_A_00	{0E 0000 0002 0002 005F}Aireko Gotorlekua{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_BigTree_A_00	{0E 0000 0002 0002 005F}Zuhaitz Herrixka{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_Cave_A_00	{0E 0000 0002 0002 005F}Lehoi-hortz Haitzuloa{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_Central_A_00	{0E 0000 0002 0002 005F}Peach Estadioa{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_ChocoMountain_A_00	{0E 0000 0002 0002 005F}Txokolate Mendia{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_Cinema_A_00	{0E 0000 0002 0002 005F}Boo Zinema{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_Coaster_A_00	{0E 0000 0002 0002 005F}Trenbide Kanoia{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_DesertHills_A_00	{0E 0000 0002 0002 005F}Eguzki-Eguzki Basamortua{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_DinoBones_A_00	{0E 0000 0002 0002 005F}Hezur Haitzuloa{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_DinoDinoJungle_A_00	{0E 0000 0002 0002 005F}Dino Dino Oihana{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_DKJungleParkway_A_00	{0E 0000 0002 0002 005F}Sabana Zipriztina{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_DKPass_A_00	{0E 0000 0002 0002 005F}DK Alpetarra{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_DonkeyKong_A_00	{0E 0000 0002 0002 005F}DK Espazio-portua{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_FirstCircuit_A_00	{0E 0000 0002 0002 005F}Mario Bros. Zirkuitua{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_IceBuildings_A_00	{0E 0000 0002 0002 005F}Zeru Izoztuak{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_KoopaTroopaBeach_A_00	{0E 0000 0002 0002 005F}Koopa Hondartza{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_LagoonCity_A_00	{0E 0000 0002 0002 005F}Gatz Hiria{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_Lava_A_00	{0E 0000 0002 0002 005F}Bowser-en Gaztelua{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_MooMooFarm_A_00	{0E 0000 0002 0002 005F}Mu-Mu Larrea{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_RaftingRiver_A_00	{0E 0000 0002 0002 005F}Cheep Cheep Ur-jauziak{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_Rainbow_A_00	{0E 0000 0002 0002 005F}Ostadar Bidea{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_SFCMarioCircuit_G_00	{0E 0000 0002 0002 005F}Mario Zirkuitua{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_ShyGuyBazaar_A_00	{0E 0000 0002 0002 005F}Shy Guy Bazarra{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_SnowMountain_A_00	{0E 0000 0002 0002 005F}Izar Begiratokia{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_StormClouds_A_00	{0E 0000 0002 0002 005F}? Bloke Tenplua{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_ToadFactory_A_00	{0E 0000 0002 0002 005F}Toad Fabrika{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_WarioShipyard_A_00	{0E 0000 0002 0002 005F}Wario-ren Galeoia{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_WarioStadium_A_00	{0E 0000 0002 0002 005F}Wario Estadioa{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_WestCity_D_00	{0E 0000 0002 0002 005F}Koroa Hiria{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_PeachBeach_D_00	{0E 0000 0002 0002 005F}Peach Hondartza{0E 0000 0002 0002 0064}
+MsgMain/Course/Name_Race_AirshipFortress_A_00	Aireko Gotorlekua
+MsgMain/Course/Name_Race_BigTree_A_00	Zuhaitz Herrixka
+MsgMain/Course/Name_Race_Cave_A_00	Lehoi-hortz Haitzuloa
+MsgMain/Course/Name_Race_Central_A_00	Peach Estadioa
+MsgMain/Course/Name_Race_ChocoMountain_A_00	Txokolate Mendia
+MsgMain/Course/Name_Race_Cinema_A_00	Boo Zinema
+MsgMain/Course/Name_Race_Coaster_A_00	Trenbide Kanoia
+MsgMain/Course/Name_Race_DesertHills_A_00	Eguzki-Eguzki Basamortua
+MsgMain/Course/Name_Race_DinoBones_A_00	Hezur Haitzuloa
+MsgMain/Course/Name_Race_DinoDinoJungle_A_00	Dino Dino Oihana
+MsgMain/Course/Name_Race_DKJungleParkway_A_00	Sabana Zipriztina
+MsgMain/Course/Name_Race_DKPass_A_00	DK Alpetarra
+MsgMain/Course/Name_Race_DonkeyKong_A_00	DK Espazio-portua
+MsgMain/Course/Name_Race_FirstCircuit_A_00	Mario Bros. Zirkuitua
+MsgMain/Course/Name_Race_IceBuildings_A_00	Zeru Izoztuak
+MsgMain/Course/Name_Race_KoopaTroopaBeach_A_00	Koopa Hondartza
+MsgMain/Course/Name_Race_LagoonCity_A_00	Gatz Hiria
+MsgMain/Course/Name_Race_Lava_A_00	Bowser-en Gaztelua
+MsgMain/Course/Name_Race_MooMooFarm_A_00	Mu-Mu Larrea
+MsgMain/Course/Name_Race_RaftingRiver_A_00	Cheep Cheep Ur-jauziak
+MsgMain/Course/Name_Race_Rainbow_A_00	Ostadar Bidea
+MsgMain/Course/Name_Race_SFCMarioCircuit_G_00	Mario Zirkuitua
+MsgMain/Course/Name_Race_ShyGuyBazaar_A_00	Shy Guy Bazarra
+MsgMain/Course/Name_Race_SnowMountain_A_00	Izar Begiratokia
+MsgMain/Course/Name_Race_StormClouds_A_00	? Bloke Tenplua
+MsgMain/Course/Name_Race_ToadFactory_A_00	Toad Fabrika
+MsgMain/Course/Name_Race_WarioShipyard_A_00	Wario-ren Galeoia
+MsgMain/Course/Name_Race_WarioStadium_A_00	Wario Estadioa
+MsgMain/Course/Name_Race_WestCity_D_00	Koroa Hiria
+MsgMain/Course/Name_Race_PeachBeach_D_00	Peach Hondartza
+MsgMain/CourseArea(adjust)/Name_AirshipFortress_00	{0E 0000 0002 0002 005F}Aireko Gotorlekua{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_BigTree_00	{0E 0000 0002 0002 005F}Zuhaitz Herrixka{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_Cave_00	{0E 0000 0002 0002 005F}Lehoi-hortz Haitzuloa{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_Central_00	{0E 0000 0002 0002 005F}Peach Estadioa{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_ChocoMountain_00	{0E 0000 0002 0002 005F}Txokolate Mendia{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_Cinema_00	{0E 0000 0002 0002 005F}Boo Zinema{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_Coaster	{0E 0000 0002 0002 005F}Trenbide Kanoia{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_DesertHills_00	{0E 0000 0002 0002 005F}Eguzki-Eguzki Basamortua{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_DinoBones_00	{0E 0000 0002 0002 005F}Hezur Haitzuloa{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_DinoDinoJungle_00	{0E 0000 0002 0002 005F}Dino Dino Oihana{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_DKJungleParkway_00	{0E 0000 0002 0002 005F}Sabana Zipriztina{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_DKPass_00	{0E 0000 0002 0002 005F}DK Alpetarra{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_DonkeyKong	{0E 0000 0002 0002 005F}DK Espazio-portua{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_FirstCircuit	{0E 0000 0002 0002 005F}Mario Bros. Zirkuitua{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_IceBuildings_00	{0E 0000 0002 0002 005F}Zeru Izoztuak{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_KoopaTroopaBeach_00	{0E 0000 0002 0002 005F}Koopa Hondartza{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_LagoonCity_00	{0E 0000 0002 0002 005F}Gatz Hiria{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_Lava_00	{0E 0000 0002 0002 005F}Bowser-en Gaztelua{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_MooMooFarm_00	{0E 0000 0002 0002 005F}Mu-Mu Larrea{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_PeachBeach_00	{0E 0000 0002 0002 005F}Peach Hondartza{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_RaftingRiver_00	{0E 0000 0002 0002 005F}Cheep Cheep Ur-jauziak{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_Rainbow_00	{0E 0000 0002 0002 005F}Ostadar Bidea{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_SFCMarioCircuit_00	{0E 0000 0002 0002 005F}Mario Zirkuitua{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_ShyGuyBazaar_00	{0E 0000 0002 0002 005F}Shy Guy Bazarra{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_SnowMountain_00	{0E 0000 0002 0002 005F}Izar Begiratokia{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_StormClouds_00	{0E 0000 0002 0002 005F}? Bloke Tenplua{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_ToadFactory_00	{0E 0000 0002 0002 005F}Toad Fabrika{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_WarioShipyard_00	{0E 0000 0002 0002 005F}Wario-ren Galeoia{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_WarioStadium	{0E 0000 0002 0002 005F}Wario Estadioa{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_WestCity	{0E 0000 0002 0002 005F}Koroa Hiria{0E 0000 0002 0002 0064}
+MsgMain/CourseArea/Name_AirshipFortress_00	Aireko Gotorlekua
+MsgMain/CourseArea/Name_BigTree_00	Zuhaitz Herrixka
+MsgMain/CourseArea/Name_Cave_00	Lehoi-hortz Haitzuloa
+MsgMain/CourseArea/Name_Central_00	Peach Estadioa
+MsgMain/CourseArea/Name_ChocoMountain_00	Txokolate Mendia
+MsgMain/CourseArea/Name_Cinema_00	Boo Zinema
+MsgMain/CourseArea/Name_Coaster	Trenbide Kanoia
+MsgMain/CourseArea/Name_DesertHills_00	Eguzki-Eguzki Basamortua
+MsgMain/CourseArea/Name_DinoBones_00	Hezur Haitzuloa
+MsgMain/CourseArea/Name_DinoDinoJungle_00	Dino Dino Oihana
+MsgMain/CourseArea/Name_DKJungleParkway_00	Sabana Zipriztina
+MsgMain/CourseArea/Name_DKPass_00	DK Alpetarra
+MsgMain/CourseArea/Name_DonkeyKong	DK Espazio-portua
+MsgMain/CourseArea/Name_FirstCircuit	Mario Bros. Zirkuitua
+MsgMain/CourseArea/Name_IceBuildings_00	Zeru Izoztuak
+MsgMain/CourseArea/Name_KoopaTroopaBeach_00	Koopa Hondartza
+MsgMain/CourseArea/Name_LagoonCity_00	Gatz Hiria
+MsgMain/CourseArea/Name_Lava_00	Bowser-en Gaztelua
+MsgMain/CourseArea/Name_MooMooFarm_00	Mu-Mu Larrea
+MsgMain/CourseArea/Name_PeachBeach_00	Peach Hondartza
+MsgMain/CourseArea/Name_RaftingRiver_00	Cheep Cheep Ur-jauziak
+MsgMain/CourseArea/Name_Rainbow_00	Ostadar Bidea
+MsgMain/CourseArea/Name_SFCMarioCircuit_00	Mario Zirkuitua
+MsgMain/CourseArea/Name_ShyGuyBazaar_00	Shy Guy Bazarra
+MsgMain/CourseArea/Name_SnowMountain_00	Izar Begiratokia
+MsgMain/CourseArea/Name_StormClouds_00	? Bloke Tenplua
+MsgMain/CourseArea/Name_ToadFactory_00	Toad Fabrika
+MsgMain/CourseArea/Name_WarioShipyard_00	Wario-ren Galeoia
+MsgMain/CourseArea/Name_WarioStadium	Wario Estadioa
+MsgMain/CourseArea/Name_WestCity	Koroa Hiria
+MsgMain/Driver/Driver_MarioRacing_00	Pilotu pro
+MsgMain/Driver/Driver_MarioSheriff_00	Bakeroa
+MsgMain/Driver/Driver_MarioDesert_00	Oasia
+MsgMain/Driver/Driver_MarioOmatsuri_00	Jaia
+MsgMain/Driver/Driver_MarioCasual_00	Mundu-ibiltaria
+MsgMain/Driver/Driver_MarioPilot_00	Hegazkinlaria
+MsgMain/Driver/Driver_MarioVacance_00	Turista
+MsgMain/Driver/Driver_MarioOffroad_00	Lur guztiak
+MsgMain/Driver/Driver_MarioMechanic_00	Mekanikaria
+MsgMain/Driver/Driver_LuigiRacing_00	Pilotu pro
+MsgMain/Driver/Driver_LuigiLagoonCity_00	Gondolaria
+MsgMain/Driver/Driver_LuigiDesert_00	Oasia
+MsgMain/Driver/Driver_LuigiOmatsuri_00	Jaia
+MsgMain/Driver/Driver_LuigiFarmer_00	Nekazaria
+MsgMain/Driver/Driver_LuigiCasual_00	Mundu-ibiltaria
+MsgMain/Driver/Driver_LuigiMechanic_00	Mekanikaria
+MsgMain/Driver/Driver_LuigiOffroad_00	Lur guztiak
+MsgMain/Driver/Driver_PeachCasual_00	Mundu-ibiltaria
+MsgMain/Driver/Driver_PeachLagoonCity_00	Turista
+MsgMain/Driver/Driver_PeachFarmer_00	Nekazaria
+MsgMain/Driver/Driver_PeachRacing_00	Pilotu pro
+MsgMain/Driver/Driver_PeachPilot_00	Hegazkinlaria
+MsgMain/Driver/Driver_PeachResort_00	Oporrak
+MsgMain/Driver/Driver_PeachOffroad_00	Motorraria
+MsgMain/Driver/Driver_PeachYukata_00	Jaia
+MsgMain/Driver/Driver_DaisySwim_00	Bainujantzia
+MsgMain/Driver/Driver_DaisyLagoonCity_00	Oporrak
+MsgMain/Driver/Driver_DaisyDesert_00	Oasia
+MsgMain/Driver/Driver_DaisyRacing_00	Pilotu pro
+MsgMain/Driver/Driver_DaisyCasual_00	Mundu-ibiltaria
+MsgMain/Driver/Driver_DaisyOffroad_00	Motorraria
+MsgMain/Driver/Driver_YoshiDelivery_00	Janari bizkorra
+MsgMain/Driver/Driver_YoshiIce_00	Izozkia
+MsgMain/Driver/Driver_YoshiRacing_00	Pilotu pro
+MsgMain/Driver/Driver_YoshiSwim_00	Bainujantzia
+MsgMain/Driver/Driver_YoshiStadium_00	Errebeldea
+MsgMain/Driver/Driver_YoshiCasual_00	Mundu-ibiltaria
+MsgMain/Driver/Driver_YoshiHachimaki_00	Jaia
+MsgMain/Driver/Driver_YoshiMovie_00	Aristokrata
+MsgMain/Driver/Driver_KinopioEngineer_00	Makinista
+MsgMain/Driver/Driver_KinopioDiner_00	Hanburgesa
+MsgMain/Driver/Driver_KinopioRacing_00	Pilotu pro
+MsgMain/Driver/Driver_KinopioExplore_00	Esploratzailea
+MsgMain/Driver/Driver_KoopaRiders_00	Errebeldea
+MsgMain/Driver/Driver_KoopaRacing_00	Pilotu pro
+MsgMain/Driver/Driver_KoopaOffroad_00	Lur guztiak
+MsgMain/Driver/Driver_KoopaHotrod_00	Erreaktorea
+MsgMain/Driver/Driver_DKOffroad_00	Lur guztiak
+MsgMain/Driver/Driver_WarioDesert_00	Oasia
+MsgMain/Driver/Driver_WarioDiner_00	Errebeldea
+MsgMain/Driver/Driver_WarioFactory_00	Langilea
+MsgMain/Driver/Driver_WarioRacing_00	Pilotu pro
+MsgMain/Driver/Driver_WarioFairy_00	Erle handia
+MsgMain/Driver/Driver_WarioPirate_00	Pirata
+MsgMain/Driver/Driver_WarioStadium_00	Bandaloa
+MsgMain/Driver/Driver_WaluigiRacing_00	Pilotu pro
+MsgMain/Driver/Driver_WaluigiHorror_00	Banpiroa
+MsgMain/Driver/Driver_WaluigiDiner_00	Errebeldea
+MsgMain/Driver/Driver_WaluigiStadium_00	Bandaloa
+MsgMain/Driver/Driver_WaluigiMariachi_00	Mariachia
+MsgMain/Driver/Driver_RosettaRacing_00	Pilotu pro
+MsgMain/Driver/Driver_RosettaCasual_00	Mundu-ibiltaria
+MsgMain/Driver/Driver_RosettaAurora_00	Aurora
+MsgMain/Driver/Driver_RosettaOffroad_00	Motorraria
+MsgMain/Driver/Driver_PaulineOffroad_00	Motorraria
+MsgMain/Driver/Driver_BabyMarioSwim_00	Bainujantzia
+MsgMain/Driver/Driver_BabyMarioFactory_00	Langilea
+MsgMain/Driver/Driver_BabyMarioRacing_00	Pilotu pro
+MsgMain/Driver/Driver_BabyLuigiFactory_00	Langilea
+MsgMain/Driver/Driver_BabyLuigiRacing_00	Pilotu pro
+MsgMain/Driver/Driver_BabyPeachMarine_00	Marinela
+MsgMain/Driver/Driver_BabyPeachExplore_00	Esploratzailea
+MsgMain/Driver/Driver_BabyPeachCasual_00	Mundu-ibiltaria
+MsgMain/Driver/Driver_BabyPeachRacing_00	Pilotu pro
+MsgMain/Driver/Driver_BabyDaisyMarine_00	Marinela
+MsgMain/Driver/Driver_BabyDaisyExplore_00	Esploratzailea
+MsgMain/Driver/Driver_BabyDaisyRacing_00	Pilotu pro
+MsgMain/Driver/Driver_BabyDaisyCasual_00	Mundu-ibiltaria
+MsgMain/Driver/Driver_BabyRosettaMarine_00	Marinela
+MsgMain/Driver/Driver_BabyRosettaExplore_00	Esploratzailea
+MsgMain/Driver/Driver_BabyRosettaCasual_00	Mundu-ibiltaria
+MsgMain/Driver/Driver_BabyRosettaRacing_00	Pilotu pro
+MsgMain/Driver/Driver_KinopicoConductor_00	Ikuskatzailea
+MsgMain/Driver/Driver_KinopicoIce_00	Izozkia
+MsgMain/Driver/Driver_KinopicoRacing_00	Pilotu pro
+MsgMain/Driver/Driver_KinopicoExplore_00	Esploratzailea
+MsgMain/Driver/Driver_KoopaJrRiders_00	Errebeldea
+MsgMain/Driver/Driver_KoopaJrScout_00	Esploratzailea
+MsgMain/Driver/Driver_KoopaJrRacing_00	Pilotu pro
+MsgMain/Driver/Driver_CatherineLagoonCity_00	Oporrak
+MsgMain/Driver/Driver_CatherineRacing_00	Pilotu pro
+MsgMain/Driver/Driver_NokonokoRunner_00	Korrikalaria
+MsgMain/Driver/Driver_NokonokoRacing_00	Pilotu pro
+MsgMain/Driver/Driver_NokonokoFlagman_00	Langilea
+MsgMain/Driver/Driver_NokonokoSailor_00	Marinela
+MsgMain/Driver/Driver_NokonokoOffroad_00	Lur guztiak
+MsgMain/Driver/Driver_HeyhoSnow_00	Snowboarda
+MsgMain/Driver/Driver_HeyhoRacing_00	Boxak
+MsgMain/Driver/Driver_JugemAngler_00	Arrantzalea
+MsgMain/Driver/Driver_JugemRacing_00	Boxak
+MsgMain/Driver/Driver_KingTeresaMovie_00	Aristokrata
+MsgMain/Driver/Driver_KingTeresaPirate_00	Pirata
+MsgMain/Driver/Driver_KingTeresaRacing_00	Pilotu pro
+MsgMain/DriverCategoryName/Driver_BabyDaisy	Daisy Haurra
+MsgMain/DriverCategoryName/Driver_BabyLuigi	Luigi Haurra
+MsgMain/DriverCategoryName/Driver_BabyMario	Mario Haurra
+MsgMain/DriverCategoryName/Driver_BabyPeach	Peach Haurra
+MsgMain/DriverCategoryName/Driver_BabyRosetta	Estela Haurra
+MsgMain/DriverCategoryName/Driver_Catherine	Birdo
+MsgMain/DriverCategoryName/Driver_DK	Donkey Kong
+MsgMain/DriverCategoryName/Driver_Daisy	Daisy
+MsgMain/DriverCategoryName/Driver_Heyho	Shy Guy
+MsgMain/DriverCategoryName/Driver_Jugem	Lakitu
+MsgMain/DriverCategoryName/Driver_KingTeresa	Boo Erregea
+MsgMain/DriverCategoryName/Driver_Kinopico	Toadette
+MsgMain/DriverCategoryName/Driver_Kinopio	Toad
+MsgMain/DriverCategoryName/Driver_Koopa	Bowser
+MsgMain/DriverCategoryName/Driver_KoopaJr	Bowsy
+MsgMain/DriverCategoryName/Driver_Luigi	Luigi
+MsgMain/DriverCategoryName/Driver_Mario	Mario
+MsgMain/DriverCategoryName/Driver_Nokonoko	Koopa
+MsgMain/DriverCategoryName/Driver_Pauline	Pauline
+MsgMain/DriverCategoryName/Driver_Peach	Peach
+MsgMain/DriverCategoryName/Driver_Rosetta	Estela
+MsgMain/DriverCategoryName/Driver_Waluigi	Waluigi
+MsgMain/DriverCategoryName/Driver_Wario	Wario
+MsgMain/DriverCategoryName/Driver_Yoshi	Yoshi
+MsgMain/DriverCategoryName/Driver_Basabasa	Swooper
+MsgMain/DriverCategoryName/Driver_Bull	Placapum
+MsgMain/DriverCategoryName/Driver_Choropoo	Monty Mole
+MsgMain/DriverCategoryName/Driver_Cow	Behia
+MsgMain/DriverCategoryName/Driver_Crab	Karramarroa
+MsgMain/DriverCategoryName/Driver_Gabon	Spike
+MsgMain/DriverCategoryName/Driver_Hacchin	Erle handia
+MsgMain/DriverCategoryName/Driver_HammerBros	Mailu Anaia
+MsgMain/DriverCategoryName/Driver_Lifton	Izurdea
+MsgMain/DriverCategoryName/Driver_PackunFlower	Piraña Landarea
+MsgMain/DriverCategoryName/Driver_Penguin	Pinguinoa
+MsgMain/DriverCategoryName/Driver_Pukupuku	Cheep Cheep
+MsgMain/DriverCategoryName/Driver_Sambo	Pokey
+MsgMain/DriverCategoryName/Driver_Kuribo	Goomba
+MsgMain/DriverCategoryName/Driver_FishBone	Pezueso
+MsgMain/DriverCategoryName/Driver_Gamane	Monerrana
+MsgMain/DriverCategoryName/Driver_Karon	Hezurtxoak
+MsgMain/DriverCategoryName/Driver_Poihana	Picocuac
+MsgMain/DriverCategoryName/Driver_Snowman	Elur-gizona
+MsgMain/DriverCategoryName/Driver_Teren	Fantasmirón
+MsgMain/DriverCategoryName/Driver_Monte	Forestano
+MsgMain/DriverCategoryName/Driver_Tuccondor	Picacóndor
+MsgMain/DriverCategoryName/Driver_Patatenten	Marchimotas Hegalduna
+MsgMain/DriverCategoryName/Driver_Totten	Caco Gazapo
+MsgMain/DriverCategoryName/Driver_Hanachan	Floruga
+MsgMain/DriverCategoryName/Driver_Poo	Tortopo
+MsgMain/GrandprixCupName/Name_Banana	Platano Kopa
+MsgMain/GrandprixCupName/Name_Flower	Lore Kopa
+MsgMain/GrandprixCupName/Name_Kinoko	Perretxiko Kopa
+MsgMain/GrandprixCupName/Name_Konoha	Hosto Kopa
+MsgMain/GrandprixCupName/Name_Koura	Maskor Kopa
+MsgMain/GrandprixCupName/Name_Star	Izar Kopa
+MsgMain/GrandprixCupName/Name_Thunder	Tximista Kopa
+MsgMain/GrandprixCupName/Name_Special	Kopa Berezia
+MsgMain/GrandprixCupName/Name_GP09	Turbo Rallya
+MsgMain/GrandprixCupName/Name_GP10	Izotz Rallya
+MsgMain/GrandprixCupName/Name_GP11	Ilargi Rallya
+MsgMain/GrandprixCupName/Name_GP12	Arantza Rallya
+MsgMain/GrandprixCupName/Name_GP13	Gerezi Rallya
+MsgMain/GrandprixCupName/Name_GP14	Ezkur Rallya
+MsgMain/GrandprixCupName/Name_GP15	Hodei Rallya
+MsgMain/GrandprixCupName/Name_GP16	Bihotz Rallya
+LayoutMsg/Damage_00/T_Msg_00	TA HORI!
+LayoutMsg/DialogTimeAttack_00/DialogTimeAttack_00:L_DialogBtn_00/T_Text_00	Bai
+LayoutMsg/DialogTimeAttack_00/DialogTimeAttack_00:L_DialogBtn_01/T_Text_00	Ez
+LayoutMsg/DialogTimeAttack_00/DialogTimeAttack_00:L_DialogBtn_02/T_Text_00	Onartu
+LayoutMsg/Dialog_00/L_DialogBtnC_00/T_Text_00	Onartu
+LayoutMsg/Dialog_00/T_Group_00	Taldearen IDa
+LayoutMsg/FriendList_00/T_Friend_00	Laguna
+LayoutMsg/FriendList_00/T_Rec_00	Jolas-estatistikak
+LayoutMsg/FriendList_00/T_You_00	Zu
+LayoutMsg/FriendList_00/FriendList_00:L_Go_00/T_Text_00	Sartu
+LayoutMsg/FriendList_00/T_Rec_01	Parte-hartzaileak
+LayoutMsg/Hit_00/T_Msg_00	HOR DUZU!
+LayoutMsg/MenuGameSelect_01/T_Msg_00	Lehiatu 4 zirkuitutan!
+LayoutMsg/MenuGameSelect_01/T_Msg_01	Saiatu amaierara arte irauten!
+LayoutMsg/MenuGameSelect_01/T_Msg_02	Lortu zure marka onena!
+LayoutMsg/MenuGameSelect_01/T_Msg_03	Zuk ezartzen dituzu arauak!
+LayoutMsg/MenuGameSelect_01/T_Msg_04	Lehiatu arau pertsonalizatuekin!
+LayoutMsg/MenuManual_00/MenuManual_00:L_Headline_00/T_Btn_00	Teknikak
+LayoutMsg/MenuManual_00/MenuManual_00:L_Headline_01/T_Btn_00	Objektuak
+LayoutMsg/MenuManual_00/MenuManual_00:L_Headline_02/T_Btn_00	Arauak
+LayoutMsg/MenuManual_00/MenuManual_00:L_Headline_03/T_Btn_00	Ibilaldi librea
+LayoutMsg/MenuPlayModeSelect_00/MenuPlayModeSelect_00:L_Btn_00/T_Btn_00	Jokalari bat
+LayoutMsg/MenuPlayModeSelect_00/MenuPlayModeSelect_00:L_Btn_01/T_Btn_00	Jokalari anitz
+LayoutMsg/MenuPlayModeSelect_00/MenuPlayModeSelect_00:L_Btn_02/T_Btn_00	Online
+LayoutMsg/MenuTimeAttack_00/MenuTimeAttack_00:L_MenuBtn_00/T_Text_00	Bakarka
+LayoutMsg/MenuTimeAttack_00/MenuTimeAttack_00:L_MenuBtn_01/T_Text_00	Mamua erronkatu
+LayoutMsg/MenuTimeAttack_00/MenuTimeAttack_00:L_MenuBtn_02/T_Text_00	Mamua ikusi
+LayoutMsg/MenuTimeAttack_00/MenuTimeAttack_00:L_MenuBtn_03/T_Text_00	Sailkapena ikusi
+LayoutMsg/MenuTimeAttack_00/MenuTimeAttack_00:L_MenuBtn_04/T_Text_00	Mamua igo
+LayoutMsg/OnlineMenu_00/L_Btn_00/T_Btn_00	Lasterketa
+LayoutMsg/OnlineMenu_00/L_Btn_01/T_Btn_00	Biziraupena
+LayoutMsg/OnlineMenu_00/L_Btn_02/T_Btn_00	Borroka
+LayoutMsg/OnlineMenu_00/L_Btn_03/T_Btn_00	Lagunak
+LayoutMsg/PhotoMode_00/T_Attention_00	Ikuspuntua
+LayoutMsg/PhotoMode_00/T_End_00	Amaitu
+LayoutMsg/PhotoMode_00/T_Face_00	Keinua
+LayoutMsg/PhotoMode_00/T_Gide_00	Gida
+LayoutMsg/PhotoMode_00/T_Posechange_00	Postura
+LayoutMsg/PhotoMode_00/T_Roll_00	Okerdura
+LayoutMsg/PhotoMode_00/T_Take_00	Argazkia atera
+LayoutMsg/PhotoMode_00/T_Zoom_00	Zooma
+LayoutMsg/Retry_00/T_Retry_00	Saiatu berriro
+LayoutMsg/RuleSelect_00/T_Change_00	Arauak berretsi
+LayoutMsg/TeamSelect_00/TeamSelect_00:$DialogBtnS_00/T_Text_00	Onartu
+LayoutMsg/TitleLogo_00/T_Press_00	Sakatu {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}
+LayoutMsg/Watching_00/T_Text_01	ZUZENEAN
+MsgMain/Help/HelpButton_01	Eskuliburua
+MsgMain/Help/HelpMenu_01	Teknikak
+MsgMain/Help/HelpMenu_02	Objektuak
+MsgMain/Help/HelpMenu_03	Arauak
+MsgMain/Help/HelpMenu_04	Ibilaldi librea
+MsgMain/Help/Technique_01	Turbo-irteera
+MsgMain/Help/Technique_02	Drifta
+MsgMain/Help/Technique_03	Mini-turboa
+MsgMain/Help/Technique_04	Salto bizkorra
+MsgMain/Help/Technique_05	Biraketa lekuan
+MsgMain/Help/Technique_06	Salto kargatua
+MsgMain/Help/Technique_07	Baranda-irristaketa
+MsgMain/Help/Technique_08	Hormetan ibiltzea
+MsgMain/Help/Technique_09	Atzeratu
+MsgMain/Help/Technique_101	Turbo-irteera
+MsgMain/Help/Technique_102	Drifta
+MsgMain/Help/Technique_103	Mini-turboa
+MsgMain/Help/Technique_104	Salto bizkorra
+MsgMain/Help/Technique_105	Biraketa lekuan
+MsgMain/Help/Technique_106	Salto kargatua
+MsgMain/Help/Technique_107	Baranda-irristaketa
+MsgMain/Help/Technique_108	Hormetan ibiltzea
+MsgMain/Help/Technique_109	Atzeratu
+MsgMain/Help/Technique_201	Lasterketaren hasieran, atzera-kontaketa\n2an dagoenean, eutsi {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} ({0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}) sakatuta\nturbo-irteera egiteko.
+MsgMain/Help/Technique_202	Eutsi {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} sakatuta {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} ({0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}) bidez azeleratzen duzun bitartean\neta okertu {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} kurbak estuago\nartzeko abiadura galdu gabe.
+MsgMain/Help/Technique_203	Gurpiletatik txinparta ateratzen bada drifta luzatzean,\naskatu {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} bizkortzeko. Eutsi kolorez aldatu arte\n(gehienez 3 aldiz bolante adimenduna desaktibatuta)\nbizkortzea indartzeko.
+MsgMain/Help/Technique_204	Arrapala edo antzeko gainazal batetik igarotzean,\nsakatu {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} unean-unean airean\npiruetaren bat egin eta bizkortze labur bat lortzeko.
+MsgMain/Help/Technique_205	Norabidea azkar alda dezakezu\n{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} okertuz eta aldi berean\n{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} ({0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}) eta {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} ({0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}) sakatuta edukiz.
+MsgMain/Help/Technique_206	{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} pixka bat sakatuta badaukazu {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} ({0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF})\nbidez lerro zuzenean abiatzen zaren bitartean, txinpartak\nateratuko dira gurpiletatik. Orduan, askatu {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}\neta okertu {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} nahi duzun norabidean saltatzeko.
+MsgMain/Help/Technique_207	Elementu estuetatik ibil zaitezke,\nbaranda eta kable elektrikoetatik adibidez.\nSalto kargatu batekin ere igo zaitezke.
+MsgMain/Help/Technique_208	Salto bizkorra edo salto kargatua\nhormaren norabidean egiten baduzu,\nberaren gainetik ibil zaitezke une batez.
+MsgMain/Help/Technique_209	{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} sakatuta edukiz gero, zure ibilgailua\nlehengo posizio batera itzuli dezakezu.
+MsgMain/Help/Item_01	Platanoa
+MsgMain/Help/Item_02	Platano hirukoa
+MsgMain/Help/Item_03	Turbo-perretxikoa
+MsgMain/Help/Item_04	Turbo-perretxiko hirukoa
+MsgMain/Help/Item_05	Turbo-perretxiko urrezkoa
+MsgMain/Help/Item_06	Megaperretxikoa
+MsgMain/Help/Item_07	Maskor berdea
+MsgMain/Help/Item_08	Maskor berde hirukoa
+MsgMain/Help/Item_09	Maskor gorria
+MsgMain/Help/Item_10	Maskor gorri hirukoa
+MsgMain/Help/Item_11	Arantzadun maskorra
+MsgMain/Help/Item_12	Txanpon-maskorra
+MsgMain/Help/Item_13	Su-lorea
+MsgMain/Help/Item_14	Izotz-lorea
+MsgMain/Help/Item_15	Bumerang-lorea
+MsgMain/Help/Item_16	Bill Bala
+MsgMain/Help/Item_17	Bob-omb
+MsgMain/Help/Item_18	Mailua
+MsgMain/Help/Item_19	Superturuta
+MsgMain/Help/Item_20	? Blokea
+MsgMain/Help/Item_21	Txanpona
+MsgMain/Help/Item_22	Boo
+MsgMain/Help/Item_23	Blooper
+MsgMain/Help/Item_24	Kamek
+MsgMain/Help/Item_25	Luma
+MsgMain/Help/Item_26	Superizarra
+MsgMain/Help/Item_27	Tximista
+MsgMain/Help/Item_28	Turbo-janaria
+MsgMain/Help/Item_101	Ukitzen duen ibilgailu orok\nlabaindu egingo du.
+MsgMain/Help/Item_102	Hiru platano zure ibilgailuaren\ninguruan biraka. Sakatu {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000} banan-banan\naskatzeko.
+MsgMain/Help/Item_103	Bizkortze bat ematen dizu.
+MsgMain/Help/Item_104	Hiru perretxiko zure ibilgailuaren\ninguruan biraka. Sakatu {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000} banan-banan\nerabiltzeko.
+MsgMain/Help/Item_105	Denbora batez, turbo-perretxikoaren efektua\naktibatzen uzten dizu\n{0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000} behin eta berriz sakatuta.
+MsgMain/Help/Item_106	Zure ibilgailua eta zu handitu egiten zarete\nuneren batez, eta aurkariak zapaldu ditzakezu.\nAbiadura gehigarria ere ematen dizu.
+MsgMain/Help/Item_107	Lerro zuzenean irteten da eta jotzen duen\nlehen ibilgailua irauli egiten du.
+MsgMain/Help/Item_108	Hiru maskor berde zure ibilgailuaren\ninguruan biraka. Sakatu {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}\nbanan-banan jaurtitzeko.
+MsgMain/Help/Item_109	Zure aurrean doan ibilgailuaren atzetik doa\neta bidean topatzen duen\nlehena irauli egiten du.
+MsgMain/Help/Item_110	Hiru maskor gorri zure ibilgailuaren\ninguruan biraka. Sakatu {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}\nbanan-banan jaurtitzeko.
+MsgMain/Help/Item_111	Zuzenean doa lasterketaren buruko ibilgailura\neta hori eta bidean tartekatzen den\nedozein irauli egiten ditu. Ez da geratuko\nlasterketaren liderra harrapatu arte!
+MsgMain/Help/Item_112	Zirkuituaren bidea jarraitzen du\ntxanponak sortzen dituen bitartean eta\nurtzen dituen ibilgailuak irauli egiten ditu.
+MsgMain/Help/Item_113	Su-bolak jaurtitzen uzten dizu\nunetxo batez {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000} sakatuta.\nIbilgailu bat jotzen badute,\nkontrolik gabe biraka ibiliko da.
+MsgMain/Help/Item_114	Izotz-bolak jaurtitzen uzten dizu\nunetxo batez {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000} sakatuta.\nJotzen dituztenek ibilgailuaren\ncontrola galduko dute.
+MsgMain/Help/Item_115	{0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000} sakatuta bumerang bat\njaurtitzen uzten dizu, harrapatzen dituen\nibilgailuak kontrolik gabe biraka jarriko ditu.
+MsgMain/Help/Item_116	Bill Bala bihurtzen zaitu uneren batez,\nautomatikoki doana abiadura osoan\nhelmugara. Bidean tartekatzen den\nedozein ibilgailu irauliko duzu.
+MsgMain/Help/Item_117	Behin jaurtita, une batera lehertuko da\nedo norbaitek harekin talka egiten badu.\nPlosioak harrapatzen dituen ibilgailuak\nirauli edo biraka jarriko ditu!
+MsgMain/Help/Item_118	Mailu batzuk jaurtitzen uzten dizu\n{0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000} sakatuta. Istripuak eragingo dituzu\nbeste ibilgailuei jotzen badiezu.
+MsgMain/Help/Item_119	Turutakada handia ematen du eta\ninguruko ibilgailuak eta objektuak\nairera botatzen ditu.
+MsgMain/Help/Item_120	Txanpon bat sortzen du {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}\nsakatzen duzun bakoitzean. Abiadura\npixka bat ere handitzen du.
+MsgMain/Help/Item_121	Zure txanpon-kontagailua bi gehitzen du.\nZenbat eta gehiago izan, orduan eta\nazkarrago joango da zure ibilgailua.
+MsgMain/Help/Item_122	Zure ibilgailua ikusezin bihurtzen du,\nberaz ez dizkizu eragiten oztopo batzuek,\nplatano edo maskorrek adibidez.\nGainera, aurkarien objektuak lapurtu ditzakezu!
+MsgMain/Help/Item_123	Tinta jaurtitzen die aurkariei eta\nikusmena zailtzen die une batez.
+MsgMain/Help/Item_124	Kamek deitzen du bere botere\nmagikoekin efektu oso desberdinak\neragin ditzan.
+MsgMain/Help/Item_125	Altuera handira igotzen uzten dizu\nplatano edo maskorrak saihesteko. Borroketan,\nairean aurkariak jotzen badituzu,\npuxikak edo txanponak lapurtuko dizkiezu.
+MsgMain/Help/Item_126	Ezin-zaurituta uzten zaitu uneren batez\neta abiadura handitzen du.\nZurekin talka egiten duten\nibilgailuak irauli egingo dira.
+MsgMain/Help/Item_127	Zure aurkari guztiak kontrolik gabe\nbiraka jartzen ditu eta objekturik gabe uzten ditu.\nHalaber, tamaina eta abiadura\nmurrizten dizkie une batez.
+MsgMain/Help/Item_128	Mokadu goxo bat, bizkortze bat ematen\ndizuna eta, gainera, zure itxura\naldatu dezakeena.
+MsgMain/Help/Rule_01	Grand Prix
+MsgMain/Help/Rule_02	Biziraupena
+MsgMain/Help/Rule_03	Denbora-proba
+MsgMain/Help/Rule_04	Lasterketa VS.
+MsgMain/Help/Rule_05	Puxika-borroka
+MsgMain/Help/Rule_06	Txanpon-borroka
+MsgMain/Help/Rule_101	Grand Prix
+MsgMain/Help/Rule_102	Biziraupena
+MsgMain/Help/Rule_103	Denbora-proba
+MsgMain/Help/Rule_104	Lasterketa VS.
+MsgMain/Help/Rule_105	Puxika-borroka
+MsgMain/Help/Rule_106	Txanpon-borroka
+MsgMain/Help/Rule_201	Borroka ezazu podiuma 4 lasterketako\nkopa batean!
+MsgMain/Help/Rule_202	Munduan zehar kanporaketako\nlasterketa bat!
+MsgMain/Help/Rule_203	Gainditu zure denbora onenak bakarka!
+MsgMain/Help/Rule_204	Lehiatu zure arauen arabera!
+MsgMain/Help/Rule_205	Erabili objektuak eta lehertu puxikak!
+MsgMain/Help/Rule_206	Txanpon gehien lortzen duenak irabazten du!
+MsgMain/Help/Rule_301	Lasterketa bakoitzaren ondoren, lortutako postuaren\narabera puntuak irabazten dira. Txapelketaren\nsailkapen orokorrean zure postua 4 lasterketen\nondoren batutako puntuen araberakoa izango da.
+MsgMain/Help/Rule_302	Eten gabeko lasterketa bat, non parte-hartzaileek\nsailkapen-postuetan egoten saiatu\nbehar duten edozein modutan!
+MsgMain/Help/Rule_303	Aukeratu nahi duzun zirkuitua eskuragarrien artean.\nDenbora hobeagoak lortzeko gakoa\nturbo-perretxikoak trebetasunez erabiltzea da!
+MsgMain/Help/Rule_304	Aukeratu zure gustuko doikuntzak, hala nola\nlasterketa kopurua edo talde-banaketa.
+MsgMain/Help/Rule_305	Lortu puntuak aurkarien puxikak lehertuz!\nHaiei talka eginez ere lapur diezazkiekezu\nturbo-perretxiko baten laguntzaz.
+MsgMain/Help/Rule_306	Jo ezazu zure aurkariak objektuekin\ntxanponak bota ditzaten. Haiei talka eginez ere\nlapur diezazkiekezu turbo-perretxiko\nbaten laguntzaz.
+MsgMain/Help/Rule_401	Grand Prix moduak 7 kopa desberdinetan parte\nhartzen uzten du. Zer gertatuko da guztiak osatzen badituzu?
+MsgMain/Help/Rule_402	5 tarteko helmugetako bakoitzetik igarotzean,\nparte-hartzaileen kopurua murrizten da. Eutsi\nkanporatu gabe eta saiatu amaieran\nlehen postua lortzen!
+MsgMain/Help/Rule_403	Lehiatu beste jokalarien mamuen aurka.\nAgian zerbait ikas dezakezu haietatik!
+MsgMain/Help/Rule_404	Doikuntza-pantailan «Bira» aukeratzen baduzu,\nlehiaketa munduan zehar zirkuituak\nkateatuz garatuko da!
+MsgMain/Help/Rule_405	Puxikarik gabe gelditzen bazara, bukatu da dena...
+MsgMain/Help/Rule_406	Txanponak minimapan agertzen dira.\nEz kendu begirik gainetik!
+MsgMain/Help/FreeRun_01	P etengailuak
+MsgMain/Help/FreeRun_02	? Panelak
+MsgMain/Help/FreeRun_03	Peach-en dominak
+MsgMain/Help/FreeRun_04	Txanponak
+MsgMain/Help/FreeRun_05	Yoshi-ren lokala
+MsgMain/Help/FreeRun_06	Argazki modua
+MsgMain/Help/FreeRun_101	Ukitu P etengailu bat misio bat hasteko!\nZaila egiten bazaizu, gogoratu iraunkortasuna\narrakastaren gakoa dela!
+MsgMain/Help/FreeRun_102	? panelak ustekabeko lekuetan aurki ditzakezu.\nSaiatu ahalik eta gehien aurkitzen!
+MsgMain/Help/FreeRun_103	Peach-en domina distiratsuak ezkutatuta daude\nmundu osoan. Zenbat izango direla uste duzu?
+MsgMain/Help/FreeRun_104	Txanpon nahikoa batzen badituzu, ibilgailu\nberriak desblokeatuko dituzu. Diotenez,\nmendiak daude hor inguruan!
+MsgMain/Help/FreeRun_105	Turbo-janaria mapako toki desberdinetan aurkituko duzu.\nJanari goxo hauek hainbat piloturen\nitxura alda dezakete!
+MsgMain/Help/FreeRun_106	Argazkiak atera ditzakezu {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000} sakatuta. Bilatu\nkuadrorik onena, irribarre egin eta... klik!
+MsgMain/MachineType/Vehicle_Amb	Bibote Mendekaria
+MsgMain/MachineType/Vehicle_Bds	Tximista GTI
+MsgMain/MachineType/Vehicle_Blk	Mekatrizikloa
+MsgMain/MachineType/Vehicle_Bsn	Adar Handia
+MsgMain/MachineType/Vehicle_Bul	Placapum XL
+MsgMain/MachineType/Vehicle_Crp	Urmaelaren Erregea
+MsgMain/MachineType/Vehicle_Dkn	Hipertutua
+MsgMain/MachineType/Vehicle_Dmp	Bolkanlaria
+MsgMain/MachineType/Vehicle_Esp	Izar-lera
+MsgMain/MachineType/Vehicle_H2o	Turbonu B
+MsgMain/MachineType/Vehicle_Hrl	Minitraktorea
+MsgMain/MachineType/Vehicle_Hvc	R.O.B. OT
+MsgMain/MachineType/Vehicle_Kgs	Blooper BB
+MsgMain/MachineType/Vehicle_Lob	Hirukrustazeoa
+MsgMain/MachineType/Vehicle_Mhb	Moto Hipersonikoa
+MsgMain/MachineType/Vehicle_Mov	Ospe Iheskorra
+MsgMain/MachineType/Vehicle_Mqn	Erle-mobila
+MsgMain/MachineType/Vehicle_Ocn	Descaposapo
+MsgMain/MachineType/Vehicle_Ptn	Marchimotas GTI
+MsgMain/MachineType/Vehicle_Rbn	Koketo-mobila
+MsgMain/MachineType/Vehicle_Rcb	Irrati Azkarra
+MsgMain/MachineType/Vehicle_Rcc	Turbo Errausgailua
+MsgMain/MachineType/Vehicle_Rlb	Lur guztietako Moto
+MsgMain/MachineType/Vehicle_Rlk	Lur guztietako Kart
+MsgMain/MachineType/Vehicle_Sct	Cuquimoto
+MsgMain/MachineType/Vehicle_Skl	Tubiturbo
+MsgMain/MachineType/Vehicle_Snd	Surcadunas
+MsgMain/MachineType/Vehicle_Snm	Izu Labainkorra
+MsgMain/MachineType/Vehicle_Stb	Moto estandarra
+MsgMain/MachineType/Vehicle_Stk	Kart estandarra
+MsgMain/MachineType/Vehicle_Stm	Locomoto
+MsgMain/MachineType/Vehicle_Tbt	Cachivachero
+MsgMain/MachineType/Vehicle_Dlp	Izurde Bizkorra
+MsgMain/MachineType/Vehicle_Rkt	Kartonauta III
+MsgMain/MachineType/Vehicle_Pfm	Bihotz Erregala
+MsgMain/MachineType/Vehicle_Cpt	Turbo-alfonbra
+MsgMain/MachineType/Vehicle_Wtm	Dorrie Olatu-gaina
+MsgMain/MachineType/Vehicle_Alt	Velocirreptil
+MsgMain/MachineType/Vehicle_Kpv	Suntsitzailea
+MsgMain/MachineType/Vehicle_Bil	Automo Bill
+MsgMain/Menu/2001	Onartu
+MsgMain/Menu/2003	Bai
+MsgMain/Menu/2004	Ez
+MsgMain/Menu/2051	Sakatu {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}
+MsgMain/Menu/2053	Ordenatu
+MsgMain/Menu/2054	Xehetasunak
+MsgMain/Menu/2055	Abiadura
+MsgMain/Menu/2056	Azelerazioa
+MsgMain/Menu/2057	Pisua
+MsgMain/Menu/2058	Maneiua
+MsgMain/Menu/2059	Ausazkoa
+MsgMain/Menu/2101	Jokalari bat
+MsgMain/Menu/2102	Jokalari anitz
+MsgMain/Menu/2103	Online
+MsgMain/Menu/2104	Haririk gabe
+MsgMain/Menu/2105	Pegatinak
+MsgMain/Menu/2106	LAN partida
+MsgMain/Menu/2110	Mapa
+MsgMain/Menu/2111	Ibilaldi librea
+MsgMain/Menu/2120	{0E 0000 0002 0002 0046} {0E 0000 0002 0002 0064}1{0E 0000 0002 0002 0032}J{0E 0000 0002 0002 0064}
+MsgMain/Menu/2121	{0E 0000 0002 0002 0046} {0E 0000 0002 0002 0064}2{0E 0000 0002 0002 0032}J{0E 0000 0002 0002 0064}
+MsgMain/Menu/2122	{0E 0000 0002 0002 0046} {0E 0000 0002 0002 0064}3{0E 0000 0002 0002 0032}J{0E 0000 0002 0002 0064}
+MsgMain/Menu/2123	{0E 0000 0002 0002 0046} {0E 0000 0002 0002 0064}4{0E 0000 0002 0002 0032}J{0E 0000 0002 0002 0064}
+MsgMain/Menu/2201	Grand Prix
+MsgMain/Menu/2202	Biziraupena
+MsgMain/Menu/2203	Denbora-proba
+MsgMain/Menu/2204	Lasterketa VS.
+MsgMain/Menu/2205	Borroka
+MsgMain/Menu/2211	Lehiatu 4 zirkuitutan!
+MsgMain/Menu/2212	Saiatu amaierara arte irauten!
+MsgMain/Menu/2213	Lortu zure marka onena!
+MsgMain/Menu/2214	Zuk ezartzen dituzu arauak!
+MsgMain/Menu/2215	Lehiatu arau pertsonalizatuekin!
+MsgMain/Menu/2216	24 jokalari arte aldi berean!
+MsgMain/Menu/2217	24 piloturen kanporaketako lasterketa!
+MsgMain/Menu/2219	24 jokalari arte elkarren aurka!
+MsgMain/Menu/2231	Egin aurre zure lagunei!
+MsgMain/Menu/2221	Hasi Grand Prix
+MsgMain/Menu/2222	Hasi biziraupena
+MsgMain/Menu/2223	Hasi denbora-proba
+MsgMain/Menu/2224	Hasi errepikapena
+MsgMain/Menu/2225	Hasi lasterketa
+MsgMain/Menu/2226	Hasi borroka
+MsgMain/Menu/2227	Irten nahi duzu?
+MsgMain/Menu/2228	Irten nahi duzu?
+MsgMain/Menu/2229	Izenburu-pantailara\nitzuli nahi duzu?
+MsgMain/Menu/2235	Ispilua
+MsgMain/Menu/2240	cc
+MsgMain/Menu/2261	Bakarka
+MsgMain/Menu/2262	Mamua erronkatu
+MsgMain/Menu/2263	Mamua ikusi
+MsgMain/Menu/2264	Sailkapena ikusi
+MsgMain/Menu/2272	Mamua igo
+MsgMain/Menu/2266	Mamu-korrikalari honen datuak\ndeskargatu nahi dituzu?
+MsgMain/Menu/2268	Mamu-korrikalariaren datuak\nezabatu nahi dituzu?
+MsgMain/Menu/2269	Mamu-korrikalariaren datuak\nezabatu dira.
+MsgMain/Menu/2270	Mamu-korrikalariaren datuak\ndeskargatzen...
+MsgMain/Menu/2271	Mamu-korrikalaria\ndeskargatu da!\nLasterketa orain hasi nahi duzu?
+MsgMain/Menu/2273	Mamu-korrikalariaren datuak\nigo nahi dituzu?
+MsgMain/Menu/2274	Oraindik ez duzu mamu-korrikalaririk\nsortu zirkuitu honetan.
+MsgMain/Menu/2275	Ezin dituzu zure mamu-korrikalariaren\ndatuak deskargatu.
+MsgMain/Menu/2276	Ezin da mamu-korrikalari gehiagoren datuak deskargatu.\n{0E 0000 0003 0002 0000}Denak ezabatu{0E 0000 0003 0002 FFFF} lekua egiteko?
+MsgMain/Menu/2277	Mamu-korrikalarien datuak\n{0E 0000 0003 0002 0000}betiko ezabatuko dira{0E 0000 0003 0002 FFFF}.\nJarraitu nahi duzu?
+MsgMain/Menu/2278	Deskargatutako mamu-korrikalari\nguztien datuak ezabatu dira.
+MsgMain/Menu/2281	Mamu-korrikalari honen datuak\ndeskargatuta dituzu jada.
+MsgMain/Menu/2282	Hauek dira {0E 0000 0003 0002 0000}zure mamu-korrikalariaren\ndatuak{0E 0000 0003 0002 FFFF}.\nZiur ezabatu nahi dituzula?
+MsgMain/Menu/2301	Kategoria
+MsgMain/Menu/2302	50 cc
+MsgMain/Menu/2303	100 cc
+MsgMain/Menu/2304	150 cc
+MsgMain/Menu/2306	Ispilua
+MsgMain/Menu/2308	Saltatu
+MsgMain/Menu/2311	CPU maila
+MsgMain/Menu/2312	Erraza
+MsgMain/Menu/2313	Normala
+MsgMain/Menu/2314	Zaila
+MsgMain/Menu/2315	CPU gabe
+MsgMain/Menu/2321	Zirkuituak
+MsgMain/Menu/2322	Bira
+MsgMain/Menu/2323	Aukeran
+MsgMain/Menu/2324	Ausazkoa
+MsgMain/Menu/2331	Lasterketak
+MsgMain/Menu/2332	3 lasterketa
+MsgMain/Menu/2333	4 lasterketa
+MsgMain/Menu/2334	5 lasterketa
+MsgMain/Menu/2335	6 lasterketa
+MsgMain/Menu/2336	8 lasterketa
+MsgMain/Menu/2337	12 lasterketa
+MsgMain/Menu/2338	16 lasterketa
+MsgMain/Menu/2339	32 lasterketa
+MsgMain/Menu/2351	Taldeak
+MsgMain/Menu/2352	Talderik gabe
+MsgMain/Menu/2353	2 talde
+MsgMain/Menu/2354	3 talde
+MsgMain/Menu/2355	4 talde
+MsgMain/Menu/2371	Erronden
+MsgMain/Menu/2372	3 ronda
+MsgMain/Menu/2373	4 ronda
+MsgMain/Menu/2374	5 ronda
+MsgMain/Menu/2375	6 ronda
+MsgMain/Menu/2376	8 ronda
+MsgMain/Menu/2381	Tarteak
+MsgMain/Menu/2382	10 segundo
+MsgMain/Menu/2383	1 minutu
+MsgMain/Menu/2384	5 minutu
+MsgMain/Menu/2391	Objektuak
+MsgMain/Menu/2392	Arruntak
+MsgMain/Menu/2393	Zoroak
+MsgMain/Menu/2402	Lasterketa VS.
+MsgMain/Menu/2404	Biziraupena
+MsgMain/Menu/2405	Puxika-borroka
+MsgMain/Menu/2406	Txanpon-borroka
+MsgMain/Menu/3003	Ibilaldi librean korrika egin nahi duzu?
+MsgMain/Menu/3004	Izenburu-pantailara\nitzuliko zara.
+MsgMain/Menu/5001	Lasterketa
+MsgMain/Menu/5002	Biziraupena
+MsgMain/Menu/5004	Lagunak
+MsgMain/Menu/5005	Taldea sortu
+MsgMain/Menu/5006	Bilatu taldearen IDaren arabera
+MsgMain/Menu/5007	Sartu
+MsgMain/Menu/5008	Taldea
+MsgMain/Menu/5009	Borroka
+MsgMain/Menu/5013	Jokalariak bilatzen...
+MsgMain/Menu/5014	Lasterketa hastear dago!
+MsgMain/Menu/5017	Zirkuitua erabaki da!
+MsgMain/Menu/5019	Ezin zara partidan sartu. Itxaron une batez.
+MsgMain/Menu/5020	Partidan sartu zara!
+MsgMain/Menu/5021	{0E 0001 0001 0004 0000 0000} partidan sartu da!
+MsgMain/Menu/5022	Arauak erabaki dira!
+MsgMain/Menu/5023	Hurrengo lasterketa: {0E 0001 0000 0004 0000 0000}
+MsgMain/Menu/5024	Hurrengo borroka: {0E 0001 0000 0004 0000 0000}
+MsgMain/Menu/5026	Hurrengo lasterketan parte hartuko duzu. Itxaron...
+MsgMain/Menu/5027	Hurrengo borrokan parte hartuko duzu. Itxaron...
+MsgMain/Menu/5028	Beste jokalarien zain...
+MsgMain/Menu/5029	{0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000} Jolasten hasi
+MsgMain/Menu/5030	{0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000} Jolasten hasi
+MsgMain/Menu/5031	Borroka hastear dago!
+MsgMain/Menu/5032	Itxaron arauak erabaki arte.
+MsgMain/Menu/5033	Konexioa eten da.
+MsgMain/Menu/5034	Ezin izan zara biziraupenean sartu.
+MsgMain/Menu/5035	Urrun dauden bi pilotu elkartzea dagokizu.
+MsgMain/Menu/5101	Ausazkoa
+MsgMain/Menu/5102	Aldatu
+MsgMain/Menu/5202	Talde bat sortu nahi duzu\nbeste jokalariekin\nlehiatzeko?
+MsgMain/Menu/5204	Sartutako IDa ez dator bat\ninongo talderen IDarekin.
+MsgMain/Menu/5209	Taldearen IDa
+MsgMain/Menu/5212	Jolas-estatistikak
+MsgMain/Menu/5213	Zu
+MsgMain/Menu/5214	Laguna
+MsgMain/Menu/5215	-
+MsgMain/Menu/5218	Sartu taldearen IDa.
+MsgMain/Menu/5220	Itxaron une bat...
+MsgMain/Menu/5221	Talde hau utzi\nnahi duzu?
+MsgMain/Menu/5301	Taldea beteta dago.\nItxaron pixka bat...
+MsgMain/Menu/5302	Konexio-errore bat\ngertatu da.
+MsgMain/Menu/5304	Sartu nahi zenuen taldea\nez da aurkitzen.
+MsgMain/Menu/5305	Konexio-errore bat\ngertatu da.
+MsgMain/Menu/5307	Konexio-errore bat\ngertatu da.
+MsgMain/Menu/5308	Konexio-errore bat\ngertatu da.
+MsgMain/Menu/5320	{0E 0001 0000 0004 0000 0000} txanpon bildu dituzu\neta {0E 0000 0003 0002 0000}ibilgailu{0E 0000 0003 0002 FFFF}\nberri bat desblokeatu duzu!
+MsgMain/Menu/5313	Ez duzu lagunik erregistratuta.
+MsgMain/Menu/5314	Ez dago sartzeko talderik.
+MsgMain/Menu/5315	Arauak berretsi
+MsgMain/Menu/5316	Parte-hartzaileak
+MsgMain/Menu/5347	Argazki modua
+MsgMain/Menu/5328	Ikuspuntua
+MsgMain/Menu/5329	Fokua
+MsgMain/Menu/5333	Amaitu
+MsgMain/Menu/5334	Keinua
+MsgMain/Menu/5335	Markoa
+MsgMain/Menu/5336	Gida
+MsgMain/Menu/5340	Postura
+MsgMain/Menu/5341	Okerdura
+MsgMain/Menu/5342	Argazkia atera
+MsgMain/Menu/5345	Zooma
+MsgMain/Menu/5348	Fokua: bat ere ez
+MsgMain/Menu/5349	Fokua: pertsonaia
+MsgMain/Menu/5350	Fokua: zentratua
+MsgMain/Menu/5353	Argazkiak ateratzeari\nutzi nahi diozu?
+MsgMain/Menu/5354	Bai
+MsgMain/Menu/5355	Ez
+MsgMain/Menu/5370	Markoa: bat ere ez
+MsgMain/Menu/5371	Markoa: 1
+MsgMain/Menu/5372	Markoa: 2
+MsgMain/Menu/5373	Markoa: 3
+MsgMain/Menu/5374	Markoa: 4
+MsgMain/Menu/5375	Markoa: 5
+MsgMain/Menu/5376	Markoa: 6
+MsgMain/Menu/5377	Markoa: 7
+MsgMain/Menu/5378	Markoa: 8
+MsgMain/Menu/5379	Markoa: 9
+MsgMain/Menu/5380	Markoa: 10
+MsgMain/Menu/5381	Markoa: 11
+MsgMain/Menu/5382	Markoa: 12
+MsgMain/Menu/5383	Markoa: 13
+MsgMain/Mission/Mission_RC_WL_00	Saihestu Goombak eta lortu txanpon urdinak!
+MsgMain/Mission/Mission_RC_WL_03	Lortu zubiko txanpon urdinak!
+MsgMain/Mission/Mission_RC_WL_04	Zeharkatu bagoiak eta lortu txanpon urdinak!
+MsgMain/Mission/Mission_RC_WL_05	Lortu txanpon urdinak airean akrobaziak eginez!
+MsgMain/Mission/Mission_RC_WL_08	Lortu txanpon urdinak hodiz hodi!
+MsgMain/Mission/Mission_WT_WL_00	Gainditu defentsa-lerroa!
+MsgMain/Mission/Mission_WT_WL_01	Jarraitu blokeen lasterbidea Wario Estadiora!
+MsgMain/Mission/Mission_WT_WL_04	Zeharkatu gurpilen bidea abiadura osoan!
+MsgMain/Mission/Mission_WT_WL_05	Aurreratu trena zubiaren egituraren gainean!
+MsgMain/Mission/Mission_WT_WL_06	Igo zubi esekira!
+MsgMain/Mission/Mission_WT_WL_08	Irristatu burdinazko zubira eta zeharkatu!
+MsgMain/Mission/Mission_WT_WL_09	Igo trailerrera eta osatu ekintza-eszena!
+MsgMain/Mission/Mission_WT_WL_10	Zeharkatu Mario Bros. Zirkuiturako lasterbidea!
+MsgMain/Mission/Mission_WT_WL_11	Heldu perretxiko erraldoiaren gaineko banderinera!
+MsgMain/Mission/Mission_WT_WL_12	Aprobetxatu tornadoak banderinera iristeko!
+MsgMain/Mission/Mission_WT_WL_13	Egin bide bizkortzeka hondakinen artean!
+MsgMain/Mission/Mission_WT2_WL_00	Zeharkatu basamortua objektuak erabiliz!
+MsgMain/Mission/Mission_WT2_WL_01	Lehiatu Shy Guyekin korrontean!
+MsgMain/Mission/Mission_WT2_WL_05	Zeharkatu kanoia ibaian gora!
+MsgMain/Mission/Mission_WT2_WL_06	Egin bide ibilbide misteriotsutik!
+MsgMain/Mission/Mission_WT2_WL_07	Gainditu ibilbidea arrapaletatik eta habeetatik pasatuz!
+MsgMain/Mission/Mission_WT2_WL_08	Igo bizkor desnibelak gaindituz!
+MsgMain/Mission/Mission_WT2_WL_09	Erakutsi nola ibiltzen zaren hormetan!
+MsgMain/Mission/Mission_WT2_WL_10	Erakutsi zure oreka-trebetasuna zubian!
+MsgMain/Mission/Mission_WT2_WL_11	Hegan egin Yoshi-ren lokalean zerbait jatera joateko!
+MsgMain/Mission/Mission_WT2_WL_12	Hartu altuera kaktusak aprobetxatuz!
+MsgMain/Mission/Mission_WT2_WL_13	Saihestu armadilloak helmugarako bidean!
+MsgMain/Mission/Mission_WT2_WL_14	Jarraitu helikopteroak markatzen duen ibilbidea!
+MsgMain/Mission/Mission_WT2_WL_15	Probatu zure burua 6. erronka berezian!
+MsgMain/Mission/Mission_WT2_WL_18	Igo arrapaletan salto eginez!
+MsgMain/Mission/Mission_WT3_WL_01	Iraun lur idorrean helmugara iritsi arte!
+MsgMain/Mission/Mission_WT3_WL_02	Jokatu bat-bateko lasterketa kanoian zehar!
+MsgMain/Mission/Mission_WT3_WL_03	Osatu lasterketa piruetak eginez!
+MsgMain/Mission/Mission_WT3_WL_04	Heldu perretxiko haitzezkoen gailurretara!
+MsgMain/Mission/Mission_RC_WL_02	Lortu txanpon urdinak hanburgesaren inguruan!
+MsgMain/Mission/Mission_WT_WL_03	Azeleratu harmailetan eta iritsi helmugara!
+MsgMain/Mission/Mission_WT2_WL_04	Iritsi helmugara etenik gabe jaten!
+MsgMain/Mission/Mission_RC_WL_07	Lortu txanponak errailez erail piruetak eginez!
+MsgMain/Mission/Mission_WT_WL_02	Lehiatu abiaduran trenarekin!
+MsgMain/Mission/Mission_WT2_WL_02	Igo erlojuaren aurka Trenbide Kanoian!
+MsgMain/Mission/Mission_RC_WL_06	Lortu txanpon urdinak goialdean!
+MsgMain/Mission/Mission_WT2_WL_16	Osatu ibilbidea eraztunetatik eta garretatik!
+MsgMain/Mission/Mission_WT2_WL_17	Zeharkatu eraztunak teilatuetan zehar!
+MsgMain/Mission/Mission_RC_DT_00	Lortu txanpon urdinak hondoratu gabe!
+MsgMain/Mission/Mission_RC_DT_01	Lortu hareako txanpon urdinak!
+MsgMain/Mission/Mission_RC_DT_03	Bildu sakabanatutako txanpon urdinak!
+MsgMain/Mission/Mission_RC_DT_04	Lortu oasi lehorreko txanpon urdinak!
+MsgMain/Mission/Mission_RC_DT_05	Lortu txanpon urdinak bazarrean paseatuz!
+MsgMain/Mission/Mission_RC_DT_06	Hegan egin airean txanpon urdinak lortzeko!
+MsgMain/Mission/Mission_RC_DT_07	Bildu oasiko txanpon urdinak!
+MsgMain/Mission/Mission_RC_DT_08	Lortu txanpon urdinak soken gainean!
+MsgMain/Mission/Mission_WT_DT_00	Igaro hegan tornado beldurgarrien ondotik!
+MsgMain/Mission/Mission_WT_DT_01	Gainditu Mailu Anaien segada!
+MsgMain/Mission/Mission_WT_DT_02	Igo Chomp Kateak saihestuz!
+MsgMain/Mission/Mission_WT_DT_03	Gainditu Shy Guyak ibaian gora lehiatuz!
+MsgMain/Mission/Mission_WT_DT_04	Iritsi helmugara hare-itsasotik!
+MsgMain/Mission/Mission_WT_DT_05	Atera lasterka eta salto egin banderinaren gainean!
+MsgMain/Mission/Mission_WT_DT_06	Erabili turboa ondo helmugara iristeko!
+MsgMain/Mission/Mission_WT_DT_07	Jarraitu bide zuzigarria helmugaraino!
+MsgMain/Mission/Mission_WT_DT_08	Gainditu Shy Guyen 2. mailako erronka!
+MsgMain/Mission/Mission_WT_DT_09	Gainditu Shy Guyen 1. mailako erronka!
+MsgMain/Mission/Mission_WT_DT_10	Iritsi helmugara trakzio-gurpil askorekin!
+MsgMain/Mission/Mission_WT_DT_11	Gainditu desnibelak hodiz hodi!
+MsgMain/Mission/Mission_WT_DT_12	Korrika egin basamortuko maratoia bizkortze hutsez!
+MsgMain/Mission/Mission_WT_DT_13	Igo Tokotokoak saihestuz!
+MsgMain/Mission/Mission_WT_DT_14	Egin bide blokeen labirintutik!
+MsgMain/Mission/Mission_WT_DT_15	Igo hondoratutako ontzietatik eta iritsi helmugara!
+MsgMain/Mission/Mission_WT_DT_16	Saihestu Batadoiak!
+MsgMain/Mission/Mission_WT_DT_17	Zeharkatu trenbide luzea helmugaraino!
+MsgMain/Mission/Mission_WT2_DT_00	Nabigatu ibaian itsasora irten arte!
+MsgMain/Mission/Mission_WT2_DT_01	Aurrera egin zutabez zutabe salto eginez!
+MsgMain/Mission/Mission_WT2_DT_02	Gidatu kanpoko harresiaren luzeran ostera sartzeko!
+MsgMain/Mission/Mission_WT2_DT_03	Zeharkatu zubia piruetak eginez!
+MsgMain/Mission/Mission_WT2_DT_04	Saihestu Fogolinak tunelean!
+MsgMain/Mission/Mission_WT2_DT_05	Saihestu dantzari diren Pokeyak!
+MsgMain/Mission/Mission_WT2_DT_06	Hegan egin geltokiko helmuga-banderinara!
+MsgMain/Mission/Mission_WT2_DT_07	Gainditu Shy Guyen 3. mailako erronka!
+MsgMain/Mission/Mission_WT2_DT_08	Jarraitu Tokotokoei!
+MsgMain/Mission/Mission_WT2_DT_09	Igo gailurrera basamortutik ihes egiteko!
+MsgMain/Mission/Mission_WT2_DT_10	Zeharkatu basamortua eta muinoak helmugaraino!
+MsgMain/Mission/Mission_WT2_DT_11	Egin piruetak nonahi Shy Guy Bazarrean!
+MsgMain/Mission/Mission_WT2_DT_12	Zeharkatu ur eta txanponen ekaitza!
+MsgMain/Mission/Mission_WT3_DT_00	Gainditu basamortuko lasterketa gogorra!
+MsgMain/Mission/Mission_RC_VL_02	Lortu txanpon urdinak bide estuan!
+MsgMain/Mission/Mission_RC_VL_04	Lortu txanpon urdinak iturri termaletan!
+MsgMain/Mission/Mission_RC_VL_05	Hartu txanpon urdinak eta saihestu Harri Zorrotzak!
+MsgMain/Mission/Mission_RC_VL_06	Saihestu Bronkoak eta lortu txanpon urdinak!
+MsgMain/Mission/Mission_RC_VL_07	Lortu txanpon urdinak barandetan!
+MsgMain/Mission/Mission_RC_VL_08	Bildu hilerriko txanpon urdinak!
+MsgMain/Mission/Mission_RC_VL_09	Berreskuratu sakabanatutako txanpon urdinak!
+MsgMain/Mission/Mission_RC_VL_11	Lortu eskailera handiko txanpon urdinak!
+MsgMain/Mission/Mission_RC_VL_12	Salto egin barandetatik eta lortu txanponak!
+MsgMain/Mission/Mission_WT_VL_02	Hegan egin lava-lakuaren gainean erre gabe!
+MsgMain/Mission/Mission_WT_VL_03	Saihestu Rocorrampak edo erabili igarotzeko!
+MsgMain/Mission/Mission_WT_VL_04	Igo trailerrera eta dena suntsitu!
+MsgMain/Mission/Mission_WT_VL_05	Egin bide Hezurtxoz betetako ibilbidetik!
+MsgMain/Mission/Mission_WT_VL_06	Joan iturri termaletara Pezuesoak saihestuz!
+MsgMain/Mission/Mission_WT_VL_07	Zeharkatu Neumatónchereen taldea!
+MsgMain/Mission/Mission_WT_VL_08	Zeharkatu hondoratutako zubiaren egitura!
+MsgMain/Mission/Mission_WT_VL_10	Bota zeure burua sumendi-ekaitzera Bill Bala bezala!
+MsgMain/Mission/Mission_WT_VL_11	Hegan egin Aireko Gotorlekura!
+MsgMain/Mission/Mission_WT_VL_12	Saihestu Su Anaien erasoak!
+MsgMain/Mission/Mission_WT2_VL_04	Probatu zure erresistentzia lavaren aurrean!
+MsgMain/Mission/Mission_WT2_VL_05	Azeleratu eskuineko ibilbidetik perretxikoak erabiliz!
+MsgMain/Mission/Mission_WT2_VL_06	Mantendu oreka kableen gainean!
+MsgMain/Mission/Mission_WT2_VL_07	Jarraitu ezkerreko ibilbidea perretxikorik erabili gabe!
+MsgMain/Mission/Mission_WT2_VL_08	Zeharkatu iturri termalen gunea!
+MsgMain/Mission/Mission_WT2_VL_09	Osatu Piraña Piromanoen ibilbidea!
+MsgMain/Mission/Mission_WT2_VL_10	Zeharkatu gune magmatikoa helikopteroan!
+MsgMain/Mission/Mission_WT2_VL_11	Zeharkatu hormak piruetak kateatuz!
+MsgMain/Mission/Mission_WT2_VL_12	Gainditu hodi eta eraztunen slaloma!
+MsgMain/Mission/Mission_WT2_VL_13	Saihestu sumo-zapaltze elektrifikatzaileak!
+MsgMain/Mission/Mission_WT2_VL_16	Igaro egituren hutsuneetatik!
+MsgMain/Mission/Mission_WT2_VL_17	Iritsi gotorlekuaren goialdera!
+MsgMain/Mission/Mission_WT2_VL_18	Igo garabi batetik eta saihestu bestea!
+MsgMain/Mission/Mission_WT2_VL_20	Lurreratu zuloan hegaldi luze baten ondoren!
+MsgMain/Mission/Mission_WT3_VL_01	Hartu mokaduak Donut Handian lasterketa batean!
+MsgMain/Mission/Mission_WT_VL_00	Gainditu Tortopo-lerro ugariak!
+MsgMain/Mission/Mission_WT2_VL_00	Iritsi dorre zuzigarriaren gailurrera!
+MsgMain/Mission/Mission_WT2_VL_02	Egin korrika erlojuaren aurka Aireko Gotorlekuan!
+MsgMain/Mission/Mission_RC_VL_01	Lortu txanpon urdinak sukaldaritza-gunean!
+MsgMain/Mission/Mission_WT_VL_01	Salto egin Bowser-en Gazteluko harresitik!
+MsgMain/Mission/Mission_WT2_VL_03	Saihestu lava piruetak eginez!
+MsgMain/Mission/Mission_WT3_VL_00	Lehiatu Bowser-en mutil-laguntzaileez betetako zirkuitu batean!
+MsgMain/Mission/Mission_RC_VL_10	Mantendu oreka eta lortu txanpon urdinak!
+MsgMain/Mission/Mission_RC_VL_15	Saihestu su-bolak eta lortu txanpon urdinak!
+MsgMain/Mission/Mission_WT2_VL_14	Erakutsi zure trebetasuna hormetan ibiltzen!
+MsgMain/Mission/Mission_RC_FS_03	Lortu zortziko ibilbideko txanpon urdinak!
+MsgMain/Mission/Mission_RC_FS_04	Lortu Floruga-ek zaintzen dituzten txanpon urdinak!
+MsgMain/Mission/Mission_RC_FS_05	Bildu txanpon urdinak hondoratu gabe!
+MsgMain/Mission/Mission_RC_FS_06	Bildu txanpon urdinak trafikoa saihestuz!
+MsgMain/Mission/Mission_RC_FS_07	Arrantzatu txanpon urdinak Acuarañen artean!
+MsgMain/Mission/Mission_RC_FS_08	Lortu kanpalekuko txanpon urdinak!
+MsgMain/Mission/Mission_RC_FS_09	Lortu baso mamuzkoko txanpon urdinak!
+MsgMain/Mission/Mission_WT_FS_02	Jarraitu bidea orein baketsuak saihestuz!
+MsgMain/Mission/Mission_WT_FS_03	Igo sokatik helmugara!
+MsgMain/Mission/Mission_WT_FS_04	Igaro hegan Mario-ren estatuaren gainetik!
+MsgMain/Mission/Mission_WT_FS_05	Aprobetxatu petaloak sagarra lortzeko!
+MsgMain/Mission/Mission_WT_FS_06	Zeharkatu Mario Zirkuitua etengabe saltoka!
+MsgMain/Mission/Mission_WT_FS_07	Jarraitu trenari eta segi trenbideetatik!
+MsgMain/Mission/Mission_WT_FS_08	Saihestu Spike-en erasoak eta iritsi helmugara!
+MsgMain/Mission/Mission_WT_FS_09	Egin akrobaziak eta lurreratu piruetak eginez!
+MsgMain/Mission/Mission_WT_FS_10	Gozatu ibaian eta basoan barrena ihesaldi batez!
+MsgMain/Mission/Mission_WT_FS_11	Utzi Piraña Huntzek gidatzen!
+MsgMain/Mission/Mission_WT_FS_12	Joan korrontearen kontra izarren indarrarekin!
+MsgMain/Mission/Mission_WT_FS_13	Irristatu kableetan eta erreietan helmugaraino!
+MsgMain/Mission/Mission_WT2_FS_05	Ihes egin bizkor baso mamuzkotik!
+MsgMain/Mission/Mission_WT2_FS_06	Irristatu dotore zuhaitzen artean!
+MsgMain/Mission/Mission_WT2_FS_07	Zeharkatu padura sorginduko zubiak!
+MsgMain/Mission/Mission_WT2_FS_08	Ibili korrontearen kontra helmugara iristeko!
+MsgMain/Mission/Mission_WT2_FS_09	Gainditu padura superizarrei esker!
+MsgMain/Mission/Mission_WT2_FS_10	Saihestu trafikoa hormetatik ere ibiliz!
+MsgMain/Mission/Mission_WT2_FS_11	Salto egin bide estutik!
+MsgMain/Mission/Mission_WT2_FS_12	Jaitsi korrontean Zuhaitz Herrixkaraino!
+MsgMain/Mission/Mission_WT2_FS_13	Saihestu bidea ixten dizuten Piraña Landareak!
+MsgMain/Mission/Mission_WT2_FS_14	Saihestu trafikoa eta Placapumak!
+MsgMain/Mission/Mission_WT3_FS_01	Ibili Mamuen Haranaren 1 omenezko zirkuituan!
+MsgMain/Mission/Mission_WT3_FS_02	Ibili Mamuen Haranaren 2 omenezko zirkuituan!
+MsgMain/Mission/Mission_WT3_FS_03	Ibili Mamuen Haranaren 3 omenezko zirkuituan!
+MsgMain/Mission/Mission_WT3_FS_05	Jarraitu baso trinkoko bide bat!
+MsgMain/Mission/Mission_RC_FS_01	Lortu txanpon urdinak lirio-haranean!
+MsgMain/Mission/Mission_WT_FS_01	Zeharkatu ezkur-euria!
+MsgMain/Mission/Mission_WT2_FS_00	Hartu altuera Piraña Huntzekin!
+MsgMain/Mission/Mission_WT2_FS_02	Saihestu Florugak helmugarako bidean!
+MsgMain/Mission/Mission_RC_FS_00	Lortu kontrol-dorreko txanpon urdinak!
+MsgMain/Mission/Mission_WT_FS_00	Erabili arrapala salto izugarri bat egiteko!
+MsgMain/Mission/Mission_WT2_FS_01	Gainditu denboraren aurkako erronka zorrotza!
+MsgMain/Mission/Mission_RC_FS_02	Igo garabietara zinema-ibilbide batean!
+MsgMain/Mission/Mission_WT2_FS_03	Sartu pelikula-unibertso beldurgarri batean!
+MsgMain/Mission/Mission_WT2_FS_04	Zeharkatu zinema-aretoko barandak!
+MsgMain/Mission/Mission_WT3_FS_04	Sartu zeure burua pelikulan eta iritsi helmugara!
+MsgMain/Mission/Mission_RC_IC_05	Lortu txanpon urdinak slalom batean!
+MsgMain/Mission/Mission_RC_IC_07	Lortu txanpon urdinak Pokey Polarren artean!
+MsgMain/Mission/Mission_RC_IC_09	Lortu pinguinoen desfileko txanpon urdinak!
+MsgMain/Mission/Mission_RC_IC_10	Lortu txanpon urdinak joan-etorrien artean!
+MsgMain/Mission/Mission_RC_IC_11	Lortu txanpon urdinak Izotz Pirañen artean!
+MsgMain/Mission/Mission_RC_IC_12	Lortu elur-gizonen txanpon urdinak!
+MsgMain/Mission/Mission_RC_IC_13	Lortu txanpon urdinak erasoak saihestuz!
+MsgMain/Mission/Mission_RC_IC_14	Lortu txanpon urdinak piruetak eginez!
+MsgMain/Mission/Mission_RC_IC_15	Saihestu Fuzzyak eta lortu txanpon urdinak!
+MsgMain/Mission/Mission_RC_IC_16	Lortu txanponak elur-bolak saihestuz!
+MsgMain/Mission/Mission_WT2_IC_02	Hegan egin elurrezko aldapen gainetik!
+MsgMain/Mission/Mission_WT2_IC_03	Saihestu pinguinoak izotz-pistan!
+MsgMain/Mission/Mission_WT2_IC_04	Jaitsi zoratuta elurrezko zelaian!
+MsgMain/Mission/Mission_WT2_IC_07	Egin korrika denboraren... eta haizearen aurka!
+MsgMain/Mission/Mission_WT2_IC_08	Iritsi elurrezko gailurraren goialdera!
+MsgMain/Mission/Mission_WT2_IC_09	Sartu auto-ilaratik eta iritsi helmugara!
+MsgMain/Mission/Mission_WT2_IC_10	Igo trenera helmugara iristeko!
+MsgMain/Mission/Mission_WT2_IC_15	Egin bide su-bolak jaurtiz!
+MsgMain/Mission/Mission_WT2_IC_16	Zeharkatu Goomben patinaje-ariketa!
+MsgMain/Mission/Mission_WT2_IC_17	Jaitsi elur-bolak saihestuz!
+MsgMain/Mission/Mission_WT2_IC_18	Jarraitu bidea elur-bolak saihestuz!
+MsgMain/Mission/Mission_WT2_IC_19	Zeharkatu trafikoa eta iritsi eski-pistara!
+MsgMain/Mission/Mission_WT2_IC_20	Erabili perretxikoak geltokira iristeko!
+MsgMain/Mission/Mission_WT2_IC_22	Gainditu lakuko oztopoak!
+MsgMain/Mission/Mission_WT2_IC_23	Hegan egin elurreko trenaren atzetik!
+MsgMain/Mission/Mission_WT2_IC_24	Probatu zortea maskor berdeekin!
+MsgMain/Mission/Mission_WT2_IC_26	Jarraitu aldapa labainkorra helmugaraino!
+MsgMain/Mission/Mission_WT2_IC_30	Gainditu erdi eraikitako bidearen arriskua!
+MsgMain/Mission/Mission_WT2_IC_31	Ezarri errekor bat distantzia luzeak planeatuz!
+MsgMain/Mission/Mission_WT3_IC_00	Ibili Banilla Lakuaren omenezko zirkuituan!
+MsgMain/Mission/Mission_RC_IC_02	Lortu behatokiko txanpon urdinak!
+MsgMain/Mission/Mission_WT2_IC_05	Saihestu Izotz Anaien erasoak!
+MsgMain/Mission/Mission_WT2_IC_28	Gainditu erronka abiadura gehienean azeleratuz!
+MsgMain/Mission/Mission_WT_IC_02	Iritsi izozki birakariaren gailurrera!
+MsgMain/Mission/Mission_WT2_IC_11	Ihes egin izozki-arroilatik!
+MsgMain/Mission/Mission_WT2_IC_32	Erabili perretxiko bat garaiz helmuga zeharkatzeko!
+MsgMain/Mission/Mission_RC_IC_04	Lortu DK Alpetarraren txanpon urdinak!
+MsgMain/Mission/Mission_WT2_IC_12	Probatu zure burua 5. erronka berezian!
+MsgMain/Mission/Mission_WT2_IC_13	Iritsi helmugara harmaila hutsetatik joanda!
+MsgMain/Mission/Mission_WT2_IC_14	Sartu snowboard lehiaketan!
+MsgMain/Mission/Mission_RC_PL_01	Lortu haitzuloko txanpon urdinak!
+MsgMain/Mission/Mission_WT_PL_02	Igo Marchimotas Hegaldunen zubitik!
+MsgMain/Mission/Mission_WT2_PL_03	Salto, salto, salto... eta berriz salto!
+MsgMain/Mission/Mission_WT2_PL_04	Probatu zure burua 3. erronka berezian!
+MsgMain/Mission/Mission_RC_PL_04	Lortu zen lorategiko txanpon urdinak!
+MsgMain/Mission/Mission_WT_PL_05	Aurkitu bakea ur-jauziak igoz!
+MsgMain/Mission/Mission_WT2_PL_07	Jo harmoniaren kanpaia!
+MsgMain/Mission/Mission_RC_RT_03	Gidatu dotorezia handiz eta lortu txanpon urdinak!
+MsgMain/Mission/Mission_RC_RT_04	Lortu zurrunbiloko txanpon urdinak!
+MsgMain/Mission/Mission_RC_RT_05	Egin aurre ekaitzari eta lortu txanpon urdinak!
+MsgMain/Mission/Mission_RC_RT_06	Arnastu itsasoko airea eta bildu txanpon urdinak!
+MsgMain/Mission/Mission_RC_RT_07	Lortu Goomba alferren txanpon urdinak!
+MsgMain/Mission/Mission_RC_RT_08	Lortu hondartzako jaiko txanpon urdinak!
+MsgMain/Mission/Mission_WT_RT_02	Igo Manta Arrapaletara helmugara iristeko!
+MsgMain/Mission/Mission_WT_RT_03	Sirenak beste aldetik kantatzen du: zoaz harekin!
+MsgMain/Mission/Mission_WT_RT_04	Hegan egin Gatz Hirirantz!
+MsgMain/Mission/Mission_WT_RT_05	Iritsi helmuga-banderinara amildu gabe!
+MsgMain/Mission/Mission_WT_RT_06	Erabili zure teknikarik onenak uraren gainean!
+MsgMain/Mission/Mission_WT_RT_07	Utzi zeure burua elur-ekaitzen tornadoek eramaten!
+MsgMain/Mission/Mission_WT_RT_08	Gainditu Bumerang Anaien hesia!
+MsgMain/Mission/Mission_WT_RT_09	Hegan egin haize-errotaren gainetik!
+MsgMain/Mission/Mission_WT_RT_10	Zuzendu tximista bezala hondartzarantz!
+MsgMain/Mission/Mission_WT2_RT_04	Salto egin Cheep Cheep bat bezala uretan!
+MsgMain/Mission/Mission_WT2_RT_05	Zeharkatu uharteak helmugara iritsi arte!
+MsgMain/Mission/Mission_WT2_RT_06	Zeharkatu olatuak Besulboen aurrean!
+MsgMain/Mission/Mission_WT2_RT_07	Erabili luma trebetasunez eta iritsi helmugara!
+MsgMain/Mission/Mission_WT2_RT_08	Erabili loreak igogailu gisa!
+MsgMain/Mission/Mission_WT2_RT_09	Bilatu itsas-brisa errotetatik harago!
+MsgMain/Mission/Mission_WT2_RT_10	Gainditu itsaso suminduta!
+MsgMain/Mission/Mission_WT2_RT_11	Zeharkatu Gatz Hiriko teilatuak!
+MsgMain/Mission/Mission_WT2_RT_12	Jaitsi zigzagean helmugaraino!
+MsgMain/Mission/Mission_WT2_RT_13	Jarraitu hodiak eta esekitako blokeak!
+MsgMain/Mission/Mission_WT2_RT_14	Ibili Hidragoien bizkarrean!
+MsgMain/Mission/Mission_WT3_RT_00	Parte hartu uharte hutsaren lasterketan!
+MsgMain/Mission/Mission_RC_RT_01	Lortu txanpon urdinak ontzi-hondakinen artean!
+MsgMain/Mission/Mission_WT_RT_01	Jarraitu txanpon-bidea helmugaraino!
+MsgMain/Mission/Mission_WT2_RT_01	Hegan egin etenik gabe dorretik dorrera!
+MsgMain/Mission/Mission_RC_RT_00	Lortu sirena erakargarriaren txanpon urdinak!
+MsgMain/Mission/Mission_WT_RT_00	Azeleratu perretxiko-kutxak zeharkatuz!
+MsgMain/Mission/Mission_WT2_RT_00	Hartu lasterbidea helmugara bustitzeke!
+MsgMain/Mission/Mission_WT2_RT_02	Hegan egin dorreko gunerik esklusiboenera!
+MsgMain/Mission/Mission_WT2_RT_03	Zeharkatu hiria perretxikoekin azeleratuz!
+MsgMain/Mission/Mission_WT2_RT_15	Zeharkatu Shy Guyen ur-desfilea!
+MsgMain/Mission/Mission_RC_JG_02	Lortu txanpon urdinak krokodiloei esker!
+MsgMain/Mission/Mission_RC_JG_03	Lortu txanpon urdinak soka lodietan!
+MsgMain/Mission/Mission_RC_JG_05	Piraña Huntzek txanpon urdinetara gidatzen zaituzte!
+MsgMain/Mission/Mission_RC_JG_06	Bildu txanpon urdinak oihanean!
+MsgMain/Mission/Mission_RC_JG_07	Lortu sabanako zeruko txanpon urdinak!
+MsgMain/Mission/Mission_RC_JG_08	Lortu txanpon urdinak lianaz liana!
+MsgMain/Mission/Mission_RC_JG_09	Kendu Piraña Landareei txanpon urdinak!
+MsgMain/Mission/Mission_RC_JG_10	Bildu txanpon urdinak jirafak saihestuz!
+MsgMain/Mission/Mission_RC_JG_11	Egin buelta erdia eta lortu txanpon urdinak!
+MsgMain/Mission/Mission_RC_JG_12	Lortu ibaiko safariko txanpon urdinak!
+MsgMain/Mission/Mission_RC_JG_13	Lortu geiserretako txanpon urdinak!
+MsgMain/Mission/Mission_WT_JG_02	Hegan egin zeruan eta zeharkatu ibai-haran gainetik!
+MsgMain/Mission/Mission_WT_JG_03	Iritsi helmugara hodei eta bloke erraldoien artean!
+MsgMain/Mission/Mission_WT_JG_04	Ez zaitzatela bisonteen estanpidak harrapa!
+MsgMain/Mission/Mission_WT_JG_05	Gidatu trebetasunez zebrak saihesteko!
+MsgMain/Mission/Mission_WT_JG_06	Aprobetxatu lumak helmugara iristeko!
+MsgMain/Mission/Mission_WT_JG_07	Hegan egin ur-jauzien gainetik!
+MsgMain/Mission/Mission_WT_JG_08	Egin ausardia-proba eta salto egin ur-jauzitik!
+MsgMain/Mission/Mission_WT_JG_09	Erabili tricerátopsak plataforma gisa!
+MsgMain/Mission/Mission_WT_JG_10	Iritsi helmugara elefanteen gainetik pasatuz!
+MsgMain/Mission/Mission_WT_JG_11	Erabili krokodiloak arazoetatik ateratzeko!
+MsgMain/Mission/Mission_WT_JG_12	Onartu ur-jauzi batetik ibiltzeko erronka!
+MsgMain/Mission/Mission_WT_JG_13	Zeharkatu ur-jauzia hondakinak saihestuz!
+MsgMain/Mission/Mission_WT2_JG_04	Egin bide turisten ontzien artean!
+MsgMain/Mission/Mission_WT2_JG_05	Hegan egin beldurrik gabe; tiranosauro rex-ek ez dute mozten!
+MsgMain/Mission/Mission_WT2_JG_06	Zeharkatu brakiosauroen bizkar luzea!
+MsgMain/Mission/Mission_WT2_JG_08	Hegan egin airetiko bloke erraldoiraino!
+MsgMain/Mission/Mission_WT2_JG_09	Zeharkatu sabana haitzetik haitzera salto eginez!
+MsgMain/Mission/Mission_WT2_JG_11	Zeharkatu sabana eta bere ur-jauziak!
+MsgMain/Mission/Mission_WT2_JG_12	Egin bide oihaneko dinosauroen artean!
+MsgMain/Mission/Mission_WT2_JG_13	Igo ihesean doan trailerrera!
+MsgMain/Mission/Mission_WT2_JG_14	Igo mendi-bide korapilatsutik!
+MsgMain/Mission/Mission_WT3_JG_00	Jokatu erresistentzia-lasterketa sabanan!
+MsgMain/Mission/Mission_WT3_JG_01	Saihestu dinosauroak lurrean eta airean!
+MsgMain/Mission/Mission_RC_JG_01	Lortu urrezko hondakinetako txanpon urdinak!
+MsgMain/Mission/Mission_WT_JG_01	Errebotatu hodeien gainean!
+MsgMain/Mission/Mission_WT2_JG_03	Zeharkatu hondakinetara doan bide gogorra!
+MsgMain/Mission/Mission_RC_JG_00	Lortu dinokupulako txanpon urdinak!
+MsgMain/Mission/Mission_WT2_JG_00	Hegan egin zeruan eta zeharkatu dinokupula!
+MsgMain/Mission/Mission_WT2_JG_01	Probatu zure burua 4. erronka berezian!
+MsgMain/Mission/Mission_WT2_JG_02	Fidatu erabat dinosauroen bizkarrean!
+MsgMain/Mission/Mission_WT2_JG_10	Hegan egin gero eta gorago hodeien artean!
+MsgMain/Mission/Mission_RC_BS_04	Lortu txanpon urdinak turutaka!
+MsgMain/Mission/Mission_RC_BS_05	Marraztu zortzi bat txanpon urdinak lortzeko!
+MsgMain/Mission/Mission_RC_BS_06	Berreskuratu zurrunbiloko txanpon urdinak!
+MsgMain/Mission/Mission_RC_BS_08	Lortu txanpon urdinak oreka galdu gabe!
+MsgMain/Mission/Mission_RC_BS_09	Gidatu zehaztasunez eta lortu txanpon urdinak!
+MsgMain/Mission/Mission_RC_BS_10	Lortu txanpon urdinak eta, bide batez, mokaduak!
+MsgMain/Mission/Mission_WT_BS_03	Azeleratu eta igo arrapalatik lehertu aurretik!
+MsgMain/Mission/Mission_WT_BS_04	Iritsi helmugara beste ibilgailuen laguntzaz!
+MsgMain/Mission/Mission_WT_BS_05	Jarri bidea hirirantz tren azkarrean!
+MsgMain/Mission/Mission_WT_BS_07	Igo garaikurrik handienera!
+MsgMain/Mission/Mission_WT_BS_08	Igo, igo eta igo ikuspegiez gozatzeko!
+MsgMain/Mission/Mission_WT2_BS_04	Gainditu espazio-portuko erronka akrobatikoa!
+MsgMain/Mission/Mission_WT2_BS_05	Hegan egin kanoi-upel ezkutuen bidetik!
+MsgMain/Mission/Mission_WT2_BS_06	Jarraitu ibai-bidea hirirantz!
+MsgMain/Mission/Mission_WT2_BS_07	Aprobetxatu hirirako doako hegaldia!
+MsgMain/Mission/Mission_WT2_BS_08	Iritsi banderinera milimetroko zehaztasunez!
+MsgMain/Mission/Mission_WT2_BS_10	Ez zaitzatela trafikoak gelditu tunelen barruan!
+MsgMain/Mission/Mission_WT2_BS_11	Gainditu zubiko proba bizia!
+MsgMain/Mission/Mission_WT2_BS_12	Iritsi helmugara arrain-bankuen artean!
+MsgMain/Mission/Mission_WT2_BS_13	Jarri bidea hiriko hondartzarantz!
+MsgMain/Mission/Mission_WT2_BS_14	Gainditu zortzi formako ibilbidea!
+MsgMain/Mission/Mission_WT2_BS_15	Probatu zure burua 1. erronka berezian!
+MsgMain/Mission/Mission_WT2_BS_16	Osatu pasealeku lasai bat helmugaraino!
+MsgMain/Mission/Mission_WT2_BS_17	Iritsi Koopa Hondartzara salto garbian!
+MsgMain/Mission/Mission_WT2_BS_18	Igaro balearen ondotik Peach Estadiorako bidean!
+MsgMain/Mission/Mission_WT2_BS_19	Hasi hiriranzko bidaia arriskutsu batean!
+MsgMain/Mission/Mission_WT2_BS_20	Gainditu Ermiconoen ibilbide bitxia!
+MsgMain/Mission/Mission_WT2_BS_21	Zeharkatu dinosauroz betetako kaleak!
+MsgMain/Mission/Mission_WT3_BS_02	Lehiatu hondartzako lasterketa batean!
+MsgMain/Mission/Mission_RC_BS_03	Lortu txanpon urdinak oztopoen artean!
+MsgMain/Mission/Mission_WT2_BS_03	Irristatu sokatik gailurrera!
+MsgMain/Mission/Mission_WT3_BS_01	Ibili Koopa Hondartzaren 1 omenezko zirkuituan!
+MsgMain/Mission/Mission_RC_BS_01	Lortu jaurtiketa-arrapalako txanponak!
+MsgMain/Mission/Mission_WT_BS_01	Itzuli DK Espazio-portuaren oinarrietara!
+MsgMain/Mission/Mission_WT2_BS_01	Gogoratu DONKEY KONG klasikoa!
+MsgMain/Mission/Mission_RC_BS_00	Lortu txanpon urdinak parke zuzigarrian!
+MsgMain/Mission/Mission_RC_BS_02	Lortu txanpon urdinak barandak erabiliz!
+MsgMain/Mission/Mission_WT_BS_00	Saihestu Bowser-en mutilak eta iritsi helmugara!
+MsgMain/Mission/Mission_WT_BS_02	Joan abiadura osoan hondartzako aparkalekura!
+MsgMain/Mission/Mission_WT2_BS_00	Zeharkatu Koroa Hiriko teilatuak!
+MsgMain/Mission/Mission_WT2_BS_02	Egin drift trebetasunez aparkalekuan!
+MsgMain/Mission/Mission_WT3_BS_00	Erakutsi erresistentzia hiriko kaleetan!
+MsgMain/Mission/Mission_RC_PL_05	Lortu txanpon urdinak erortzen diren hostoen artean!
+MsgMain/Mission/Mission_RC_PL_06	Lortu kable elektrikoetako txanpon urdinak!
+MsgMain/Mission/Mission_RC_PL_07	Lortu txanpon urdinak Marchimotas Hegaldunen artean!
+MsgMain/Mission/Mission_RC_PL_08	Bilatu txanpon urdinak larrean!
+MsgMain/Mission/Mission_RC_PL_09	Lortu txanpon urdinak harrizko hormen artean!
+MsgMain/Mission/Mission_RC_PL_10	Bildu txanpon urdinak soka lodietan!
+MsgMain/Mission/Mission_RC_PL_11	Jaitsi ibaian behera eta lortu txanpon urdinak!
+MsgMain/Mission/Mission_RC_PL_12	Salto! Erori! Lortu txanpon urdinak!
+MsgMain/Mission/Mission_RC_PL_13	Lortu txanpon urdinak lasto-fardoen artean!
+MsgMain/Mission/Mission_RC_PL_14	Lortu txanpon urdinak... azkena ahaztu gabe!
+MsgMain/Mission/Mission_RC_PL_15	Lortu txanpon urdinak ibilbide ederrean!
+MsgMain/Mission/Mission_RC_PL_16	Lortu txanponak Lehoi-hortz Haitzuloan!
+MsgMain/Mission/Mission_RC_PL_17	Lortu txanpon urdinak blokeen doinuan!
+MsgMain/Mission/Mission_WT_PL_06	Gainditu lakua arrainek jan gabe!
+MsgMain/Mission/Mission_WT_PL_07	Iritsi helmugara arrapalak erabiliz!
+MsgMain/Mission/Mission_WT_PL_08	Igaro Señalarcoen azpitik uneoro zehatzean!
+MsgMain/Mission/Mission_WT_PL_09	Probatu Yoshi-ren lokaleko eramateko janaria!
+MsgMain/Mission/Mission_WT_PL_10	Zeharkatu trafikoa puntako orduan!
+MsgMain/Mission/Mission_WT_PL_11	Erabili ondo kanaletako ibilgailuak!
+MsgMain/Mission/Mission_WT_PL_12	Egin bide laburragoa trailerrarekin jotzen!
+MsgMain/Mission/Mission_WT_PL_13	Bildu Super Koopek uzten dituzten objektuak!
+MsgMain/Mission/Mission_WT_PL_14	Egin lasterbidea Peach Estadioko lorategietatik!
+MsgMain/Mission/Mission_WT_PL_16	Gainditu mendi-pasabidea denboran!
+MsgMain/Mission/Mission_WT_PL_17	Jaitsi abiadura osoan lakurantz!
+MsgMain/Mission/Mission_WT_PL_19	Iritsi airetik Cheep Cheep Ur-jauzietara!
+MsgMain/Mission/Mission_WT_PL_20	Ibili ibaian gora abiadura osoan!
+MsgMain/Mission/Mission_WT2_PL_09	Zeharkatu arroila kontu handiz!
+MsgMain/Mission/Mission_WT2_PL_10	Hartu lasterbide arriskutsua!
+MsgMain/Mission/Mission_WT2_PL_11	Salto egin garaiz... nota-blokeen erritmoan!
+MsgMain/Mission/Mission_WT2_PL_12	Gidatu Piraña Huntza helmugarantz!
+MsgMain/Mission/Mission_WT2_PL_13	Erakutsi zure trebetasuna aldapak zeharkatuz!
+MsgMain/Mission/Mission_WT2_PL_14	Heldu trenari hegaldian... hitzez hitz!
+MsgMain/Mission/Mission_WT2_PL_15	Distiratu superizarren indarrarekin!
+MsgMain/Mission/Mission_WT2_PL_16	Kontrolatu nerbioak gailurrera igotzeko!
+MsgMain/Mission/Mission_WT2_PL_17	Igo ontzira eta ez utzi inori zu gelditzen!
+MsgMain/Mission/Mission_WT2_PL_18	Jarraitu larrea suntsitzera ausartzen denari!
+MsgMain/Mission/Mission_WT2_PL_19	Saihestu Chomp Katearen ziztadak!
+MsgMain/Mission/Mission_WT2_PL_20	Jarraitu bidegurutzea Txokolate Mendirantz!
+MsgMain/Mission/Mission_WT2_PL_22	Aurrera egin uretan eta airean!
+MsgMain/Mission/Mission_WT3_PL_00	Ibili Txokolate Uhartearen 2 omenezko zirkuituan!
+MsgMain/Mission/Mission_WT3_PL_01	Ibili Txokolate Uhartearen 1 omenezko zirkuituan!
+MsgMain/Mission/Mission_WT3_PL_03	Parte hartu bertakoekin lasterketa batean!
+MsgMain/Mission/Mission_WT3_PL_04	Kontuz Hidragoiekin lakuan zoazenean!
+MsgMain/Mission/Mission_RC_Island_00	Lortu txanpon urdinak aberastasunen itsasoan!
+MsgMain/Mission/Mission_WT_PL_18	Saihestu harri eta txokolate-jausiak!
+MsgMain/Mission/Mission_WT2_PL_21	Azeleratu ahal duzun guztia txokolate likidoan!
+MsgMain/Mission/Mission_WT_PL_00	Sartu prototipoen probara!
+MsgMain/Mission/Mission_WT2_PL_00	Probatu zure burua 2. erronka berezian!
+MsgMain/Mission/Mission_WT2_PL_01	Esploratu Toad Fabrika!
+MsgMain/Mission/Mission_WT2_PL_02	Igo garabiaren goialdera!
+MsgMain/Mission/Mission_RC_PL_02	Sartu hodian eta hartu txanpon urdinak!
+MsgMain/Mission/Mission_WT_PL_03	Gainditu behiz betetako ibilbidea!
+MsgMain/Mission/Mission_WT2_PL_05	Bota zeure burua helmugarantz larretik saltoka!
+MsgMain/Mission/Mission_RC_PL_03	Bildu kontrol-dorreko txanpon urdinak!
+MsgMain/Mission/Mission_WT_PL_04	Hegan egin zeruan Peach Estadioaren gainean!
+MsgMain/Mission/Mission_WT2_PL_06	Egin aurrera sutsuki arkuaren goialdera!
+MsgMain/Race/9001	Jarraitu
+MsgMain/Race/9002	Irten
+MsgMain/Race/9003	Zirkuitua aldatu
+MsgMain/Race/9004	Pertsonaia aldatu
+MsgMain/Race/9005	Berriro hasi
+MsgMain/Race/9006	Hurrengo lasterketa
+MsgMain/Race/9007	Emaitzak ikusi
+MsgMain/Race/9008	Saiatu berriro
+MsgMain/Race/9009	Errepikapenak ikusi
+MsgMain/Race/9010	Errepikapena jarraitu
+MsgMain/Race/9011	Errepikapena utzi
+MsgMain/Race/9012	Hurrengo ronda
+MsgMain/Race/9013	Mamua erronkatu
+MsgMain/Race/9014	Errepikatu hasieratik
+MsgMain/Race/9015	Ziur irten nahi duzula?
+MsgMain/Race/9016	Ikusten jarraitu
+MsgMain/Race/9017	Irten
+MsgMain/Race/9018	Hasi
+MsgMain/Race/9019	Jarraitu ibilaldi librean
+MsgMain/Race/9020	Ibilaldi librea utzi
+MsgMain/Race/9021	Arauak aldatu
+MsgMain/Race/9022	Taldearen datuak ikusi
+MsgMain/Race/9023	Aginte-ezarpenak
+MsgMain/Race/9025	Arauak ikusi
+MsgMain/Race/9026	Itzuli ibilaldi librera
+MsgMain/Race/9028	Misioarekin jarraitu
+MsgMain/Race/9029	Misioa utzi
+MsgMain/Race/9034	HORRELA
+MsgMain/Race/9035	HELMUGA
+MsgMain/Race/9036	HELBURUA
+MsgMain/Race/9031	Mamu-korrikalari bat gorde da.
+MsgMain/Race/9032	Sailkapena erabakita!
+MsgMain/Race/9033	Amaitu da. Oso atzean gelditu zara.
+MsgMain/Race/9037	Pilotu batzuk oso atzean gelditu dira.
+MsgMain/Race/9101	Zure mamu-korrikalari berriaren\ndatuak igo nahi dituzu?
+MsgMain/Race/9103	Mamu-korrikalariaren datuak\nigotzen...
+MsgMain/Race/9104	Mamu-korrikalaria\nigo da!
+MsgMain/Race/9105	Ezin izan da mamu-korrikalaria\nigo.
+MsgMain/Race/9106	{0E 0000 0003 0002 0000}Kopa Berezia{0E 0000 0003 0002 FFFF}\nlehendik eskuragarri dago!
+MsgMain/Race/9107	{0E 0000 0003 0002 0000}Ispilu modua{0E 0000 0003 0002 FFFF}\nlehendik eskuragarri dago!
+MsgMain/Race/9201	Mugim. motela
+MsgMain/Race/9202	Menua
+MsgMain/Race/9203	Kamera
+MsgMain/Race/9204	Pausa
+MsgMain/Race/9205	Berrekin
+MsgMain/Race/9221	Ezarpenak
+MsgMain/Race/9222	Bolante adimenduna
+MsgMain/Race/9223	Bai
+MsgMain/Race/9224	Ez
+MsgMain/Race/9225	Giroskopioa
+MsgMain/Race/9226	Bai
+MsgMain/Race/9227	Ez
+MsgMain/Race/9228	Auto-azelerazioa
+MsgMain/Race/9229	Bai
+MsgMain/Race/9230	Ez
+MsgMain/Race/9231	Objektuak auto-aktibatu
+MsgMain/Race/9232	Bai
+MsgMain/Race/9233	Ez
+MsgMain/Race/9234	Kamera horizontala
+MsgMain/Race/9235	Normala
+MsgMain/Race/9236	Alderantzikatua
+MsgMain/Race/9237	Kamera bertikala
+MsgMain/Race/9238	Minimapa
+MsgMain/Race/9239	Turbo-janaria
+MsgMain/Race/9240	Eraldatzen du
+MsgMain/Race/9241	Ez du eraldatzen
+MsgMain/Race/9281	Objektua
+MsgMain/Race/9282	Biratu
+MsgMain/Race/9283	Drift egin
+MsgMain/Race/9284	Azeleratu
+MsgMain/Race/9301	1. lasterketa
+MsgMain/Race/9302	2. lasterketa
+MsgMain/Race/9303	3. lasterketa
+MsgMain/Race/9304	4. lasterketa
+MsgMain/Race/9305	5. lasterketa
+MsgMain/Race/9306	6. lasterketa
+MsgMain/Race/9307	7. lasterketa
+MsgMain/Race/9308	8. lasterketa
+MsgMain/Race/9309	9. lasterketa
+MsgMain/Race/9310	10. lasterketa
+MsgMain/Race/9311	11. lasterketa
+MsgMain/Race/9312	12. lasterketa
+MsgMain/Race/9313	13. lasterketa
+MsgMain/Race/9314	14. lasterketa
+MsgMain/Race/9315	15. lasterketa
+MsgMain/Race/9316	16. lasterketa
+MsgMain/Race/9317	17. lasterketa
+MsgMain/Race/9318	18. lasterketa
+MsgMain/Race/9319	19. lasterketa
+MsgMain/Race/9320	20. lasterketa
+MsgMain/Race/9321	21. lasterketa
+MsgMain/Race/9322	22. lasterketa
+MsgMain/Race/9323	23. lasterketa
+MsgMain/Race/9324	24. lasterketa
+MsgMain/Race/9325	25. lasterketa
+MsgMain/Race/9326	26. lasterketa
+MsgMain/Race/9327	27. lasterketa
+MsgMain/Race/9328	28. lasterketa
+MsgMain/Race/9329	29. lasterketa
+MsgMain/Race/9330	30. lasterketa
+MsgMain/Race/9331	31. lasterketa
+MsgMain/Race/9399	Azken lasterketa
+MsgMain/Race/9401	1. ronda
+MsgMain/Race/9402	2. ronda
+MsgMain/Race/9403	3. ronda
+MsgMain/Race/9404	4. ronda
+MsgMain/Race/9405	5. ronda
+MsgMain/Race/9406	6. ronda
+MsgMain/Race/9407	7. ronda
+MsgMain/Race/9499	Azken ronda
+MsgMain/Race/9501	{0E 0000 0002 0002 0032} {0E 0000 0002 0002 0064}Lortu {0E 0000 0003 0002 0004}lehen postua{0E 0000 0003 0002 FFFF}{0E 0000 0002 0002 0032} {0E 0000 0002 0002 0064}!
+MsgMain/Race/9504	{0E 0000 0002 0002 004B}Sartu{0E 0000 0002 0002 0064} {0E 0000 0003 0002 0004}4{0E 0000 0003 0002 FFFF} {0E 0000 0002 0002 004B}onenen artean!{0E 0000 0002 0002 0064}
+MsgMain/Race/9508	{0E 0000 0002 0002 004B}Sartu{0E 0000 0002 0002 0064} {0E 0000 0003 0002 0004}8{0E 0000 0003 0002 FFFF} {0E 0000 0002 0002 004B}onenen artean!{0E 0000 0002 0002 0064}
+MsgMain/Race/9512	{0E 0000 0002 0002 004B}Sartu{0E 0000 0002 0002 0064} {0E 0000 0003 0002 0004}12{0E 0000 0003 0002 FFFF} {0E 0000 0002 0002 004B}onenen artean!{0E 0000 0002 0002 0064}
+MsgMain/Race/9516	{0E 0000 0002 0002 004B}Sartu{0E 0000 0002 0002 0064} {0E 0000 0003 0002 0004}16{0E 0000 0003 0002 FFFF} {0E 0000 0002 0002 004B}onenen artean!{0E 0000 0002 0002 0064}
+MsgMain/Race/9520	{0E 0000 0002 0002 004B}Sartu{0E 0000 0002 0002 0064} {0E 0000 0003 0002 0004}20{0E 0000 0003 0002 FFFF} {0E 0000 0002 0002 004B}onenen artean!{0E 0000 0002 0002 0064}
+MsgMain/Race/9604	Ez zaude 4 onenen artean.
+MsgMain/Race/9608	Ez zaude 8 onenen artean.
+MsgMain/Race/9612	Ez zaude 12 onenen artean.
+MsgMain/Race/9616	Ez zaude 16 onenen artean.
+MsgMain/Race/9620	Ez zaude 20 onenen artean.
+MsgMain/Race/9701	Kaixo!
+MsgMain/Race/9702	Zorte on!
+MsgMain/Race/9703	Ongi etorri!
+MsgMain/Race/9704	Tratatu nazazue ondo!
+MsgMain/Race/9705	Dena emango dut!
+MsgMain/Race/9706	Goazen!
+MsgMain/Race/9707	Itxaron dezagun jokalari gehiagoren zain.
+MsgMain/Race/9708	Ados!
+MsgMain/Race/9709	Zer urduritasuna!
+MsgMain/Race/9710	Zer ilusioa!
+MsgMain/Race/9711	Argazki bat aterako dut!
+MsgMain/Race/9712	Hupa!
+MsgMain/Race/9713	Zer dibertigarria!
+MsgMain/Race/9714	Zer izugarria!
+MsgMain/Race/9715	Zer pena!
+MsgMain/Race/9716	Hori ez da zilegi!
+MsgMain/Race/9717	Berriz ere!
+MsgMain/Race/9718	Hurrengoan ikusiko duzue!
+MsgMain/Race/9719	Azkena eta banoa.
+MsgMain/Race/9720	Banoa.
+MsgMain/Race/9721	Eskerrik asko jolasteagatik!
+MsgMain/Race/9722	Mila esker!
+MsgMain/Race/9723	Gabon!
+MsgMain/Race/9724	Agur!
+MsgMain/Race/9726	Zer trebetasuna!
+MsgMain/Race/9727	Liluragarria!
+MsgMain/Race/9728	Kontuz!
+MsgMain/Race/9729	Animo!
+MsgMain/Race/9730	Segi horrela!
+MsgMain/Race/9731	Aupa!
+MsgMain/Race/9732	Zure atzean!
+MsgMain/Race/9733	Bravo!
+MsgMain/Race/9750	Argazki bat ateratzen ari naiz.
+MsgMain/Race/9751	Lasterketa batean nago.
+MsgMain/Race/9752	Borrokaren erdian nago.
+MsgMain/Race/9753	Behatzen ari naiz.
+MsgMain/Race/9936	ZUZENEAN
+MsgMain/Race/9939	TA HORI!
+MsgMain/Race/9940	HOR DUZU!
+MsgMain/Sticker/10000	Mario Kart World hasi duzu!
+MsgMain/Sticker/10001	{0E 0001 0000 0004 0000 0000}{0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}bildu dituzu guztira!
+MsgMain/Sticker/10002	Piruetadun saltoak: {0E 0001 0000 0004 0000 0000}
+MsgMain/Sticker/10004	Guztira ibilitakoa: {0E 0001 0000 0004 0000 0000} km
+MsgMain/Sticker/10005	Guztira {0E 0001 0000 0004 0000 0000} km hegan egin duzu!
+MsgMain/Sticker/10006	{0E 0001 0000 0004 0000 0000} lasterketa jokatu dituzu!
+MsgMain/Sticker/10008	? Panela aktibatuta!
+MsgMain/Sticker/10009	Peach-en domina bat lortu duzu!
+MsgMain/Sticker/10011	Caco Gazapo harrapatu duzu!
+MsgMain/Sticker/10012	Placapum misioa gaindituta!
+MsgMain/Sticker/10013	Misioa gaindituta!
+MsgMain/Sticker/10014	Kopa Berezia jokatu duzu!
