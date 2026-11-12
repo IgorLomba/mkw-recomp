@@ -1,11 +1,13 @@
-// The start screen's background (launcher_backdrop.h): the player's splash.png, else a road drawn by code. Split from
-// launcher.cpp, which keeps the pages.
+// The start screen's background (launcher_backdrop.h): a flat dark window, with the player's splash.png as the main
+// page's picture when there is one. Split from launcher.cpp, which keeps the pages.
 #include <SDL3/SDL.h>
 #include <math.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "imgui.h"
 #include "ui/launcher/launcher_backdrop.h"
+#include "ui/launcher/launcher_look.h"
 
 extern "C" {
 #include "platform/platform.h"
@@ -30,45 +32,57 @@ void backdrop_free(void) {
     g_splash = nullptr;
 }
 
-// ---- the background: the player's splash.png scaled to cover the window, else a road drawn in perspective (no art of
-// the game ships with the port)
-void backdrop_draw(ImDrawList *dl, float w, float h) {
-    if (g_splash) {
-        float k = fmaxf(w / g_splash_w, h / g_splash_h), sw = g_splash_w * k, sh = g_splash_h * k;
-        dl->AddImage((ImTextureID)(intptr_t)g_splash, ImVec2((w - sw) / 2, (h - sh) / 2), ImVec2((w + sw) / 2, (h + sh) / 2));
-        dl->AddRectFilledMultiColor(ImVec2(0, 0), ImVec2(w * 0.6f, h), IM_COL32(0, 0, 0, 170), IM_COL32(0, 0, 0, 0),
-                                    IM_COL32(0, 0, 0, 0), IM_COL32(0, 0, 0, 170));
-        return;
-    }
-    float hy = h * 0.42f;   // the horizon
-    dl->AddRectFilledMultiColor(ImVec2(0, 0), ImVec2(w, hy), IM_COL32(18, 40, 70, 255), IM_COL32(18, 40, 70, 255),
-                                IM_COL32(236, 160, 84, 255), IM_COL32(236, 160, 84, 255));
-    dl->AddRectFilledMultiColor(ImVec2(0, hy), ImVec2(w, h), IM_COL32(24, 70, 44, 255), IM_COL32(24, 70, 44, 255),
-                                IM_COL32(10, 30, 20, 255), IM_COL32(10, 30, 20, 255));
-    float vx = w * 0.62f;   // the vanishing point, right of the buttons
-    dl->AddQuadFilled(ImVec2(vx - 4, hy), ImVec2(vx + 4, hy), ImVec2(w * 1.15f, h), ImVec2(w * 0.10f, h),
-                      IM_COL32(52, 54, 60, 255));
-    float t = (float)fmod(ImGui::GetTime() * 0.6, 1.0);
-    for (int i = 0; i < 12; i++) {   // the centre dashes, moving towards the viewer
-        float a = (i + t) / 12.0f, b = (i + t + 0.45f) / 12.0f;
-        float ya = hy + (h - hy) * a * a, yb = hy + (h - hy) * b * b;
-        float xa = vx + (w * 0.625f - vx) * a * a, xb = vx + (w * 0.625f - vx) * b * b;
-        float wa = 1 + 10 * a * a, wb = 1 + 10 * b * b;
-        dl->AddQuadFilled(ImVec2(xa - wa, ya), ImVec2(xa + wa, ya), ImVec2(xb + wb, yb), ImVec2(xb - wb, yb),
-                          IM_COL32(238, 194, 84, 255));
-    }
-    for (int side = 0; side < 2; side++) {   // the kerbs, red and white
-        float ex = side ? w * 1.15f : w * 0.10f;
-        for (int i = 0; i < 16; i++) {
-            float a = i / 16.0f, b = (i + 1) / 16.0f;
-            float ya = hy + (h - hy) * a * a, yb = hy + (h - hy) * b * b;
-            float xa = vx + (ex - vx) * a * a, xb = vx + (ex - vx) * b * b, k = 1 + 18 * b * b;
-            ImU32 c = i & 1 ? IM_COL32(230, 230, 230, 255) : IM_COL32(200, 40, 40, 255);
-            float d = side ? 1 : -1;
-            dl->AddQuadFilled(ImVec2(xa, ya), ImVec2(xa + d * k * 0.6f, ya), ImVec2(xb + d * k, yb), ImVec2(xb, yb), c);
-        }
-    }
-    dl->AddRectFilledMultiColor(ImVec2(0, 0), ImVec2(w * 0.55f, h), IM_COL32(0, 0, 0, 150), IM_COL32(0, 0, 0, 0),
-                                IM_COL32(0, 0, 0, 0), IM_COL32(0, 0, 0, 150));
+bool backdrop_has_picture(void) { return g_splash != nullptr; }
+
+// The logo's chequered flag (tools/build/icon.py) as the main page's picture: the cloth large, past the window's right
+// and lower edges, in the dark tones of the page, waving slowly. The checks are quads whose corners follow the wave;
+// the folds are lighter where the cloth faces up. Only the shape of the port's own logo: no art of the game.
+static void flag(ImDrawList *dl, float w, float h) {
+    // The wave's phase goes on only while the window has the focus: in the background the picture holds still (no
+    // motion the player is not looking at, and no work for it). A shot: the same picture every run.
+    static const bool still = getenv("MKW_LAUNCHER_SHOT") != nullptr;
+    static float phase = 1.2f;
+    if (!still && !ImGui::GetIO().AppFocusLost) phase += ImGui::GetIO().DeltaTime * 0.55f;
+    float t = phase;
+    const int kCols = 9, kRows = 7, kSub = 4;   // checks across and down; strips per check along the wave
+    float cell = h * 0.18f, amp = cell * 0.42f, rot = -0.16f, cr = cosf(rot), sr = sinf(rot);
+    ImVec2 pivot(w * 0.80f, h * 0.48f), o(w * 0.80f - cell * kCols * 0.42f, h * 0.48f - cell * kRows * 0.5f);
+    auto at = [&](float u, float v) {   // a point of the cloth, u across and v down in checks
+        float x = o.x + u * cell, y = o.y + v * cell + amp * sinf(u * 0.62f - t) * (0.35f + u / kCols);
+        float dx = x - pivot.x, dy = y - pivot.y;
+        return ImVec2(pivot.x + dx * cr - dy * sr, pivot.y + dx * sr + dy * cr);
+    };
+    const ImU32 dark = IM_COL32(15, 17, 23, 255);   // the light checks are worked out per strip, from the fold
+    for (int j = 0; j < kRows; j++)
+        for (int i = 0; i < kCols; i++)
+            for (int k = 0; k < kSub; k++) {
+                float u0 = i + (float)k / kSub, u1 = i + (float)(k + 1) / kSub;
+                float face = 0.5f + 0.5f * cosf((u0 + u1) * 0.31f - t);   // the slope of the wave: lit where it faces up
+                ImU32 c = (i + j) % 2 ? dark : ImGui::ColorConvertFloat4ToU32(ImVec4(
+                    (28 + 12 * face) / 255.0f, (32 + 14 * face) / 255.0f, (42 + 20 * face) / 255.0f, 1));
+                dl->AddQuadFilled(at(u0, (float)j), at(u1 + 0.02f, (float)j), at(u1 + 0.02f, j + 1.0f), at(u0, j + 1.0f), c);
+            }
+    // the left of the window back to the page's colour, under the menu, through a long fade
+    ImU32 bg = LOOK_BG, none = IM_COL32(18, 21, 27, 0);
+    dl->AddRectFilled(ImVec2(0, 0), ImVec2(w * 0.34f, h), bg);
+    dl->AddRectFilledMultiColor(ImVec2(w * 0.34f - 1, 0), ImVec2(w * 0.66f, h), bg, none, none, bg);
+    // and the bottom, under the state and the version: their text on the page's colour, not on a check
+    dl->AddRectFilledMultiColor(ImVec2(0, h * 0.70f), ImVec2(w, h * 0.86f), none, none, bg, bg);
+    dl->AddRectFilled(ImVec2(0, h * 0.86f - 1), ImVec2(w, h), bg);
 }
 
+// ---- the background: the window's flat colour (no art of the game ships with the port). picture (the main page): the
+// player's splash.png over the whole window, darkened on the left under the menu; without one, the logo's flag.
+void backdrop_draw(ImDrawList *dl, float w, float h, bool picture) {
+    dl->AddRectFilled(ImVec2(0, 0), ImVec2(w, h), LOOK_BG);
+    if (!picture) return;
+    if (!g_splash) {
+        flag(dl, w, h);
+        return;
+    }
+    float k = fmaxf(w / g_splash_w, h / g_splash_h), sw = g_splash_w * k, sh = g_splash_h * k;
+    dl->AddImage((ImTextureID)(intptr_t)g_splash, ImVec2((w - sw) / 2, (h - sh) / 2), ImVec2((w + sw) / 2, (h + sh) / 2));
+    ImU32 dark = IM_COL32(18, 21, 27, 235), none = IM_COL32(18, 21, 27, 0);
+    dl->AddRectFilledMultiColor(ImVec2(0, 0), ImVec2(w * 0.62f, h), dark, none, none, dark);
+    dl->AddRectFilledMultiColor(ImVec2(0, h * 0.75f), ImVec2(w, h), none, none, dark, dark);
+}

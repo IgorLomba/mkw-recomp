@@ -185,6 +185,7 @@ typedef enum {
     // the update (ui/launcher/launcher_update.cpp): UPDATE "... %s ... %d MB" (tag, size), FETCHING "... %s" (tag),
     // FAILED "... %s" (why), UPDATED "... %s" (tag); the Menu tab's switch
     UI_LAUNCH_UPDATE, UI_LAUNCH_UPDATE_FETCHING, UI_LAUNCH_UPDATE_FAILED, UI_LAUNCH_UPDATED,
+    UI_LAUNCH_NO_GAME_DATA,   // the start screen's lower right: the player brings the game, the port ships none
     UI_MENU_UPDATE_CHECK, UI_MENU_UPDATE_CHECK_DESC,
     UI_MENU_LAST_ID = UI_MENU_UPDATE_CHECK_DESC,
     UI_TEXT_COUNT

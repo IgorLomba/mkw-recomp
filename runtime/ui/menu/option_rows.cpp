@@ -24,9 +24,20 @@ extern "C" {
 void rt_log(const char *fmt, ...) __attribute__((format(printf, 1, 2)));
 }
 
-static const ImU32 kGold = IM_COL32(236, 194, 84, 255);
-static const ImU32 kDim = IM_COL32(150, 150, 140, 255);
-static const ImU32 kGrey = IM_COL32(110, 110, 102, 255);
+// The in-game menu's colours: gold for the selection and the headings on dark green (menu_look.cpp).
+static const OptLook kMenuLook = {
+    IM_COL32(236, 194, 84, 255), IM_COL32(236, 194, 84, 120), IM_COL32(236, 194, 84, 110),   // select, select_off, divider
+    IM_COL32(150, 150, 140, 255), IM_COL32(110, 110, 102, 255), IM_COL32(170, 170, 160, 255),   // dim, off, arrow
+    IM_COL32(240, 236, 224, 255), IM_COL32(255, 255, 255, 255), IM_COL32(205, 205, 195, 255),   // label, value, default
+    IM_COL32(220, 170, 100, 255), IM_COL32(200, 150, 90, 255),                                    // note, note_off
+    IM_COL32(0, 0, 0, 40), IM_COL32(255, 255, 255, 22),                                            // fill, fill_hot
+    IM_COL32(255, 255, 255, 38), IM_COL32(255, 255, 255, 18), IM_COL32(255, 255, 255, 14),        // border, _off, cell_off
+    IM_COL32(237, 194, 84, 255), IM_COL32(242, 168, 102, 255),                                    // group, warn
+    9,                                                                                             // radius
+};
+static const OptLook *g_look = &kMenuLook;
+
+void opt_look(const OptLook *l) { g_look = l ? l : &kMenuLook; }
 
 static float g_scale = 1;
 static bool g_focus_req, g_take_first;   // opt_focus_first: requested / this page's first row takes it
@@ -93,7 +104,7 @@ void opt_end(void) {
     avail.y -= g_bottom;
     float gap = 24 * g_scale;
     ImGui::GetWindowDrawList()->AddLine(ImVec2(p.x + gap * 0.5f, p.y), ImVec2(p.x + gap * 0.5f, p.y + avail.y),
-                                        IM_COL32(236, 194, 84, 110), 1.0f);
+                                        g_look->divider, 1.0f);
     ImGui::SetCursorScreenPos(ImVec2(p.x + gap, p.y));
     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(14 * g_scale, 6 * g_scale));
     ImGui::BeginChild("##desc", ImVec2(0, avail.y), ImGuiChildFlags_AlwaysUseWindowPadding, ImGuiWindowFlags_NoNav);
@@ -158,10 +169,10 @@ static int row(const char *key, UiTextId label, UiTextId desc, const RowView &v)
 
     ImDrawList *dl = ImGui::GetWindowDrawList();
     ImFont *font = ImGui::GetFont();
-    float r = 9 * g_scale, pad = 16 * g_scale, small = fs * 0.72f;
-    dl->AddRectFilled(p, ImVec2(p.x + w, p.y + h), hov || foc ? IM_COL32(255, 255, 255, 22) : IM_COL32(0, 0, 0, 40), r);
+    float r = g_look->radius * g_scale, pad = 16 * g_scale, small = fs * 0.72f;
+    dl->AddRectFilled(p, ImVec2(p.x + w, p.y + h), hov || foc ? g_look->fill_hot : g_look->fill, r);
     dl->AddRect(p, ImVec2(p.x + w, p.y + h),
-                hov || foc ? (off ? IM_COL32(236, 194, 84, 120) : kGold) : IM_COL32(255, 255, 255, off ? 18 : 38), r, 0,
+                hov || foc ? (off ? g_look->select_off : g_look->select) : off ? g_look->border_off : g_look->border, r, 0,
                 hov || foc ? 2.0f : 1.0f);
     float ty = p.y + fs * 0.25f, ny = p.y + fs * 1.3f;   // the label line and the note line under it
     float right = p.x + w - pad;                         // the value's right edge
@@ -169,7 +180,7 @@ static int row(const char *key, UiTextId label, UiTextId desc, const RowView &v)
     if (v.arrows && v.value[0]) {   // < value >, drawn (the font has no arrow glyphs); a click on one steps
         float aw = fs * 0.42f, gap = fs * 0.55f, cy = ty + fs * 0.52f;
         float rx = right - aw, lx = rx - gap - ImGui::CalcTextSize(v.value).x - gap - aw;
-        ImU32 ac = off ? kGrey : hov || foc ? kGold : IM_COL32(170, 170, 160, 255);
+        ImU32 ac = off ? g_look->off : hov || foc ? g_look->select : g_look->arrow;
         dl->AddTriangleFilled(ImVec2(lx, cy), ImVec2(lx + aw, cy - aw * 0.75f), ImVec2(lx + aw, cy + aw * 0.75f), ac);
         dl->AddTriangleFilled(ImVec2(rx + aw, cy), ImVec2(rx, cy - aw * 0.75f), ImVec2(rx, cy + aw * 0.75f), ac);
         if (clicked && !off) {
@@ -182,24 +193,24 @@ static int row(const char *key, UiTextId label, UiTextId desc, const RowView &v)
     }
     if (v.value[0]) {
         float vx = right - ImGui::CalcTextSize(v.value).x;
-        dl->AddText(ImVec2(vx, ty), off ? kGrey : v.is_default ? IM_COL32(205, 205, 195, 255) : IM_COL32(255, 255, 255, 255),
+        dl->AddText(ImVec2(vx, ty), off ? g_look->off : v.is_default ? g_look->value_default : g_look->value,
                     v.value);
         if (!v.arrows) value_left = vx;
     }
     if (v.note || v.is_default) {   // under the value, right-aligned with it
         const char *t = v.note ? v.note : menu_text(UI_MENU_DEFAULT_MARK);
         float tw = font->CalcTextSizeA(small, FLT_MAX, 0, t).x;
-        dl->AddText(font, small, ImVec2(right - tw, ny), v.note ? IM_COL32(220, 170, 100, 255) : kDim, t);
+        dl->AddText(font, small, ImVec2(right - tw, ny), v.note ? g_look->note : g_look->dim, t);
     }
     // the label and its note, clipped before the value
     ImVec4 clip(p.x, p.y, value_left - fs * 0.6f, p.y + h);
-    dl->AddText(font, fs, ImVec2(p.x + pad, ty), off ? kGrey : IM_COL32(240, 236, 224, 255), menu_text(label), NULL, 0,
+    dl->AddText(font, fs, ImVec2(p.x + pad, ty), off ? g_look->off : g_look->label, menu_text(label), NULL, 0,
                 &clip);
     const char *note = disabled        ? disabled
                      : off             ? menu_text(UI_MENU_SET_BY_ENV)
                      : m && !m->live ? menu_text(UI_MENU_AFTER_RESTART)
                                      : NULL;
-    if (note) dl->AddText(font, small, ImVec2(p.x + pad, ny), off ? IM_COL32(200, 150, 90, 255) : kDim, note);
+    if (note) dl->AddText(font, small, ImVec2(p.x + pad, ny), off ? g_look->note_off : g_look->dim, note);
     ImGui::PopID();
     return off ? 0 : step;
 }
@@ -249,12 +260,12 @@ bool opt_button(const char *id, UiTextId label, UiTextId desc, const char *value
 
 void opt_group(UiTextId title) {
     ImGui::Dummy(ImVec2(0, 6 * g_scale));
-    ImGui::TextColored(ImVec4(0.93f, 0.76f, 0.33f, 1), "%s", menu_text(title));
+    ImGui::TextColored(ImGui::ColorConvertU32ToFloat4(g_look->group), "%s", menu_text(title));
 }
 
 void opt_text(UiTextId text, bool warn) {
     ImGui::PushTextWrapPos(0);
-    if (warn) ImGui::TextColored(ImVec4(0.95f, 0.66f, 0.40f, 1), "%s", menu_text(text));
+    if (warn) ImGui::TextColored(ImGui::ColorConvertU32ToFloat4(g_look->warn), "%s", menu_text(text));
     else ImGui::TextUnformatted(menu_text(text));
     ImGui::PopTextWrapPos();
 }
@@ -352,7 +363,7 @@ void opt_bind_header(UiTextId c0, UiTextId c1, UiTextId c2) {
     for (int c = 0; c < 3; c++) {
         const char *t = menu_text(cols[c]);
         float tw = font->CalcTextSizeA(fs, FLT_MAX, 0, t).x;
-        ImGui::GetWindowDrawList()->AddText(font, fs, ImVec2(cx[c] + (cw - tw) * 0.5f, p.y), kDim, t);
+        ImGui::GetWindowDrawList()->AddText(font, fs, ImVec2(cx[c] + (cw - tw) * 0.5f, p.y), g_look->dim, t);
     }
     ImGui::Dummy(ImVec2(w, fs * 1.2f));
 }
@@ -371,15 +382,15 @@ int opt_bind_row(const char *key, const char *label, UiTextId desc, const char *
     bind_columns(p.x, w, cx, &cw);
     ImDrawList *dl = ImGui::GetWindowDrawList();
     float r = 8 * g_scale, pad = 6 * g_scale;
-    fit_text(dl, p.x + 16 * g_scale, cx[0] - fs * 0.3f, p.y, h, IM_COL32(240, 236, 224, 255), label, false);
+    fit_text(dl, p.x + 16 * g_scale, cx[0] - fs * 0.3f, p.y, h, g_look->label, label, false);
     int result = -1;
     bool row_foc = false, row_hov = false;
     for (int c = 0; c < 3; c++) {
         ImVec2 a(cx[c], p.y), b(cx[c] + cw, p.y + h);
         const char *t = cells[c] && cells[c][0] ? cells[c] : "-";
         if (!enabled[c]) {   // not a nav item: the cursor skips it
-            dl->AddRect(a, b, IM_COL32(255, 255, 255, 14), r);
-            fit_text(dl, a.x + pad, b.x - pad, a.y, h, kGrey, t, true);
+            dl->AddRect(a, b, g_look->cell_off, r);
+            fit_text(dl, a.x + pad, b.x - pad, a.y, h, g_look->off, t, true);
             continue;
         }
         ImGui::SetCursorScreenPos(a);
@@ -405,11 +416,11 @@ int opt_bind_row(const char *key, const char *label, UiTextId desc, const char *
         if (foc && (ImGui::IsKeyPressed(ImGuiKey_Delete, false) || ImGui::IsKeyPressed(ImGuiKey_Backspace, false) ||
                     ImGui::IsKeyPressed(ImGuiKey_GamepadFaceUp, false)))
             result = 10 + c;
-        dl->AddRectFilled(a, b, hov || foc ? IM_COL32(255, 255, 255, 22) : IM_COL32(0, 0, 0, 40), r);
-        dl->AddRect(a, b, hov || foc ? kGold : IM_COL32(255, 255, 255, 38), r, 0, hov || foc ? 2.0f : 1.0f);
+        dl->AddRectFilled(a, b, hov || foc ? g_look->fill_hot : g_look->fill, r);
+        dl->AddRect(a, b, hov || foc ? g_look->select : g_look->border, r, 0, hov || foc ? 2.0f : 1.0f);
         if (!(g_icon[c].pad && pad_icon_draw(dl, ImVec2((a.x + b.x) * 0.5f, (a.y + b.y) * 0.5f), h * 0.8f, g_icon[c].pad,
                                              g_icon[c].kind)))
-            fit_text(dl, a.x + pad, b.x - pad, a.y, h, IM_COL32(255, 255, 255, 255), t, true);
+            fit_text(dl, a.x + pad, b.x - pad, a.y, h, g_look->value, t, true);
         ImGui::PopID();
     }
     char k[64];

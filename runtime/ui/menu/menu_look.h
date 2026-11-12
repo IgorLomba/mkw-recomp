@@ -8,4 +8,4 @@ float menu_look_scale(uint32_t height);    // sizes are tuned for 1080 lines; un
 void menu_look_style(ImGuiStyle &s);       // at scale 1: callers ScaleAllSizes
 void menu_look_fonts(float scale);         // the atlas's fonts at that scale; the caller builds the texture
 int menu_look_fonts_stale(void);           // the menu language changed since: menu_look_fonts again
-ImFont *menu_look_font_big(float scale);   // after menu_look_fonts: Roboto for titles, in the same atlas
+ImFont *menu_look_font_at(float px);       // after menu_look_fonts: Roboto at that size, in the same atlas (titles)

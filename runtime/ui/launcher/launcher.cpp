@@ -4,7 +4,9 @@
 // with --launcher.
 //
 // Its own window and SDL_Renderer (Dear ImGui's SDL3 and SDL_Renderer back ends), not the game's Vulkan device: nothing of
-// the game runs yet. The pages and the look are the in-game menu's (ui/menu/settings_tabs.cpp, ui/menu/menu_look.cpp). The idea
+// the game runs yet. The settings pages and the fonts are the in-game menu's (ui/menu/settings_tabs.cpp,
+// ui/menu/menu_look.cpp); the look is the start screen's own (launcher_look.cpp), so the in-game menu keeps its own, and
+// the logo and the motion are in launcher_logo.cpp. The Play button and the setup's step list are drawn here. The idea
 // and the page set follow SavageWindRecomp's runtime/ui/launcher.mm (https://github.com/Revivedx/SavageWindRecomp @
 // 5173d27, MIT, Copyright (c) 2026 Revivedx and the Savage Wind Recomp contributors).
 //
@@ -27,6 +29,8 @@
 #include "imgui.h"
 #include "ui/launcher/launcher.h"
 #include "ui/launcher/launcher_backdrop.h"
+#include "ui/launcher/launcher_logo.h"
+#include "ui/launcher/launcher_look.h"
 #include "ui/launcher/launcher_setup.h"
 #include "ui/launcher/launcher_update.h"
 #include "ui/menu/menu_look.h"
@@ -49,7 +53,9 @@ static struct {
     SDL_Renderer *ren;
     ImGuiStyle base_style;
     float scale;                    // of the style and fonts in use; 0 none yet
-    ImFont *big;
+    ImFont *big;                    // Roboto for the title
+    ImFont *head;                   // and for a page's heading and the Play button
+    ImFont *item;                   // and for the main page's menu rows, at its own size (a scaled font blurs)
     Page page;
     int focus_main;                 // the main page's first button takes the cursor
     int result;                     // LAUNCHER_PLAY or LAUNCHER_QUIT once chosen; -1 running
@@ -65,6 +71,9 @@ static struct {
     char shortcut_note[1200];       // what the shortcut button did
     char updated[96];               // the release the previous run installed (launcher_update.h)
     int relaunch;                   // an update is in place: start the new program when the window is gone
+    double intro_t0;                // when the main page was first shown (its intro, once a run); 0 not yet
+    double page_t0;                 // when the page last changed (the new page fades in); 0 none yet
+    Page shown;                     // the page drawn last frame
 } L = {};
 
 static void exe_dir(char *out, size_t cap) {
@@ -120,17 +129,86 @@ static void restyle(float scale) {
     ImGui::GetStyle() = L.base_style;
     ImGui::GetStyle().ScaleAllSizes(scale);
     menu_look_fonts(scale);
-    L.big = menu_look_font_big(scale);
+    L.head = menu_look_font_at(36.0f * scale);
+    L.big = menu_look_font_at(60.0f * scale);
+    L.item = menu_look_font_at(30.0f * scale);
     ImGui_ImplSDLRenderer3_DestroyFontsTexture();
     ImGui_ImplSDLRenderer3_CreateFontsTexture();
     L.scale = scale;
 }
 
 // ---- the pages
-static bool big_button(const char *label, float width, bool enabled) {
+static ImVec4 col4(ImU32 c) { return ImGui::ColorConvertU32ToFloat4(c); }
+
+static ImU32 mix(ImU32 a, ImU32 b, float t) {
+    ImVec4 x = col4(a), y = col4(b);
+    return ImGui::ColorConvertFloat4ToU32(ImVec4(x.x + (y.x - x.x) * t, x.y + (y.y - x.y) * t, x.z + (y.z - x.z) * t,
+                                                 x.w + (y.w - x.w) * t));
+}
+
+// 0..1 following on (the cursor over a button) with an exponential ease-out, kept per id in the window's storage.
+// During a shot the end value at once: a frame taken on the way would differ from run to run.
+static float eased(ImGuiID id, bool on) {
+    float *v = ImGui::GetStateStorage()->GetFloatRef(id, 0);
+    float to = on ? 1.0f : 0.0f;
+    *v = L.shot_at ? to : *v + (to - *v) * (1 - expf(-16 * ImGui::GetIO().DeltaTime));
+    return *v;
+}
+
+// Element i of the main page's intro (launcher_logo.h); during a shot, or once it has played, 1.
+static float intro(int i) { return launcher_intro(L.shot_at ? 0 : L.intro_t0, i); }
+static void intro_apply(ImDrawList *dl, int start, float k) { launcher_intro_apply(dl, start, k, L.scale); }
+
+// The main page's one blue button: a play triangle and the label on the left, in the heading's size.
+static bool play_button(const char *label, ImVec2 size, bool enabled) {
+    float s = L.scale;
+    ImVec2 a = ImGui::GetCursorScreenPos(), b(a.x + size.x, a.y + size.y);
     ImGui::BeginDisabled(!enabled);
-    bool hit = ImGui::Button(label, ImVec2(width, ImGui::GetFrameHeight() * 1.6f));
+    bool hit = ImGui::InvisibleButton("##play", size);
+    if (enabled && ImGui::IsItemHovered()) ImGui::SetMouseCursor(ImGuiMouseCursor_Hand);   // it can be clicked
+    bool held = ImGui::IsItemActive(), cursor = ImGui::IsItemFocused() && ImGui::GetIO().NavVisible;
+    float hot = eased(ImGui::GetItemID(), enabled && (ImGui::IsItemHovered() || cursor));
     ImGui::EndDisabled();
+    ImDrawList *dl = ImGui::GetWindowDrawList();
+    ImU32 fill = !enabled ? LOOK_RAISED : held ? LOOK_ACCENT_DOWN : mix(LOOK_ACCENT, LOOK_ACCENT_HOT, hot);
+    ImU32 text = enabled ? IM_COL32(255, 255, 255, 255) : LOOK_OFF;
+    dl->AddRectFilled(a, b, fill, 4 * s);
+    if (cursor) dl->AddRect(ImVec2(a.x - 4 * s, a.y - 4 * s), ImVec2(b.x + 4 * s, b.y + 4 * s), LOOK_FOCUS, 6 * s, 0, 2 * s);
+    float fs = L.head->FontSize, k = fs * 0.32f, gap = 18 * s;
+    float x = a.x + 28 * s, cy = (a.y + b.y) * 0.5f;   // on the left, in line with the menu's labels
+    dl->AddTriangleFilled(ImVec2(x, cy - k), ImVec2(x + k * 1.6f, cy), ImVec2(x, cy + k), text);
+    dl->AddText(L.head, fs, ImVec2(x + k * 1.6f + gap, cy - fs * 0.5f), text, label);
+    return hit;
+}
+
+// The height of a row of the main page's menu and of a page's buttons: 60 at 1080 lines, never under 44 pixels (the
+// smallest target a finger or a hurried mouse hits; at 720 lines 60 would give 40).
+static float item_height(void) { return fmaxf(44.0f, 60 * L.scale); }
+
+// A row of the main page's menu: the label alone at rest; under the mouse or the controller's cursor a band of the
+// accent that fades out to the right comes in under it (as Dusklight's start screen does), with a bar at its left edge.
+static bool menu_item(const char *label, float width, bool enabled) {
+    float s = L.scale, hgt = item_height();
+    ImVec2 a = ImGui::GetCursorScreenPos(), b(a.x + width, a.y + hgt);
+    ImGui::BeginDisabled(!enabled);
+    ImGui::PushID(label);
+    bool hit = ImGui::InvisibleButton("##item", ImVec2(width, hgt));
+    if (enabled && ImGui::IsItemHovered()) ImGui::SetMouseCursor(ImGuiMouseCursor_Hand);
+    bool held = ImGui::IsItemActive(), cursor = ImGui::IsItemFocused() && ImGui::GetIO().NavVisible;
+    float hot = eased(ImGui::GetItemID(), enabled && (ImGui::IsItemHovered() || cursor));
+    ImGui::PopID();
+    ImGui::EndDisabled();
+    ImDrawList *dl = ImGui::GetWindowDrawList();
+    if (hot > 0.01f) {
+        ImVec4 c = col4(held ? LOOK_ACCENT_DOWN : LOOK_ACCENT);
+        ImU32 from = ImGui::ColorConvertFloat4ToU32(ImVec4(c.x, c.y, c.z, 0.85f * hot)),
+              to = ImGui::ColorConvertFloat4ToU32(ImVec4(c.x, c.y, c.z, 0));
+        dl->AddRectFilledMultiColor(a, b, from, to, to, from);
+        dl->AddRectFilled(a, ImVec2(a.x + 3 * s, b.y), ImGui::ColorConvertFloat4ToU32(ImVec4(1, 1, 1, hot)));
+    }
+    float fs = L.item->FontSize;
+    dl->AddText(L.item, fs, ImVec2(a.x + 24 * s + 4 * s * hot, (a.y + b.y - fs) * 0.5f),
+                enabled ? mix(LOOK_HEADING, LOOK_TEXT, hot) : LOOK_OFF, label);
     return hit;
 }
 
@@ -164,7 +242,7 @@ static void update_row(float bw) {
     } else if (u.phase == UPDATE_FAILED) {
         snprintf(text, sizeof text, menu_text(UI_LAUNCH_UPDATE_FAILED), u.error);
         ImGui::PushTextWrapPos(ImGui::GetCursorPosX() + bw);
-        ImGui::TextColored(ImVec4(0.95f, 0.45f, 0.35f, 1), "%s", text);
+        ImGui::TextColored(col4(LOOK_BAD), "%s", text);
         ImGui::PopTextWrapPos();
     } else {
         return;
@@ -172,47 +250,89 @@ static void update_row(float bw) {
     ImGui::Dummy(ImVec2(0, 10 * L.scale));
 }
 
+// The game files' state: a dot and the line, in the state's colour.
+static void state_line(bool ok, const char *text) {
+    float lh = ImGui::GetTextLineHeight(), r = lh * 0.26f;
+    ImVec2 p = ImGui::GetCursorScreenPos();
+    ImGui::GetWindowDrawList()->AddCircleFilled(ImVec2(p.x + r, p.y + lh * 0.5f), r, ok ? LOOK_OK : LOOK_WARN, 20);
+    ImGui::SetCursorPosX(ImGui::GetCursorPosX() + r * 2 + 10 * L.scale);
+    ImGui::TextColored(col4(ok ? LOOK_OK : LOOK_WARN), "%s", text);
+}
+
+// The main page, in the original's structure: a column on the left with the title and the menu (Play, then Settings,
+// Game files and the desktop shortcut, Quit last and apart), the game files' state at the lower left and the version at
+// the lower right. The picture is the background's (launcher_backdrop.cpp): the player's splash.png, or the logo's flag.
 static void page_main(float w, float h) {
-    float s = L.scale, bw = 420 * s;
+    float s = L.scale, left = 96 * s, cw = 440 * s, lh = ImGui::GetTextLineHeight();
     bool ready = rt_game_present() && update_state().phase != UPDATE_FETCHING;
-    ImGui::SetNextWindowPos(ImVec2(90 * s, h * 0.18f));
+    // the column's height, to centre it: logo and title, the gap, Play, the menu, the gap and Quit
+    float mark = 84 * s, items = item_height(), gap = 12 * s;
+    float play_h = fmaxf(52.0f, 76 * s), col_h = mark + 48 * s + play_h + gap * 2 + items * 3 + 28 * s + items;
+    ImGui::SetNextWindowPos(ImVec2(left - 8 * s, fmaxf(32 * s, (h - col_h) * 0.45f) - 8 * s));
+    ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(8 * s, 8 * s));   // room for the cursor's ring
+    ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(0, gap));
     ImGui::Begin("##main", nullptr, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove |
                                         ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoBackground |
                                         ImGuiWindowFlags_AlwaysAutoResize);
-    ImGui::PushFont(L.big);
-    ImGui::TextColored(ImVec4(0.93f, 0.76f, 0.33f, 1), "Mario Kart World");
-    ImGui::PopFont();
-    ImGui::TextDisabled("%s", menu_text(UI_LAUNCH_SUBTITLE));
-    ImGui::Dummy(ImVec2(0, 30 * s));
-    update_row(bw);
+    ImDrawList *dl = ImGui::GetWindowDrawList();
+    ImVec2 p = ImGui::GetCursorScreenPos();
+    int v0 = dl->VtxBuffer.Size;
+    launcher_logo(dl, p, mark);
+    float ts = L.big->FontSize, tx = p.x + mark + 24 * s, by = p.y + (mark - ts - 4 * s - lh) * 0.5f;
+    dl->AddText(L.big, ts, ImVec2(tx, by - ts * 0.06f), LOOK_TEXT, "Mario Kart World");
+    dl->AddText(ImVec2(tx, by + ts + 4 * s), LOOK_HEADING, menu_text(UI_LAUNCH_SUBTITLE));
+    intro_apply(dl, v0, intro(0));
+    float title_w = mark + 24 * s + L.big->CalcTextSizeA(ts, FLT_MAX, 0, "Mario Kart World").x;
+    ImGui::Dummy(ImVec2(fmaxf(cw, title_w), mark + 48 * s - gap));   // the window as wide as the title: it clips
+    update_row(cw);
     if (L.focus_main) {
         ImGui::SetKeyboardFocusHere();
         L.focus_main = 0;
     }
-    if (big_button(menu_text(UI_LAUNCH_PLAY), bw, ready)) L.result = LAUNCHER_PLAY;
-    if (big_button(menu_text(UI_LAUNCH_SETTINGS), bw, true)) {
+    v0 = dl->VtxBuffer.Size;
+    if (play_button(menu_text(UI_LAUNCH_PLAY), ImVec2(cw, play_h), ready)) L.result = LAUNCHER_PLAY;
+    intro_apply(dl, v0, intro(1));
+    ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(0, 0));
+    ImGui::Dummy(ImVec2(0, gap));
+    v0 = dl->VtxBuffer.Size;
+    if (menu_item(menu_text(UI_LAUNCH_SETTINGS), cw, true)) {
         L.page = PAGE_SETTINGS;
         settings_opened();
     }
-    if (big_button(menu_text(UI_LAUNCH_FILES), bw, true)) L.page = PAGE_FILES;
-    if (big_button(menu_text(UI_LAUNCH_QUIT), bw, true)) L.result = LAUNCHER_QUIT;
-    ImGui::Dummy(ImVec2(0, 10 * s));
-    if (ImGui::Button(menu_text(UI_LAUNCH_SHORTCUT), ImVec2(bw, 0))) make_shortcut();
+    intro_apply(dl, v0, intro(2));
+    v0 = dl->VtxBuffer.Size;
+    if (menu_item(menu_text(UI_LAUNCH_FILES), cw, true)) L.page = PAGE_FILES;
+    intro_apply(dl, v0, intro(3));
+    v0 = dl->VtxBuffer.Size;
+    if (menu_item(menu_text(UI_LAUNCH_SHORTCUT), cw, true)) make_shortcut();
+    intro_apply(dl, v0, intro(4));
+    ImGui::Dummy(ImVec2(0, 28 * s));
+    v0 = dl->VtxBuffer.Size;
+    if (menu_item(menu_text(UI_LAUNCH_QUIT), cw, true)) L.result = LAUNCHER_QUIT;
+    intro_apply(dl, v0, intro(5));
+    ImGui::PopStyleVar();
     if (L.shortcut_note[0]) {
-        ImGui::PushTextWrapPos(ImGui::GetCursorPosX() + bw);
-        ImGui::TextDisabled("%s", L.shortcut_note);
+        ImGui::PushTextWrapPos(ImGui::GetCursorPosX() + cw);
+        ImGui::TextColored(col4(LOOK_DIM), "%s", L.shortcut_note);
         ImGui::PopTextWrapPos();
     }
     ImGui::End();
+    ImGui::PopStyleVar(2);
 
-    // the game files at the lower left, the version at the lower right
-    ImDrawList *dl = ImGui::GetForegroundDrawList();
-    const char *st = menu_text(ready ? UI_LAUNCH_FILES_READY : UI_LAUNCH_FILES_MISSING);
-    float lh = ImGui::GetTextLineHeight();
-    dl->AddText(ImVec2(90 * s, h - 50 * s - lh), ready ? IM_COL32(150, 220, 160, 255) : IM_COL32(240, 170, 90, 255), st);
+    // the game files at the lower left; at the lower right that the port ships no game data, over the version
+    ImDrawList *fg = ImGui::GetForegroundDrawList();
+    int f0 = fg->VtxBuffer.Size;
+    float y = h - 48 * s - lh, r = lh * 0.24f;
+    const char *state = menu_text(ready ? UI_LAUNCH_FILES_READY : UI_LAUNCH_FILES_MISSING);
+    fg->AddCircleFilled(ImVec2(left + r, y + lh * 0.5f), r, ready ? LOOK_OK : LOOK_WARN, 16);
+    fg->AddText(ImVec2(left + r * 2 + 10 * s, y), ready ? LOOK_HEADING : LOOK_WARN, state);
     char ver[96];
     snprintf(ver, sizeof ver, "MKW Recomp %s", rt_port_version);
-    dl->AddText(ImVec2(w - 40 * s - ImGui::CalcTextSize(ver).x, h - 50 * s - lh), IM_COL32(200, 200, 190, 200), ver);
+    const char *note = menu_text(UI_LAUNCH_NO_GAME_DATA);
+    float right = w - 56 * s;
+    fg->AddText(ImVec2(right - ImGui::CalcTextSize(ver).x, y), LOOK_DIM, ver);
+    fg->AddText(ImVec2(right - ImGui::CalcTextSize(note).x, y - lh - 6 * s), LOOK_DIM, note);
+    intro_apply(fg, f0, intro(6));
 }
 
 static bool back_pressed(void) {
@@ -224,15 +344,23 @@ static void go_main(void) {
     L.focus_main = 1;
 }
 
-// A window like the in-game menu's, centred; returns the space its bottom row needs.
+// A page that takes the whole window: its colour to the edges, its contents in a column no wider than the in-game
+// menu's (wider, a row's value would be too far from its name); returns the space its bottom row needs.
 static float panel_begin(const char *id, UiTextId title, float w, float h) {
-    float s = L.scale, ww = fminf(w * 0.88f, 1400 * s), wh = fminf(h * 0.86f, 820 * s);
-    ImGui::SetNextWindowPos(ImVec2(w * 0.5f, h * 0.5f), ImGuiCond_Always, ImVec2(0.5f, 0.5f));
-    ImGui::SetNextWindowSize(ImVec2(ww, wh), ImGuiCond_Always);
-    ImGui::Begin(id, nullptr, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoSavedSettings);
-    ImGui::TextColored(ImVec4(0.93f, 0.76f, 0.33f, 1), "%s", menu_text(title));
+    float s = L.scale, ww = fminf(w, 1500 * s);
+    ImGui::GetBackgroundDrawList()->AddRectFilled(ImVec2(0, 0), ImVec2(w, h), LOOK_PANEL);
+    ImGui::SetNextWindowPos(ImVec2(floorf((w - ww) * 0.5f), 0), ImGuiCond_Always);
+    ImGui::SetNextWindowSize(ImVec2(ww, h), ImGuiCond_Always);
+    ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(64 * s, 44 * s));
+    ImGui::Begin(id, nullptr, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoSavedSettings |
+                                  ImGuiWindowFlags_NoBackground);
+    ImGui::PopStyleVar();
+    ImGui::PushFont(L.head);
+    ImGui::TextUnformatted(menu_text(title));
+    ImGui::PopFont();
+    ImGui::Dummy(ImVec2(0, 4 * s));
     const ImGuiStyle &st = ImGui::GetStyle();
-    return ImGui::GetFrameHeight() + st.ItemSpacing.y * 2;
+    return item_height() + st.ItemSpacing.y * 2;   // the bottom row's Back button (panel_back_row)
 }
 
 // The bottom row: the save note on the left, Back on the right. true: Back.
@@ -242,12 +370,12 @@ static bool panel_back_row(UiTextId label = UI_LAUNCH_BACK) {
     float y = ImGui::GetCursorPosY();
     if (!cfg_last_save_ok()) {
         ImGui::SetCursorPosY(y + st.FramePadding.y);
-        ImGui::TextColored(ImVec4(0.95f, 0.45f, 0.35f, 1), "%s", menu_text(UI_MENU_SAVE_FAILED));
+        ImGui::TextColored(col4(LOOK_BAD), "%s", menu_text(UI_MENU_SAVE_FAILED));
     }
     const char *back = menu_text(label);
     float bw = ImGui::CalcTextSize(back).x + st.FramePadding.x * 4;
     ImGui::SetCursorPos(ImVec2(ImGui::GetWindowWidth() - st.WindowPadding.x - bw, y));
-    return ImGui::Button(back, ImVec2(bw, 0));
+    return ImGui::Button(back, ImVec2(bw, item_height()));
 }
 
 static void page_settings(float w, float h) {
@@ -287,45 +415,84 @@ static void setup_error_text(const SetupState &st, char *out, size_t cap) {
     snprintf(out, cap, menu_text(UI_LAUNCH_SETUP_FAILED), why);
 }
 
+// A step's mark, drawn (the font has no ticks): done a green disc with a dark tick, under way a ring with a blue arc going
+// round, to come an empty ring.
+static void step_mark(ImDrawList *dl, ImVec2 c, float r, bool done, bool now) {
+    float s = L.scale;
+    if (done) {
+        dl->AddCircleFilled(c, r, LOOK_OK, 28);
+        ImVec2 tick[3] = {ImVec2(c.x - r * 0.46f, c.y + r * 0.04f), ImVec2(c.x - r * 0.10f, c.y + r * 0.38f),
+                          ImVec2(c.x + r * 0.48f, c.y - r * 0.32f)};
+        dl->AddPolyline(tick, 3, LOOK_PANEL, 0, 2.4f * s);
+        return;
+    }
+    dl->AddCircle(c, r - s, LOOK_LINE, 28, 2.2f * s);
+    if (!now) return;
+    float a = L.shot_at ? 0.6f : (float)ImGui::GetTime() * 5.0f;   // still in a shot: the same picture every run
+    dl->PathArcTo(c, r - s, a, a + 1.9f, 16);
+    dl->PathStroke(LOOK_ACCENT, 0, 2.6f * s);
+}
+
+// The setup's steps, one per line: its mark, its name and, for the one under way, a bar to the right edge with the
+// count after it (a band going along the bar while the step has no count yet).
 static void setup_progress(const SetupState &st) {
+    float s = L.scale, lh = ImGui::GetTextLineHeight(), row = lh + 14 * s, r = lh * 0.48f;
+    ImDrawList *dl = ImGui::GetWindowDrawList();
     for (int i = 0; i < SETUP_STEPS; i++) {
         bool now = st.running && st.step == i;
-        ImVec4 col = st.done[i] ? ImVec4(0.55f, 0.85f, 0.6f, 1) : now ? ImVec4(0.93f, 0.76f, 0.33f, 1)
-                                                                       : ImVec4(0.62f, 0.64f, 0.58f, 1);
-        const char *mark = st.done[i] == 2 ? menu_text(UI_LAUNCH_STEP_KEPT) : st.done[i] ? "OK" : now ? ">" : "";
-        ImGui::TextColored(col, "%-3s %s", mark, menu_text(kStepText[i]));
-        if (now) {
-            ImGui::SameLine();
-            if (st.total > 0) {
-                char over[48];
-                snprintf(over, sizeof over, "%ld / %ld", st.progress, st.total);
-                ImGui::ProgressBar((float)st.progress / (float)st.total, ImVec2(-1, 0), over);
-            } else {
-                ImGui::ProgressBar(-1.0f * (float)ImGui::GetTime(), ImVec2(-1, 0), "");
-            }
+        ImVec2 p = ImGui::GetCursorScreenPos();
+        float avail = ImGui::GetContentRegionAvail().x, cy = p.y + row * 0.5f, ty = cy - lh * 0.5f;
+        ImGui::Dummy(ImVec2(avail, row - ImGui::GetStyle().ItemSpacing.y));
+        step_mark(dl, ImVec2(p.x + r, cy), r, st.done[i] != 0, now);
+        const char *name = menu_text(kStepText[i]);
+        float x = p.x + r * 2 + 14 * s;
+        dl->AddText(ImVec2(x, ty), st.done[i] || now ? LOOK_TEXT : LOOK_DIM, name);
+        x += ImGui::CalcTextSize(name).x + 18 * s;
+        if (st.done[i] == 2) dl->AddText(ImVec2(x, ty), LOOK_DIM, menu_text(UI_LAUNCH_STEP_KEPT));
+        if (!now) continue;
+        char count[48] = "";
+        if (st.total > 0) snprintf(count, sizeof count, "%ld / %ld", st.progress, st.total);
+        float cw = count[0] ? ImGui::CalcTextSize(count).x + 16 * s : 0, right = p.x + avail;
+        ImVec2 a(x, cy - 5 * s), b(right - cw, cy + 5 * s);
+        if (b.x - a.x < 60 * s) continue;   // a narrow window: the name alone
+        dl->AddRectFilled(a, b, LOOK_RAISED, 5 * s);
+        if (st.total > 0) {
+            float f = fminf(1.0f, fmaxf(0.0f, (float)st.progress / (float)st.total));
+            dl->AddRectFilled(a, ImVec2(a.x + fmaxf(10 * s, (b.x - a.x) * f), b.y), LOOK_ACCENT, 5 * s);
+            dl->AddText(ImVec2(right - cw + 16 * s, ty), LOOK_HEADING, count);
+        } else {
+            float span = b.x - a.x, band = span * 0.28f;
+            float x0 = a.x + (span + band) * (float)fmod(ImGui::GetTime() * 0.7, 1.0) - band;
+            dl->AddRectFilled(ImVec2(fmaxf(a.x, x0), a.y), ImVec2(fminf(b.x, x0 + band), b.y), LOOK_ACCENT, 5 * s);
         }
     }
 }
 
 static void page_files(float w, float h) {
+    const float act_h = item_height();   // the page's buttons: a target easy to hit, as the main page's
     float bottom = panel_begin("##files", UI_LAUNCH_FILES, w, h);
     ImGui::BeginChild("##files_body", ImVec2(0, -bottom), ImGuiChildFlags_NavFlattened);
     bool ready = rt_game_present();
     SetupState st = setup_state();
-    ImGui::TextColored(ready ? ImVec4(0.55f, 0.85f, 0.6f, 1) : ImVec4(0.94f, 0.67f, 0.35f, 1), "%s",
-                       menu_text(ready ? UI_LAUNCH_FILES_READY : UI_LAUNCH_FILES_MISSING));
+    state_line(ready, menu_text(ready ? UI_LAUNCH_FILES_READY : UI_LAUNCH_FILES_MISSING));
     update_row(ImGui::GetContentRegionAvail().x * 0.5f);   // a folder not set up starts on this page
     if (L.updated[0]) {
         char note[300];
         snprintf(note, sizeof note, menu_text(UI_LAUNCH_UPDATED), L.updated);
-        ImGui::TextColored(ImVec4(0.55f, 0.85f, 0.6f, 1), "%s", note);
+        ImGui::TextColored(col4(LOOK_OK), "%s", note);
     }
-    ImGui::TextWrapped("%s", menu_text(UI_LAUNCH_FILES_HELP));
+    // a line of some 75 letters at most: wider, the eye loses its place on the way back
+    ImGui::PushTextWrapPos(ImGui::GetCursorPosX() + fminf(ImGui::GetContentRegionAvail().x, 940 * L.scale));
+    ImGui::TextUnformatted(menu_text(UI_LAUNCH_FILES_HELP));
+    ImGui::PopTextWrapPos();
     ImGui::Spacing();
     ImGui::TextDisabled("%s", menu_text(UI_LAUNCH_FILES_FOLDER));
     ImGui::SameLine();
     ImGui::TextUnformatted(L.exe_dir);
+    // the groups apart: more space between them than inside one
+    ImGui::Dummy(ImVec2(0, 8 * L.scale));
     ImGui::Separator();
+    ImGui::Dummy(ImVec2(0, 8 * L.scale));
     if (!L.tools) {
         ImGui::TextWrapped("%s", menu_text(UI_LAUNCH_NO_TOOLS));
     } else {
@@ -333,40 +500,62 @@ static void page_files(float w, float h) {
         ImGui::TextDisabled("%s", menu_text(UI_LAUNCH_SOURCE));
         ImGui::SameLine();
         ImGui::TextUnformatted(L.source[0] ? L.source : "-");
-        if (ImGui::Button(menu_text(UI_LAUNCH_PICK))) SDL_ShowOpenFolderDialog(picked, nullptr, L.win, nullptr, false);
+        if (ImGui::Button(menu_text(UI_LAUNCH_PICK), ImVec2(0, act_h)))
+            SDL_ShowOpenFolderDialog(picked, nullptr, L.win, nullptr, false);
         ImGui::SameLine();
         static const SDL_DialogFileFilter kPack[] = {{"Switch 2 package (.nup, .nx)", "nup;nx"}};
-        if (ImGui::Button(menu_text(UI_LAUNCH_PICK_NUP)))   // the dump as one file (runtime/sdk/fs/pack.h)
+        if (ImGui::Button(menu_text(UI_LAUNCH_PICK_NUP), ImVec2(0, act_h)))   // the dump as one file (runtime/sdk/fs/pack.h)
             SDL_ShowOpenFileDialog(picked, nullptr, L.win, kPack, 1, nullptr, false);
+        ImGui::Dummy(ImVec2(0, 8 * L.scale));
         ImGui::TextDisabled("%s", menu_text(UI_LAUNCH_ROMFS_MODE));
+        // a ring with a red dot in the chosen one: ImGui's own is a filled disc, which reads as a blank button
+        ImGui::PushStyleVar(ImGuiStyleVar_FrameBorderSize, 2 * L.scale);
+        ImGui::PushStyleVar(ImGuiStyleVar_ItemInnerSpacing, ImVec2(10 * L.scale, 0));
+        ImGui::PushStyleColor(ImGuiCol_FrameBg, ImVec4(0, 0, 0, 0));
+        ImGui::PushStyleColor(ImGuiCol_Border, col4(LOOK_DIM));
         ImGui::RadioButton(menu_text(UI_LAUNCH_ROMFS_COPY), &L.link_romfs, 0);
-        ImGui::SameLine();
+        ImGui::SameLine(0, 28 * L.scale);
         ImGui::RadioButton(menu_text(UI_LAUNCH_ROMFS_LINK), &L.link_romfs, 1);
+        ImGui::PopStyleColor(2);
+        ImGui::PopStyleVar(2);
         ImGui::BeginDisabled(!L.source[0]);
-        if (ImGui::Button(menu_text(ready ? UI_LAUNCH_SETUP_AGAIN : UI_LAUNCH_SETUP)))
+        // the page's main action, in the blue: until the game is set up there is nothing else to do here
+        ImGui::PushStyleColor(ImGuiCol_Button, col4(LOOK_ACCENT));
+        ImGui::PushStyleColor(ImGuiCol_ButtonHovered, col4(LOOK_ACCENT_HOT));
+        ImGui::PushStyleColor(ImGuiCol_ButtonActive, col4(LOOK_ACCENT_DOWN));
+        ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1, 1, 1, 1));
+        if (ImGui::Button(menu_text(ready ? UI_LAUNCH_SETUP_AGAIN : UI_LAUNCH_SETUP), ImVec2(0, act_h)))
             setup_start(L.exe_dir, L.source, L.link_romfs);
+        ImGui::PopStyleColor(4);
         ImGui::EndDisabled();
         ImGui::EndDisabled();
         if (st.running) {
             ImGui::SameLine();
-            if (ImGui::Button(menu_text(UI_LAUNCH_CANCEL))) setup_cancel();
+            if (ImGui::Button(menu_text(UI_LAUNCH_CANCEL), ImVec2(0, act_h))) setup_cancel();
+        }
+        // the result right under Set up, by the button that started it: after the step list it would be under the
+        // fold of a 720-line window, and a failed setup would seem to have done nothing
+        if (st.finished > 0) ImGui::TextColored(col4(LOOK_OK), "%s", menu_text(UI_LAUNCH_SETUP_DONE));
+        if (st.finished < 0) {
+            char msg[700];
+            setup_error_text(st, msg, sizeof msg);
+            ImGui::PushTextWrapPos(0);
+            ImGui::TextColored(col4(LOOK_BAD), "%s", msg);
+            ImGui::PopTextWrapPos();
         }
         if (st.running || st.finished) {
-            ImGui::Spacing();
+            ImGui::Dummy(ImVec2(0, 12 * L.scale));
             setup_progress(st);
-            if (st.finished > 0) ImGui::TextColored(ImVec4(0.55f, 0.85f, 0.6f, 1), "%s", menu_text(UI_LAUNCH_SETUP_DONE));
-            if (st.finished < 0) {
-                char msg[700];
-                setup_error_text(st, msg, sizeof msg);
-                ImGui::PushTextWrapPos(0);
-                ImGui::TextColored(ImVec4(0.95f, 0.45f, 0.35f, 1), "%s", msg);
-                ImGui::PopTextWrapPos();
-            }
         }
     }
     ImGui::EndChild();
     // Not set up: this page is the start screen (decided 06/11/2026), its bottom button quits; set up, it goes back.
-    bool leave = panel_back_row(ready ? UI_LAUNCH_BACK : UI_LAUNCH_QUIT) || (!st.running && back_pressed());
+    // While the setup runs the button takes no input: one click would throw away minutes of work. Cancel, next to Set
+    // up, is the way to stop it on purpose.
+    ImGui::BeginDisabled(st.running);
+    bool leave = panel_back_row(ready ? UI_LAUNCH_BACK : UI_LAUNCH_QUIT);
+    ImGui::EndDisabled();
+    leave = leave || (!st.running && back_pressed());
     ImGui::End();
     if (!leave) return;
     if (st.running) setup_cancel();
@@ -389,7 +578,9 @@ static bool open_window(void) {
     float ds = SDL_GetDisplayContentScale(SDL_GetPrimaryDisplay());
     if (!(ds > 0)) ds = 1;
     // Always a window: the game's MKW_FULLSCREEN is the game's; the start screen goes fullscreen only by its own F11.
-    SDL_WindowFlags f = SDL_WINDOW_RESIZABLE | SDL_WINDOW_HIGH_PIXEL_DENSITY | (background ? SDL_WINDOW_NOT_FOCUSABLE : 0);
+    // Hidden until its first frame is drawn (launcher_run): shown at once, it is black while the first frame is made.
+    SDL_WindowFlags f = SDL_WINDOW_RESIZABLE | SDL_WINDOW_HIGH_PIXEL_DENSITY | SDL_WINDOW_HIDDEN |
+                        (background ? SDL_WINDOW_NOT_FOCUSABLE : 0);
     L.win = SDL_CreateWindow("Mario Kart World", (int)(1280 * ds), (int)(720 * ds), f);
     L.ren = L.win ? SDL_CreateRenderer(L.win, nullptr) : nullptr;
     if (!L.ren) {
@@ -397,6 +588,8 @@ static bool open_window(void) {
         return false;
     }
     SDL_SetRenderVSync(L.ren, 1);
+    // under 960 x 540 the column and the pages' two panes no longer fit side by side
+    SDL_SetWindowMinimumSize(L.win, (int)(960 * ds), (int)(540 * ds));
     return true;
 }
 
@@ -421,7 +614,8 @@ extern "C" int launcher_run(void) {
     io.IniFilename = nullptr;
     io.LogFilename = nullptr;
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard | ImGuiConfigFlags_NavEnableGamepad;
-    menu_look_style(L.base_style);
+    launcher_look_style(L.base_style);
+    opt_look(&launcher_look_rows);   // the settings rows in the start screen's palette, not the in-game menu's
     ImGui_ImplSDL3_InitForSDLRenderer(L.win, L.ren);
     ImGui_ImplSDLRenderer3_Init(L.ren);
     list_gpus();
@@ -476,12 +670,26 @@ extern "C" int launcher_run(void) {
         io.DisplaySize = ImVec2((float)pw, (float)ph);   // pixels: the style and fonts follow the height
         io.DisplayFramebufferScale = ImVec2(1, 1);
         ImGui::NewFrame();
-        backdrop_draw(ImGui::GetBackgroundDrawList(), (float)pw, (float)ph);
+        // the intro's clock starts with the first frame of the main page, before its background: started in
+        // page_main, frame 1 (the first one shown) would have the flag at full strength, gone the frame after
+        if (L.page == PAGE_MAIN && L.intro_t0 <= 0) L.intro_t0 = ImGui::GetTime();
+        ImDrawList *bgl = ImGui::GetBackgroundDrawList();
+        backdrop_draw(bgl, (float)pw, (float)ph, L.page == PAGE_MAIN);
+        if (L.page == PAGE_MAIN && L.intro_t0 > 0 && !L.shot_at)   // the flag: in over the intro's first 0.8 s
+            launcher_fade(bgl, (float)pw, (float)ph, LOOK_BG, L.intro_t0, 0.8f);
+        if (L.page != L.shown) {
+            if (frame > 1 && !L.shot_at) L.page_t0 = ImGui::GetTime();
+            L.shown = L.page;
+        }
         switch (L.page) {
         case PAGE_MAIN: page_main((float)pw, (float)ph); break;
         case PAGE_SETTINGS: page_settings((float)pw, (float)ph); break;
         case PAGE_FILES: page_files((float)pw, (float)ph); break;
         }
+        // the page just switched to comes in from its own colour in 0.15 s, over everything drawn this frame
+        if (L.page_t0 > 0 && !launcher_fade(ImGui::GetForegroundDrawList(), (float)pw, (float)ph,
+                                            L.page == PAGE_MAIN ? LOOK_BG : LOOK_PANEL, L.page_t0, 0.15f))
+            L.page_t0 = 0;
         ImGui::Render();
         L.save_pending = opt_save_tick(0);
         SDL_SetRenderDrawColor(L.ren, 0, 0, 0, 255);
@@ -496,6 +704,10 @@ extern "C" int launcher_run(void) {
             save_shot("");
             if (!setup_test) L.result = LAUNCHER_QUIT;
         }
+        // shown once its first frame is drawn, right before that frame is presented: shown at creation it is black
+        // for as long as the start takes, and presenting to a window still hidden can wait on Wayland for a frame
+        // callback that an unmapped surface never gets
+        if (frame == 1) SDL_ShowWindow(L.win);
         SDL_RenderPresent(L.ren);
     }
     if (L.save_pending) opt_save_tick(1);

@@ -1857,6 +1857,10 @@ msgctxt "UI_LAUNCH_UPDATED"
 msgid "Updated to %s: setting up again what it changed"
 msgstr "Bijgewerkt naar %s: wat veranderd is wordt opnieuw ingesteld"
 
+msgctxt "UI_LAUNCH_NO_GAME_DATA"
+msgid "Your own copy of the game · No game data included"
+msgstr "Je eigen kopie van het spel · Geen speldata inbegrepen"
+
 msgctxt "UI_MENU_UPDATE_CHECK"
 msgid "Check for updates"
 msgstr "Op updates controleren"

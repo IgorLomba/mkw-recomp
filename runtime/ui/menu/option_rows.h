@@ -15,6 +15,24 @@ extern "C" {
 #include "ui_text.h"
 }
 
+// The rows' colours and corner radius. The in-game menu's are the default; the start screen draws the same rows in its
+// own palette (ui/launcher/launcher_look.h).
+struct OptLook {
+    ImU32 select, select_off;   // the border of the row under the cursor, of one greyed out; group headings: group
+    ImU32 divider;              // the line between the rows and the description
+    ImU32 dim, off;             // descriptions and header cells; a greyed-out row's text
+    ImU32 arrow;                // a choice's arrows at rest
+    ImU32 label, value, value_default;
+    ImU32 note, note_off;       // the note under a value, under a greyed-out row's label
+    ImU32 fill, fill_hot;       // a row's fill at rest, under the cursor
+    ImU32 border, border_off;   // a row's border at rest, greyed out
+    ImU32 cell_off;             // the border of a binding cell that takes no input
+    ImU32 group, warn;          // opt_group's heading, opt_text's warning
+    float radius;               // a row's corners, at 1080 lines
+};
+// The rows' look from now on; NULL: the in-game menu's. Kept by pointer: l must outlive the rows drawn with it.
+void opt_look(const OptLook *l);
+
 void opt_begin(const char *id, float scale);
 void opt_end(void);
 // The height the next pages leave free under their panes (the menu's bottom row).
