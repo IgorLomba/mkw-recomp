@@ -147,6 +147,10 @@ static Ov ovs[] = {
     {"vi.CreateLayer", "_ZN2nn2vi11CreateLayerEPPNS0_5LayerEPNS0_7DisplayE"},
     {"vi.GetNativeWindow", "_ZN2nn2vi15GetNativeWindowEPPvPNS0_5LayerE"},
     {"vi.GetDisplayVsyncEvent", "_ZN2nn2vi20GetDisplayVsyncEventEPNS_2os15SystemEventTypeEPNS0_7DisplayE"},
+    {"vi.QueryDisplayHdrStatus", "_ZN2nn2vi21QueryDisplayHdrStatusEPbPNS0_15HdrOutputFormatEPtPKNS0_7DisplayE"},
+    {"vi.QueryDisplayHdrPaperWhite", "_ZN2nn2vi25QueryDisplayHdrPaperWhiteEPtPKNS0_7DisplayE"},
+    {"vi.SetLayerNextHdrStandard", "_ZN2nn2vi52SetLayerNextHdrStandardContentLuminanceRangeMetadataEPNS0_5LayerEtt"},
+    {"vi.SetLayerNextHdrExtended", "_ZN2nn2vi52SetLayerNextHdrExtendedContentLuminanceRangeMetadataEPNS0_5LayerEtt"},
     {"nvnBootstrapLoader", "nvnBootstrapLoader", 1},
 #define OV(key, name) {key, name},
 #include "ov_mkw_list.h"
@@ -639,6 +643,14 @@ static void probe_media_gfx(void) {
     CHECK(CALL("vi.GetDisplayVsyncEvent", ev, U(display)) == 0, "GetDisplayVsyncEvent");
     int vsync = event_works(ev, 1);
     CHECK(vsync, "the vsync event does not work as an auto-clear system event");
+    // HDR: no window here, so SDR (format 0); the game's luminance ranges are taken
+    uint8_t *hdr = guest_alloc(0x10);
+    memset(hdr, 0xff, 0x10);
+    CHECK(CALL("vi.QueryDisplayHdrStatus", U(hdr), U(hdr + 4), U(hdr + 8), U(display)) == 0 && hdr[0] == 0 &&
+          !memcmp(hdr + 4, "\0\0\0\0", 4), "QueryDisplayHdrStatus without a window is not SDR");
+    CHECK(CALL("vi.QueryDisplayHdrPaperWhite", U(hdr + 10), U(display)) == 0, "QueryDisplayHdrPaperWhite");
+    CHECK(CALL("vi.SetLayerNextHdrStandard", U(layer), 0, 203) == 0 &&
+          CALL("vi.SetLayerNextHdrExtended", U(layer), 0, 1000) == 0, "SetLayerNextHdr*ContentLuminanceRangeMetadata");
     printf("codec/nv/vi: Opus decoder state kept, allocators and work memory recorded, display %p layer %p window %p, "
            "vsync event %s\n", display, layer, window, vsync ? "bound (auto-clear)" : "FAILED");
 }
