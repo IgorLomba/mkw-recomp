@@ -61,3 +61,8 @@ issue = 123
 all = ["svc #0x1f unknown", "SwapNpadAssignment"]
 fixed = "v0.1.9"
 what = "the game swapped two players' controllers (`nn::hid::SwapNpadAssignment`), which the port did not handle"
+
+[[signature]]
+issue = 177
+all = ["python312.dll conflicts"]
+what = "the setup's tools took another Python's `PYTHONPATH` or `PYTHONHOME` and failed at generate (\"Module use of python312.dll conflicts with this version of Python\")"
