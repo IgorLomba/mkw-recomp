@@ -93,7 +93,7 @@ static const CfgMeta metas[] = {
     {"PERF_OVERLAY", "off", "off|fps|full", LIVE}, {"FPS", "auto", "auto|30|60", LIVE},
     {"FRAMEGEN", "off", "off|auto|2|3|4", LIVE},
     {"UPSCALER", "fsr", "fsr|bilinear", LIVE}, {"SHARPNESS", "80", "0..100", LIVE},
-    {"PICTURE_FIT", "keep", "keep|stretch", LIVE}, {"HDR", "off", "auto|off", LIVE},   // auto once a run on an HDR10 swapchain (gamescope's bench) shows the menu right
+    {"PICTURE_FIT", "keep", "keep|stretch", LIVE}, {"HDR", "auto", "auto|off", LIVE},   // auto: HDR when the display is (hdr6c, 12/11/2026)
     {"DEVICE_PROFILE", "auto", "auto|desktop|deck", RESTART},
     {"RESOLUTION", "original", "original|540|720|900|1080|1440|2160", RESTART},
     {"ASPECT", "16:9", "16:9|window|21:9|32:9", RESTART},

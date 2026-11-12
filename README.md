@@ -116,7 +116,7 @@ At the root: `pyproject.toml` and `uv.lock` (the Python environment of the tools
 | System | The SDK's `nn::*` functions replaced by name; signatures from the mangled names of `main`'s 1 289 imports | No console services to emulate |
 | Graphics | NVN2 over Vulkan: 529 of its 699 functions share their name with NVN1 (signatures known from totk-pc-recomp and nxnative); 170 are new | Recompilation, not GPU emulation |
 | Shaders | Our own SM86→SPIR-V translator, offline, with a decoder generated from the DocumentSASS / nvsass-disassembler specification | Covers mesh/task and what Maxwell lacks |
-| Optional Switch 2 features | DLSS, HDR, ray tracing and touch behind options, off by default; off, their NVN2 functions exist but do nothing so the game keeps its normal path | Console hardware extras, not needed to play |
+| Optional Switch 2 features | HDR on by itself when the display is in HDR, as on the console (Settings > Screen > HDR: Automatic or Off); DLSS, ray tracing and touch behind options, off by default; off, their NVN2 functions exist but do nothing so the game keeps its normal path | Console hardware extras, not needed to play |
 | Defaults | The console's look and resolution; lower settings are options | The player chooses |
 
 ## How it was made
