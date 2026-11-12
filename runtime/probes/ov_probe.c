@@ -263,7 +263,7 @@ static void probe_oe(void) {
         {NULL, "en-US", "en-US"}, {NULL, "be-BY", "en-US"}, {NULL, "xx", "en-US"},     {NULL, "ja-JP", "ja"},
         {NULL, "fr-CA", "fr-CA"}, {NULL, "es-MX", "es-419"}, {NULL, "es_ES", "es"},     {NULL, "zh-Hant-TW", "zh-Hant"},
         {NULL, "zh-CN", "zh-Hans"}, {NULL, "en-GB", "en-GB"}, {NULL, "ru", "ru"},       {"ja", "fr-FR", "ja"},
-        {"en-US", NULL, "en-US"}};
+        {"en-US", NULL, "en-US"}, {NULL, "ca-ES", "es"}, {NULL, "eu", "es"},       {NULL, "pl-PL", "en-US"}};
     int bad = 0;
     for (size_t i = 0; i < sizeof cases / sizeof *cases; i++) {
         set_env("MKW_LANG", cases[i].lang);
@@ -815,7 +815,7 @@ static void probe_fonts(void) {
 // software keyboard keeps its game-language rows, and menu_text follows MKW_MENU_LANG in each language.
 static void probe_menu_text(void) {
     static const char *const langs[] = {"en", "ja", "fr", "de", "it", "es", "nl", "pt", "pt-BR", "ru", "zh-Hans",
-                                        "zh-Hant", "ko"};
+                                        "zh-Hant", "ko", "es-419", "ca", "gl", "eu", "pl", "tr", "uk"};
     enum { N = sizeof langs / sizeof *langs };
     for (size_t i = 0; i < N; i++)
         for (int id = UI_MENU_FIRST; id <= UI_MENU_LAST_ID; id++)
@@ -826,7 +826,7 @@ static void probe_menu_text(void) {
     CHECK(!strcmp(ui_text_in("ru", UI_SWKBD_DEFAULT_NAME), "Игрок") &&
           !strcmp(ui_text_in("de", UI_SWKBD_DEFAULT_NAME), "Spieler"), "keyboard texts changed");
     // language names: the same string in every row
-    for (int id = UI_MENU_LANGNAME_EN; id <= UI_MENU_LANGNAME_KO; id++)
+    for (int id = UI_MENU_LANGNAME_EN; id <= UI_MENU_LANGNAME_LAST; id++)
         for (size_t i = 1; i < N; i++)
             CHECK(!strcmp(ui_text_in(langs[i], (UiTextId)id), ui_text_in("en", (UiTextId)id)), "language name %d differs in %s", id, langs[i]);
     CHECK(!strcmp(ui_text_in("en", UI_MENU_LANGNAME_RU), "Русский"), "Russian is not shown as Russian");

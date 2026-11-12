@@ -10,113 +10,123 @@ msgstr "Giocatore"
 
 msgctxt "UI_MENU_TITLE"
 msgid "Settings"
-msgstr ""
+msgstr "Impostazioni"
 
 msgctxt "UI_MENU_TAB_SCREEN"
 msgid "Screen"
-msgstr ""
+msgstr "Schermo"
 
 msgctxt "UI_MENU_TAB_GAME"
 msgid "Game"
-msgstr ""
+msgstr "Gioco"
 
 msgctxt "UI_MENU_TAB_SOUND"
 msgid "Sound"
-msgstr ""
+msgstr "Audio"
 
 msgctxt "UI_MENU_TAB_CONTROLS"
 msgid "Controls"
-msgstr ""
+msgstr "Comandi"
 
 msgctxt "UI_MENU_TAB_MENU"
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 msgctxt "UI_MENU_TAB_ADVANCED"
 msgid "Advanced"
-msgstr ""
+msgstr "Avanzate"
 
 msgctxt "UI_MENU_TAB_GRAPHICS"
 msgid "Graphics"
-msgstr ""
+msgstr "Grafica"
 
 msgctxt "UI_MENU_TAB_HACKS"
 msgid "Hacks"
-msgstr ""
+msgstr "Hack"
 
 msgctxt "UI_MENU_HACKS_WARNING"
 msgid ""
 "Experimental: shortcuts the console does not have, for playing and testing faster. They can "
 "change how the game behaves."
 msgstr ""
+"Sperimentale: scorciatoie che la console non ha, per giocare e provare più in fretta. Possono "
+"cambiare il comportamento del gioco."
 
 msgctxt "UI_MENU_TURBO"
 msgid "Turbo"
-msgstr ""
+msgstr "Turbo"
 
 msgctxt "UI_MENU_TURBO_DESC"
 msgid ""
 "The whole game runs faster: menus, movies, loads and races. Hold or press F2. The screen shows at "
 "most 60 frames a second."
 msgstr ""
+"Tutto il gioco va più veloce: menu, filmati, caricamenti e corse. Tieni premuto o premi F2. Lo "
+"schermo mostra al massimo 60 fotogrammi al secondo."
 
 msgctxt "UI_MENU_TURBO_HOLD"
 msgid "Hold F2"
-msgstr ""
+msgstr "Tieni premuto F2"
 
 msgctxt "UI_MENU_TURBO_TOGGLE"
 msgid "F2 on/off"
-msgstr ""
+msgstr "F2 sì/no"
 
 msgctxt "UI_MENU_TURBO_SPEED"
 msgid "Turbo speed"
-msgstr ""
+msgstr "Velocità turbo"
 
 msgctxt "UI_MENU_TURBO_SPEED_DESC"
 msgid "How many times faster. A slow PC may not reach it."
-msgstr ""
+msgstr "Quante volte più veloce. Un PC lento potrebbe non arrivarci."
 
 msgctxt "UI_MENU_SKIP_MOVIES"
 msgid "Skip movies"
-msgstr ""
+msgstr "Salta i filmati"
 
 msgctxt "UI_MENU_SKIP_MOVIES_DESC"
 msgid "Skips the cup and course openings as soon as they start."
-msgstr ""
+msgstr "Salta le introduzioni di trofei e percorsi appena iniziano."
 
 msgctxt "UI_MENU_SEED"
 msgid "Same randomness every time"
-msgstr ""
+msgstr "Sempre lo stesso caso"
 
 msgctxt "UI_MENU_SEED_DESC"
 msgid ""
 "The game draws the same random numbers in every session: the same title course, the same items. "
 "For testing."
 msgstr ""
+"Il gioco estrae gli stessi numeri casuali a ogni sessione: lo stesso percorso del titolo, gli "
+"stessi oggetti. Per fare prove."
 
 msgctxt "UI_MENU_FREEZE_KEYS"
 msgid "Freeze keys"
-msgstr ""
+msgstr "Tasti blocco"
 
 msgctxt "UI_MENU_FREEZE_KEYS_DESC"
 msgid ""
 "F3 stops the game on the frame on screen and starts it again; F4 moves it on by one frame. To "
 "look at a moment closely."
 msgstr ""
+"F3 ferma il gioco sul fotogramma a schermo e lo fa ripartire; F4 lo fa avanzare di uno. Per "
+"osservare un momento da vicino."
 
 msgctxt "UI_MENU_UNLOCK_ALL"
 msgid "Unlock everything"
-msgstr ""
+msgstr "Sblocca tutto"
 
 msgctxt "UI_MENU_UNLOCK_ALL_DESC"
 msgid ""
 "Every driver and outfit, vehicle and sticker, and the Special Cup. It goes into your save when "
 "the game saves: turning it off does not lock them again."
 msgstr ""
+"Ogni pilota e costume, veicolo e adesivo, e il Trofeo Speciale. Entra nel salvataggio quando il "
+"gioco salva: disattivarlo non li blocca di nuovo."
 
 msgctxt "UI_MENU_QUICK_RACE"
 msgid "Straight to"
-msgstr ""
+msgstr "Vai subito a"
 
 msgctxt "UI_MENU_QUICK_RACE_DESC"
 msgid ""
@@ -124,151 +134,163 @@ msgid ""
 "game offers (always the same with «Same randomness every time»), no rivals. Free roam: the open "
 "world. The controller still works."
 msgstr ""
+"Attraversa i menu da solo all'avvio. Prove a tempo: Mario, kart standard e il percorso che "
+"propone il gioco (sempre lo stesso con «Sempre lo stesso caso»), senza rivali. Corsa libera: il "
+"mondo aperto. Il controller funziona ancora."
 
 msgctxt "UI_MENU_QUICK_RACE_TT"
 msgid "Time trial"
-msgstr ""
+msgstr "Prove a tempo"
 
 msgctxt "UI_MENU_QUICK_RACE_FREE"
 msgid "Free roam"
-msgstr ""
+msgstr "Corsa libera"
 
 msgctxt "UI_MENU_ANISO"
 msgid "Texture filtering"
-msgstr ""
+msgstr "Filtro texture"
 
 msgctxt "UI_MENU_ANISO_DESC"
 msgid ""
 "Sharpness of textures seen far away or at a low angle, such as the road ahead. Game uses what "
 "each texture asks for. Impact on frame rate: low."
 msgstr ""
+"Nitidezza delle texture viste da lontano o con poca angolazione, come la strada davanti a te. "
+"«Gioco» usa quello che chiede ogni texture. Impatto sul frame rate: basso."
 
 msgctxt "UI_MENU_ANISO_GAME"
 msgid "Game"
-msgstr ""
+msgstr "Gioco"
 
 msgctxt "UI_MENU_TEX_QUALITY"
 msgid "Texture quality"
-msgstr ""
+msgstr "Qualità texture"
 
 msgctxt "UI_MENU_TEX_QUALITY_DESC"
 msgid ""
 "Detail of the game's own textures. Half and Quarter skip their finest levels: less memory traffic "
 "on the graphics card, blurrier surfaces up close. Impact on frame rate: low."
 msgstr ""
+"Dettaglio delle texture del gioco. Metà e Un quarto saltano i livelli più fini: meno traffico di "
+"memoria sulla scheda grafica, superfici più sfocate da vicino. Impatto sul frame rate: basso."
 
 msgctxt "UI_MENU_TEX_QUALITY_FULL"
 msgid "Full"
-msgstr ""
+msgstr "Piena"
 
 msgctxt "UI_MENU_TEX_QUALITY_HALF"
 msgid "Half"
-msgstr ""
+msgstr "Metà"
 
 msgctxt "UI_MENU_TEX_QUALITY_QUARTER"
 msgid "Quarter"
-msgstr ""
+msgstr "Un quarto"
 
 msgctxt "UI_MENU_DETAIL"
 msgid "Detail distance"
-msgstr ""
+msgstr "Distanza dettagli"
 
 msgctxt "UI_MENU_DETAIL_DESC"
 msgid ""
 "How far objects keep their detailed models before switching to simpler ones. Console is the "
 "Switch 2's. Impact on frame rate: low."
 msgstr ""
+"Quanto lontano gli oggetti mantengono i modelli dettagliati prima di passare a quelli più "
+"semplici. Console è quella di Switch 2. Impatto sul frame rate: basso."
 
 msgctxt "UI_MENU_DETAIL_LOW"
 msgid "Low"
-msgstr ""
+msgstr "Bassa"
 
 msgctxt "UI_MENU_DETAIL_MEDIUM"
 msgid "Medium"
-msgstr ""
+msgstr "Media"
 
 msgctxt "UI_MENU_DETAIL_CONSOLE"
 msgid "Console"
-msgstr ""
+msgstr "Console"
 
 msgctxt "UI_MENU_DETAIL_HIGH"
 msgid "High"
-msgstr ""
+msgstr "Alta"
 
 msgctxt "UI_MENU_DETAIL_ULTRA"
 msgid "Very high"
-msgstr ""
+msgstr "Molto alta"
 
 msgctxt "UI_MENU_SHADOW"
 msgid "Shadow quality"
-msgstr ""
+msgstr "Qualità ombre"
 
 msgctxt "UI_MENU_SHADOW_DESC"
 msgid ""
 "Size of the map the game draws shadows from. Smaller is lighter for the graphics card, with "
 "blurrier shadow edges. Console is 3072 docked and 2048 handheld. Impact on frame rate: low."
 msgstr ""
+"Dimensione della mappa da cui il gioco disegna le ombre. Più piccola pesa meno sulla scheda "
+"grafica, con bordi delle ombre più sfocati. Console è 3072 in modalità TV e 2048 in portatile. "
+"Impatto sul frame rate: basso."
 
 msgctxt "UI_MENU_CONTINUE"
 msgid "Continue"
-msgstr ""
+msgstr "Continua"
 
 msgctxt "UI_MENU_QUIT"
 msgid "Quit game"
-msgstr ""
+msgstr "Esci dal gioco"
 
 msgctxt "UI_MENU_ON"
 msgid "On"
-msgstr ""
+msgstr "Sì"
 
 msgctxt "UI_MENU_OFF"
 msgid "Off"
-msgstr ""
+msgstr "No"
 
 msgctxt "UI_MENU_AUTO"
 msgid "Automatic"
-msgstr ""
+msgstr "Automatico"
 
 msgctxt "UI_MENU_DEFAULT_MARK"
 msgid "default"
-msgstr ""
+msgstr "predefinito"
 
 msgctxt "UI_MENU_AFTER_RESTART"
 msgid "after restart"
-msgstr ""
+msgstr "dopo il riavvio"
 
 msgctxt "UI_MENU_SET_BY_ENV"
 msgid "set by environment variable"
-msgstr ""
+msgstr "impostato da variabile d'ambiente"
 
 msgctxt "UI_MENU_SAVE_FAILED"
 msgid "could not save settings"
-msgstr ""
+msgstr "impossibile salvare le impostazioni"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_VERSION"
 msgid "MKW Recomp %s, game %s"
-msgstr ""
+msgstr "MKW Recomp %s, gioco %s"
 
 msgctxt "UI_MENU_FULLSCREEN"
 msgid "Fullscreen"
-msgstr ""
+msgstr "Schermo intero"
 
 msgctxt "UI_MENU_FULLSCREEN_DESC"
 msgid "Fills the screen with the game; F11 toggles it."
-msgstr ""
+msgstr "Riempie lo schermo con il gioco; F11 lo attiva e disattiva."
 
 msgctxt "UI_MENU_WINDOW_SIZE"
 msgid "Window size"
-msgstr ""
+msgstr "Dimensione finestra"
 
 msgctxt "UI_MENU_WINDOW_SIZE_DESC"
 msgid "Size of the game window when not fullscreen."
-msgstr ""
+msgstr "Dimensione della finestra di gioco quando non è a schermo intero."
 
 msgctxt "UI_MENU_QUALITY"
 msgid "Quality"
-msgstr ""
+msgstr "Qualità"
 
 msgctxt "UI_MENU_QUALITY_DESC"
 msgid ""
@@ -276,125 +298,137 @@ msgid ""
 "graphics card, High and Very high sharper. Changing a row makes it Custom. The internal "
 "resolution is what changes the frame rate most."
 msgstr ""
+"Imposta in una volta le righe qui sotto. Console somiglia a Switch 2; Bassa e Media pesano meno "
+"sulla scheda grafica, Alta e Molto alta sono più nitide. Se modifichi una riga diventa "
+"Personalizzata. La risoluzione interna è ciò che cambia di più il frame rate."
 
 msgctxt "UI_MENU_QUALITY_CUSTOM"
 msgid "Custom"
-msgstr ""
+msgstr "Personalizzata"
 
 msgctxt "UI_MENU_RESOLUTION"
 msgid "Internal resolution"
-msgstr ""
+msgstr "Risoluzione interna"
 
 msgctxt "UI_MENU_RESOLUTION_DESC"
 msgid ""
 "Lines the game renders its scenes at, then scaled to the window. Lower is faster: 720p suits "
 "integrated graphics. Original is the console's (up to 1440p)."
 msgstr ""
+"Righe a cui il gioco disegna le scene, poi scalate alla finestra. Più bassa è più veloce: 720p va "
+"bene per la grafica integrata. Originale è quella della console (fino a 1440p)."
 
 msgctxt "UI_MENU_RESOLUTION_ORIGINAL"
 msgid "Original"
-msgstr ""
+msgstr "Originale"
 
 msgctxt "UI_MENU_ASPECT"
 msgid "Aspect ratio"
-msgstr ""
+msgstr "Proporzioni"
 
 msgctxt "UI_MENU_ASPECT_DESC"
 msgid ""
 "Wider than 16:9 shows more of the course at the sides, for ultrawide screens. 16:9 is the "
 "console's; Window takes the window's or monitor's shape. Menus stay stretched for now."
 msgstr ""
+"Più largo di 16:9 mostra più percorso ai lati, per gli schermi ultrawide. 16:9 è quello della "
+"console; Finestra prende la forma della finestra o del monitor. I menu restano allungati per ora."
 
 msgctxt "UI_MENU_ASPECT_WINDOW"
 msgid "Window"
-msgstr ""
+msgstr "Finestra"
 
 msgctxt "UI_MENU_PRESENT"
 msgid "Presentation"
-msgstr ""
+msgstr "Presentazione"
 
 msgctxt "UI_MENU_PRESENT_DESC"
 msgid "How finished frames reach the screen."
-msgstr ""
+msgstr "Come i fotogrammi finiti arrivano sullo schermo."
 
 msgctxt "UI_MENU_PRESENT_MAILBOX"
 msgid "Mailbox"
-msgstr ""
+msgstr "Mailbox"
 
 msgctxt "UI_MENU_PRESENT_VSYNC"
 msgid "VSync"
-msgstr ""
+msgstr "VSync"
 
 msgctxt "UI_MENU_PRESENT_IMMEDIATE"
 msgid "Immediate"
-msgstr ""
+msgstr "Immediata"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_PRESENT_IN_USE"
 msgid "in use: %s"
-msgstr ""
+msgstr "in uso: %s"
 
 msgctxt "UI_MENU_GPU"
 msgid "Graphics card"
-msgstr ""
+msgstr "Scheda grafica"
 
 msgctxt "UI_MENU_GPU_DESC"
 msgid "The Vulkan device that draws the game."
-msgstr ""
+msgstr "Il dispositivo Vulkan che disegna il gioco."
 
 msgctxt "UI_MENU_GPU_AUTO"
 msgid "Automatic"
-msgstr ""
+msgstr "Automatica"
 
 msgctxt "UI_MENU_PERF_OVERLAY"
 msgid "Performance overlay"
-msgstr ""
+msgstr "Overlay prestazioni"
 
 msgctxt "UI_MENU_PERF_OVERLAY_DESC"
 msgid ""
 "Frame rate in the top right corner. Full adds frame times with a graph, CPU, GPU and memory load, "
 "temperatures and the render thread's waits. F10 cycles the modes."
 msgstr ""
+"Frame rate in alto a destra. Completo aggiunge i tempi dei fotogrammi con un grafico, il carico "
+"di CPU, GPU e memoria, le temperature e le attese del thread di rendering. F10 cambia modalità."
 
 msgctxt "UI_MENU_PERF_OFF"
 msgid "Off"
-msgstr ""
+msgstr "No"
 
 msgctxt "UI_MENU_PERF_FPS"
 msgid "FPS"
-msgstr ""
+msgstr "FPS"
 
 msgctxt "UI_MENU_PERF_FULL"
 msgid "Full"
-msgstr ""
+msgstr "Completo"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_PERF_LINE_FPS"
 msgid "%.0f fps"
-msgstr ""
+msgstr "%.0f fps"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_PERF_LINE_FPS_FG"
 msgid "%.0f/%.0f fps"
-msgstr ""
+msgstr "%.0f/%.0f fps"
 
 msgctxt "UI_MENU_FPS"
 msgid "Frame rate"
-msgstr ""
+msgstr "Frame rate"
 
 msgctxt "UI_MENU_FPS_DESC"
 msgid ""
 "Frames per second the game aims for. Automatic is the console's: 60, or 30 when a frame takes too "
 "long. If your computer cannot hold 60, choose 30 so the race runs at its real speed."
 msgstr ""
+"Fotogrammi al secondo a cui punta il gioco. Automatico è quello della console: 60, o 30 quando un "
+"fotogramma impiega troppo. Se il computer non regge 60, scegli 30 così la corsa va alla velocità "
+"reale."
 
 msgctxt "UI_MENU_FPS_AUTO"
 msgid "Automatic"
-msgstr ""
+msgstr "Automatico"
 
 msgctxt "UI_MENU_FRAMEGEN"
 msgid "Frame generation"
-msgstr ""
+msgstr "Generazione fotogrammi"
 
 msgctxt "UI_MENU_FRAMEGEN_DESC"
 msgid ""
@@ -402,50 +436,58 @@ msgid ""
 "your monitor's refresh rate has room for. Adds up to one frame of delay, and fast motion can "
 "smear. Not on the console."
 msgstr ""
+"Mostra fotogrammi creati tra quelli del gioco: 2x trasforma 30 fps in 60. Automatico ne crea "
+"quanti ne consente la frequenza di aggiornamento del monitor. Aggiunge fino a un fotogramma di "
+"ritardo e il movimento veloce può sbavare. Non c'è sulla console."
 
 msgctxt "UI_MENU_GRAPHICS"
 msgid "Picture"
-msgstr ""
+msgstr "Immagine"
 
 msgctxt "UI_MENU_UPSCALER"
 msgid "Scaling to the window"
-msgstr ""
+msgstr "Scalatura alla finestra"
 
 msgctxt "UI_MENU_UPSCALER_DESC"
 msgid ""
 "How the picture is scaled when the window is larger than the game resolution. FSR keeps edges and "
 "detail sharper than bilinear."
 msgstr ""
+"Come viene scalata l'immagine quando la finestra è più grande della risoluzione del gioco. FSR "
+"mantiene bordi e dettagli più nitidi del bilineare."
 
 msgctxt "UI_MENU_UPSCALER_FSR"
 msgid "AMD FSR 1"
-msgstr ""
+msgstr "AMD FSR 1"
 
 msgctxt "UI_MENU_UPSCALER_BILINEAR"
 msgid "Bilinear"
-msgstr ""
+msgstr "Bilineare"
 
 msgctxt "UI_MENU_PICTURE_FIT"
 msgid "Picture shape"
-msgstr ""
+msgstr "Forma immagine"
 
 msgctxt "UI_MENU_PICTURE_FIT_DESC"
 msgid ""
 "When the window's shape differs from the game resolution's (a 16:9 game on the Steam Deck's 16:10 "
 "screen), keep the picture's proportions with black bars, or stretch it over the whole window."
 msgstr ""
+"Quando la forma della finestra differisce da quella della risoluzione del gioco (un gioco 16:9 "
+"sullo schermo 16:10 di Steam Deck), mantiene le proporzioni con bande nere oppure allunga "
+"l'immagine su tutta la finestra."
 
 msgctxt "UI_MENU_PICTURE_FIT_KEEP"
 msgid "Keep (bars)"
-msgstr ""
+msgstr "Mantieni (bande)"
 
 msgctxt "UI_MENU_PICTURE_FIT_STRETCH"
 msgid "Stretch"
-msgstr ""
+msgstr "Allunga"
 
 msgctxt "UI_MENU_HDR"
 msgid "HDR"
-msgstr ""
+msgstr "HDR"
 
 msgctxt "UI_MENU_HDR_DESC"
 msgid ""
@@ -453,30 +495,33 @@ msgid ""
 "Display > Use HDR), as the console does; its brightness follows the system's HDR settings. Off "
 "always shows the standard picture. Applies at once."
 msgstr ""
+"Automatico mostra l'immagine HDR del gioco quando lo schermo è in HDR (su Windows, Impostazioni > "
+"Schermo > Usa HDR), come la console; la luminosità segue le impostazioni HDR del sistema. No "
+"mostra sempre l'immagine standard. Si applica subito."
 
 msgctxt "UI_MENU_SHARPNESS"
 msgid "FSR sharpness"
-msgstr ""
+msgstr "Nitidezza FSR"
 
 msgctxt "UI_MENU_SHARPNESS_DESC"
 msgid "Sharpening after FSR scaling; 0 turns it off."
-msgstr ""
+msgstr "Nitidezza applicata dopo la scalatura FSR; 0 la disattiva."
 
 msgctxt "UI_MENU_GAME_LANG"
 msgid "Game language"
-msgstr ""
+msgstr "Lingua del gioco"
 
 msgctxt "UI_MENU_GAME_LANG_DESC"
 msgid "Language of the game's text and voices."
-msgstr ""
+msgstr "Lingua dei testi e delle voci del gioco."
 
 msgctxt "UI_MENU_GAME_LANG_AUTO"
 msgid "Automatic"
-msgstr ""
+msgstr "Automatica"
 
 msgctxt "UI_MENU_OPERATION_MODE"
 msgid "Console mode"
-msgstr ""
+msgstr "Modalità console"
 
 msgctxt "UI_MENU_OPERATION_MODE_DESC"
 msgid ""
@@ -484,76 +529,81 @@ msgid ""
 "enlarges it with its own scaler; handheld, at the full internal resolution with smaller shadows: "
 "sharper, but more work for the graphics card."
 msgstr ""
+"Se il gioco crede di essere in modalità TV o portatile. In TV disegna la scena più piccola e la "
+"ingrandisce con il suo scaler; in portatile, alla piena risoluzione interna con ombre più "
+"piccole: più nitido, ma più lavoro per la scheda grafica."
 
 msgctxt "UI_MENU_MODE_DOCKED"
 msgid "Docked"
-msgstr ""
+msgstr "TV"
 
 msgctxt "UI_MENU_MODE_HANDHELD"
 msgid "Handheld"
-msgstr ""
+msgstr "Portatile"
 
 msgctxt "UI_MENU_VOLUME"
 msgid "Volume"
-msgstr ""
+msgstr "Volume"
 
 msgctxt "UI_MENU_VOLUME_DESC"
 msgid "Master volume of the game."
-msgstr ""
+msgstr "Volume generale del gioco."
 
 msgctxt "UI_MENU_SPEAKERS"
 msgid "Speakers"
-msgstr ""
+msgstr "Altoparlanti"
 
 msgctxt "UI_MENU_SPEAKERS_STEREO"
 msgid "Stereo"
-msgstr ""
+msgstr "Stereo"
 
 msgctxt "UI_MENU_SPEAKERS_51"
 msgid "5.1 surround"
-msgstr ""
+msgstr "Surround 5.1"
 
 msgctxt "UI_MENU_SPEAKERS_DESC"
 msgid ""
 "Automatic gives the game's 5.1 surround mix when the system's sound output has 6 channels or "
 "more, and stereo otherwise. Applies at the next start."
 msgstr ""
+"Automatico dà il mix surround 5.1 del gioco quando l'uscita audio del sistema ha 6 canali o più, "
+"e stereo altrimenti. Si applica al prossimo avvio."
 
 msgctxt "UI_MENU_MOTION"
 msgid "Motion controls"
-msgstr ""
+msgstr "Giroscopio"
 
 msgctxt "UI_MENU_MOTION_DESC"
 msgid "Steering by tilting the controller."
-msgstr ""
+msgstr "Sterzare inclinando il controller."
 
 msgctxt "UI_MENU_RUMBLE_STRENGTH"
 msgid "Vibration strength"
-msgstr ""
+msgstr "Intensità vibrazione"
 
 msgctxt "UI_MENU_RUMBLE_STRENGTH_DESC"
 msgid "How strong the controller vibrates."
-msgstr ""
+msgstr "Quanto forte vibra il controller."
 
 msgctxt "UI_MENU_RUMBLE_CURVE"
 msgid "Vibration curve"
-msgstr ""
+msgstr "Curva vibrazione"
 
 msgctxt "UI_MENU_RUMBLE_CURVE_DESC"
 msgid "Lower values make weak vibration stronger."
-msgstr ""
+msgstr "Valori più bassi rendono più forti le vibrazioni deboli."
 
 msgctxt "UI_MENU_RUMBLE_TRIGGERS"
 msgid "Trigger vibration (Xbox)"
-msgstr ""
+msgstr "Vibrazione dorsali (Xbox)"
 
 msgctxt "UI_MENU_RUMBLE_TRIGGERS_DESC"
 msgid "Vibrates the triggers of an Xbox controller too."
-msgstr ""
+msgstr "Fa vibrare anche i grilletti di un controller Xbox."
 
 msgctxt "UI_MENU_PAD_LAYOUT"
 msgid "Button layout"
-msgstr ""
+msgstr "Disposizione tasti"
 
 msgctxt "UI_MENU_PAD_LAYOUT_DESC"
 msgid ""
@@ -561,35 +611,38 @@ msgid ""
 "an Xbox controller (cross on a PlayStation controller). Automatic picks Nintendo for controllers "
 "with Nintendo labels and Xbox for the others."
 msgstr ""
+"Quale tasto è A. Nintendo: quello a destra, come su Switch. Xbox: quello in basso, come indicato "
+"su un controller Xbox (croce su un controller PlayStation). Automatica sceglie Nintendo per i "
+"controller con tasti Nintendo e Xbox per gli altri."
 
 msgctxt "UI_MENU_PAD_LAYOUT_AUTO"
 msgid "Automatic"
-msgstr ""
+msgstr "Automatica"
 
 msgctxt "UI_MENU_PAD_LAYOUT_NINTENDO"
 msgid "Nintendo (A right)"
-msgstr ""
+msgstr "Nintendo (A a destra)"
 
 msgctxt "UI_MENU_PAD_LAYOUT_XBOX"
 msgid "Xbox (A bottom)"
-msgstr ""
+msgstr "Xbox (A in basso)"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_PAD_LAYOUT_IN_USE"
 msgid "in use: %s"
-msgstr ""
+msgstr "in uso: %s"
 
 msgctxt "UI_MENU_MOUSE_SENS"
 msgid "Mouse camera sensitivity"
-msgstr ""
+msgstr "Sensibilità visuale mouse"
 
 msgctxt "UI_MENU_MOUSE_SENS_DESC"
 msgid "How fast the mouse turns the camera."
-msgstr ""
+msgstr "Quanto velocemente il mouse ruota la visuale."
 
 msgctxt "UI_MENU_BUTTON_ICONS"
 msgid "Button icons"
-msgstr ""
+msgstr "Icone tasti"
 
 msgctxt "UI_MENU_BUTTON_ICONS_DESC"
 msgid ""
@@ -597,1007 +650,1033 @@ msgid ""
 "controller's own buttons (Xbox or PlayStation), or your keys and mouse. The icons follow your "
 "remapped buttons."
 msgstr ""
+"Quali tasti mostrano le indicazioni del gioco. Automatico segue l'ultimo dispositivo usato: i "
+"tasti del controller (Xbox o PlayStation) oppure tastiera e mouse. Le icone seguono i tasti che "
+"hai riassegnato."
 
 msgctxt "UI_MENU_ICONS_NINTENDO"
 msgid "Nintendo"
-msgstr ""
+msgstr "Nintendo"
 
 msgctxt "UI_MENU_ICONS_XBOX"
 msgid "Xbox"
-msgstr ""
+msgstr "Xbox"
 
 msgctxt "UI_MENU_ICONS_PLAYSTATION"
 msgid "PlayStation"
-msgstr ""
+msgstr "PlayStation"
 
 msgctxt "UI_MENU_ICONS_KEYBOARD"
 msgid "Keyboard"
-msgstr ""
+msgstr "Tastiera"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_ICONS_IN_USE"
 msgid "in use: %s"
-msgstr ""
+msgstr "in uso: %s"
 
 msgctxt "UI_BINDS_HELP"
 msgid ""
 "Select a cell and press A or Enter, then the key, mouse button or controller button. Delete or X "
 "clears a cell. A key in use moves here; a controller button swaps with the one it replaces."
 msgstr ""
+"Scegli una cella e premi A o Invio, poi il tasto, il pulsante del mouse o il tasto del "
+"controller. Canc o X svuota una cella. Un tasto già in uso passa qui; un tasto del controller si "
+"scambia con quello che sostituisce."
 
 msgctxt "UI_BINDS_COL_KEY1"
 msgid "Key 1"
-msgstr ""
+msgstr "Tasto 1"
 
 msgctxt "UI_BINDS_COL_KEY2"
 msgid "Key 2"
-msgstr ""
+msgstr "Tasto 2"
 
 msgctxt "UI_BINDS_COL_PAD"
 msgid "Controller"
-msgstr ""
+msgstr "Controller"
 
 msgctxt "UI_BINDS_GROUP_BUTTONS"
 msgid "Buttons"
-msgstr ""
+msgstr "Tasti"
 
 msgctxt "UI_BINDS_GROUP_MOVE"
 msgid "Movement"
-msgstr ""
+msgstr "Movimento"
 
 msgctxt "UI_BINDS_GROUP_CAMERA"
 msgid "Camera"
-msgstr ""
+msgstr "Visuale"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_BINDS_PRESS_KEY"
 msgid "Press a key or mouse button for %s"
-msgstr ""
+msgstr "Premi un tasto o un pulsante del mouse per %s"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_BINDS_PRESS_PAD"
 msgid "Press a controller button for %s"
-msgstr ""
+msgstr "Premi un tasto del controller per %s"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_BINDS_CANCEL_HINT"
 msgid "Esc cancels, or wait %d s"
-msgstr ""
+msgstr "Esc annulla, oppure attendi %d s"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_BINDS_TAKEN"
 msgid "%s was taken from %s"
-msgstr ""
+msgstr "%s è stato preso da %s"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_BINDS_SWAPPED"
 msgid "%s swapped with %s"
-msgstr ""
+msgstr "%s scambiato con %s"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_NOTICE_PADS_MISSING"
 msgid "%d players need a controller each: %d connected. The keyboard only counts for player 1."
 msgstr ""
+"%d giocatori hanno bisogno di un controller ciascuno: %d collegati. La tastiera vale solo per il "
+"giocatore 1."
 
 msgctxt "UI_BINDS_RESET"
 msgid "Reset all buttons"
-msgstr ""
+msgstr "Ripristina tutti i tasti"
 
 msgctxt "UI_BINDS_RESET_DESC"
 msgid ""
 "Back to the default keys and controller buttons. The button layout above applies again: remapped "
 "controller buttons stay where you put them until this reset."
 msgstr ""
+"Torna ai tasti e ai tasti del controller predefiniti. Vale di nuovo la disposizione dei tasti qui "
+"sopra: i tasti del controller riassegnati restano dove li hai messi fino a questo ripristino."
 
 msgctxt "UI_BIND_A"
 msgid "A"
-msgstr ""
+msgstr "A"
 
 msgctxt "UI_BIND_B"
 msgid "B"
-msgstr ""
+msgstr "B"
 
 msgctxt "UI_BIND_X"
 msgid "X"
-msgstr ""
+msgstr "X"
 
 msgctxt "UI_BIND_Y"
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 msgctxt "UI_BIND_LCLICK"
 msgid "Left stick click"
-msgstr ""
+msgstr "Clic stick sinistro"
 
 msgctxt "UI_BIND_RCLICK"
 msgid "Right stick click"
-msgstr ""
+msgstr "Clic stick destro"
 
 msgctxt "UI_BIND_L"
 msgid "L"
-msgstr ""
+msgstr "L"
 
 msgctxt "UI_BIND_R"
 msgid "R"
-msgstr ""
+msgstr "R"
 
 msgctxt "UI_BIND_ZL"
 msgid "ZL"
-msgstr ""
+msgstr "ZL"
 
 msgctxt "UI_BIND_ZR"
 msgid "ZR"
-msgstr ""
+msgstr "ZR"
 
 msgctxt "UI_BIND_PLUS"
 msgid "Plus"
-msgstr ""
+msgstr "Più"
 
 msgctxt "UI_BIND_MINUS"
 msgid "Minus"
-msgstr ""
+msgstr "Meno"
 
 msgctxt "UI_BIND_LEFT"
 msgid "D-pad left"
-msgstr ""
+msgstr "Croce sinistra"
 
 msgctxt "UI_BIND_UP"
 msgid "D-pad up"
-msgstr ""
+msgstr "Croce su"
 
 msgctxt "UI_BIND_RIGHT"
 msgid "D-pad right"
-msgstr ""
+msgstr "Croce destra"
 
 msgctxt "UI_BIND_DOWN"
 msgid "D-pad down"
-msgstr ""
+msgstr "Croce giù"
 
 msgctxt "UI_BIND_LSTICK_LEFT"
 msgid "Steer left"
-msgstr ""
+msgstr "Sterza a sinistra"
 
 msgctxt "UI_BIND_LSTICK_UP"
 msgid "Stick up"
-msgstr ""
+msgstr "Stick su"
 
 msgctxt "UI_BIND_LSTICK_RIGHT"
 msgid "Steer right"
-msgstr ""
+msgstr "Sterza a destra"
 
 msgctxt "UI_BIND_LSTICK_DOWN"
 msgid "Stick down"
-msgstr ""
+msgstr "Stick giù"
 
 msgctxt "UI_BIND_RSTICK_LEFT"
 msgid "Camera left"
-msgstr ""
+msgstr "Visuale a sinistra"
 
 msgctxt "UI_BIND_RSTICK_UP"
 msgid "Camera up"
-msgstr ""
+msgstr "Visuale su"
 
 msgctxt "UI_BIND_RSTICK_RIGHT"
 msgid "Camera right"
-msgstr ""
+msgstr "Visuale a destra"
 
 msgctxt "UI_BIND_RSTICK_DOWN"
 msgid "Camera down"
-msgstr ""
+msgstr "Visuale giù"
 
 msgctxt "UI_BIND_DESC_A"
 msgid "Accelerate; confirm in menus."
-msgstr ""
+msgstr "Accelera; conferma nei menu."
 
 msgctxt "UI_BIND_DESC_B"
 msgid "Brake, reverse; back in menus."
-msgstr ""
+msgstr "Frena, retromarcia; indietro nei menu."
 
 msgctxt "UI_BIND_DESC_X"
 msgid "Rear view."
-msgstr ""
+msgstr "Visuale posteriore."
 
 msgctxt "UI_BIND_DESC_Y"
 msgid "World map (free roam)."
-msgstr ""
+msgstr "Mappa del mondo (corsa libera)."
 
 msgctxt "UI_BIND_DESC_LCLICK"
 msgid "No action in the game's control list."
-msgstr ""
+msgstr "Nessuna azione nell'elenco comandi del gioco."
 
 msgctxt "UI_BIND_DESC_RCLICK"
 msgid "No action in the game's control list."
-msgstr ""
+msgstr "Nessuna azione nell'elenco comandi del gioco."
 
 msgctxt "UI_BIND_DESC_L"
 msgid "Use an item."
-msgstr ""
+msgstr "Usa un oggetto."
 
 msgctxt "UI_BIND_DESC_R"
 msgid "Hop, drift, charge jump, trick."
-msgstr ""
+msgstr "Salto, derapata, salto caricato, trick."
 
 msgctxt "UI_BIND_DESC_ZL"
 msgid "Use an item."
-msgstr ""
+msgstr "Usa un oggetto."
 
 msgctxt "UI_BIND_DESC_ZR"
 msgid "Hop, drift, charge jump, trick."
-msgstr ""
+msgstr "Salto, derapata, salto caricato, trick."
 
 msgctxt "UI_BIND_DESC_PLUS"
 msgid "Pause, settings."
-msgstr ""
+msgstr "Pausa, impostazioni."
 
 msgctxt "UI_BIND_DESC_MINUS"
 msgid "Photo mode."
-msgstr ""
+msgstr "Modalità foto."
 
 msgctxt "UI_BIND_DESC_DPAD"
 msgid "Down rewinds; all four move in menus."
-msgstr ""
+msgstr "Giù riavvolge; tutte e quattro si muovono nei menu."
 
 msgctxt "UI_BIND_DESC_MOVE"
 msgid "Steers like the left stick. The controller's left stick always works too."
-msgstr ""
+msgstr "Sterza come lo stick sinistro. Anche lo stick sinistro del controller funziona sempre."
 
 msgctxt "UI_BIND_DESC_CAMERA"
 msgid ""
 "Turns the camera like the right stick. The mouse and the controller's right stick always work too."
 msgstr ""
+"Ruota la visuale come lo stick destro. Anche il mouse e lo stick destro del controller funzionano "
+"sempre."
 
 msgctxt "UI_KEY_SPACE"
 msgid "Space"
-msgstr ""
+msgstr "Spazio"
 
 msgctxt "UI_KEY_TAB"
 msgid "Tab"
-msgstr ""
+msgstr "Tab"
 
 msgctxt "UI_KEY_LSHIFT"
 msgid "Left Shift"
-msgstr ""
+msgstr "Maiusc sinistro"
 
 msgctxt "UI_KEY_LCTRL"
 msgid "Left Ctrl"
-msgstr ""
+msgstr "Ctrl sinistro"
 
 msgctxt "UI_KEY_UP"
 msgid "Up arrow"
-msgstr ""
+msgstr "Freccia su"
 
 msgctxt "UI_KEY_DOWN"
 msgid "Down arrow"
-msgstr ""
+msgstr "Freccia giù"
 
 msgctxt "UI_KEY_LEFT"
 msgid "Left arrow"
-msgstr ""
+msgstr "Freccia sinistra"
 
 msgctxt "UI_KEY_RIGHT"
 msgid "Right arrow"
-msgstr ""
+msgstr "Freccia destra"
 
 msgctxt "UI_KEY_MOUSE_L"
 msgid "Left mouse"
-msgstr ""
+msgstr "Mouse sinistro"
 
 msgctxt "UI_KEY_MOUSE_R"
 msgid "Right mouse"
-msgstr ""
+msgstr "Mouse destro"
 
 msgctxt "UI_KEY_MOUSE_M"
 msgid "Middle mouse"
-msgstr ""
+msgstr "Mouse centrale"
 
 msgctxt "UI_KEY_MOUSE_X1"
 msgid "Mouse 4"
-msgstr ""
+msgstr "Mouse 4"
 
 msgctxt "UI_KEY_MOUSE_X2"
 msgid "Mouse 5"
-msgstr ""
+msgstr "Mouse 5"
 
 msgctxt "UI_KEY_ENTER"
 msgid "Enter"
-msgstr ""
+msgstr "Invio"
 
 msgctxt "UI_KEY_BACKSPACE"
 msgid "Backspace"
-msgstr ""
+msgstr "Backspace"
 
 msgctxt "UI_KEY_RSHIFT"
 msgid "Right Shift"
-msgstr ""
+msgstr "Maiusc destro"
 
 msgctxt "UI_KEY_RCTRL"
 msgid "Right Ctrl"
-msgstr ""
+msgstr "Ctrl destro"
 
 msgctxt "UI_KEY_LALT"
 msgid "Alt"
-msgstr ""
+msgstr "Alt"
 
 msgctxt "UI_KEY_CAPSLOCK"
 msgid "Caps Lock"
-msgstr ""
+msgstr "Bloc Maiusc"
 
 msgctxt "UI_KEY_INSERT"
 msgid "Insert"
-msgstr ""
+msgstr "Ins"
 
 msgctxt "UI_KEY_DELETE"
 msgid "Delete"
-msgstr ""
+msgstr "Canc"
 
 msgctxt "UI_KEY_HOME"
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 msgctxt "UI_KEY_END"
 msgid "End"
-msgstr ""
+msgstr "Fine"
 
 msgctxt "UI_KEY_PAGEUP"
 msgid "Page Up"
-msgstr ""
+msgstr "Pag su"
 
 msgctxt "UI_KEY_PAGEDOWN"
 msgid "Page Down"
-msgstr ""
+msgstr "Pag giù"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_KEY_NUM_FMT"
 msgid "Num %s"
-msgstr ""
+msgstr "Tastierino %s"
 
 msgctxt "UI_PAD_SOUTH"
 msgid "Bottom button"
-msgstr ""
+msgstr "Tasto in basso"
 
 msgctxt "UI_PAD_EAST"
 msgid "Right button"
-msgstr ""
+msgstr "Tasto a destra"
 
 msgctxt "UI_PAD_WEST"
 msgid "Left button"
-msgstr ""
+msgstr "Tasto a sinistra"
 
 msgctxt "UI_PAD_NORTH"
 msgid "Top button"
-msgstr ""
+msgstr "Tasto in alto"
 
 msgctxt "UI_PAD_LSTICK"
 msgid "Left stick"
-msgstr ""
+msgstr "Stick sinistro"
 
 msgctxt "UI_PAD_RSTICK"
 msgid "Right stick"
-msgstr ""
+msgstr "Stick destro"
 
 msgctxt "UI_PAD_L"
 msgid "Left bumper"
-msgstr ""
+msgstr "Dorsale sinistro"
 
 msgctxt "UI_PAD_R"
 msgid "Right bumper"
-msgstr ""
+msgstr "Dorsale destro"
 
 msgctxt "UI_PAD_START"
 msgid "Start"
-msgstr ""
+msgstr "Start"
 
 msgctxt "UI_PAD_BACK"
 msgid "Back"
-msgstr ""
+msgstr "Indietro"
 
 msgctxt "UI_PAD_DPAD_LEFT"
 msgid "D-pad left"
-msgstr ""
+msgstr "Croce sinistra"
 
 msgctxt "UI_PAD_DPAD_UP"
 msgid "D-pad up"
-msgstr ""
+msgstr "Croce su"
 
 msgctxt "UI_PAD_DPAD_RIGHT"
 msgid "D-pad right"
-msgstr ""
+msgstr "Croce destra"
 
 msgctxt "UI_PAD_DPAD_DOWN"
 msgid "D-pad down"
-msgstr ""
+msgstr "Croce giù"
 
 msgctxt "UI_PAD_ZL"
 msgid "Left trigger"
-msgstr ""
+msgstr "Grilletto sinistro"
 
 msgctxt "UI_PAD_ZR"
 msgid "Right trigger"
-msgstr ""
+msgstr "Grilletto destro"
 
 msgctxt "UI_PAD_CROSS"
 msgid "Cross"
-msgstr ""
+msgstr "Croce"
 
 msgctxt "UI_PAD_CIRCLE"
 msgid "Circle"
-msgstr ""
+msgstr "Cerchio"
 
 msgctxt "UI_PAD_SQUARE"
 msgid "Square"
-msgstr ""
+msgstr "Quadrato"
 
 msgctxt "UI_PAD_TRIANGLE"
 msgid "Triangle"
-msgstr ""
+msgstr "Triangolo"
 
 msgctxt "UI_MENU_MENU_LANG"
 msgid "Menu language"
-msgstr ""
+msgstr "Lingua dei menu"
 
 msgctxt "UI_MENU_MENU_LANG_DESC"
 msgid "Language of this menu and the overlay."
-msgstr ""
+msgstr "Lingua di questo menu e dell'overlay."
 
 msgctxt "UI_MENU_MENU_LANG_AUTO"
 msgid "Automatic (from the system)"
-msgstr ""
+msgstr "Automatica (dal sistema)"
 
 msgctxt "UI_MENU_ADV_WARNING"
 msgid "These settings are for testing and troubleshooting. Change them only when you know why."
 msgstr ""
+"Queste impostazioni servono per prove e risoluzione dei problemi. Cambiale solo se sai perché."
 
 msgctxt "UI_MENU_GROUP_SCHED"
 msgid "Scheduling"
-msgstr ""
+msgstr "Scheduling"
 
 msgctxt "UI_MENU_GROUP_SHADERS"
 msgid "Shaders and pipelines"
-msgstr ""
+msgstr "Shader e pipeline"
 
 msgctxt "UI_MENU_GROUP_TEXMEM"
 msgid "Textures and memory"
-msgstr ""
+msgstr "Texture e memoria"
 
 msgctxt "UI_MENU_GROUP_FIXES"
 msgid "Render fixes"
-msgstr ""
+msgstr "Correzioni di rendering"
 
 msgctxt "UI_MENU_GROUP_VULKAN"
 msgid "Vulkan"
-msgstr ""
+msgstr "Vulkan"
 
 msgctxt "UI_MENU_GROUP_DIAG"
 msgid "Diagnostics"
-msgstr ""
+msgstr "Diagnostica"
 
 msgctxt "UI_MENU_ASYNC_PREEMPT"
 msgid "Virtual core preemption"
-msgstr ""
+msgstr "Prelazione dei core virtuali"
 
 msgctxt "UI_MENU_ASYNC_PREEMPT_DESC"
 msgid "Lets a game thread interrupt another one on the same virtual core."
-msgstr ""
+msgstr "Permette a un thread del gioco di interrompere un altro sullo stesso core virtuale."
 
 msgctxt "UI_MENU_PREEMPT_OFF"
 msgid "Off"
-msgstr ""
+msgstr "No"
 
 msgctxt "UI_MENU_PREEMPT_ON"
 msgid "On"
-msgstr ""
+msgstr "Sì"
 
 msgctxt "UI_MENU_PREEMPT_INHERIT"
 msgid "Inheritance only"
-msgstr ""
+msgstr "Solo ereditata"
 
 msgctxt "UI_MENU_REPLAY_ASYNC"
 msgid "GPU frame prep on its own thread"
-msgstr ""
+msgstr "Preparazione fotogrammi GPU su thread dedicato"
 
 msgctxt "UI_MENU_REPLAY_ASYNC_DESC"
 msgid ""
 "Prepares frames for the GPU on a separate thread instead of the game thread. Adds up to one frame "
 "of latency."
 msgstr ""
+"Prepara i fotogrammi per la GPU su un thread separato invece che sul thread del gioco. Aggiunge "
+"fino a un fotogramma di latenza."
 
 msgctxt "UI_MENU_FREE_CORES"
 msgid "Virtual core gate"
-msgstr ""
+msgstr "Blocco core virtuali"
 
 msgctxt "UI_MENU_FREE_CORES_DESC"
 msgid "Lets only one thread run per virtual core, as on the console."
-msgstr ""
+msgstr "Fa girare un solo thread per core virtuale, come sulla console."
 
 msgctxt "UI_MENU_TIMER_1MS"
 msgid "1 ms Windows timer"
-msgstr ""
+msgstr "Timer Windows da 1 ms"
 
 msgctxt "UI_MENU_TIMER_1MS_DESC"
 msgid "Raises the system timer resolution to 1 ms for steadier frame pacing."
 msgstr ""
+"Porta la risoluzione del timer di sistema a 1 ms per una cadenza dei fotogrammi più regolare."
 
 msgctxt "UI_MENU_PIPE_WAIT"
 msgid "Waiting draw handling"
-msgstr ""
+msgstr "Gestione draw in attesa"
 
 msgctxt "UI_MENU_PIPE_WAIT_DESC"
 msgid ""
 "Default keeps the current scheduling with a reserved worker for waiting draws; Old (draw) uses "
 "the previous scheduling."
 msgstr ""
+"Predefinita mantiene lo scheduling attuale con un worker riservato ai draw in attesa; Vecchia "
+"(draw) usa lo scheduling precedente."
 
 msgctxt "UI_MENU_PIPE_WAIT_DEFAULT"
 msgid "Default"
-msgstr ""
+msgstr "Predefinita"
 
 msgctxt "UI_MENU_PIPE_WAIT_DRAW"
 msgid "Old (draw)"
-msgstr ""
+msgstr "Vecchia (draw)"
 
 msgctxt "UI_MENU_PIPE_SKIP"
 msgid "Draws skipped while a pipeline builds"
-msgstr ""
+msgstr "Draw saltati durante la creazione di una pipeline"
 
 msgctxt "UI_MENU_PIPE_SKIP_DESC"
 msgid "Which draws are dropped instead of waiting for their pipeline."
-msgstr ""
+msgstr "Quali draw vengono scartati invece di attendere la loro pipeline."
 
 msgctxt "UI_MENU_PIPE_SKIP_STRICT"
 msgid "Strict"
-msgstr ""
+msgstr "Rigorosa"
 
 msgctxt "UI_MENU_PIPE_SKIP_ANY"
 msgid "Any"
-msgstr ""
+msgstr "Qualsiasi"
 
 msgctxt "UI_MENU_PIPE_SKIP_FULLSCREEN"
 msgid "Fullscreen passes"
-msgstr ""
+msgstr "Passaggi a schermo intero"
 
 msgctxt "UI_MENU_PIPE_PREBUILD"
 msgid "Pipeline prebuild"
-msgstr ""
+msgstr "Creazione anticipata pipeline"
 
 msgctxt "UI_MENU_PIPE_PREBUILD_DESC"
 msgid "Builds known pipelines ahead of time."
-msgstr ""
+msgstr "Crea in anticipo le pipeline note."
 
 msgctxt "UI_MENU_GPL"
 msgid "Graphics pipeline library"
-msgstr ""
+msgstr "Graphics pipeline library"
 
 msgctxt "UI_MENU_GPL_DESC"
 msgid "Uses the Vulkan pipeline library extension; turn off if your driver misbehaves with it."
 msgstr ""
+"Usa l'estensione Vulkan per le librerie di pipeline; disattivala se il driver non funziona bene "
+"con essa."
 
 msgctxt "UI_MENU_ASTC"
 msgid "ASTC texture decoding"
-msgstr ""
+msgstr "Decodifica texture ASTC"
 
 msgctxt "UI_MENU_ASTC_DESC"
 msgid "Where compressed ASTC textures are decoded."
-msgstr ""
+msgstr "Dove vengono decodificate le texture ASTC compresse."
 
 msgctxt "UI_MENU_ASTC_AUTO"
 msgid "Automatic"
-msgstr ""
+msgstr "Automatica"
 
 msgctxt "UI_MENU_ASTC_GPU"
 msgid "GPU shader"
-msgstr ""
+msgstr "Shader GPU"
 
 msgctxt "UI_MENU_ASTC_NATIVE"
 msgid "Native"
-msgstr ""
+msgstr "Nativa"
 
 msgctxt "UI_MENU_ASTC_CPU"
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 msgctxt "UI_MENU_MEMORY"
 msgid "GPU memory mode"
-msgstr ""
+msgstr "Modalità memoria GPU"
 
 msgctxt "UI_MENU_MEMORY_DESC"
 msgid "How game memory is shared with the GPU."
-msgstr ""
+msgstr "Come la memoria del gioco viene condivisa con la GPU."
 
 msgctxt "UI_MENU_MEMORY_AUTO"
 msgid "Automatic"
-msgstr ""
+msgstr "Automatica"
 
 msgctxt "UI_MENU_MEMORY_IMPORT"
 msgid "Import"
-msgstr ""
+msgstr "Importa"
 
 msgctxt "UI_MENU_MEMORY_MIRROR"
 msgid "Mirror"
-msgstr ""
+msgstr "Specchia"
 
 msgctxt "UI_MENU_MEMORY_VERIFY"
 msgid "Verify"
-msgstr ""
+msgstr "Verifica"
 
 msgctxt "UI_MENU_TEX_ALIAS"
 msgid "Texture aliasing"
-msgstr ""
+msgstr "Aliasing texture"
 
 msgctxt "UI_MENU_TEX_ALIAS_DESC"
 msgid ""
 "A new texture created over a live texture's memory starts with that content instead of empty."
 msgstr ""
+"Una nuova texture creata sulla memoria di una texture attiva parte con il contenuto di quella "
+"invece che vuota."
 
 msgctxt "UI_MENU_FIX_C0"
 msgid "Constant buffer fix"
-msgstr ""
+msgstr "Correzione constant buffer"
 
 msgctxt "UI_MENU_FIX_C0_DESC"
 msgid ""
 "Fills the driver-reserved constant bank c0 (storage sizes, dispatch size, point size, base "
 "instance) instead of reading zeros."
 msgstr ""
+"Riempie il banco di costanti c0 riservato al driver (dimensioni di storage, dimensione del "
+"dispatch, dimensione dei punti, istanza base) invece di leggere zeri."
 
 msgctxt "UI_MENU_FIX_ZERO"
 msgid "Zero new GPU memory"
-msgstr ""
+msgstr "Azzera nuova memoria GPU"
 
 msgctxt "UI_MENU_FIX_ZERO_DESC"
 msgid "New GPU memory pools start zero-filled, as Switch memory does."
-msgstr ""
+msgstr "I nuovi pool di memoria GPU partono riempiti di zeri, come la memoria di Switch."
 
 msgctxt "UI_MENU_BIND_SKIP"
 msgid "Skip repeated binds"
-msgstr ""
+msgstr "Salta bind ripetuti"
 
 msgctxt "UI_MENU_BIND_SKIP_DESC"
 msgid "Optimisation: skips bindings that did not change."
-msgstr ""
+msgstr "Ottimizzazione: salta i binding che non sono cambiati."
 
 msgctxt "UI_MENU_SHADER_MEMO"
 msgid "Shader memo"
-msgstr ""
+msgstr "Memo shader"
 
 msgctxt "UI_MENU_SHADER_MEMO_DESC"
 msgid "Optimisation: remembers shader lookups."
-msgstr ""
+msgstr "Ottimizzazione: ricorda le ricerche degli shader."
 
 msgctxt "UI_MENU_PIPE_MEMO"
 msgid "Pipeline memo"
-msgstr ""
+msgstr "Memo pipeline"
 
 msgctxt "UI_MENU_PIPE_MEMO_DESC"
 msgid "Optimisation: reuses the previous draw's pipeline when its state repeats."
-msgstr ""
+msgstr "Ottimizzazione: riusa la pipeline del draw precedente quando il suo stato si ripete."
 
 msgctxt "UI_MENU_TEX_MEMO"
 msgid "Texture binding memo"
-msgstr ""
+msgstr "Memo binding texture"
 
 msgctxt "UI_MENU_TEX_MEMO_DESC"
 msgid "Optimisation: remembers texture descriptors between draws."
-msgstr ""
+msgstr "Ottimizzazione: ricorda i descrittori delle texture tra un draw e l'altro."
 
 msgctxt "UI_MENU_DESC_TEMPLATE"
 msgid "Descriptor templates"
-msgstr ""
+msgstr "Template descrittori"
 
 msgctxt "UI_MENU_DESC_TEMPLATE_DESC"
 msgid "Optimisation: updates descriptors in bulk."
-msgstr ""
+msgstr "Ottimizzazione: aggiorna i descrittori in blocco."
 
 msgctxt "UI_MENU_PUSH_SKIP"
 msgid "Skip repeated push constants"
-msgstr ""
+msgstr "Salta push constant ripetute"
 
 msgctxt "UI_MENU_PUSH_SKIP_DESC"
 msgid "Optimisation: skips push constants that did not change."
-msgstr ""
+msgstr "Ottimizzazione: salta le push constant che non sono cambiate."
 
 msgctxt "UI_MENU_SPLIT_DRAWS"
 msgid "Early GPU submission"
-msgstr ""
+msgstr "Invio anticipato alla GPU"
 
 msgctxt "UI_MENU_SPLIT_DRAWS_DESC"
 msgid ""
 "Submits GPU work in parts every N draws between passes so the GPU starts earlier; 0 turns it off."
 msgstr ""
+"Invia il lavoro alla GPU a parti ogni N draw tra un passaggio e l'altro così la GPU parte prima; "
+"0 lo disattiva."
 
 msgctxt "UI_MENU_VK_VALIDATION"
 msgid "Validation layer"
-msgstr ""
+msgstr "Livello di validazione"
 
 msgctxt "UI_MENU_VK_VALIDATION_DESC"
 msgid "Checks every Vulkan call and slows the game down a lot."
-msgstr ""
+msgstr "Controlla ogni chiamata Vulkan e rallenta molto il gioco."
 
 msgctxt "UI_MENU_VK_VALIDATION_MISSING"
 msgid "The validation layer is not installed."
-msgstr ""
+msgstr "Il livello di validazione non è installato."
 
 msgctxt "UI_MENU_VK_DYN_VERTEX"
 msgid "Dynamic vertex state"
-msgstr ""
+msgstr "Stato vertex dinamico"
 
 msgctxt "UI_MENU_VK_DYN_VERTEX_DESC"
 msgid "Forces dynamic vertex input on or off; the default depends on the GPU."
-msgstr ""
+msgstr "Forza l'input vertex dinamico attivo o disattivo; il valore predefinito dipende dalla GPU."
 
 msgctxt "UI_MENU_VK_SUBGROUP_PIN"
 msgid "Pin subgroup size"
-msgstr ""
+msgstr "Fissa dimensione subgroup"
 
 msgctxt "UI_MENU_VK_SUBGROUP_PIN_DESC"
 msgid "Fixes the shader subgroup size."
-msgstr ""
+msgstr "Fissa la dimensione del subgroup degli shader."
 
 msgctxt "UI_MENU_TRACE"
 msgid "Performance log"
-msgstr ""
+msgstr "Log prestazioni"
 
 msgctxt "UI_MENU_TRACE_DESC"
 msgid "Writes frame timings to a file."
-msgstr ""
+msgstr "Scrive i tempi dei fotogrammi in un file."
 
 msgctxt "UI_MENU_FLIGHT"
 msgid "Flight recorder"
-msgstr ""
+msgstr "Registratore di volo"
 
 msgctxt "UI_MENU_FLIGHT_DESC"
 msgid "Keeps a short history and saves it when a frame freezes."
-msgstr ""
+msgstr "Tiene una breve cronologia e la salva quando un fotogramma si blocca."
 
 msgctxt "UI_MENU_FLIGHT_SPIKE_MS"
 msgid "Freeze threshold (ms)"
-msgstr ""
+msgstr "Soglia di blocco (ms)"
 
 msgctxt "UI_MENU_FLIGHT_SPIKE_MS_DESC"
 msgid "Frame time that counts as a freeze."
-msgstr ""
+msgstr "Tempo di fotogramma che conta come blocco."
 
 msgctxt "UI_MENU_INPUT_RECORD"
 msgid "Input recording"
-msgstr ""
+msgstr "Registrazione input"
 
 msgctxt "UI_MENU_INPUT_RECORD_DESC"
 msgid "Writes your inputs to a file for bug reports."
-msgstr ""
+msgstr "Scrive i tuoi input in un file per le segnalazioni di errori."
 
 msgctxt "UI_MENU_OPEN_LOG"
 msgid "Open log folder"
-msgstr ""
+msgstr "Apri cartella log"
 
 msgctxt "UI_MENU_OPEN_LOG_DESC"
 msgid "Shows the folder with the log files."
-msgstr ""
+msgstr "Mostra la cartella con i file di log."
 
 msgctxt "UI_MENU_COPY_INFO"
 msgid "Copy system info"
-msgstr ""
+msgstr "Copia info sistema"
 
 msgctxt "UI_MENU_COPY_INFO_DESC"
 msgid "Copies GPU, driver, CPU, RAM and changed settings to the clipboard."
-msgstr ""
+msgstr "Copia negli appunti GPU, driver, CPU, RAM e impostazioni modificate."
 
 msgctxt "UI_MENU_COPY_INFO_DONE"
 msgid "Copied"
-msgstr ""
+msgstr "Copiato"
 
 msgctxt "UI_MENU_ACTION_FAILED"
 msgid "did not work"
-msgstr ""
+msgstr "non riuscito"
 
 msgctxt "UI_MENU_RESET"
 msgid "Reset all settings to defaults"
-msgstr ""
+msgstr "Ripristina tutte le impostazioni"
 
 msgctxt "UI_MENU_RESET_DESC"
 msgid "Applies to every tab."
-msgstr ""
+msgstr "Vale per ogni scheda."
 
 msgctxt "UI_MENU_RESET_CONFIRM"
 msgid "Reset every setting to its default?"
-msgstr ""
+msgstr "Ripristinare tutte le impostazioni ai valori predefiniti?"
 
 msgctxt "UI_MENU_RESET_YES"
 msgid "Reset"
-msgstr ""
+msgstr "Ripristina"
 
 msgctxt "UI_MENU_RESET_NO"
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_FPS"
 msgid "%.0f FPS"
-msgstr ""
+msgstr "%.0f FPS"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_FRAME_MS"
 msgid "%.1f ms"
-msgstr ""
+msgstr "%.1f ms"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_GAME_PCT"
 msgid "game %.0f%%"
-msgstr ""
+msgstr "gioco %.0f%%"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_MAX_MS"
 msgid "max %.1f ms"
-msgstr ""
+msgstr "max %.1f ms"
 
 msgctxt "UI_MENU_OV_GPU"
 msgid "GPU"
-msgstr ""
+msgstr "GPU"
 
 msgctxt "UI_MENU_OV_CPU"
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 msgctxt "UI_MENU_OV_RAM"
 msgid "RAM"
-msgstr ""
+msgstr "RAM"
 
 msgctxt "UI_MENU_OV_VRAM"
 msgid "VRAM"
-msgstr ""
+msgstr "VRAM"
 
 msgctxt "UI_MENU_OV_NONE"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 msgctxt "UI_MENU_OV_REPLAY"
 msgid "GPU frame prep"
-msgstr ""
+msgstr "Prep. fotogrammi GPU"
 
 msgctxt "UI_MENU_OV_GPU_TIME"
 msgid "GPU busy per frame"
-msgstr ""
+msgstr "GPU occupata per fotogramma"
 
 msgctxt "UI_MENU_OV_PIPE_WAIT"
 msgid "Pipeline waits"
-msgstr ""
+msgstr "Attese pipeline"
 
 msgctxt "UI_MENU_OV_TEX_UPLOADS"
 msgid "Texture uploads"
-msgstr ""
+msgstr "Caricamenti texture"
 
 msgctxt "UI_MENU_OV_MAIN_CPU"
 msgid "Game main thread CPU"
-msgstr ""
+msgstr "CPU thread principale gioco"
 
 msgctxt "UI_MENU_OV_RENDER_CPU"
 msgid "Render thread CPU"
-msgstr ""
+msgstr "CPU thread rendering"
 
 msgctxt "UI_MENU_OV_SLOW"
 msgid "Frames over 33 ms"
-msgstr ""
+msgstr "Fotogrammi oltre 33 ms"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_PER_MIN"
 msgid "%.0f last minute"
-msgstr ""
+msgstr "%.0f ultimo minuto"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_FMT_PCT"
 msgid "%.0f%%"
-msgstr ""
+msgstr "%.0f%%"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_FMT_TEMP"
 msgid "%.0f °C"
-msgstr ""
+msgstr "%.0f °C"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_FMT_POWER"
 msgid "%.0f W"
-msgstr ""
+msgstr "%.0f W"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_FMT_MHZ"
 msgid "%.0f MHz"
-msgstr ""
+msgstr "%.0f MHz"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_FMT_GB"
 msgid "%.1f GB"
-msgstr ""
+msgstr "%.1f GB"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_FMT_GB_OF"
 msgid "/ %.1f GB"
-msgstr ""
+msgstr "/ %.1f GB"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_GAME_GB"
 msgid "game %.1f GB"
-msgstr ""
+msgstr "gioco %.1f GB"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_FMT_MS"
 msgid "%.2f ms"
-msgstr ""
+msgstr "%.2f ms"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_PER_FRAME"
 msgid "%.1f per frame"
-msgstr ""
+msgstr "%.1f per fotogramma"
 
 msgctxt "UI_MENU_OV_WINDOW"
 msgid "Window"
-msgstr ""
+msgstr "Finestra"
 
 msgctxt "UI_MENU_OV_OUTPUT"
 msgid "Game image"
-msgstr ""
+msgstr "Immagine di gioco"
 
 msgctxt "UI_MENU_OV_INTERNAL"
 msgid "Internal resolution"
-msgstr ""
+msgstr "Risoluzione interna"
 
 msgctxt "UI_MENU_OV_SCALING"
 msgid "Scaling"
-msgstr ""
+msgstr "Scalatura"
 
 msgctxt "UI_MENU_OV_PRESENT"
 msgid "Presentation"
-msgstr ""
+msgstr "Presentazione"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_FMT_SIZE"
 msgid "%ux%u"
-msgstr ""
+msgstr "%ux%u"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_FMT_FSR"
 msgid "AMD FSR 1, sharpness %d%%"
-msgstr ""
+msgstr "AMD FSR 1, nitidezza %d%%"
 
 msgctxt "UI_MENU_OV_SCALE_NONE"
 msgid "none (1:1)"
-msgstr ""
+msgstr "nessuna (1:1)"
 
 msgctxt "UI_MENU_OV_SCALE_BILINEAR"
 msgid "bilinear"
-msgstr ""
+msgstr "bilineare"
 
 msgctxt "UI_LAUNCH_SUBTITLE"
 msgid "Static recompilation for PC"
-msgstr ""
+msgstr "Ricompilazione statica per PC"
 
 msgctxt "UI_LAUNCH_PLAY"
 msgid "Play"
-msgstr ""
+msgstr "Gioca"
 
 msgctxt "UI_LAUNCH_SETTINGS"
 msgid "Settings"
-msgstr ""
+msgstr "Impostazioni"
 
 msgctxt "UI_LAUNCH_FILES"
 msgid "Game files"
-msgstr ""
+msgstr "File di gioco"
 
 msgctxt "UI_LAUNCH_QUIT"
 msgid "Quit"
-msgstr ""
+msgstr "Esci"
 
 msgctxt "UI_LAUNCH_BACK"
 msgid "Back"
-msgstr ""
+msgstr "Indietro"
 
 msgctxt "UI_LAUNCH_FILES_READY"
 msgid "Game files ready (version 1.0.0)"
-msgstr ""
+msgstr "File di gioco pronti (versione 1.0.0)"
 
 msgctxt "UI_LAUNCH_FILES_MISSING"
 msgid "Game files not set up"
-msgstr ""
+msgstr "File di gioco non configurati"
 
 msgctxt "UI_LAUNCH_FILES_FOLDER"
 msgid "Game folder"
-msgstr ""
+msgstr "Cartella del gioco"
 
 msgctxt "UI_LAUNCH_FILES_HELP"
 msgid ""
@@ -1605,127 +1684,181 @@ msgid ""
 "from your console (the exefs and romfs folders). The setup checks its version, builds the game "
 "code on this computer and translates the shaders."
 msgstr ""
+"Il gioco non è incluso nel port: serve la tua copia di Mario Kart World 1.0.0, estratta dalla tua "
+"console (le cartelle exefs e romfs). La configurazione controlla la versione, compila il codice "
+"del gioco su questo computer e traduce gli shader."
 
 msgctxt "UI_LAUNCH_NO_TOOLS"
 msgid "The setup tools are missing: the setup/ folder that comes with the program."
-msgstr ""
+msgstr "Mancano gli strumenti di configurazione: la cartella setup/ inclusa nel programma."
 
 msgctxt "UI_LAUNCH_SOURCE"
 msgid "Your copy"
-msgstr ""
+msgstr "La tua copia"
 
 msgctxt "UI_LAUNCH_PICK"
 msgid "Choose folder"
-msgstr ""
+msgstr "Scegli cartella"
 
 msgctxt "UI_LAUNCH_ROMFS_MODE"
 msgid "RomFS (23 GB)"
-msgstr ""
+msgstr "RomFS (23 GB)"
 
 msgctxt "UI_LAUNCH_ROMFS_COPY"
 msgid "Copy into the game folder"
-msgstr ""
+msgstr "Copia nella cartella del gioco"
 
 msgctxt "UI_LAUNCH_ROMFS_LINK"
 msgid "Use it where it is"
-msgstr ""
+msgstr "Usa dov'è"
 
 msgctxt "UI_LAUNCH_SETUP"
 msgid "Set up"
-msgstr ""
+msgstr "Configura"
 
 msgctxt "UI_LAUNCH_SETUP_AGAIN"
 msgid "Set up again"
-msgstr ""
+msgstr "Configura di nuovo"
 
 msgctxt "UI_LAUNCH_CANCEL"
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 msgctxt "UI_LAUNCH_SETUP_DONE"
 msgid "Set up finished: the game is ready."
-msgstr ""
+msgstr "Configurazione completata: il gioco è pronto."
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_LAUNCH_SETUP_FAILED"
 msgid "Set up failed: %s"
+msgstr "Configurazione non riuscita: %s"
+
+#. No %s: the detail is not shown.
+msgctxt "UI_SETUP_ERR_SOURCE"
+msgid "there is no earlier setup in this folder: choose the folder of your copy"
 msgstr ""
+"non c'è una configurazione precedente in questa cartella: scegli la cartella della tua copia"
+
+#. %s: the folder the player chose.
+msgctxt "UI_SETUP_ERR_NOGAME"
+msgid "no exefs/main and romfs/ in %s: choose the folder of your copy of the game"
+msgstr "niente exefs/main e romfs/ in %s: scegli la cartella della tua copia del gioco"
+
+#. %s: the path of the exefs/main file.
+msgctxt "UI_SETUP_ERR_ENCRYPTED"
+msgid "%s is encrypted: the game's exefs must be decrypted"
+msgstr "%s è cifrato: l'exefs del gioco deve essere decifrato"
+
+#. %s: the build id of the player's exefs/main (hexadecimal).
+msgctxt "UI_SETUP_ERR_VERSION"
+msgid "the game is not Mario Kart World 1.0.0 (build id %s): only 1.0.0 is supported"
+msgstr "il gioco non è Mario Kart World 1.0.0 (build id %s): è supportata solo la 1.0.0"
+
+#. %s: how many files the player's RomFS has.
+msgctxt "UI_SETUP_ERR_ROMFS"
+msgid "the RomFS has only %s files: the copy is incomplete, copy it again"
+msgstr "il RomFS ha solo %s file: la copia è incompleta, copiala di nuovo"
+
+#. %s: the failing tool's message, in English. logs/setup.log is a file name: keep it.
+msgctxt "UI_SETUP_ERR_FAILED"
+msgid "%s (more in logs/setup.log)"
+msgstr "%s (altro in logs/setup.log)"
+
+#. %s: the system's error message, in English. logs/setup.log is a file name: keep it.
+msgctxt "UI_SETUP_ERR_IO"
+msgid "file error: %s (more in logs/setup.log)"
+msgstr "errore sui file: %s (altro in logs/setup.log)"
+
+msgctxt "UI_SETUP_ERR_STOPPED"
+msgid "the setup stopped (more in logs/setup.log)"
+msgstr "la configurazione si è interrotta (altro in logs/setup.log)"
+
+msgctxt "UI_SETUP_ERR_CANCELLED"
+msgid "cancelled"
+msgstr "annullato"
+
+msgctxt "UI_SETUP_ERR_NO_SETUP"
+msgid "the setup tools are missing (setup/ next to the program): extract the release again"
+msgstr ""
+"mancano gli strumenti di configurazione (setup/ accanto al programma): estrai di nuovo la release"
 
 msgctxt "UI_LAUNCH_STEP_CHECK"
 msgid "Check the copy"
-msgstr ""
+msgstr "Controllo della copia"
 
 msgctxt "UI_LAUNCH_STEP_EXEFS"
 msgid "Copy exefs"
-msgstr ""
+msgstr "Copia exefs"
 
 msgctxt "UI_LAUNCH_STEP_ROMFS"
 msgid "RomFS"
-msgstr ""
+msgstr "RomFS"
 
 msgctxt "UI_LAUNCH_STEP_GENERATE"
 msgid "Generate the game code"
-msgstr ""
+msgstr "Generazione del codice del gioco"
 
 msgctxt "UI_LAUNCH_STEP_COMPILE"
 msgid "Compile the game code"
-msgstr ""
+msgstr "Compilazione del codice del gioco"
 
 msgctxt "UI_LAUNCH_STEP_SHADERS"
 msgid "Translate the shaders"
-msgstr ""
+msgstr "Traduzione degli shader"
 
 msgctxt "UI_LAUNCH_STEP_WARM"
 msgid "Warm up the graphics (one minute)"
-msgstr ""
+msgstr "Riscaldamento grafica (un minuto)"
 
 msgctxt "UI_LAUNCH_STEP_CLEANUP"
 msgid "Clean up"
-msgstr ""
+msgstr "Pulizia"
 
 msgctxt "UI_LAUNCH_STEP_KEPT"
 msgid "kept"
-msgstr ""
+msgstr "mantenuto"
 
 msgctxt "UI_LAUNCH_SHORTCUT"
 msgid "Desktop shortcut"
-msgstr ""
+msgstr "Collegamento sul desktop"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_LAUNCH_SHORTCUT_DONE"
 msgid "Shortcut made: %s"
-msgstr ""
+msgstr "Collegamento creato: %s"
 
 msgctxt "UI_LAUNCH_SHORTCUT_FAILED"
 msgid "Could not make the shortcut"
-msgstr ""
+msgstr "Impossibile creare il collegamento"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_LAUNCH_UPDATE"
 msgid "Update to %s (%d MB)"
-msgstr ""
+msgstr "Aggiorna a %s (%d MB)"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_LAUNCH_UPDATE_FETCHING"
 msgid "Downloading %s"
-msgstr ""
+msgstr "Download di %s"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_LAUNCH_UPDATE_FAILED"
 msgid "Update failed: %s"
-msgstr ""
+msgstr "Aggiornamento non riuscito: %s"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_LAUNCH_UPDATED"
 msgid "Updated to %s: setting up again what it changed"
-msgstr ""
+msgstr "Aggiornato a %s: riconfigurazione di ciò che è cambiato"
 
 msgctxt "UI_MENU_UPDATE_CHECK"
 msgid "Check for updates"
-msgstr ""
+msgstr "Cerca aggiornamenti"
 
 msgctxt "UI_MENU_UPDATE_CHECK_DESC"
 msgid ""
 "At start, ask GitHub for a newer release of the port and offer it on the start screen (a few "
 "seconds at most, nothing offline)."
 msgstr ""
+"All'avvio chiede a GitHub se c'è una versione più recente del port e la propone nella schermata "
+"iniziale (al massimo pochi secondi, niente offline)."

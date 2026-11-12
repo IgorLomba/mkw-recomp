@@ -1,0 +1,1851 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: mkw-recomp\nLanguage: tr\nMIME-Version: 1.0\nContent-Type: text/plain; "
+"charset=UTF-8\nContent-Transfer-Encoding: 8bit\n"
+
+#. The software keyboard's starting text: at most 9 UTF-16 units, no '@' '%' '\'.
+msgctxt "UI_SWKBD_DEFAULT_NAME"
+msgid "Player"
+msgstr "Oyuncu"
+
+msgctxt "UI_MENU_TITLE"
+msgid "Settings"
+msgstr "Ayarlar"
+
+msgctxt "UI_MENU_TAB_SCREEN"
+msgid "Screen"
+msgstr "Ekran"
+
+msgctxt "UI_MENU_TAB_GAME"
+msgid "Game"
+msgstr "Oyun"
+
+msgctxt "UI_MENU_TAB_SOUND"
+msgid "Sound"
+msgstr "Ses"
+
+msgctxt "UI_MENU_TAB_CONTROLS"
+msgid "Controls"
+msgstr "Kontroller"
+
+msgctxt "UI_MENU_TAB_MENU"
+msgid "Menu"
+msgstr "Menü"
+
+msgctxt "UI_MENU_TAB_ADVANCED"
+msgid "Advanced"
+msgstr "Gelişmiş"
+
+msgctxt "UI_MENU_TAB_GRAPHICS"
+msgid "Graphics"
+msgstr "Grafik"
+
+msgctxt "UI_MENU_TAB_HACKS"
+msgid "Hacks"
+msgstr "Hileler"
+
+msgctxt "UI_MENU_HACKS_WARNING"
+msgid ""
+"Experimental: shortcuts the console does not have, for playing and testing faster. They can "
+"change how the game behaves."
+msgstr ""
+"Deneysel: konsolda olmayan kısayollar; daha hızlı oynamak ve denemek için. Oyunun davranışını "
+"değiştirebilirler."
+
+msgctxt "UI_MENU_TURBO"
+msgid "Turbo"
+msgstr "Turbo"
+
+msgctxt "UI_MENU_TURBO_DESC"
+msgid ""
+"The whole game runs faster: menus, movies, loads and races. Hold or press F2. The screen shows at "
+"most 60 frames a second."
+msgstr ""
+"Tüm oyun hızlanır: menüler, videolar, yüklemeler ve yarışlar. F2'ye basılı tut veya bas. Ekran "
+"saniyede en fazla 60 kare gösterir."
+
+msgctxt "UI_MENU_TURBO_HOLD"
+msgid "Hold F2"
+msgstr "F2'ye basılı tut"
+
+msgctxt "UI_MENU_TURBO_TOGGLE"
+msgid "F2 on/off"
+msgstr "F2 açık/kapalı"
+
+msgctxt "UI_MENU_TURBO_SPEED"
+msgid "Turbo speed"
+msgstr "Turbo hızı"
+
+msgctxt "UI_MENU_TURBO_SPEED_DESC"
+msgid "How many times faster. A slow PC may not reach it."
+msgstr "Kaç kat daha hızlı. Yavaş bir bilgisayar buna ulaşamayabilir."
+
+msgctxt "UI_MENU_SKIP_MOVIES"
+msgid "Skip movies"
+msgstr "Videoları atla"
+
+msgctxt "UI_MENU_SKIP_MOVIES_DESC"
+msgid "Skips the cup and course openings as soon as they start."
+msgstr "Kupa ve pist tanıtımlarını başlar başlamaz atlar."
+
+msgctxt "UI_MENU_SEED"
+msgid "Same randomness every time"
+msgstr "Hep aynı rastgelelik"
+
+msgctxt "UI_MENU_SEED_DESC"
+msgid ""
+"The game draws the same random numbers in every session: the same title course, the same items. "
+"For testing."
+msgstr "Oyun her oturumda aynı rastgele sayıları çeker: aynı başlık pisti, aynı eşyalar. Test için."
+
+msgctxt "UI_MENU_FREEZE_KEYS"
+msgid "Freeze keys"
+msgstr "Dondurma tuşları"
+
+msgctxt "UI_MENU_FREEZE_KEYS_DESC"
+msgid ""
+"F3 stops the game on the frame on screen and starts it again; F4 moves it on by one frame. To "
+"look at a moment closely."
+msgstr ""
+"F3 oyunu ekrandaki karede durdurur ve yeniden başlatır; F4 onu bir kare ilerletir. Bir anı "
+"yakından incelemek için."
+
+msgctxt "UI_MENU_UNLOCK_ALL"
+msgid "Unlock everything"
+msgstr "Her şeyin kilidini aç"
+
+msgctxt "UI_MENU_UNLOCK_ALL_DESC"
+msgid ""
+"Every driver and outfit, vehicle and sticker, and the Special Cup. It goes into your save when "
+"the game saves: turning it off does not lock them again."
+msgstr ""
+"Tüm sürücüler ve kıyafetler, araçlar ve çıkartmalar ile Özel Kupa. Oyun kaydettiğinde kayda "
+"geçer: kapatmak onları yeniden kilitlemez."
+
+msgctxt "UI_MENU_QUICK_RACE"
+msgid "Straight to"
+msgstr "Doğrudan şuraya"
+
+msgctxt "UI_MENU_QUICK_RACE_DESC"
+msgid ""
+"Goes through the menus by itself at start. Time trial: Mario, standard kart and the course the "
+"game offers (always the same with «Same randomness every time»), no rivals. Free roam: the open "
+"world. The controller still works."
+msgstr ""
+"Açılışta menülerden kendiliğinden geçer. Zamana karşı: Mario, standart kart ve oyunun önerdiği "
+"pist («Hep aynı rastgelelik» ile hep aynı), rakipsiz. Serbest dolaşım: açık dünya. Kumanda yine "
+"de çalışır."
+
+msgctxt "UI_MENU_QUICK_RACE_TT"
+msgid "Time trial"
+msgstr "Zamana karşı"
+
+msgctxt "UI_MENU_QUICK_RACE_FREE"
+msgid "Free roam"
+msgstr "Serbest dolaşım"
+
+msgctxt "UI_MENU_ANISO"
+msgid "Texture filtering"
+msgstr "Doku filtreleme"
+
+msgctxt "UI_MENU_ANISO_DESC"
+msgid ""
+"Sharpness of textures seen far away or at a low angle, such as the road ahead. Game uses what "
+"each texture asks for. Impact on frame rate: low."
+msgstr ""
+"Uzaktan veya alçak açıdan görülen dokuların keskinliği; önündeki yol gibi. Oyun her dokunun "
+"istediğini kullanır. Kare hızına etkisi: düşük."
+
+msgctxt "UI_MENU_ANISO_GAME"
+msgid "Game"
+msgstr "Oyun"
+
+msgctxt "UI_MENU_TEX_QUALITY"
+msgid "Texture quality"
+msgstr "Doku kalitesi"
+
+msgctxt "UI_MENU_TEX_QUALITY_DESC"
+msgid ""
+"Detail of the game's own textures. Half and Quarter skip their finest levels: less memory traffic "
+"on the graphics card, blurrier surfaces up close. Impact on frame rate: low."
+msgstr ""
+"Oyunun kendi dokularının ayrıntısı. Yarım ve Çeyrek en ince düzeylerini atlar: ekran kartında "
+"daha az bellek trafiği, yakından daha bulanık yüzeyler. Kare hızına etkisi: düşük."
+
+msgctxt "UI_MENU_TEX_QUALITY_FULL"
+msgid "Full"
+msgstr "Tam"
+
+msgctxt "UI_MENU_TEX_QUALITY_HALF"
+msgid "Half"
+msgstr "Yarım"
+
+msgctxt "UI_MENU_TEX_QUALITY_QUARTER"
+msgid "Quarter"
+msgstr "Çeyrek"
+
+msgctxt "UI_MENU_DETAIL"
+msgid "Detail distance"
+msgstr "Ayrıntı mesafesi"
+
+msgctxt "UI_MENU_DETAIL_DESC"
+msgid ""
+"How far objects keep their detailed models before switching to simpler ones. Console is the "
+"Switch 2's. Impact on frame rate: low."
+msgstr ""
+"Nesnelerin daha basit modellere geçmeden önce ayrıntılı modellerini ne kadar uzağa kadar "
+"koruduğu. Konsol, Switch 2'nin değeridir. Kare hızına etkisi: düşük."
+
+msgctxt "UI_MENU_DETAIL_LOW"
+msgid "Low"
+msgstr "Düşük"
+
+msgctxt "UI_MENU_DETAIL_MEDIUM"
+msgid "Medium"
+msgstr "Orta"
+
+msgctxt "UI_MENU_DETAIL_CONSOLE"
+msgid "Console"
+msgstr "Konsol"
+
+msgctxt "UI_MENU_DETAIL_HIGH"
+msgid "High"
+msgstr "Yüksek"
+
+msgctxt "UI_MENU_DETAIL_ULTRA"
+msgid "Very high"
+msgstr "Çok yüksek"
+
+msgctxt "UI_MENU_SHADOW"
+msgid "Shadow quality"
+msgstr "Gölge kalitesi"
+
+msgctxt "UI_MENU_SHADOW_DESC"
+msgid ""
+"Size of the map the game draws shadows from. Smaller is lighter for the graphics card, with "
+"blurrier shadow edges. Console is 3072 docked and 2048 handheld. Impact on frame rate: low."
+msgstr ""
+"Oyunun gölgeleri çizdiği haritanın boyutu. Küçük olan ekran kartını daha az yorar, gölge "
+"kenarları daha bulanık olur. Konsolda dock modunda 3072, taşınabilir modda 2048. Kare hızına "
+"etkisi: düşük."
+
+msgctxt "UI_MENU_CONTINUE"
+msgid "Continue"
+msgstr "Devam et"
+
+msgctxt "UI_MENU_QUIT"
+msgid "Quit game"
+msgstr "Oyundan çık"
+
+msgctxt "UI_MENU_ON"
+msgid "On"
+msgstr "Açık"
+
+msgctxt "UI_MENU_OFF"
+msgid "Off"
+msgstr "Kapalı"
+
+msgctxt "UI_MENU_AUTO"
+msgid "Automatic"
+msgstr "Otomatik"
+
+msgctxt "UI_MENU_DEFAULT_MARK"
+msgid "default"
+msgstr "varsayılan"
+
+msgctxt "UI_MENU_AFTER_RESTART"
+msgid "after restart"
+msgstr "yeniden başlatınca"
+
+msgctxt "UI_MENU_SET_BY_ENV"
+msgid "set by environment variable"
+msgstr "ortam değişkeniyle ayarlı"
+
+msgctxt "UI_MENU_SAVE_FAILED"
+msgid "could not save settings"
+msgstr "ayarlar kaydedilemedi"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_VERSION"
+msgid "MKW Recomp %s, game %s"
+msgstr "MKW Recomp %s, oyun %s"
+
+msgctxt "UI_MENU_FULLSCREEN"
+msgid "Fullscreen"
+msgstr "Tam ekran"
+
+msgctxt "UI_MENU_FULLSCREEN_DESC"
+msgid "Fills the screen with the game; F11 toggles it."
+msgstr "Ekranı oyunla doldurur; F11 açıp kapatır."
+
+msgctxt "UI_MENU_WINDOW_SIZE"
+msgid "Window size"
+msgstr "Pencere boyutu"
+
+msgctxt "UI_MENU_WINDOW_SIZE_DESC"
+msgid "Size of the game window when not fullscreen."
+msgstr "Tam ekran olmadığında oyun penceresinin boyutu."
+
+msgctxt "UI_MENU_QUALITY"
+msgid "Quality"
+msgstr "Kalite"
+
+msgctxt "UI_MENU_QUALITY_DESC"
+msgid ""
+"Sets the rows below at once. Console looks like the Switch 2; Low and Medium are lighter for the "
+"graphics card, High and Very high sharper. Changing a row makes it Custom. The internal "
+"resolution is what changes the frame rate most."
+msgstr ""
+"Aşağıdaki satırları bir seferde ayarlar. Konsol, Switch 2'ye benzer; Düşük ve Orta ekran kartını "
+"daha az yorar, Yüksek ve Çok yüksek daha keskindir. Bir satırı değiştirmek Özel'e geçirir. Kare "
+"hızını en çok iç çözünürlük değiştirir."
+
+msgctxt "UI_MENU_QUALITY_CUSTOM"
+msgid "Custom"
+msgstr "Özel"
+
+msgctxt "UI_MENU_RESOLUTION"
+msgid "Internal resolution"
+msgstr "İç çözünürlük"
+
+msgctxt "UI_MENU_RESOLUTION_DESC"
+msgid ""
+"Lines the game renders its scenes at, then scaled to the window. Lower is faster: 720p suits "
+"integrated graphics. Original is the console's (up to 1440p)."
+msgstr ""
+"Oyunun sahneleri çizdiği satır sayısı; sonra pencereye ölçeklenir. Düşük olan daha hızlıdır: 720p "
+"tümleşik grafiklere uygundur. Orijinal, konsolun çözünürlüğüdür (1440p'ye kadar)."
+
+msgctxt "UI_MENU_RESOLUTION_ORIGINAL"
+msgid "Original"
+msgstr "Orijinal"
+
+msgctxt "UI_MENU_ASPECT"
+msgid "Aspect ratio"
+msgstr "En boy oranı"
+
+msgctxt "UI_MENU_ASPECT_DESC"
+msgid ""
+"Wider than 16:9 shows more of the course at the sides, for ultrawide screens. 16:9 is the "
+"console's; Window takes the window's or monitor's shape. Menus stay stretched for now."
+msgstr ""
+"16:9'dan geniş olan, ultra geniş ekranlar için pistin yanlarını daha fazla gösterir. 16:9 "
+"konsolun oranıdır; Pencere, pencerenin veya monitörün şeklini alır. Menüler şimdilik gerilmiş "
+"kalır."
+
+msgctxt "UI_MENU_ASPECT_WINDOW"
+msgid "Window"
+msgstr "Pencere"
+
+msgctxt "UI_MENU_PRESENT"
+msgid "Presentation"
+msgstr "Sunum"
+
+msgctxt "UI_MENU_PRESENT_DESC"
+msgid "How finished frames reach the screen."
+msgstr "Tamamlanan karelerin ekrana nasıl ulaştığı."
+
+msgctxt "UI_MENU_PRESENT_MAILBOX"
+msgid "Mailbox"
+msgstr "Mailbox"
+
+msgctxt "UI_MENU_PRESENT_VSYNC"
+msgid "VSync"
+msgstr "VSync"
+
+msgctxt "UI_MENU_PRESENT_IMMEDIATE"
+msgid "Immediate"
+msgstr "Anında"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_PRESENT_IN_USE"
+msgid "in use: %s"
+msgstr "kullanımda: %s"
+
+msgctxt "UI_MENU_GPU"
+msgid "Graphics card"
+msgstr "Ekran kartı"
+
+msgctxt "UI_MENU_GPU_DESC"
+msgid "The Vulkan device that draws the game."
+msgstr "Oyunu çizen Vulkan aygıtı."
+
+msgctxt "UI_MENU_GPU_AUTO"
+msgid "Automatic"
+msgstr "Otomatik"
+
+msgctxt "UI_MENU_PERF_OVERLAY"
+msgid "Performance overlay"
+msgstr "Performans katmanı"
+
+msgctxt "UI_MENU_PERF_OVERLAY_DESC"
+msgid ""
+"Frame rate in the top right corner. Full adds frame times with a graph, CPU, GPU and memory load, "
+"temperatures and the render thread's waits. F10 cycles the modes."
+msgstr ""
+"Sağ üst köşede kare hızı. Tam, grafikli kare sürelerini, CPU, GPU ve bellek yükünü, sıcaklıkları "
+"ve çizim iş parçacığının beklemelerini ekler. F10 modlar arasında geçiş yapar."
+
+msgctxt "UI_MENU_PERF_OFF"
+msgid "Off"
+msgstr "Kapalı"
+
+msgctxt "UI_MENU_PERF_FPS"
+msgid "FPS"
+msgstr "FPS"
+
+msgctxt "UI_MENU_PERF_FULL"
+msgid "Full"
+msgstr "Tam"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_PERF_LINE_FPS"
+msgid "%.0f fps"
+msgstr "%.0f fps"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_PERF_LINE_FPS_FG"
+msgid "%.0f/%.0f fps"
+msgstr "%.0f/%.0f fps"
+
+msgctxt "UI_MENU_FPS"
+msgid "Frame rate"
+msgstr "Kare hızı"
+
+msgctxt "UI_MENU_FPS_DESC"
+msgid ""
+"Frames per second the game aims for. Automatic is the console's: 60, or 30 when a frame takes too "
+"long. If your computer cannot hold 60, choose 30 so the race runs at its real speed."
+msgstr ""
+"Oyunun hedeflediği saniyedeki kare sayısı. Otomatik konsolunkidir: 60, bir kare çok uzun sürerse "
+"30. Bilgisayarın 60'ı tutamıyorsa 30'u seç; böylece yarış gerçek hızında akar."
+
+msgctxt "UI_MENU_FPS_AUTO"
+msgid "Automatic"
+msgstr "Otomatik"
+
+msgctxt "UI_MENU_FRAMEGEN"
+msgid "Frame generation"
+msgstr "Kare üretimi"
+
+msgctxt "UI_MENU_FRAMEGEN_DESC"
+msgid ""
+"Shows frames made between the game's own: 2x turns 30 fps into 60. Automatic makes as many as "
+"your monitor's refresh rate has room for. Adds up to one frame of delay, and fast motion can "
+"smear. Not on the console."
+msgstr ""
+"Oyunun kendi kareleri arasına üretilmiş kareler gösterir: 2x, 30 fps'yi 60'a çıkarır. Otomatik, "
+"monitörünün yenileme hızının izin verdiği kadar kare üretir. En fazla bir kare gecikme ekler ve "
+"hızlı hareket bulanıklaşabilir. Konsolda yok."
+
+msgctxt "UI_MENU_GRAPHICS"
+msgid "Picture"
+msgstr "Görüntü"
+
+msgctxt "UI_MENU_UPSCALER"
+msgid "Scaling to the window"
+msgstr "Pencereye ölçekleme"
+
+msgctxt "UI_MENU_UPSCALER_DESC"
+msgid ""
+"How the picture is scaled when the window is larger than the game resolution. FSR keeps edges and "
+"detail sharper than bilinear."
+msgstr ""
+"Pencere oyun çözünürlüğünden büyük olduğunda görüntünün nasıl ölçeklendiği. FSR kenarları ve "
+"ayrıntıyı bilineerden daha keskin tutar."
+
+msgctxt "UI_MENU_UPSCALER_FSR"
+msgid "AMD FSR 1"
+msgstr "AMD FSR 1"
+
+msgctxt "UI_MENU_UPSCALER_BILINEAR"
+msgid "Bilinear"
+msgstr "Bilineer"
+
+msgctxt "UI_MENU_PICTURE_FIT"
+msgid "Picture shape"
+msgstr "Görüntü şekli"
+
+msgctxt "UI_MENU_PICTURE_FIT_DESC"
+msgid ""
+"When the window's shape differs from the game resolution's (a 16:9 game on the Steam Deck's 16:10 "
+"screen), keep the picture's proportions with black bars, or stretch it over the whole window."
+msgstr ""
+"Pencerenin şekli oyun çözünürlüğününkinden farklı olduğunda (Steam Deck'in 16:10 ekranında 16:9 "
+"oyun), görüntünün oranını siyah şeritlerle korur veya tüm pencereye gerer."
+
+msgctxt "UI_MENU_PICTURE_FIT_KEEP"
+msgid "Keep (bars)"
+msgstr "Koru (şeritli)"
+
+msgctxt "UI_MENU_PICTURE_FIT_STRETCH"
+msgid "Stretch"
+msgstr "Ger"
+
+msgctxt "UI_MENU_HDR"
+msgid "HDR"
+msgstr "HDR"
+
+msgctxt "UI_MENU_HDR_DESC"
+msgid ""
+"Automatic shows the game's own HDR picture when the display is in HDR (on Windows, Settings > "
+"Display > Use HDR), as the console does; its brightness follows the system's HDR settings. Off "
+"always shows the standard picture. Applies at once."
+msgstr ""
+"Otomatik, ekran HDR'deyken (Windows'ta Ayarlar > Ekran > HDR kullan) oyunun kendi HDR görüntüsünü "
+"gösterir, konsol gibi; parlaklığı sistemin HDR ayarlarını izler. Kapalı her zaman standart "
+"görüntüyü gösterir. Hemen uygulanır."
+
+msgctxt "UI_MENU_SHARPNESS"
+msgid "FSR sharpness"
+msgstr "FSR keskinliği"
+
+msgctxt "UI_MENU_SHARPNESS_DESC"
+msgid "Sharpening after FSR scaling; 0 turns it off."
+msgstr "FSR ölçeklemesinden sonra keskinleştirme; 0 kapatır."
+
+msgctxt "UI_MENU_GAME_LANG"
+msgid "Game language"
+msgstr "Oyun dili"
+
+msgctxt "UI_MENU_GAME_LANG_DESC"
+msgid "Language of the game's text and voices."
+msgstr "Oyunun metinlerinin ve seslerinin dili."
+
+msgctxt "UI_MENU_GAME_LANG_AUTO"
+msgid "Automatic"
+msgstr "Otomatik"
+
+msgctxt "UI_MENU_OPERATION_MODE"
+msgid "Console mode"
+msgstr "Konsol modu"
+
+msgctxt "UI_MENU_OPERATION_MODE_DESC"
+msgid ""
+"Whether the game thinks it runs docked or handheld. Docked, it draws the scene smaller and "
+"enlarges it with its own scaler; handheld, at the full internal resolution with smaller shadows: "
+"sharper, but more work for the graphics card."
+msgstr ""
+"Oyunun dock'ta mı yoksa taşınabilir modda mı çalıştığını sanacağı. Dock'ta sahneyi daha küçük "
+"çizer ve kendi ölçekleyicisiyle büyütür; taşınabilirde tam iç çözünürlükte ve daha küçük "
+"gölgelerle çizer: daha keskin, ama ekran kartı için daha fazla iş."
+
+msgctxt "UI_MENU_MODE_DOCKED"
+msgid "Docked"
+msgstr "Dock'ta"
+
+msgctxt "UI_MENU_MODE_HANDHELD"
+msgid "Handheld"
+msgstr "Taşınabilir"
+
+msgctxt "UI_MENU_VOLUME"
+msgid "Volume"
+msgstr "Ses düzeyi"
+
+msgctxt "UI_MENU_VOLUME_DESC"
+msgid "Master volume of the game."
+msgstr "Oyunun ana ses düzeyi."
+
+msgctxt "UI_MENU_SPEAKERS"
+msgid "Speakers"
+msgstr "Hoparlörler"
+
+msgctxt "UI_MENU_SPEAKERS_STEREO"
+msgid "Stereo"
+msgstr "Stereo"
+
+msgctxt "UI_MENU_SPEAKERS_51"
+msgid "5.1 surround"
+msgstr "5.1 surround"
+
+msgctxt "UI_MENU_SPEAKERS_DESC"
+msgid ""
+"Automatic gives the game's 5.1 surround mix when the system's sound output has 6 channels or "
+"more, and stereo otherwise. Applies at the next start."
+msgstr ""
+"Otomatik, sistemin ses çıkışı 6 veya daha fazla kanallıysa oyunun 5.1 surround karışımını, "
+"değilse stereoyu verir. Bir sonraki başlatmada uygulanır."
+
+msgctxt "UI_MENU_MOTION"
+msgid "Motion controls"
+msgstr "Hareket kontrolleri"
+
+msgctxt "UI_MENU_MOTION_DESC"
+msgid "Steering by tilting the controller."
+msgstr "Kumandayı eğerek direksiyon çevirme."
+
+msgctxt "UI_MENU_RUMBLE_STRENGTH"
+msgid "Vibration strength"
+msgstr "Titreşim şiddeti"
+
+msgctxt "UI_MENU_RUMBLE_STRENGTH_DESC"
+msgid "How strong the controller vibrates."
+msgstr "Kumandanın ne kadar güçlü titreyeceği."
+
+msgctxt "UI_MENU_RUMBLE_CURVE"
+msgid "Vibration curve"
+msgstr "Titreşim eğrisi"
+
+msgctxt "UI_MENU_RUMBLE_CURVE_DESC"
+msgid "Lower values make weak vibration stronger."
+msgstr "Düşük değerler zayıf titreşimi güçlendirir."
+
+msgctxt "UI_MENU_RUMBLE_TRIGGERS"
+msgid "Trigger vibration (Xbox)"
+msgstr "Tetik titreşimi (Xbox)"
+
+msgctxt "UI_MENU_RUMBLE_TRIGGERS_DESC"
+msgid "Vibrates the triggers of an Xbox controller too."
+msgstr "Xbox kumandasının tetiklerini de titretir."
+
+msgctxt "UI_MENU_PAD_LAYOUT"
+msgid "Button layout"
+msgstr "Tuş düzeni"
+
+msgctxt "UI_MENU_PAD_LAYOUT_DESC"
+msgid ""
+"Which button is A. Nintendo: the right one, as on a Switch. Xbox: the bottom one, as labelled on "
+"an Xbox controller (cross on a PlayStation controller). Automatic picks Nintendo for controllers "
+"with Nintendo labels and Xbox for the others."
+msgstr ""
+"Hangi tuşun A olduğu. Nintendo: sağdaki, Switch'teki gibi. Xbox: alttaki, Xbox kumandasında "
+"yazdığı gibi (PlayStation kumandasında çarpı). Otomatik, Nintendo etiketli kumandalar için "
+"Nintendo'yu, diğerleri için Xbox'ı seçer."
+
+msgctxt "UI_MENU_PAD_LAYOUT_AUTO"
+msgid "Automatic"
+msgstr "Otomatik"
+
+msgctxt "UI_MENU_PAD_LAYOUT_NINTENDO"
+msgid "Nintendo (A right)"
+msgstr "Nintendo (A sağda)"
+
+msgctxt "UI_MENU_PAD_LAYOUT_XBOX"
+msgid "Xbox (A bottom)"
+msgstr "Xbox (A altta)"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_PAD_LAYOUT_IN_USE"
+msgid "in use: %s"
+msgstr "kullanımda: %s"
+
+msgctxt "UI_MENU_MOUSE_SENS"
+msgid "Mouse camera sensitivity"
+msgstr "Fare kamera hassasiyeti"
+
+msgctxt "UI_MENU_MOUSE_SENS_DESC"
+msgid "How fast the mouse turns the camera."
+msgstr "Farenin kamerayı ne kadar hızlı döndürdüğü."
+
+msgctxt "UI_MENU_BUTTON_ICONS"
+msgid "Button icons"
+msgstr "Tuş simgeleri"
+
+msgctxt "UI_MENU_BUTTON_ICONS_DESC"
+msgid ""
+"Which buttons the game's prompts show. Automatic follows the device you used last: the "
+"controller's own buttons (Xbox or PlayStation), or your keys and mouse. The icons follow your "
+"remapped buttons."
+msgstr ""
+"Oyunun ipuçlarının hangi tuşları gösterdiği. Otomatik, en son kullandığın aygıtı izler: "
+"kumandanın kendi tuşları (Xbox veya PlayStation) ya da klavye ve farenin tuşları. Simgeler, "
+"yeniden atadığın tuşları izler."
+
+msgctxt "UI_MENU_ICONS_NINTENDO"
+msgid "Nintendo"
+msgstr "Nintendo"
+
+msgctxt "UI_MENU_ICONS_XBOX"
+msgid "Xbox"
+msgstr "Xbox"
+
+msgctxt "UI_MENU_ICONS_PLAYSTATION"
+msgid "PlayStation"
+msgstr "PlayStation"
+
+msgctxt "UI_MENU_ICONS_KEYBOARD"
+msgid "Keyboard"
+msgstr "Klavye"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_ICONS_IN_USE"
+msgid "in use: %s"
+msgstr "kullanımda: %s"
+
+msgctxt "UI_BINDS_HELP"
+msgid ""
+"Select a cell and press A or Enter, then the key, mouse button or controller button. Delete or X "
+"clears a cell. A key in use moves here; a controller button swaps with the one it replaces."
+msgstr ""
+"Bir hücre seç ve A'ya ya da Enter'a bas, sonra tuşa, fare düğmesine veya kumanda tuşuna bas. "
+"Delete veya X hücreyi temizler. Kullanılan bir tuş buraya taşınır; bir kumanda tuşu, yerini "
+"aldığıyla yer değiştirir."
+
+msgctxt "UI_BINDS_COL_KEY1"
+msgid "Key 1"
+msgstr "Tuş 1"
+
+msgctxt "UI_BINDS_COL_KEY2"
+msgid "Key 2"
+msgstr "Tuş 2"
+
+msgctxt "UI_BINDS_COL_PAD"
+msgid "Controller"
+msgstr "Kumanda"
+
+msgctxt "UI_BINDS_GROUP_BUTTONS"
+msgid "Buttons"
+msgstr "Tuşlar"
+
+msgctxt "UI_BINDS_GROUP_MOVE"
+msgid "Movement"
+msgstr "Hareket"
+
+msgctxt "UI_BINDS_GROUP_CAMERA"
+msgid "Camera"
+msgstr "Kamera"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_BINDS_PRESS_KEY"
+msgid "Press a key or mouse button for %s"
+msgstr "Şunun için bir tuşa veya fare düğmesine bas: %s"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_BINDS_PRESS_PAD"
+msgid "Press a controller button for %s"
+msgstr "Şunun için bir kumanda tuşuna bas: %s"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_BINDS_CANCEL_HINT"
+msgid "Esc cancels, or wait %d s"
+msgstr "Esc iptal eder, ya da %d sn bekle"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_BINDS_TAKEN"
+msgid "%s was taken from %s"
+msgstr "%s, şundan alındı: %s"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_BINDS_SWAPPED"
+msgid "%s swapped with %s"
+msgstr "%s ile %s yer değiştirdi"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_NOTICE_PADS_MISSING"
+msgid "%d players need a controller each: %d connected. The keyboard only counts for player 1."
+msgstr ""
+"%d oyuncunun her biri için bir kumanda gerekir: %d bağlı. Klavye yalnızca 1. oyuncu için sayılır."
+
+msgctxt "UI_BINDS_RESET"
+msgid "Reset all buttons"
+msgstr "Tüm tuşları sıfırla"
+
+msgctxt "UI_BINDS_RESET_DESC"
+msgid ""
+"Back to the default keys and controller buttons. The button layout above applies again: remapped "
+"controller buttons stay where you put them until this reset."
+msgstr ""
+"Varsayılan tuşlara ve kumanda tuşlarına döner. Yukarıdaki tuş düzeni yeniden uygulanır: yeniden "
+"atanan kumanda tuşları, bu sıfırlamaya kadar koyduğun yerde kalır."
+
+msgctxt "UI_BIND_A"
+msgid "A"
+msgstr "A"
+
+msgctxt "UI_BIND_B"
+msgid "B"
+msgstr "B"
+
+msgctxt "UI_BIND_X"
+msgid "X"
+msgstr "X"
+
+msgctxt "UI_BIND_Y"
+msgid "Y"
+msgstr "Y"
+
+msgctxt "UI_BIND_LCLICK"
+msgid "Left stick click"
+msgstr "Sol çubuğa basma"
+
+msgctxt "UI_BIND_RCLICK"
+msgid "Right stick click"
+msgstr "Sağ çubuğa basma"
+
+msgctxt "UI_BIND_L"
+msgid "L"
+msgstr "L"
+
+msgctxt "UI_BIND_R"
+msgid "R"
+msgstr "R"
+
+msgctxt "UI_BIND_ZL"
+msgid "ZL"
+msgstr "ZL"
+
+msgctxt "UI_BIND_ZR"
+msgid "ZR"
+msgstr "ZR"
+
+msgctxt "UI_BIND_PLUS"
+msgid "Plus"
+msgstr "Artı"
+
+msgctxt "UI_BIND_MINUS"
+msgid "Minus"
+msgstr "Eksi"
+
+msgctxt "UI_BIND_LEFT"
+msgid "D-pad left"
+msgstr "Yön tuşu sol"
+
+msgctxt "UI_BIND_UP"
+msgid "D-pad up"
+msgstr "Yön tuşu yukarı"
+
+msgctxt "UI_BIND_RIGHT"
+msgid "D-pad right"
+msgstr "Yön tuşu sağ"
+
+msgctxt "UI_BIND_DOWN"
+msgid "D-pad down"
+msgstr "Yön tuşu aşağı"
+
+msgctxt "UI_BIND_LSTICK_LEFT"
+msgid "Steer left"
+msgstr "Sola dön"
+
+msgctxt "UI_BIND_LSTICK_UP"
+msgid "Stick up"
+msgstr "Çubuk yukarı"
+
+msgctxt "UI_BIND_LSTICK_RIGHT"
+msgid "Steer right"
+msgstr "Sağa dön"
+
+msgctxt "UI_BIND_LSTICK_DOWN"
+msgid "Stick down"
+msgstr "Çubuk aşağı"
+
+msgctxt "UI_BIND_RSTICK_LEFT"
+msgid "Camera left"
+msgstr "Kamera sol"
+
+msgctxt "UI_BIND_RSTICK_UP"
+msgid "Camera up"
+msgstr "Kamera yukarı"
+
+msgctxt "UI_BIND_RSTICK_RIGHT"
+msgid "Camera right"
+msgstr "Kamera sağ"
+
+msgctxt "UI_BIND_RSTICK_DOWN"
+msgid "Camera down"
+msgstr "Kamera aşağı"
+
+msgctxt "UI_BIND_DESC_A"
+msgid "Accelerate; confirm in menus."
+msgstr "Hızlanma; menülerde onaylama."
+
+msgctxt "UI_BIND_DESC_B"
+msgid "Brake, reverse; back in menus."
+msgstr "Fren, geri vites; menülerde geri."
+
+msgctxt "UI_BIND_DESC_X"
+msgid "Rear view."
+msgstr "Arka görüş."
+
+msgctxt "UI_BIND_DESC_Y"
+msgid "World map (free roam)."
+msgstr "Dünya haritası (serbest dolaşım)."
+
+msgctxt "UI_BIND_DESC_LCLICK"
+msgid "No action in the game's control list."
+msgstr "Oyunun kontrol listesinde eylemi yok."
+
+msgctxt "UI_BIND_DESC_RCLICK"
+msgid "No action in the game's control list."
+msgstr "Oyunun kontrol listesinde eylemi yok."
+
+msgctxt "UI_BIND_DESC_L"
+msgid "Use an item."
+msgstr "Eşya kullanma."
+
+msgctxt "UI_BIND_DESC_R"
+msgid "Hop, drift, charge jump, trick."
+msgstr "Zıplama, drift, şarjlı zıplama, hareket."
+
+msgctxt "UI_BIND_DESC_ZL"
+msgid "Use an item."
+msgstr "Eşya kullanma."
+
+msgctxt "UI_BIND_DESC_ZR"
+msgid "Hop, drift, charge jump, trick."
+msgstr "Zıplama, drift, şarjlı zıplama, hareket."
+
+msgctxt "UI_BIND_DESC_PLUS"
+msgid "Pause, settings."
+msgstr "Duraklatma, ayarlar."
+
+msgctxt "UI_BIND_DESC_MINUS"
+msgid "Photo mode."
+msgstr "Fotoğraf modu."
+
+msgctxt "UI_BIND_DESC_DPAD"
+msgid "Down rewinds; all four move in menus."
+msgstr "Aşağı geri sarar; dördü de menülerde gezinir."
+
+msgctxt "UI_BIND_DESC_MOVE"
+msgid "Steers like the left stick. The controller's left stick always works too."
+msgstr "Sol çubuk gibi direksiyon çevirir. Kumandanın sol çubuğu da her zaman çalışır."
+
+msgctxt "UI_BIND_DESC_CAMERA"
+msgid ""
+"Turns the camera like the right stick. The mouse and the controller's right stick always work too."
+msgstr "Sağ çubuk gibi kamerayı döndürür. Fare ve kumandanın sağ çubuğu da her zaman çalışır."
+
+msgctxt "UI_KEY_SPACE"
+msgid "Space"
+msgstr "Boşluk"
+
+msgctxt "UI_KEY_TAB"
+msgid "Tab"
+msgstr "Tab"
+
+msgctxt "UI_KEY_LSHIFT"
+msgid "Left Shift"
+msgstr "Sol Shift"
+
+msgctxt "UI_KEY_LCTRL"
+msgid "Left Ctrl"
+msgstr "Sol Ctrl"
+
+msgctxt "UI_KEY_UP"
+msgid "Up arrow"
+msgstr "Yukarı ok"
+
+msgctxt "UI_KEY_DOWN"
+msgid "Down arrow"
+msgstr "Aşağı ok"
+
+msgctxt "UI_KEY_LEFT"
+msgid "Left arrow"
+msgstr "Sol ok"
+
+msgctxt "UI_KEY_RIGHT"
+msgid "Right arrow"
+msgstr "Sağ ok"
+
+msgctxt "UI_KEY_MOUSE_L"
+msgid "Left mouse"
+msgstr "Sol fare"
+
+msgctxt "UI_KEY_MOUSE_R"
+msgid "Right mouse"
+msgstr "Sağ fare"
+
+msgctxt "UI_KEY_MOUSE_M"
+msgid "Middle mouse"
+msgstr "Orta fare"
+
+msgctxt "UI_KEY_MOUSE_X1"
+msgid "Mouse 4"
+msgstr "Fare 4"
+
+msgctxt "UI_KEY_MOUSE_X2"
+msgid "Mouse 5"
+msgstr "Fare 5"
+
+msgctxt "UI_KEY_ENTER"
+msgid "Enter"
+msgstr "Enter"
+
+msgctxt "UI_KEY_BACKSPACE"
+msgid "Backspace"
+msgstr "Backspace"
+
+msgctxt "UI_KEY_RSHIFT"
+msgid "Right Shift"
+msgstr "Sağ Shift"
+
+msgctxt "UI_KEY_RCTRL"
+msgid "Right Ctrl"
+msgstr "Sağ Ctrl"
+
+msgctxt "UI_KEY_LALT"
+msgid "Alt"
+msgstr "Alt"
+
+msgctxt "UI_KEY_CAPSLOCK"
+msgid "Caps Lock"
+msgstr "Caps Lock"
+
+msgctxt "UI_KEY_INSERT"
+msgid "Insert"
+msgstr "Insert"
+
+msgctxt "UI_KEY_DELETE"
+msgid "Delete"
+msgstr "Delete"
+
+msgctxt "UI_KEY_HOME"
+msgid "Home"
+msgstr "Home"
+
+msgctxt "UI_KEY_END"
+msgid "End"
+msgstr "End"
+
+msgctxt "UI_KEY_PAGEUP"
+msgid "Page Up"
+msgstr "Page Up"
+
+msgctxt "UI_KEY_PAGEDOWN"
+msgid "Page Down"
+msgstr "Page Down"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_KEY_NUM_FMT"
+msgid "Num %s"
+msgstr "Num %s"
+
+msgctxt "UI_PAD_SOUTH"
+msgid "Bottom button"
+msgstr "Alt tuş"
+
+msgctxt "UI_PAD_EAST"
+msgid "Right button"
+msgstr "Sağ tuş"
+
+msgctxt "UI_PAD_WEST"
+msgid "Left button"
+msgstr "Sol tuş"
+
+msgctxt "UI_PAD_NORTH"
+msgid "Top button"
+msgstr "Üst tuş"
+
+msgctxt "UI_PAD_LSTICK"
+msgid "Left stick"
+msgstr "Sol çubuk"
+
+msgctxt "UI_PAD_RSTICK"
+msgid "Right stick"
+msgstr "Sağ çubuk"
+
+msgctxt "UI_PAD_L"
+msgid "Left bumper"
+msgstr "Sol üst tuş"
+
+msgctxt "UI_PAD_R"
+msgid "Right bumper"
+msgstr "Sağ üst tuş"
+
+msgctxt "UI_PAD_START"
+msgid "Start"
+msgstr "Start"
+
+msgctxt "UI_PAD_BACK"
+msgid "Back"
+msgstr "Geri"
+
+msgctxt "UI_PAD_DPAD_LEFT"
+msgid "D-pad left"
+msgstr "Yön tuşu sol"
+
+msgctxt "UI_PAD_DPAD_UP"
+msgid "D-pad up"
+msgstr "Yön tuşu yukarı"
+
+msgctxt "UI_PAD_DPAD_RIGHT"
+msgid "D-pad right"
+msgstr "Yön tuşu sağ"
+
+msgctxt "UI_PAD_DPAD_DOWN"
+msgid "D-pad down"
+msgstr "Yön tuşu aşağı"
+
+msgctxt "UI_PAD_ZL"
+msgid "Left trigger"
+msgstr "Sol tetik"
+
+msgctxt "UI_PAD_ZR"
+msgid "Right trigger"
+msgstr "Sağ tetik"
+
+msgctxt "UI_PAD_CROSS"
+msgid "Cross"
+msgstr "Çarpı"
+
+msgctxt "UI_PAD_CIRCLE"
+msgid "Circle"
+msgstr "Daire"
+
+msgctxt "UI_PAD_SQUARE"
+msgid "Square"
+msgstr "Kare"
+
+msgctxt "UI_PAD_TRIANGLE"
+msgid "Triangle"
+msgstr "Üçgen"
+
+msgctxt "UI_MENU_MENU_LANG"
+msgid "Menu language"
+msgstr "Menü dili"
+
+msgctxt "UI_MENU_MENU_LANG_DESC"
+msgid "Language of this menu and the overlay."
+msgstr "Bu menünün ve katmanın dili."
+
+msgctxt "UI_MENU_MENU_LANG_AUTO"
+msgid "Automatic (from the system)"
+msgstr "Otomatik (sistemden)"
+
+msgctxt "UI_MENU_ADV_WARNING"
+msgid "These settings are for testing and troubleshooting. Change them only when you know why."
+msgstr "Bu ayarlar test ve sorun giderme içindir. Yalnızca nedenini biliyorsan değiştir."
+
+msgctxt "UI_MENU_GROUP_SCHED"
+msgid "Scheduling"
+msgstr "Zamanlama"
+
+msgctxt "UI_MENU_GROUP_SHADERS"
+msgid "Shaders and pipelines"
+msgstr "Gölgelendiriciler ve işlem hatları"
+
+msgctxt "UI_MENU_GROUP_TEXMEM"
+msgid "Textures and memory"
+msgstr "Dokular ve bellek"
+
+msgctxt "UI_MENU_GROUP_FIXES"
+msgid "Render fixes"
+msgstr "Çizim düzeltmeleri"
+
+msgctxt "UI_MENU_GROUP_VULKAN"
+msgid "Vulkan"
+msgstr "Vulkan"
+
+msgctxt "UI_MENU_GROUP_DIAG"
+msgid "Diagnostics"
+msgstr "Tanılama"
+
+msgctxt "UI_MENU_ASYNC_PREEMPT"
+msgid "Virtual core preemption"
+msgstr "Sanal çekirdek öncelemesi"
+
+msgctxt "UI_MENU_ASYNC_PREEMPT_DESC"
+msgid "Lets a game thread interrupt another one on the same virtual core."
+msgstr "Bir oyun iş parçacığının aynı sanal çekirdekteki başka birini kesmesine izin verir."
+
+msgctxt "UI_MENU_PREEMPT_OFF"
+msgid "Off"
+msgstr "Kapalı"
+
+msgctxt "UI_MENU_PREEMPT_ON"
+msgid "On"
+msgstr "Açık"
+
+msgctxt "UI_MENU_PREEMPT_INHERIT"
+msgid "Inheritance only"
+msgstr "Yalnızca devralma"
+
+msgctxt "UI_MENU_REPLAY_ASYNC"
+msgid "GPU frame prep on its own thread"
+msgstr "GPU kare hazırlığı ayrı iş parçacığında"
+
+msgctxt "UI_MENU_REPLAY_ASYNC_DESC"
+msgid ""
+"Prepares frames for the GPU on a separate thread instead of the game thread. Adds up to one frame "
+"of latency."
+msgstr ""
+"GPU için kareleri oyun iş parçacığı yerine ayrı bir iş parçacığında hazırlar. En fazla bir kare "
+"gecikme ekler."
+
+msgctxt "UI_MENU_FREE_CORES"
+msgid "Virtual core gate"
+msgstr "Sanal çekirdek geçidi"
+
+msgctxt "UI_MENU_FREE_CORES_DESC"
+msgid "Lets only one thread run per virtual core, as on the console."
+msgstr "Konsoldaki gibi, sanal çekirdek başına yalnızca bir iş parçacığının çalışmasına izin verir."
+
+msgctxt "UI_MENU_TIMER_1MS"
+msgid "1 ms Windows timer"
+msgstr "1 ms Windows zamanlayıcısı"
+
+msgctxt "UI_MENU_TIMER_1MS_DESC"
+msgid "Raises the system timer resolution to 1 ms for steadier frame pacing."
+msgstr "Daha düzenli kare aralıkları için sistem zamanlayıcı çözünürlüğünü 1 ms'ye yükseltir."
+
+msgctxt "UI_MENU_PIPE_WAIT"
+msgid "Waiting draw handling"
+msgstr "Bekleyen çizim işleme"
+
+msgctxt "UI_MENU_PIPE_WAIT_DESC"
+msgid ""
+"Default keeps the current scheduling with a reserved worker for waiting draws; Old (draw) uses "
+"the previous scheduling."
+msgstr ""
+"Varsayılan, bekleyen çizimler için ayrılmış bir çalışanla mevcut zamanlamayı korur; Eski (çizim) "
+"önceki zamanlamayı kullanır."
+
+msgctxt "UI_MENU_PIPE_WAIT_DEFAULT"
+msgid "Default"
+msgstr "Varsayılan"
+
+msgctxt "UI_MENU_PIPE_WAIT_DRAW"
+msgid "Old (draw)"
+msgstr "Eski (çizim)"
+
+msgctxt "UI_MENU_PIPE_SKIP"
+msgid "Draws skipped while a pipeline builds"
+msgstr "İşlem hattı kurulurken atlanan çizimler"
+
+msgctxt "UI_MENU_PIPE_SKIP_DESC"
+msgid "Which draws are dropped instead of waiting for their pipeline."
+msgstr "Hangi çizimlerin, işlem hatlarını beklemek yerine bırakılacağı."
+
+msgctxt "UI_MENU_PIPE_SKIP_STRICT"
+msgid "Strict"
+msgstr "Sıkı"
+
+msgctxt "UI_MENU_PIPE_SKIP_ANY"
+msgid "Any"
+msgstr "Herhangi"
+
+msgctxt "UI_MENU_PIPE_SKIP_FULLSCREEN"
+msgid "Fullscreen passes"
+msgstr "Tam ekran geçişleri"
+
+msgctxt "UI_MENU_PIPE_PREBUILD"
+msgid "Pipeline prebuild"
+msgstr "İşlem hattı ön kurulumu"
+
+msgctxt "UI_MENU_PIPE_PREBUILD_DESC"
+msgid "Builds known pipelines ahead of time."
+msgstr "Bilinen işlem hatlarını önceden kurar."
+
+msgctxt "UI_MENU_GPL"
+msgid "Graphics pipeline library"
+msgstr "Grafik işlem hattı kitaplığı"
+
+msgctxt "UI_MENU_GPL_DESC"
+msgid "Uses the Vulkan pipeline library extension; turn off if your driver misbehaves with it."
+msgstr "Vulkan işlem hattı kitaplığı uzantısını kullanır; sürücün onunla sorun çıkarırsa kapat."
+
+msgctxt "UI_MENU_ASTC"
+msgid "ASTC texture decoding"
+msgstr "ASTC doku çözme"
+
+msgctxt "UI_MENU_ASTC_DESC"
+msgid "Where compressed ASTC textures are decoded."
+msgstr "Sıkıştırılmış ASTC dokuların nerede çözüldüğü."
+
+msgctxt "UI_MENU_ASTC_AUTO"
+msgid "Automatic"
+msgstr "Otomatik"
+
+msgctxt "UI_MENU_ASTC_GPU"
+msgid "GPU shader"
+msgstr "GPU gölgelendiricisi"
+
+msgctxt "UI_MENU_ASTC_NATIVE"
+msgid "Native"
+msgstr "Yerel"
+
+msgctxt "UI_MENU_ASTC_CPU"
+msgid "CPU"
+msgstr "CPU"
+
+msgctxt "UI_MENU_MEMORY"
+msgid "GPU memory mode"
+msgstr "GPU bellek modu"
+
+msgctxt "UI_MENU_MEMORY_DESC"
+msgid "How game memory is shared with the GPU."
+msgstr "Oyun belleğinin GPU ile nasıl paylaşıldığı."
+
+msgctxt "UI_MENU_MEMORY_AUTO"
+msgid "Automatic"
+msgstr "Otomatik"
+
+msgctxt "UI_MENU_MEMORY_IMPORT"
+msgid "Import"
+msgstr "İçe aktar"
+
+msgctxt "UI_MENU_MEMORY_MIRROR"
+msgid "Mirror"
+msgstr "Yansıt"
+
+msgctxt "UI_MENU_MEMORY_VERIFY"
+msgid "Verify"
+msgstr "Doğrula"
+
+msgctxt "UI_MENU_TEX_ALIAS"
+msgid "Texture aliasing"
+msgstr "Doku takma adı"
+
+msgctxt "UI_MENU_TEX_ALIAS_DESC"
+msgid ""
+"A new texture created over a live texture's memory starts with that content instead of empty."
+msgstr ""
+"Canlı bir dokunun belleği üzerinde oluşturulan yeni doku, boş değil o dokunun içeriğiyle başlar."
+
+msgctxt "UI_MENU_FIX_C0"
+msgid "Constant buffer fix"
+msgstr "Sabit arabellek düzeltmesi"
+
+msgctxt "UI_MENU_FIX_C0_DESC"
+msgid ""
+"Fills the driver-reserved constant bank c0 (storage sizes, dispatch size, point size, base "
+"instance) instead of reading zeros."
+msgstr ""
+"Sürücüye ayrılmış c0 sabit bankasını (depolama boyutları, dispatch boyutu, nokta boyutu, temel "
+"örnek) sıfırları okumak yerine doldurur."
+
+msgctxt "UI_MENU_FIX_ZERO"
+msgid "Zero new GPU memory"
+msgstr "Yeni GPU belleğini sıfırla"
+
+msgctxt "UI_MENU_FIX_ZERO_DESC"
+msgid "New GPU memory pools start zero-filled, as Switch memory does."
+msgstr "Yeni GPU bellek havuzları, Switch belleği gibi sıfırlarla dolu başlar."
+
+msgctxt "UI_MENU_BIND_SKIP"
+msgid "Skip repeated binds"
+msgstr "Tekrarlanan bağlamaları atla"
+
+msgctxt "UI_MENU_BIND_SKIP_DESC"
+msgid "Optimisation: skips bindings that did not change."
+msgstr "Optimizasyon: değişmeyen bağlamaları atlar."
+
+msgctxt "UI_MENU_SHADER_MEMO"
+msgid "Shader memo"
+msgstr "Gölgelendirici belleği"
+
+msgctxt "UI_MENU_SHADER_MEMO_DESC"
+msgid "Optimisation: remembers shader lookups."
+msgstr "Optimizasyon: gölgelendirici aramalarını hatırlar."
+
+msgctxt "UI_MENU_PIPE_MEMO"
+msgid "Pipeline memo"
+msgstr "İşlem hattı belleği"
+
+msgctxt "UI_MENU_PIPE_MEMO_DESC"
+msgid "Optimisation: reuses the previous draw's pipeline when its state repeats."
+msgstr "Optimizasyon: durumu tekrarlandığında önceki çizimin işlem hattını yeniden kullanır."
+
+msgctxt "UI_MENU_TEX_MEMO"
+msgid "Texture binding memo"
+msgstr "Doku bağlama belleği"
+
+msgctxt "UI_MENU_TEX_MEMO_DESC"
+msgid "Optimisation: remembers texture descriptors between draws."
+msgstr "Optimizasyon: çizimler arasında doku tanımlayıcılarını hatırlar."
+
+msgctxt "UI_MENU_DESC_TEMPLATE"
+msgid "Descriptor templates"
+msgstr "Tanımlayıcı şablonları"
+
+msgctxt "UI_MENU_DESC_TEMPLATE_DESC"
+msgid "Optimisation: updates descriptors in bulk."
+msgstr "Optimizasyon: tanımlayıcıları toplu günceller."
+
+msgctxt "UI_MENU_PUSH_SKIP"
+msgid "Skip repeated push constants"
+msgstr "Tekrarlanan push constant'ları atla"
+
+msgctxt "UI_MENU_PUSH_SKIP_DESC"
+msgid "Optimisation: skips push constants that did not change."
+msgstr "Optimizasyon: değişmeyen push constant'ları atlar."
+
+msgctxt "UI_MENU_SPLIT_DRAWS"
+msgid "Early GPU submission"
+msgstr "Erken GPU gönderimi"
+
+msgctxt "UI_MENU_SPLIT_DRAWS_DESC"
+msgid ""
+"Submits GPU work in parts every N draws between passes so the GPU starts earlier; 0 turns it off."
+msgstr ""
+"GPU işini geçişler arasında her N çizimde parçalar halinde gönderir, böylece GPU daha erken "
+"başlar; 0 kapatır."
+
+msgctxt "UI_MENU_VK_VALIDATION"
+msgid "Validation layer"
+msgstr "Doğrulama katmanı"
+
+msgctxt "UI_MENU_VK_VALIDATION_DESC"
+msgid "Checks every Vulkan call and slows the game down a lot."
+msgstr "Her Vulkan çağrısını denetler ve oyunu çok yavaşlatır."
+
+msgctxt "UI_MENU_VK_VALIDATION_MISSING"
+msgid "The validation layer is not installed."
+msgstr "Doğrulama katmanı kurulu değil."
+
+msgctxt "UI_MENU_VK_DYN_VERTEX"
+msgid "Dynamic vertex state"
+msgstr "Dinamik köşe durumu"
+
+msgctxt "UI_MENU_VK_DYN_VERTEX_DESC"
+msgid "Forces dynamic vertex input on or off; the default depends on the GPU."
+msgstr "Dinamik köşe girdisini zorla açar veya kapatır; varsayılan GPU'ya bağlıdır."
+
+msgctxt "UI_MENU_VK_SUBGROUP_PIN"
+msgid "Pin subgroup size"
+msgstr "Alt grup boyutunu sabitle"
+
+msgctxt "UI_MENU_VK_SUBGROUP_PIN_DESC"
+msgid "Fixes the shader subgroup size."
+msgstr "Gölgelendirici alt grup boyutunu sabitler."
+
+msgctxt "UI_MENU_TRACE"
+msgid "Performance log"
+msgstr "Performans günlüğü"
+
+msgctxt "UI_MENU_TRACE_DESC"
+msgid "Writes frame timings to a file."
+msgstr "Kare sürelerini bir dosyaya yazar."
+
+msgctxt "UI_MENU_FLIGHT"
+msgid "Flight recorder"
+msgstr "Uçuş kaydedicisi"
+
+msgctxt "UI_MENU_FLIGHT_DESC"
+msgid "Keeps a short history and saves it when a frame freezes."
+msgstr "Kısa bir geçmiş tutar ve bir kare donduğunda kaydeder."
+
+msgctxt "UI_MENU_FLIGHT_SPIKE_MS"
+msgid "Freeze threshold (ms)"
+msgstr "Donma eşiği (ms)"
+
+msgctxt "UI_MENU_FLIGHT_SPIKE_MS_DESC"
+msgid "Frame time that counts as a freeze."
+msgstr "Donma sayılan kare süresi."
+
+msgctxt "UI_MENU_INPUT_RECORD"
+msgid "Input recording"
+msgstr "Girdi kaydı"
+
+msgctxt "UI_MENU_INPUT_RECORD_DESC"
+msgid "Writes your inputs to a file for bug reports."
+msgstr "Hata bildirimleri için girdilerini bir dosyaya yazar."
+
+msgctxt "UI_MENU_OPEN_LOG"
+msgid "Open log folder"
+msgstr "Günlük klasörünü aç"
+
+msgctxt "UI_MENU_OPEN_LOG_DESC"
+msgid "Shows the folder with the log files."
+msgstr "Günlük dosyalarının bulunduğu klasörü gösterir."
+
+msgctxt "UI_MENU_COPY_INFO"
+msgid "Copy system info"
+msgstr "Sistem bilgisini kopyala"
+
+msgctxt "UI_MENU_COPY_INFO_DESC"
+msgid "Copies GPU, driver, CPU, RAM and changed settings to the clipboard."
+msgstr "GPU, sürücü, CPU, RAM ve değiştirilen ayarları panoya kopyalar."
+
+msgctxt "UI_MENU_COPY_INFO_DONE"
+msgid "Copied"
+msgstr "Kopyalandı"
+
+msgctxt "UI_MENU_ACTION_FAILED"
+msgid "did not work"
+msgstr "olmadı"
+
+msgctxt "UI_MENU_RESET"
+msgid "Reset all settings to defaults"
+msgstr "Tüm ayarları varsayılana döndür"
+
+msgctxt "UI_MENU_RESET_DESC"
+msgid "Applies to every tab."
+msgstr "Tüm sekmeler için geçerlidir."
+
+msgctxt "UI_MENU_RESET_CONFIRM"
+msgid "Reset every setting to its default?"
+msgstr "Her ayar varsayılanına döndürülsün mü?"
+
+msgctxt "UI_MENU_RESET_YES"
+msgid "Reset"
+msgstr "Sıfırla"
+
+msgctxt "UI_MENU_RESET_NO"
+msgid "Cancel"
+msgstr "İptal"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FPS"
+msgid "%.0f FPS"
+msgstr "%.0f FPS"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FRAME_MS"
+msgid "%.1f ms"
+msgstr "%.1f ms"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_GAME_PCT"
+msgid "game %.0f%%"
+msgstr "oyun %.0f%%"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_MAX_MS"
+msgid "max %.1f ms"
+msgstr "maks. %.1f ms"
+
+msgctxt "UI_MENU_OV_GPU"
+msgid "GPU"
+msgstr "GPU"
+
+msgctxt "UI_MENU_OV_CPU"
+msgid "CPU"
+msgstr "CPU"
+
+msgctxt "UI_MENU_OV_RAM"
+msgid "RAM"
+msgstr "RAM"
+
+msgctxt "UI_MENU_OV_VRAM"
+msgid "VRAM"
+msgstr "VRAM"
+
+msgctxt "UI_MENU_OV_NONE"
+msgid "-"
+msgstr "-"
+
+msgctxt "UI_MENU_OV_REPLAY"
+msgid "GPU frame prep"
+msgstr "GPU kare hazırlığı"
+
+msgctxt "UI_MENU_OV_GPU_TIME"
+msgid "GPU busy per frame"
+msgstr "Kare başına GPU yükü"
+
+msgctxt "UI_MENU_OV_PIPE_WAIT"
+msgid "Pipeline waits"
+msgstr "İşlem hattı beklemeleri"
+
+msgctxt "UI_MENU_OV_TEX_UPLOADS"
+msgid "Texture uploads"
+msgstr "Doku yüklemeleri"
+
+msgctxt "UI_MENU_OV_MAIN_CPU"
+msgid "Game main thread CPU"
+msgstr "Oyun ana iş parçacığı CPU"
+
+msgctxt "UI_MENU_OV_RENDER_CPU"
+msgid "Render thread CPU"
+msgstr "Çizim iş parçacığı CPU"
+
+msgctxt "UI_MENU_OV_SLOW"
+msgid "Frames over 33 ms"
+msgstr "33 ms üstü kareler"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_PER_MIN"
+msgid "%.0f last minute"
+msgstr "son dakikada %.0f"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_PCT"
+msgid "%.0f%%"
+msgstr "%.0f%%"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_TEMP"
+msgid "%.0f °C"
+msgstr "%.0f °C"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_POWER"
+msgid "%.0f W"
+msgstr "%.0f W"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_MHZ"
+msgid "%.0f MHz"
+msgstr "%.0f MHz"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_GB"
+msgid "%.1f GB"
+msgstr "%.1f GB"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_GB_OF"
+msgid "/ %.1f GB"
+msgstr "/ %.1f GB"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_GAME_GB"
+msgid "game %.1f GB"
+msgstr "oyun %.1f GB"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_MS"
+msgid "%.2f ms"
+msgstr "%.2f ms"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_PER_FRAME"
+msgid "%.1f per frame"
+msgstr "kare başına %.1f"
+
+msgctxt "UI_MENU_OV_WINDOW"
+msgid "Window"
+msgstr "Pencere"
+
+msgctxt "UI_MENU_OV_OUTPUT"
+msgid "Game image"
+msgstr "Oyun görüntüsü"
+
+msgctxt "UI_MENU_OV_INTERNAL"
+msgid "Internal resolution"
+msgstr "İç çözünürlük"
+
+msgctxt "UI_MENU_OV_SCALING"
+msgid "Scaling"
+msgstr "Ölçekleme"
+
+msgctxt "UI_MENU_OV_PRESENT"
+msgid "Presentation"
+msgstr "Sunum"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_SIZE"
+msgid "%ux%u"
+msgstr "%ux%u"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_FSR"
+msgid "AMD FSR 1, sharpness %d%%"
+msgstr "AMD FSR 1, keskinlik %d%%"
+
+msgctxt "UI_MENU_OV_SCALE_NONE"
+msgid "none (1:1)"
+msgstr "yok (1:1)"
+
+msgctxt "UI_MENU_OV_SCALE_BILINEAR"
+msgid "bilinear"
+msgstr "bilineer"
+
+msgctxt "UI_LAUNCH_SUBTITLE"
+msgid "Static recompilation for PC"
+msgstr "PC için statik yeniden derleme"
+
+msgctxt "UI_LAUNCH_PLAY"
+msgid "Play"
+msgstr "Oyna"
+
+msgctxt "UI_LAUNCH_SETTINGS"
+msgid "Settings"
+msgstr "Ayarlar"
+
+msgctxt "UI_LAUNCH_FILES"
+msgid "Game files"
+msgstr "Oyun dosyaları"
+
+msgctxt "UI_LAUNCH_QUIT"
+msgid "Quit"
+msgstr "Çık"
+
+msgctxt "UI_LAUNCH_BACK"
+msgid "Back"
+msgstr "Geri"
+
+msgctxt "UI_LAUNCH_FILES_READY"
+msgid "Game files ready (version 1.0.0)"
+msgstr "Oyun dosyaları hazır (sürüm 1.0.0)"
+
+msgctxt "UI_LAUNCH_FILES_MISSING"
+msgid "Game files not set up"
+msgstr "Oyun dosyaları kurulmadı"
+
+msgctxt "UI_LAUNCH_FILES_FOLDER"
+msgid "Game folder"
+msgstr "Oyun klasörü"
+
+msgctxt "UI_LAUNCH_FILES_HELP"
+msgid ""
+"The game does not come with the port: it needs your own copy of Mario Kart World 1.0.0, dumped "
+"from your console (the exefs and romfs folders). The setup checks its version, builds the game "
+"code on this computer and translates the shaders."
+msgstr ""
+"Oyun porta dahil değildir: konsolundan dökülmüş kendi Mario Kart World 1.0.0 kopyana (exefs ve "
+"romfs klasörleri) ihtiyaç vardır. Kurulum sürümünü denetler, oyun kodunu bu bilgisayarda derler "
+"ve gölgelendiricileri çevirir."
+
+msgctxt "UI_LAUNCH_NO_TOOLS"
+msgid "The setup tools are missing: the setup/ folder that comes with the program."
+msgstr "Kurulum araçları eksik: programla birlikte gelen setup/ klasörü."
+
+msgctxt "UI_LAUNCH_SOURCE"
+msgid "Your copy"
+msgstr "Kopyan"
+
+msgctxt "UI_LAUNCH_PICK"
+msgid "Choose folder"
+msgstr "Klasör seç"
+
+msgctxt "UI_LAUNCH_ROMFS_MODE"
+msgid "RomFS (23 GB)"
+msgstr "RomFS (23 GB)"
+
+msgctxt "UI_LAUNCH_ROMFS_COPY"
+msgid "Copy into the game folder"
+msgstr "Oyun klasörüne kopyala"
+
+msgctxt "UI_LAUNCH_ROMFS_LINK"
+msgid "Use it where it is"
+msgstr "Bulunduğu yerde kullan"
+
+msgctxt "UI_LAUNCH_SETUP"
+msgid "Set up"
+msgstr "Kur"
+
+msgctxt "UI_LAUNCH_SETUP_AGAIN"
+msgid "Set up again"
+msgstr "Yeniden kur"
+
+msgctxt "UI_LAUNCH_CANCEL"
+msgid "Cancel"
+msgstr "İptal"
+
+msgctxt "UI_LAUNCH_SETUP_DONE"
+msgid "Set up finished: the game is ready."
+msgstr "Kurulum bitti: oyun hazır."
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_SETUP_FAILED"
+msgid "Set up failed: %s"
+msgstr "Kurulum başarısız: %s"
+
+#. No %s: the detail is not shown.
+msgctxt "UI_SETUP_ERR_SOURCE"
+msgid "there is no earlier setup in this folder: choose the folder of your copy"
+msgstr "bu klasörde önceki bir kurulum yok: kopyanın klasörünü seç"
+
+#. %s: the folder the player chose.
+msgctxt "UI_SETUP_ERR_NOGAME"
+msgid "no exefs/main and romfs/ in %s: choose the folder of your copy of the game"
+msgstr "%s içinde exefs/main ve romfs/ yok: oyun kopyanın klasörünü seç"
+
+#. %s: the path of the exefs/main file.
+msgctxt "UI_SETUP_ERR_ENCRYPTED"
+msgid "%s is encrypted: the game's exefs must be decrypted"
+msgstr "%s şifreli: oyunun exefs'i şifresiz olmalı"
+
+#. %s: the build id of the player's exefs/main (hexadecimal).
+msgctxt "UI_SETUP_ERR_VERSION"
+msgid "the game is not Mario Kart World 1.0.0 (build id %s): only 1.0.0 is supported"
+msgstr "oyun Mario Kart World 1.0.0 değil (build id %s): yalnızca 1.0.0 desteklenir"
+
+#. %s: how many files the player's RomFS has.
+msgctxt "UI_SETUP_ERR_ROMFS"
+msgid "the RomFS has only %s files: the copy is incomplete, copy it again"
+msgstr "RomFS'te yalnızca %s dosya var: kopya eksik, yeniden kopyala"
+
+#. %s: the failing tool's message, in English. logs/setup.log is a file name: keep it.
+msgctxt "UI_SETUP_ERR_FAILED"
+msgid "%s (more in logs/setup.log)"
+msgstr "%s (ayrıntılar logs/setup.log içinde)"
+
+#. %s: the system's error message, in English. logs/setup.log is a file name: keep it.
+msgctxt "UI_SETUP_ERR_IO"
+msgid "file error: %s (more in logs/setup.log)"
+msgstr "dosya hatası: %s (ayrıntılar logs/setup.log içinde)"
+
+msgctxt "UI_SETUP_ERR_STOPPED"
+msgid "the setup stopped (more in logs/setup.log)"
+msgstr "kurulum durdu (ayrıntılar logs/setup.log içinde)"
+
+msgctxt "UI_SETUP_ERR_CANCELLED"
+msgid "cancelled"
+msgstr "iptal edildi"
+
+msgctxt "UI_SETUP_ERR_NO_SETUP"
+msgid "the setup tools are missing (setup/ next to the program): extract the release again"
+msgstr "kurulum araçları eksik (programın yanındaki setup/): sürümü yeniden çıkar"
+
+msgctxt "UI_LAUNCH_STEP_CHECK"
+msgid "Check the copy"
+msgstr "Kopyayı denetle"
+
+msgctxt "UI_LAUNCH_STEP_EXEFS"
+msgid "Copy exefs"
+msgstr "exefs'i kopyala"
+
+msgctxt "UI_LAUNCH_STEP_ROMFS"
+msgid "RomFS"
+msgstr "RomFS"
+
+msgctxt "UI_LAUNCH_STEP_GENERATE"
+msgid "Generate the game code"
+msgstr "Oyun kodunu üret"
+
+msgctxt "UI_LAUNCH_STEP_COMPILE"
+msgid "Compile the game code"
+msgstr "Oyun kodunu derle"
+
+msgctxt "UI_LAUNCH_STEP_SHADERS"
+msgid "Translate the shaders"
+msgstr "Gölgelendiricileri çevir"
+
+msgctxt "UI_LAUNCH_STEP_WARM"
+msgid "Warm up the graphics (one minute)"
+msgstr "Grafikleri ısıt (bir dakika)"
+
+msgctxt "UI_LAUNCH_STEP_CLEANUP"
+msgid "Clean up"
+msgstr "Temizle"
+
+msgctxt "UI_LAUNCH_STEP_KEPT"
+msgid "kept"
+msgstr "korundu"
+
+msgctxt "UI_LAUNCH_SHORTCUT"
+msgid "Desktop shortcut"
+msgstr "Masaüstü kısayolu"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_SHORTCUT_DONE"
+msgid "Shortcut made: %s"
+msgstr "Kısayol oluşturuldu: %s"
+
+msgctxt "UI_LAUNCH_SHORTCUT_FAILED"
+msgid "Could not make the shortcut"
+msgstr "Kısayol oluşturulamadı"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_UPDATE"
+msgid "Update to %s (%d MB)"
+msgstr "%s sürümüne güncelle (%d MB)"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_UPDATE_FETCHING"
+msgid "Downloading %s"
+msgstr "%s indiriliyor"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_UPDATE_FAILED"
+msgid "Update failed: %s"
+msgstr "Güncelleme başarısız: %s"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_UPDATED"
+msgid "Updated to %s: setting up again what it changed"
+msgstr "%s sürümüne güncellendi: değişenler yeniden kuruluyor"
+
+msgctxt "UI_MENU_UPDATE_CHECK"
+msgid "Check for updates"
+msgstr "Güncellemeleri denetle"
+
+msgctxt "UI_MENU_UPDATE_CHECK_DESC"
+msgid ""
+"At start, ask GitHub for a newer release of the port and offer it on the start screen (a few "
+"seconds at most, nothing offline)."
+msgstr ""
+"Başlangıçta GitHub'dan portun daha yeni bir sürümünü sorar ve başlangıç ekranında sunar (en fazla "
+"birkaç saniye, çevrimdışıyken hiçbir şey)."

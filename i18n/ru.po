@@ -1719,6 +1719,53 @@ msgctxt "UI_LAUNCH_SETUP_FAILED"
 msgid "Set up failed: %s"
 msgstr "Подготовка не удалась: %s"
 
+#. No %s: the detail is not shown.
+msgctxt "UI_SETUP_ERR_SOURCE"
+msgid "there is no earlier setup in this folder: choose the folder of your copy"
+msgstr "в этой папке нет прежней подготовки: выберите папку с вашей копией"
+
+#. %s: the folder the player chose.
+msgctxt "UI_SETUP_ERR_NOGAME"
+msgid "no exefs/main and romfs/ in %s: choose the folder of your copy of the game"
+msgstr "в %s нет exefs/main и romfs/: выберите папку с вашей копией игры"
+
+#. %s: the path of the exefs/main file.
+msgctxt "UI_SETUP_ERR_ENCRYPTED"
+msgid "%s is encrypted: the game's exefs must be decrypted"
+msgstr "%s зашифрован: exefs игры должен быть расшифрован"
+
+#. %s: the build id of the player's exefs/main (hexadecimal).
+msgctxt "UI_SETUP_ERR_VERSION"
+msgid "the game is not Mario Kart World 1.0.0 (build id %s): only 1.0.0 is supported"
+msgstr "это не Mario Kart World 1.0.0 (build id %s): поддерживается только 1.0.0"
+
+#. %s: how many files the player's RomFS has.
+msgctxt "UI_SETUP_ERR_ROMFS"
+msgid "the RomFS has only %s files: the copy is incomplete, copy it again"
+msgstr "в RomFS только %s файлов: копия неполная, скопируйте её заново"
+
+#. %s: the failing tool's message, in English. logs/setup.log is a file name: keep it.
+msgctxt "UI_SETUP_ERR_FAILED"
+msgid "%s (more in logs/setup.log)"
+msgstr "%s (подробности в logs/setup.log)"
+
+#. %s: the system's error message, in English. logs/setup.log is a file name: keep it.
+msgctxt "UI_SETUP_ERR_IO"
+msgid "file error: %s (more in logs/setup.log)"
+msgstr "ошибка файла: %s (подробности в logs/setup.log)"
+
+msgctxt "UI_SETUP_ERR_STOPPED"
+msgid "the setup stopped (more in logs/setup.log)"
+msgstr "подготовка остановилась (подробности в logs/setup.log)"
+
+msgctxt "UI_SETUP_ERR_CANCELLED"
+msgid "cancelled"
+msgstr "отменено"
+
+msgctxt "UI_SETUP_ERR_NO_SETUP"
+msgid "the setup tools are missing (setup/ next to the program): extract the release again"
+msgstr "нет инструментов подготовки (setup/ рядом с программой): распакуйте релиз заново"
+
 msgctxt "UI_LAUNCH_STEP_CHECK"
 msgid "Check the copy"
 msgstr "Проверка копии"

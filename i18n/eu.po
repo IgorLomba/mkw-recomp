@@ -1,0 +1,1869 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: mkw-recomp\nLanguage: eu\nMIME-Version: 1.0\nContent-Type: text/plain; "
+"charset=UTF-8\nContent-Transfer-Encoding: 8bit\n"
+
+#. The software keyboard's starting text: at most 9 UTF-16 units, no '@' '%' '\'.
+msgctxt "UI_SWKBD_DEFAULT_NAME"
+msgid "Player"
+msgstr "Jokalaria"
+
+msgctxt "UI_MENU_TITLE"
+msgid "Settings"
+msgstr "Ezarpenak"
+
+msgctxt "UI_MENU_TAB_SCREEN"
+msgid "Screen"
+msgstr "Pantaila"
+
+msgctxt "UI_MENU_TAB_GAME"
+msgid "Game"
+msgstr "Jokoa"
+
+msgctxt "UI_MENU_TAB_SOUND"
+msgid "Sound"
+msgstr "Soinua"
+
+msgctxt "UI_MENU_TAB_CONTROLS"
+msgid "Controls"
+msgstr "Aginteak"
+
+msgctxt "UI_MENU_TAB_MENU"
+msgid "Menu"
+msgstr "Menua"
+
+msgctxt "UI_MENU_TAB_ADVANCED"
+msgid "Advanced"
+msgstr "Aurreratua"
+
+msgctxt "UI_MENU_TAB_GRAPHICS"
+msgid "Graphics"
+msgstr "Grafikoak"
+
+msgctxt "UI_MENU_TAB_HACKS"
+msgid "Hacks"
+msgstr "Hackak"
+
+msgctxt "UI_MENU_HACKS_WARNING"
+msgid ""
+"Experimental: shortcuts the console does not have, for playing and testing faster. They can "
+"change how the game behaves."
+msgstr ""
+"Esperimentala: kontsolak ez dituen lasterbideak, azkarrago jolasteko eta probatzeko. Jokoaren "
+"portaera alda dezakete."
+
+msgctxt "UI_MENU_TURBO"
+msgid "Turbo"
+msgstr "Turboa"
+
+msgctxt "UI_MENU_TURBO_DESC"
+msgid ""
+"The whole game runs faster: menus, movies, loads and races. Hold or press F2. The screen shows at "
+"most 60 frames a second."
+msgstr ""
+"Joko osoa azkarrago doa: menuak, bideoak, kargak eta lasterketak. Eutsi edo sakatu F2. Pantailak "
+"segundoko 60 fotograma erakusten ditu gehienez."
+
+msgctxt "UI_MENU_TURBO_HOLD"
+msgid "Hold F2"
+msgstr "Eutsi F2"
+
+msgctxt "UI_MENU_TURBO_TOGGLE"
+msgid "F2 on/off"
+msgstr "F2 piztu/itzali"
+
+msgctxt "UI_MENU_TURBO_SPEED"
+msgid "Turbo speed"
+msgstr "Turbo-abiadura"
+
+msgctxt "UI_MENU_TURBO_SPEED_DESC"
+msgid "How many times faster. A slow PC may not reach it."
+msgstr "Zenbat aldiz azkarrago. PC motel batek ezin du lortu."
+
+msgctxt "UI_MENU_SKIP_MOVIES"
+msgid "Skip movies"
+msgstr "Saltatu bideoak"
+
+msgctxt "UI_MENU_SKIP_MOVIES_DESC"
+msgid "Skips the cup and course openings as soon as they start."
+msgstr "Kopen eta zirkuituen sarrerak saltatzen ditu hasi bezain pronto."
+
+msgctxt "UI_MENU_SEED"
+msgid "Same randomness every time"
+msgstr "Ausazkotasun bera beti"
+
+msgctxt "UI_MENU_SEED_DESC"
+msgid ""
+"The game draws the same random numbers in every session: the same title course, the same items. "
+"For testing."
+msgstr ""
+"Jokoak ausazko zenbaki berak ateratzen ditu saio guztietan: izenburuko zirkuitu bera, objektu "
+"berak. Probak egiteko."
+
+msgctxt "UI_MENU_FREEZE_KEYS"
+msgid "Freeze keys"
+msgstr "Izozteko teklak"
+
+msgctxt "UI_MENU_FREEZE_KEYS_DESC"
+msgid ""
+"F3 stops the game on the frame on screen and starts it again; F4 moves it on by one frame. To "
+"look at a moment closely."
+msgstr ""
+"F3k jokoa pantailako fotogramaren gainean gelditzen du eta berriro abiarazten du; F4k fotograma "
+"bat aurreratzen du. Une bat hurbiletik begiratzeko."
+
+msgctxt "UI_MENU_UNLOCK_ALL"
+msgid "Unlock everything"
+msgstr "Desblokeatu dena"
+
+msgctxt "UI_MENU_UNLOCK_ALL_DESC"
+msgid ""
+"Every driver and outfit, vehicle and sticker, and the Special Cup. It goes into your save when "
+"the game saves: turning it off does not lock them again."
+msgstr ""
+"Gidari eta jantzi guztiak, ibilgailuak eta pegatinak, eta Kopa Berezia. Jokoak gordetzen duenean "
+"zure partidan sartzen da: itzaltzeak ez ditu berriro blokeatzen."
+
+msgctxt "UI_MENU_QUICK_RACE"
+msgid "Straight to"
+msgstr "Zuzenean hona"
+
+msgctxt "UI_MENU_QUICK_RACE_DESC"
+msgid ""
+"Goes through the menus by itself at start. Time trial: Mario, standard kart and the course the "
+"game offers (always the same with «Same randomness every time»), no rivals. Free roam: the open "
+"world. The controller still works."
+msgstr ""
+"Hasieran menuetatik bere kabuz pasatzen da. Denbora-proba: Mario, kart estandarra eta jokoak "
+"proposatzen duen zirkuitua («Ausazkotasun bera beti» aukerarekin beti bera), aurkaririk gabe. "
+"Ibilaldi librea: mundu irekia. Agintea erabiltzen jarraitu dezakezu."
+
+msgctxt "UI_MENU_QUICK_RACE_TT"
+msgid "Time trial"
+msgstr "Denbora-proba"
+
+msgctxt "UI_MENU_QUICK_RACE_FREE"
+msgid "Free roam"
+msgstr "Ibilaldi librea"
+
+msgctxt "UI_MENU_ANISO"
+msgid "Texture filtering"
+msgstr "Testura-iragazketa"
+
+msgctxt "UI_MENU_ANISO_DESC"
+msgid ""
+"Sharpness of textures seen far away or at a low angle, such as the road ahead. Game uses what "
+"each texture asks for. Impact on frame rate: low."
+msgstr ""
+"Urrutitik edo angelu txikiz ikusten diren testuren zorroztasuna, aurrean duzun bidea bezala. "
+"Jokoak testura bakoitzak eskatzen duena erabiltzen du. Fotograma-maiztasunean eragina: txikia."
+
+msgctxt "UI_MENU_ANISO_GAME"
+msgid "Game"
+msgstr "Jokoa"
+
+msgctxt "UI_MENU_TEX_QUALITY"
+msgid "Texture quality"
+msgstr "Testuren kalitatea"
+
+msgctxt "UI_MENU_TEX_QUALITY_DESC"
+msgid ""
+"Detail of the game's own textures. Half and Quarter skip their finest levels: less memory traffic "
+"on the graphics card, blurrier surfaces up close. Impact on frame rate: low."
+msgstr ""
+"Jokoaren testuren xehetasuna. Erdia eta Laurdena aukerek maila finenak saltatzen dituzte: "
+"memoria-trafiko gutxiago txartel grafikoan, gainazal lauso gehiago hurbiletik. "
+"Fotograma-maiztasunean eragina: txikia."
+
+msgctxt "UI_MENU_TEX_QUALITY_FULL"
+msgid "Full"
+msgstr "Osoa"
+
+msgctxt "UI_MENU_TEX_QUALITY_HALF"
+msgid "Half"
+msgstr "Erdia"
+
+msgctxt "UI_MENU_TEX_QUALITY_QUARTER"
+msgid "Quarter"
+msgstr "Laurdena"
+
+msgctxt "UI_MENU_DETAIL"
+msgid "Detail distance"
+msgstr "Xehetasun-distantzia"
+
+msgctxt "UI_MENU_DETAIL_DESC"
+msgid ""
+"How far objects keep their detailed models before switching to simpler ones. Console is the "
+"Switch 2's. Impact on frame rate: low."
+msgstr ""
+"Objektuek eredu xehatuak noraino mantentzen dituzten, soilagoetara pasatu aurretik. Kontsola "
+"Switch 2-rena da. Fotograma-maiztasunean eragina: txikia."
+
+msgctxt "UI_MENU_DETAIL_LOW"
+msgid "Low"
+msgstr "Baxua"
+
+msgctxt "UI_MENU_DETAIL_MEDIUM"
+msgid "Medium"
+msgstr "Ertaina"
+
+msgctxt "UI_MENU_DETAIL_CONSOLE"
+msgid "Console"
+msgstr "Kontsola"
+
+msgctxt "UI_MENU_DETAIL_HIGH"
+msgid "High"
+msgstr "Altua"
+
+msgctxt "UI_MENU_DETAIL_ULTRA"
+msgid "Very high"
+msgstr "Oso altua"
+
+msgctxt "UI_MENU_SHADOW"
+msgid "Shadow quality"
+msgstr "Itzalen kalitatea"
+
+msgctxt "UI_MENU_SHADOW_DESC"
+msgid ""
+"Size of the map the game draws shadows from. Smaller is lighter for the graphics card, with "
+"blurrier shadow edges. Console is 3072 docked and 2048 handheld. Impact on frame rate: low."
+msgstr ""
+"Jokoak itzalak marrazteko erabiltzen duen mapa-tamaina. Txikiagoa arinagoa da txartel "
+"grafikoarentzat, itzalen ertzak lausoagoak izanik. Kontsolan 3072 da dockean eta 2048 eskuko "
+"moduan. Fotograma-maiztasunean eragina: txikia."
+
+msgctxt "UI_MENU_CONTINUE"
+msgid "Continue"
+msgstr "Jarraitu"
+
+msgctxt "UI_MENU_QUIT"
+msgid "Quit game"
+msgstr "Irten jokotik"
+
+msgctxt "UI_MENU_ON"
+msgid "On"
+msgstr "Piztuta"
+
+msgctxt "UI_MENU_OFF"
+msgid "Off"
+msgstr "Itzalita"
+
+msgctxt "UI_MENU_AUTO"
+msgid "Automatic"
+msgstr "Automatikoa"
+
+msgctxt "UI_MENU_DEFAULT_MARK"
+msgid "default"
+msgstr "lehenetsia"
+
+msgctxt "UI_MENU_AFTER_RESTART"
+msgid "after restart"
+msgstr "berrabiarazi ondoren"
+
+msgctxt "UI_MENU_SET_BY_ENV"
+msgid "set by environment variable"
+msgstr "ingurune-aldagai batek ezarria"
+
+msgctxt "UI_MENU_SAVE_FAILED"
+msgid "could not save settings"
+msgstr "ezin izan dira ezarpenak gorde"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_VERSION"
+msgid "MKW Recomp %s, game %s"
+msgstr "MKW Recomp %s, jokoa %s"
+
+msgctxt "UI_MENU_FULLSCREEN"
+msgid "Fullscreen"
+msgstr "Pantaila osoa"
+
+msgctxt "UI_MENU_FULLSCREEN_DESC"
+msgid "Fills the screen with the game; F11 toggles it."
+msgstr "Pantaila jokoarekin betetzen du; F11k aktibatu eta desaktibatzen du."
+
+msgctxt "UI_MENU_WINDOW_SIZE"
+msgid "Window size"
+msgstr "Leihoaren tamaina"
+
+msgctxt "UI_MENU_WINDOW_SIZE_DESC"
+msgid "Size of the game window when not fullscreen."
+msgstr "Jokoaren leihoaren tamaina, pantaila osoan ez dagoenean."
+
+msgctxt "UI_MENU_QUALITY"
+msgid "Quality"
+msgstr "Kalitatea"
+
+msgctxt "UI_MENU_QUALITY_DESC"
+msgid ""
+"Sets the rows below at once. Console looks like the Switch 2; Low and Medium are lighter for the "
+"graphics card, High and Very high sharper. Changing a row makes it Custom. The internal "
+"resolution is what changes the frame rate most."
+msgstr ""
+"Beheko lerroak aldi berean ezartzen ditu. Kontsolak Switch 2 bezala ematen du; Baxua eta Ertaina "
+"arinagoak dira txartel grafikoarentzat, Altua eta Oso altua zorrotzagoak. Lerro bat aldatzean "
+"Pertsonalizatua bihurtzen da. Barne-bereizmenak eragiten du gehien fotograma-maiztasunean."
+
+msgctxt "UI_MENU_QUALITY_CUSTOM"
+msgid "Custom"
+msgstr "Pertsonalizatua"
+
+msgctxt "UI_MENU_RESOLUTION"
+msgid "Internal resolution"
+msgstr "Barne-bereizmena"
+
+msgctxt "UI_MENU_RESOLUTION_DESC"
+msgid ""
+"Lines the game renders its scenes at, then scaled to the window. Lower is faster: 720p suits "
+"integrated graphics. Original is the console's (up to 1440p)."
+msgstr ""
+"Jokoak eszenak errenderizatzen dituen lerro kopurua, gero leihora eskalatua. Baxuagoa azkarragoa "
+"da: 720p grafiko integratuentzat egokia da. Jatorrizkoa kontsolarena da (1440p arte)."
+
+msgctxt "UI_MENU_RESOLUTION_ORIGINAL"
+msgid "Original"
+msgstr "Jatorrizkoa"
+
+msgctxt "UI_MENU_ASPECT"
+msgid "Aspect ratio"
+msgstr "Aspektu-erlazioa"
+
+msgctxt "UI_MENU_ASPECT_DESC"
+msgid ""
+"Wider than 16:9 shows more of the course at the sides, for ultrawide screens. 16:9 is the "
+"console's; Window takes the window's or monitor's shape. Menus stay stretched for now."
+msgstr ""
+"16:9 baino zabalagoak zirkuituaren alboak gehiago erakusten ditu, pantaila ultrazabaletarako. "
+"16:9 kontsolarena da; Leihoak leihoaren edo monitorearen forma hartzen du. Menuak luzatuta "
+"geratzen dira oraingoz."
+
+msgctxt "UI_MENU_ASPECT_WINDOW"
+msgid "Window"
+msgstr "Leihoa"
+
+msgctxt "UI_MENU_PRESENT"
+msgid "Presentation"
+msgstr "Aurkezpena"
+
+msgctxt "UI_MENU_PRESENT_DESC"
+msgid "How finished frames reach the screen."
+msgstr "Amaitutako fotogramak pantailara nola iristen diren."
+
+msgctxt "UI_MENU_PRESENT_MAILBOX"
+msgid "Mailbox"
+msgstr "Mailbox"
+
+msgctxt "UI_MENU_PRESENT_VSYNC"
+msgid "VSync"
+msgstr "VSync"
+
+msgctxt "UI_MENU_PRESENT_IMMEDIATE"
+msgid "Immediate"
+msgstr "Berehalakoa"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_PRESENT_IN_USE"
+msgid "in use: %s"
+msgstr "erabiltzen: %s"
+
+msgctxt "UI_MENU_GPU"
+msgid "Graphics card"
+msgstr "Txartel grafikoa"
+
+msgctxt "UI_MENU_GPU_DESC"
+msgid "The Vulkan device that draws the game."
+msgstr "Jokoa marrazten duen Vulkan gailua."
+
+msgctxt "UI_MENU_GPU_AUTO"
+msgid "Automatic"
+msgstr "Automatikoa"
+
+msgctxt "UI_MENU_PERF_OVERLAY"
+msgid "Performance overlay"
+msgstr "Errendimendu-geruza"
+
+msgctxt "UI_MENU_PERF_OVERLAY_DESC"
+msgid ""
+"Frame rate in the top right corner. Full adds frame times with a graph, CPU, GPU and memory load, "
+"temperatures and the render thread's waits. F10 cycles the modes."
+msgstr ""
+"Fotograma-maiztasuna goiko eskuineko izkinan. Osoak fotogramen denborak gehitzen ditu "
+"grafikoarekin, CPU, GPU eta memoriaren karga, tenperaturak eta errenderizazio-harien "
+"itxaronaldiak. F10ek moduak txandakatzen ditu."
+
+msgctxt "UI_MENU_PERF_OFF"
+msgid "Off"
+msgstr "Itzalita"
+
+msgctxt "UI_MENU_PERF_FPS"
+msgid "FPS"
+msgstr "FPS"
+
+msgctxt "UI_MENU_PERF_FULL"
+msgid "Full"
+msgstr "Osoa"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_PERF_LINE_FPS"
+msgid "%.0f fps"
+msgstr "%.0f fps"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_PERF_LINE_FPS_FG"
+msgid "%.0f/%.0f fps"
+msgstr "%.0f/%.0f fps"
+
+msgctxt "UI_MENU_FPS"
+msgid "Frame rate"
+msgstr "Fotograma-maiztasuna"
+
+msgctxt "UI_MENU_FPS_DESC"
+msgid ""
+"Frames per second the game aims for. Automatic is the console's: 60, or 30 when a frame takes too "
+"long. If your computer cannot hold 60, choose 30 so the race runs at its real speed."
+msgstr ""
+"Jokoak lortu nahi duen segundoko fotograma kopurua. Automatikoa kontsolarena da: 60, edo 30 "
+"fotograma batek luze irauten duenean. Zure ordenagailuak 60 eutsi ezin badio, aukeratu 30, "
+"lasterketak benetako abiaduran joan dadin."
+
+msgctxt "UI_MENU_FPS_AUTO"
+msgid "Automatic"
+msgstr "Automatikoa"
+
+msgctxt "UI_MENU_FRAMEGEN"
+msgid "Frame generation"
+msgstr "Fotograma-sorrera"
+
+msgctxt "UI_MENU_FRAMEGEN_DESC"
+msgid ""
+"Shows frames made between the game's own: 2x turns 30 fps into 60. Automatic makes as many as "
+"your monitor's refresh rate has room for. Adds up to one frame of delay, and fast motion can "
+"smear. Not on the console."
+msgstr ""
+"Jokoaren beraren fotogramen artean sortutako fotogramak erakusten ditu: 2x-k 30 fps 60 bihurtzen "
+"ditu. Automatikoak zure monitorearen freskatze-maiztasunak onartzen dituen adina sortzen ditu. "
+"Fotograma bateko atzerapena gehi dezake, eta mugimendu azkarra lausotu daiteke. Kontsolan ez dago."
+
+msgctxt "UI_MENU_GRAPHICS"
+msgid "Picture"
+msgstr "Irudia"
+
+msgctxt "UI_MENU_UPSCALER"
+msgid "Scaling to the window"
+msgstr "Leihora eskalatzea"
+
+msgctxt "UI_MENU_UPSCALER_DESC"
+msgid ""
+"How the picture is scaled when the window is larger than the game resolution. FSR keeps edges and "
+"detail sharper than bilinear."
+msgstr ""
+"Irudia nola eskalatzen den leihoa jokoaren bereizmena baino handiagoa denean. FSRk ertzak eta "
+"xehetasunak bilineala baino zorrotzago mantentzen ditu."
+
+msgctxt "UI_MENU_UPSCALER_FSR"
+msgid "AMD FSR 1"
+msgstr "AMD FSR 1"
+
+msgctxt "UI_MENU_UPSCALER_BILINEAR"
+msgid "Bilinear"
+msgstr "Bilineala"
+
+msgctxt "UI_MENU_PICTURE_FIT"
+msgid "Picture shape"
+msgstr "Irudiaren forma"
+
+msgctxt "UI_MENU_PICTURE_FIT_DESC"
+msgid ""
+"When the window's shape differs from the game resolution's (a 16:9 game on the Steam Deck's 16:10 "
+"screen), keep the picture's proportions with black bars, or stretch it over the whole window."
+msgstr ""
+"Leihoaren forma jokoaren bereizmenarena ez denean (16:9ko jokoa Steam Deck-aren 16:10 pantailan), "
+"irudiaren proportzioak mantentzen ditu barra beltzekin, edo leiho osora luzatzen du."
+
+msgctxt "UI_MENU_PICTURE_FIT_KEEP"
+msgid "Keep (bars)"
+msgstr "Mantendu (barrak)"
+
+msgctxt "UI_MENU_PICTURE_FIT_STRETCH"
+msgid "Stretch"
+msgstr "Luzatu"
+
+msgctxt "UI_MENU_HDR"
+msgid "HDR"
+msgstr "HDR"
+
+msgctxt "UI_MENU_HDR_DESC"
+msgid ""
+"Automatic shows the game's own HDR picture when the display is in HDR (on Windows, Settings > "
+"Display > Use HDR), as the console does; its brightness follows the system's HDR settings. Off "
+"always shows the standard picture. Applies at once."
+msgstr ""
+"Automatikoak jokoaren HDR irudia erakusten du pantaila HDR moduan dagoenean (Windows-en Ezarpenak "
+"> Pantaila > Erabili HDR), kontsolak egiten duen bezala; bere distira sistemaren HDR ezarpenen "
+"araberakoa da. Itzalitak beti irudi estandarra erakusten du. Berehala aplikatzen da."
+
+msgctxt "UI_MENU_SHARPNESS"
+msgid "FSR sharpness"
+msgstr "FSR zorroztasuna"
+
+msgctxt "UI_MENU_SHARPNESS_DESC"
+msgid "Sharpening after FSR scaling; 0 turns it off."
+msgstr "FSR eskalatzearen ondoko zorroztea; 0k desaktibatzen du."
+
+msgctxt "UI_MENU_GAME_LANG"
+msgid "Game language"
+msgstr "Jokoaren hizkuntza"
+
+msgctxt "UI_MENU_GAME_LANG_DESC"
+msgid "Language of the game's text and voices."
+msgstr "Jokoaren testuen eta ahotsen hizkuntza."
+
+msgctxt "UI_MENU_GAME_LANG_AUTO"
+msgid "Automatic"
+msgstr "Automatikoa"
+
+msgctxt "UI_MENU_OPERATION_MODE"
+msgid "Console mode"
+msgstr "Kontsola-modua"
+
+msgctxt "UI_MENU_OPERATION_MODE_DESC"
+msgid ""
+"Whether the game thinks it runs docked or handheld. Docked, it draws the scene smaller and "
+"enlarges it with its own scaler; handheld, at the full internal resolution with smaller shadows: "
+"sharper, but more work for the graphics card."
+msgstr ""
+"Jokoak dockean ala eskuko moduan dabilela uste duen. Dockean, eszena txikiagoa marrazten du eta "
+"bere eskalatzailearekin handitzen du; eskuko moduan, barne-bereizmen osoan eta itzal "
+"txikiagoekin: zorrotzagoa, baina lan gehiago txartel grafikoarentzat."
+
+msgctxt "UI_MENU_MODE_DOCKED"
+msgid "Docked"
+msgstr "Dockean"
+
+msgctxt "UI_MENU_MODE_HANDHELD"
+msgid "Handheld"
+msgstr "Eskuko modua"
+
+msgctxt "UI_MENU_VOLUME"
+msgid "Volume"
+msgstr "Bolumena"
+
+msgctxt "UI_MENU_VOLUME_DESC"
+msgid "Master volume of the game."
+msgstr "Jokoaren bolumen nagusia."
+
+msgctxt "UI_MENU_SPEAKERS"
+msgid "Speakers"
+msgstr "Bozgorailuak"
+
+msgctxt "UI_MENU_SPEAKERS_STEREO"
+msgid "Stereo"
+msgstr "Estereoa"
+
+msgctxt "UI_MENU_SPEAKERS_51"
+msgid "5.1 surround"
+msgstr "5.1 surround"
+
+msgctxt "UI_MENU_SPEAKERS_DESC"
+msgid ""
+"Automatic gives the game's 5.1 surround mix when the system's sound output has 6 channels or "
+"more, and stereo otherwise. Applies at the next start."
+msgstr ""
+"Automatikoak jokoaren 5.1 surround nahasketa ematen du sistemaren soinu-irteerak 6 kanal edo "
+"gehiago dituenean, eta estereoa bestela. Hurrengo abioan aplikatzen da."
+
+msgctxt "UI_MENU_MOTION"
+msgid "Motion controls"
+msgstr "Mugimendu-aginteak"
+
+msgctxt "UI_MENU_MOTION_DESC"
+msgid "Steering by tilting the controller."
+msgstr "Agintea okertuz gidatzea."
+
+msgctxt "UI_MENU_RUMBLE_STRENGTH"
+msgid "Vibration strength"
+msgstr "Dardararen indarra"
+
+msgctxt "UI_MENU_RUMBLE_STRENGTH_DESC"
+msgid "How strong the controller vibrates."
+msgstr "Agintea zenbat dardaratzen duen."
+
+msgctxt "UI_MENU_RUMBLE_CURVE"
+msgid "Vibration curve"
+msgstr "Dardararen kurba"
+
+msgctxt "UI_MENU_RUMBLE_CURVE_DESC"
+msgid "Lower values make weak vibration stronger."
+msgstr "Balio baxuagoek dardara ahula indartzen dute."
+
+msgctxt "UI_MENU_RUMBLE_TRIGGERS"
+msgid "Trigger vibration (Xbox)"
+msgstr "Aktibagailuen dardara (Xbox)"
+
+msgctxt "UI_MENU_RUMBLE_TRIGGERS_DESC"
+msgid "Vibrates the triggers of an Xbox controller too."
+msgstr "Xbox agintearen aktibagailuak ere dardaratzen ditu."
+
+msgctxt "UI_MENU_PAD_LAYOUT"
+msgid "Button layout"
+msgstr "Botoien antolaketa"
+
+msgctxt "UI_MENU_PAD_LAYOUT_DESC"
+msgid ""
+"Which button is A. Nintendo: the right one, as on a Switch. Xbox: the bottom one, as labelled on "
+"an Xbox controller (cross on a PlayStation controller). Automatic picks Nintendo for controllers "
+"with Nintendo labels and Xbox for the others."
+msgstr ""
+"Zein botoi den A. Nintendo: eskuinekoa, Switch-ean bezala. Xbox: behekoa, Xbox agintean markatuta "
+"dagoen bezala (PlayStation agintean gurutzea). Automatikoak Nintendo aukeratzen du Nintendo "
+"etiketak dituzten aginteentzat eta Xbox besteentzat."
+
+msgctxt "UI_MENU_PAD_LAYOUT_AUTO"
+msgid "Automatic"
+msgstr "Automatikoa"
+
+msgctxt "UI_MENU_PAD_LAYOUT_NINTENDO"
+msgid "Nintendo (A right)"
+msgstr "Nintendo (A eskuinean)"
+
+msgctxt "UI_MENU_PAD_LAYOUT_XBOX"
+msgid "Xbox (A bottom)"
+msgstr "Xbox (A behean)"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_PAD_LAYOUT_IN_USE"
+msgid "in use: %s"
+msgstr "erabiltzen: %s"
+
+msgctxt "UI_MENU_MOUSE_SENS"
+msgid "Mouse camera sensitivity"
+msgstr "Saguaren kamera-sentsibilitatea"
+
+msgctxt "UI_MENU_MOUSE_SENS_DESC"
+msgid "How fast the mouse turns the camera."
+msgstr "Saguak kamera zein azkar biratzen duen."
+
+msgctxt "UI_MENU_BUTTON_ICONS"
+msgid "Button icons"
+msgstr "Botoien ikonoak"
+
+msgctxt "UI_MENU_BUTTON_ICONS_DESC"
+msgid ""
+"Which buttons the game's prompts show. Automatic follows the device you used last: the "
+"controller's own buttons (Xbox or PlayStation), or your keys and mouse. The icons follow your "
+"remapped buttons."
+msgstr ""
+"Jokoaren aholkuek zein botoi erakusten dituzten. Automatikoak azkenekoz erabilitako gailua "
+"jarraitzen du: aginteko botoiak (Xbox edo PlayStation), edo zure teklak eta sagua. Ikonoek "
+"birdoitutako botoiak jarraitzen dituzte."
+
+msgctxt "UI_MENU_ICONS_NINTENDO"
+msgid "Nintendo"
+msgstr "Nintendo"
+
+msgctxt "UI_MENU_ICONS_XBOX"
+msgid "Xbox"
+msgstr "Xbox"
+
+msgctxt "UI_MENU_ICONS_PLAYSTATION"
+msgid "PlayStation"
+msgstr "PlayStation"
+
+msgctxt "UI_MENU_ICONS_KEYBOARD"
+msgid "Keyboard"
+msgstr "Teklatua"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_ICONS_IN_USE"
+msgid "in use: %s"
+msgstr "erabiltzen: %s"
+
+msgctxt "UI_BINDS_HELP"
+msgid ""
+"Select a cell and press A or Enter, then the key, mouse button or controller button. Delete or X "
+"clears a cell. A key in use moves here; a controller button swaps with the one it replaces."
+msgstr ""
+"Hautatu gelaxka bat eta sakatu A edo Enter, gero tekla, saguaren botoia edo aginteko botoia. "
+"Delete edo X gelaxka garbitzen du. Erabiltzen ari den tekla hona mugitzen da; aginteko botoi bat "
+"ordezkatzen duenarekin trukatzen da."
+
+msgctxt "UI_BINDS_COL_KEY1"
+msgid "Key 1"
+msgstr "1. tekla"
+
+msgctxt "UI_BINDS_COL_KEY2"
+msgid "Key 2"
+msgstr "2. tekla"
+
+msgctxt "UI_BINDS_COL_PAD"
+msgid "Controller"
+msgstr "Agintea"
+
+msgctxt "UI_BINDS_GROUP_BUTTONS"
+msgid "Buttons"
+msgstr "Botoiak"
+
+msgctxt "UI_BINDS_GROUP_MOVE"
+msgid "Movement"
+msgstr "Mugimendua"
+
+msgctxt "UI_BINDS_GROUP_CAMERA"
+msgid "Camera"
+msgstr "Kamera"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_BINDS_PRESS_KEY"
+msgid "Press a key or mouse button for %s"
+msgstr "Sakatu tekla bat edo saguaren botoi bat hauetarako: %s"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_BINDS_PRESS_PAD"
+msgid "Press a controller button for %s"
+msgstr "Sakatu aginteko botoi bat hauetarako: %s"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_BINDS_CANCEL_HINT"
+msgid "Esc cancels, or wait %d s"
+msgstr "Esc-ek bertan behera uzten du, edo itxaron %d s"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_BINDS_TAKEN"
+msgid "%s was taken from %s"
+msgstr "%s hemendik hartu da: %s"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_BINDS_SWAPPED"
+msgid "%s swapped with %s"
+msgstr "%s eta %s trukatu dira"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_NOTICE_PADS_MISSING"
+msgid "%d players need a controller each: %d connected. The keyboard only counts for player 1."
+msgstr ""
+"Jokalariak: %d, bakoitzak agintea behar du; konektatuta: %d. Teklatuak 1. jokalarirako bakarrik "
+"balio du."
+
+msgctxt "UI_BINDS_RESET"
+msgid "Reset all buttons"
+msgstr "Berrezarri botoi guztiak"
+
+msgctxt "UI_BINDS_RESET_DESC"
+msgid ""
+"Back to the default keys and controller buttons. The button layout above applies again: remapped "
+"controller buttons stay where you put them until this reset."
+msgstr ""
+"Teklak eta aginteko botoiak lehenetsietara itzultzen ditu. Goiko botoi-antolaketa berriro "
+"aplikatzen da: birdoitutako aginteko botoiak jarri dituzun tokian geratzen dira berrezarpen hau "
+"egin arte."
+
+msgctxt "UI_BIND_A"
+msgid "A"
+msgstr "A"
+
+msgctxt "UI_BIND_B"
+msgid "B"
+msgstr "B"
+
+msgctxt "UI_BIND_X"
+msgid "X"
+msgstr "X"
+
+msgctxt "UI_BIND_Y"
+msgid "Y"
+msgstr "Y"
+
+msgctxt "UI_BIND_LCLICK"
+msgid "Left stick click"
+msgstr "Ezkerreko palanka sakatzea"
+
+msgctxt "UI_BIND_RCLICK"
+msgid "Right stick click"
+msgstr "Eskuineko palanka sakatzea"
+
+msgctxt "UI_BIND_L"
+msgid "L"
+msgstr "L"
+
+msgctxt "UI_BIND_R"
+msgid "R"
+msgstr "R"
+
+msgctxt "UI_BIND_ZL"
+msgid "ZL"
+msgstr "ZL"
+
+msgctxt "UI_BIND_ZR"
+msgid "ZR"
+msgstr "ZR"
+
+msgctxt "UI_BIND_PLUS"
+msgid "Plus"
+msgstr "Plus"
+
+msgctxt "UI_BIND_MINUS"
+msgid "Minus"
+msgstr "Minus"
+
+msgctxt "UI_BIND_LEFT"
+msgid "D-pad left"
+msgstr "Gurutze-botoia ezkerrera"
+
+msgctxt "UI_BIND_UP"
+msgid "D-pad up"
+msgstr "Gurutze-botoia gora"
+
+msgctxt "UI_BIND_RIGHT"
+msgid "D-pad right"
+msgstr "Gurutze-botoia eskuinera"
+
+msgctxt "UI_BIND_DOWN"
+msgid "D-pad down"
+msgstr "Gurutze-botoia behera"
+
+msgctxt "UI_BIND_LSTICK_LEFT"
+msgid "Steer left"
+msgstr "Biratu ezkerrera"
+
+msgctxt "UI_BIND_LSTICK_UP"
+msgid "Stick up"
+msgstr "Palanka gora"
+
+msgctxt "UI_BIND_LSTICK_RIGHT"
+msgid "Steer right"
+msgstr "Biratu eskuinera"
+
+msgctxt "UI_BIND_LSTICK_DOWN"
+msgid "Stick down"
+msgstr "Palanka behera"
+
+msgctxt "UI_BIND_RSTICK_LEFT"
+msgid "Camera left"
+msgstr "Kamera ezkerrera"
+
+msgctxt "UI_BIND_RSTICK_UP"
+msgid "Camera up"
+msgstr "Kamera gora"
+
+msgctxt "UI_BIND_RSTICK_RIGHT"
+msgid "Camera right"
+msgstr "Kamera eskuinera"
+
+msgctxt "UI_BIND_RSTICK_DOWN"
+msgid "Camera down"
+msgstr "Kamera behera"
+
+msgctxt "UI_BIND_DESC_A"
+msgid "Accelerate; confirm in menus."
+msgstr "Azeleratu; menuetan baieztatu."
+
+msgctxt "UI_BIND_DESC_B"
+msgid "Brake, reverse; back in menus."
+msgstr "Balaztatu, atzera egin; menuetan atzera."
+
+msgctxt "UI_BIND_DESC_X"
+msgid "Rear view."
+msgstr "Atzeko ikuspegia."
+
+msgctxt "UI_BIND_DESC_Y"
+msgid "World map (free roam)."
+msgstr "Munduko mapa (ibilaldi librea)."
+
+msgctxt "UI_BIND_DESC_LCLICK"
+msgid "No action in the game's control list."
+msgstr "Ez dago ekintzarik jokoaren aginte-zerrendan."
+
+msgctxt "UI_BIND_DESC_RCLICK"
+msgid "No action in the game's control list."
+msgstr "Ez dago ekintzarik jokoaren aginte-zerrendan."
+
+msgctxt "UI_BIND_DESC_L"
+msgid "Use an item."
+msgstr "Objektu bat erabili."
+
+msgctxt "UI_BIND_DESC_R"
+msgid "Hop, drift, charge jump, trick."
+msgstr "Salto txikia, drifta, salto kargatua, trikimailua."
+
+msgctxt "UI_BIND_DESC_ZL"
+msgid "Use an item."
+msgstr "Objektu bat erabili."
+
+msgctxt "UI_BIND_DESC_ZR"
+msgid "Hop, drift, charge jump, trick."
+msgstr "Salto txikia, drifta, salto kargatua, trikimailua."
+
+msgctxt "UI_BIND_DESC_PLUS"
+msgid "Pause, settings."
+msgstr "Pausa, ezarpenak."
+
+msgctxt "UI_BIND_DESC_MINUS"
+msgid "Photo mode."
+msgstr "Argazki modua."
+
+msgctxt "UI_BIND_DESC_DPAD"
+msgid "Down rewinds; all four move in menus."
+msgstr "Behekoak atzera bobinatzen du; lauek menuetan mugitzen dute."
+
+msgctxt "UI_BIND_DESC_MOVE"
+msgid "Steers like the left stick. The controller's left stick always works too."
+msgstr "Ezkerreko palankak bezala gidatzen du. Aginteko ezkerreko palanka ere beti dabil."
+
+msgctxt "UI_BIND_DESC_CAMERA"
+msgid ""
+"Turns the camera like the right stick. The mouse and the controller's right stick always work too."
+msgstr ""
+"Kamera eskuineko palankak bezala biratzen du. Sagua eta aginteko eskuineko palanka ere beti "
+"dabiltza."
+
+msgctxt "UI_KEY_SPACE"
+msgid "Space"
+msgstr "Zuriunea"
+
+msgctxt "UI_KEY_TAB"
+msgid "Tab"
+msgstr "Tab"
+
+msgctxt "UI_KEY_LSHIFT"
+msgid "Left Shift"
+msgstr "Ezkerreko Shift"
+
+msgctxt "UI_KEY_LCTRL"
+msgid "Left Ctrl"
+msgstr "Ezkerreko Ctrl"
+
+msgctxt "UI_KEY_UP"
+msgid "Up arrow"
+msgstr "Gora gezia"
+
+msgctxt "UI_KEY_DOWN"
+msgid "Down arrow"
+msgstr "Behera gezia"
+
+msgctxt "UI_KEY_LEFT"
+msgid "Left arrow"
+msgstr "Ezkerrera gezia"
+
+msgctxt "UI_KEY_RIGHT"
+msgid "Right arrow"
+msgstr "Eskuinera gezia"
+
+msgctxt "UI_KEY_MOUSE_L"
+msgid "Left mouse"
+msgstr "Ezkerreko sagua"
+
+msgctxt "UI_KEY_MOUSE_R"
+msgid "Right mouse"
+msgstr "Eskuineko sagua"
+
+msgctxt "UI_KEY_MOUSE_M"
+msgid "Middle mouse"
+msgstr "Erdiko sagua"
+
+msgctxt "UI_KEY_MOUSE_X1"
+msgid "Mouse 4"
+msgstr "Sagua 4"
+
+msgctxt "UI_KEY_MOUSE_X2"
+msgid "Mouse 5"
+msgstr "Sagua 5"
+
+msgctxt "UI_KEY_ENTER"
+msgid "Enter"
+msgstr "Enter"
+
+msgctxt "UI_KEY_BACKSPACE"
+msgid "Backspace"
+msgstr "Backspace"
+
+msgctxt "UI_KEY_RSHIFT"
+msgid "Right Shift"
+msgstr "Eskuineko Shift"
+
+msgctxt "UI_KEY_RCTRL"
+msgid "Right Ctrl"
+msgstr "Eskuineko Ctrl"
+
+msgctxt "UI_KEY_LALT"
+msgid "Alt"
+msgstr "Alt"
+
+msgctxt "UI_KEY_CAPSLOCK"
+msgid "Caps Lock"
+msgstr "Caps Lock"
+
+msgctxt "UI_KEY_INSERT"
+msgid "Insert"
+msgstr "Insert"
+
+msgctxt "UI_KEY_DELETE"
+msgid "Delete"
+msgstr "Delete"
+
+msgctxt "UI_KEY_HOME"
+msgid "Home"
+msgstr "Home"
+
+msgctxt "UI_KEY_END"
+msgid "End"
+msgstr "End"
+
+msgctxt "UI_KEY_PAGEUP"
+msgid "Page Up"
+msgstr "Page Up"
+
+msgctxt "UI_KEY_PAGEDOWN"
+msgid "Page Down"
+msgstr "Page Down"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_KEY_NUM_FMT"
+msgid "Num %s"
+msgstr "Num %s"
+
+msgctxt "UI_PAD_SOUTH"
+msgid "Bottom button"
+msgstr "Beheko botoia"
+
+msgctxt "UI_PAD_EAST"
+msgid "Right button"
+msgstr "Eskuineko botoia"
+
+msgctxt "UI_PAD_WEST"
+msgid "Left button"
+msgstr "Ezkerreko botoia"
+
+msgctxt "UI_PAD_NORTH"
+msgid "Top button"
+msgstr "Goiko botoia"
+
+msgctxt "UI_PAD_LSTICK"
+msgid "Left stick"
+msgstr "Ezkerreko palanka"
+
+msgctxt "UI_PAD_RSTICK"
+msgid "Right stick"
+msgstr "Eskuineko palanka"
+
+msgctxt "UI_PAD_L"
+msgid "Left bumper"
+msgstr "Ezkerreko bumper-a"
+
+msgctxt "UI_PAD_R"
+msgid "Right bumper"
+msgstr "Eskuineko bumper-a"
+
+msgctxt "UI_PAD_START"
+msgid "Start"
+msgstr "Start"
+
+msgctxt "UI_PAD_BACK"
+msgid "Back"
+msgstr "Atzera"
+
+msgctxt "UI_PAD_DPAD_LEFT"
+msgid "D-pad left"
+msgstr "Gurutze-botoia ezkerrera"
+
+msgctxt "UI_PAD_DPAD_UP"
+msgid "D-pad up"
+msgstr "Gurutze-botoia gora"
+
+msgctxt "UI_PAD_DPAD_RIGHT"
+msgid "D-pad right"
+msgstr "Gurutze-botoia eskuinera"
+
+msgctxt "UI_PAD_DPAD_DOWN"
+msgid "D-pad down"
+msgstr "Gurutze-botoia behera"
+
+msgctxt "UI_PAD_ZL"
+msgid "Left trigger"
+msgstr "Ezkerreko aktibagailua"
+
+msgctxt "UI_PAD_ZR"
+msgid "Right trigger"
+msgstr "Eskuineko aktibagailua"
+
+msgctxt "UI_PAD_CROSS"
+msgid "Cross"
+msgstr "Gurutzea"
+
+msgctxt "UI_PAD_CIRCLE"
+msgid "Circle"
+msgstr "Zirkulua"
+
+msgctxt "UI_PAD_SQUARE"
+msgid "Square"
+msgstr "Karratua"
+
+msgctxt "UI_PAD_TRIANGLE"
+msgid "Triangle"
+msgstr "Triangelua"
+
+msgctxt "UI_MENU_MENU_LANG"
+msgid "Menu language"
+msgstr "Menuaren hizkuntza"
+
+msgctxt "UI_MENU_MENU_LANG_DESC"
+msgid "Language of this menu and the overlay."
+msgstr "Menu honen eta geruzaren hizkuntza."
+
+msgctxt "UI_MENU_MENU_LANG_AUTO"
+msgid "Automatic (from the system)"
+msgstr "Automatikoa (sistematik)"
+
+msgctxt "UI_MENU_ADV_WARNING"
+msgid "These settings are for testing and troubleshooting. Change them only when you know why."
+msgstr ""
+"Ezarpen hauek probak egiteko eta arazoak konpontzeko dira. Aldatu soilik zergatik egiten duzun "
+"jakiten baduzu."
+
+msgctxt "UI_MENU_GROUP_SCHED"
+msgid "Scheduling"
+msgstr "Plangintza"
+
+msgctxt "UI_MENU_GROUP_SHADERS"
+msgid "Shaders and pipelines"
+msgstr "Shaderrak eta kanalizazioak"
+
+msgctxt "UI_MENU_GROUP_TEXMEM"
+msgid "Textures and memory"
+msgstr "Testurak eta memoria"
+
+msgctxt "UI_MENU_GROUP_FIXES"
+msgid "Render fixes"
+msgstr "Errenderizazio-konponketak"
+
+msgctxt "UI_MENU_GROUP_VULKAN"
+msgid "Vulkan"
+msgstr "Vulkan"
+
+msgctxt "UI_MENU_GROUP_DIAG"
+msgid "Diagnostics"
+msgstr "Diagnostikoak"
+
+msgctxt "UI_MENU_ASYNC_PREEMPT"
+msgid "Virtual core preemption"
+msgstr "Nukleo birtualen preemptioa"
+
+msgctxt "UI_MENU_ASYNC_PREEMPT_DESC"
+msgid "Lets a game thread interrupt another one on the same virtual core."
+msgstr "Joko-hari batek nukleo birtual berean dagoen beste bat eten dezala uzten du."
+
+msgctxt "UI_MENU_PREEMPT_OFF"
+msgid "Off"
+msgstr "Itzalita"
+
+msgctxt "UI_MENU_PREEMPT_ON"
+msgid "On"
+msgstr "Piztuta"
+
+msgctxt "UI_MENU_PREEMPT_INHERIT"
+msgid "Inheritance only"
+msgstr "Herentzia soilik"
+
+msgctxt "UI_MENU_REPLAY_ASYNC"
+msgid "GPU frame prep on its own thread"
+msgstr "GPU fotogramen prestaketa hari propioan"
+
+msgctxt "UI_MENU_REPLAY_ASYNC_DESC"
+msgid ""
+"Prepares frames for the GPU on a separate thread instead of the game thread. Adds up to one frame "
+"of latency."
+msgstr ""
+"GPUrako fotogramak hari bereizi batean prestatzen ditu, jokoaren harian egin beharrean. Fotograma "
+"bateko atzerapena gehi dezake."
+
+msgctxt "UI_MENU_FREE_CORES"
+msgid "Virtual core gate"
+msgstr "Nukleo birtualen atea"
+
+msgctxt "UI_MENU_FREE_CORES_DESC"
+msgid "Lets only one thread run per virtual core, as on the console."
+msgstr "Hari bakarra exekutatzen uzten du nukleo birtual bakoitzeko, kontsolan bezala."
+
+msgctxt "UI_MENU_TIMER_1MS"
+msgid "1 ms Windows timer"
+msgstr "1 ms-ko Windows tenporizadorea"
+
+msgctxt "UI_MENU_TIMER_1MS_DESC"
+msgid "Raises the system timer resolution to 1 ms for steadier frame pacing."
+msgstr ""
+"Sistemaren tenporizadorearen bereizmena 1 ms-ra igotzen du, fotogramen erritmo egonkorragoa "
+"lortzeko."
+
+msgctxt "UI_MENU_PIPE_WAIT"
+msgid "Waiting draw handling"
+msgstr "Itxaroten dauden marrazketen kudeaketa"
+
+msgctxt "UI_MENU_PIPE_WAIT_DESC"
+msgid ""
+"Default keeps the current scheduling with a reserved worker for waiting draws; Old (draw) uses "
+"the previous scheduling."
+msgstr ""
+"Lehenetsiak uneko plangintza mantentzen du, itxaroten dauden marrazketentzako langile gordeekin; "
+"Zaharra (marrazketa) aurreko plangintza erabiltzen du."
+
+msgctxt "UI_MENU_PIPE_WAIT_DEFAULT"
+msgid "Default"
+msgstr "Lehenetsia"
+
+msgctxt "UI_MENU_PIPE_WAIT_DRAW"
+msgid "Old (draw)"
+msgstr "Zaharra (marrazketa)"
+
+msgctxt "UI_MENU_PIPE_SKIP"
+msgid "Draws skipped while a pipeline builds"
+msgstr "Kanalizazioa eraikitzen den bitartean saltatutako marrazketak"
+
+msgctxt "UI_MENU_PIPE_SKIP_DESC"
+msgid "Which draws are dropped instead of waiting for their pipeline."
+msgstr "Zein marrazketa baztertzen diren kanalizazioaren zain egon beharrean."
+
+msgctxt "UI_MENU_PIPE_SKIP_STRICT"
+msgid "Strict"
+msgstr "Zorrotza"
+
+msgctxt "UI_MENU_PIPE_SKIP_ANY"
+msgid "Any"
+msgstr "Edozein"
+
+msgctxt "UI_MENU_PIPE_SKIP_FULLSCREEN"
+msgid "Fullscreen passes"
+msgstr "Pantaila osoko pasaldiak"
+
+msgctxt "UI_MENU_PIPE_PREBUILD"
+msgid "Pipeline prebuild"
+msgstr "Kanalizazioen aurreeraikuntza"
+
+msgctxt "UI_MENU_PIPE_PREBUILD_DESC"
+msgid "Builds known pipelines ahead of time."
+msgstr "Ezagutzen diren kanalizazioak aldez aurretik eraikitzen ditu."
+
+msgctxt "UI_MENU_GPL"
+msgid "Graphics pipeline library"
+msgstr "Kanalizazio grafikoen liburutegia"
+
+msgctxt "UI_MENU_GPL_DESC"
+msgid "Uses the Vulkan pipeline library extension; turn off if your driver misbehaves with it."
+msgstr ""
+"Vulkan kanalizazio-liburutegiaren hedapena erabiltzen du; desaktibatu zure kontrolatzaileak "
+"arazoak ematen baditu."
+
+msgctxt "UI_MENU_ASTC"
+msgid "ASTC texture decoding"
+msgstr "ASTC testuren deskodeketa"
+
+msgctxt "UI_MENU_ASTC_DESC"
+msgid "Where compressed ASTC textures are decoded."
+msgstr "ASTC testura konprimituak non deskodetzen diren."
+
+msgctxt "UI_MENU_ASTC_AUTO"
+msgid "Automatic"
+msgstr "Automatikoa"
+
+msgctxt "UI_MENU_ASTC_GPU"
+msgid "GPU shader"
+msgstr "GPU shaderra"
+
+msgctxt "UI_MENU_ASTC_NATIVE"
+msgid "Native"
+msgstr "Natiboa"
+
+msgctxt "UI_MENU_ASTC_CPU"
+msgid "CPU"
+msgstr "CPU"
+
+msgctxt "UI_MENU_MEMORY"
+msgid "GPU memory mode"
+msgstr "GPU memoria-modua"
+
+msgctxt "UI_MENU_MEMORY_DESC"
+msgid "How game memory is shared with the GPU."
+msgstr "Jokoaren memoria GPUrekin nola partekatzen den."
+
+msgctxt "UI_MENU_MEMORY_AUTO"
+msgid "Automatic"
+msgstr "Automatikoa"
+
+msgctxt "UI_MENU_MEMORY_IMPORT"
+msgid "Import"
+msgstr "Inportatu"
+
+msgctxt "UI_MENU_MEMORY_MIRROR"
+msgid "Mirror"
+msgstr "Ispilua"
+
+msgctxt "UI_MENU_MEMORY_VERIFY"
+msgid "Verify"
+msgstr "Egiaztatu"
+
+msgctxt "UI_MENU_TEX_ALIAS"
+msgid "Texture aliasing"
+msgstr "Testuren aliasing-a"
+
+msgctxt "UI_MENU_TEX_ALIAS_DESC"
+msgid ""
+"A new texture created over a live texture's memory starts with that content instead of empty."
+msgstr ""
+"Testura bizi baten memoriaren gainean sortutako testura berria huts hasi beharrean haren "
+"edukiarekin hasten da."
+
+msgctxt "UI_MENU_FIX_C0"
+msgid "Constant buffer fix"
+msgstr "Konstante-bufferraren konponketa"
+
+msgctxt "UI_MENU_FIX_C0_DESC"
+msgid ""
+"Fills the driver-reserved constant bank c0 (storage sizes, dispatch size, point size, base "
+"instance) instead of reading zeros."
+msgstr ""
+"Kontrolatzaileak gordetako c0 konstante-bankua (biltegiratze-tamainak, dispatch-aren tamaina, "
+"puntuaren tamaina, oinarrizko instantzia) betetzen du zeroak irakurri beharrean."
+
+msgctxt "UI_MENU_FIX_ZERO"
+msgid "Zero new GPU memory"
+msgstr "Zeroz bete GPU memoria berria"
+
+msgctxt "UI_MENU_FIX_ZERO_DESC"
+msgid "New GPU memory pools start zero-filled, as Switch memory does."
+msgstr "GPU memoria-multzo berriak zeroz beteta hasten dira, Switch-eko memoria bezala."
+
+msgctxt "UI_MENU_BIND_SKIP"
+msgid "Skip repeated binds"
+msgstr "Saltatu errepikatutako lotuneak"
+
+msgctxt "UI_MENU_BIND_SKIP_DESC"
+msgid "Optimisation: skips bindings that did not change."
+msgstr "Optimizazioa: aldatu ez diren lotuneak saltatzen ditu."
+
+msgctxt "UI_MENU_SHADER_MEMO"
+msgid "Shader memo"
+msgstr "Shader-memoria"
+
+msgctxt "UI_MENU_SHADER_MEMO_DESC"
+msgid "Optimisation: remembers shader lookups."
+msgstr "Optimizazioa: shader-bilaketak gogoratzen ditu."
+
+msgctxt "UI_MENU_PIPE_MEMO"
+msgid "Pipeline memo"
+msgstr "Kanalizazio-memoria"
+
+msgctxt "UI_MENU_PIPE_MEMO_DESC"
+msgid "Optimisation: reuses the previous draw's pipeline when its state repeats."
+msgstr ""
+"Optimizazioa: aurreko marrazketaren kanalizazioa berrerabiltzen du egoera errepikatzen denean."
+
+msgctxt "UI_MENU_TEX_MEMO"
+msgid "Texture binding memo"
+msgstr "Testura-lotuneen memoria"
+
+msgctxt "UI_MENU_TEX_MEMO_DESC"
+msgid "Optimisation: remembers texture descriptors between draws."
+msgstr "Optimizazioa: testura-deskriptoreak gogoratzen ditu marrazketen artean."
+
+msgctxt "UI_MENU_DESC_TEMPLATE"
+msgid "Descriptor templates"
+msgstr "Deskriptore-txantiloiak"
+
+msgctxt "UI_MENU_DESC_TEMPLATE_DESC"
+msgid "Optimisation: updates descriptors in bulk."
+msgstr "Optimizazioa: deskriptoreak multzoka eguneratzen ditu."
+
+msgctxt "UI_MENU_PUSH_SKIP"
+msgid "Skip repeated push constants"
+msgstr "Saltatu errepikatutako push constants"
+
+msgctxt "UI_MENU_PUSH_SKIP_DESC"
+msgid "Optimisation: skips push constants that did not change."
+msgstr "Optimizazioa: aldatu ez diren push constants saltatzen ditu."
+
+msgctxt "UI_MENU_SPLIT_DRAWS"
+msgid "Early GPU submission"
+msgstr "GPUrako bidalketa goiztiarra"
+
+msgctxt "UI_MENU_SPLIT_DRAWS_DESC"
+msgid ""
+"Submits GPU work in parts every N draws between passes so the GPU starts earlier; 0 turns it off."
+msgstr ""
+"GPU lana zatika bidaltzen du pasaldien artean N marrazketa bakoitzeko, GPUa lehenago has dadin; "
+"0k desaktibatzen du."
+
+msgctxt "UI_MENU_VK_VALIDATION"
+msgid "Validation layer"
+msgstr "Baliozkotze-geruza"
+
+msgctxt "UI_MENU_VK_VALIDATION_DESC"
+msgid "Checks every Vulkan call and slows the game down a lot."
+msgstr "Vulkan dei bakoitza egiaztatzen du eta jokoa asko moteltzen du."
+
+msgctxt "UI_MENU_VK_VALIDATION_MISSING"
+msgid "The validation layer is not installed."
+msgstr "Baliozkotze-geruza ez dago instalatuta."
+
+msgctxt "UI_MENU_VK_DYN_VERTEX"
+msgid "Dynamic vertex state"
+msgstr "Erpin-egoera dinamikoa"
+
+msgctxt "UI_MENU_VK_DYN_VERTEX_DESC"
+msgid "Forces dynamic vertex input on or off; the default depends on the GPU."
+msgstr ""
+"Erpin-sarrera dinamikoa behartzen du piztuta edo itzalita; lehenetsia GPUaren araberakoa da."
+
+msgctxt "UI_MENU_VK_SUBGROUP_PIN"
+msgid "Pin subgroup size"
+msgstr "Finkatu azpitaldearen tamaina"
+
+msgctxt "UI_MENU_VK_SUBGROUP_PIN_DESC"
+msgid "Fixes the shader subgroup size."
+msgstr "Shaderraren azpitaldearen tamaina finkatzen du."
+
+msgctxt "UI_MENU_TRACE"
+msgid "Performance log"
+msgstr "Errendimendu-erregistroa"
+
+msgctxt "UI_MENU_TRACE_DESC"
+msgid "Writes frame timings to a file."
+msgstr "Fotogramen denborak fitxategi batean idazten ditu."
+
+msgctxt "UI_MENU_FLIGHT"
+msgid "Flight recorder"
+msgstr "Hegaldi-grabagailua"
+
+msgctxt "UI_MENU_FLIGHT_DESC"
+msgid "Keeps a short history and saves it when a frame freezes."
+msgstr "Historia labur bat gordetzen du eta fotograma bat izozten denean gorde egiten du."
+
+msgctxt "UI_MENU_FLIGHT_SPIKE_MS"
+msgid "Freeze threshold (ms)"
+msgstr "Izozte-atalasea (ms)"
+
+msgctxt "UI_MENU_FLIGHT_SPIKE_MS_DESC"
+msgid "Frame time that counts as a freeze."
+msgstr "Izozte gisa kontatzen den fotograma-denbora."
+
+msgctxt "UI_MENU_INPUT_RECORD"
+msgid "Input recording"
+msgstr "Sarreren grabaketa"
+
+msgctxt "UI_MENU_INPUT_RECORD_DESC"
+msgid "Writes your inputs to a file for bug reports."
+msgstr "Zure sarrerak fitxategi batean idazten ditu, akats-txostenetarako."
+
+msgctxt "UI_MENU_OPEN_LOG"
+msgid "Open log folder"
+msgstr "Ireki erregistro-karpeta"
+
+msgctxt "UI_MENU_OPEN_LOG_DESC"
+msgid "Shows the folder with the log files."
+msgstr "Erregistro-fitxategien karpeta erakusten du."
+
+msgctxt "UI_MENU_COPY_INFO"
+msgid "Copy system info"
+msgstr "Kopiatu sistemaren informazioa"
+
+msgctxt "UI_MENU_COPY_INFO_DESC"
+msgid "Copies GPU, driver, CPU, RAM and changed settings to the clipboard."
+msgstr "GPUa, kontrolatzailea, CPUa, RAMa eta aldatutako ezarpenak arbelera kopiatzen ditu."
+
+msgctxt "UI_MENU_COPY_INFO_DONE"
+msgid "Copied"
+msgstr "Kopiatuta"
+
+msgctxt "UI_MENU_ACTION_FAILED"
+msgid "did not work"
+msgstr "ez du funtzionatu"
+
+msgctxt "UI_MENU_RESET"
+msgid "Reset all settings to defaults"
+msgstr "Berrezarri ezarpen guztiak lehenetsietara"
+
+msgctxt "UI_MENU_RESET_DESC"
+msgid "Applies to every tab."
+msgstr "Fitxa guztiei aplikatzen zaie."
+
+msgctxt "UI_MENU_RESET_CONFIRM"
+msgid "Reset every setting to its default?"
+msgstr "Ezarpen guztiak lehenetsietara berrezarri?"
+
+msgctxt "UI_MENU_RESET_YES"
+msgid "Reset"
+msgstr "Berrezarri"
+
+msgctxt "UI_MENU_RESET_NO"
+msgid "Cancel"
+msgstr "Utzi"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FPS"
+msgid "%.0f FPS"
+msgstr "%.0f FPS"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FRAME_MS"
+msgid "%.1f ms"
+msgstr "%.1f ms"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_GAME_PCT"
+msgid "game %.0f%%"
+msgstr "jokoa %.0f%%"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_MAX_MS"
+msgid "max %.1f ms"
+msgstr "gehienez %.1f ms"
+
+msgctxt "UI_MENU_OV_GPU"
+msgid "GPU"
+msgstr "GPU"
+
+msgctxt "UI_MENU_OV_CPU"
+msgid "CPU"
+msgstr "CPU"
+
+msgctxt "UI_MENU_OV_RAM"
+msgid "RAM"
+msgstr "RAM"
+
+msgctxt "UI_MENU_OV_VRAM"
+msgid "VRAM"
+msgstr "VRAM"
+
+msgctxt "UI_MENU_OV_NONE"
+msgid "-"
+msgstr "-"
+
+msgctxt "UI_MENU_OV_REPLAY"
+msgid "GPU frame prep"
+msgstr "GPU fotogramen prestaketa"
+
+msgctxt "UI_MENU_OV_GPU_TIME"
+msgid "GPU busy per frame"
+msgstr "GPUa lanpetuta fotogramako"
+
+msgctxt "UI_MENU_OV_PIPE_WAIT"
+msgid "Pipeline waits"
+msgstr "Kanalizazio-itxaronaldiak"
+
+msgctxt "UI_MENU_OV_TEX_UPLOADS"
+msgid "Texture uploads"
+msgstr "Testura-igoerak"
+
+msgctxt "UI_MENU_OV_MAIN_CPU"
+msgid "Game main thread CPU"
+msgstr "Jokoaren hari nagusiaren CPUa"
+
+msgctxt "UI_MENU_OV_RENDER_CPU"
+msgid "Render thread CPU"
+msgstr "Errenderizazio-hariaren CPUa"
+
+msgctxt "UI_MENU_OV_SLOW"
+msgid "Frames over 33 ms"
+msgstr "33 ms baino gehiagoko fotogramak"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_PER_MIN"
+msgid "%.0f last minute"
+msgstr "%.0f azken minutuan"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_PCT"
+msgid "%.0f%%"
+msgstr "%.0f%%"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_TEMP"
+msgid "%.0f °C"
+msgstr "%.0f °C"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_POWER"
+msgid "%.0f W"
+msgstr "%.0f W"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_MHZ"
+msgid "%.0f MHz"
+msgstr "%.0f MHz"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_GB"
+msgid "%.1f GB"
+msgstr "%.1f GB"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_GB_OF"
+msgid "/ %.1f GB"
+msgstr "/ %.1f GB"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_GAME_GB"
+msgid "game %.1f GB"
+msgstr "jokoa %.1f GB"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_MS"
+msgid "%.2f ms"
+msgstr "%.2f ms"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_PER_FRAME"
+msgid "%.1f per frame"
+msgstr "%.1f fotogramako"
+
+msgctxt "UI_MENU_OV_WINDOW"
+msgid "Window"
+msgstr "Leihoa"
+
+msgctxt "UI_MENU_OV_OUTPUT"
+msgid "Game image"
+msgstr "Jokoaren irudia"
+
+msgctxt "UI_MENU_OV_INTERNAL"
+msgid "Internal resolution"
+msgstr "Barne-bereizmena"
+
+msgctxt "UI_MENU_OV_SCALING"
+msgid "Scaling"
+msgstr "Eskalatzea"
+
+msgctxt "UI_MENU_OV_PRESENT"
+msgid "Presentation"
+msgstr "Aurkezpena"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_SIZE"
+msgid "%ux%u"
+msgstr "%ux%u"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_FSR"
+msgid "AMD FSR 1, sharpness %d%%"
+msgstr "AMD FSR 1, zorroztasuna %d%%"
+
+msgctxt "UI_MENU_OV_SCALE_NONE"
+msgid "none (1:1)"
+msgstr "bat ere ez (1:1)"
+
+msgctxt "UI_MENU_OV_SCALE_BILINEAR"
+msgid "bilinear"
+msgstr "bilineala"
+
+msgctxt "UI_LAUNCH_SUBTITLE"
+msgid "Static recompilation for PC"
+msgstr "PCrako birkonpilazio estatikoa"
+
+msgctxt "UI_LAUNCH_PLAY"
+msgid "Play"
+msgstr "Jolastu"
+
+msgctxt "UI_LAUNCH_SETTINGS"
+msgid "Settings"
+msgstr "Ezarpenak"
+
+msgctxt "UI_LAUNCH_FILES"
+msgid "Game files"
+msgstr "Jokoaren fitxategiak"
+
+msgctxt "UI_LAUNCH_QUIT"
+msgid "Quit"
+msgstr "Irten"
+
+msgctxt "UI_LAUNCH_BACK"
+msgid "Back"
+msgstr "Atzera"
+
+msgctxt "UI_LAUNCH_FILES_READY"
+msgid "Game files ready (version 1.0.0)"
+msgstr "Jokoaren fitxategiak prest (1.0.0 bertsioa)"
+
+msgctxt "UI_LAUNCH_FILES_MISSING"
+msgid "Game files not set up"
+msgstr "Jokoaren fitxategiak konfiguratu gabe"
+
+msgctxt "UI_LAUNCH_FILES_FOLDER"
+msgid "Game folder"
+msgstr "Jokoaren karpeta"
+
+msgctxt "UI_LAUNCH_FILES_HELP"
+msgid ""
+"The game does not come with the port: it needs your own copy of Mario Kart World 1.0.0, dumped "
+"from your console (the exefs and romfs folders). The setup checks its version, builds the game "
+"code on this computer and translates the shaders."
+msgstr ""
+"Jokoa ez dator portarekin: zure kontsolatik atera duzun Mario Kart World 1.0.0-ren zure kopia "
+"behar da (exefs eta romfs karpetak). Konfigurazioak bertsioa egiaztatzen du, jokoaren kodea "
+"ordenagailu honetan eraikitzen du eta shaderrak itzultzen ditu."
+
+msgctxt "UI_LAUNCH_NO_TOOLS"
+msgid "The setup tools are missing: the setup/ folder that comes with the program."
+msgstr "Konfigurazio-tresnak falta dira: programarekin datorren setup/ karpeta."
+
+msgctxt "UI_LAUNCH_SOURCE"
+msgid "Your copy"
+msgstr "Zure kopia"
+
+msgctxt "UI_LAUNCH_PICK"
+msgid "Choose folder"
+msgstr "Aukeratu karpeta"
+
+msgctxt "UI_LAUNCH_ROMFS_MODE"
+msgid "RomFS (23 GB)"
+msgstr "RomFS (23 GB)"
+
+msgctxt "UI_LAUNCH_ROMFS_COPY"
+msgid "Copy into the game folder"
+msgstr "Kopiatu jokoaren karpetara"
+
+msgctxt "UI_LAUNCH_ROMFS_LINK"
+msgid "Use it where it is"
+msgstr "Erabili dagoen tokian"
+
+msgctxt "UI_LAUNCH_SETUP"
+msgid "Set up"
+msgstr "Konfiguratu"
+
+msgctxt "UI_LAUNCH_SETUP_AGAIN"
+msgid "Set up again"
+msgstr "Konfiguratu berriro"
+
+msgctxt "UI_LAUNCH_CANCEL"
+msgid "Cancel"
+msgstr "Utzi"
+
+msgctxt "UI_LAUNCH_SETUP_DONE"
+msgid "Set up finished: the game is ready."
+msgstr "Konfigurazioa amaituta: jokoa prest dago."
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_SETUP_FAILED"
+msgid "Set up failed: %s"
+msgstr "Konfigurazioak huts egin du: %s"
+
+#. No %s: the detail is not shown.
+msgctxt "UI_SETUP_ERR_SOURCE"
+msgid "there is no earlier setup in this folder: choose the folder of your copy"
+msgstr "karpeta honetan ez dago aurreko konfiguraziorik: aukeratu zure kopiaren karpeta"
+
+#. %s: the folder the player chose.
+msgctxt "UI_SETUP_ERR_NOGAME"
+msgid "no exefs/main and romfs/ in %s: choose the folder of your copy of the game"
+msgstr "%s karpetan ez dago exefs/main eta romfs/: aukeratu zure jokoaren kopiaren karpeta"
+
+#. %s: the path of the exefs/main file.
+msgctxt "UI_SETUP_ERR_ENCRYPTED"
+msgid "%s is encrypted: the game's exefs must be decrypted"
+msgstr "%s enkriptatuta dago: jokoaren exefs desenkriptatuta egon behar da"
+
+#. %s: the build id of the player's exefs/main (hexadecimal).
+msgctxt "UI_SETUP_ERR_VERSION"
+msgid "the game is not Mario Kart World 1.0.0 (build id %s): only 1.0.0 is supported"
+msgstr "jokoa ez da Mario Kart World 1.0.0 (build id %s): 1.0.0 bertsioa soilik onartzen da"
+
+#. %s: how many files the player's RomFS has.
+msgctxt "UI_SETUP_ERR_ROMFS"
+msgid "the RomFS has only %s files: the copy is incomplete, copy it again"
+msgstr "RomFS-k %s fitxategi baino ez ditu: kopia osatugabea da, kopiatu berriro"
+
+#. %s: the failing tool's message, in English. logs/setup.log is a file name: keep it.
+msgctxt "UI_SETUP_ERR_FAILED"
+msgid "%s (more in logs/setup.log)"
+msgstr "%s (informazio gehiago logs/setup.log fitxategian)"
+
+#. %s: the system's error message, in English. logs/setup.log is a file name: keep it.
+msgctxt "UI_SETUP_ERR_IO"
+msgid "file error: %s (more in logs/setup.log)"
+msgstr "fitxategi-errorea: %s (informazio gehiago logs/setup.log fitxategian)"
+
+msgctxt "UI_SETUP_ERR_STOPPED"
+msgid "the setup stopped (more in logs/setup.log)"
+msgstr "konfigurazioa gelditu da (informazio gehiago logs/setup.log fitxategian)"
+
+msgctxt "UI_SETUP_ERR_CANCELLED"
+msgid "cancelled"
+msgstr "bertan behera utzita"
+
+msgctxt "UI_SETUP_ERR_NO_SETUP"
+msgid "the setup tools are missing (setup/ next to the program): extract the release again"
+msgstr "konfigurazio-tresnak falta dira (setup/ programaren ondoan): erauzi berriro bertsioa"
+
+msgctxt "UI_LAUNCH_STEP_CHECK"
+msgid "Check the copy"
+msgstr "Egiaztatu kopia"
+
+msgctxt "UI_LAUNCH_STEP_EXEFS"
+msgid "Copy exefs"
+msgstr "Kopiatu exefs"
+
+msgctxt "UI_LAUNCH_STEP_ROMFS"
+msgid "RomFS"
+msgstr "RomFS"
+
+msgctxt "UI_LAUNCH_STEP_GENERATE"
+msgid "Generate the game code"
+msgstr "Sortu jokoaren kodea"
+
+msgctxt "UI_LAUNCH_STEP_COMPILE"
+msgid "Compile the game code"
+msgstr "Konpilatu jokoaren kodea"
+
+msgctxt "UI_LAUNCH_STEP_SHADERS"
+msgid "Translate the shaders"
+msgstr "Itzuli shaderrak"
+
+msgctxt "UI_LAUNCH_STEP_WARM"
+msgid "Warm up the graphics (one minute)"
+msgstr "Berotu grafikoak (minutu bat)"
+
+msgctxt "UI_LAUNCH_STEP_CLEANUP"
+msgid "Clean up"
+msgstr "Garbitu"
+
+msgctxt "UI_LAUNCH_STEP_KEPT"
+msgid "kept"
+msgstr "mantenduta"
+
+msgctxt "UI_LAUNCH_SHORTCUT"
+msgid "Desktop shortcut"
+msgstr "Mahaigaineko lasterbidea"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_SHORTCUT_DONE"
+msgid "Shortcut made: %s"
+msgstr "Lasterbidea sortuta: %s"
+
+msgctxt "UI_LAUNCH_SHORTCUT_FAILED"
+msgid "Could not make the shortcut"
+msgstr "Ezin izan da lasterbidea sortu"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_UPDATE"
+msgid "Update to %s (%d MB)"
+msgstr "Eguneratu %s bertsiora (%d MB)"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_UPDATE_FETCHING"
+msgid "Downloading %s"
+msgstr "%s deskargatzen"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_UPDATE_FAILED"
+msgid "Update failed: %s"
+msgstr "Eguneratzeak huts egin du: %s"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_UPDATED"
+msgid "Updated to %s: setting up again what it changed"
+msgstr "%s bertsiora eguneratuta: aldatu dena berriro konfiguratzen"
+
+msgctxt "UI_MENU_UPDATE_CHECK"
+msgid "Check for updates"
+msgstr "Bilatu eguneraketak"
+
+msgctxt "UI_MENU_UPDATE_CHECK_DESC"
+msgid ""
+"At start, ask GitHub for a newer release of the port and offer it on the start screen (a few "
+"seconds at most, nothing offline)."
+msgstr ""
+"Abiaraztean, GitHub-i portuaren bertsio berriago bat galdetzen dio eta hasierako pantailan "
+"eskaintzen du (segundo gutxi batzuk gehienez, ezer ez lineaz kanpo)."

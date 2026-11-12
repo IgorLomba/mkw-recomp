@@ -10,7 +10,9 @@ typedef struct {
     int done[SETUP_STEPS];   // 1 run, 2 skipped (already done by an earlier setup)
     long progress, total;    // of the step being run; total 0: no count
     int finished;            // 1 done, -1 failed or cancelled
-    char error[512];         // why, when it failed
+    char code[16];           // why, when it failed: prepare.py's error code (its header), or "stopped", "cancelled",
+                             // "no_setup" (the tools missing) and "" for a message of SDL's
+    char error[512];         // the detail: a folder, a build id, a tool's English message...
 } SetupState;
 
 int setup_available(const char *exe_dir);   // the Python and the script are there

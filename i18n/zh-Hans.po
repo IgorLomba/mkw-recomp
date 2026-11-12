@@ -10,442 +10,442 @@ msgstr "玩家"
 
 msgctxt "UI_MENU_TITLE"
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 msgctxt "UI_MENU_TAB_SCREEN"
 msgid "Screen"
-msgstr ""
+msgstr "画面"
 
 msgctxt "UI_MENU_TAB_GAME"
 msgid "Game"
-msgstr ""
+msgstr "游戏"
 
 msgctxt "UI_MENU_TAB_SOUND"
 msgid "Sound"
-msgstr ""
+msgstr "声音"
 
 msgctxt "UI_MENU_TAB_CONTROLS"
 msgid "Controls"
-msgstr ""
+msgstr "操作"
 
 msgctxt "UI_MENU_TAB_MENU"
 msgid "Menu"
-msgstr ""
+msgstr "菜单"
 
 msgctxt "UI_MENU_TAB_ADVANCED"
 msgid "Advanced"
-msgstr ""
+msgstr "高级"
 
 msgctxt "UI_MENU_TAB_GRAPHICS"
 msgid "Graphics"
-msgstr ""
+msgstr "图形"
 
 msgctxt "UI_MENU_TAB_HACKS"
 msgid "Hacks"
-msgstr ""
+msgstr "实验"
 
 msgctxt "UI_MENU_HACKS_WARNING"
 msgid ""
 "Experimental: shortcuts the console does not have, for playing and testing faster. They can "
 "change how the game behaves."
-msgstr ""
+msgstr "实验功能：主机上没有的捷径，用于更快地游玩和测试。可能会改变游戏的运行方式。"
 
 msgctxt "UI_MENU_TURBO"
 msgid "Turbo"
-msgstr ""
+msgstr "加速"
 
 msgctxt "UI_MENU_TURBO_DESC"
 msgid ""
 "The whole game runs faster: menus, movies, loads and races. Hold or press F2. The screen shows at "
 "most 60 frames a second."
-msgstr ""
+msgstr "整个游戏都会加快：菜单、影片、读取和比赛。按住或按下 F2。画面最多每秒显示 60 帧。"
 
 msgctxt "UI_MENU_TURBO_HOLD"
 msgid "Hold F2"
-msgstr ""
+msgstr "按住 F2"
 
 msgctxt "UI_MENU_TURBO_TOGGLE"
 msgid "F2 on/off"
-msgstr ""
+msgstr "F2 开/关"
 
 msgctxt "UI_MENU_TURBO_SPEED"
 msgid "Turbo speed"
-msgstr ""
+msgstr "加速倍率"
 
 msgctxt "UI_MENU_TURBO_SPEED_DESC"
 msgid "How many times faster. A slow PC may not reach it."
-msgstr ""
+msgstr "加快的倍数。配置较低的电脑可能达不到。"
 
 msgctxt "UI_MENU_SKIP_MOVIES"
 msgid "Skip movies"
-msgstr ""
+msgstr "跳过影片"
 
 msgctxt "UI_MENU_SKIP_MOVIES_DESC"
 msgid "Skips the cup and course openings as soon as they start."
-msgstr ""
+msgstr "杯赛和赛道的开场影片一开始就跳过。"
 
 msgctxt "UI_MENU_SEED"
 msgid "Same randomness every time"
-msgstr ""
+msgstr "每次相同的随机"
 
 msgctxt "UI_MENU_SEED_DESC"
 msgid ""
 "The game draws the same random numbers in every session: the same title course, the same items. "
 "For testing."
-msgstr ""
+msgstr "游戏每次都使用相同的随机数：标题画面的赛道和道具都相同。用于测试。"
 
 msgctxt "UI_MENU_FREEZE_KEYS"
 msgid "Freeze keys"
-msgstr ""
+msgstr "暂停键"
 
 msgctxt "UI_MENU_FREEZE_KEYS_DESC"
 msgid ""
 "F3 stops the game on the frame on screen and starts it again; F4 moves it on by one frame. To "
 "look at a moment closely."
-msgstr ""
+msgstr "F3 在当前帧暂停游戏并可再次继续；F4 前进一帧。用于仔细查看某一瞬间。"
 
 msgctxt "UI_MENU_UNLOCK_ALL"
 msgid "Unlock everything"
-msgstr ""
+msgstr "全部解锁"
 
 msgctxt "UI_MENU_UNLOCK_ALL_DESC"
 msgid ""
 "Every driver and outfit, vehicle and sticker, and the Special Cup. It goes into your save when "
 "the game saves: turning it off does not lock them again."
-msgstr ""
+msgstr "解锁所有角色和服装、载具、贴纸以及特别杯。游戏存档时会写入存档，关闭后也不会再次锁定。"
 
 msgctxt "UI_MENU_QUICK_RACE"
 msgid "Straight to"
-msgstr ""
+msgstr "直接进入"
 
 msgctxt "UI_MENU_QUICK_RACE_DESC"
 msgid ""
 "Goes through the menus by itself at start. Time trial: Mario, standard kart and the course the "
 "game offers (always the same with «Same randomness every time»), no rivals. Free roam: the open "
 "world. The controller still works."
-msgstr ""
+msgstr "启动时自动完成菜单操作。计时赛：马力欧、标准型卡丁车、游戏推荐的赛道（开启「每次相同的随机」时始终相同），无对手。自由行驶：开放世界。手柄仍可正常使用。"
 
 msgctxt "UI_MENU_QUICK_RACE_TT"
 msgid "Time trial"
-msgstr ""
+msgstr "计时赛"
 
 msgctxt "UI_MENU_QUICK_RACE_FREE"
 msgid "Free roam"
-msgstr ""
+msgstr "自由行驶"
 
 msgctxt "UI_MENU_ANISO"
 msgid "Texture filtering"
-msgstr ""
+msgstr "纹理过滤"
 
 msgctxt "UI_MENU_ANISO_DESC"
 msgid ""
 "Sharpness of textures seen far away or at a low angle, such as the road ahead. Game uses what "
 "each texture asks for. Impact on frame rate: low."
-msgstr ""
+msgstr "远处或斜视角度的纹理（如前方的道路）的清晰度。游戏使用各纹理自身要求的值。对帧率的影响：小。"
 
 msgctxt "UI_MENU_ANISO_GAME"
 msgid "Game"
-msgstr ""
+msgstr "游戏"
 
 msgctxt "UI_MENU_TEX_QUALITY"
 msgid "Texture quality"
-msgstr ""
+msgstr "纹理质量"
 
 msgctxt "UI_MENU_TEX_QUALITY_DESC"
 msgid ""
 "Detail of the game's own textures. Half and Quarter skip their finest levels: less memory traffic "
 "on the graphics card, blurrier surfaces up close. Impact on frame rate: low."
-msgstr ""
+msgstr "游戏自带纹理的细节程度。「一半」和「四分之一」会跳过最精细的层级：显卡的内存传输更少，但近看表面会更模糊。对帧率的影响：小。"
 
 msgctxt "UI_MENU_TEX_QUALITY_FULL"
 msgid "Full"
-msgstr ""
+msgstr "全部"
 
 msgctxt "UI_MENU_TEX_QUALITY_HALF"
 msgid "Half"
-msgstr ""
+msgstr "一半"
 
 msgctxt "UI_MENU_TEX_QUALITY_QUARTER"
 msgid "Quarter"
-msgstr ""
+msgstr "四分之一"
 
 msgctxt "UI_MENU_DETAIL"
 msgid "Detail distance"
-msgstr ""
+msgstr "细节距离"
 
 msgctxt "UI_MENU_DETAIL_DESC"
 msgid ""
 "How far objects keep their detailed models before switching to simpler ones. Console is the "
 "Switch 2's. Impact on frame rate: low."
-msgstr ""
+msgstr "物体在多远的距离内保持精细模型，超过后会切换为更简单的模型。「主机」为 Switch 2 的设定。对帧率的影响：小。"
 
 msgctxt "UI_MENU_DETAIL_LOW"
 msgid "Low"
-msgstr ""
+msgstr "低"
 
 msgctxt "UI_MENU_DETAIL_MEDIUM"
 msgid "Medium"
-msgstr ""
+msgstr "中"
 
 msgctxt "UI_MENU_DETAIL_CONSOLE"
 msgid "Console"
-msgstr ""
+msgstr "主机"
 
 msgctxt "UI_MENU_DETAIL_HIGH"
 msgid "High"
-msgstr ""
+msgstr "高"
 
 msgctxt "UI_MENU_DETAIL_ULTRA"
 msgid "Very high"
-msgstr ""
+msgstr "极高"
 
 msgctxt "UI_MENU_SHADOW"
 msgid "Shadow quality"
-msgstr ""
+msgstr "阴影质量"
 
 msgctxt "UI_MENU_SHADOW_DESC"
 msgid ""
 "Size of the map the game draws shadows from. Smaller is lighter for the graphics card, with "
 "blurrier shadow edges. Console is 3072 docked and 2048 handheld. Impact on frame rate: low."
-msgstr ""
+msgstr "绘制阴影所用贴图的大小。越小对显卡越轻松，但阴影边缘越模糊。主机在底座模式下为 3072，掌机模式下为 2048。对帧率的影响：小。"
 
 msgctxt "UI_MENU_CONTINUE"
 msgid "Continue"
-msgstr ""
+msgstr "继续"
 
 msgctxt "UI_MENU_QUIT"
 msgid "Quit game"
-msgstr ""
+msgstr "退出游戏"
 
 msgctxt "UI_MENU_ON"
 msgid "On"
-msgstr ""
+msgstr "ON"
 
 msgctxt "UI_MENU_OFF"
 msgid "Off"
-msgstr ""
+msgstr "OFF"
 
 msgctxt "UI_MENU_AUTO"
 msgid "Automatic"
-msgstr ""
+msgstr "自动"
 
 msgctxt "UI_MENU_DEFAULT_MARK"
 msgid "default"
-msgstr ""
+msgstr "默认"
 
 msgctxt "UI_MENU_AFTER_RESTART"
 msgid "after restart"
-msgstr ""
+msgstr "重启后生效"
 
 msgctxt "UI_MENU_SET_BY_ENV"
 msgid "set by environment variable"
-msgstr ""
+msgstr "由环境变量设定"
 
 msgctxt "UI_MENU_SAVE_FAILED"
 msgid "could not save settings"
-msgstr ""
+msgstr "无法保存设置"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_VERSION"
 msgid "MKW Recomp %s, game %s"
-msgstr ""
+msgstr "MKW Recomp %s，游戏 %s"
 
 msgctxt "UI_MENU_FULLSCREEN"
 msgid "Fullscreen"
-msgstr ""
+msgstr "全屏"
 
 msgctxt "UI_MENU_FULLSCREEN_DESC"
 msgid "Fills the screen with the game; F11 toggles it."
-msgstr ""
+msgstr "让游戏占满整个屏幕；F11 可切换。"
 
 msgctxt "UI_MENU_WINDOW_SIZE"
 msgid "Window size"
-msgstr ""
+msgstr "窗口大小"
 
 msgctxt "UI_MENU_WINDOW_SIZE_DESC"
 msgid "Size of the game window when not fullscreen."
-msgstr ""
+msgstr "非全屏时的游戏窗口大小。"
 
 msgctxt "UI_MENU_QUALITY"
 msgid "Quality"
-msgstr ""
+msgstr "画质"
 
 msgctxt "UI_MENU_QUALITY_DESC"
 msgid ""
 "Sets the rows below at once. Console looks like the Switch 2; Low and Medium are lighter for the "
 "graphics card, High and Very high sharper. Changing a row makes it Custom. The internal "
 "resolution is what changes the frame rate most."
-msgstr ""
+msgstr "一次性设定下面各项。「主机」的画面与 Switch 2 相同；「低」和「中」对显卡更轻松，「高」和「极高」更清晰。修改任一项会变为「自定义」。对帧率影响最大的是内部分辨率。"
 
 msgctxt "UI_MENU_QUALITY_CUSTOM"
 msgid "Custom"
-msgstr ""
+msgstr "自定义"
 
 msgctxt "UI_MENU_RESOLUTION"
 msgid "Internal resolution"
-msgstr ""
+msgstr "内部分辨率"
 
 msgctxt "UI_MENU_RESOLUTION_DESC"
 msgid ""
 "Lines the game renders its scenes at, then scaled to the window. Lower is faster: 720p suits "
 "integrated graphics. Original is the console's (up to 1440p)."
-msgstr ""
+msgstr "游戏渲染画面所用的行数，之后会缩放到窗口大小。越低越快：集成显卡适合 720p。「原始」为主机的分辨率（最高 1440p）。"
 
 msgctxt "UI_MENU_RESOLUTION_ORIGINAL"
 msgid "Original"
-msgstr ""
+msgstr "原始"
 
 msgctxt "UI_MENU_ASPECT"
 msgid "Aspect ratio"
-msgstr ""
+msgstr "画面比例"
 
 msgctxt "UI_MENU_ASPECT_DESC"
 msgid ""
 "Wider than 16:9 shows more of the course at the sides, for ultrawide screens. 16:9 is the "
 "console's; Window takes the window's or monitor's shape. Menus stay stretched for now."
-msgstr ""
+msgstr "比 16:9 更宽时，超宽屏幕可以看到赛道两侧更多的内容。16:9 为主机的比例；「窗口」则采用窗口或显示器的比例。菜单目前仍会被拉伸。"
 
 msgctxt "UI_MENU_ASPECT_WINDOW"
 msgid "Window"
-msgstr ""
+msgstr "窗口"
 
 msgctxt "UI_MENU_PRESENT"
 msgid "Presentation"
-msgstr ""
+msgstr "呈现方式"
 
 msgctxt "UI_MENU_PRESENT_DESC"
 msgid "How finished frames reach the screen."
-msgstr ""
+msgstr "渲染完成的帧送到屏幕上的方式。"
 
 msgctxt "UI_MENU_PRESENT_MAILBOX"
 msgid "Mailbox"
-msgstr ""
+msgstr "Mailbox"
 
 msgctxt "UI_MENU_PRESENT_VSYNC"
 msgid "VSync"
-msgstr ""
+msgstr "VSync"
 
 msgctxt "UI_MENU_PRESENT_IMMEDIATE"
 msgid "Immediate"
-msgstr ""
+msgstr "Immediate"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_PRESENT_IN_USE"
 msgid "in use: %s"
-msgstr ""
+msgstr "正在使用：%s"
 
 msgctxt "UI_MENU_GPU"
 msgid "Graphics card"
-msgstr ""
+msgstr "显卡"
 
 msgctxt "UI_MENU_GPU_DESC"
 msgid "The Vulkan device that draws the game."
-msgstr ""
+msgstr "绘制游戏画面的 Vulkan 设备。"
 
 msgctxt "UI_MENU_GPU_AUTO"
 msgid "Automatic"
-msgstr ""
+msgstr "自动"
 
 msgctxt "UI_MENU_PERF_OVERLAY"
 msgid "Performance overlay"
-msgstr ""
+msgstr "性能显示"
 
 msgctxt "UI_MENU_PERF_OVERLAY_DESC"
 msgid ""
 "Frame rate in the top right corner. Full adds frame times with a graph, CPU, GPU and memory load, "
 "temperatures and the render thread's waits. F10 cycles the modes."
-msgstr ""
+msgstr "在右上角显示帧率。「完整」还会加上帧时间（附图表）、CPU、GPU 和内存负载、温度以及渲染线程的等待时间。F10 可切换模式。"
 
 msgctxt "UI_MENU_PERF_OFF"
 msgid "Off"
-msgstr ""
+msgstr "OFF"
 
 msgctxt "UI_MENU_PERF_FPS"
 msgid "FPS"
-msgstr ""
+msgstr "FPS"
 
 msgctxt "UI_MENU_PERF_FULL"
 msgid "Full"
-msgstr ""
+msgstr "完整"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_PERF_LINE_FPS"
 msgid "%.0f fps"
-msgstr ""
+msgstr "%.0f fps"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_PERF_LINE_FPS_FG"
 msgid "%.0f/%.0f fps"
-msgstr ""
+msgstr "%.0f/%.0f fps"
 
 msgctxt "UI_MENU_FPS"
 msgid "Frame rate"
-msgstr ""
+msgstr "帧率"
 
 msgctxt "UI_MENU_FPS_DESC"
 msgid ""
 "Frames per second the game aims for. Automatic is the console's: 60, or 30 when a frame takes too "
 "long. If your computer cannot hold 60, choose 30 so the race runs at its real speed."
-msgstr ""
+msgstr "游戏的目标每秒帧数。「自动」与主机相同：60，帧耗时过长时为 30。如果你的电脑无法保持 60，请选择 30，这样比赛才能以真实速度进行。"
 
 msgctxt "UI_MENU_FPS_AUTO"
 msgid "Automatic"
-msgstr ""
+msgstr "自动"
 
 msgctxt "UI_MENU_FRAMEGEN"
 msgid "Frame generation"
-msgstr ""
+msgstr "帧生成"
 
 msgctxt "UI_MENU_FRAMEGEN_DESC"
 msgid ""
 "Shows frames made between the game's own: 2x turns 30 fps into 60. Automatic makes as many as "
 "your monitor's refresh rate has room for. Adds up to one frame of delay, and fast motion can "
 "smear. Not on the console."
-msgstr ""
+msgstr "在游戏自身的帧之间插入生成的帧：2x 会把 30 fps 变成 60 fps。「自动」会按显示器刷新率允许的上限生成。最多增加一帧延迟，快速移动时可能出现拖影。主机上没有此功能。"
 
 msgctxt "UI_MENU_GRAPHICS"
 msgid "Picture"
-msgstr ""
+msgstr "画面"
 
 msgctxt "UI_MENU_UPSCALER"
 msgid "Scaling to the window"
-msgstr ""
+msgstr "缩放到窗口"
 
 msgctxt "UI_MENU_UPSCALER_DESC"
 msgid ""
 "How the picture is scaled when the window is larger than the game resolution. FSR keeps edges and "
 "detail sharper than bilinear."
-msgstr ""
+msgstr "窗口大于游戏分辨率时画面的缩放方式。FSR 比双线性更能保持边缘和细节的清晰。"
 
 msgctxt "UI_MENU_UPSCALER_FSR"
 msgid "AMD FSR 1"
-msgstr ""
+msgstr "AMD FSR 1"
 
 msgctxt "UI_MENU_UPSCALER_BILINEAR"
 msgid "Bilinear"
-msgstr ""
+msgstr "双线性"
 
 msgctxt "UI_MENU_PICTURE_FIT"
 msgid "Picture shape"
-msgstr ""
+msgstr "画面形状"
 
 msgctxt "UI_MENU_PICTURE_FIT_DESC"
 msgid ""
 "When the window's shape differs from the game resolution's (a 16:9 game on the Steam Deck's 16:10 "
 "screen), keep the picture's proportions with black bars, or stretch it over the whole window."
-msgstr ""
+msgstr "窗口的比例与游戏分辨率不同时（例如 Steam Deck 的 16:10 屏幕上运行 16:9 的游戏），可以加黑边保持画面比例，或拉伸铺满整个窗口。"
 
 msgctxt "UI_MENU_PICTURE_FIT_KEEP"
 msgid "Keep (bars)"
-msgstr ""
+msgstr "保持（黑边）"
 
 msgctxt "UI_MENU_PICTURE_FIT_STRETCH"
 msgid "Stretch"
-msgstr ""
+msgstr "拉伸"
 
 msgctxt "UI_MENU_HDR"
 msgid "HDR"
-msgstr ""
+msgstr "HDR"
 
 msgctxt "UI_MENU_HDR_DESC"
 msgid ""
@@ -453,107 +453,109 @@ msgid ""
 "Display > Use HDR), as the console does; its brightness follows the system's HDR settings. Off "
 "always shows the standard picture. Applies at once."
 msgstr ""
+"「自动」会在显示器处于 HDR 模式时（Windows 中为 设置 > 显示 > 使用 HDR）像主机一样显示游戏自带的 HDR 画面，亮度跟随系统的 HDR "
+"设置。「OFF」则始终显示标准画面。立即生效。"
 
 msgctxt "UI_MENU_SHARPNESS"
 msgid "FSR sharpness"
-msgstr ""
+msgstr "FSR 锐度"
 
 msgctxt "UI_MENU_SHARPNESS_DESC"
 msgid "Sharpening after FSR scaling; 0 turns it off."
-msgstr ""
+msgstr "FSR 缩放后的锐化程度；0 为关闭。"
 
 msgctxt "UI_MENU_GAME_LANG"
 msgid "Game language"
-msgstr ""
+msgstr "游戏语言"
 
 msgctxt "UI_MENU_GAME_LANG_DESC"
 msgid "Language of the game's text and voices."
-msgstr ""
+msgstr "游戏文字和语音所用的语言。"
 
 msgctxt "UI_MENU_GAME_LANG_AUTO"
 msgid "Automatic"
-msgstr ""
+msgstr "自动"
 
 msgctxt "UI_MENU_OPERATION_MODE"
 msgid "Console mode"
-msgstr ""
+msgstr "主机模式"
 
 msgctxt "UI_MENU_OPERATION_MODE_DESC"
 msgid ""
 "Whether the game thinks it runs docked or handheld. Docked, it draws the scene smaller and "
 "enlarges it with its own scaler; handheld, at the full internal resolution with smaller shadows: "
 "sharper, but more work for the graphics card."
-msgstr ""
+msgstr "让游戏认为自己处于底座模式还是掌机模式。底座模式下，它会以较小尺寸绘制画面，再用自带的缩放器放大；掌机模式下则以完整内部分辨率绘制，但阴影更小：更清晰，但显卡负担更大。"
 
 msgctxt "UI_MENU_MODE_DOCKED"
 msgid "Docked"
-msgstr ""
+msgstr "底座模式"
 
 msgctxt "UI_MENU_MODE_HANDHELD"
 msgid "Handheld"
-msgstr ""
+msgstr "掌机模式"
 
 msgctxt "UI_MENU_VOLUME"
 msgid "Volume"
-msgstr ""
+msgstr "音量"
 
 msgctxt "UI_MENU_VOLUME_DESC"
 msgid "Master volume of the game."
-msgstr ""
+msgstr "游戏的总音量。"
 
 msgctxt "UI_MENU_SPEAKERS"
 msgid "Speakers"
-msgstr ""
+msgstr "扬声器"
 
 msgctxt "UI_MENU_SPEAKERS_STEREO"
 msgid "Stereo"
-msgstr ""
+msgstr "立体声"
 
 msgctxt "UI_MENU_SPEAKERS_51"
 msgid "5.1 surround"
-msgstr ""
+msgstr "5.1 环绕声"
 
 msgctxt "UI_MENU_SPEAKERS_DESC"
 msgid ""
 "Automatic gives the game's 5.1 surround mix when the system's sound output has 6 channels or "
 "more, and stereo otherwise. Applies at the next start."
-msgstr ""
+msgstr "系统音频输出为 6 声道或以上时，「自动」会使用游戏的 5.1 环绕声混音，否则使用立体声。下次启动时生效。"
 
 msgctxt "UI_MENU_MOTION"
 msgid "Motion controls"
-msgstr ""
+msgstr "陀螺仪操作"
 
 msgctxt "UI_MENU_MOTION_DESC"
 msgid "Steering by tilting the controller."
-msgstr ""
+msgstr "通过倾斜手柄来驾驶。"
 
 msgctxt "UI_MENU_RUMBLE_STRENGTH"
 msgid "Vibration strength"
-msgstr ""
+msgstr "振动强度"
 
 msgctxt "UI_MENU_RUMBLE_STRENGTH_DESC"
 msgid "How strong the controller vibrates."
-msgstr ""
+msgstr "手柄振动的强度。"
 
 msgctxt "UI_MENU_RUMBLE_CURVE"
 msgid "Vibration curve"
-msgstr ""
+msgstr "振动曲线"
 
 msgctxt "UI_MENU_RUMBLE_CURVE_DESC"
 msgid "Lower values make weak vibration stronger."
-msgstr ""
+msgstr "数值越低，微弱的振动会越强。"
 
 msgctxt "UI_MENU_RUMBLE_TRIGGERS"
 msgid "Trigger vibration (Xbox)"
-msgstr ""
+msgstr "扳机振动（Xbox）"
 
 msgctxt "UI_MENU_RUMBLE_TRIGGERS_DESC"
 msgid "Vibrates the triggers of an Xbox controller too."
-msgstr ""
+msgstr "同时让 Xbox 手柄的扳机振动。"
 
 msgctxt "UI_MENU_PAD_LAYOUT"
 msgid "Button layout"
-msgstr ""
+msgstr "按键布局"
 
 msgctxt "UI_MENU_PAD_LAYOUT_DESC"
 msgid ""
@@ -561,1043 +563,1045 @@ msgid ""
 "an Xbox controller (cross on a PlayStation controller). Automatic picks Nintendo for controllers "
 "with Nintendo labels and Xbox for the others."
 msgstr ""
+"决定哪个键是 A。Nintendo：右侧的键，与 Switch 相同。Xbox：下方的键，与 Xbox 手柄上的标注一致（PlayStation 手柄上为叉键）。「自动」会为带有 "
+"Nintendo 标注的手柄选择 Nintendo，其他手柄选择 Xbox。"
 
 msgctxt "UI_MENU_PAD_LAYOUT_AUTO"
 msgid "Automatic"
-msgstr ""
+msgstr "自动"
 
 msgctxt "UI_MENU_PAD_LAYOUT_NINTENDO"
 msgid "Nintendo (A right)"
-msgstr ""
+msgstr "Nintendo（A 在右）"
 
 msgctxt "UI_MENU_PAD_LAYOUT_XBOX"
 msgid "Xbox (A bottom)"
-msgstr ""
+msgstr "Xbox（A 在下）"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_PAD_LAYOUT_IN_USE"
 msgid "in use: %s"
-msgstr ""
+msgstr "正在使用：%s"
 
 msgctxt "UI_MENU_MOUSE_SENS"
 msgid "Mouse camera sensitivity"
-msgstr ""
+msgstr "鼠标镜头灵敏度"
 
 msgctxt "UI_MENU_MOUSE_SENS_DESC"
 msgid "How fast the mouse turns the camera."
-msgstr ""
+msgstr "鼠标转动镜头的速度。"
 
 msgctxt "UI_MENU_BUTTON_ICONS"
 msgid "Button icons"
-msgstr ""
+msgstr "按键图标"
 
 msgctxt "UI_MENU_BUTTON_ICONS_DESC"
 msgid ""
 "Which buttons the game's prompts show. Automatic follows the device you used last: the "
 "controller's own buttons (Xbox or PlayStation), or your keys and mouse. The icons follow your "
 "remapped buttons."
-msgstr ""
+msgstr "游戏提示中显示哪种按键。「自动」会跟随你最后使用的设备：手柄自身的按键（Xbox 或 PlayStation），或键盘和鼠标。图标会反映你重新分配后的按键。"
 
 msgctxt "UI_MENU_ICONS_NINTENDO"
 msgid "Nintendo"
-msgstr ""
+msgstr "Nintendo"
 
 msgctxt "UI_MENU_ICONS_XBOX"
 msgid "Xbox"
-msgstr ""
+msgstr "Xbox"
 
 msgctxt "UI_MENU_ICONS_PLAYSTATION"
 msgid "PlayStation"
-msgstr ""
+msgstr "PlayStation"
 
 msgctxt "UI_MENU_ICONS_KEYBOARD"
 msgid "Keyboard"
-msgstr ""
+msgstr "键盘"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_ICONS_IN_USE"
 msgid "in use: %s"
-msgstr ""
+msgstr "正在使用：%s"
 
 msgctxt "UI_BINDS_HELP"
 msgid ""
 "Select a cell and press A or Enter, then the key, mouse button or controller button. Delete or X "
 "clears a cell. A key in use moves here; a controller button swaps with the one it replaces."
-msgstr ""
+msgstr "选择一个格子并按 A 或 Enter，然后按下键盘按键、鼠标按键或手柄按键。Delete 或 X 可清空格子。已被占用的按键会移到这里；手柄按键则与被替换的按键互换。"
 
 msgctxt "UI_BINDS_COL_KEY1"
 msgid "Key 1"
-msgstr ""
+msgstr "按键 1"
 
 msgctxt "UI_BINDS_COL_KEY2"
 msgid "Key 2"
-msgstr ""
+msgstr "按键 2"
 
 msgctxt "UI_BINDS_COL_PAD"
 msgid "Controller"
-msgstr ""
+msgstr "手柄"
 
 msgctxt "UI_BINDS_GROUP_BUTTONS"
 msgid "Buttons"
-msgstr ""
+msgstr "按键"
 
 msgctxt "UI_BINDS_GROUP_MOVE"
 msgid "Movement"
-msgstr ""
+msgstr "移动"
 
 msgctxt "UI_BINDS_GROUP_CAMERA"
 msgid "Camera"
-msgstr ""
+msgstr "镜头"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_BINDS_PRESS_KEY"
 msgid "Press a key or mouse button for %s"
-msgstr ""
+msgstr "请按下用于 %s 的键盘或鼠标按键"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_BINDS_PRESS_PAD"
 msgid "Press a controller button for %s"
-msgstr ""
+msgstr "请按下用于 %s 的手柄按键"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_BINDS_CANCEL_HINT"
 msgid "Esc cancels, or wait %d s"
-msgstr ""
+msgstr "按 Esc 取消，或等待 %d 秒"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_BINDS_TAKEN"
 msgid "%s was taken from %s"
-msgstr ""
+msgstr "%s 已从 %s 夺来"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_BINDS_SWAPPED"
 msgid "%s swapped with %s"
-msgstr ""
+msgstr "%s 与 %s 已互换"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_NOTICE_PADS_MISSING"
 msgid "%d players need a controller each: %d connected. The keyboard only counts for player 1."
-msgstr ""
+msgstr "%d 名玩家各需要一个手柄：当前已连接 %d 个。键盘只算作玩家 1。"
 
 msgctxt "UI_BINDS_RESET"
 msgid "Reset all buttons"
-msgstr ""
+msgstr "重置所有按键"
 
 msgctxt "UI_BINDS_RESET_DESC"
 msgid ""
 "Back to the default keys and controller buttons. The button layout above applies again: remapped "
 "controller buttons stay where you put them until this reset."
-msgstr ""
+msgstr "恢复为默认的键盘按键和手柄按键。上面的按键布局会重新生效：已重新分配的手柄按键会保持在你设定的位置，直到进行此重置。"
 
 msgctxt "UI_BIND_A"
 msgid "A"
-msgstr ""
+msgstr "A"
 
 msgctxt "UI_BIND_B"
 msgid "B"
-msgstr ""
+msgstr "B"
 
 msgctxt "UI_BIND_X"
 msgid "X"
-msgstr ""
+msgstr "X"
 
 msgctxt "UI_BIND_Y"
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 msgctxt "UI_BIND_LCLICK"
 msgid "Left stick click"
-msgstr ""
+msgstr "左摇杆按下"
 
 msgctxt "UI_BIND_RCLICK"
 msgid "Right stick click"
-msgstr ""
+msgstr "右摇杆按下"
 
 msgctxt "UI_BIND_L"
 msgid "L"
-msgstr ""
+msgstr "L"
 
 msgctxt "UI_BIND_R"
 msgid "R"
-msgstr ""
+msgstr "R"
 
 msgctxt "UI_BIND_ZL"
 msgid "ZL"
-msgstr ""
+msgstr "ZL"
 
 msgctxt "UI_BIND_ZR"
 msgid "ZR"
-msgstr ""
+msgstr "ZR"
 
 msgctxt "UI_BIND_PLUS"
 msgid "Plus"
-msgstr ""
+msgstr "+"
 
 msgctxt "UI_BIND_MINUS"
 msgid "Minus"
-msgstr ""
+msgstr "-"
 
 msgctxt "UI_BIND_LEFT"
 msgid "D-pad left"
-msgstr ""
+msgstr "方向键 左"
 
 msgctxt "UI_BIND_UP"
 msgid "D-pad up"
-msgstr ""
+msgstr "方向键 上"
 
 msgctxt "UI_BIND_RIGHT"
 msgid "D-pad right"
-msgstr ""
+msgstr "方向键 右"
 
 msgctxt "UI_BIND_DOWN"
 msgid "D-pad down"
-msgstr ""
+msgstr "方向键 下"
 
 msgctxt "UI_BIND_LSTICK_LEFT"
 msgid "Steer left"
-msgstr ""
+msgstr "向左驾驶"
 
 msgctxt "UI_BIND_LSTICK_UP"
 msgid "Stick up"
-msgstr ""
+msgstr "摇杆 上"
 
 msgctxt "UI_BIND_LSTICK_RIGHT"
 msgid "Steer right"
-msgstr ""
+msgstr "向右驾驶"
 
 msgctxt "UI_BIND_LSTICK_DOWN"
 msgid "Stick down"
-msgstr ""
+msgstr "摇杆 下"
 
 msgctxt "UI_BIND_RSTICK_LEFT"
 msgid "Camera left"
-msgstr ""
+msgstr "镜头 左"
 
 msgctxt "UI_BIND_RSTICK_UP"
 msgid "Camera up"
-msgstr ""
+msgstr "镜头 上"
 
 msgctxt "UI_BIND_RSTICK_RIGHT"
 msgid "Camera right"
-msgstr ""
+msgstr "镜头 右"
 
 msgctxt "UI_BIND_RSTICK_DOWN"
 msgid "Camera down"
-msgstr ""
+msgstr "镜头 下"
 
 msgctxt "UI_BIND_DESC_A"
 msgid "Accelerate; confirm in menus."
-msgstr ""
+msgstr "加速；在菜单中确定。"
 
 msgctxt "UI_BIND_DESC_B"
 msgid "Brake, reverse; back in menus."
-msgstr ""
+msgstr "刹车、倒车；在菜单中返回。"
 
 msgctxt "UI_BIND_DESC_X"
 msgid "Rear view."
-msgstr ""
+msgstr "后视。"
 
 msgctxt "UI_BIND_DESC_Y"
 msgid "World map (free roam)."
-msgstr ""
+msgstr "世界地图（自由行驶）。"
 
 msgctxt "UI_BIND_DESC_LCLICK"
 msgid "No action in the game's control list."
-msgstr ""
+msgstr "游戏操作列表中没有对应的动作。"
 
 msgctxt "UI_BIND_DESC_RCLICK"
 msgid "No action in the game's control list."
-msgstr ""
+msgstr "游戏操作列表中没有对应的动作。"
 
 msgctxt "UI_BIND_DESC_L"
 msgid "Use an item."
-msgstr ""
+msgstr "使用道具。"
 
 msgctxt "UI_BIND_DESC_R"
 msgid "Hop, drift, charge jump, trick."
-msgstr ""
+msgstr "跳跃动作、漂移、蓄力跳跃、特技。"
 
 msgctxt "UI_BIND_DESC_ZL"
 msgid "Use an item."
-msgstr ""
+msgstr "使用道具。"
 
 msgctxt "UI_BIND_DESC_ZR"
 msgid "Hop, drift, charge jump, trick."
-msgstr ""
+msgstr "跳跃动作、漂移、蓄力跳跃、特技。"
 
 msgctxt "UI_BIND_DESC_PLUS"
 msgid "Pause, settings."
-msgstr ""
+msgstr "暂停、设置。"
 
 msgctxt "UI_BIND_DESC_MINUS"
 msgid "Photo mode."
-msgstr ""
+msgstr "拍照模式。"
 
 msgctxt "UI_BIND_DESC_DPAD"
 msgid "Down rewinds; all four move in menus."
-msgstr ""
+msgstr "下键倒带；在菜单中四个方向都用于移动。"
 
 msgctxt "UI_BIND_DESC_MOVE"
 msgid "Steers like the left stick. The controller's left stick always works too."
-msgstr ""
+msgstr "与左摇杆一样驾驶。手柄的左摇杆也始终可用。"
 
 msgctxt "UI_BIND_DESC_CAMERA"
 msgid ""
 "Turns the camera like the right stick. The mouse and the controller's right stick always work too."
-msgstr ""
+msgstr "与右摇杆一样转动镜头。鼠标和手柄的右摇杆也始终可用。"
 
 msgctxt "UI_KEY_SPACE"
 msgid "Space"
-msgstr ""
+msgstr "空格"
 
 msgctxt "UI_KEY_TAB"
 msgid "Tab"
-msgstr ""
+msgstr "Tab"
 
 msgctxt "UI_KEY_LSHIFT"
 msgid "Left Shift"
-msgstr ""
+msgstr "左 Shift"
 
 msgctxt "UI_KEY_LCTRL"
 msgid "Left Ctrl"
-msgstr ""
+msgstr "左 Ctrl"
 
 msgctxt "UI_KEY_UP"
 msgid "Up arrow"
-msgstr ""
+msgstr "上箭头"
 
 msgctxt "UI_KEY_DOWN"
 msgid "Down arrow"
-msgstr ""
+msgstr "下箭头"
 
 msgctxt "UI_KEY_LEFT"
 msgid "Left arrow"
-msgstr ""
+msgstr "左箭头"
 
 msgctxt "UI_KEY_RIGHT"
 msgid "Right arrow"
-msgstr ""
+msgstr "右箭头"
 
 msgctxt "UI_KEY_MOUSE_L"
 msgid "Left mouse"
-msgstr ""
+msgstr "鼠标左键"
 
 msgctxt "UI_KEY_MOUSE_R"
 msgid "Right mouse"
-msgstr ""
+msgstr "鼠标右键"
 
 msgctxt "UI_KEY_MOUSE_M"
 msgid "Middle mouse"
-msgstr ""
+msgstr "鼠标中键"
 
 msgctxt "UI_KEY_MOUSE_X1"
 msgid "Mouse 4"
-msgstr ""
+msgstr "鼠标 4"
 
 msgctxt "UI_KEY_MOUSE_X2"
 msgid "Mouse 5"
-msgstr ""
+msgstr "鼠标 5"
 
 msgctxt "UI_KEY_ENTER"
 msgid "Enter"
-msgstr ""
+msgstr "Enter"
 
 msgctxt "UI_KEY_BACKSPACE"
 msgid "Backspace"
-msgstr ""
+msgstr "Backspace"
 
 msgctxt "UI_KEY_RSHIFT"
 msgid "Right Shift"
-msgstr ""
+msgstr "右 Shift"
 
 msgctxt "UI_KEY_RCTRL"
 msgid "Right Ctrl"
-msgstr ""
+msgstr "右 Ctrl"
 
 msgctxt "UI_KEY_LALT"
 msgid "Alt"
-msgstr ""
+msgstr "Alt"
 
 msgctxt "UI_KEY_CAPSLOCK"
 msgid "Caps Lock"
-msgstr ""
+msgstr "Caps Lock"
 
 msgctxt "UI_KEY_INSERT"
 msgid "Insert"
-msgstr ""
+msgstr "Insert"
 
 msgctxt "UI_KEY_DELETE"
 msgid "Delete"
-msgstr ""
+msgstr "Delete"
 
 msgctxt "UI_KEY_HOME"
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 msgctxt "UI_KEY_END"
 msgid "End"
-msgstr ""
+msgstr "End"
 
 msgctxt "UI_KEY_PAGEUP"
 msgid "Page Up"
-msgstr ""
+msgstr "Page Up"
 
 msgctxt "UI_KEY_PAGEDOWN"
 msgid "Page Down"
-msgstr ""
+msgstr "Page Down"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_KEY_NUM_FMT"
 msgid "Num %s"
-msgstr ""
+msgstr "小键盘 %s"
 
 msgctxt "UI_PAD_SOUTH"
 msgid "Bottom button"
-msgstr ""
+msgstr "下键"
 
 msgctxt "UI_PAD_EAST"
 msgid "Right button"
-msgstr ""
+msgstr "右键"
 
 msgctxt "UI_PAD_WEST"
 msgid "Left button"
-msgstr ""
+msgstr "左键"
 
 msgctxt "UI_PAD_NORTH"
 msgid "Top button"
-msgstr ""
+msgstr "上键"
 
 msgctxt "UI_PAD_LSTICK"
 msgid "Left stick"
-msgstr ""
+msgstr "左摇杆"
 
 msgctxt "UI_PAD_RSTICK"
 msgid "Right stick"
-msgstr ""
+msgstr "右摇杆"
 
 msgctxt "UI_PAD_L"
 msgid "Left bumper"
-msgstr ""
+msgstr "左肩键"
 
 msgctxt "UI_PAD_R"
 msgid "Right bumper"
-msgstr ""
+msgstr "右肩键"
 
 msgctxt "UI_PAD_START"
 msgid "Start"
-msgstr ""
+msgstr "开始"
 
 msgctxt "UI_PAD_BACK"
 msgid "Back"
-msgstr ""
+msgstr "返回"
 
 msgctxt "UI_PAD_DPAD_LEFT"
 msgid "D-pad left"
-msgstr ""
+msgstr "方向键 左"
 
 msgctxt "UI_PAD_DPAD_UP"
 msgid "D-pad up"
-msgstr ""
+msgstr "方向键 上"
 
 msgctxt "UI_PAD_DPAD_RIGHT"
 msgid "D-pad right"
-msgstr ""
+msgstr "方向键 右"
 
 msgctxt "UI_PAD_DPAD_DOWN"
 msgid "D-pad down"
-msgstr ""
+msgstr "方向键 下"
 
 msgctxt "UI_PAD_ZL"
 msgid "Left trigger"
-msgstr ""
+msgstr "左扳机"
 
 msgctxt "UI_PAD_ZR"
 msgid "Right trigger"
-msgstr ""
+msgstr "右扳机"
 
 msgctxt "UI_PAD_CROSS"
 msgid "Cross"
-msgstr ""
+msgstr "×"
 
 msgctxt "UI_PAD_CIRCLE"
 msgid "Circle"
-msgstr ""
+msgstr "○"
 
 msgctxt "UI_PAD_SQUARE"
 msgid "Square"
-msgstr ""
+msgstr "□"
 
 msgctxt "UI_PAD_TRIANGLE"
 msgid "Triangle"
-msgstr ""
+msgstr "△"
 
 msgctxt "UI_MENU_MENU_LANG"
 msgid "Menu language"
-msgstr ""
+msgstr "菜单语言"
 
 msgctxt "UI_MENU_MENU_LANG_DESC"
 msgid "Language of this menu and the overlay."
-msgstr ""
+msgstr "此菜单和显示层所用的语言。"
 
 msgctxt "UI_MENU_MENU_LANG_AUTO"
 msgid "Automatic (from the system)"
-msgstr ""
+msgstr "自动（跟随系统）"
 
 msgctxt "UI_MENU_ADV_WARNING"
 msgid "These settings are for testing and troubleshooting. Change them only when you know why."
-msgstr ""
+msgstr "这些设置用于测试和排查问题。只有在清楚原因时才修改。"
 
 msgctxt "UI_MENU_GROUP_SCHED"
 msgid "Scheduling"
-msgstr ""
+msgstr "调度"
 
 msgctxt "UI_MENU_GROUP_SHADERS"
 msgid "Shaders and pipelines"
-msgstr ""
+msgstr "着色器与管线"
 
 msgctxt "UI_MENU_GROUP_TEXMEM"
 msgid "Textures and memory"
-msgstr ""
+msgstr "纹理与内存"
 
 msgctxt "UI_MENU_GROUP_FIXES"
 msgid "Render fixes"
-msgstr ""
+msgstr "渲染修正"
 
 msgctxt "UI_MENU_GROUP_VULKAN"
 msgid "Vulkan"
-msgstr ""
+msgstr "Vulkan"
 
 msgctxt "UI_MENU_GROUP_DIAG"
 msgid "Diagnostics"
-msgstr ""
+msgstr "诊断"
 
 msgctxt "UI_MENU_ASYNC_PREEMPT"
 msgid "Virtual core preemption"
-msgstr ""
+msgstr "虚拟核心抢占"
 
 msgctxt "UI_MENU_ASYNC_PREEMPT_DESC"
 msgid "Lets a game thread interrupt another one on the same virtual core."
-msgstr ""
+msgstr "允许游戏线程打断同一虚拟核心上的另一个线程。"
 
 msgctxt "UI_MENU_PREEMPT_OFF"
 msgid "Off"
-msgstr ""
+msgstr "OFF"
 
 msgctxt "UI_MENU_PREEMPT_ON"
 msgid "On"
-msgstr ""
+msgstr "ON"
 
 msgctxt "UI_MENU_PREEMPT_INHERIT"
 msgid "Inheritance only"
-msgstr ""
+msgstr "仅继承"
 
 msgctxt "UI_MENU_REPLAY_ASYNC"
 msgid "GPU frame prep on its own thread"
-msgstr ""
+msgstr "GPU 帧准备使用独立线程"
 
 msgctxt "UI_MENU_REPLAY_ASYNC_DESC"
 msgid ""
 "Prepares frames for the GPU on a separate thread instead of the game thread. Adds up to one frame "
 "of latency."
-msgstr ""
+msgstr "在单独的线程而不是游戏线程中为 GPU 准备帧。最多增加一帧延迟。"
 
 msgctxt "UI_MENU_FREE_CORES"
 msgid "Virtual core gate"
-msgstr ""
+msgstr "虚拟核心限制"
 
 msgctxt "UI_MENU_FREE_CORES_DESC"
 msgid "Lets only one thread run per virtual core, as on the console."
-msgstr ""
+msgstr "与主机一样，每个虚拟核心只运行一个线程。"
 
 msgctxt "UI_MENU_TIMER_1MS"
 msgid "1 ms Windows timer"
-msgstr ""
+msgstr "1 ms Windows 计时器"
 
 msgctxt "UI_MENU_TIMER_1MS_DESC"
 msgid "Raises the system timer resolution to 1 ms for steadier frame pacing."
-msgstr ""
+msgstr "将系统计时器精度提高到 1 ms，使帧间隔更平稳。"
 
 msgctxt "UI_MENU_PIPE_WAIT"
 msgid "Waiting draw handling"
-msgstr ""
+msgstr "等待中的绘制处理"
 
 msgctxt "UI_MENU_PIPE_WAIT_DESC"
 msgid ""
 "Default keeps the current scheduling with a reserved worker for waiting draws; Old (draw) uses "
 "the previous scheduling."
-msgstr ""
+msgstr "「默认」沿用当前的调度方式，并为等待中的绘制保留一个专用工作线程；「旧（绘制）」使用之前的调度方式。"
 
 msgctxt "UI_MENU_PIPE_WAIT_DEFAULT"
 msgid "Default"
-msgstr ""
+msgstr "默认"
 
 msgctxt "UI_MENU_PIPE_WAIT_DRAW"
 msgid "Old (draw)"
-msgstr ""
+msgstr "旧（绘制）"
 
 msgctxt "UI_MENU_PIPE_SKIP"
 msgid "Draws skipped while a pipeline builds"
-msgstr ""
+msgstr "管线构建期间跳过的绘制"
 
 msgctxt "UI_MENU_PIPE_SKIP_DESC"
 msgid "Which draws are dropped instead of waiting for their pipeline."
-msgstr ""
+msgstr "哪些绘制会被丢弃，而不是等待其管线。"
 
 msgctxt "UI_MENU_PIPE_SKIP_STRICT"
 msgid "Strict"
-msgstr ""
+msgstr "严格"
 
 msgctxt "UI_MENU_PIPE_SKIP_ANY"
 msgid "Any"
-msgstr ""
+msgstr "任意"
 
 msgctxt "UI_MENU_PIPE_SKIP_FULLSCREEN"
 msgid "Fullscreen passes"
-msgstr ""
+msgstr "全屏通道"
 
 msgctxt "UI_MENU_PIPE_PREBUILD"
 msgid "Pipeline prebuild"
-msgstr ""
+msgstr "管线预构建"
 
 msgctxt "UI_MENU_PIPE_PREBUILD_DESC"
 msgid "Builds known pipelines ahead of time."
-msgstr ""
+msgstr "提前构建已知的管线。"
 
 msgctxt "UI_MENU_GPL"
 msgid "Graphics pipeline library"
-msgstr ""
+msgstr "图形管线库"
 
 msgctxt "UI_MENU_GPL_DESC"
 msgid "Uses the Vulkan pipeline library extension; turn off if your driver misbehaves with it."
-msgstr ""
+msgstr "使用 Vulkan 管线库扩展；如果驱动程序出现异常，请关闭。"
 
 msgctxt "UI_MENU_ASTC"
 msgid "ASTC texture decoding"
-msgstr ""
+msgstr "ASTC 纹理解码"
 
 msgctxt "UI_MENU_ASTC_DESC"
 msgid "Where compressed ASTC textures are decoded."
-msgstr ""
+msgstr "压缩的 ASTC 纹理在何处解码。"
 
 msgctxt "UI_MENU_ASTC_AUTO"
 msgid "Automatic"
-msgstr ""
+msgstr "自动"
 
 msgctxt "UI_MENU_ASTC_GPU"
 msgid "GPU shader"
-msgstr ""
+msgstr "GPU 着色器"
 
 msgctxt "UI_MENU_ASTC_NATIVE"
 msgid "Native"
-msgstr ""
+msgstr "原生"
 
 msgctxt "UI_MENU_ASTC_CPU"
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 msgctxt "UI_MENU_MEMORY"
 msgid "GPU memory mode"
-msgstr ""
+msgstr "GPU 内存模式"
 
 msgctxt "UI_MENU_MEMORY_DESC"
 msgid "How game memory is shared with the GPU."
-msgstr ""
+msgstr "游戏内存与 GPU 共享的方式。"
 
 msgctxt "UI_MENU_MEMORY_AUTO"
 msgid "Automatic"
-msgstr ""
+msgstr "自动"
 
 msgctxt "UI_MENU_MEMORY_IMPORT"
 msgid "Import"
-msgstr ""
+msgstr "导入"
 
 msgctxt "UI_MENU_MEMORY_MIRROR"
 msgid "Mirror"
-msgstr ""
+msgstr "镜像"
 
 msgctxt "UI_MENU_MEMORY_VERIFY"
 msgid "Verify"
-msgstr ""
+msgstr "验证"
 
 msgctxt "UI_MENU_TEX_ALIAS"
 msgid "Texture aliasing"
-msgstr ""
+msgstr "纹理别名"
 
 msgctxt "UI_MENU_TEX_ALIAS_DESC"
 msgid ""
 "A new texture created over a live texture's memory starts with that content instead of empty."
-msgstr ""
+msgstr "在仍在使用的纹理的内存上创建新纹理时，新纹理会以原有内容开始，而不是空白。"
 
 msgctxt "UI_MENU_FIX_C0"
 msgid "Constant buffer fix"
-msgstr ""
+msgstr "常量缓冲区修正"
 
 msgctxt "UI_MENU_FIX_C0_DESC"
 msgid ""
 "Fills the driver-reserved constant bank c0 (storage sizes, dispatch size, point size, base "
 "instance) instead of reading zeros."
-msgstr ""
+msgstr "填充驱动程序保留的常量库 c0（存储大小、调度大小、点大小、基础实例），而不是读到零。"
 
 msgctxt "UI_MENU_FIX_ZERO"
 msgid "Zero new GPU memory"
-msgstr ""
+msgstr "新 GPU 内存清零"
 
 msgctxt "UI_MENU_FIX_ZERO_DESC"
 msgid "New GPU memory pools start zero-filled, as Switch memory does."
-msgstr ""
+msgstr "与 Switch 的内存一样，新的 GPU 内存池以全零填充的状态开始。"
 
 msgctxt "UI_MENU_BIND_SKIP"
 msgid "Skip repeated binds"
-msgstr ""
+msgstr "跳过重复绑定"
 
 msgctxt "UI_MENU_BIND_SKIP_DESC"
 msgid "Optimisation: skips bindings that did not change."
-msgstr ""
+msgstr "优化：跳过未发生变化的绑定。"
 
 msgctxt "UI_MENU_SHADER_MEMO"
 msgid "Shader memo"
-msgstr ""
+msgstr "着色器缓存"
 
 msgctxt "UI_MENU_SHADER_MEMO_DESC"
 msgid "Optimisation: remembers shader lookups."
-msgstr ""
+msgstr "优化：记住着色器的查找结果。"
 
 msgctxt "UI_MENU_PIPE_MEMO"
 msgid "Pipeline memo"
-msgstr ""
+msgstr "管线缓存"
 
 msgctxt "UI_MENU_PIPE_MEMO_DESC"
 msgid "Optimisation: reuses the previous draw's pipeline when its state repeats."
-msgstr ""
+msgstr "优化：状态重复时复用上一次绘制的管线。"
 
 msgctxt "UI_MENU_TEX_MEMO"
 msgid "Texture binding memo"
-msgstr ""
+msgstr "纹理绑定缓存"
 
 msgctxt "UI_MENU_TEX_MEMO_DESC"
 msgid "Optimisation: remembers texture descriptors between draws."
-msgstr ""
+msgstr "优化：在多次绘制之间记住纹理描述符。"
 
 msgctxt "UI_MENU_DESC_TEMPLATE"
 msgid "Descriptor templates"
-msgstr ""
+msgstr "描述符模板"
 
 msgctxt "UI_MENU_DESC_TEMPLATE_DESC"
 msgid "Optimisation: updates descriptors in bulk."
-msgstr ""
+msgstr "优化：批量更新描述符。"
 
 msgctxt "UI_MENU_PUSH_SKIP"
 msgid "Skip repeated push constants"
-msgstr ""
+msgstr "跳过重复的推送常量"
 
 msgctxt "UI_MENU_PUSH_SKIP_DESC"
 msgid "Optimisation: skips push constants that did not change."
-msgstr ""
+msgstr "优化：跳过未发生变化的推送常量。"
 
 msgctxt "UI_MENU_SPLIT_DRAWS"
 msgid "Early GPU submission"
-msgstr ""
+msgstr "提前提交 GPU 任务"
 
 msgctxt "UI_MENU_SPLIT_DRAWS_DESC"
 msgid ""
 "Submits GPU work in parts every N draws between passes so the GPU starts earlier; 0 turns it off."
-msgstr ""
+msgstr "在多个通道之间，每 N 次绘制就分批提交 GPU 工作，让 GPU 更早开始；0 为关闭。"
 
 msgctxt "UI_MENU_VK_VALIDATION"
 msgid "Validation layer"
-msgstr ""
+msgstr "验证层"
 
 msgctxt "UI_MENU_VK_VALIDATION_DESC"
 msgid "Checks every Vulkan call and slows the game down a lot."
-msgstr ""
+msgstr "检查每一次 Vulkan 调用，会让游戏明显变慢。"
 
 msgctxt "UI_MENU_VK_VALIDATION_MISSING"
 msgid "The validation layer is not installed."
-msgstr ""
+msgstr "未安装验证层。"
 
 msgctxt "UI_MENU_VK_DYN_VERTEX"
 msgid "Dynamic vertex state"
-msgstr ""
+msgstr "动态顶点状态"
 
 msgctxt "UI_MENU_VK_DYN_VERTEX_DESC"
 msgid "Forces dynamic vertex input on or off; the default depends on the GPU."
-msgstr ""
+msgstr "强制开启或关闭动态顶点输入；默认值取决于 GPU。"
 
 msgctxt "UI_MENU_VK_SUBGROUP_PIN"
 msgid "Pin subgroup size"
-msgstr ""
+msgstr "固定子组大小"
 
 msgctxt "UI_MENU_VK_SUBGROUP_PIN_DESC"
 msgid "Fixes the shader subgroup size."
-msgstr ""
+msgstr "固定着色器的子组大小。"
 
 msgctxt "UI_MENU_TRACE"
 msgid "Performance log"
-msgstr ""
+msgstr "性能日志"
 
 msgctxt "UI_MENU_TRACE_DESC"
 msgid "Writes frame timings to a file."
-msgstr ""
+msgstr "将帧耗时写入文件。"
 
 msgctxt "UI_MENU_FLIGHT"
 msgid "Flight recorder"
-msgstr ""
+msgstr "飞行记录器"
 
 msgctxt "UI_MENU_FLIGHT_DESC"
 msgid "Keeps a short history and saves it when a frame freezes."
-msgstr ""
+msgstr "保留一小段历史记录，并在画面卡住时保存下来。"
 
 msgctxt "UI_MENU_FLIGHT_SPIKE_MS"
 msgid "Freeze threshold (ms)"
-msgstr ""
+msgstr "卡顿阈值（ms）"
 
 msgctxt "UI_MENU_FLIGHT_SPIKE_MS_DESC"
 msgid "Frame time that counts as a freeze."
-msgstr ""
+msgstr "被视为卡住的帧耗时。"
 
 msgctxt "UI_MENU_INPUT_RECORD"
 msgid "Input recording"
-msgstr ""
+msgstr "输入录制"
 
 msgctxt "UI_MENU_INPUT_RECORD_DESC"
 msgid "Writes your inputs to a file for bug reports."
-msgstr ""
+msgstr "将你的输入写入文件，用于提交错误报告。"
 
 msgctxt "UI_MENU_OPEN_LOG"
 msgid "Open log folder"
-msgstr ""
+msgstr "打开日志文件夹"
 
 msgctxt "UI_MENU_OPEN_LOG_DESC"
 msgid "Shows the folder with the log files."
-msgstr ""
+msgstr "显示存放日志文件的文件夹。"
 
 msgctxt "UI_MENU_COPY_INFO"
 msgid "Copy system info"
-msgstr ""
+msgstr "复制系统信息"
 
 msgctxt "UI_MENU_COPY_INFO_DESC"
 msgid "Copies GPU, driver, CPU, RAM and changed settings to the clipboard."
-msgstr ""
+msgstr "将 GPU、驱动程序、CPU、RAM 和已更改的设置复制到剪贴板。"
 
 msgctxt "UI_MENU_COPY_INFO_DONE"
 msgid "Copied"
-msgstr ""
+msgstr "已复制"
 
 msgctxt "UI_MENU_ACTION_FAILED"
 msgid "did not work"
-msgstr ""
+msgstr "未能完成"
 
 msgctxt "UI_MENU_RESET"
 msgid "Reset all settings to defaults"
-msgstr ""
+msgstr "将所有设置恢复为默认值"
 
 msgctxt "UI_MENU_RESET_DESC"
 msgid "Applies to every tab."
-msgstr ""
+msgstr "适用于所有标签页。"
 
 msgctxt "UI_MENU_RESET_CONFIRM"
 msgid "Reset every setting to its default?"
-msgstr ""
+msgstr "要将所有设置恢复为默认值吗？"
 
 msgctxt "UI_MENU_RESET_YES"
 msgid "Reset"
-msgstr ""
+msgstr "重置"
 
 msgctxt "UI_MENU_RESET_NO"
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_FPS"
 msgid "%.0f FPS"
-msgstr ""
+msgstr "%.0f FPS"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_FRAME_MS"
 msgid "%.1f ms"
-msgstr ""
+msgstr "%.1f ms"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_GAME_PCT"
 msgid "game %.0f%%"
-msgstr ""
+msgstr "游戏 %.0f%%"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_MAX_MS"
 msgid "max %.1f ms"
-msgstr ""
+msgstr "最高 %.1f ms"
 
 msgctxt "UI_MENU_OV_GPU"
 msgid "GPU"
-msgstr ""
+msgstr "GPU"
 
 msgctxt "UI_MENU_OV_CPU"
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 msgctxt "UI_MENU_OV_RAM"
 msgid "RAM"
-msgstr ""
+msgstr "RAM"
 
 msgctxt "UI_MENU_OV_VRAM"
 msgid "VRAM"
-msgstr ""
+msgstr "VRAM"
 
 msgctxt "UI_MENU_OV_NONE"
 msgid "-"
-msgstr ""
+msgstr "-"
 
 msgctxt "UI_MENU_OV_REPLAY"
 msgid "GPU frame prep"
-msgstr ""
+msgstr "GPU 帧准备"
 
 msgctxt "UI_MENU_OV_GPU_TIME"
 msgid "GPU busy per frame"
-msgstr ""
+msgstr "每帧 GPU 占用时间"
 
 msgctxt "UI_MENU_OV_PIPE_WAIT"
 msgid "Pipeline waits"
-msgstr ""
+msgstr "管线等待"
 
 msgctxt "UI_MENU_OV_TEX_UPLOADS"
 msgid "Texture uploads"
-msgstr ""
+msgstr "纹理上传"
 
 msgctxt "UI_MENU_OV_MAIN_CPU"
 msgid "Game main thread CPU"
-msgstr ""
+msgstr "游戏主线程 CPU"
 
 msgctxt "UI_MENU_OV_RENDER_CPU"
 msgid "Render thread CPU"
-msgstr ""
+msgstr "渲染线程 CPU"
 
 msgctxt "UI_MENU_OV_SLOW"
 msgid "Frames over 33 ms"
-msgstr ""
+msgstr "超过 33 ms 的帧"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_PER_MIN"
 msgid "%.0f last minute"
-msgstr ""
+msgstr "最近一分钟 %.0f"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_FMT_PCT"
 msgid "%.0f%%"
-msgstr ""
+msgstr "%.0f%%"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_FMT_TEMP"
 msgid "%.0f °C"
-msgstr ""
+msgstr "%.0f °C"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_FMT_POWER"
 msgid "%.0f W"
-msgstr ""
+msgstr "%.0f W"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_FMT_MHZ"
 msgid "%.0f MHz"
-msgstr ""
+msgstr "%.0f MHz"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_FMT_GB"
 msgid "%.1f GB"
-msgstr ""
+msgstr "%.1f GB"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_FMT_GB_OF"
 msgid "/ %.1f GB"
-msgstr ""
+msgstr "/ %.1f GB"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_GAME_GB"
 msgid "game %.1f GB"
-msgstr ""
+msgstr "游戏 %.1f GB"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_FMT_MS"
 msgid "%.2f ms"
-msgstr ""
+msgstr "%.2f ms"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_PER_FRAME"
 msgid "%.1f per frame"
-msgstr ""
+msgstr "每帧 %.1f"
 
 msgctxt "UI_MENU_OV_WINDOW"
 msgid "Window"
-msgstr ""
+msgstr "窗口"
 
 msgctxt "UI_MENU_OV_OUTPUT"
 msgid "Game image"
-msgstr ""
+msgstr "游戏画面"
 
 msgctxt "UI_MENU_OV_INTERNAL"
 msgid "Internal resolution"
-msgstr ""
+msgstr "内部分辨率"
 
 msgctxt "UI_MENU_OV_SCALING"
 msgid "Scaling"
-msgstr ""
+msgstr "缩放"
 
 msgctxt "UI_MENU_OV_PRESENT"
 msgid "Presentation"
-msgstr ""
+msgstr "呈现方式"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_FMT_SIZE"
 msgid "%ux%u"
-msgstr ""
+msgstr "%ux%u"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_MENU_OV_FMT_FSR"
 msgid "AMD FSR 1, sharpness %d%%"
-msgstr ""
+msgstr "AMD FSR 1，锐度 %d%%"
 
 msgctxt "UI_MENU_OV_SCALE_NONE"
 msgid "none (1:1)"
-msgstr ""
+msgstr "无（1:1）"
 
 msgctxt "UI_MENU_OV_SCALE_BILINEAR"
 msgid "bilinear"
-msgstr ""
+msgstr "双线性"
 
 msgctxt "UI_LAUNCH_SUBTITLE"
 msgid "Static recompilation for PC"
-msgstr ""
+msgstr "面向 PC 的静态重编译"
 
 msgctxt "UI_LAUNCH_PLAY"
 msgid "Play"
-msgstr ""
+msgstr "开始游戏"
 
 msgctxt "UI_LAUNCH_SETTINGS"
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 msgctxt "UI_LAUNCH_FILES"
 msgid "Game files"
-msgstr ""
+msgstr "游戏文件"
 
 msgctxt "UI_LAUNCH_QUIT"
 msgid "Quit"
-msgstr ""
+msgstr "退出"
 
 msgctxt "UI_LAUNCH_BACK"
 msgid "Back"
-msgstr ""
+msgstr "返回"
 
 msgctxt "UI_LAUNCH_FILES_READY"
 msgid "Game files ready (version 1.0.0)"
-msgstr ""
+msgstr "游戏文件已就绪（版本 1.0.0）"
 
 msgctxt "UI_LAUNCH_FILES_MISSING"
 msgid "Game files not set up"
-msgstr ""
+msgstr "游戏文件尚未设置"
 
 msgctxt "UI_LAUNCH_FILES_FOLDER"
 msgid "Game folder"
-msgstr ""
+msgstr "游戏文件夹"
 
 msgctxt "UI_LAUNCH_FILES_HELP"
 msgid ""
@@ -1605,127 +1609,176 @@ msgid ""
 "from your console (the exefs and romfs folders). The setup checks its version, builds the game "
 "code on this computer and translates the shaders."
 msgstr ""
+"本移植版不附带游戏：需要你自己从主机中转储的 Mario Kart World 1.0.0 副本（exefs 和 romfs "
+"文件夹）。设置过程会检查其版本，在这台电脑上构建游戏代码，并转换着色器。"
 
 msgctxt "UI_LAUNCH_NO_TOOLS"
 msgid "The setup tools are missing: the setup/ folder that comes with the program."
-msgstr ""
+msgstr "缺少设置工具：即随程序附带的 setup/ 文件夹。"
 
 msgctxt "UI_LAUNCH_SOURCE"
 msgid "Your copy"
-msgstr ""
+msgstr "你的副本"
 
 msgctxt "UI_LAUNCH_PICK"
 msgid "Choose folder"
-msgstr ""
+msgstr "选择文件夹"
 
 msgctxt "UI_LAUNCH_ROMFS_MODE"
 msgid "RomFS (23 GB)"
-msgstr ""
+msgstr "RomFS（23 GB）"
 
 msgctxt "UI_LAUNCH_ROMFS_COPY"
 msgid "Copy into the game folder"
-msgstr ""
+msgstr "复制到游戏文件夹"
 
 msgctxt "UI_LAUNCH_ROMFS_LINK"
 msgid "Use it where it is"
-msgstr ""
+msgstr "在原位置使用"
 
 msgctxt "UI_LAUNCH_SETUP"
 msgid "Set up"
-msgstr ""
+msgstr "开始设置"
 
 msgctxt "UI_LAUNCH_SETUP_AGAIN"
 msgid "Set up again"
-msgstr ""
+msgstr "重新设置"
 
 msgctxt "UI_LAUNCH_CANCEL"
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 msgctxt "UI_LAUNCH_SETUP_DONE"
 msgid "Set up finished: the game is ready."
-msgstr ""
+msgstr "设置完成：游戏已就绪。"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_LAUNCH_SETUP_FAILED"
 msgid "Set up failed: %s"
-msgstr ""
+msgstr "设置失败：%s"
+
+#. No %s: the detail is not shown.
+msgctxt "UI_SETUP_ERR_SOURCE"
+msgid "there is no earlier setup in this folder: choose the folder of your copy"
+msgstr "此文件夹中没有之前的设置：请选择你的副本所在的文件夹"
+
+#. %s: the folder the player chose.
+msgctxt "UI_SETUP_ERR_NOGAME"
+msgid "no exefs/main and romfs/ in %s: choose the folder of your copy of the game"
+msgstr "%s 中没有 exefs/main 和 romfs/：请选择你的游戏副本所在的文件夹"
+
+#. %s: the path of the exefs/main file.
+msgctxt "UI_SETUP_ERR_ENCRYPTED"
+msgid "%s is encrypted: the game's exefs must be decrypted"
+msgstr "%s 已加密：游戏的 exefs 必须先解密"
+
+#. %s: the build id of the player's exefs/main (hexadecimal).
+msgctxt "UI_SETUP_ERR_VERSION"
+msgid "the game is not Mario Kart World 1.0.0 (build id %s): only 1.0.0 is supported"
+msgstr "游戏不是 Mario Kart World 1.0.0（构建 ID %s）：仅支持 1.0.0"
+
+#. %s: how many files the player's RomFS has.
+msgctxt "UI_SETUP_ERR_ROMFS"
+msgid "the RomFS has only %s files: the copy is incomplete, copy it again"
+msgstr "RomFS 只有 %s 个文件：副本不完整，请重新复制"
+
+#. %s: the failing tool's message, in English. logs/setup.log is a file name: keep it.
+msgctxt "UI_SETUP_ERR_FAILED"
+msgid "%s (more in logs/setup.log)"
+msgstr "%s（详见 logs/setup.log）"
+
+#. %s: the system's error message, in English. logs/setup.log is a file name: keep it.
+msgctxt "UI_SETUP_ERR_IO"
+msgid "file error: %s (more in logs/setup.log)"
+msgstr "文件错误：%s（详见 logs/setup.log）"
+
+msgctxt "UI_SETUP_ERR_STOPPED"
+msgid "the setup stopped (more in logs/setup.log)"
+msgstr "设置已停止（详见 logs/setup.log）"
+
+msgctxt "UI_SETUP_ERR_CANCELLED"
+msgid "cancelled"
+msgstr "已取消"
+
+msgctxt "UI_SETUP_ERR_NO_SETUP"
+msgid "the setup tools are missing (setup/ next to the program): extract the release again"
+msgstr "缺少设置工具（程序旁的 setup/）：请重新解压发行包"
 
 msgctxt "UI_LAUNCH_STEP_CHECK"
 msgid "Check the copy"
-msgstr ""
+msgstr "检查副本"
 
 msgctxt "UI_LAUNCH_STEP_EXEFS"
 msgid "Copy exefs"
-msgstr ""
+msgstr "复制 exefs"
 
 msgctxt "UI_LAUNCH_STEP_ROMFS"
 msgid "RomFS"
-msgstr ""
+msgstr "RomFS"
 
 msgctxt "UI_LAUNCH_STEP_GENERATE"
 msgid "Generate the game code"
-msgstr ""
+msgstr "生成游戏代码"
 
 msgctxt "UI_LAUNCH_STEP_COMPILE"
 msgid "Compile the game code"
-msgstr ""
+msgstr "编译游戏代码"
 
 msgctxt "UI_LAUNCH_STEP_SHADERS"
 msgid "Translate the shaders"
-msgstr ""
+msgstr "转换着色器"
 
 msgctxt "UI_LAUNCH_STEP_WARM"
 msgid "Warm up the graphics (one minute)"
-msgstr ""
+msgstr "预热图形（一分钟）"
 
 msgctxt "UI_LAUNCH_STEP_CLEANUP"
 msgid "Clean up"
-msgstr ""
+msgstr "清理"
 
 msgctxt "UI_LAUNCH_STEP_KEPT"
 msgid "kept"
-msgstr ""
+msgstr "已保留"
 
 msgctxt "UI_LAUNCH_SHORTCUT"
 msgid "Desktop shortcut"
-msgstr ""
+msgstr "桌面快捷方式"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_LAUNCH_SHORTCUT_DONE"
 msgid "Shortcut made: %s"
-msgstr ""
+msgstr "已创建快捷方式：%s"
 
 msgctxt "UI_LAUNCH_SHORTCUT_FAILED"
 msgid "Could not make the shortcut"
-msgstr ""
+msgstr "无法创建快捷方式"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_LAUNCH_UPDATE"
 msgid "Update to %s (%d MB)"
-msgstr ""
+msgstr "更新到 %s（%d MB）"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_LAUNCH_UPDATE_FETCHING"
 msgid "Downloading %s"
-msgstr ""
+msgstr "正在下载 %s"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_LAUNCH_UPDATE_FAILED"
 msgid "Update failed: %s"
-msgstr ""
+msgstr "更新失败：%s"
 
 #. printf format: keep every %... conversion, in the same order.
 msgctxt "UI_LAUNCH_UPDATED"
 msgid "Updated to %s: setting up again what it changed"
-msgstr ""
+msgstr "已更新到 %s：正在重新设置有变化的部分"
 
 msgctxt "UI_MENU_UPDATE_CHECK"
 msgid "Check for updates"
-msgstr ""
+msgstr "检查更新"
 
 msgctxt "UI_MENU_UPDATE_CHECK_DESC"
 msgid ""
 "At start, ask GitHub for a newer release of the port and offer it on the start screen (a few "
 "seconds at most, nothing offline)."
-msgstr ""
+msgstr "启动时向 GitHub 查询此移植版的新版本，并在开始画面中提示（最多几秒，离线时不做任何事）。"

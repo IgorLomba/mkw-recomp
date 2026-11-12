@@ -269,6 +269,24 @@ static void SDLCALL picked(void *, const char *const *files, int) {
     if (files && files[0]) snprintf(L.source, sizeof L.source, "%s", files[0]);
 }
 
+// Why the setup failed, in the menu language: prepare.py's error code picks the text, its detail (a folder, a build
+// id, a tool's English message) goes in as is. An unknown code (a newer prepare.py) shows the detail alone.
+static void setup_error_text(const SetupState &st, char *out, size_t cap) {
+    static const struct {
+        const char *code;
+        UiTextId text;
+    } kWhy[] = {{"source", UI_SETUP_ERR_SOURCE},       {"nogame", UI_SETUP_ERR_NOGAME},
+                {"encrypted", UI_SETUP_ERR_ENCRYPTED}, {"version", UI_SETUP_ERR_VERSION},
+                {"romfs", UI_SETUP_ERR_ROMFS},         {"failed", UI_SETUP_ERR_FAILED},
+                {"io", UI_SETUP_ERR_IO},               {"stopped", UI_SETUP_ERR_STOPPED},
+                {"cancelled", UI_SETUP_ERR_CANCELLED}, {"no_setup", UI_SETUP_ERR_NO_SETUP}};
+    char why[600];
+    snprintf(why, sizeof why, "%s", st.error);
+    for (const auto &w : kWhy)
+        if (!strcmp(st.code, w.code)) snprintf(why, sizeof why, menu_text(w.text), st.error);
+    snprintf(out, cap, menu_text(UI_LAUNCH_SETUP_FAILED), why);
+}
+
 static void setup_progress(const SetupState &st) {
     for (int i = 0; i < SETUP_STEPS; i++) {
         bool now = st.running && st.step == i;
@@ -335,7 +353,7 @@ static void page_files(float w, float h) {
             if (st.finished > 0) ImGui::TextColored(ImVec4(0.55f, 0.85f, 0.6f, 1), "%s", menu_text(UI_LAUNCH_SETUP_DONE));
             if (st.finished < 0) {
                 char msg[700];
-                snprintf(msg, sizeof msg, menu_text(UI_LAUNCH_SETUP_FAILED), st.error);
+                setup_error_text(st, msg, sizeof msg);
                 ImGui::PushTextWrapPos(0);
                 ImGui::TextColored(ImVec4(0.95f, 0.45f, 0.35f, 1), "%s", msg);
                 ImGui::PopTextWrapPos();

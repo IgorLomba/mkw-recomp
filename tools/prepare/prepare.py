@@ -18,7 +18,10 @@ Steps, into --game (the folder of mkw / mkw.exe):
   cleanup   setup-work removed but its obj/: the next update compiles only the chunks whose C changed (gamecode.py)
 
 Output: one event per line on stdout, for the start screen: "step <name>", "progress <done> <total>", "skip <name>",
-"done", "error <name> <message>". Exit codes: 0 done, 1 failed, 2 bad command line.
+"done", "error <code> <detail>". Exit codes: 0 done, 1 failed, 2 bad command line. The start screen shows its own
+translated text per code with the detail inside: source (no earlier setup to repeat), nogame (the folder, without
+exefs/main and romfs/), encrypted (exefs/main, not an NSO), version (main's build id), romfs (its file count), failed
+(a tool's English message) and io (the system's); logs/setup.log gets the English message whole.
 
 Usage: python prepare.py --source DIR --game DIR [--romfs copy|link] [--jobs N] [--cc CMD] [--glslc PATH]
                          [--target linux|windows]
@@ -71,7 +74,7 @@ def find_game(src: Path) -> tuple[Path, Path]:
         for d in [src, *src.glob("/".join(["*"] * depth))] if depth else [src]:
             if (d / "exefs/main").is_file() and (d / "romfs").is_dir():
                 return d / "exefs", d / "romfs"
-    raise Failed(f"no exefs/main and romfs/ in {src}")
+    raise Failed(f"no exefs/main and romfs/ in {src}", "nogame", str(src))
 
 
 def count_files(top: Path, enough: int) -> int:
@@ -87,14 +90,14 @@ def check(src: Path) -> tuple[Path, Path]:
     exefs, romfs = find_game(src)
     head = (exefs / "main").read_bytes()[:0x48]
     if head[:4] != b"NSO0":
-        raise Failed(f"{exefs / 'main'} is not an NSO: decrypted exefs needed")
+        raise Failed(f"{exefs / 'main'} is not an NSO: decrypted exefs needed", "encrypted", str(exefs / "main"))
     got = head[0x40:0x48].hex()
     if got != MAIN_BUILD_ID:
-        raise Failed(f"exefs/main is not Mario Kart World 1.0.0 (build id {got})")
+        raise Failed(f"exefs/main is not Mario Kart World 1.0.0 (build id {got})", "version", got)
     need = int(ROMFS_FILES * ROMFS_MARGIN)
     n = count_files(romfs, need)
     if n < need:
-        raise Failed(f"the RomFS has {n} files, 1.0.0 has {ROMFS_FILES}: an incomplete copy")
+        raise Failed(f"the RomFS has {n} files, 1.0.0 has {ROMFS_FILES}: an incomplete copy", "romfs", str(n))
     return exefs, romfs
 
 
@@ -277,7 +280,7 @@ def main() -> None:
     if not args.source:  # the last setup's; before 0.1.5 the state kept them only in its keys
         last = state.get("source") or (str(Path(state["done"]["exefs"]).parent) if "exefs" in state["done"] else "")
         if not last:
-            emit("error", "source", "no earlier setup in this folder: choose the folder of your copy")
+            emit("error", "source", "no earlier setup in this folder")
             sys.exit(2)
         args.source = Path(last)
         args.romfs = args.romfs or state.get("romfs_mode") or state["done"].get("romfs", "copy").split(" ", 1)[0]
@@ -342,10 +345,11 @@ def main() -> None:
             save_state(game, state)
         emit("done")
     except Failed as e:
-        emit("error", "failed", f"{e} (more in logs/setup.log)")
+        print(f"failed: {e}", file=sys.stderr)
+        emit("error", e.code, e.detail)
         sys.exit(1)
     except OSError as e:
-        emit("error", "io", f"{e} (more in logs/setup.log)")
+        emit("error", "io", e)
         sys.exit(1)
 
 

@@ -1,0 +1,1856 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: mkw-recomp\nLanguage: uk\nMIME-Version: 1.0\nContent-Type: text/plain; "
+"charset=UTF-8\nContent-Transfer-Encoding: 8bit\n"
+
+#. The software keyboard's starting text: at most 9 UTF-16 units, no '@' '%' '\'.
+msgctxt "UI_SWKBD_DEFAULT_NAME"
+msgid "Player"
+msgstr "Гравець"
+
+msgctxt "UI_MENU_TITLE"
+msgid "Settings"
+msgstr "Налаштування"
+
+msgctxt "UI_MENU_TAB_SCREEN"
+msgid "Screen"
+msgstr "Екран"
+
+msgctxt "UI_MENU_TAB_GAME"
+msgid "Game"
+msgstr "Гра"
+
+msgctxt "UI_MENU_TAB_SOUND"
+msgid "Sound"
+msgstr "Звук"
+
+msgctxt "UI_MENU_TAB_CONTROLS"
+msgid "Controls"
+msgstr "Керування"
+
+msgctxt "UI_MENU_TAB_MENU"
+msgid "Menu"
+msgstr "Меню"
+
+msgctxt "UI_MENU_TAB_ADVANCED"
+msgid "Advanced"
+msgstr "Додатково"
+
+msgctxt "UI_MENU_TAB_GRAPHICS"
+msgid "Graphics"
+msgstr "Графіка"
+
+msgctxt "UI_MENU_TAB_HACKS"
+msgid "Hacks"
+msgstr "Хаки"
+
+msgctxt "UI_MENU_HACKS_WARNING"
+msgid ""
+"Experimental: shortcuts the console does not have, for playing and testing faster. They can "
+"change how the game behaves."
+msgstr ""
+"Експериментально: скорочення, яких немає на консолі, щоб грати й тестувати швидше. Вони можуть "
+"змінити поведінку гри."
+
+msgctxt "UI_MENU_TURBO"
+msgid "Turbo"
+msgstr "Турбо"
+
+msgctxt "UI_MENU_TURBO_DESC"
+msgid ""
+"The whole game runs faster: menus, movies, loads and races. Hold or press F2. The screen shows at "
+"most 60 frames a second."
+msgstr ""
+"Уся гра працює швидше: меню, відео, завантаження та перегони. Утримуй або натисни F2. Екран "
+"показує щонайбільше 60 кадрів на секунду."
+
+msgctxt "UI_MENU_TURBO_HOLD"
+msgid "Hold F2"
+msgstr "Утримуй F2"
+
+msgctxt "UI_MENU_TURBO_TOGGLE"
+msgid "F2 on/off"
+msgstr "F2 вкл./викл."
+
+msgctxt "UI_MENU_TURBO_SPEED"
+msgid "Turbo speed"
+msgstr "Швидкість турбо"
+
+msgctxt "UI_MENU_TURBO_SPEED_DESC"
+msgid "How many times faster. A slow PC may not reach it."
+msgstr "У скільки разів швидше. Повільний ПК може її не досягти."
+
+msgctxt "UI_MENU_SKIP_MOVIES"
+msgid "Skip movies"
+msgstr "Пропускати відео"
+
+msgctxt "UI_MENU_SKIP_MOVIES_DESC"
+msgid "Skips the cup and course openings as soon as they start."
+msgstr "Пропускає вступи кубків і трас одразу, щойно вони починаються."
+
+msgctxt "UI_MENU_SEED"
+msgid "Same randomness every time"
+msgstr "Завжди однакова випадковість"
+
+msgctxt "UI_MENU_SEED_DESC"
+msgid ""
+"The game draws the same random numbers in every session: the same title course, the same items. "
+"For testing."
+msgstr ""
+"Гра витягує однакові випадкові числа в кожному сеансі: та сама траса на титульному екрані, ті "
+"самі предмети. Для тестування."
+
+msgctxt "UI_MENU_FREEZE_KEYS"
+msgid "Freeze keys"
+msgstr "Клавіші зупинки"
+
+msgctxt "UI_MENU_FREEZE_KEYS_DESC"
+msgid ""
+"F3 stops the game on the frame on screen and starts it again; F4 moves it on by one frame. To "
+"look at a moment closely."
+msgstr ""
+"F3 зупиняє гру на кадрі, що на екрані, і запускає знову; F4 зсуває її на один кадр. Щоб уважно "
+"роздивитися момент."
+
+msgctxt "UI_MENU_UNLOCK_ALL"
+msgid "Unlock everything"
+msgstr "Розблокувати все"
+
+msgctxt "UI_MENU_UNLOCK_ALL_DESC"
+msgid ""
+"Every driver and outfit, vehicle and sticker, and the Special Cup. It goes into your save when "
+"the game saves: turning it off does not lock them again."
+msgstr ""
+"Усі гонщики й костюми, транспорт і наліпки та Особливий кубок. Потрапляє у твій збережений "
+"прогрес, коли гра зберігається: вимкнення не блокує їх знову."
+
+msgctxt "UI_MENU_QUICK_RACE"
+msgid "Straight to"
+msgstr "Одразу до"
+
+msgctxt "UI_MENU_QUICK_RACE_DESC"
+msgid ""
+"Goes through the menus by itself at start. Time trial: Mario, standard kart and the course the "
+"game offers (always the same with «Same randomness every time»), no rivals. Free roam: the open "
+"world. The controller still works."
+msgstr ""
+"Сама проходить меню під час запуску. Заїзд на час: Маріо, стандартний карт і траса, яку пропонує "
+"гра (завжди та сама з «Завжди однакова випадковість»), без суперників. Вільна їзда: відкритий "
+"світ. Контролер усе одно працює."
+
+msgctxt "UI_MENU_QUICK_RACE_TT"
+msgid "Time trial"
+msgstr "Заїзд на час"
+
+msgctxt "UI_MENU_QUICK_RACE_FREE"
+msgid "Free roam"
+msgstr "Вільна їзда"
+
+msgctxt "UI_MENU_ANISO"
+msgid "Texture filtering"
+msgstr "Фільтрація текстур"
+
+msgctxt "UI_MENU_ANISO_DESC"
+msgid ""
+"Sharpness of textures seen far away or at a low angle, such as the road ahead. Game uses what "
+"each texture asks for. Impact on frame rate: low."
+msgstr ""
+"Чіткість текстур, що видно здалеку або під малим кутом, як-от дорога попереду. Гра використовує "
+"те, чого просить кожна текстура. Вплив на частоту кадрів: низький."
+
+msgctxt "UI_MENU_ANISO_GAME"
+msgid "Game"
+msgstr "Гра"
+
+msgctxt "UI_MENU_TEX_QUALITY"
+msgid "Texture quality"
+msgstr "Якість текстур"
+
+msgctxt "UI_MENU_TEX_QUALITY_DESC"
+msgid ""
+"Detail of the game's own textures. Half and Quarter skip their finest levels: less memory traffic "
+"on the graphics card, blurrier surfaces up close. Impact on frame rate: low."
+msgstr ""
+"Деталізація власних текстур гри. Половина й Чверть пропускають їхні найдрібніші рівні: менше "
+"навантаження на пам'ять відеокарти, розмитіші поверхні зблизька. Вплив на частоту кадрів: низький."
+
+msgctxt "UI_MENU_TEX_QUALITY_FULL"
+msgid "Full"
+msgstr "Повна"
+
+msgctxt "UI_MENU_TEX_QUALITY_HALF"
+msgid "Half"
+msgstr "Половина"
+
+msgctxt "UI_MENU_TEX_QUALITY_QUARTER"
+msgid "Quarter"
+msgstr "Чверть"
+
+msgctxt "UI_MENU_DETAIL"
+msgid "Detail distance"
+msgstr "Дальність деталей"
+
+msgctxt "UI_MENU_DETAIL_DESC"
+msgid ""
+"How far objects keep their detailed models before switching to simpler ones. Console is the "
+"Switch 2's. Impact on frame rate: low."
+msgstr ""
+"Як далеко об'єкти зберігають докладні моделі, перш ніж їх замінять простішими. Консоль — значення "
+"Switch 2. Вплив на частоту кадрів: низький."
+
+msgctxt "UI_MENU_DETAIL_LOW"
+msgid "Low"
+msgstr "Низька"
+
+msgctxt "UI_MENU_DETAIL_MEDIUM"
+msgid "Medium"
+msgstr "Середня"
+
+msgctxt "UI_MENU_DETAIL_CONSOLE"
+msgid "Console"
+msgstr "Консоль"
+
+msgctxt "UI_MENU_DETAIL_HIGH"
+msgid "High"
+msgstr "Висока"
+
+msgctxt "UI_MENU_DETAIL_ULTRA"
+msgid "Very high"
+msgstr "Дуже висока"
+
+msgctxt "UI_MENU_SHADOW"
+msgid "Shadow quality"
+msgstr "Якість тіней"
+
+msgctxt "UI_MENU_SHADOW_DESC"
+msgid ""
+"Size of the map the game draws shadows from. Smaller is lighter for the graphics card, with "
+"blurrier shadow edges. Console is 3072 docked and 2048 handheld. Impact on frame rate: low."
+msgstr ""
+"Розмір карти, з якої гра малює тіні. Менша легша для відеокарти, але краї тіней розмитіші. На "
+"консолі це 3072 у док-станції та 2048 у портативному режимі. Вплив на частоту кадрів: низький."
+
+msgctxt "UI_MENU_CONTINUE"
+msgid "Continue"
+msgstr "Продовжити"
+
+msgctxt "UI_MENU_QUIT"
+msgid "Quit game"
+msgstr "Вийти з гри"
+
+msgctxt "UI_MENU_ON"
+msgid "On"
+msgstr "Вкл."
+
+msgctxt "UI_MENU_OFF"
+msgid "Off"
+msgstr "Викл."
+
+msgctxt "UI_MENU_AUTO"
+msgid "Automatic"
+msgstr "Автоматично"
+
+msgctxt "UI_MENU_DEFAULT_MARK"
+msgid "default"
+msgstr "типово"
+
+msgctxt "UI_MENU_AFTER_RESTART"
+msgid "after restart"
+msgstr "після перезапуску"
+
+msgctxt "UI_MENU_SET_BY_ENV"
+msgid "set by environment variable"
+msgstr "задано змінною середовища"
+
+msgctxt "UI_MENU_SAVE_FAILED"
+msgid "could not save settings"
+msgstr "не вдалося зберегти налаштування"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_VERSION"
+msgid "MKW Recomp %s, game %s"
+msgstr "MKW Recomp %s, гра %s"
+
+msgctxt "UI_MENU_FULLSCREEN"
+msgid "Fullscreen"
+msgstr "Повний екран"
+
+msgctxt "UI_MENU_FULLSCREEN_DESC"
+msgid "Fills the screen with the game; F11 toggles it."
+msgstr "Заповнює екран грою; F11 перемикає."
+
+msgctxt "UI_MENU_WINDOW_SIZE"
+msgid "Window size"
+msgstr "Розмір вікна"
+
+msgctxt "UI_MENU_WINDOW_SIZE_DESC"
+msgid "Size of the game window when not fullscreen."
+msgstr "Розмір вікна гри, коли не на повному екрані."
+
+msgctxt "UI_MENU_QUALITY"
+msgid "Quality"
+msgstr "Якість"
+
+msgctxt "UI_MENU_QUALITY_DESC"
+msgid ""
+"Sets the rows below at once. Console looks like the Switch 2; Low and Medium are lighter for the "
+"graphics card, High and Very high sharper. Changing a row makes it Custom. The internal "
+"resolution is what changes the frame rate most."
+msgstr ""
+"Налаштовує рядки нижче одразу. Консоль виглядає як Switch 2; Низька й Середня легші для "
+"відеокарти, Висока й Дуже висока чіткіші. Зміна рядка перемикає на Власну. Найбільше на частоту "
+"кадрів впливає внутрішня роздільність."
+
+msgctxt "UI_MENU_QUALITY_CUSTOM"
+msgid "Custom"
+msgstr "Власна"
+
+msgctxt "UI_MENU_RESOLUTION"
+msgid "Internal resolution"
+msgstr "Внутрішня роздільність"
+
+msgctxt "UI_MENU_RESOLUTION_DESC"
+msgid ""
+"Lines the game renders its scenes at, then scaled to the window. Lower is faster: 720p suits "
+"integrated graphics. Original is the console's (up to 1440p)."
+msgstr ""
+"Кількість ліній, у якій гра рендерить сцени, а потім масштабує до вікна. Нижча швидша: 720p пасує "
+"інтегрованій графіці. Оригінальна — як на консолі (до 1440p)."
+
+msgctxt "UI_MENU_RESOLUTION_ORIGINAL"
+msgid "Original"
+msgstr "Оригінальна"
+
+msgctxt "UI_MENU_ASPECT"
+msgid "Aspect ratio"
+msgstr "Співвідношення сторін"
+
+msgctxt "UI_MENU_ASPECT_DESC"
+msgid ""
+"Wider than 16:9 shows more of the course at the sides, for ultrawide screens. 16:9 is the "
+"console's; Window takes the window's or monitor's shape. Menus stay stretched for now."
+msgstr ""
+"Ширше за 16:9 показує більше траси з боків, для надшироких екранів. 16:9 — як на консолі; Вікно "
+"бере форму вікна чи монітора. Меню поки що лишаються розтягнутими."
+
+msgctxt "UI_MENU_ASPECT_WINDOW"
+msgid "Window"
+msgstr "Вікно"
+
+msgctxt "UI_MENU_PRESENT"
+msgid "Presentation"
+msgstr "Виведення"
+
+msgctxt "UI_MENU_PRESENT_DESC"
+msgid "How finished frames reach the screen."
+msgstr "Як готові кадри потрапляють на екран."
+
+msgctxt "UI_MENU_PRESENT_MAILBOX"
+msgid "Mailbox"
+msgstr "Mailbox"
+
+msgctxt "UI_MENU_PRESENT_VSYNC"
+msgid "VSync"
+msgstr "VSync"
+
+msgctxt "UI_MENU_PRESENT_IMMEDIATE"
+msgid "Immediate"
+msgstr "Негайно"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_PRESENT_IN_USE"
+msgid "in use: %s"
+msgstr "використовується: %s"
+
+msgctxt "UI_MENU_GPU"
+msgid "Graphics card"
+msgstr "Відеокарта"
+
+msgctxt "UI_MENU_GPU_DESC"
+msgid "The Vulkan device that draws the game."
+msgstr "Пристрій Vulkan, що малює гру."
+
+msgctxt "UI_MENU_GPU_AUTO"
+msgid "Automatic"
+msgstr "Автоматично"
+
+msgctxt "UI_MENU_PERF_OVERLAY"
+msgid "Performance overlay"
+msgstr "Оверлей продуктивності"
+
+msgctxt "UI_MENU_PERF_OVERLAY_DESC"
+msgid ""
+"Frame rate in the top right corner. Full adds frame times with a graph, CPU, GPU and memory load, "
+"temperatures and the render thread's waits. F10 cycles the modes."
+msgstr ""
+"Частота кадрів у верхньому правому куті. Повний додає час кадрів із графіком, навантаження CPU, "
+"GPU та пам'яті, температури й очікування потоку рендерингу. F10 перемикає режими."
+
+msgctxt "UI_MENU_PERF_OFF"
+msgid "Off"
+msgstr "Викл."
+
+msgctxt "UI_MENU_PERF_FPS"
+msgid "FPS"
+msgstr "FPS"
+
+msgctxt "UI_MENU_PERF_FULL"
+msgid "Full"
+msgstr "Повний"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_PERF_LINE_FPS"
+msgid "%.0f fps"
+msgstr "%.0f к/с"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_PERF_LINE_FPS_FG"
+msgid "%.0f/%.0f fps"
+msgstr "%.0f/%.0f к/с"
+
+msgctxt "UI_MENU_FPS"
+msgid "Frame rate"
+msgstr "Частота кадрів"
+
+msgctxt "UI_MENU_FPS_DESC"
+msgid ""
+"Frames per second the game aims for. Automatic is the console's: 60, or 30 when a frame takes too "
+"long. If your computer cannot hold 60, choose 30 so the race runs at its real speed."
+msgstr ""
+"Кількість кадрів на секунду, до якої прагне гра. Автоматично — як на консолі: 60, або 30, коли "
+"кадр триває надто довго. Якщо твій комп'ютер не тримає 60, вибери 30, щоб перегони йшли зі "
+"справжньою швидкістю."
+
+msgctxt "UI_MENU_FPS_AUTO"
+msgid "Automatic"
+msgstr "Автоматично"
+
+msgctxt "UI_MENU_FRAMEGEN"
+msgid "Frame generation"
+msgstr "Генерація кадрів"
+
+msgctxt "UI_MENU_FRAMEGEN_DESC"
+msgid ""
+"Shows frames made between the game's own: 2x turns 30 fps into 60. Automatic makes as many as "
+"your monitor's refresh rate has room for. Adds up to one frame of delay, and fast motion can "
+"smear. Not on the console."
+msgstr ""
+"Показує кадри, створені між кадрами самої гри: 2x перетворює 30 к/с на 60. Автоматично створює "
+"стільки, скільки дозволяє частота оновлення монітора. Додає до одного кадру затримки, а швидкий "
+"рух може розмазуватися. На консолі цього немає."
+
+msgctxt "UI_MENU_GRAPHICS"
+msgid "Picture"
+msgstr "Зображення"
+
+msgctxt "UI_MENU_UPSCALER"
+msgid "Scaling to the window"
+msgstr "Масштабування до вікна"
+
+msgctxt "UI_MENU_UPSCALER_DESC"
+msgid ""
+"How the picture is scaled when the window is larger than the game resolution. FSR keeps edges and "
+"detail sharper than bilinear."
+msgstr ""
+"Як масштабується зображення, коли вікно більше за роздільність гри. FSR зберігає чіткішими краї "
+"та деталі, ніж білінійне."
+
+msgctxt "UI_MENU_UPSCALER_FSR"
+msgid "AMD FSR 1"
+msgstr "AMD FSR 1"
+
+msgctxt "UI_MENU_UPSCALER_BILINEAR"
+msgid "Bilinear"
+msgstr "Білінійне"
+
+msgctxt "UI_MENU_PICTURE_FIT"
+msgid "Picture shape"
+msgstr "Форма зображення"
+
+msgctxt "UI_MENU_PICTURE_FIT_DESC"
+msgid ""
+"When the window's shape differs from the game resolution's (a 16:9 game on the Steam Deck's 16:10 "
+"screen), keep the picture's proportions with black bars, or stretch it over the whole window."
+msgstr ""
+"Коли форма вікна відрізняється від форми роздільності гри (гра 16:9 на екрані Steam Deck 16:10), "
+"зберігає пропорції зображення з чорними смугами або розтягує його на все вікно."
+
+msgctxt "UI_MENU_PICTURE_FIT_KEEP"
+msgid "Keep (bars)"
+msgstr "Зберегти (смуги)"
+
+msgctxt "UI_MENU_PICTURE_FIT_STRETCH"
+msgid "Stretch"
+msgstr "Розтягнути"
+
+msgctxt "UI_MENU_HDR"
+msgid "HDR"
+msgstr "HDR"
+
+msgctxt "UI_MENU_HDR_DESC"
+msgid ""
+"Automatic shows the game's own HDR picture when the display is in HDR (on Windows, Settings > "
+"Display > Use HDR), as the console does; its brightness follows the system's HDR settings. Off "
+"always shows the standard picture. Applies at once."
+msgstr ""
+"Автоматично показує власне HDR-зображення гри, коли дисплей працює в HDR (у Windows: Параметри > "
+"Дисплей > Використовувати HDR), як і консоль; його яскравість залежить від налаштувань HDR "
+"системи. Викл. завжди показує стандартне зображення. Застосовується одразу."
+
+msgctxt "UI_MENU_SHARPNESS"
+msgid "FSR sharpness"
+msgstr "Різкість FSR"
+
+msgctxt "UI_MENU_SHARPNESS_DESC"
+msgid "Sharpening after FSR scaling; 0 turns it off."
+msgstr "Підвищення різкості після масштабування FSR; 0 вимикає."
+
+msgctxt "UI_MENU_GAME_LANG"
+msgid "Game language"
+msgstr "Мова гри"
+
+msgctxt "UI_MENU_GAME_LANG_DESC"
+msgid "Language of the game's text and voices."
+msgstr "Мова текстів і голосів гри."
+
+msgctxt "UI_MENU_GAME_LANG_AUTO"
+msgid "Automatic"
+msgstr "Автоматично"
+
+msgctxt "UI_MENU_OPERATION_MODE"
+msgid "Console mode"
+msgstr "Режим консолі"
+
+msgctxt "UI_MENU_OPERATION_MODE_DESC"
+msgid ""
+"Whether the game thinks it runs docked or handheld. Docked, it draws the scene smaller and "
+"enlarges it with its own scaler; handheld, at the full internal resolution with smaller shadows: "
+"sharper, but more work for the graphics card."
+msgstr ""
+"Чи вважає гра, що працює в док-станції, чи в портативному режимі. У док-станції вона малює сцену "
+"меншою і збільшує власним масштабувальником; у портативному — у повній внутрішній роздільності з "
+"меншими тінями: чіткіше, але більше роботи для відеокарти."
+
+msgctxt "UI_MENU_MODE_DOCKED"
+msgid "Docked"
+msgstr "У док-станції"
+
+msgctxt "UI_MENU_MODE_HANDHELD"
+msgid "Handheld"
+msgstr "Портативний"
+
+msgctxt "UI_MENU_VOLUME"
+msgid "Volume"
+msgstr "Гучність"
+
+msgctxt "UI_MENU_VOLUME_DESC"
+msgid "Master volume of the game."
+msgstr "Загальна гучність гри."
+
+msgctxt "UI_MENU_SPEAKERS"
+msgid "Speakers"
+msgstr "Динаміки"
+
+msgctxt "UI_MENU_SPEAKERS_STEREO"
+msgid "Stereo"
+msgstr "Стерео"
+
+msgctxt "UI_MENU_SPEAKERS_51"
+msgid "5.1 surround"
+msgstr "Об'ємний звук 5.1"
+
+msgctxt "UI_MENU_SPEAKERS_DESC"
+msgid ""
+"Automatic gives the game's 5.1 surround mix when the system's sound output has 6 channels or "
+"more, and stereo otherwise. Applies at the next start."
+msgstr ""
+"Автоматично дає об'ємне мікшування 5.1 гри, коли звуковий вихід системи має 6 каналів або більше, "
+"і стерео в іншому разі. Застосовується під час наступного запуску."
+
+msgctxt "UI_MENU_MOTION"
+msgid "Motion controls"
+msgstr "Керування рухом"
+
+msgctxt "UI_MENU_MOTION_DESC"
+msgid "Steering by tilting the controller."
+msgstr "Кермування нахилом контролера."
+
+msgctxt "UI_MENU_RUMBLE_STRENGTH"
+msgid "Vibration strength"
+msgstr "Сила вібрації"
+
+msgctxt "UI_MENU_RUMBLE_STRENGTH_DESC"
+msgid "How strong the controller vibrates."
+msgstr "Наскільки сильно вібрує контролер."
+
+msgctxt "UI_MENU_RUMBLE_CURVE"
+msgid "Vibration curve"
+msgstr "Крива вібрації"
+
+msgctxt "UI_MENU_RUMBLE_CURVE_DESC"
+msgid "Lower values make weak vibration stronger."
+msgstr "Менші значення підсилюють слабку вібрацію."
+
+msgctxt "UI_MENU_RUMBLE_TRIGGERS"
+msgid "Trigger vibration (Xbox)"
+msgstr "Вібрація тригерів (Xbox)"
+
+msgctxt "UI_MENU_RUMBLE_TRIGGERS_DESC"
+msgid "Vibrates the triggers of an Xbox controller too."
+msgstr "Вібрує також тригерами контролера Xbox."
+
+msgctxt "UI_MENU_PAD_LAYOUT"
+msgid "Button layout"
+msgstr "Розкладка кнопок"
+
+msgctxt "UI_MENU_PAD_LAYOUT_DESC"
+msgid ""
+"Which button is A. Nintendo: the right one, as on a Switch. Xbox: the bottom one, as labelled on "
+"an Xbox controller (cross on a PlayStation controller). Automatic picks Nintendo for controllers "
+"with Nintendo labels and Xbox for the others."
+msgstr ""
+"Яка кнопка є A. Nintendo: права, як на Switch. Xbox: нижня, як підписано на контролері Xbox "
+"(хрестик на контролері PlayStation). Автоматично вибирає Nintendo для контролерів із позначками "
+"Nintendo і Xbox для решти."
+
+msgctxt "UI_MENU_PAD_LAYOUT_AUTO"
+msgid "Automatic"
+msgstr "Автоматично"
+
+msgctxt "UI_MENU_PAD_LAYOUT_NINTENDO"
+msgid "Nintendo (A right)"
+msgstr "Nintendo (A праворуч)"
+
+msgctxt "UI_MENU_PAD_LAYOUT_XBOX"
+msgid "Xbox (A bottom)"
+msgstr "Xbox (A внизу)"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_PAD_LAYOUT_IN_USE"
+msgid "in use: %s"
+msgstr "використовується: %s"
+
+msgctxt "UI_MENU_MOUSE_SENS"
+msgid "Mouse camera sensitivity"
+msgstr "Чутливість камери для миші"
+
+msgctxt "UI_MENU_MOUSE_SENS_DESC"
+msgid "How fast the mouse turns the camera."
+msgstr "Як швидко миша повертає камеру."
+
+msgctxt "UI_MENU_BUTTON_ICONS"
+msgid "Button icons"
+msgstr "Значки кнопок"
+
+msgctxt "UI_MENU_BUTTON_ICONS_DESC"
+msgid ""
+"Which buttons the game's prompts show. Automatic follows the device you used last: the "
+"controller's own buttons (Xbox or PlayStation), or your keys and mouse. The icons follow your "
+"remapped buttons."
+msgstr ""
+"Які кнопки показують підказки гри. Автоматично слідує за пристроєм, яким ти користувався "
+"останнім: власні кнопки контролера (Xbox чи PlayStation) або твої клавіші й миша. Значки "
+"відповідають твоїм переназначеним кнопкам."
+
+msgctxt "UI_MENU_ICONS_NINTENDO"
+msgid "Nintendo"
+msgstr "Nintendo"
+
+msgctxt "UI_MENU_ICONS_XBOX"
+msgid "Xbox"
+msgstr "Xbox"
+
+msgctxt "UI_MENU_ICONS_PLAYSTATION"
+msgid "PlayStation"
+msgstr "PlayStation"
+
+msgctxt "UI_MENU_ICONS_KEYBOARD"
+msgid "Keyboard"
+msgstr "Клавіатура"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_ICONS_IN_USE"
+msgid "in use: %s"
+msgstr "використовується: %s"
+
+msgctxt "UI_BINDS_HELP"
+msgid ""
+"Select a cell and press A or Enter, then the key, mouse button or controller button. Delete or X "
+"clears a cell. A key in use moves here; a controller button swaps with the one it replaces."
+msgstr ""
+"Вибери комірку й натисни A або Enter, а потім клавішу, кнопку миші чи кнопку контролера. Delete "
+"або X очищає комірку. Клавіша, що вже використовується, переходить сюди; кнопка контролера "
+"міняється місцями з тією, яку заміняє."
+
+msgctxt "UI_BINDS_COL_KEY1"
+msgid "Key 1"
+msgstr "Клавіша 1"
+
+msgctxt "UI_BINDS_COL_KEY2"
+msgid "Key 2"
+msgstr "Клавіша 2"
+
+msgctxt "UI_BINDS_COL_PAD"
+msgid "Controller"
+msgstr "Контролер"
+
+msgctxt "UI_BINDS_GROUP_BUTTONS"
+msgid "Buttons"
+msgstr "Кнопки"
+
+msgctxt "UI_BINDS_GROUP_MOVE"
+msgid "Movement"
+msgstr "Рух"
+
+msgctxt "UI_BINDS_GROUP_CAMERA"
+msgid "Camera"
+msgstr "Камера"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_BINDS_PRESS_KEY"
+msgid "Press a key or mouse button for %s"
+msgstr "Натисни клавішу чи кнопку миші для: %s"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_BINDS_PRESS_PAD"
+msgid "Press a controller button for %s"
+msgstr "Натисни кнопку контролера для: %s"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_BINDS_CANCEL_HINT"
+msgid "Esc cancels, or wait %d s"
+msgstr "Esc скасовує, або зачекай %d с"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_BINDS_TAKEN"
+msgid "%s was taken from %s"
+msgstr "%s забрано в: %s"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_BINDS_SWAPPED"
+msgid "%s swapped with %s"
+msgstr "%s помінялося місцями з %s"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_NOTICE_PADS_MISSING"
+msgid "%d players need a controller each: %d connected. The keyboard only counts for player 1."
+msgstr ""
+"Гравців: %d, кожному потрібен контролер; підключено: %d. Клавіатура враховується лише для гравця "
+"1."
+
+msgctxt "UI_BINDS_RESET"
+msgid "Reset all buttons"
+msgstr "Скинути всі кнопки"
+
+msgctxt "UI_BINDS_RESET_DESC"
+msgid ""
+"Back to the default keys and controller buttons. The button layout above applies again: remapped "
+"controller buttons stay where you put them until this reset."
+msgstr ""
+"Повернення до типових клавіш і кнопок контролера. Розкладка кнопок вище знову діє: переназначені "
+"кнопки контролера лишаються там, куди ти їх поставив, доки не зробиш це скидання."
+
+msgctxt "UI_BIND_A"
+msgid "A"
+msgstr "A"
+
+msgctxt "UI_BIND_B"
+msgid "B"
+msgstr "B"
+
+msgctxt "UI_BIND_X"
+msgid "X"
+msgstr "X"
+
+msgctxt "UI_BIND_Y"
+msgid "Y"
+msgstr "Y"
+
+msgctxt "UI_BIND_LCLICK"
+msgid "Left stick click"
+msgstr "Натискання лівого стіка"
+
+msgctxt "UI_BIND_RCLICK"
+msgid "Right stick click"
+msgstr "Натискання правого стіка"
+
+msgctxt "UI_BIND_L"
+msgid "L"
+msgstr "L"
+
+msgctxt "UI_BIND_R"
+msgid "R"
+msgstr "R"
+
+msgctxt "UI_BIND_ZL"
+msgid "ZL"
+msgstr "ZL"
+
+msgctxt "UI_BIND_ZR"
+msgid "ZR"
+msgstr "ZR"
+
+msgctxt "UI_BIND_PLUS"
+msgid "Plus"
+msgstr "Плюс"
+
+msgctxt "UI_BIND_MINUS"
+msgid "Minus"
+msgstr "Мінус"
+
+msgctxt "UI_BIND_LEFT"
+msgid "D-pad left"
+msgstr "Хрестовина вліво"
+
+msgctxt "UI_BIND_UP"
+msgid "D-pad up"
+msgstr "Хрестовина вгору"
+
+msgctxt "UI_BIND_RIGHT"
+msgid "D-pad right"
+msgstr "Хрестовина вправо"
+
+msgctxt "UI_BIND_DOWN"
+msgid "D-pad down"
+msgstr "Хрестовина вниз"
+
+msgctxt "UI_BIND_LSTICK_LEFT"
+msgid "Steer left"
+msgstr "Поворот ліворуч"
+
+msgctxt "UI_BIND_LSTICK_UP"
+msgid "Stick up"
+msgstr "Стік угору"
+
+msgctxt "UI_BIND_LSTICK_RIGHT"
+msgid "Steer right"
+msgstr "Поворот праворуч"
+
+msgctxt "UI_BIND_LSTICK_DOWN"
+msgid "Stick down"
+msgstr "Стік униз"
+
+msgctxt "UI_BIND_RSTICK_LEFT"
+msgid "Camera left"
+msgstr "Камера ліворуч"
+
+msgctxt "UI_BIND_RSTICK_UP"
+msgid "Camera up"
+msgstr "Камера вгору"
+
+msgctxt "UI_BIND_RSTICK_RIGHT"
+msgid "Camera right"
+msgstr "Камера праворуч"
+
+msgctxt "UI_BIND_RSTICK_DOWN"
+msgid "Camera down"
+msgstr "Камера вниз"
+
+msgctxt "UI_BIND_DESC_A"
+msgid "Accelerate; confirm in menus."
+msgstr "Розгін; підтвердження в меню."
+
+msgctxt "UI_BIND_DESC_B"
+msgid "Brake, reverse; back in menus."
+msgstr "Гальмо, задній хід; назад у меню."
+
+msgctxt "UI_BIND_DESC_X"
+msgid "Rear view."
+msgstr "Вид назад."
+
+msgctxt "UI_BIND_DESC_Y"
+msgid "World map (free roam)."
+msgstr "Мапа світу (вільна їзда)."
+
+msgctxt "UI_BIND_DESC_LCLICK"
+msgid "No action in the game's control list."
+msgstr "Немає дії в списку керування гри."
+
+msgctxt "UI_BIND_DESC_RCLICK"
+msgid "No action in the game's control list."
+msgstr "Немає дії в списку керування гри."
+
+msgctxt "UI_BIND_DESC_L"
+msgid "Use an item."
+msgstr "Використання предмета."
+
+msgctxt "UI_BIND_DESC_R"
+msgid "Hop, drift, charge jump, trick."
+msgstr "Підскок, дрифт, заряджений стрибок, трюк."
+
+msgctxt "UI_BIND_DESC_ZL"
+msgid "Use an item."
+msgstr "Використання предмета."
+
+msgctxt "UI_BIND_DESC_ZR"
+msgid "Hop, drift, charge jump, trick."
+msgstr "Підскок, дрифт, заряджений стрибок, трюк."
+
+msgctxt "UI_BIND_DESC_PLUS"
+msgid "Pause, settings."
+msgstr "Пауза, налаштування."
+
+msgctxt "UI_BIND_DESC_MINUS"
+msgid "Photo mode."
+msgstr "Режим фото."
+
+msgctxt "UI_BIND_DESC_DPAD"
+msgid "Down rewinds; all four move in menus."
+msgstr "Вниз перемотує назад; усі чотири переміщують по меню."
+
+msgctxt "UI_BIND_DESC_MOVE"
+msgid "Steers like the left stick. The controller's left stick always works too."
+msgstr "Кермує як лівий стік. Лівий стік контролера теж завжди працює."
+
+msgctxt "UI_BIND_DESC_CAMERA"
+msgid ""
+"Turns the camera like the right stick. The mouse and the controller's right stick always work too."
+msgstr "Повертає камеру як правий стік. Миша й правий стік контролера теж завжди працюють."
+
+msgctxt "UI_KEY_SPACE"
+msgid "Space"
+msgstr "Пробіл"
+
+msgctxt "UI_KEY_TAB"
+msgid "Tab"
+msgstr "Tab"
+
+msgctxt "UI_KEY_LSHIFT"
+msgid "Left Shift"
+msgstr "Лівий Shift"
+
+msgctxt "UI_KEY_LCTRL"
+msgid "Left Ctrl"
+msgstr "Лівий Ctrl"
+
+msgctxt "UI_KEY_UP"
+msgid "Up arrow"
+msgstr "Стрілка вгору"
+
+msgctxt "UI_KEY_DOWN"
+msgid "Down arrow"
+msgstr "Стрілка вниз"
+
+msgctxt "UI_KEY_LEFT"
+msgid "Left arrow"
+msgstr "Стрілка вліво"
+
+msgctxt "UI_KEY_RIGHT"
+msgid "Right arrow"
+msgstr "Стрілка вправо"
+
+msgctxt "UI_KEY_MOUSE_L"
+msgid "Left mouse"
+msgstr "Ліва миша"
+
+msgctxt "UI_KEY_MOUSE_R"
+msgid "Right mouse"
+msgstr "Права миша"
+
+msgctxt "UI_KEY_MOUSE_M"
+msgid "Middle mouse"
+msgstr "Середня миша"
+
+msgctxt "UI_KEY_MOUSE_X1"
+msgid "Mouse 4"
+msgstr "Миша 4"
+
+msgctxt "UI_KEY_MOUSE_X2"
+msgid "Mouse 5"
+msgstr "Миша 5"
+
+msgctxt "UI_KEY_ENTER"
+msgid "Enter"
+msgstr "Enter"
+
+msgctxt "UI_KEY_BACKSPACE"
+msgid "Backspace"
+msgstr "Backspace"
+
+msgctxt "UI_KEY_RSHIFT"
+msgid "Right Shift"
+msgstr "Правий Shift"
+
+msgctxt "UI_KEY_RCTRL"
+msgid "Right Ctrl"
+msgstr "Правий Ctrl"
+
+msgctxt "UI_KEY_LALT"
+msgid "Alt"
+msgstr "Alt"
+
+msgctxt "UI_KEY_CAPSLOCK"
+msgid "Caps Lock"
+msgstr "Caps Lock"
+
+msgctxt "UI_KEY_INSERT"
+msgid "Insert"
+msgstr "Insert"
+
+msgctxt "UI_KEY_DELETE"
+msgid "Delete"
+msgstr "Delete"
+
+msgctxt "UI_KEY_HOME"
+msgid "Home"
+msgstr "Home"
+
+msgctxt "UI_KEY_END"
+msgid "End"
+msgstr "End"
+
+msgctxt "UI_KEY_PAGEUP"
+msgid "Page Up"
+msgstr "Page Up"
+
+msgctxt "UI_KEY_PAGEDOWN"
+msgid "Page Down"
+msgstr "Page Down"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_KEY_NUM_FMT"
+msgid "Num %s"
+msgstr "Num %s"
+
+msgctxt "UI_PAD_SOUTH"
+msgid "Bottom button"
+msgstr "Нижня кнопка"
+
+msgctxt "UI_PAD_EAST"
+msgid "Right button"
+msgstr "Права кнопка"
+
+msgctxt "UI_PAD_WEST"
+msgid "Left button"
+msgstr "Ліва кнопка"
+
+msgctxt "UI_PAD_NORTH"
+msgid "Top button"
+msgstr "Верхня кнопка"
+
+msgctxt "UI_PAD_LSTICK"
+msgid "Left stick"
+msgstr "Лівий стік"
+
+msgctxt "UI_PAD_RSTICK"
+msgid "Right stick"
+msgstr "Правий стік"
+
+msgctxt "UI_PAD_L"
+msgid "Left bumper"
+msgstr "Лівий бампер"
+
+msgctxt "UI_PAD_R"
+msgid "Right bumper"
+msgstr "Правий бампер"
+
+msgctxt "UI_PAD_START"
+msgid "Start"
+msgstr "Start"
+
+msgctxt "UI_PAD_BACK"
+msgid "Back"
+msgstr "Назад"
+
+msgctxt "UI_PAD_DPAD_LEFT"
+msgid "D-pad left"
+msgstr "Хрестовина вліво"
+
+msgctxt "UI_PAD_DPAD_UP"
+msgid "D-pad up"
+msgstr "Хрестовина вгору"
+
+msgctxt "UI_PAD_DPAD_RIGHT"
+msgid "D-pad right"
+msgstr "Хрестовина вправо"
+
+msgctxt "UI_PAD_DPAD_DOWN"
+msgid "D-pad down"
+msgstr "Хрестовина вниз"
+
+msgctxt "UI_PAD_ZL"
+msgid "Left trigger"
+msgstr "Лівий тригер"
+
+msgctxt "UI_PAD_ZR"
+msgid "Right trigger"
+msgstr "Правий тригер"
+
+msgctxt "UI_PAD_CROSS"
+msgid "Cross"
+msgstr "Хрестик"
+
+msgctxt "UI_PAD_CIRCLE"
+msgid "Circle"
+msgstr "Кружок"
+
+msgctxt "UI_PAD_SQUARE"
+msgid "Square"
+msgstr "Квадрат"
+
+msgctxt "UI_PAD_TRIANGLE"
+msgid "Triangle"
+msgstr "Трикутник"
+
+msgctxt "UI_MENU_MENU_LANG"
+msgid "Menu language"
+msgstr "Мова меню"
+
+msgctxt "UI_MENU_MENU_LANG_DESC"
+msgid "Language of this menu and the overlay."
+msgstr "Мова цього меню та оверлея."
+
+msgctxt "UI_MENU_MENU_LANG_AUTO"
+msgid "Automatic (from the system)"
+msgstr "Автоматично (із системи)"
+
+msgctxt "UI_MENU_ADV_WARNING"
+msgid "These settings are for testing and troubleshooting. Change them only when you know why."
+msgstr ""
+"Ці налаштування призначені для тестування та усунення проблем. Змінюй їх, лише якщо знаєш навіщо."
+
+msgctxt "UI_MENU_GROUP_SCHED"
+msgid "Scheduling"
+msgstr "Планування"
+
+msgctxt "UI_MENU_GROUP_SHADERS"
+msgid "Shaders and pipelines"
+msgstr "Шейдери й конвеєри"
+
+msgctxt "UI_MENU_GROUP_TEXMEM"
+msgid "Textures and memory"
+msgstr "Текстури й пам'ять"
+
+msgctxt "UI_MENU_GROUP_FIXES"
+msgid "Render fixes"
+msgstr "Виправлення рендерингу"
+
+msgctxt "UI_MENU_GROUP_VULKAN"
+msgid "Vulkan"
+msgstr "Vulkan"
+
+msgctxt "UI_MENU_GROUP_DIAG"
+msgid "Diagnostics"
+msgstr "Діагностика"
+
+msgctxt "UI_MENU_ASYNC_PREEMPT"
+msgid "Virtual core preemption"
+msgstr "Витіснення віртуальних ядер"
+
+msgctxt "UI_MENU_ASYNC_PREEMPT_DESC"
+msgid "Lets a game thread interrupt another one on the same virtual core."
+msgstr "Дозволяє потоку гри перервати інший на тому самому віртуальному ядрі."
+
+msgctxt "UI_MENU_PREEMPT_OFF"
+msgid "Off"
+msgstr "Викл."
+
+msgctxt "UI_MENU_PREEMPT_ON"
+msgid "On"
+msgstr "Вкл."
+
+msgctxt "UI_MENU_PREEMPT_INHERIT"
+msgid "Inheritance only"
+msgstr "Лише успадкування"
+
+msgctxt "UI_MENU_REPLAY_ASYNC"
+msgid "GPU frame prep on its own thread"
+msgstr "Підготовка кадрів GPU в окремому потоці"
+
+msgctxt "UI_MENU_REPLAY_ASYNC_DESC"
+msgid ""
+"Prepares frames for the GPU on a separate thread instead of the game thread. Adds up to one frame "
+"of latency."
+msgstr "Готує кадри для GPU в окремому потоці замість потоку гри. Додає до одного кадру затримки."
+
+msgctxt "UI_MENU_FREE_CORES"
+msgid "Virtual core gate"
+msgstr "Шлюз віртуальних ядер"
+
+msgctxt "UI_MENU_FREE_CORES_DESC"
+msgid "Lets only one thread run per virtual core, as on the console."
+msgstr "Дозволяє працювати лише одному потоку на віртуальне ядро, як на консолі."
+
+msgctxt "UI_MENU_TIMER_1MS"
+msgid "1 ms Windows timer"
+msgstr "Таймер Windows 1 мс"
+
+msgctxt "UI_MENU_TIMER_1MS_DESC"
+msgid "Raises the system timer resolution to 1 ms for steadier frame pacing."
+msgstr "Підвищує роздільність системного таймера до 1 мс для рівномірнішої частоти кадрів."
+
+msgctxt "UI_MENU_PIPE_WAIT"
+msgid "Waiting draw handling"
+msgstr "Обробка очікувальних викликів малювання"
+
+msgctxt "UI_MENU_PIPE_WAIT_DESC"
+msgid ""
+"Default keeps the current scheduling with a reserved worker for waiting draws; Old (draw) uses "
+"the previous scheduling."
+msgstr ""
+"Типово зберігає поточне планування із зарезервованим виконавцем для очікувальних викликів "
+"малювання; Старе (малювання) використовує попереднє планування."
+
+msgctxt "UI_MENU_PIPE_WAIT_DEFAULT"
+msgid "Default"
+msgstr "Типово"
+
+msgctxt "UI_MENU_PIPE_WAIT_DRAW"
+msgid "Old (draw)"
+msgstr "Старе (малювання)"
+
+msgctxt "UI_MENU_PIPE_SKIP"
+msgid "Draws skipped while a pipeline builds"
+msgstr "Виклики малювання, що пропускаються під час побудови конвеєра"
+
+msgctxt "UI_MENU_PIPE_SKIP_DESC"
+msgid "Which draws are dropped instead of waiting for their pipeline."
+msgstr "Які виклики малювання відкидаються замість очікування свого конвеєра."
+
+msgctxt "UI_MENU_PIPE_SKIP_STRICT"
+msgid "Strict"
+msgstr "Суворо"
+
+msgctxt "UI_MENU_PIPE_SKIP_ANY"
+msgid "Any"
+msgstr "Будь-які"
+
+msgctxt "UI_MENU_PIPE_SKIP_FULLSCREEN"
+msgid "Fullscreen passes"
+msgstr "Повноекранні проходи"
+
+msgctxt "UI_MENU_PIPE_PREBUILD"
+msgid "Pipeline prebuild"
+msgstr "Попередня побудова конвеєрів"
+
+msgctxt "UI_MENU_PIPE_PREBUILD_DESC"
+msgid "Builds known pipelines ahead of time."
+msgstr "Будує відомі конвеєри заздалегідь."
+
+msgctxt "UI_MENU_GPL"
+msgid "Graphics pipeline library"
+msgstr "Бібліотека графічних конвеєрів"
+
+msgctxt "UI_MENU_GPL_DESC"
+msgid "Uses the Vulkan pipeline library extension; turn off if your driver misbehaves with it."
+msgstr ""
+"Використовує розширення бібліотеки конвеєрів Vulkan; вимкни, якщо драйвер із ним працює "
+"неправильно."
+
+msgctxt "UI_MENU_ASTC"
+msgid "ASTC texture decoding"
+msgstr "Декодування текстур ASTC"
+
+msgctxt "UI_MENU_ASTC_DESC"
+msgid "Where compressed ASTC textures are decoded."
+msgstr "Де декодуються стиснені текстури ASTC."
+
+msgctxt "UI_MENU_ASTC_AUTO"
+msgid "Automatic"
+msgstr "Автоматично"
+
+msgctxt "UI_MENU_ASTC_GPU"
+msgid "GPU shader"
+msgstr "Шейдер GPU"
+
+msgctxt "UI_MENU_ASTC_NATIVE"
+msgid "Native"
+msgstr "Нативно"
+
+msgctxt "UI_MENU_ASTC_CPU"
+msgid "CPU"
+msgstr "CPU"
+
+msgctxt "UI_MENU_MEMORY"
+msgid "GPU memory mode"
+msgstr "Режим пам'яті GPU"
+
+msgctxt "UI_MENU_MEMORY_DESC"
+msgid "How game memory is shared with the GPU."
+msgstr "Як пам'ять гри спільно використовується з GPU."
+
+msgctxt "UI_MENU_MEMORY_AUTO"
+msgid "Automatic"
+msgstr "Автоматично"
+
+msgctxt "UI_MENU_MEMORY_IMPORT"
+msgid "Import"
+msgstr "Імпорт"
+
+msgctxt "UI_MENU_MEMORY_MIRROR"
+msgid "Mirror"
+msgstr "Дзеркало"
+
+msgctxt "UI_MENU_MEMORY_VERIFY"
+msgid "Verify"
+msgstr "Перевірка"
+
+msgctxt "UI_MENU_TEX_ALIAS"
+msgid "Texture aliasing"
+msgstr "Аліасинг текстур"
+
+msgctxt "UI_MENU_TEX_ALIAS_DESC"
+msgid ""
+"A new texture created over a live texture's memory starts with that content instead of empty."
+msgstr ""
+"Нова текстура, створена поверх пам'яті живої текстури, починається з її вмісту, а не порожньою."
+
+msgctxt "UI_MENU_FIX_C0"
+msgid "Constant buffer fix"
+msgstr "Виправлення буфера констант"
+
+msgctxt "UI_MENU_FIX_C0_DESC"
+msgid ""
+"Fills the driver-reserved constant bank c0 (storage sizes, dispatch size, point size, base "
+"instance) instead of reading zeros."
+msgstr ""
+"Заповнює зарезервований драйвером банк констант c0 (розміри сховищ, розмір dispatch, розмір "
+"точки, базовий екземпляр) замість читання нулів."
+
+msgctxt "UI_MENU_FIX_ZERO"
+msgid "Zero new GPU memory"
+msgstr "Обнуляти нову пам'ять GPU"
+
+msgctxt "UI_MENU_FIX_ZERO_DESC"
+msgid "New GPU memory pools start zero-filled, as Switch memory does."
+msgstr "Нові пули пам'яті GPU починаються заповненими нулями, як пам'ять Switch."
+
+msgctxt "UI_MENU_BIND_SKIP"
+msgid "Skip repeated binds"
+msgstr "Пропускати повторні прив'язки"
+
+msgctxt "UI_MENU_BIND_SKIP_DESC"
+msgid "Optimisation: skips bindings that did not change."
+msgstr "Оптимізація: пропускає прив'язки, що не змінилися."
+
+msgctxt "UI_MENU_SHADER_MEMO"
+msgid "Shader memo"
+msgstr "Кеш шейдерів"
+
+msgctxt "UI_MENU_SHADER_MEMO_DESC"
+msgid "Optimisation: remembers shader lookups."
+msgstr "Оптимізація: запам'ятовує пошуки шейдерів."
+
+msgctxt "UI_MENU_PIPE_MEMO"
+msgid "Pipeline memo"
+msgstr "Кеш конвеєрів"
+
+msgctxt "UI_MENU_PIPE_MEMO_DESC"
+msgid "Optimisation: reuses the previous draw's pipeline when its state repeats."
+msgstr ""
+"Оптимізація: повторно використовує конвеєр попереднього виклику малювання, коли його стан "
+"повторюється."
+
+msgctxt "UI_MENU_TEX_MEMO"
+msgid "Texture binding memo"
+msgstr "Кеш прив'язок текстур"
+
+msgctxt "UI_MENU_TEX_MEMO_DESC"
+msgid "Optimisation: remembers texture descriptors between draws."
+msgstr "Оптимізація: запам'ятовує дескриптори текстур між викликами малювання."
+
+msgctxt "UI_MENU_DESC_TEMPLATE"
+msgid "Descriptor templates"
+msgstr "Шаблони дескрипторів"
+
+msgctxt "UI_MENU_DESC_TEMPLATE_DESC"
+msgid "Optimisation: updates descriptors in bulk."
+msgstr "Оптимізація: оновлює дескриптори пакетно."
+
+msgctxt "UI_MENU_PUSH_SKIP"
+msgid "Skip repeated push constants"
+msgstr "Пропускати повторні push constants"
+
+msgctxt "UI_MENU_PUSH_SKIP_DESC"
+msgid "Optimisation: skips push constants that did not change."
+msgstr "Оптимізація: пропускає push constants, що не змінилися."
+
+msgctxt "UI_MENU_SPLIT_DRAWS"
+msgid "Early GPU submission"
+msgstr "Рання передача до GPU"
+
+msgctxt "UI_MENU_SPLIT_DRAWS_DESC"
+msgid ""
+"Submits GPU work in parts every N draws between passes so the GPU starts earlier; 0 turns it off."
+msgstr ""
+"Передає роботу GPU частинами кожні N викликів малювання між проходами, щоб GPU починав раніше; 0 "
+"вимикає."
+
+msgctxt "UI_MENU_VK_VALIDATION"
+msgid "Validation layer"
+msgstr "Шар валідації"
+
+msgctxt "UI_MENU_VK_VALIDATION_DESC"
+msgid "Checks every Vulkan call and slows the game down a lot."
+msgstr "Перевіряє кожен виклик Vulkan і сильно уповільнює гру."
+
+msgctxt "UI_MENU_VK_VALIDATION_MISSING"
+msgid "The validation layer is not installed."
+msgstr "Шар валідації не встановлено."
+
+msgctxt "UI_MENU_VK_DYN_VERTEX"
+msgid "Dynamic vertex state"
+msgstr "Динамічний стан вершин"
+
+msgctxt "UI_MENU_VK_DYN_VERTEX_DESC"
+msgid "Forces dynamic vertex input on or off; the default depends on the GPU."
+msgstr "Примусово вмикає або вимикає динамічне введення вершин; типове значення залежить від GPU."
+
+msgctxt "UI_MENU_VK_SUBGROUP_PIN"
+msgid "Pin subgroup size"
+msgstr "Фіксувати розмір підгрупи"
+
+msgctxt "UI_MENU_VK_SUBGROUP_PIN_DESC"
+msgid "Fixes the shader subgroup size."
+msgstr "Фіксує розмір підгрупи шейдера."
+
+msgctxt "UI_MENU_TRACE"
+msgid "Performance log"
+msgstr "Журнал продуктивності"
+
+msgctxt "UI_MENU_TRACE_DESC"
+msgid "Writes frame timings to a file."
+msgstr "Записує час кадрів у файл."
+
+msgctxt "UI_MENU_FLIGHT"
+msgid "Flight recorder"
+msgstr "Бортовий самописець"
+
+msgctxt "UI_MENU_FLIGHT_DESC"
+msgid "Keeps a short history and saves it when a frame freezes."
+msgstr "Зберігає коротку історію й записує її, коли кадр зависає."
+
+msgctxt "UI_MENU_FLIGHT_SPIKE_MS"
+msgid "Freeze threshold (ms)"
+msgstr "Поріг зависання (мс)"
+
+msgctxt "UI_MENU_FLIGHT_SPIKE_MS_DESC"
+msgid "Frame time that counts as a freeze."
+msgstr "Час кадру, що вважається зависанням."
+
+msgctxt "UI_MENU_INPUT_RECORD"
+msgid "Input recording"
+msgstr "Запис введення"
+
+msgctxt "UI_MENU_INPUT_RECORD_DESC"
+msgid "Writes your inputs to a file for bug reports."
+msgstr "Записує твої дії введення у файл для звітів про помилки."
+
+msgctxt "UI_MENU_OPEN_LOG"
+msgid "Open log folder"
+msgstr "Відкрити теку журналу"
+
+msgctxt "UI_MENU_OPEN_LOG_DESC"
+msgid "Shows the folder with the log files."
+msgstr "Показує теку з файлами журналу."
+
+msgctxt "UI_MENU_COPY_INFO"
+msgid "Copy system info"
+msgstr "Копіювати відомості про систему"
+
+msgctxt "UI_MENU_COPY_INFO_DESC"
+msgid "Copies GPU, driver, CPU, RAM and changed settings to the clipboard."
+msgstr "Копіює до буфера обміну GPU, драйвер, CPU, RAM і змінені налаштування."
+
+msgctxt "UI_MENU_COPY_INFO_DONE"
+msgid "Copied"
+msgstr "Скопійовано"
+
+msgctxt "UI_MENU_ACTION_FAILED"
+msgid "did not work"
+msgstr "не вдалося"
+
+msgctxt "UI_MENU_RESET"
+msgid "Reset all settings to defaults"
+msgstr "Скинути всі налаштування до типових"
+
+msgctxt "UI_MENU_RESET_DESC"
+msgid "Applies to every tab."
+msgstr "Стосується всіх вкладок."
+
+msgctxt "UI_MENU_RESET_CONFIRM"
+msgid "Reset every setting to its default?"
+msgstr "Скинути кожне налаштування до типового?"
+
+msgctxt "UI_MENU_RESET_YES"
+msgid "Reset"
+msgstr "Скинути"
+
+msgctxt "UI_MENU_RESET_NO"
+msgid "Cancel"
+msgstr "Скасувати"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FPS"
+msgid "%.0f FPS"
+msgstr "%.0f FPS"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FRAME_MS"
+msgid "%.1f ms"
+msgstr "%.1f мс"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_GAME_PCT"
+msgid "game %.0f%%"
+msgstr "гра %.0f%%"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_MAX_MS"
+msgid "max %.1f ms"
+msgstr "макс. %.1f мс"
+
+msgctxt "UI_MENU_OV_GPU"
+msgid "GPU"
+msgstr "GPU"
+
+msgctxt "UI_MENU_OV_CPU"
+msgid "CPU"
+msgstr "CPU"
+
+msgctxt "UI_MENU_OV_RAM"
+msgid "RAM"
+msgstr "RAM"
+
+msgctxt "UI_MENU_OV_VRAM"
+msgid "VRAM"
+msgstr "VRAM"
+
+msgctxt "UI_MENU_OV_NONE"
+msgid "-"
+msgstr "-"
+
+msgctxt "UI_MENU_OV_REPLAY"
+msgid "GPU frame prep"
+msgstr "Підготовка кадрів GPU"
+
+msgctxt "UI_MENU_OV_GPU_TIME"
+msgid "GPU busy per frame"
+msgstr "GPU зайнятий на кадр"
+
+msgctxt "UI_MENU_OV_PIPE_WAIT"
+msgid "Pipeline waits"
+msgstr "Очікування конвеєрів"
+
+msgctxt "UI_MENU_OV_TEX_UPLOADS"
+msgid "Texture uploads"
+msgstr "Завантаження текстур"
+
+msgctxt "UI_MENU_OV_MAIN_CPU"
+msgid "Game main thread CPU"
+msgstr "CPU головного потоку гри"
+
+msgctxt "UI_MENU_OV_RENDER_CPU"
+msgid "Render thread CPU"
+msgstr "CPU потоку рендерингу"
+
+msgctxt "UI_MENU_OV_SLOW"
+msgid "Frames over 33 ms"
+msgstr "Кадри понад 33 мс"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_PER_MIN"
+msgid "%.0f last minute"
+msgstr "%.0f за останню хвилину"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_PCT"
+msgid "%.0f%%"
+msgstr "%.0f%%"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_TEMP"
+msgid "%.0f °C"
+msgstr "%.0f °C"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_POWER"
+msgid "%.0f W"
+msgstr "%.0f Вт"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_MHZ"
+msgid "%.0f MHz"
+msgstr "%.0f МГц"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_GB"
+msgid "%.1f GB"
+msgstr "%.1f ГБ"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_GB_OF"
+msgid "/ %.1f GB"
+msgstr "/ %.1f ГБ"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_GAME_GB"
+msgid "game %.1f GB"
+msgstr "гра %.1f ГБ"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_MS"
+msgid "%.2f ms"
+msgstr "%.2f мс"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_PER_FRAME"
+msgid "%.1f per frame"
+msgstr "%.1f на кадр"
+
+msgctxt "UI_MENU_OV_WINDOW"
+msgid "Window"
+msgstr "Вікно"
+
+msgctxt "UI_MENU_OV_OUTPUT"
+msgid "Game image"
+msgstr "Зображення гри"
+
+msgctxt "UI_MENU_OV_INTERNAL"
+msgid "Internal resolution"
+msgstr "Внутрішня роздільність"
+
+msgctxt "UI_MENU_OV_SCALING"
+msgid "Scaling"
+msgstr "Масштабування"
+
+msgctxt "UI_MENU_OV_PRESENT"
+msgid "Presentation"
+msgstr "Виведення"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_SIZE"
+msgid "%ux%u"
+msgstr "%ux%u"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_FSR"
+msgid "AMD FSR 1, sharpness %d%%"
+msgstr "AMD FSR 1, різкість %d%%"
+
+msgctxt "UI_MENU_OV_SCALE_NONE"
+msgid "none (1:1)"
+msgstr "немає (1:1)"
+
+msgctxt "UI_MENU_OV_SCALE_BILINEAR"
+msgid "bilinear"
+msgstr "білінійне"
+
+msgctxt "UI_LAUNCH_SUBTITLE"
+msgid "Static recompilation for PC"
+msgstr "Статична рекомпіляція для ПК"
+
+msgctxt "UI_LAUNCH_PLAY"
+msgid "Play"
+msgstr "Грати"
+
+msgctxt "UI_LAUNCH_SETTINGS"
+msgid "Settings"
+msgstr "Налаштування"
+
+msgctxt "UI_LAUNCH_FILES"
+msgid "Game files"
+msgstr "Файли гри"
+
+msgctxt "UI_LAUNCH_QUIT"
+msgid "Quit"
+msgstr "Вийти"
+
+msgctxt "UI_LAUNCH_BACK"
+msgid "Back"
+msgstr "Назад"
+
+msgctxt "UI_LAUNCH_FILES_READY"
+msgid "Game files ready (version 1.0.0)"
+msgstr "Файли гри готові (версія 1.0.0)"
+
+msgctxt "UI_LAUNCH_FILES_MISSING"
+msgid "Game files not set up"
+msgstr "Файли гри не налаштовано"
+
+msgctxt "UI_LAUNCH_FILES_FOLDER"
+msgid "Game folder"
+msgstr "Тека гри"
+
+msgctxt "UI_LAUNCH_FILES_HELP"
+msgid ""
+"The game does not come with the port: it needs your own copy of Mario Kart World 1.0.0, dumped "
+"from your console (the exefs and romfs folders). The setup checks its version, builds the game "
+"code on this computer and translates the shaders."
+msgstr ""
+"Гра не входить до порту: потрібна твоя власна копія Mario Kart World 1.0.0, знята з твоєї консолі "
+"(теки exefs і romfs). Налаштування перевіряє її версію, збирає код гри на цьому комп'ютері та "
+"перекладає шейдери."
+
+msgctxt "UI_LAUNCH_NO_TOOLS"
+msgid "The setup tools are missing: the setup/ folder that comes with the program."
+msgstr "Бракує інструментів налаштування: теки setup/, що йде разом із програмою."
+
+msgctxt "UI_LAUNCH_SOURCE"
+msgid "Your copy"
+msgstr "Твоя копія"
+
+msgctxt "UI_LAUNCH_PICK"
+msgid "Choose folder"
+msgstr "Вибрати теку"
+
+msgctxt "UI_LAUNCH_ROMFS_MODE"
+msgid "RomFS (23 GB)"
+msgstr "RomFS (23 ГБ)"
+
+msgctxt "UI_LAUNCH_ROMFS_COPY"
+msgid "Copy into the game folder"
+msgstr "Скопіювати до теки гри"
+
+msgctxt "UI_LAUNCH_ROMFS_LINK"
+msgid "Use it where it is"
+msgstr "Використати там, де є"
+
+msgctxt "UI_LAUNCH_SETUP"
+msgid "Set up"
+msgstr "Налаштувати"
+
+msgctxt "UI_LAUNCH_SETUP_AGAIN"
+msgid "Set up again"
+msgstr "Налаштувати знову"
+
+msgctxt "UI_LAUNCH_CANCEL"
+msgid "Cancel"
+msgstr "Скасувати"
+
+msgctxt "UI_LAUNCH_SETUP_DONE"
+msgid "Set up finished: the game is ready."
+msgstr "Налаштування завершено: гра готова."
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_SETUP_FAILED"
+msgid "Set up failed: %s"
+msgstr "Налаштування не вдалося: %s"
+
+#. No %s: the detail is not shown.
+msgctxt "UI_SETUP_ERR_SOURCE"
+msgid "there is no earlier setup in this folder: choose the folder of your copy"
+msgstr "у цій теці немає попереднього налаштування: вибери теку своєї копії"
+
+#. %s: the folder the player chose.
+msgctxt "UI_SETUP_ERR_NOGAME"
+msgid "no exefs/main and romfs/ in %s: choose the folder of your copy of the game"
+msgstr "немає exefs/main і romfs/ у %s: вибери теку своєї копії гри"
+
+#. %s: the path of the exefs/main file.
+msgctxt "UI_SETUP_ERR_ENCRYPTED"
+msgid "%s is encrypted: the game's exefs must be decrypted"
+msgstr "%s зашифровано: exefs гри має бути розшифрованим"
+
+#. %s: the build id of the player's exefs/main (hexadecimal).
+msgctxt "UI_SETUP_ERR_VERSION"
+msgid "the game is not Mario Kart World 1.0.0 (build id %s): only 1.0.0 is supported"
+msgstr "гра не є Mario Kart World 1.0.0 (build id %s): підтримується лише 1.0.0"
+
+#. %s: how many files the player's RomFS has.
+msgctxt "UI_SETUP_ERR_ROMFS"
+msgid "the RomFS has only %s files: the copy is incomplete, copy it again"
+msgstr "у RomFS лише %s файлів: копія неповна, скопіюй її знову"
+
+#. %s: the failing tool's message, in English. logs/setup.log is a file name: keep it.
+msgctxt "UI_SETUP_ERR_FAILED"
+msgid "%s (more in logs/setup.log)"
+msgstr "%s (докладніше в logs/setup.log)"
+
+#. %s: the system's error message, in English. logs/setup.log is a file name: keep it.
+msgctxt "UI_SETUP_ERR_IO"
+msgid "file error: %s (more in logs/setup.log)"
+msgstr "помилка файлу: %s (докладніше в logs/setup.log)"
+
+msgctxt "UI_SETUP_ERR_STOPPED"
+msgid "the setup stopped (more in logs/setup.log)"
+msgstr "налаштування зупинилося (докладніше в logs/setup.log)"
+
+msgctxt "UI_SETUP_ERR_CANCELLED"
+msgid "cancelled"
+msgstr "скасовано"
+
+msgctxt "UI_SETUP_ERR_NO_SETUP"
+msgid "the setup tools are missing (setup/ next to the program): extract the release again"
+msgstr "бракує інструментів налаштування (setup/ поруч із програмою): розпакуй випуск знову"
+
+msgctxt "UI_LAUNCH_STEP_CHECK"
+msgid "Check the copy"
+msgstr "Перевірити копію"
+
+msgctxt "UI_LAUNCH_STEP_EXEFS"
+msgid "Copy exefs"
+msgstr "Скопіювати exefs"
+
+msgctxt "UI_LAUNCH_STEP_ROMFS"
+msgid "RomFS"
+msgstr "RomFS"
+
+msgctxt "UI_LAUNCH_STEP_GENERATE"
+msgid "Generate the game code"
+msgstr "Згенерувати код гри"
+
+msgctxt "UI_LAUNCH_STEP_COMPILE"
+msgid "Compile the game code"
+msgstr "Скомпілювати код гри"
+
+msgctxt "UI_LAUNCH_STEP_SHADERS"
+msgid "Translate the shaders"
+msgstr "Перекласти шейдери"
+
+msgctxt "UI_LAUNCH_STEP_WARM"
+msgid "Warm up the graphics (one minute)"
+msgstr "Прогріти графіку (одна хвилина)"
+
+msgctxt "UI_LAUNCH_STEP_CLEANUP"
+msgid "Clean up"
+msgstr "Прибрати"
+
+msgctxt "UI_LAUNCH_STEP_KEPT"
+msgid "kept"
+msgstr "збережено"
+
+msgctxt "UI_LAUNCH_SHORTCUT"
+msgid "Desktop shortcut"
+msgstr "Ярлик на робочому столі"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_SHORTCUT_DONE"
+msgid "Shortcut made: %s"
+msgstr "Ярлик створено: %s"
+
+msgctxt "UI_LAUNCH_SHORTCUT_FAILED"
+msgid "Could not make the shortcut"
+msgstr "Не вдалося створити ярлик"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_UPDATE"
+msgid "Update to %s (%d MB)"
+msgstr "Оновити до %s (%d МБ)"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_UPDATE_FETCHING"
+msgid "Downloading %s"
+msgstr "Завантаження %s"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_UPDATE_FAILED"
+msgid "Update failed: %s"
+msgstr "Оновлення не вдалося: %s"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_UPDATED"
+msgid "Updated to %s: setting up again what it changed"
+msgstr "Оновлено до %s: повторне налаштування того, що змінилося"
+
+msgctxt "UI_MENU_UPDATE_CHECK"
+msgid "Check for updates"
+msgstr "Перевіряти оновлення"
+
+msgctxt "UI_MENU_UPDATE_CHECK_DESC"
+msgid ""
+"At start, ask GitHub for a newer release of the port and offer it on the start screen (a few "
+"seconds at most, nothing offline)."
+msgstr ""
+"Під час запуску питає GitHub про новіший випуск порту й пропонує його на початковому екрані "
+"(щонайбільше кілька секунд, офлайн нічого)."

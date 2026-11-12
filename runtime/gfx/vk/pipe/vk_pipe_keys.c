@@ -279,6 +279,12 @@ void workers_drain(void) {
     plat_mutex_unlock(&P.lock);
 }
 
+void vk_pipeline_async_busy(unsigned *inflight, int *building) {
+    *inflight = __atomic_load_n(&A.inflight, __ATOMIC_RELAXED);
+    int idle = __atomic_load_n(&U.idle, __ATOMIC_RELAXED);
+    *building = A.threads > idle ? A.threads - idle : 0;
+}
+
 void vk_pipeline_async_enable(void) {
     U.on = strcmp(cfg_value("MKW_PIPE_WAIT"), "draw") != 0;
     const char *e = cfg_get("MKW_PIPE_SYNC");

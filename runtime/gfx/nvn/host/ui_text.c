@@ -17,13 +17,13 @@ typedef struct { const char *lang; const char *const *text; } Row;
 static const Row rows[] = {
     {"en", text_en}, {"ja", text_ja}, {"fr", text_fr}, {"de", text_de}, {"it", text_it}, {"es", text_es},
     {"nl", text_nl}, {"pt", text_pt}, {"pt-BR", text_pt_br}, {"ru", text_ru}, {"zh-Hans", text_zh_hans},
-    {"zh-Hant", text_zh_hant}, {"ko", text_ko},
+    {"zh-Hant", text_zh_hant}, {"ko", text_ko}, {"es-419", text_es_419}, {"ca", text_ca}, {"gl", text_gl},
+    {"eu", text_eu}, {"pl", text_pl}, {"tr", text_tr}, {"uk", text_uk},
 };
 
 const char *ui_text_lang(const char *code) {
     static const struct { const char *code, *lang; } map[] = {
-        {"en-US", "en"}, {"en-GB", "en"}, {"fr-CA", "fr"}, {"es-419", "es"},
-        {"zh-CN", "zh-Hans"}, {"zh-TW", "zh-Hant"},
+        {"en-US", "en"}, {"en-GB", "en"}, {"fr-CA", "fr"}, {"zh-CN", "zh-Hans"}, {"zh-TW", "zh-Hant"},
     };
     for (size_t i = 0; i < sizeof map / sizeof *map; i++)
         if (!strcmp(code, map[i].code)) return map[i].lang;
@@ -49,13 +49,15 @@ const char *ui_text_in(const char *lang, UiTextId id) {
 const char *ui_text(UiTextId id) { return ui_text_in(ui_text_lang(ov_language()), id); }
 
 // The catalog language for a system UI language tag ("pt-BR", "zh_TW", "de-AT"): Brazilian Portuguese only for
-// Brazil, Traditional Chinese for the Hant script or Taiwan, Hong Kong and Macao; NULL for one we have no row for.
+// Brazil, Traditional Chinese for the Hant script or Taiwan, Hong Kong and Macao, Latin American Spanish for any
+// region but Spain (as switch_language picks the game's); NULL for one we have no row for.
 static const char *system_menu_lang(const char *tag) {
     if (!tag || strlen(tag) < 2) return NULL;
     char lang[3] = {tag[0], tag[1], 0};
     const char *rest = tag + 2;
     if (*rest && *rest != '-' && *rest != '_') return NULL;
     if (!strcmp(lang, "pt")) return strstr(rest, "BR") ? "pt-BR" : "pt";
+    if (!strcmp(lang, "es")) return rest[0] && rest[1] && strncmp(rest + 1, "ES", 2) ? "es-419" : "es";
     if (!strcmp(lang, "zh"))
         return strstr(rest, "Hant") || strstr(rest, "TW") || strstr(rest, "HK") || strstr(rest, "MO") ? "zh-Hant"
                                                                                                     : "zh-Hans";

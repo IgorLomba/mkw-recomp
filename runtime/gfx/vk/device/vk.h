@@ -651,6 +651,9 @@ VkPipeline vk_pipeline_graphics_async(const VkPipeState *s, const VkPipeInfo **i
 VkPipeline vk_pipeline_graphics_async_low(const VkPipeState *s, const VkPipeInfo **info, int *pending);   // no wait; a miss from the low queue
 // rt_boot calls it unless --shot is given; MKW_PIPE_SYNC=1 makes it a no-op. Probes never call it.
 void vk_pipeline_async_enable(void);
+// Background pipeline work right now, read without the lock (for diagnostics): jobs queued or running, and workers
+// building (a library or a pipeline).
+void vk_pipeline_async_busy(unsigned *inflight, int *building);
 // Boot prewarm, before the guest runs (rt_boot): loads the shaders pipeline-keys.bin names, translating the ones not
 // cached under the current translator from their stored inputs, and builds every recorded pipeline, on all cores.
 // No-op without vk_pipeline_async_enable, with MKW_PIPE_PREBUILD=0 or with MKW_GPU=null.

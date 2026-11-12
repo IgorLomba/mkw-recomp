@@ -18,7 +18,7 @@ static const char *const kSteps[SETUP_STEPS] = {"check", "exefs", "romfs", "gene
                                                "cleanup"};
 
 static SDL_Mutex *g_lock;
-static SetupState g_state = {0, -1, {}, 0, 0, 0, {}};
+static SetupState g_state = {0, -1, {}, 0, 0, 0, {}, {}};
 static SDL_Process *g_proc;
 
 // The Python and prepare.py: the package's (setup/python, setup/src) beside the executable, else a source checkout's
@@ -45,10 +45,11 @@ int setup_available(const char *exe_dir) {
     return find_tools(exe_dir, python, script, sizeof python);
 }
 
-static void set_finished(int how, const char *why) {
+static void set_finished(int how, const char *code, const char *why) {
     SDL_LockMutex(g_lock);
     g_state.running = 0;
     g_state.finished = how;
+    if (code) snprintf(g_state.code, sizeof g_state.code, "%s", code);
     if (why) snprintf(g_state.error, sizeof g_state.error, "%s", why);
     SDL_UnlockMutex(g_lock);
 }
@@ -73,7 +74,9 @@ static void on_line(char *line) {
             if (!g_state.done[i]) g_state.done[i] = 1;
     } else if (!strcmp(line, "error") && arg) {
         char *why = strchr(arg, ' ');
-        snprintf(g_state.error, sizeof g_state.error, "%s", why ? why + 1 : arg);
+        if (why) *why++ = 0;
+        snprintf(g_state.code, sizeof g_state.code, "%s", arg);
+        snprintf(g_state.error, sizeof g_state.error, "%s", why ? why : "");
     }
     SDL_UnlockMutex(g_lock);
 }
@@ -103,7 +106,8 @@ static int SDLCALL reader(void *) {
     SDL_DestroyProcess(g_proc);
     g_proc = nullptr;
     SetupState s = setup_state();
-    set_finished(code == 0 ? 1 : -1, code == 0 || s.error[0] ? nullptr : "the setup stopped");
+    bool told = code == 0 || s.code[0];
+    set_finished(code == 0 ? 1 : -1, told ? nullptr : "stopped", told ? nullptr : "");
     rt_log("setup: ended with code %d", code);
     return 0;
 }
@@ -113,10 +117,10 @@ void setup_start(const char *exe_dir, const char *source, int link_romfs) {
     if (setup_state().running) return;
     char python[1200], script[1200];
     SDL_LockMutex(g_lock);
-    g_state = SetupState{1, -1, {}, 0, 0, 0, {}};
+    g_state = SetupState{1, -1, {}, 0, 0, 0, {}, {}};
     SDL_UnlockMutex(g_lock);
     if (!find_tools(exe_dir, python, script, sizeof python)) {
-        set_finished(-1, "the setup tools are missing (setup/ next to the program)");
+        set_finished(-1, "no_setup", "");
         return;
     }
     // -I: no user site packages or PYTHON* variables, nothing from the working directory
@@ -128,7 +132,7 @@ void setup_start(const char *exe_dir, const char *source, int link_romfs) {
            link_romfs ? "link" : "copy");
     g_proc = SDL_CreateProcess(args, true);
     if (!g_proc) {
-        set_finished(-1, SDL_GetError());
+        set_finished(-1, "", SDL_GetError());
         return;
     }
     SDL_DetachThread(SDL_CreateThread(reader, "setup", nullptr));
@@ -138,7 +142,8 @@ void setup_cancel(void) {
     if (!g_lock) return;
     SDL_LockMutex(g_lock);
     if (g_proc) SDL_KillProcess(g_proc, true);
-    snprintf(g_state.error, sizeof g_state.error, "cancelled");
+    snprintf(g_state.code, sizeof g_state.code, "cancelled");
+    g_state.error[0] = 0;
     SDL_UnlockMutex(g_lock);
 }
 

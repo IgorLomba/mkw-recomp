@@ -26,8 +26,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 I18N = ROOT / "i18n"
 POT = I18N / "mkw.pot"
-# The catalog languages after English, as ui_text.c's rows name them (Switch language codes: ui_text_lang)
+# The catalog languages after English, as ui_text.c's rows name them (Switch language codes: ui_text_lang): the game's,
+# then menu languages it does not ship
 LANGS = ["ja", "fr", "de", "it", "es", "nl", "pt", "pt-BR", "ru", "zh-Hans", "zh-Hant", "ko"]
+LANGS += ["es-419", "ca", "gl", "eu", "pl", "tr", "uk"]
 WRAP = 100
 
 

@@ -6,13 +6,18 @@
 // The language names are the same in every row.
 #define LANG_NAMES \
     [UI_MENU_LANGNAME_EN] = "English", [UI_MENU_LANGNAME_JA] = "日本語", [UI_MENU_LANGNAME_FR] = "Français", \
-    [UI_MENU_LANGNAME_DE] = "Deutsch", [UI_MENU_LANGNAME_IT] = "Italiano", [UI_MENU_LANGNAME_ES] = "Español", \
+    [UI_MENU_LANGNAME_DE] = "Deutsch", [UI_MENU_LANGNAME_IT] = "Italiano", [UI_MENU_LANGNAME_ES] = "Español (España)", \
     [UI_MENU_LANGNAME_NL] = "Nederlands", [UI_MENU_LANGNAME_PT] = "Português (Portugal)", \
     [UI_MENU_LANGNAME_PT_BR] = "Português (Brasil)", [UI_MENU_LANGNAME_RU] = "Русский", \
-    [UI_MENU_LANGNAME_ZH_HANS] = "简体中文", [UI_MENU_LANGNAME_ZH_HANT] = "繁體中文", [UI_MENU_LANGNAME_KO] = "한국어"
+    [UI_MENU_LANGNAME_ZH_HANS] = "简体中文", [UI_MENU_LANGNAME_ZH_HANT] = "繁體中文", [UI_MENU_LANGNAME_KO] = "한국어", \
+    [UI_MENU_LANGNAME_ES_419] = "Español (Latinoamérica)", [UI_MENU_LANGNAME_CA] = "Català", \
+    [UI_MENU_LANGNAME_GL] = "Galego", [UI_MENU_LANGNAME_EU] = "Euskara", [UI_MENU_LANGNAME_PL] = "Polski", \
+    [UI_MENU_LANGNAME_TR] = "Türkçe", [UI_MENU_LANGNAME_UK] = "Українська"
 
 extern const char *const text_en[UI_TEXT_COUNT], *const text_ru[UI_TEXT_COUNT], *const text_es[UI_TEXT_COUNT],
     *const text_ja[UI_TEXT_COUNT], *const text_fr[UI_TEXT_COUNT], *const text_de[UI_TEXT_COUNT],
     *const text_it[UI_TEXT_COUNT], *const text_nl[UI_TEXT_COUNT], *const text_pt[UI_TEXT_COUNT],
     *const text_pt_br[UI_TEXT_COUNT], *const text_zh_hans[UI_TEXT_COUNT], *const text_zh_hant[UI_TEXT_COUNT],
-    *const text_ko[UI_TEXT_COUNT];
+    *const text_ko[UI_TEXT_COUNT], *const text_es_419[UI_TEXT_COUNT], *const text_ca[UI_TEXT_COUNT],
+    *const text_gl[UI_TEXT_COUNT], *const text_eu[UI_TEXT_COUNT], *const text_pl[UI_TEXT_COUNT],
+    *const text_tr[UI_TEXT_COUNT], *const text_uk[UI_TEXT_COUNT];

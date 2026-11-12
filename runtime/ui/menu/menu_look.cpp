@@ -51,9 +51,10 @@ void menu_look_style(ImGuiStyle &s) {
     c[ImGuiCol_Separator] = ImVec4(0.30f, 0.36f, 0.30f, 1);
 }
 
-// Roboto Medium (Latin, Cyrillic, dashes and quotes) at 26 px per 1080 lines, with the glyphs of the Japanese, Korean
-// and Chinese language names merged in from a system font when there is one (each language is named in its own script).
-static const ImWchar kRanges[] = {0x0020, 0x00FF, 0x0400, 0x052F, 0x2010, 0x2027, 0};
+// Roboto Medium (Latin with Latin Extended-A for Polish, Turkish and Catalan, Cyrillic, dashes and quotes) at 26 px
+// per 1080 lines, with the glyphs of the Japanese, Korean and Chinese language names merged in from a system font when
+// there is one (each language is named in its own script).
+static const ImWchar kRanges[] = {0x0020, 0x017F, 0x0400, 0x052F, 0x2010, 0x2027, 0};
 static const struct { const char *lang; UiTextId name; } kCjk[] = {
     {"ja", UI_MENU_LANGNAME_JA}, {"ko", UI_MENU_LANGNAME_KO}, {"zh-Hans", UI_MENU_LANGNAME_ZH_HANS},
     {"zh-Hant", UI_MENU_LANGNAME_ZH_HANT},

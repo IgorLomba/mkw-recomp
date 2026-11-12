@@ -81,6 +81,8 @@ static const char *switch_language(const char *tag) {
     if (!strcmp(lang, "pt")) return !strcmp(region, "BR") ? "pt-BR" : "pt";
     if (!strcmp(lang, "fr")) return !strcmp(region, "CA") ? "fr-CA" : "fr";
     if (!strcmp(lang, "es")) return *region && strcmp(region, "ES") ? "es-419" : "es";
+    // Spain's other languages, which the game does not ship: its Spanish (the menu has their own rows)
+    if (!strcmp(lang, "ca") || !strcmp(lang, "gl") || !strcmp(lang, "eu")) return "es";
     if (!strcmp(lang, "zh"))
         return !strcmp(script, "Hant") || !strcmp(region, "TW") || !strcmp(region, "HK") || !strcmp(region, "MO")
                    ? "zh-Hant" : "zh-Hans";

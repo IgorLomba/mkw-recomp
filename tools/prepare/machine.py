@@ -20,7 +20,12 @@ def emit(*words: object) -> None:
 
 
 class Failed(Exception):
-    """A step that cannot go on: its message is for the player."""
+    """A step that cannot go on: its message is for the player. code names it for the start screen, which shows its own
+    translated text for it with detail inside (launcher.cpp setup_error_text); without a detail, the message."""
+
+    def __init__(self, message: str, code: str = "failed", detail: str | None = None) -> None:
+        super().__init__(message)
+        self.code, self.detail = code, message if detail is None else detail
 
 
 # ---- the package's tools (setup/ next to the executable), else the system's

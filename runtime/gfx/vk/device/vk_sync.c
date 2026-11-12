@@ -105,6 +105,19 @@ static int submit_on = -1;
 static _Thread_local int in_flush, is_submitter;
 static uint64_t pend_by_thread, pend_by_other, pend_ns;   // queue lock: parts sent by each, time in vkQueueSubmit2
 
+// What the submission side is doing, for the line a fence wait that reaches its limit logs (stall_log, #138): since
+// when a vkQueueSubmit2 has been running, and the completion thread waiting for the GPU or running a callback (which
+// fn); 0 when not.
+static int64_t qsub_since, comp_gpu_since, comp_cb_since;
+static void (*comp_cb_fn)(void *);
+
+static VkResult queue_submit(VkQueue q, const VkSubmitInfo2 *si) {
+    __atomic_store_n(&qsub_since, (int64_t)kern_now_ns(), __ATOMIC_RELAXED);
+    VkResult r = vkQueueSubmit2(q, 1, si, VK_NULL_HANDLE);
+    __atomic_store_n(&qsub_since, 0, __ATOMIC_RELAXED);
+    return r;
+}
+
 static void part_sent(uint64_t fence, VkResult r) {   // queue lock held
     vk_tl_queue_submit(fence);
     __atomic_store_n(&queued, fence, __ATOMIC_RELEASE);
@@ -120,7 +133,7 @@ void vk_sync_parts_flush(void) {
     while (pend_n) {
         PendPart *p = &parts[pend_head];
         uint64_t t0 = kern_now_ns();
-        VkResult r = vkQueueSubmit2(q, 1, &p->si, VK_NULL_HANDLE);
+        VkResult r = queue_submit(q, &p->si);
         pend_ns += kern_now_ns() - t0;
         if (is_submitter) pend_by_thread++;
         else pend_by_other++;
@@ -214,7 +227,9 @@ static void completion_main(void *arg) {
             plat_mutex_unlock(&st_lock);
             VkSemaphoreWaitInfo wi = {.sType = VK_STRUCTURE_TYPE_SEMAPHORE_WAIT_INFO, .semaphoreCount = 1,
                                       .pSemaphores = &c->timeline, .pValues = &want};
+            __atomic_store_n(&comp_gpu_since, (int64_t)kern_now_ns(), __ATOMIC_RELAXED);
             VkResult r = vkWaitSemaphores(c->device, &wi, 100000000ull);   // 100 ms: stop is checked between waits
+            __atomic_store_n(&comp_gpu_since, 0, __ATOMIC_RELAXED);
             if (r == VK_ERROR_DEVICE_LOST) vk_exec_recent_log();
             if (r != VK_SUCCESS && r != VK_TIMEOUT) rt_fatal("vk: vkWaitSemaphores failed (%d; device lost?)", (int)r);
             vkGetSemaphoreCounterValue(c->device, c->timeline, &reached);
@@ -226,6 +241,8 @@ static void completion_main(void *arg) {
             Pending p = queue[qhead++];
             qn--;
             plat_mutex_unlock(&st_lock);
+            __atomic_store_n(&comp_cb_fn, p.fn, __ATOMIC_RELAXED);
+            __atomic_store_n(&comp_cb_since, (int64_t)kern_now_ns(), __ATOMIC_RELAXED);
             if (vk_tl_on() > 0) {
                 uint64_t t0 = kern_now_ns();
                 p.fn(p.arg);
@@ -233,6 +250,7 @@ static void completion_main(void *arg) {
             } else {
                 p.fn(p.arg);
             }
+            __atomic_store_n(&comp_cb_since, 0, __ATOMIC_RELAXED);
             plat_mutex_lock(&st_lock);
         }
         if (reached > done) {
@@ -458,7 +476,7 @@ VkCommandBuffer vk_sync_split_with(const VkCommandBuffer *extra, int nextra) {
     if (RT_KNOB_ON(submit_on)) {
         part_defer(&si, pro ? cbi : cbi + 1, (int)si.commandBufferInfoCount, sig, cur_fence);
     } else {
-        VkResult r = vkQueueSubmit2(c->gfx_queue, 1, &si, VK_NULL_HANDLE);
+        VkResult r = queue_submit(c->gfx_queue, &si);
         part_sent(cur_fence, r);
     }
     if (ss) ss_ns[SS_SPLIT_SUBMIT2] += kern_now_ns() - k0, ss_splits++;
@@ -547,7 +565,7 @@ uint64_t vk_sync_submit(const uint64_t *handles, int n) {
                                      .value = so.signal, .stageMask = VK_PIPELINE_STAGE_2_ALL_COMMANDS_BIT};
     if (!so.ssem) si.signalSemaphoreInfoCount = 2;
     if (so.wsem && (so.wait || so.wsem != so.ssem)) si.waitSemaphoreInfoCount = 1, si.pWaitSemaphoreInfos = &bw;
-    VkResult r = vkQueueSubmit2(c->gfx_queue, 1, &si, VK_NULL_HANDLE);
+    VkResult r = queue_submit(c->gfx_queue, &si);
     vk_queue_unlock();
     vk_tl_queue_submit(fence);
     __atomic_store_n(&queued, fence, __ATOMIC_RELEASE);
@@ -626,10 +644,42 @@ int vk_sync_fence_wait(uint64_t value, uint64_t timeout_ns) {
     return ok;
 }
 
+// A wait that reached its limit (100 ms or more): where the value is (reserved by the replay, handed to the queue,
+// reached by the GPU, released to waiters) and what the submission side was doing, to tell a GPU that has not finished
+// from a submission held up (by the driver, a callback or the replay). The first 20, then one in 50.
+static void stall_log(uint64_t value, uint64_t waited_ns, uint64_t res, uint64_t iss, uint64_t dn) {
+    static unsigned n;
+    unsigned k = __atomic_add_fetch(&n, 1, __ATOMIC_RELAXED);
+    if (k > 20 && k % 50) return;
+    VkCtx *c = vk_ctx();
+    uint64_t gpu = 0;
+    vkGetSemaphoreCounterValue(c->device, c->timeline, &gpu);
+    int64_t now = (int64_t)kern_now_ns();
+    int64_t qs = __atomic_load_n(&qsub_since, __ATOMIC_RELAXED), gs = __atomic_load_n(&comp_gpu_since, __ATOMIC_RELAXED);
+    int64_t cs = __atomic_load_n(&comp_cb_since, __ATOMIC_RELAXED);
+    void (*fn)(void *) = __atomic_load_n(&comp_cb_fn, __ATOMIC_RELAXED);
+    unsigned inflight;
+    int building;
+    vk_pipeline_async_busy(&inflight, &building);
+    char sub[48] = "idle", comp[96] = "idle";
+    if (qs) snprintf(sub, sizeof sub, "in vkQueueSubmit2 for %.1f ms", (double)(now - qs) / 1e6);
+    if (cs)
+        snprintf(comp, sizeof comp, "in the callback build/mkw+%#llx for %.1f ms",
+                 (unsigned long long)((uintptr_t)fn - plat_exe_base()), (double)(now - cs) / 1e6);
+    else if (gs)
+        snprintf(comp, sizeof comp, "waiting for the GPU for %.1f ms", (double)(now - gs) / 1e6);
+    rt_log("vk: fence wait %u for %llu gave up after %.1f ms: reserved %llu issued %llu queued %llu gpu %llu done %llu, "
+           "parts waiting %d; submit %s; completion thread %s; pipelines %u queued or building, %d workers busy", k,
+           (unsigned long long)value, (double)waited_ns / 1e6, (unsigned long long)res, (unsigned long long)iss,
+           (unsigned long long)vk_sync_fence_queued(), (unsigned long long)gpu, (unsigned long long)dn,
+           __atomic_load_n(&pend_n, __ATOMIC_ACQUIRE), sub, comp, inflight, building);
+}
+
 static int fence_wait_impl(uint64_t value, uint64_t timeout_ns) {
     vk_sync_start();
     plat_mutex_lock(&st_lock);
     int ok;
+    uint64_t waited = 0, res = 0, iss = 0, dn = 0;
     if (value > issued && value > reserved) {
         ok = 0;   // never submitted nor queued: never reached (as in the null back end)
     } else {
@@ -644,8 +694,10 @@ static int fence_wait_impl(uint64_t value, uint64_t timeout_ns) {
             }
         }
         ok = done >= value;
+        if (!ok) waited = kern_now_ns() - t0, res = reserved, iss = issued, dn = done;
     }
     plat_mutex_unlock(&st_lock);
+    if (!ok && waited >= 100000000ull) stall_log(value, waited, res, iss, dn);
     return ok;
 }
 

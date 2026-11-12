@@ -110,6 +110,10 @@ typedef enum {
     UI_MENU_LANGNAME_EN, UI_MENU_LANGNAME_JA, UI_MENU_LANGNAME_FR, UI_MENU_LANGNAME_DE, UI_MENU_LANGNAME_IT,
     UI_MENU_LANGNAME_ES, UI_MENU_LANGNAME_NL, UI_MENU_LANGNAME_PT, UI_MENU_LANGNAME_PT_BR, UI_MENU_LANGNAME_RU,
     UI_MENU_LANGNAME_ZH_HANS, UI_MENU_LANGNAME_ZH_HANT, UI_MENU_LANGNAME_KO,
+    // menu languages the game does not ship (its texts then in es for ca, gl, eu; in English for pl, tr, uk)
+    UI_MENU_LANGNAME_ES_419, UI_MENU_LANGNAME_CA, UI_MENU_LANGNAME_GL, UI_MENU_LANGNAME_EU, UI_MENU_LANGNAME_PL,
+    UI_MENU_LANGNAME_TR, UI_MENU_LANGNAME_UK,
+    UI_MENU_LANGNAME_LAST = UI_MENU_LANGNAME_UK,
 
     // Advanced
     UI_MENU_ADV_WARNING,
@@ -170,6 +174,10 @@ typedef enum {
     UI_LAUNCH_NO_TOOLS, UI_LAUNCH_SOURCE, UI_LAUNCH_PICK, UI_LAUNCH_ROMFS_MODE, UI_LAUNCH_ROMFS_COPY,
     UI_LAUNCH_ROMFS_LINK, UI_LAUNCH_SETUP, UI_LAUNCH_SETUP_AGAIN, UI_LAUNCH_CANCEL, UI_LAUNCH_SETUP_DONE,
     UI_LAUNCH_SETUP_FAILED,   // "Set up failed: %s"
+    // why it failed, by prepare.py's "error <code> <detail>" code (launcher_setup.cpp): "%s" is the detail (a folder,
+    // a build id, a file count or the failing tool's English message); STOPPED, CANCELLED and NO_SETUP have none
+    UI_SETUP_ERR_SOURCE, UI_SETUP_ERR_NOGAME, UI_SETUP_ERR_ENCRYPTED, UI_SETUP_ERR_VERSION, UI_SETUP_ERR_ROMFS,
+    UI_SETUP_ERR_FAILED, UI_SETUP_ERR_IO, UI_SETUP_ERR_STOPPED, UI_SETUP_ERR_CANCELLED, UI_SETUP_ERR_NO_SETUP,
     // the setup's steps (tools/prepare/prepare.py STEPS), and the mark of one an earlier setup already did
     UI_LAUNCH_STEP_CHECK, UI_LAUNCH_STEP_EXEFS, UI_LAUNCH_STEP_ROMFS, UI_LAUNCH_STEP_GENERATE, UI_LAUNCH_STEP_COMPILE,
     UI_LAUNCH_STEP_SHADERS, UI_LAUNCH_STEP_WARM, UI_LAUNCH_STEP_CLEANUP, UI_LAUNCH_STEP_KEPT,
@@ -185,7 +193,7 @@ typedef enum {
 // UTF-8 text for id in the language of ov_language(); English when the catalog has no row for that language.
 const char *ui_text(UiTextId id);
 // The same for an explicit catalog language ("en", "ja", "fr", "de", "it", "es", "nl", "pt", "pt-BR", "ru",
-// "zh-Hans", "zh-Hant", "ko"); an empty entry gives the English text.
+// "zh-Hans", "zh-Hant", "ko", "es-419", "ca", "gl", "eu", "pl", "tr", "uk"); an empty entry gives the English text.
 const char *ui_text_in(const char *lang, UiTextId id);
 // 1 when the row of lang has its own text for id (no fallback to English), for the probe.
 int ui_text_defined(const char *lang, UiTextId id);
