@@ -1804,6 +1804,10 @@ msgctxt "UI_LAUNCH_UPDATED"
 msgid "Updated to %s: setting up again what it changed"
 msgstr "%s(으)로 업데이트했습니다. 변경된 부분을 다시 설정합니다"
 
+msgctxt "UI_LAUNCH_NO_GAME_DATA"
+msgid "Your own copy of the game · No game data included"
+msgstr "직접 소유한 게임 사본 · 게임 데이터는 포함되어 있지 않습니다"
+
 msgctxt "UI_MENU_UPDATE_CHECK"
 msgid "Check for updates"
 msgstr "업데이트 확인"

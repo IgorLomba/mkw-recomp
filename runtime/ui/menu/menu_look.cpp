@@ -96,9 +96,8 @@ void menu_look_fonts(float scale) {
            g_font_lang, merged, (int)N);
 }
 
-ImFont *menu_look_font_big(float scale) {
+ImFont *menu_look_font_at(float px) {
     ImFontConfig fc;
     fc.FontDataOwnedByAtlas = false;
-    return ImGui::GetIO().Fonts->AddFontFromMemoryTTF((void *)roboto_ttf, (int)sizeof roboto_ttf, 72.0f * scale, &fc,
-                                                      kRanges);
+    return ImGui::GetIO().Fonts->AddFontFromMemoryTTF((void *)roboto_ttf, (int)sizeof roboto_ttf, px, &fc, kRanges);
 }
