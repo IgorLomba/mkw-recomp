@@ -34,6 +34,7 @@ static PlatMutex lock = PLAT_MUTEX_INIT;
 static uint32_t styles = STYLE_FULL_KEY;
 static uint32_t supported = ~0u, disconnected;   // id bits: SetSupportedNpadIdType, DisconnectNpad
 static int enabled, multi;                      // multi: the applet handed out two or more players
+static int8_t assigned[8] = {0, 1, 2, 3, 4, 5, 6, 7};   // the player whose controller each id reads (SwapNpadAssignment)
 static int64_t sample;
 
 // Player 1 on the handheld controller: handheld mode, until the applet hands out more than one player. Under lock.
@@ -45,6 +46,7 @@ static int id_bit(uint32_t id) { return id == ID_HANDHELD ? BIT_HANDHELD : id < 
 static int id_player(uint32_t id, uint32_t *style) {
     int bit = id_bit(id), player = on_handheld() ? (id == ID_HANDHELD ? 0 : -1) : (id < 8 ? (int)id : -1);
     if (player < 0 || !enabled || !(supported >> bit & 1) || (disconnected >> bit & 1)) return -1;
+    player = assigned[player];
     if (player && !(input_player_mask() >> player & 1)) return -1;
     if (style) *style = on_handheld() ? STYLE_HANDHELD : STYLE_FULL_KEY;
     return player;
@@ -126,6 +128,18 @@ static void ov_states_joycon(Cpu *c) { npad_states(c, 0); }
 static void ov_hold_type(Cpu *c) {
     int64_t t = (int32_t)arg_x(c, 0);
     if (t < 0 || t > 1) rt_fatal("nn::hid::SetNpadJoyHoldType: invalid hold type %lld", (long long)t);
+}
+
+// void SwapNpadAssignment(const NpadIdType &a, const NpadIdType &b): the two ids trade controllers (the game calls it
+// when players swap seats in the menus; on the host it reached nn::sm through the hid service, issue #123)
+static void ov_swap_assignment(Cpu *c) {
+    uint32_t a = *need_id(c, 0, "SwapNpadAssignment"), b = *need_id(c, 1, "SwapNpadAssignment");
+    if (a >= 8 || b >= 8) return;   // the handheld id has a single controller
+    plat_mutex_lock(&lock);
+    int8_t t = assigned[a];
+    assigned[a] = assigned[b], assigned[b] = t;
+    plat_mutex_unlock(&lock);
+    rt_log("hid: controller ids %u and %u swapped controllers", a, b);
 }
 
 // void DisconnectNpad(const NpadIdType &id) (handheld mode disconnects player 1's id 0): until the controller applet
@@ -498,6 +512,7 @@ HOST_OVERRIDE("_ZN2nn3hid13GetNpadStatesEPNS0_17NpadJoyRightStateEiRKj", ov_stat
 HOST_OVERRIDE("_ZN2nn3hid13GetNpadStatesEPNS0_17NpadHandheldStateEiRKj", ov_states_handheld);
 HOST_OVERRIDE("_ZN2nn3hid18SetNpadJoyHoldTypeENS0_15NpadJoyHoldTypeE", ov_hold_type);
 HOST_OVERRIDE("_ZN2nn3hid14DisconnectNpadERKj", ov_disconnect);
+HOST_OVERRIDE("_ZN2nn3hid18SwapNpadAssignmentERKjS2_", ov_swap_assignment);
 HOST_OVERRIDE("_ZN2nn3hid21ShowControllerSupportEPNS0_27ControllerSupportResultInfoERKNS0_20ControllerSupportArgE",
               ov_controller_support);
 HOST_OVERRIDE("_ZN2nn3hid25GetVibrationDeviceHandlesEPNS0_21VibrationDeviceHandleEiRKjNS_4util10BitFlagSetILi32ENS0_"

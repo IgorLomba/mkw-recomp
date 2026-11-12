@@ -45,3 +45,14 @@ what = "AMD's Windows driver loses the device in a mesh shader dispatch a few se
 issue = 67
 all = ["upload submit failed (-2)"]
 what = "the driver refuses a submission for lack of GPU memory (`upload submit failed (-2)`) at the title, on an integrated GPU"
+
+[[signature]]
+issue = 111
+all = ["a draw gave up on its pipeline after 30000 ms", "AMD proprietary driver"]
+what = "AMD's Windows driver takes minutes to compile a few shaders with indirect jumps, so draws give up on their pipelines (black or broken screen)"
+
+[[signature]]
+issue = 123
+all = ["svc #0x1f unknown", "SwapNpadAssignment"]
+fixed = "v0.1.9"
+what = "the game swapped two players' controllers (`nn::hid::SwapNpadAssignment`), which the port did not handle"
