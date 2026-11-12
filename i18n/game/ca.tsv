@@ -1,0 +1,38 @@
+# Catalan for the game's own texts (tools/i18n/game_texts.py): "label<TAB>text", over the game's Spain Spanish (EUes).
+# Untranslated labels stay in Spanish. Control tags ({0E ...}, {0F ...}) are kept as the dump gives them.
+MsgMain/Menu/2001	D'acord
+MsgMain/Menu/2003	Sí
+MsgMain/Menu/2004	No
+MsgMain/Menu/2051	Prem {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}
+MsgMain/Menu/2053	Ordenar
+MsgMain/Menu/2054	Detalls
+MsgMain/Menu/2055	Velocitat
+MsgMain/Menu/2056	Acceleració
+MsgMain/Menu/2057	Pes
+MsgMain/Menu/2058	Maneig
+MsgMain/Menu/2059	Aleatori
+MsgMain/Menu/2101	Un jugador
+MsgMain/Menu/2102	Multijugador
+MsgMain/Menu/2103	En línia
+MsgMain/Menu/2104	Sense fil
+MsgMain/Menu/2105	Adhesius
+MsgMain/Menu/2106	Partida LAN
+MsgMain/Menu/2110	Mapa
+MsgMain/Menu/2111	Mode lliure
+MsgMain/Menu/2201	Grand Prix
+MsgMain/Menu/2202	Supervivència
+MsgMain/Menu/2203	Contrarellotge
+MsgMain/Menu/2204	Cursa VS.
+MsgMain/Menu/2205	Batalla
+MsgMain/Menu/2211	Competeix en 4 circuits!
+MsgMain/Menu/2212	Intenta resistir fins al final!
+MsgMain/Menu/2213	Aconsegueix la teva millor marca!
+MsgMain/Menu/2214	Tu poses les regles!
+MsgMain/Menu/2215	Competeix amb regles personalitzades!
+MsgMain/Menu/2216	Fins a 24 jugadors alhora!
+MsgMain/Menu/2217	Una cursa eliminatòria de 24 pilots!
+MsgMain/Menu/2219	Fins a 24 jugadors s'enfronten entre ells!
+MsgMain/Menu/2231	Enfronta't als teus amics!
+MsgMain/Menu/2221	Començar Grand Prix
+MsgMain/Menu/2222	Començar supervivència
+MsgMain/Menu/2223	Començar contrarellotge

@@ -7,6 +7,7 @@ The game's own texts are not here: the game ships them in 16 languages and picks
 |---|---|
 | `mkw.pot` | The English: each entry's `msgctxt` is its id in `runtime/gfx/nvn/host/ui_text.h`, its `msgid` the English text |
 | `ja.po`, `fr.po`, `de.po`, `it.po`, `es.po`, `nl.po`, `pt.po`, `pt-BR.po`, `ru.po`, `zh-Hans.po`, `zh-Hant.po`, `ko.po` | One translation per language the game ships |
+| [game/](game/README.md) | The game's own texts in Catalan, Galician and Basque (it does not ship them) |
 | `es-419.po`, `ca.po`, `gl.po`, `eu.po`, `pl.po`, `tr.po`, `uk.po` | Menu languages the game does not ship: its texts are then in Spanish (ca, gl, eu) or English (pl, tr, uk) |
 
 The first translation of each language is ours, with the game's own words for its modes and items
