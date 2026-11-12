@@ -7,7 +7,6 @@
 #include <stdint.h>
 #include <string.h>
 
-#include "cfg.h"
 #include "host.h"
 #include "ov.h"
 
@@ -16,10 +15,7 @@
 
 static int local_mode;   // SetLocalNetworkMode's last value
 
-static int lan_up(void) {
-    const char *v = cfg_get("MKW_LAN");
-    return local_mode && v && *v && strcmp(v, "0");
-}
+static int lan_up(void) { return local_mode && ov_lan(); }
 
 static void ov_ok(Cpu *c) { ret_x(c, 0); }
 static void ov_nothing(Cpu *c) { (void)c; }

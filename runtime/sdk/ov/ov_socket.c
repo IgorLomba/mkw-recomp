@@ -15,12 +15,22 @@
 // Guest descriptors are indexes into a table of host sockets: Windows' SOCKET does not fit an int, and the game gets the
 // small numbers a console gives. A call that can wait (Poll with a timeout, RecvFrom on a blocking socket) gives its
 // virtual core up meanwhile (kern_core_away), as audio and NVN waits do, so a waiting network thread holds no core.
+//
+// MKW_LAN off (the default) keeps main's stub, a console whose network is down: every socket call -1, errno ENETDOWN,
+// IsInitialized 1, no WSAStartup, so the online menu takes its no-connection path as before (issue #63).
+//
+// eventfd exists only on Linux; Windows answers ENOSYS. In main only gRPC's wakeup_fd_eventfd.cc (main+0x10208c0, the
+// online services) calls EventFd*, after its availability check (main+0x1020a30); Pia never does.
 #include <stdint.h>
 #include <string.h>
 
 #ifdef _WIN32
 #include <winsock2.h>
 #include <ws2tcpip.h>
+#include <mstcpip.h>
+#ifndef SIO_UDP_CONNRESET
+#define SIO_UDP_CONNRESET _WSAIOW(IOC_VENDOR, 12)
+#endif
 typedef SOCKET HostSock;
 #define HOST_BAD INVALID_SOCKET
 #define host_close closesocket
@@ -86,11 +96,28 @@ typedef struct {
     int used, nonblock, eventfd;
     HostSock s;
 } Slot;
+// The table is read and written under one lock: a Poll on one thread while another opens or closes a slot sees either
+// the old socket or the new one, whole. Calls use a copy of the slot, so no call holds the lock while it waits.
 static Slot slots[NSOCK];
+static PlatMutex slots_lock = PLAT_MUTEX_INIT;
 static int ready;
 static _Thread_local int last_errno;   // per host thread: each guest thread is one (kernel.c)
 
 static void fail(int e) { last_errno = e; }
+
+#define B_ENETDOWN 50   // what main's stub answered: the console's BSD errno for a network that is down
+int ov_lan(void) {
+    const char *v = cfg_get("MKW_LAN");
+    return v && *v && strcmp(v, "0");
+}
+// MKW_LAN off: the call fails as main's stub did
+#define LAN_OR_DOWN(c)                                                                                                \
+    do {                                                                                                               \
+        if (!ov_lan()) {                                                                                               \
+            ret_x(c, (uint64_t)-1);                                                                                    \
+            return;                                                                                                    \
+        }                                                                                                              \
+    } while (0)
 
 #ifdef _WIN32
 static int host_errno(void) {
@@ -118,19 +145,23 @@ static int host_errno(void) {
 static int host_errno(void) { return errno; }
 #endif
 
-static Slot *slot_of(int fd) {
-    if (fd < 0 || fd >= NSOCK || !slots[fd].used) return fail(G_EBADF), NULL;
-    return &slots[fd];
+// A copy of slot fd into *out; 0, or -1 with EBADF when fd is not open
+static int slot_get(int fd, Slot *out) {
+    int ok = 0;
+    plat_mutex_lock(&slots_lock);
+    if (fd >= 0 && fd < NSOCK && slots[fd].used) *out = slots[fd], ok = 1;
+    plat_mutex_unlock(&slots_lock);
+    return ok ? 0 : (fail(G_EBADF), -1);
 }
 
-static int slot_new(HostSock s, int eventfd) {
-    for (int i = 0; i < NSOCK; i++)
-        if (!__atomic_exchange_n(&slots[i].used, 1, __ATOMIC_ACQ_REL)) {
-            slots[i].s = s, slots[i].nonblock = 0, slots[i].eventfd = eventfd;
-            return i;
-        }
-    rt_log("socket: no free socket (%d in use)", NSOCK);
-    return -1;
+static int slot_new(HostSock s, int eventfd, int nonblock) {
+    int fd = -1;
+    plat_mutex_lock(&slots_lock);
+    for (int i = 0; i < NSOCK && fd < 0; i++)
+        if (!slots[i].used) slots[i] = (Slot){.used = 1, .nonblock = nonblock, .eventfd = eventfd, .s = s}, fd = i;
+    plat_mutex_unlock(&slots_lock);
+    if (fd < 0) rt_log("socket: no free socket (%d in use)", NSOCK);
+    return fd;
 }
 
 static int set_nonblock(HostSock s) {
@@ -174,6 +205,10 @@ static int msg_flags(int f, int *dontwait) {
 // ---- lifetime
 // Result internal::Initialize(int concurrency)
 static void ov_init(Cpu *c) {
+    if (!ov_lan()) {   // main's stub: "succeeds" (MKW ignores the result, main+0x2247900)
+        ret_x(c, 0);
+        return;
+    }
 #ifdef _WIN32
     WSADATA wsa;
     if (!ready && WSAStartup(MAKEWORD(2, 2), &wsa)) {
@@ -185,15 +220,16 @@ static void ov_init(Cpu *c) {
     ret_x(c, 0);
 }
 static void ov_finalize(Cpu *c) { ret_x(c, 0); }   // sockets stay open until Close, as the game closes them first
-static void ov_is_initialized(Cpu *c) { ret_x(c, ready); }
+static void ov_is_initialized(Cpu *c) { ret_x(c, ov_lan() ? ready : 1); }
 static void ov_nothing(Cpu *c) { (void)c; }
-static void ov_last_errno(Cpu *c) { ret_x(c, (uint32_t)last_errno); }
+static void ov_last_errno(Cpu *c) { ret_x(c, ov_lan() ? (uint32_t)last_errno : B_ENETDOWN); }
 
 // ---- sockets
 // int Socket(int family, int type, int protocol)
 static void ov_socket(Cpu *c) {
     int family = (int)arg_x(c, 0), protocol = (int)arg_x(c, 2);
     uint32_t type = (uint32_t)arg_x(c, 1);
+    LAN_OR_DOWN(c);
     if (family != B_AF_INET) {
         fail(G_EAFNOSUPPORT);
         ret_x(c, (uint64_t)-1);
@@ -205,44 +241,57 @@ static void ov_socket(Cpu *c) {
         ret_x(c, (uint64_t)-1);
         return;
     }
-    int fd = slot_new(s, 0);
-    if (fd < 0) {
-        host_close(s);
-        fail(G_EMFILE);
-    } else if (type & B_SOCK_NONBLOCK) {
-        set_nonblock(s);
-        slots[fd].nonblock = 1;
+#ifdef _WIN32
+    // Windows hands a datagram socket's ICMP port unreachable to its next recvfrom as WSAECONNRESET even when it is not
+    // connected; Linux reports those only on connected sockets, and Pia never connects. Off, as Linux behaves
+    // (SIO_UDP_CONNRESET, Microsoft's KB263823).
+    if ((type & ~B_SOCK_FLAGS) == SOCK_DGRAM) {
+        BOOL off = FALSE;
+        DWORD n;
+        WSAIoctl(s, SIO_UDP_CONNRESET, &off, sizeof off, NULL, 0, &n, NULL, NULL);
     }
+#endif
+    int nonblock = (type & B_SOCK_NONBLOCK) != 0;
+    if (nonblock) set_nonblock(s);
+    int fd = slot_new(s, 0, nonblock);
+    if (fd < 0) host_close(s), fail(G_EMFILE);
     ret_x(c, (uint64_t)(int64_t)fd);
 }
 
 // int Close(int fd)
 static void ov_close(Cpu *c) {
-    Slot *sl = slot_of((int)arg_x(c, 0));
-    if (!sl) {
+    int fd = (int)arg_x(c, 0), open = 0;
+    HostSock s = HOST_BAD;
+    LAN_OR_DOWN(c);
+    plat_mutex_lock(&slots_lock);   // freed before the host socket closes: no new call can take it meanwhile
+    if (fd >= 0 && fd < NSOCK && slots[fd].used) s = slots[fd].s, slots[fd].used = 0, open = 1;
+    plat_mutex_unlock(&slots_lock);
+    if (!open) {
+        fail(G_EBADF);
         ret_x(c, (uint64_t)-1);
         return;
     }
-    host_close(sl->s);
-    __atomic_store_n(&sl->used, 0, __ATOMIC_RELEASE);
+    host_close(s);
     ret_x(c, 0);
 }
 
 // int Shutdown(int fd, int how): SHUT_RD/WR/RDWR are 0/1/2 everywhere
 static void ov_shutdown(Cpu *c) {
-    Slot *sl = slot_of((int)arg_x(c, 0));
-    int r = sl ? shutdown(sl->s, (int)arg_x(c, 1)) : -1;
-    if (sl && r < 0) fail(host_errno());
+    Slot sl;
+    LAN_OR_DOWN(c);
+    int ok = !slot_get((int)arg_x(c, 0), &sl), r = ok ? shutdown(sl.s, (int)arg_x(c, 1)) : -1;
+    if (ok && r < 0) fail(host_errno());
     ret_x(c, (uint64_t)(int64_t)r);
 }
 
 // int Bind(int fd, const sockaddr *addr, socklen_t len)
 static void ov_bind(Cpu *c) {
-    Slot *sl = slot_of((int)arg_x(c, 0));
+    Slot sl;
     struct sockaddr_in a;
     int r = -1;
-    if (sl && !addr_in(arg_p(c, 1), (uint32_t)arg_x(c, 2), &a)) {
-        r = bind(sl->s, (struct sockaddr *)&a, sizeof a);
+    LAN_OR_DOWN(c);
+    if (!slot_get((int)arg_x(c, 0), &sl) && !addr_in(arg_p(c, 1), (uint32_t)arg_x(c, 2), &a)) {
+        r = bind(sl.s, (struct sockaddr *)&a, sizeof a);
         if (r < 0) fail(host_errno());
     }
     ret_x(c, (uint64_t)(int64_t)r);
@@ -250,11 +299,12 @@ static void ov_bind(Cpu *c) {
 
 // int SetSockOpt(int fd, int level, int option, const void *value, socklen_t len)
 static void ov_setsockopt(Cpu *c) {
-    Slot *sl = slot_of((int)arg_x(c, 0));
+    Slot sl;
+    LAN_OR_DOWN(c);
     int level = (int)arg_x(c, 1), opt = (int)arg_x(c, 2), hl = -1, ho = -1;
     const void *v = arg_p(c, 3);
     uint32_t len = (uint32_t)arg_x(c, 4);
-    if (!sl) {
+    if (slot_get((int)arg_x(c, 0), &sl)) {
         ret_x(c, (uint64_t)-1);
         return;
     }
@@ -293,7 +343,7 @@ static void ov_setsockopt(Cpu *c) {
         ret_x(c, 0);
         return;
     }
-    int r = setsockopt(sl->s, hl, ho, v, (socklen_t)len);
+    int r = setsockopt(sl.s, hl, ho, v, (socklen_t)len);
     if (r < 0) fail(host_errno());
     ret_x(c, (uint64_t)(int64_t)r);
 }
@@ -309,13 +359,14 @@ static int wait_readable(HostSock s, int ms) {
 
 // ssize_t RecvFrom(int fd, void *buf, size_t n, int flags, sockaddr *from, socklen_t *fromlen)
 static void ov_recvfrom(Cpu *c) {
-    Slot *sl = slot_of((int)arg_x(c, 0));
-    if (!sl) {
+    Slot sl;
+    LAN_OR_DOWN(c);
+    if (slot_get((int)arg_x(c, 0), &sl)) {
         ret_x(c, (uint64_t)-1);
         return;
     }
     int dontwait, hf = msg_flags((int)arg_x(c, 3), &dontwait);
-    if (!wait_readable(sl->s, dontwait || sl->nonblock ? 0 : -1)) {
+    if (!wait_readable(sl.s, dontwait || sl.nonblock ? 0 : -1)) {
         fail(G_EAGAIN);
         ret_x(c, (uint64_t)-1);
         return;
@@ -323,9 +374,9 @@ static void ov_recvfrom(Cpu *c) {
     struct sockaddr_in a;
     socklen_t alen = sizeof a;
 #ifdef _WIN32
-    int n = recvfrom(sl->s, arg_p(c, 1), (int)arg_x(c, 2), hf, (struct sockaddr *)&a, &alen);
+    int n = recvfrom(sl.s, arg_p(c, 1), (int)arg_x(c, 2), hf, (struct sockaddr *)&a, &alen);
 #else
-    ssize_t n = recvfrom(sl->s, arg_p(c, 1), (size_t)arg_x(c, 2), hf | MSG_DONTWAIT, (struct sockaddr *)&a, &alen);
+    ssize_t n = recvfrom(sl.s, arg_p(c, 1), (size_t)arg_x(c, 2), hf | MSG_DONTWAIT, (struct sockaddr *)&a, &alen);
 #endif
     if (n < 0) fail(host_errno());
     else addr_out(&a, arg_p(c, 4), arg_p(c, 5));
@@ -334,8 +385,9 @@ static void ov_recvfrom(Cpu *c) {
 
 // ssize_t SendTo(int fd, const void *buf, size_t n, int flags, const sockaddr *to, socklen_t tolen)
 static void ov_sendto(Cpu *c) {
-    Slot *sl = slot_of((int)arg_x(c, 0));
-    if (!sl) {
+    Slot sl;
+    LAN_OR_DOWN(c);
+    if (slot_get((int)arg_x(c, 0), &sl)) {
         ret_x(c, (uint64_t)-1);
         return;
     }
@@ -349,7 +401,7 @@ static void ov_sendto(Cpu *c) {
         to = &a;
     }
     // ponytail: a datagram send does not wait on a LAN, so MSG_DONTWAIT changes nothing here
-    int64_t n = sendto(sl->s, arg_p(c, 1), (int)arg_x(c, 2), hf, (struct sockaddr *)to, to ? sizeof a : 0);
+    int64_t n = sendto(sl.s, arg_p(c, 1), (int)arg_x(c, 2), hf, (struct sockaddr *)to, to ? sizeof a : 0);
     if (n < 0) fail(host_errno());
     ret_x(c, (uint64_t)n);
 }
@@ -365,12 +417,14 @@ static void ov_poll(Cpu *c) {
     uint64_t n = arg_x(c, 1);
     int ms = (int)arg_x(c, 2);
     struct pollfd h[NSOCK];
+    LAN_OR_DOWN(c);
     if (n > NSOCK) {
         fail(G_EINVAL);
         ret_x(c, (uint64_t)-1);
         return;
     }
     int nvalid = 0;
+    plat_mutex_lock(&slots_lock);
     for (uint64_t i = 0; i < n; i++) {
         int fd = g[i].fd;
         g[i].revents = 0;
@@ -383,6 +437,7 @@ static void ov_poll(Cpu *c) {
         h[i].fd = slots[fd].s, h[i].events = ev_host(g[i].events);
         nvalid++;
     }
+    plat_mutex_unlock(&slots_lock);
     int invalid = 0;
     for (uint64_t i = 0; i < n; i++) invalid += g[i].revents != 0;
     int r = 0;
@@ -412,46 +467,50 @@ static void ov_poll(Cpu *c) {
 // ---- eventfd: Linux's own, with the console's flags (semaphore 1, nonblocking 4)
 // int EventFd(uint64_t initval, EventFdFlags flags)
 static void ov_eventfd(Cpu *c) {
+    LAN_OR_DOWN(c);
 #ifdef _WIN32
-    // ponytail: no eventfd on Windows; needed only if Pia polls one there (loopback socket pair then)
+    // ponytail: no eventfd on Windows; only gRPC (online) calls it, see the top. A loopback socket pair if Pia ever does
     fail(G_ENOSYS);
     ret_x(c, (uint64_t)-1);
 #else
     uint32_t f = (uint32_t)arg_x(c, 1);
     int e = eventfd((unsigned)arg_x(c, 0), (f & B_EFD_SEMAPHORE ? EFD_SEMAPHORE : 0) | EFD_CLOEXEC);
-    int fd = e < 0 ? -1 : slot_new(e, 1);
+    int nonblock = (f & B_EFD_NONBLOCK) != 0;
+    if (e >= 0 && nonblock) set_nonblock(e);
+    int fd = e < 0 ? -1 : slot_new(e, 1, nonblock);
     if (e < 0) fail(errno);
     else if (fd < 0) close(e), fail(G_EMFILE);
-    else if (f & B_EFD_NONBLOCK) set_nonblock(e), slots[fd].nonblock = 1;
     ret_x(c, (uint64_t)(int64_t)fd);
 #endif
 }
 
 // int EventFdRead(int fd, uint64_t *value) / int EventFdWrite(int fd, uint64_t value)
 static void ov_eventfd_read(Cpu *c) {
-    Slot *sl = slot_of((int)arg_x(c, 0));
-    int r = -1;
+    Slot sl;
+    LAN_OR_DOWN(c);
+    int ok = !slot_get((int)arg_x(c, 0), &sl), r = -1;
 #ifndef _WIN32
-    if (sl && (sl->nonblock || wait_readable(sl->s, -1))) {
-        r = read(sl->s, arg_p(c, 1), 8) == 8 ? 0 : -1;
+    if (ok && (sl.nonblock || wait_readable(sl.s, -1))) {
+        r = read(sl.s, arg_p(c, 1), 8) == 8 ? 0 : -1;
         if (r < 0) fail(errno);
     }
 #else
-    if (sl) fail(G_ENOSYS);
+    if (ok) fail(G_ENOSYS);
 #endif
     ret_x(c, (uint64_t)(int64_t)r);
 }
 static void ov_eventfd_write(Cpu *c) {
-    Slot *sl = slot_of((int)arg_x(c, 0));
-    int r = -1;
+    Slot sl;
+    LAN_OR_DOWN(c);
+    int ok = !slot_get((int)arg_x(c, 0), &sl), r = -1;
 #ifndef _WIN32
     uint64_t v = arg_x(c, 1);
-    if (sl) {
-        r = write(sl->s, &v, 8) == 8 ? 0 : -1;
+    if (ok) {
+        r = write(sl.s, &v, 8) == 8 ? 0 : -1;
         if (r < 0) fail(errno);
     }
 #else
-    if (sl) fail(G_ENOSYS);
+    if (ok) fail(G_ENOSYS);
 #endif
     ret_x(c, (uint64_t)(int64_t)r);
 }

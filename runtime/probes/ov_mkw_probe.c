@@ -333,11 +333,12 @@ static void probe_socket(void) {
     uint64_t *val = (uint64_t *)(b + 0x88);
     int32_t *pfd = (int32_t *)(b + 0x90);
     void **res = (void **)(b + 0xb0);
+    plat_setenv("MKW_LAN", "1");   // off, probe_offline's table checks main's stub
     CALL("socket::SetAllocator", 0);
     CHECK(CALL("socket::internal::Initialize", 4) == 0, "Initialize");
     CHECK(CALL("socket::IsInitialized") == 1, "IsInitialized");
-    int sa = (int)CALL("socket::Socket", AF, DGRAM, UDP);
-    int sb = (int)CALL("socket::Socket (Family)", AF, DGRAM | NONBLOCK, UDP);
+    int sa = (int)CALL("socket::Socket(int)", AF, DGRAM, UDP);
+    int sb = (int)CALL("socket::Socket", AF, DGRAM | NONBLOCK, UDP);
     CHECK(sa >= 0 && sb >= 0 && sa != sb, "Socket: %d %d", sa, sb);
     *one = 1;
     CHECK((int)CALL("socket::SetSockOpt", sb, SOL, 0x4, U(one), 4) == 0, "SetSockOpt SO_REUSEADDR");
@@ -350,20 +351,20 @@ static void probe_socket(void) {
         memset(ab, 0, 16);
         ab[0] = 16, ab[1] = AF, ab[2] = (uint8_t)(p >> 8), ab[3] = (uint8_t)p;
         memcpy(ab + 4, lo, 4);
-        if ((int)CALL("socket::Bind", sb, U(ab), 16) == 0) port = p;
+        if ((int)CALL("socket::Bind(sockaddr)", sb, U(ab), 16) == 0) port = p;
     }
     memset(aa, 0, 16);
     aa[0] = 16, aa[1] = AF;
     memcpy(aa + 4, lo, 4);
-    CHECK(port && (int)CALL("socket::Bind (SockAddr)", sa, U(aa), 16) == 0, "Bind: port %d", port);
+    CHECK(port && (int)CALL("socket::Bind", sa, U(aa), 16) == 0, "Bind: port %d", port);
     // nothing to read: -1 and EAGAIN, on the nonblocking socket and with MSG_DONTWAIT on the blocking one
     *fromlen = 16;
-    CHECK((int64_t)CALL("socket::RecvFrom", sb, U(buf), 64, 0, U(from), U(fromlen)) == -1 &&
+    CHECK((int64_t)CALL("socket::RecvFrom(sockaddr)", sb, U(buf), 64, 0, U(from), U(fromlen)) == -1 &&
               CALL("socket::GetLastErrno") == EAGAIN_, "RecvFrom on an empty nonblocking socket");
-    CHECK((int64_t)CALL("socket::RecvFrom (MsgFlag)", sa, U(buf), 64, 0x80, U(from), U(fromlen)) == -1 &&
+    CHECK((int64_t)CALL("socket::RecvFrom", sa, U(buf), 64, 0x80, U(from), U(fromlen)) == -1 &&
               CALL("socket::GetLastError") == EAGAIN_, "RecvFrom with MSG_DONTWAIT");
     memcpy(buf, "hello", 5);
-    CHECK((int64_t)CALL("socket::SendTo", sa, U(buf), 5, 0, U(ab), 16) == 5, "SendTo");
+    CHECK((int64_t)CALL("socket::SendTo(sockaddr)", sa, U(buf), 5, 0, U(ab), 16) == 5, "SendTo");
     pfd[0] = sb, pfd[1] = 1;     // events POLLIN, revents 0
     pfd[2] = 63, pfd[3] = 1;     // a descriptor never opened
     int n = (int)CALL("socket::Poll", U(pfd), 2, 1000);
@@ -372,12 +373,12 @@ static void probe_socket(void) {
     memset(buf, 0, 8);
     memset(from, 0xee, 16);
     *fromlen = 16;
-    int64_t got = (int64_t)CALL("socket::RecvFrom", sb, U(buf), 64, 0, U(from), U(fromlen));
+    int64_t got = (int64_t)CALL("socket::RecvFrom(sockaddr)", sb, U(buf), 64, 0, U(from), U(fromlen));
     CHECK(got == 5 && !memcmp(buf, "hello", 5) && from[0] == 16 && from[1] == AF && !memcmp(from + 4, lo, 4) &&
               *fromlen == 16, "RecvFrom: %lld bytes, from len %u family %u", (long long)got, from[0], from[1]);
-    CHECK((int64_t)CALL("socket::SendTo (MsgFlag)", sa, U(buf), 3, 0x80, U(ab), 16) == 3, "SendTo with MSG_DONTWAIT");
+    CHECK((int64_t)CALL("socket::SendTo", sa, U(buf), 3, 0x80, U(ab), 16) == 3, "SendTo with MSG_DONTWAIT");
     *fromlen = 16;
-    CHECK((int64_t)CALL("socket::RecvFrom (MsgFlag)", sb, U(buf), 64, 0, U(from), U(fromlen)) == 3, "RecvFrom 2");
+    CHECK((int64_t)CALL("socket::RecvFrom", sb, U(buf), 64, 0, U(from), U(fromlen)) == 3, "RecvFrom 2");
     int sh = (int)CALL("socket::Shutdown", sa, 2);   // a datagram socket with no peer: 0, or ENOTCONN (107)
     CHECK(sh == 0 || CALL("socket::GetLastErrno") == 107, "Shutdown: %d", sh);
 #ifndef _WIN32
@@ -393,11 +394,14 @@ static void probe_socket(void) {
     CHECK((int)CALL("socket::Close", sa) == 0 && (int)CALL("socket::Close", sb) == 0, "Close");
     CHECK((int)CALL("socket::Close", sa) == -1 && CALL("socket::GetLastErrno") == EBADF_, "Close twice: EBADF");
     *res = b;
-    CHECK(CALL("socket::GetAddrInfo", U("example.com"), 0, 0, U(res)) != 0 && !*res, "GetAddrInfo offline");
-    CHECK(CALL("socket::GetAddrInfo (AddrInfo)", U("example.com"), 0, 0, U(res)) != 0, "GetAddrInfo (AddrInfo)");
+    CHECK(CALL("socket::GetAddrInfo(addrinfo)", U("example.com"), 0, 0, U(res)) != 0 && !*res, "GetAddrInfo offline");
+    CHECK(CALL("socket::GetAddrInfo", U("example.com"), 0, 0, U(res)) != 0, "GetAddrInfo (AddrInfo)");
+    CALL("socket::FreeAddrInfo(addrinfo)", 0);
     CALL("socket::FreeAddrInfo", 0);
-    CALL("socket::FreeAddrInfo (AddrInfo)", 0);
     CHECK(CALL("socket::Finalize") == 0, "Finalize");
+    plat_setenv("MKW_LAN", "");
+    CHECK((int)CALL("socket::Socket(int)", AF, DGRAM, UDP) == -1 && CALL("socket::GetLastErrno") == 50,
+          "MKW_LAN off again: Socket -1, ENETDOWN");
     printf("socket: UDP on loopback port %d through the console's sockaddr, poll, EAGAIN and eventfd\n", port);
 }
 
