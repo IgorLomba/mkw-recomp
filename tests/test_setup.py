@@ -69,3 +69,15 @@ def test_clean_removes_old(tmp_path: Path, name: str) -> None:
     (game / "mkw.exe").write_text("keep")
     update.clean(type("A", (), {"game": game})())
     assert not old.exists() and not (game / "update").exists() and (game / "mkw.exe").exists()
+
+
+def test_package_sources_import(tmp_path: Path) -> None:
+    # setup/src as dist.py copies it: prepare.py and what it imports load without the rest of the repository (build.py
+    # imported tools/i18n/catalog.py, which the package lacked)
+    sys.path.insert(0, str(ROOT / "tools/build"))
+    import dist  # noqa: PLC0415
+
+    dist.copy_sources(tmp_path / "src")
+    p = subprocess.run([sys.executable, "-I", str(tmp_path / "src/tools/prepare/prepare.py"), "--help"],
+                       capture_output=True, text=True, timeout=60)  # fmt: skip
+    assert p.returncode == 0, p.stderr

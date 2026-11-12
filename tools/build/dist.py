@@ -84,6 +84,7 @@ PINS = {
 }  # fmt: skip
 # The sources the setup runs, from the repository (tools/prepare/prepare.py imports and runs them).
 SOURCES = ["recomp", "sm86", "tools/build/build.py", "tools/prepare", "tools/romfs/resolution.py",
+           "tools/i18n/catalog.py", "tools/i18n/game_texts.py", "i18n/game",
            "tools/shaders/extract.py", "tools/shaders/translate.py", "tools/shaders/shaderc_lib.py",
            "runtime/cpu",
            "runtime/core/boot/gamelib.h"]  # fmt: skip
