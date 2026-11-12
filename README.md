@@ -48,15 +48,15 @@ into the table with the date of the report. The times are the game's own frames:
 but does not shorten them. 16.7 ms is 60 fps; Frame rate on Automatic (the console's) drops to 30 fps when 60 is out of
 reach, and a frame over 33.3 ms runs the race slower than real time.
 
-| Date | GPU | Internal resolution | Race frame time |
-|---|---|---|---|
-| 11/11/2026 | RX 7900 XTX (Windows) | 2160p | 16.7 ms |
-| 11/11/2026 | RX 9070 XT (Linux, RADV) | 720p to 2160p | 16.7 ms |
-| 10/11/2026 | RTX 3060 (Windows) | 1080p | ~21 ms |
-| 11/11/2026 | RTX 3050 Laptop (Windows) | 720p | 26.7 ms |
-| 09/11/2026 | Radeon 660M (Linux, RADV) | 720p | 31-33 ms |
-| 11/11/2026 | GTX 1650 SUPER (Windows) | 1080p | ~41 ms |
-| 09/11/2026 | GTX 1050 Ti (Windows) | 1080p | 42-45 ms |
+| Date | GPU | Internal resolution | Race fps | Race frame time |
+|---|---|---|---|---|
+| 11/11/2026 | RX 7900 XTX (Windows) | 2160p | 60 | 16.7 ms |
+| 11/11/2026 | RX 9070 XT (Linux, RADV) | 720p to 2160p | 60 | 16.7 ms |
+| 10/11/2026 | RTX 3060 (Windows) | 1080p | ~48 | ~21 ms |
+| 11/11/2026 | RTX 3050 Laptop (Windows) | 720p | ~37 | 26.7 ms |
+| 09/11/2026 | Radeon 660M (Linux, RADV) | 720p | 30-32 | 31-33 ms |
+| 11/11/2026 | GTX 1650 SUPER (Windows) | 1080p | ~24 | ~41 ms |
+| 09/11/2026 | GTX 1050 Ti (Windows) | 1080p | 22-24 | 42-45 ms |
 
 ## Playing
 
