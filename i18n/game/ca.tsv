@@ -36,3 +36,1245 @@ MsgMain/Menu/2231	Enfronta't als teus amics!
 MsgMain/Menu/2221	Començar Grand Prix
 MsgMain/Menu/2222	Començar supervivència
 MsgMain/Menu/2223	Començar contrarellotge
+LayoutMsg/Damage_00/T_Msg_00	AUCH!
+LayoutMsg/DialogTimeAttack_00/DialogTimeAttack_00:L_DialogBtn_00/T_Text_00	Sí
+LayoutMsg/DialogTimeAttack_00/DialogTimeAttack_00:L_DialogBtn_01/T_Text_00	No
+LayoutMsg/DialogTimeAttack_00/DialogTimeAttack_00:L_DialogBtn_02/T_Text_00	D'acord
+LayoutMsg/Dialog_00/L_DialogBtnC_00/T_Text_00	D'acord
+LayoutMsg/Dialog_00/T_Group_00	ID del grup
+LayoutMsg/FriendList_00/T_Friend_00	Amic
+LayoutMsg/FriendList_00/T_Rec_00	Estadístiques de joc
+LayoutMsg/FriendList_00/T_You_00	Tu
+LayoutMsg/FriendList_00/FriendList_00:L_Go_00/T_Text_00	Unir-s'hi
+LayoutMsg/FriendList_00/T_Rec_01	Participants
+LayoutMsg/Hit_00/T_Msg_00	TOCAT!
+LayoutMsg/MenuGameSelect_01/T_Msg_00	Competeix en 4 circuits!
+LayoutMsg/MenuGameSelect_01/T_Msg_01	Intenta resistir fins al final!
+LayoutMsg/MenuGameSelect_01/T_Msg_02	Aconsegueix la teva millor marca!
+LayoutMsg/MenuGameSelect_01/T_Msg_03	Tu poses les regles!
+LayoutMsg/MenuGameSelect_01/T_Msg_04	Competeix amb regles personalitzades!
+LayoutMsg/MenuManual_00/MenuManual_00:L_Headline_00/T_Btn_00	Tècniques
+LayoutMsg/MenuManual_00/MenuManual_00:L_Headline_01/T_Btn_00	Objectes
+LayoutMsg/MenuManual_00/MenuManual_00:L_Headline_02/T_Btn_00	Regles
+LayoutMsg/MenuManual_00/MenuManual_00:L_Headline_03/T_Btn_00	Mode lliure
+LayoutMsg/MenuPlayModeSelect_00/MenuPlayModeSelect_00:L_Btn_00/T_Btn_00	Un jugador
+LayoutMsg/MenuPlayModeSelect_00/MenuPlayModeSelect_00:L_Btn_01/T_Btn_00	Multijugador
+LayoutMsg/MenuPlayModeSelect_00/MenuPlayModeSelect_00:L_Btn_02/T_Btn_00	En línia
+LayoutMsg/MenuTimeAttack_00/MenuTimeAttack_00:L_MenuBtn_00/T_Text_00	En solitari
+LayoutMsg/MenuTimeAttack_00/MenuTimeAttack_00:L_MenuBtn_01/T_Text_00	Desafiar fantasma
+LayoutMsg/MenuTimeAttack_00/MenuTimeAttack_00:L_MenuBtn_02/T_Text_00	Veure fantasma
+LayoutMsg/MenuTimeAttack_00/MenuTimeAttack_00:L_MenuBtn_03/T_Text_00	Veure classificació
+LayoutMsg/MenuTimeAttack_00/MenuTimeAttack_00:L_MenuBtn_04/T_Text_00	Pujar fantasma
+LayoutMsg/OnlineMenu_00/L_Btn_00/T_Btn_00	Cursa
+LayoutMsg/OnlineMenu_00/L_Btn_01/T_Btn_00	Supervivència
+LayoutMsg/OnlineMenu_00/L_Btn_02/T_Btn_00	Batalla
+LayoutMsg/OnlineMenu_00/L_Btn_03/T_Btn_00	Amics
+LayoutMsg/PhotoMode_00/T_Attention_00	Punt de vista
+LayoutMsg/PhotoMode_00/T_End_00	Acabar
+LayoutMsg/PhotoMode_00/T_Face_00	Gest
+LayoutMsg/PhotoMode_00/T_Gide_00	Guia
+LayoutMsg/PhotoMode_00/T_Posechange_00	Pose
+LayoutMsg/PhotoMode_00/T_Roll_00	Inclinació
+LayoutMsg/PhotoMode_00/T_Take_00	Fer la foto
+LayoutMsg/PhotoMode_00/T_Zoom_00	Zoom
+LayoutMsg/Retry_00/T_Retry_00	Torna-ho a provar
+LayoutMsg/RuleSelect_00/T_Change_00	Confirmar les regles
+LayoutMsg/TeamSelect_00/TeamSelect_00:$DialogBtnS_00/T_Text_00	D'acord
+LayoutMsg/TitleLogo_00/T_Press_00	Prem {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}
+LayoutMsg/Watching_00/T_Text_01	EN DIRECTE
+MsgMain/Menu/2120	{0E 0000 0002 0002 0046} {0E 0000 0002 0002 0064}1{0E 0000 0002 0002 0032}J{0E 0000 0002 0002 0064}
+MsgMain/Menu/2121	{0E 0000 0002 0002 0046} {0E 0000 0002 0002 0064}2{0E 0000 0002 0002 0032}J{0E 0000 0002 0002 0064}
+MsgMain/Menu/2122	{0E 0000 0002 0002 0046} {0E 0000 0002 0002 0064}3{0E 0000 0002 0002 0032}J{0E 0000 0002 0002 0064}
+MsgMain/Menu/2123	{0E 0000 0002 0002 0046} {0E 0000 0002 0002 0064}4{0E 0000 0002 0002 0032}J{0E 0000 0002 0002 0064}
+MsgMain/Menu/2224	Començar repetició
+MsgMain/Menu/2225	Començar cursa
+MsgMain/Menu/2226	Començar batalla
+MsgMain/Menu/2227	Vols sortir?
+MsgMain/Menu/2228	Vols sortir?
+MsgMain/Menu/2229	Vols tornar a\nla pantalla del títol?
+MsgMain/Menu/2235	Mirall
+MsgMain/Menu/2240	cc
+MsgMain/Menu/2261	En solitari
+MsgMain/Menu/2262	Desafiar fantasma
+MsgMain/Menu/2263	Veure fantasma
+MsgMain/Menu/2264	Veure classificació
+MsgMain/Menu/2272	Pujar fantasma
+MsgMain/Menu/2266	Vols baixar les dades\nd'aquest corredor fantasma?
+MsgMain/Menu/2268	Vols esborrar les dades\ndel corredor fantasma?
+MsgMain/Menu/2269	S'han esborrat les dades\ndel corredor fantasma.
+MsgMain/Menu/2270	Baixant dades\ndel corredor fantasma...
+MsgMain/Menu/2271	S'ha baixat\nel corredor fantasma!\nVols iniciar la cursa ara?
+MsgMain/Menu/2273	Vols pujar les dades\ndel corredor fantasma?
+MsgMain/Menu/2274	Encara no has creat dades\nde corredor fantasma\nen aquest circuit.
+MsgMain/Menu/2275	No pots baixar les dades\ndel teu propi corredor fantasma.
+MsgMain/Menu/2276	No es poden baixar més dades de\ncorredors fantasma. Vols {0E 0000 0003 0002 0000}esborrar-los\ntots{0E 0000 0003 0002 FFFF} per alliberar espai?
+MsgMain/Menu/2277	Les dades de corredors fantasma\n{0E 0000 0003 0002 0000}s'eliminaran permanentment{0E 0000 0003 0002 FFFF}.\nSegur que vols continuar?
+MsgMain/Menu/2278	S'han esborrat totes les dades de\ncorredors fantasma baixats.
+MsgMain/Menu/2281	Ja has baixat les dades\nd'aquest corredor fantasma.
+MsgMain/Menu/2282	Aquestes són {0E 0000 0003 0002 0000}les dades del teu\npropi corredor fantasma{0E 0000 0003 0002 FFFF}.\nSegur que vols esborrar-les?
+MsgMain/Menu/2301	Categoria
+MsgMain/Menu/2302	50 cc
+MsgMain/Menu/2303	100 cc
+MsgMain/Menu/2304	150 cc
+MsgMain/Menu/2306	Mirall
+MsgMain/Menu/2308	Ometre
+MsgMain/Menu/2311	Nivell CPU
+MsgMain/Menu/2312	Fàcil
+MsgMain/Menu/2313	Normal
+MsgMain/Menu/2314	Difícil
+MsgMain/Menu/2315	Sense CPU
+MsgMain/Menu/2321	Circuits
+MsgMain/Menu/2322	Gira
+MsgMain/Menu/2323	A elecció
+MsgMain/Menu/2324	Aleatori
+MsgMain/Menu/2331	Curses
+MsgMain/Menu/2332	3 curses
+MsgMain/Menu/2333	4 curses
+MsgMain/Menu/2334	5 curses
+MsgMain/Menu/2335	6 curses
+MsgMain/Menu/2336	8 curses
+MsgMain/Menu/2337	12 curses
+MsgMain/Menu/2338	16 curses
+MsgMain/Menu/2339	32 curses
+MsgMain/Menu/2351	Equips
+MsgMain/Menu/2352	Sense equips
+MsgMain/Menu/2353	2 equips
+MsgMain/Menu/2354	3 equips
+MsgMain/Menu/2355	4 equips
+MsgMain/Menu/2371	Rondes
+MsgMain/Menu/2372	3 rondes
+MsgMain/Menu/2373	4 rondes
+MsgMain/Menu/2374	5 rondes
+MsgMain/Menu/2375	6 rondes
+MsgMain/Menu/2376	8 rondes
+MsgMain/Menu/2381	Intervals
+MsgMain/Menu/2382	10 segons
+MsgMain/Menu/2383	1 minut
+MsgMain/Menu/2384	5 minuts
+MsgMain/Menu/2391	Objectes
+MsgMain/Menu/2392	Normals
+MsgMain/Menu/2393	Esbojarrats
+MsgMain/Menu/2402	Cursa VS.
+MsgMain/Menu/2404	Supervivència
+MsgMain/Menu/2405	Batalla de globus
+MsgMain/Menu/2406	Batalla de monedes
+MsgMain/Menu/3003	Vols córrer en mode lliure?
+MsgMain/Menu/3004	Tornaràs a la\npantalla del títol.
+MsgMain/Menu/5001	Cursa
+MsgMain/Menu/5002	Supervivència
+MsgMain/Menu/5004	Amics
+MsgMain/Menu/5005	Crear un grup
+MsgMain/Menu/5006	Cercar per ID de grup
+MsgMain/Menu/5007	Unir-s'hi
+MsgMain/Menu/5008	Grup
+MsgMain/Menu/5009	Batalla
+MsgMain/Menu/5013	Cercant jugadors...
+MsgMain/Menu/5014	La cursa està a punt de començar!
+MsgMain/Menu/5017	S'ha decidit el circuit!
+MsgMain/Menu/5019	No et pots unir a la partida. Espera uns moments.
+MsgMain/Menu/5020	T'has unit a la partida!
+MsgMain/Menu/5021	{0E 0001 0001 0004 0000 0000} s'ha unit a la partida!
+MsgMain/Menu/5022	S'han decidit les regles!
+MsgMain/Menu/5023	Pròxima cursa en: {0E 0001 0000 0004 0000 0000}
+MsgMain/Menu/5024	Pròxima batalla en: {0E 0001 0000 0004 0000 0000}
+MsgMain/Menu/5026	Participaràs en la cursa següent. Espera...
+MsgMain/Menu/5027	Participaràs en la batalla següent. Espera...
+MsgMain/Menu/5028	Esperant altres jugadors...
+MsgMain/Menu/5029	{0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000} Començar a jugar
+MsgMain/Menu/5030	{0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000} Començar a jugar
+MsgMain/Menu/5031	La batalla està a punt de començar!
+MsgMain/Menu/5032	Espera que es decideixin les regles.
+MsgMain/Menu/5033	S'ha interromput\nla connexió.
+MsgMain/Menu/5034	No s'ha pogut unir a la supervivència.
+MsgMain/Menu/5035	Cal reunir dos pilots molt separats.
+MsgMain/Menu/5101	Aleatori
+MsgMain/Menu/5102	Canviar
+MsgMain/Menu/5202	Vols crear un\ngrup per competir\namb altres jugadors?
+MsgMain/Menu/5204	L'ID introduït no coincideix\namb el de cap grup.
+MsgMain/Menu/5209	ID del grup
+MsgMain/Menu/5212	Estadístiques de joc
+MsgMain/Menu/5213	Tu
+MsgMain/Menu/5214	Amic
+MsgMain/Menu/5218	Introdueix l'ID del grup.
+MsgMain/Menu/5220	Espera un moment...
+MsgMain/Menu/5221	Vols abandonar\naquest grup?
+MsgMain/Menu/5301	El grup està complet.\nEspera una mica...
+MsgMain/Menu/5302	S'ha produït\nun error de connexió.
+MsgMain/Menu/5304	No es troba el grup\nal qual et volies unir.
+MsgMain/Menu/5305	S'ha produït\nun error de connexió.
+MsgMain/Menu/5307	S'ha produït\nun error de connexió.
+MsgMain/Menu/5308	S'ha produït\nun error de connexió.
+MsgMain/Menu/5320	Has reunit {0E 0001 0000 0004 0000 0000} monedes\ni has desbloquejat\nun nou {0E 0000 0003 0002 0000}vehicle{0E 0000 0003 0002 FFFF}!
+MsgMain/Menu/5311	L
+MsgMain/Menu/5312	R
+MsgMain/Menu/5313	No tens amics registrats.
+MsgMain/Menu/5314	No hi ha grups als quals unir-se.
+MsgMain/Menu/5315	Confirmar les regles
+MsgMain/Menu/5316	Participants
+MsgMain/Menu/5347	Mode fotos
+MsgMain/Menu/5328	Punt de vista
+MsgMain/Menu/5329	Enfocament
+MsgMain/Menu/5333	Acabar
+MsgMain/Menu/5334	Gest
+MsgMain/Menu/5335	Marc
+MsgMain/Menu/5336	Guia
+MsgMain/Menu/5340	Pose
+MsgMain/Menu/5341	Inclinació
+MsgMain/Menu/5342	Fer la foto
+MsgMain/Menu/5345	Zoom
+MsgMain/Menu/5348	Enfocament: cap
+MsgMain/Menu/5349	Enfocament: personatge
+MsgMain/Menu/5350	Enfocament: centrat
+MsgMain/Menu/5353	Vols deixar\nde fer fotos?
+MsgMain/Menu/5354	Sí
+MsgMain/Menu/5355	No
+MsgMain/Menu/5370	Marc: cap
+MsgMain/Menu/5371	Marc: 1
+MsgMain/Menu/5372	Marc: 2
+MsgMain/Menu/5373	Marc: 3
+MsgMain/Menu/5374	Marc: 4
+MsgMain/Menu/5375	Marc: 5
+MsgMain/Menu/5376	Marc: 6
+MsgMain/Menu/5377	Marc: 7
+MsgMain/Menu/5378	Marc: 8
+MsgMain/Menu/5379	Marc: 9
+MsgMain/Menu/5380	Marc: 10
+MsgMain/Menu/5381	Marc: 11
+MsgMain/Menu/5382	Marc: 12
+MsgMain/Menu/5383	Marc: 13
+MsgMain/Race/9001	Continuar
+MsgMain/Race/9002	Sortir
+MsgMain/Race/9003	Canviar de circuit
+MsgMain/Race/9004	Canviar de personatge
+MsgMain/Race/9005	Tornar a començar
+MsgMain/Race/9006	Cursa següent
+MsgMain/Race/9007	Veure resultats
+MsgMain/Race/9008	Tornar-ho a provar
+MsgMain/Race/9009	Veure repeticions
+MsgMain/Race/9010	Continuar repetició
+MsgMain/Race/9011	Abandonar repetició
+MsgMain/Race/9012	Ronda següent
+MsgMain/Race/9013	Desafiar fantasma
+MsgMain/Race/9014	Repetir des de l'inici
+MsgMain/Race/9015	Segur que vols sortir?
+MsgMain/Race/9016	Continuar mirant
+MsgMain/Race/9017	Sortir
+MsgMain/Race/9018	Començar
+MsgMain/Race/9019	Continuar en el mode lliure
+MsgMain/Race/9020	Abandonar el mode lliure
+MsgMain/Race/9021	Canviar les regles
+MsgMain/Race/9022	Veure dades del grup
+MsgMain/Race/9023	Ajustos del comandament
+MsgMain/Race/9025	Veure les regles
+MsgMain/Race/9026	Tornar al mode lliure
+MsgMain/Race/9028	Reprendre la missió
+MsgMain/Race/9029	Abandonar la missió
+MsgMain/Race/9034	PER AQUÍ
+MsgMain/Race/9035	META
+MsgMain/Race/9036	OBJECTIU
+MsgMain/Race/9031	S'ha desat un corredor fantasma.
+MsgMain/Race/9032	Classificació decidida!
+MsgMain/Race/9033	S'ha acabat. T'has quedat molt enrere.
+MsgMain/Race/9037	Alguns pilots s'han quedat molt enrere.
+MsgMain/Race/9101	Vols pujar les dades del\nteu nou corredor fantasma?
+MsgMain/Race/9103	Pujant les dades\ndel corredor fantasma...
+MsgMain/Race/9104	S'ha pujat el\ncorredor fantasma!
+MsgMain/Race/9105	No s'ha pogut pujar\nel corredor fantasma.
+MsgMain/Race/9106	Ja està disponible\nla {0E 0000 0003 0002 0000}Copa Especial{0E 0000 0003 0002 FFFF}!
+MsgMain/Race/9107	Ja està disponible\nel {0E 0000 0003 0002 0000}mode mirall{0E 0000 0003 0002 FFFF}!
+MsgMain/Race/9201	Càm. lenta
+MsgMain/Race/9202	Menú
+MsgMain/Race/9203	Càmera
+MsgMain/Race/9204	Pausa
+MsgMain/Race/9205	Reprendre
+MsgMain/Race/9221	Ajustos
+MsgMain/Race/9222	Volant intel·ligent
+MsgMain/Race/9223	Sí
+MsgMain/Race/9224	No
+MsgMain/Race/9225	Giroscopi
+MsgMain/Race/9226	Sí
+MsgMain/Race/9227	No
+MsgMain/Race/9228	Autoacceleració
+MsgMain/Race/9229	Sí
+MsgMain/Race/9230	No
+MsgMain/Race/9231	Autoactivar objectes
+MsgMain/Race/9232	Sí
+MsgMain/Race/9233	No
+MsgMain/Race/9234	Càmera horitzontal
+MsgMain/Race/9235	Normal
+MsgMain/Race/9236	Invertida
+MsgMain/Race/9237	Càmera vertical
+MsgMain/Race/9238	Minimapa
+MsgMain/Race/9239	Menjar turbo
+MsgMain/Race/9240	Es transforma
+MsgMain/Race/9241	No es transforma
+MsgMain/Race/9281	Objecte
+MsgMain/Race/9282	Girar
+MsgMain/Race/9283	Derrapar
+MsgMain/Race/9284	Accelerar
+MsgMain/Race/9301	1a cursa
+MsgMain/Race/9302	2a cursa
+MsgMain/Race/9303	3a cursa
+MsgMain/Race/9304	4a cursa
+MsgMain/Race/9305	5a cursa
+MsgMain/Race/9306	6a cursa
+MsgMain/Race/9307	7a cursa
+MsgMain/Race/9308	8a cursa
+MsgMain/Race/9309	9a cursa
+MsgMain/Race/9310	10a cursa
+MsgMain/Race/9311	11a cursa
+MsgMain/Race/9312	12a cursa
+MsgMain/Race/9313	13a cursa
+MsgMain/Race/9314	14a cursa
+MsgMain/Race/9315	15a cursa
+MsgMain/Race/9316	16a cursa
+MsgMain/Race/9317	17a cursa
+MsgMain/Race/9318	18a cursa
+MsgMain/Race/9319	19a cursa
+MsgMain/Race/9320	20a cursa
+MsgMain/Race/9321	21a cursa
+MsgMain/Race/9322	22a cursa
+MsgMain/Race/9323	23a cursa
+MsgMain/Race/9324	24a cursa
+MsgMain/Race/9325	25a cursa
+MsgMain/Race/9326	26a cursa
+MsgMain/Race/9327	27a cursa
+MsgMain/Race/9328	28a cursa
+MsgMain/Race/9329	29a cursa
+MsgMain/Race/9330	30a cursa
+MsgMain/Race/9331	31a cursa
+MsgMain/Race/9399	Última cursa
+MsgMain/Race/9401	1a ronda
+MsgMain/Race/9402	2a ronda
+MsgMain/Race/9403	3a ronda
+MsgMain/Race/9404	4a ronda
+MsgMain/Race/9405	5a ronda
+MsgMain/Race/9406	6a ronda
+MsgMain/Race/9407	7a ronda
+MsgMain/Race/9499	Última ronda
+MsgMain/Race/9501	{0E 0000 0002 0002 0032} {0E 0000 0002 0002 0064}Aconsegueix el {0E 0000 0003 0002 0004}primer lloc{0E 0000 0003 0002 FFFF}{0E 0000 0002 0002 0032} {0E 0000 0002 0002 0064}!
+MsgMain/Race/9504	{0E 0000 0002 0002 004B}Entra entre els{0E 0000 0002 0002 0064} {0E 0000 0003 0002 0004}4{0E 0000 0003 0002 FFFF} {0E 0000 0002 0002 004B}millors!{0E 0000 0002 0002 0064}
+MsgMain/Race/9508	{0E 0000 0002 0002 004B}Entra entre els{0E 0000 0002 0002 0064} {0E 0000 0003 0002 0004}8{0E 0000 0003 0002 FFFF} {0E 0000 0002 0002 004B}millors!{0E 0000 0002 0002 0064}
+MsgMain/Race/9512	{0E 0000 0002 0002 004B}Entra entre els{0E 0000 0002 0002 0064} {0E 0000 0003 0002 0004}12{0E 0000 0003 0002 FFFF} {0E 0000 0002 0002 004B}millors!{0E 0000 0002 0002 0064}
+MsgMain/Race/9516	{0E 0000 0002 0002 004B}Entra entre els{0E 0000 0002 0002 0064} {0E 0000 0003 0002 0004}16{0E 0000 0003 0002 FFFF} {0E 0000 0002 0002 004B}millors!{0E 0000 0002 0002 0064}
+MsgMain/Race/9520	{0E 0000 0002 0002 004B}Entra entre els{0E 0000 0002 0002 0064} {0E 0000 0003 0002 0004}20{0E 0000 0003 0002 FFFF} {0E 0000 0002 0002 004B}millors!{0E 0000 0002 0002 0064}
+MsgMain/Race/9604	No ets entre els 4 millors.
+MsgMain/Race/9608	No ets entre els 8 millors.
+MsgMain/Race/9612	No ets entre els 12 millors.
+MsgMain/Race/9616	No ets entre els 16 millors.
+MsgMain/Race/9620	No ets entre els 20 millors.
+MsgMain/Race/9701	Hola!
+MsgMain/Race/9702	Bona sort!
+MsgMain/Race/9703	Et dono la benvinguda!
+MsgMain/Race/9704	Tracteu-me bé!
+MsgMain/Race/9705	Ho donaré tot!
+MsgMain/Race/9706	Som-hi!
+MsgMain/Race/9707	Esperem més jugadors.
+MsgMain/Race/9708	D'acord!
+MsgMain/Race/9709	Quins nervis!
+MsgMain/Race/9710	Quina emoció!
+MsgMain/Race/9711	Faré una foto!
+MsgMain/Race/9712	Iuupi!
+MsgMain/Race/9713	Que divertit!
+MsgMain/Race/9714	Quina passada!
+MsgMain/Race/9715	Quina llàstima!
+MsgMain/Race/9716	Això no val!
+MsgMain/Race/9717	Una altra vegada!
+MsgMain/Race/9718	Ja veureu la propera!
+MsgMain/Race/9719	L'última i me'n vaig.
+MsgMain/Race/9720	Me'n vaig ja.
+MsgMain/Race/9721	Gràcies per jugar!
+MsgMain/Race/9722	Moltes gràcies!
+MsgMain/Race/9723	Bona nit!
+MsgMain/Race/9724	Adéu!
+MsgMain/Race/9726	Quina habilitat!
+MsgMain/Race/9727	Impressionant!
+MsgMain/Race/9728	Compte!
+MsgMain/Race/9729	Ànim!
+MsgMain/Race/9730	Continua així!
+MsgMain/Race/9731	Som-hi!
+MsgMain/Race/9732	Darrere teu!
+MsgMain/Race/9733	Bravo!
+MsgMain/Race/9750	Estic fent una foto.
+MsgMain/Race/9751	Estic en una cursa.
+MsgMain/Race/9752	Estic en plena batalla.
+MsgMain/Race/9753	Estic observant.
+MsgMain/Race/9936	EN DIRECTE
+MsgMain/Race/9939	AUCH!
+MsgMain/Race/9940	TOCAT!
+MsgMain/Help/HelpButton_01	Manual
+MsgMain/Help/HelpMenu_01	Tècniques
+MsgMain/Help/HelpMenu_02	Objectes
+MsgMain/Help/HelpMenu_03	Regles
+MsgMain/Help/HelpMenu_04	Mode lliure
+MsgMain/Help/Technique_01	Turboarrencada
+MsgMain/Help/Technique_02	Derrapada
+MsgMain/Help/Technique_03	Miniturbo
+MsgMain/Help/Technique_04	Salt amb accelerada
+MsgMain/Help/Technique_05	Gir al lloc
+MsgMain/Help/Technique_06	Salt carregat
+MsgMain/Help/Technique_07	Lliscar per baranes
+MsgMain/Help/Technique_08	Circular per parets
+MsgMain/Help/Technique_09	Rebobinar
+MsgMain/Help/Technique_101	Turboarrencada
+MsgMain/Help/Technique_102	Derrapada
+MsgMain/Help/Technique_103	Miniturbo
+MsgMain/Help/Technique_104	Salt amb accelerada
+MsgMain/Help/Technique_105	Gir al lloc
+MsgMain/Help/Technique_106	Salt carregat
+MsgMain/Help/Technique_107	Lliscar per baranes
+MsgMain/Help/Technique_108	Circular per parets
+MsgMain/Help/Technique_109	Rebobinar
+MsgMain/Help/Technique_201	A l'inici de la cursa, quan el compte\nenrere vagi pel 2, mantén premut {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} ({0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF})\nper fer una turboarrencada.
+MsgMain/Help/Technique_202	Mantén premut {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} mentre acceleres amb {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} ({0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF})\ni inclines {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} per prendre els revolts més\ntancats sense perdre velocitat.
+MsgMain/Help/Technique_203	Si surten espurnes de les rodes en allargar la derrapada,\ndeixa anar {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} per fer una accelerada. Aguanta fins que\nestes canviïn de color (fins a 3 cops amb el volant\nintel·ligent desactivat) per potenciar l'accelerada.
+MsgMain/Help/Technique_204	En passar per una rampa o una superfície similar,\nprem {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} en el moment just per fer\nuna pirueta a l'aire i aconseguir una breu accelerada.
+MsgMain/Help/Technique_205	Pots canviar de direcció ràpidament\nsi inclines {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} i alhora mantens premuts\n{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} ({0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}) i {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} ({0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}).
+MsgMain/Help/Technique_206	Si mantens premut {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} uns instants mentre\navances en línia recta amb {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} ({0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}), sortiran\nespurnes de les rodes. Llavors, deixa anar {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}\ni inclina {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF} per saltar en la direcció desitjada.
+MsgMain/Help/Technique_207	Es pot circular sobre elements estrets\ncom baranes i cables elèctrics. Fins i tot\nhi pots pujar fent un salt carregat.
+MsgMain/Help/Technique_208	Si fas un salt amb accelerada o un salt\ncarregat cap a una paret, podràs\ncircular-hi breument.
+MsgMain/Help/Technique_209	Si mantens premut {0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}, pots fer que\nel teu vehicle torni a una posició anterior.
+MsgMain/Help/Item_01	Plàtan
+MsgMain/Help/Item_02	Tres plàtans
+MsgMain/Help/Item_03	Bolet turbo
+MsgMain/Help/Item_04	Tres bolets turbo
+MsgMain/Help/Item_05	Bolet turbo daurat
+MsgMain/Help/Item_06	Megabolet
+MsgMain/Help/Item_07	Closca verda
+MsgMain/Help/Item_08	Tres closques verdes
+MsgMain/Help/Item_09	Closca vermella
+MsgMain/Help/Item_10	Tres closques vermelles
+MsgMain/Help/Item_11	Closca de punxes
+MsgMain/Help/Item_12	Closca de monedes
+MsgMain/Help/Item_13	Flor de foc
+MsgMain/Help/Item_14	Flor de gel
+MsgMain/Help/Item_15	Flor de bumerang
+MsgMain/Help/Item_16	Bill Bala
+MsgMain/Help/Item_17	Bob-omb
+MsgMain/Help/Item_18	Martell
+MsgMain/Help/Item_19	Superbotzina
+MsgMain/Help/Item_20	Bloc ?
+MsgMain/Help/Item_21	Moneda
+MsgMain/Help/Item_22	Boo
+MsgMain/Help/Item_23	Blooper
+MsgMain/Help/Item_24	Kamek
+MsgMain/Help/Item_25	Ploma
+MsgMain/Help/Item_26	Superestrella
+MsgMain/Help/Item_27	Llamp
+MsgMain/Help/Item_28	Menjar turbo
+MsgMain/Help/Item_101	Qualsevol vehicle que el toqui\nderraparà.
+MsgMain/Help/Item_102	Tres plàtans que giren al voltant del\nteu vehicle. Prem {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000} per deixar-los anar\nd'un en un.
+MsgMain/Help/Item_103	Et fa pegar una accelerada.
+MsgMain/Help/Item_104	Tres bolets que giren al voltant\ndel teu vehicle. Prem {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000} per usar-los\nd'un en un.
+MsgMain/Help/Item_105	Durant un cert temps, permet\nactivar l'efecte del bolet turbo\nprement {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000} repetidament.
+MsgMain/Help/Item_106	T'engrandeix a tu i al teu vehicle\nper uns instants, cosa que et permet\naixafar els teus rivals. També\nt'atorga un extra de velocitat.
+MsgMain/Help/Item_107	Surt disparada en línia recta i fa\nvoltar el primer vehicle que toca.
+MsgMain/Help/Item_108	Tres closques verdes que giren\nal voltant del teu vehicle. Prem {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}\nper llançar-les d'una en una.
+MsgMain/Help/Item_109	Persegueix el vehicle que va davant\nteu i fa voltar el primer que\ns'hi creui pel camí.
+MsgMain/Help/Item_110	Tres closques vermelles que giren\nal voltant del teu vehicle. Prem {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}\nper llançar-les d'una en una.
+MsgMain/Help/Item_111	Va directa al vehicle que encapçala\nla cursa i fa que bolquin aquest\ni qualsevol altre que s'interposi\nen el seu camí. No s'aturarà fins\nque arribi al líder de la cursa!
+MsgMain/Help/Item_112	Segueix el traçat del circuit mentre\ngenera monedes i fa voltar els\nvehicles que s'hi creuin.
+MsgMain/Help/Item_113	Et permet llançar boles de foc\ndurant uns instants prement {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}.\nSi toquen algun vehicle, aquest\ndonarà voltes sense control.
+MsgMain/Help/Item_114	Et permet llançar boles de gel\ndurant uns instants prement {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}.\nEls qui en siguin tocats\nperdran el control del seu vehicle.
+MsgMain/Help/Item_115	Et permet llançar prement {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000} un\nbumerang que farà donar voltes sense\ncontrol als vehicles que toqui.
+MsgMain/Help/Item_116	Et converteix per uns instants en un\nBill Bala que vola automàticament\na tota velocitat cap a la meta.\nFaràs voltar qualsevol vehicle\nque s'interposi en el teu camí.
+MsgMain/Help/Item_117	Un cop llançada, esclatarà al cap d'uns\ninstants o si algú hi xoca.\nL'explosió farà voltar o donar voltes\nals vehicles que toqui!
+MsgMain/Help/Item_118	Et permet llançar diversos martells\nprement {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}. Provocaràs accidents\nsi els fas anar a altres vehicles.
+MsgMain/Help/Item_119	Toca una botzinada a tot volum\ni llança per l'aire els vehicles\ni objectes que hi hagi a prop.
+MsgMain/Help/Item_120	Genera una moneda cada cop que\npremes {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}. També augmenta\nlleugerament la velocitat.
+MsgMain/Help/Item_121	Incrementa en dos el teu comptador de\nmonedes. Com més en tinguis, més\nràpid correrà el teu vehicle.
+MsgMain/Help/Item_122	Fa invisible el teu vehicle, per la qual cosa\nno t'afecten certs obstacles com\nels plàtans o les closques. A més,\npots robar objectes als teus rivals!
+MsgMain/Help/Item_123	Llança tinta als rivals i dificulta\nla seva visió durant uns instants.
+MsgMain/Help/Item_124	Invoca Kamek perquè provoqui\nefectes ben diversos amb els\nseus poders màgics.
+MsgMain/Help/Item_125	Et permet elevar-te a gran altura per\nevitar plàtans o closques. A les\nbatalles, si copeges els rivals a\nl'aire, els robaràs globus o monedes.
+MsgMain/Help/Item_126	Et fa invulnerable durant uns\ninstants i augmenta la teva velocitat.\nEls vehicles que xoquin amb tu\nvoltaran.
+MsgMain/Help/Item_127	Fa donar voltes sense control a tots\nels teus oponents i els deixa sense objectes.\nTambé en redueix per uns instants\nla mida i la velocitat.
+MsgMain/Help/Item_128	Un bocí apetitós que et fa\npegar una accelerada i a més podria\nfer-te canviar d'aspecte.
+MsgMain/Help/Rule_01	Grand Prix
+MsgMain/Help/Rule_02	Supervivència
+MsgMain/Help/Rule_03	Contrarellotge
+MsgMain/Help/Rule_04	Cursa VS.
+MsgMain/Help/Rule_05	Batalla de globus
+MsgMain/Help/Rule_06	Batalla de monedes
+MsgMain/Help/Rule_101	Grand Prix
+MsgMain/Help/Rule_102	Supervivència
+MsgMain/Help/Rule_103	Contrarellotge
+MsgMain/Help/Rule_104	Cursa VS.
+MsgMain/Help/Rule_105	Batalla de globus
+MsgMain/Help/Rule_106	Batalla de monedes
+MsgMain/Help/Rule_201	Lluita per coronar el podi\nen una copa de 4 curses!
+MsgMain/Help/Rule_202	Una cursa eliminatòria\nper tot el món!
+MsgMain/Help/Rule_203	Supera els teus millors temps en solitari!
+MsgMain/Help/Rule_204	Competeix seguint les teves pròpies regles!
+MsgMain/Help/Rule_205	Fes servir objectes i rebenta globus!
+MsgMain/Help/Rule_206	Guanya qui aconsegueixi més monedes!
+MsgMain/Help/Rule_301	Després de cada cursa, es guanyen punts segons el\nlloc aconseguit. La teva posició a la classificació\ngeneral del campionat dependrà dels punts\nsumats al final de les 4 curses.
+MsgMain/Help/Rule_302	Una cursa ininterrompuda en què els\nparticipants hauran d'intentar mantenir-se\ncom sigui als llocs classificatoris!
+MsgMain/Help/Rule_303	Tria el circuit que vulguis entre els disponibles.\nLa clau per aconseguir temps cada cop millors és\nfer servir els bolets turbo amb traça!
+MsgMain/Help/Rule_304	Tria al teu gust diferents ajustos, com el nombre\nde curses o la distribució per equips.
+MsgMain/Help/Rule_305	Aconsegueix punts rebentant els globus dels\nrivals! També els els pots robar xocant\ncontra ells amb l'ajuda d'un bolet turbo.
+MsgMain/Help/Rule_306	Colpeja amb objectes els teus oponents perquè\nsoltin monedes. També les hi pots\nrobar xocant contra ells amb\nl'ajuda d'un bolet turbo.
+MsgMain/Help/Rule_401	El mode Grand Prix permet participar en 7 copes\ndiferents. Què passarà si les completes totes?
+MsgMain/Help/Rule_402	En passar per cadascuna de les 5 metes intermèdies,\nes redueix el nombre de participants. Aguanta\nsense que t'eliminin i intenta arribar al primer\nlloc al final!
+MsgMain/Help/Rule_403	Competeix contra els fantasmes d'altres jugadors.\nPotser en pots aprendre algun truc!
+MsgMain/Help/Rule_404	Si tries «Gira» a la pantalla d'ajustos,\nla competició es desenvoluparà enllaçant\ncircuits per tot el món!
+MsgMain/Help/Rule_405	Si et quedes sense globus, s'ha acabat el bròquil...
+MsgMain/Help/Rule_406	Les monedes es mostren al minimapa.\nNo li treguis els ulls de sobre!
+MsgMain/Help/FreeRun_01	Interruptors P
+MsgMain/Help/FreeRun_02	Panells ?
+MsgMain/Help/FreeRun_03	Medalles de Peach
+MsgMain/Help/FreeRun_04	Monedes
+MsgMain/Help/FreeRun_05	Local de Yoshi
+MsgMain/Help/FreeRun_06	Mode fotos
+MsgMain/Help/FreeRun_101	Toca un interruptor P per començar una missió!\nSi et costa completar-la, recorda que la\nperseverança és la clau de l'èxit!
+MsgMain/Help/FreeRun_102	Pots topar amb panells ? als llocs\nmés insospitats. Intenta trobar-los\ntots!
+MsgMain/Help/FreeRun_103	Unes lluents medalles de Peach s'amaguen\nper tot el món. Quantes creus que\nhi haurà en total?
+MsgMain/Help/FreeRun_104	Si reuneixes prou monedes, podràs\ndesbloquejar nous vehicles. Diuen\nles males llengües que n'hi ha\nmuntanyes per allà fora!
+MsgMain/Help/FreeRun_105	Trobaràs menjar turbo en diferents punts\ndel mapa. Aquests apetitosos manjars\npoden canviar l'aspecte de diversos pilots!
+MsgMain/Help/FreeRun_106	Pots fer fotos prement {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}. Busca el millor\nenquadrament, somriu i... dispara!
+MsgMain/Driver/Driver_MarioRacing_00	Pilot pro
+MsgMain/Driver/Driver_MarioSheriff_00	Vaquer
+MsgMain/Driver/Driver_MarioDesert_00	Oasi
+MsgMain/Driver/Driver_MarioOmatsuri_00	Festival
+MsgMain/Driver/Driver_MarioCasual_00	Trotamóns
+MsgMain/Driver/Driver_MarioPilot_00	Aviador
+MsgMain/Driver/Driver_MarioVacance_00	Turista
+MsgMain/Driver/Driver_MarioOffroad_00	Tot terreny
+MsgMain/Driver/Driver_MarioMechanic_00	Mecànic
+MsgMain/Driver/Driver_LuigiRacing_00	Pilot pro
+MsgMain/Driver/Driver_LuigiLagoonCity_00	Gondoler
+MsgMain/Driver/Driver_LuigiDesert_00	Oasi
+MsgMain/Driver/Driver_LuigiOmatsuri_00	Festival
+MsgMain/Driver/Driver_LuigiFarmer_00	Granger
+MsgMain/Driver/Driver_LuigiCasual_00	Trotamóns
+MsgMain/Driver/Driver_LuigiMechanic_00	Mecànic
+MsgMain/Driver/Driver_LuigiOffroad_00	Tot terreny
+MsgMain/Driver/Driver_PeachCasual_00	Trotamóns
+MsgMain/Driver/Driver_PeachLagoonCity_00	Turista
+MsgMain/Driver/Driver_PeachFarmer_00	Grangera
+MsgMain/Driver/Driver_PeachRacing_00	Pilot pro
+MsgMain/Driver/Driver_PeachPilot_00	Aviadora
+MsgMain/Driver/Driver_PeachResort_00	Vacances
+MsgMain/Driver/Driver_PeachOffroad_00	Motorista
+MsgMain/Driver/Driver_PeachYukata_00	Festival
+MsgMain/Driver/Driver_DaisySwim_00	Banyador
+MsgMain/Driver/Driver_DaisyLagoonCity_00	Vacances
+MsgMain/Driver/Driver_DaisyDesert_00	Oasi
+MsgMain/Driver/Driver_DaisyRacing_00	Pilot pro
+MsgMain/Driver/Driver_DaisyCasual_00	Trotamóns
+MsgMain/Driver/Driver_DaisyOffroad_00	Motorista
+MsgMain/Driver/Driver_YoshiDelivery_00	Menjar ràpid
+MsgMain/Driver/Driver_YoshiIce_00	Gelat
+MsgMain/Driver/Driver_YoshiRacing_00	Pilot pro
+MsgMain/Driver/Driver_YoshiSwim_00	Banyador
+MsgMain/Driver/Driver_YoshiStadium_00	Rebel
+MsgMain/Driver/Driver_YoshiCasual_00	Trotamóns
+MsgMain/Driver/Driver_YoshiHachimaki_00	Festival
+MsgMain/Driver/Driver_YoshiMovie_00	Aristòcrata
+MsgMain/Driver/Driver_KinopioEngineer_00	Maquinista
+MsgMain/Driver/Driver_KinopioDiner_00	Hamburguesa
+MsgMain/Driver/Driver_KinopioRacing_00	Pilot pro
+MsgMain/Driver/Driver_KinopioExplore_00	Explorador
+MsgMain/Driver/Driver_KoopaRiders_00	Rebel
+MsgMain/Driver/Driver_KoopaRacing_00	Pilot pro
+MsgMain/Driver/Driver_KoopaOffroad_00	Tot terreny
+MsgMain/Driver/Driver_KoopaHotrod_00	Reactor
+MsgMain/Driver/Driver_DKOffroad_00	Tot terreny
+MsgMain/Driver/Driver_WarioDesert_00	Oasi
+MsgMain/Driver/Driver_WarioDiner_00	Rebel
+MsgMain/Driver/Driver_WarioFactory_00	Obrer
+MsgMain/Driver/Driver_WarioRacing_00	Pilot pro
+MsgMain/Driver/Driver_WarioFairy_00	Abellot
+MsgMain/Driver/Driver_WarioPirate_00	Pirata
+MsgMain/Driver/Driver_WarioStadium_00	Vàndal
+MsgMain/Driver/Driver_WaluigiRacing_00	Pilot pro
+MsgMain/Driver/Driver_WaluigiHorror_00	Vampir
+MsgMain/Driver/Driver_WaluigiDiner_00	Rebel
+MsgMain/Driver/Driver_WaluigiStadium_00	Vàndal
+MsgMain/Driver/Driver_WaluigiMariachi_00	Mariachi
+MsgMain/Driver/Driver_RosettaRacing_00	Pilot pro
+MsgMain/Driver/Driver_RosettaCasual_00	Trotamóns
+MsgMain/Driver/Driver_RosettaAurora_00	Aurora
+MsgMain/Driver/Driver_RosettaOffroad_00	Motorista
+MsgMain/Driver/Driver_PaulineOffroad_00	Motorista
+MsgMain/Driver/Driver_BabyMarioSwim_00	Banyador
+MsgMain/Driver/Driver_BabyMarioFactory_00	Obrer
+MsgMain/Driver/Driver_BabyMarioRacing_00	Pilot pro
+MsgMain/Driver/Driver_BabyLuigiFactory_00	Obrer
+MsgMain/Driver/Driver_BabyLuigiRacing_00	Pilot pro
+MsgMain/Driver/Driver_BabyPeachMarine_00	Mariner
+MsgMain/Driver/Driver_BabyPeachExplore_00	Exploradora
+MsgMain/Driver/Driver_BabyPeachCasual_00	Trotamóns
+MsgMain/Driver/Driver_BabyPeachRacing_00	Pilot pro
+MsgMain/Driver/Driver_BabyDaisyMarine_00	Mariner
+MsgMain/Driver/Driver_BabyDaisyExplore_00	Exploradora
+MsgMain/Driver/Driver_BabyDaisyRacing_00	Pilot pro
+MsgMain/Driver/Driver_BabyDaisyCasual_00	Trotamóns
+MsgMain/Driver/Driver_BabyRosettaMarine_00	Mariner
+MsgMain/Driver/Driver_BabyRosettaExplore_00	Exploradora
+MsgMain/Driver/Driver_BabyRosettaCasual_00	Trotamóns
+MsgMain/Driver/Driver_BabyRosettaRacing_00	Pilot pro
+MsgMain/Driver/Driver_KinopicoConductor_00	Revisora
+MsgMain/Driver/Driver_KinopicoIce_00	Gelat
+MsgMain/Driver/Driver_KinopicoRacing_00	Pilot pro
+MsgMain/Driver/Driver_KinopicoExplore_00	Exploradora
+MsgMain/Driver/Driver_KoopaJrRiders_00	Rebel
+MsgMain/Driver/Driver_KoopaJrScout_00	Explorador
+MsgMain/Driver/Driver_KoopaJrRacing_00	Pilot pro
+MsgMain/Driver/Driver_CatherineLagoonCity_00	Vacances
+MsgMain/Driver/Driver_CatherineRacing_00	Pilot pro
+MsgMain/Driver/Driver_NokonokoRunner_00	Corredor
+MsgMain/Driver/Driver_NokonokoRacing_00	Pilot pro
+MsgMain/Driver/Driver_NokonokoFlagman_00	Obrer
+MsgMain/Driver/Driver_NokonokoSailor_00	Mariner
+MsgMain/Driver/Driver_NokonokoOffroad_00	Tot terreny
+MsgMain/Driver/Driver_HeyhoSnow_00	Snowboard
+MsgMain/Driver/Driver_HeyhoRacing_00	Boxes
+MsgMain/Driver/Driver_JugemAngler_00	Pescador
+MsgMain/Driver/Driver_JugemRacing_00	Boxes
+MsgMain/Driver/Driver_KingTeresaMovie_00	Aristòcrata
+MsgMain/Driver/Driver_KingTeresaPirate_00	Pirata
+MsgMain/Driver/Driver_KingTeresaRacing_00	Pilot pro
+MsgMain/DriverCategoryName/Driver_BabyDaisy	Bebè Daisy
+MsgMain/DriverCategoryName/Driver_BabyLuigi	Bebè Luigi
+MsgMain/DriverCategoryName/Driver_BabyMario	Bebè Mario
+MsgMain/DriverCategoryName/Driver_BabyPeach	Bebè Peach
+MsgMain/DriverCategoryName/Driver_BabyRosetta	Bebè Estela
+MsgMain/DriverCategoryName/Driver_Catherine	Birdo
+MsgMain/DriverCategoryName/Driver_DK	Donkey Kong
+MsgMain/DriverCategoryName/Driver_Daisy	Daisy
+MsgMain/DriverCategoryName/Driver_Heyho	Shy Guy
+MsgMain/DriverCategoryName/Driver_Jugem	Lakitu
+MsgMain/DriverCategoryName/Driver_KingTeresa	Rei Boo
+MsgMain/DriverCategoryName/Driver_Kinopico	Toadette
+MsgMain/DriverCategoryName/Driver_Kinopio	Toad
+MsgMain/DriverCategoryName/Driver_Koopa	Bowser
+MsgMain/DriverCategoryName/Driver_KoopaJr	Bowsy
+MsgMain/DriverCategoryName/Driver_Luigi	Luigi
+MsgMain/DriverCategoryName/Driver_Mario	Mario
+MsgMain/DriverCategoryName/Driver_Nokonoko	Koopa
+MsgMain/DriverCategoryName/Driver_Pauline	Pauline
+MsgMain/DriverCategoryName/Driver_Peach	Peach
+MsgMain/DriverCategoryName/Driver_Rosetta	Estela
+MsgMain/DriverCategoryName/Driver_Waluigi	Waluigi
+MsgMain/DriverCategoryName/Driver_Wario	Wario
+MsgMain/DriverCategoryName/Driver_Yoshi	Yoshi
+MsgMain/DriverCategoryName/Driver_Basabasa	Swooper
+MsgMain/DriverCategoryName/Driver_Bull	Placapum
+MsgMain/DriverCategoryName/Driver_Choropoo	Talp Monty
+MsgMain/DriverCategoryName/Driver_Cow	Vaca
+MsgMain/DriverCategoryName/Driver_Crab	Cranc
+MsgMain/DriverCategoryName/Driver_Gabon	Spike
+MsgMain/DriverCategoryName/Driver_Hacchin	Abellot
+MsgMain/DriverCategoryName/Driver_HammerBros	Germà Martell
+MsgMain/DriverCategoryName/Driver_Lifton	Dofí
+MsgMain/DriverCategoryName/Driver_PackunFlower	Planta Piranya
+MsgMain/DriverCategoryName/Driver_Penguin	Pingüí
+MsgMain/DriverCategoryName/Driver_Pukupuku	Cheep Cheep
+MsgMain/DriverCategoryName/Driver_Sambo	Pokey
+MsgMain/DriverCategoryName/Driver_Kuribo	Goomba
+MsgMain/DriverCategoryName/Driver_FishBone	Espinapeix
+MsgMain/DriverCategoryName/Driver_Gamane	Monedrana
+MsgMain/DriverCategoryName/Driver_Karon	Ossets
+MsgMain/DriverCategoryName/Driver_Poihana	Picacuac
+MsgMain/DriverCategoryName/Driver_Snowman	Ninot de neu
+MsgMain/DriverCategoryName/Driver_Monte	Forestà
+MsgMain/DriverCategoryName/Driver_Tuccondor	Picacòndor
+MsgMain/DriverCategoryName/Driver_Patatenten	Marxímota Alat
+MsgMain/DriverCategoryName/Driver_Totten	Caco Conill
+MsgMain/DriverCategoryName/Driver_Hanachan	Floruga
+MsgMain/DriverCategoryName/Driver_Poo	Tortopo
+MsgMain/MachineType/Vehicle_Amb	Bigoti Venjador
+MsgMain/MachineType/Vehicle_Bds	Llamp GTI
+MsgMain/MachineType/Vehicle_Blk	Mecatricicle
+MsgMain/MachineType/Vehicle_Bsn	Gran Banya
+MsgMain/MachineType/Vehicle_Bul	Placapum XL
+MsgMain/MachineType/Vehicle_Crp	Rei de l'Estany
+MsgMain/MachineType/Vehicle_Dkn	Hipertuberia
+MsgMain/MachineType/Vehicle_Dmp	Bolcacorredor
+MsgMain/MachineType/Vehicle_Esp	Trineu Estel·lar
+MsgMain/MachineType/Vehicle_H2o	Turbonúvol B
+MsgMain/MachineType/Vehicle_Hrl	Minitractor
+MsgMain/MachineType/Vehicle_Hvc	R.O.B. OT
+MsgMain/MachineType/Vehicle_Kgs	Blooper BB
+MsgMain/MachineType/Vehicle_Lob	Tricrustaci
+MsgMain/MachineType/Vehicle_Mhb	Moto Hipersònica
+MsgMain/MachineType/Vehicle_Mov	Fama Fugaç
+MsgMain/MachineType/Vehicle_Mqn	Abellot-mòbil
+MsgMain/MachineType/Vehicle_Ocn	Descapogripau
+MsgMain/MachineType/Vehicle_Ptn	Marxímota GTI
+MsgMain/MachineType/Vehicle_Rbn	Coquetomòbil
+MsgMain/MachineType/Vehicle_Rcb	Ràdio Raudó
+MsgMain/MachineType/Vehicle_Rcc	Calcinador Turbo
+MsgMain/MachineType/Vehicle_Rlb	Moto Tot Terreny
+MsgMain/MachineType/Vehicle_Rlk	Kart Tot Terreny
+MsgMain/MachineType/Vehicle_Sct	Cuquimoto
+MsgMain/MachineType/Vehicle_Skl	Tubiturbo
+MsgMain/MachineType/Vehicle_Snd	Solcadunes
+MsgMain/MachineType/Vehicle_Snm	Pànic Lliscant
+MsgMain/MachineType/Vehicle_Stb	Moto estàndard
+MsgMain/MachineType/Vehicle_Stk	Kart estàndard
+MsgMain/MachineType/Vehicle_Stm	Locomoto
+MsgMain/MachineType/Vehicle_Tbt	Trastejador
+MsgMain/MachineType/Vehicle_Dlp	Velocidofí
+MsgMain/MachineType/Vehicle_Rkt	Kartonauta III
+MsgMain/MachineType/Vehicle_Pfm	Cor Reial
+MsgMain/MachineType/Vehicle_Cpt	Turbocatifa
+MsgMain/MachineType/Vehicle_Wtm	Muntaones Dorrie
+MsgMain/MachineType/Vehicle_Alt	Velocirèptil
+MsgMain/MachineType/Vehicle_Kpv	El Destructor
+MsgMain/MachineType/Vehicle_Bil	Automo Bill
+MsgMain/DriverCategoryName/Driver_Teren	Fantasmiró
+MsgMain/Sticker/10000	Has començat Mario Kart World!
+MsgMain/Sticker/10001	Has reunit {0E 0001 0000 0004 0000 0000}{0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}en total!
+MsgMain/Sticker/10002	Salts amb pirueta: {0E 0001 0000 0004 0000 0000}
+MsgMain/Sticker/10004	Total recorregut: {0E 0001 0000 0004 0000 0000} km
+MsgMain/Sticker/10005	Has volat {0E 0001 0000 0004 0000 0000} km en total!
+MsgMain/Sticker/10006	Has disputat {0E 0001 0000 0004 0000 0000} curses!
+MsgMain/Sticker/10008	Panell ? activat!
+MsgMain/Sticker/10009	Has obtingut una medalla de Peach!
+MsgMain/Sticker/10011	Has atrapat el Caco Conill!
+MsgMain/Sticker/10012	Missió Placapum superada!
+MsgMain/Sticker/10013	Missió superada!
+MsgMain/Sticker/10014	Has disputat la Copa Especial!
+MsgMain/BattleCourse/1701	Circuit Mario Bros.
+MsgMain/BattleCourse/1702	Arenes Mordedores
+MsgMain/BattleCourse/1703	Estadi Peach
+MsgMain/BattleCourse/1704	Jungla Dino Dino
+MsgMain/BattleCourse/1705	Gran Dònut
+MsgMain/BattleCourse/1706	Ciutat Salina
+MsgMain/BattleCourse/1707	Prat Mu-Mu
+MsgMain/BattleCourse/1708	DK Alpí
+MsgMain/Course(adjust)/Adjust_Name_Race_AirshipFortress_A_00	{0E 0000 0002 0002 005F}Fortalesa Aèria{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_BigTree_A_00	{0E 0000 0002 0002 005F}Vila Arbòria{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_Cave_A_00	{0E 0000 0002 0002 005F}Gruta Dent de Lleó{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_Central_A_00	{0E 0000 0002 0002 005F}Estadi Peach{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_ChocoMountain_A_00	{0E 0000 0002 0002 005F}Mont Xocolata{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_Cinema_A_00	{0E 0000 0002 0002 005F}Cinema Boo{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_Coaster_A_00	{0E 0000 0002 0002 005F}Canyó Ferroviari{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_DesertHills_A_00	{0E 0000 0002 0002 005F}Desert Sol-Sol{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_DinoBones_A_00	{0E 0000 0002 0002 005F}Caverna Òssia{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_DinoDinoJungle_A_00	{0E 0000 0002 0002 005F}Jungla Dino Dino{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_DKJungleParkway_A_00	{0E 0000 0002 0002 005F}Sabana Esquitxant{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_DKPass_A_00	{0E 0000 0002 0002 005F}DK Alpí{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_DonkeyKong_A_00	{0E 0000 0002 0002 005F}Port Espacial DK{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_FirstCircuit_A_00	{0E 0000 0002 0002 005F}Circuit Mario Bros.{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_IceBuildings_A_00	{0E 0000 0002 0002 005F}Cels Gelats{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_KoopaTroopaBeach_A_00	{0E 0000 0002 0002 005F}Platja Koopa{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_LagoonCity_A_00	{0E 0000 0002 0002 005F}Ciutat Salina{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_Lava_A_00	{0E 0000 0002 0002 005F}Castell de Bowser{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_MooMooFarm_A_00	{0E 0000 0002 0002 005F}Prat Mu-Mu{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_RaftingRiver_A_00	{0E 0000 0002 0002 005F}Cascades Cheep Cheep{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_Rainbow_A_00	{0E 0000 0002 0002 005F}Senda Arc Iris{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_SFCMarioCircuit_G_00	{0E 0000 0002 0002 005F}Circuit Mario{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_ShyGuyBazaar_A_00	{0E 0000 0002 0002 005F}Basar Shy Guy{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_SnowMountain_A_00	{0E 0000 0002 0002 005F}Mirador Estel·lar{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_StormClouds_A_00	{0E 0000 0002 0002 005F}Temple del Bloc ?{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_ToadFactory_A_00	{0E 0000 0002 0002 005F}Fàbrica de Toad{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_WarioShipyard_A_00	{0E 0000 0002 0002 005F}Galió de Wario{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_WarioStadium_A_00	{0E 0000 0002 0002 005F}Estadi Wario{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_WestCity_D_00	{0E 0000 0002 0002 005F}Ciutat Corona{0E 0000 0002 0002 0064}
+MsgMain/Course(adjust)/Adjust_Name_Race_PeachBeach_D_00	{0E 0000 0002 0002 005F}Platja Peach{0E 0000 0002 0002 0064}
+MsgMain/Course/Name_Race_AirshipFortress_A_00	Fortalesa Aèria
+MsgMain/Course/Name_Race_BigTree_A_00	Vila Arbòria
+MsgMain/Course/Name_Race_Cave_A_00	Gruta Dent de Lleó
+MsgMain/Course/Name_Race_Central_A_00	Estadi Peach
+MsgMain/Course/Name_Race_ChocoMountain_A_00	Mont Xocolata
+MsgMain/Course/Name_Race_Cinema_A_00	Cinema Boo
+MsgMain/Course/Name_Race_Coaster_A_00	Canyó Ferroviari
+MsgMain/Course/Name_Race_DesertHills_A_00	Desert Sol-Sol
+MsgMain/Course/Name_Race_DinoBones_A_00	Caverna Òssia
+MsgMain/Course/Name_Race_DinoDinoJungle_A_00	Jungla Dino Dino
+MsgMain/Course/Name_Race_DKJungleParkway_A_00	Sabana Esquitxant
+MsgMain/Course/Name_Race_DKPass_A_00	DK Alpí
+MsgMain/Course/Name_Race_DonkeyKong_A_00	Port Espacial DK
+MsgMain/Course/Name_Race_FirstCircuit_A_00	Circuit Mario Bros.
+MsgMain/Course/Name_Race_IceBuildings_A_00	Cels Gelats
+MsgMain/Course/Name_Race_KoopaTroopaBeach_A_00	Platja Koopa
+MsgMain/Course/Name_Race_LagoonCity_A_00	Ciutat Salina
+MsgMain/Course/Name_Race_Lava_A_00	Castell de Bowser
+MsgMain/Course/Name_Race_MooMooFarm_A_00	Prat Mu-Mu
+MsgMain/Course/Name_Race_RaftingRiver_A_00	Cascades Cheep Cheep
+MsgMain/Course/Name_Race_Rainbow_A_00	Senda Arc Iris
+MsgMain/Course/Name_Race_SFCMarioCircuit_G_00	Circuit Mario
+MsgMain/Course/Name_Race_ShyGuyBazaar_A_00	Basar Shy Guy
+MsgMain/Course/Name_Race_SnowMountain_A_00	Mirador Estel·lar
+MsgMain/Course/Name_Race_StormClouds_A_00	Temple del Bloc ?
+MsgMain/Course/Name_Race_ToadFactory_A_00	Fàbrica de Toad
+MsgMain/Course/Name_Race_WarioShipyard_A_00	Galió de Wario
+MsgMain/Course/Name_Race_WarioStadium_A_00	Estadi Wario
+MsgMain/Course/Name_Race_WestCity_D_00	Ciutat Corona
+MsgMain/Course/Name_Race_PeachBeach_D_00	Platja Peach
+MsgMain/CourseArea(adjust)/Name_AirshipFortress_00	{0E 0000 0002 0002 005F}Fortalesa Aèria{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_BigTree_00	{0E 0000 0002 0002 005F}Vila Arbòria{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_Cave_00	{0E 0000 0002 0002 005F}Gruta Dent de Lleó{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_Central_00	{0E 0000 0002 0002 005F}Estadi Peach{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_ChocoMountain_00	{0E 0000 0002 0002 005F}Mont Xocolata{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_Cinema_00	{0E 0000 0002 0002 005F}Cinema Boo{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_Coaster	{0E 0000 0002 0002 005F}Canyó Ferroviari{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_DesertHills_00	{0E 0000 0002 0002 005F}Desert Sol-Sol{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_DinoBones_00	{0E 0000 0002 0002 005F}Caverna Òssia{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_DinoDinoJungle_00	{0E 0000 0002 0002 005F}Jungla Dino Dino{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_DKJungleParkway_00	{0E 0000 0002 0002 005F}Sabana Esquitxant{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_DKPass_00	{0E 0000 0002 0002 005F}DK Alpí{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_DonkeyKong	{0E 0000 0002 0002 005F}Port Espacial DK{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_FirstCircuit	{0E 0000 0002 0002 005F}Circuit Mario Bros.{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_IceBuildings_00	{0E 0000 0002 0002 005F}Cels Gelats{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_KoopaTroopaBeach_00	{0E 0000 0002 0002 005F}Platja Koopa{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_LagoonCity_00	{0E 0000 0002 0002 005F}Ciutat Salina{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_Lava_00	{0E 0000 0002 0002 005F}Castell de Bowser{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_MooMooFarm_00	{0E 0000 0002 0002 005F}Prat Mu-Mu{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_PeachBeach_00	{0E 0000 0002 0002 005F}Platja Peach{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_RaftingRiver_00	{0E 0000 0002 0002 005F}Cascades Cheep Cheep{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_Rainbow_00	{0E 0000 0002 0002 005F}Senda Arc Iris{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_SFCMarioCircuit_00	{0E 0000 0002 0002 005F}Circuit Mario{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_ShyGuyBazaar_00	{0E 0000 0002 0002 005F}Basar Shy Guy{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_SnowMountain_00	{0E 0000 0002 0002 005F}Mirador Estel·lar{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_StormClouds_00	{0E 0000 0002 0002 005F}Temple del Bloc ?{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_ToadFactory_00	{0E 0000 0002 0002 005F}Fàbrica de Toad{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_WarioShipyard_00	{0E 0000 0002 0002 005F}Galió de Wario{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_WarioStadium	{0E 0000 0002 0002 005F}Estadi Wario{0E 0000 0002 0002 0064}
+MsgMain/CourseArea(adjust)/Name_WestCity	{0E 0000 0002 0002 005F}Ciutat Corona{0E 0000 0002 0002 0064}
+MsgMain/CourseArea/Name_AirshipFortress_00	Fortalesa Aèria
+MsgMain/CourseArea/Name_BigTree_00	Vila Arbòria
+MsgMain/CourseArea/Name_Cave_00	Gruta Dent de Lleó
+MsgMain/CourseArea/Name_Central_00	Estadi Peach
+MsgMain/CourseArea/Name_ChocoMountain_00	Mont Xocolata
+MsgMain/CourseArea/Name_Cinema_00	Cinema Boo
+MsgMain/CourseArea/Name_Coaster	Canyó Ferroviari
+MsgMain/CourseArea/Name_DesertHills_00	Desert Sol-Sol
+MsgMain/CourseArea/Name_DinoBones_00	Caverna Òssia
+MsgMain/CourseArea/Name_DinoDinoJungle_00	Jungla Dino Dino
+MsgMain/CourseArea/Name_DKJungleParkway_00	Sabana Esquitxant
+MsgMain/CourseArea/Name_DKPass_00	DK Alpí
+MsgMain/CourseArea/Name_DonkeyKong	Port Espacial DK
+MsgMain/CourseArea/Name_FirstCircuit	Circuit Mario Bros.
+MsgMain/CourseArea/Name_IceBuildings_00	Cels Gelats
+MsgMain/CourseArea/Name_KoopaTroopaBeach_00	Platja Koopa
+MsgMain/CourseArea/Name_LagoonCity_00	Ciutat Salina
+MsgMain/CourseArea/Name_Lava_00	Castell de Bowser
+MsgMain/CourseArea/Name_MooMooFarm_00	Prat Mu-Mu
+MsgMain/CourseArea/Name_PeachBeach_00	Platja Peach
+MsgMain/CourseArea/Name_RaftingRiver_00	Cascades Cheep Cheep
+MsgMain/CourseArea/Name_Rainbow_00	Senda Arc Iris
+MsgMain/CourseArea/Name_SFCMarioCircuit_00	Circuit Mario
+MsgMain/CourseArea/Name_ShyGuyBazaar_00	Basar Shy Guy
+MsgMain/CourseArea/Name_SnowMountain_00	Mirador Estel·lar
+MsgMain/CourseArea/Name_StormClouds_00	Temple del Bloc ?
+MsgMain/CourseArea/Name_ToadFactory_00	Fàbrica de Toad
+MsgMain/CourseArea/Name_WarioShipyard_00	Galió de Wario
+MsgMain/CourseArea/Name_WarioStadium	Estadi Wario
+MsgMain/CourseArea/Name_WestCity	Ciutat Corona
+MsgMain/GrandprixCupName/Name_Banana	Copa Plàtan
+MsgMain/GrandprixCupName/Name_Flower	Copa Flor
+MsgMain/GrandprixCupName/Name_Kinoko	Copa Bolet
+MsgMain/GrandprixCupName/Name_Konoha	Copa Fulla
+MsgMain/GrandprixCupName/Name_Koura	Copa Closca
+MsgMain/GrandprixCupName/Name_Star	Copa Estrella
+MsgMain/GrandprixCupName/Name_Thunder	Copa Llampec
+MsgMain/GrandprixCupName/Name_Special	Copa Especial
+MsgMain/GrandprixCupName/Name_GP09	Ral·li Turbo
+MsgMain/GrandprixCupName/Name_GP10	Ral·li Gel
+MsgMain/GrandprixCupName/Name_GP11	Ral·li Lluna
+MsgMain/GrandprixCupName/Name_GP12	Ral·li Espines
+MsgMain/GrandprixCupName/Name_GP13	Ral·li Cireres
+MsgMain/GrandprixCupName/Name_GP14	Ral·li Gla
+MsgMain/GrandprixCupName/Name_GP15	Ral·li Núvol
+MsgMain/GrandprixCupName/Name_GP16	Ral·li Cor
+MsgMain/Menu/5309	#MARIO KART WORLD\n\n#CRÈDITS\n\n\n\n\n\n\n\n\n\n\n#PRODUCTOR\nKosuke Yabuki\n\n\n#DIRECTOR DE PROGRAMACIÓ\nKenta Sato\n\n\n#DIRECTOR D'ART\nMasaaki Ishikawa\n\n\n#DIRECTOR DE PLANIFICACIÓ\nShintaro Jikumaru\n\n\n#RESPONSABLES DE PROGRAMACIÓ\nTatsuya Takadera\nShoichi Obayashi\nJun Ito\nTomohiro Nakatani\nJunya Osada\n\n\n#PROGRAMACIÓ\nTakeshi Miyamoto\nMasahiro Nakamura\nMifune Hayata\nMasahiro Kishi\nWataru Hinoshita\nAkihiro Umehara\nHiroki Omosako\nKentaro Kawai\nHiroaki Sata\nTatsuya Ogawa\nKenta Isasaka\nKeisuke Niwa\nRei Miyake\nTakanori Tamanaha\nRyota Ishida\nRyota Shigemasa\nRiki Fukunari\nNaoki Motoyama\nShuntaro Yamaguchi\nErika Abe\nRyuya Fujita\nTakumi Saito\nShun Utsugi\nYuto Kobayashi\nAkira Mizukami\nKoichi Sato\nTabi Morinaga\nYusuke Uchida\nMasahiro Miyakami\nMasanobu Yano\nShinya Yano\n\n\n#RESPONSABLES DE PLANIFICACIÓ\nHideaki Nishihara\nMasashi Onishi\nOlivier Nizard\nYugo Hayashi\nMizuki Ebihara\n\n\n#PLANIFICACIÓ\nShinichi Ikematsu\nKeiichiro Omura\nRyutaro Kanno\nTetsuya Yamaura\nYuta Yamashita\nKazuhiro Hosoi\nYoji Kamikawa\nKai Kikui\nAyako Akaza\nKo Yamamoto\nKaito Alexander Sumida\nSumire Nakamura\nYusuke Nodama\nRyosuke Takahashi\nMasamichi Yamazaki\n\n\n#RESPONSABLES DE DISSENY DE CIRCUITS\nYoshikazu Hara\nMasahiro Kawanishi\nNorihiro Morita\nNoriko Kitao\nMikiya Hosoi\nAkito Ota\nDaisuke Taneda\nKazue Kaneoka\nHirofumi Orita\n\n\n#DISSENY DE CIRCUITS\nTsubasa Fujii\nRyohei Totsuka\nZhaojun Chen\nKeita Tsuji\nHiroshi Yamane\nKanako Okabe\nMari Kubota\nHaruka Tsuchiya\nKanako Matsubara\nKazuki Okamoto\nAoi Aso\nItsuki Nakagawa\nRyota Iwai\nKana Ichigaya\nMaria Kawaguchi\nShoma Kokubo\nMifuyu Kojima\nRisa Takeuchi\nDaichi Dobashi\nShogo Nagata\nYudai Nagata\nTetsuya Kobayashi\nYasutomo Nishibe\nMasato Amma\nAi Kobayashi\nSota Yagiuchi\nHikaru Ishimine\nMie Kobayashi\nMinami Akao\nRikuo Hata\nMayuko Nakamura\nHomi Hada\nTomoko Horii\nTatsuo Shioda\nMiku Ohara\nShigyo To\nShizuka Shiino\nToshikatsu Terashima\nKaori Shoji\nKiyotaka Ujiie\nNanami Aruga\nHiroko Ito\nKotaro Kitada\nMisato Tamai\nSawako Kawana\nJunko Sato\nYoshiko Iida\nTakahiro Haga\nSako Hayashi\nRyota Shida\nShinji Yato\nKanako Uno\nFumiya Ito\nNatsuo Komatsubara\nSatoki Kiriu\nMio Kikuchi\nTeppei Kamata\nNaoya Nihei\nKoji Aoyama\nHiroki Sano\nNobuaki Kuroda\nWakana Imai\nKotono Mizuno\nMamiko Narita\nShiho Fukushima\nHinako Maeda\nRyosuke Kanai\nEriko Kasai\nHikari Konno\nNatsuko Yamashiro\nHatsune Takeshita\nKureha Naito\nYuiko Matsubara\nKanoko Myoken\n\n\n#DISSENY TÈCNIC DE CIRCUITS\nKoshi Watamura\nShunichi Shirai\nNaoki Mineta\nYuki Terada\nHiroyuki Yamahira\n\n\n#RESPONSABLES DE DISSENY DE PERSONATGES\nNaoki Yamada\nHikari Harada\nAkane Usami\nSora Nagaoka\nAmi Takai\n\n\n#DISSENY DE PERSONATGES\nAi Yamada\nYuko Miyakawa\nYuka Kashima\nKojo Tsukamoto\nKomaki Mo\nMikito Imamura\nRino Taguchi\nYu Hamada\nKaori Mitsuzawa\nMakoto Tada\nRiki Kobayashi\nTomomi Sumaki\nRiko Shibanuma\nSaori Asoma\nKei Ogawa\nRikitaka Ota\nTaisei Negami\nMoeko Hijikata\nRina Eda\nHiroyuki Morishima\nArata Takahashi\nRina Honda\nOsamu Komura\nToshiaki Abe\nTakaharu Tanaka\nHideki Tanaami\nAkira Nakajima\nShihomi Yamamoto\nKenichi Nishizono\nDaisuke Abe\nYoshiya Sasaki\nRyutaro Asami\nRika Aoki\nMakiko Nihari\nAkari Iwakiri\nYuji Watanabe\nJun Kitaoka\nTakamasa Yamaguchi\nHiroaki Todo\nShota Akita\nAkinobu Yamakawa\nYuria Hamada\nRyunosuke Ogami\nKana Yamamoto\nHiroko Kiyonari\nShinya Gima\nAyaka Sugimoto\nYuhei Iwasa\nRisa Sakai\nTomoyo Yamanaka\nTakaaki Koido\nYo Nakajima\n\n\n#RESPONSABLE D'ANIMACIÓ\nMizuki Okunaka\n\n\n#ANIMACIÓ\nChiharu Iki\nTatsuya Sakai\nKanata Jitsusue\nShota Matsuura\nShoei Sato\nHirohisa Togase\n\n\n#DISSENY TÈCNIC DE PERSONATGES\nShikou Yamaue\nYohei Mori\n\n\n#RESPONSABLE D'EFECTES VISUALS\nSosuke Takada\n\n\n#EFECTES VISUALS\nRyo Kodama\nRyosuke Hagiwara\nKyosuke Kashima\nTomotaka Ishikawa\nKaede Ogi\n\n\n#RESPONSABLE DE DISSENY D'INTERFÍCIE\nMariko Tachibana\n\n\n#DISSENY D'INTERFÍCIE\nJunya Nishino\nKotone Sasaki\nMizuki Homma\nChiharu Takabayashi\nNaoki Nishimura\n\n\n#GRÀFICS 2D\nMisaki Imura\nFuta Ikeda\nToko Minakuchi\n\n\n#DISSENY D'ESCENES\nHiroki Hirano\nDaisuke Nobori\nYunju Cho\n\n\n#RESPONSABLE DE MÚSICA\nAtsuko Asahi\n\n\n#MÚSICA\nMaasa Miyoshi\nTakuhiro Honda\nYutaro Takakuwa\n\n\n#RESPONSABLE D'EFECTES DE SO\nTakahisa Yamamoto\n\n\n#EFECTES DE SO\nMitsutoshi Kodama\nTakuya Kojima\nRintaro Sato\nEka Chin\nKyosuke Nagano\nYohei Miyagawa\nNatsuko Yokoyama\n\n\n#GESTIÓ DE DISSENY\nYoshihisa Morimoto\nManabu Takehara\nTakafumi Kiuchi\nManabu Okano\nToshitaka Mukasa\nShunsuke Otsuka\nAkihiro Ando\n\n\n#GESTIÓ DE PROJECTE\nJunhiro Nishiyama\nAkane Ishikawa\nBungo Takahashi\n\n\n#IL·LUSTRACIONS\nChiaki Ogura\nChiharu Sakiyama\nHikaru Ueda\nTaku Ito\nYoshiki Haruhana\nYuki Ijiri\nYuki Shimizu\nYuri Adachi\n\n\n#SUPORT DE PROGRAMACIÓ\nTakumi Sekino\nJun Ito\nTomohisa Saito\nDaisuke Shimizu\nShun Hayami\nNao Ueda\nMengyang Wang\nYuki Kaji\nAtsushi Asakura\nYoshimitsu Yamada\nTakuma Oiso\nShoka Ochi\nYuki Yamada\nShogo Tsuji\nMasafumi Kawamura\nRyosuke Kawakatsu\nJoe Griffiths Oba\nWataru Tanaka\nMasakaze Sato\nHideyuki Sugawara\nSatoshi Miyama\nYuki Onozawa\nShunto Kawae\nJunta Fujinaga\nYuichiro Hiramoto\nGo Mimura\nMasaki Muto\nTakahiro Matsuda\nTakumi Masuda\nKojiro Taguchi\nTakeshi Wakasugi\nMizuki Fujisawa\nTetsuya Nakata\nMakoto Takano\nShuhei Matsuo\nTakahiro Okuda\nYusuke Shiraiwa\nTakuhiro Dohta\n\n\n#SUPORT DE DISSENY\nKeijiro Inoue\nRyuji Kobayashi\nSatoru Takizawa\nYoshiyuki Oyama\n\n\n#SUPORT DE SO\nKenta Nagata\nMahito Yokota\nTakahiro Watanabe\n\n\n#SUPORT TÈCNIC\nKoichiro Hirano\nSumio Itou\nRyoma Kumamoto\nTomoatsu Nagafuji\nMikiya Ode\nShinji Yamada\nYoshinori Yamazoe\nYujiro Mori\nYoshiki Kawanishi\nTomonori Hiraishi\nYuichi Kurata\n\n\n#PROVES\nDaiki Moriyama\nShoichiro Takeyoshi\nAsuka Nishiura\nTakeshi Kiriyama\nSayaka Takagi\nKensuke Oishi\nDaiki Yokouchi\nNaoya Takechi\nMasaki Furukawa\nMario Club Co., Ltd.\n\n\n#LOCALITZACIÓ NOA\nSam AbouHarb\nLauren Ammerman\nGab Bergollo Drouyn\nBilly Carroll\nYanett Cepeda Valor\nOwen Cooney\nMarjolaine Drouin\nDan Fazio\nDutch Hixenbaugh\nMichio Koide\nEgon Lessa\nAlex Lied\nMiya Seeley\nJoe Talbot\nBabi Velho Barreto\nScott Willson\nFelipe Zylbersztajn\n\n\n#CONTROL DE QUALITAT LINGÜÍSTICA NOA\nJordon Galloway\nPedro Neves do Souto\nPascal Ramirez\nMakiko Szolas\nGabriel Vinado\n\n\n#GESTIÓ DE LOCALITZACIÓ NOA\nReiko Ninomiya\nRich Amtower\nMichael Benedetto\nRaymond Elliget\nBerenice Hofsetz\nNoriko Kaji\nZaher Khan\nLars Knudson\nAnn Lin\nTim O'Leary\nScot Ritchey\nMorgan Ritchie\nGalia Rodríguez Hornedo\nWilliam Romick\nThaddée Wiseur\nKaren Yuen\nÁlex Zarza\n\n\n#PRODUCTORS DE LOCALITZACIÓ NOE\nMarko Sistermann\nPete Sheppard\n\n\n#TRADUCCIÓ NOE\nMatthew Fosbrook\nPatrick Joyce\nMatthieu Lamouroux\nDavid Caussèque\nAlessandro Tardito\nKent Robello\nGiovanna Prati\nKatharina Glowotz\nHannah Siebert\nEnrique Sánchez Rosa\nJónatan Marcos Millán\nMarijke Pustjens\nChristian Buter\nCarsten Harmans\nRui Mendes\nDaniel Aleixo\nAnton Ivanchikov\nPolina Shenoeva\n\n\n#CONTROL DE QUALITAT NOE\nStefania Montagnese\nLaurence Uhlen\nVeronica Casi\nSascha Michalke\nJulio Manzaneda Medina\nNils Dudal\nMariña Vieira Vázquez\nSandra de la Peña Rodríguez\nIrina Kaffka\n\n\n#LOCALITZACIÓ ASIÀTICA\niQue (China) Ltd.\nMario Club Co., Ltd.\nNintendo (Hong Kong) Limited Taiwan Branch\nNintendo of Korea Co., Ltd.\n\n\n#GESTIÓ DE LOCALITZACIÓ ASIÀTICA\nDongyeon Kim\nKyoungim Na\nTakaaki Ueno\nWang Zhonglong\nMisa Matsumoto\n\n\n#COORDINACIÓ DE LOCALITZACIÓ ASIÀTICA\nSoonil Kim\nChen Yufeng\n\n\n#TRADUCCIÓ A LLENGÜES ASIÀTIQUES\nCheng Wenyen\nDaeho Jeong\nXia Tinghui\nZhang Xi\nSean Shen\n\n\n#CONTROL DE QUALITAT DE LLENGÜES ASIÀTIQUES\nHu Huiming\nJeewan Chun\nChien Chihhsien\nEiju Umemura\nChen Weiming\nPu Xinyi\n\n\n#ACTORS DE VEU\nKevin Afghani\nDawn M Bennett\nLaila Berzins\nNate Bihldorff\nKo Bonkobara\nPaul Castro Jr.\nGiselle Fernandez\nYuu Hayashi\nKate Higgins\nEri Inagawa\nKenny James\nCourtney Lin\nTsuguo Mogami\nTadd Morgan\nNatsuki Mori\nTakashi Oohara\nCaety Sagoian\nLaura Faye Smith\nLaura Stahl\nKouji Takeda\nSatoshi Taki\nKazumi Totaka\n\n\n#DIRECTOR DE VEUS\nPatrick Seitz\n\n\n#ENREGISTRAMENT DE VEUS\nJonathan Abarca\nPaul Eric Miller\n\n\n#SUPORT D'ESTUDI DE VEU\nLainie Bushey\nCheryl Cowan\nDanny Hunt\nWendi Wills\n\n\n#ARRANJAMENTS MUSICALS\nMasanori Sasaji\nJun Abe\nShoya Kitagawa\nMaoki Yamamoto\nYoichi Murata\nJun Tomoda\nKeiji Matsumoto\nYoshihiro Arita\nTetsuya Ohyama\nSatoru Shionoya\nTetsuro Toyama\n\n\n#ENGINYERIA D'ENREGISTRAMENT I MESCLA\nNobuyuki Aoyagi\nTakehiko Naito\n\n\n#ENGINYERIA ASSISTENT DE MÚSICA\nChie Sato\nSo Shiiba\nAsuka Anzai\n\n\n#INTERPRETACIÓ MUSICAL\nMARIO KART BAND\n\n\n#AGRAÏMENTS ESPECIALS\nFumihiro Suzuki\nDaisuke Masui\nMakoto Ishii\nDaisuke Uchiyama\nBandai Namco Studios Inc.\nIMAGICA GEEQ Inc.\nHiroshi Uchiyama\nGen Kadoi\nMakiko Takada\nNoriko Sekiya\nFace Music\nSOUND INN STUDIOS Inc.\nARTSVISION Co., Ltd.\nBad Animals\nCup of Tea Productions, Inc.\nKenproduction Co., Ltd.\nHokWai Ng\nShinya Wada\nPedro Avelar\nRyuhei Matsuura\nSébastien Faber\nEmily Itagaki\nTakayuki Haga\nMasato Kimura\nYasuyuki Oyagi\nHideki Konno\n\n\n#PRODUCTOR GENERAL\nShinya Takahashi\n\n\n#PRODUCTOR EXECUTIU\nShuntaro Furukawa\n\n\nNintendo és l'autora d'aquest\nprograma als efectes dels\ndrets d'autor. Tots els drets reservats.\n© 2025 Nintendo\n\n\n\n\n\n\n\n
+LayoutMsg/Arrow_00/T_L_00	L
+LayoutMsg/Arrow_00/T_R_00	R
+MsgMain/Mission/Mission_RC_WL_00	Evita els Goombes i aconsegueix les monedes blaves!
+MsgMain/Mission/Mission_RC_WL_03	Aconsegueix les monedes blaves del pont!
+MsgMain/Mission/Mission_RC_WL_04	Recorre els vagons i aconsegueix les monedes blaves!
+MsgMain/Mission/Mission_RC_WL_05	Aconsegueix les monedes blaves amb acrobàcies aèries!
+MsgMain/Mission/Mission_RC_WL_08	Aconsegueix les monedes blaves de canonada en canonada!
+MsgMain/Mission/Mission_WT_WL_00	Supera la línia defensiva!
+MsgMain/Mission/Mission_WT_WL_01	Segueix la drecera de blocs cap a l'Estadi Wario!
+MsgMain/Mission/Mission_WT_WL_04	Recorre a tota pastilla la ruta de rodes!
+MsgMain/Mission/Mission_WT_WL_05	Avança el tren sobre l'estructura del pont!
+MsgMain/Mission/Mission_WT_WL_06	Puja fins al pont penjant!
+MsgMain/Mission/Mission_WT_WL_08	Plana fins al pont de ferro i travessa'l!
+MsgMain/Mission/Mission_WT_WL_09	Puja al tràiler i completa l'escena d'acció!
+MsgMain/Mission/Mission_WT_WL_10	Recorre la drecera cap al Circuit Mario Bros.!
+MsgMain/Mission/Mission_WT_WL_11	Arriba a la banderola sobre el bolet gegant!
+MsgMain/Mission/Mission_WT_WL_12	Aprofita els tornados per arribar a la banderola!
+MsgMain/Mission/Mission_WT_WL_13	Obre't pas amb accelerades entre els residus!
+MsgMain/Mission/Mission_WT2_WL_00	Solca el desert usant objectes!
+MsgMain/Mission/Mission_WT2_WL_01	Competeix amb els Shy Guys al corrent!
+MsgMain/Mission/Mission_WT2_WL_05	Recorre el canyó riu amunt!
+MsgMain/Mission/Mission_WT2_WL_06	Obre't camí per la ruta misteriosa!
+MsgMain/Mission/Mission_WT2_WL_07	Supera el recorregut passant per rampes i bigues!
+MsgMain/Mission/Mission_WT2_WL_08	Puja a tota pressa salvant desnivells!
+MsgMain/Mission/Mission_WT2_WL_09	Demostra com circules per les parets!
+MsgMain/Mission/Mission_WT2_WL_10	Exhibeix les teves dots d'equilibrista pel pont!
+MsgMain/Mission/Mission_WT2_WL_11	Vola a picar alguna cosa al local de Yoshi!
+MsgMain/Mission/Mission_WT2_WL_12	Guanya altura aprofitant els cactus!
+MsgMain/Mission/Mission_WT2_WL_13	Evita els armadillos de camí a la meta!
+MsgMain/Mission/Mission_WT2_WL_14	Segueix la ruta que marca l'helicòpter!
+MsgMain/Mission/Mission_WT2_WL_15	Posa't a prova en el desafiament especial núm. 6!
+MsgMain/Mission/Mission_WT2_WL_18	Puja saltant per les rampes!
+MsgMain/Mission/Mission_WT3_WL_01	Resisteix pel terreny àrid fins a arribar a la meta!
+MsgMain/Mission/Mission_WT3_WL_02	Disputa la cursa espontània pel canyó!
+MsgMain/Mission/Mission_WT3_WL_03	Completa la cursa amb múltiples piruetes!
+MsgMain/Mission/Mission_WT3_WL_04	Arriba als cims de bolets rocosos!
+MsgMain/Mission/Mission_RC_WL_02	Aconsegueix les monedes blaves voltant la hamburguesa!
+MsgMain/Mission/Mission_WT_WL_03	Accelera per les graderies i arriba a la meta!
+MsgMain/Mission/Mission_WT2_WL_04	Arriba a la meta cruspint sense parar!
+MsgMain/Mission/Mission_RC_WL_07	Aconsegueix les monedes amb piruetes de rail en rail!
+MsgMain/Mission/Mission_WT_WL_02	Competeix en velocitat amb el tren!
+MsgMain/Mission/Mission_WT2_WL_02	Puja contra el rellotge pel Canyó Ferroviari!
+MsgMain/Mission/Mission_RC_WL_06	Aconsegueix les monedes blaves per les altures!
+MsgMain/Mission/Mission_WT2_WL_16	Completa el recorregut per anells i flames!
+MsgMain/Mission/Mission_WT2_WL_17	Travessa els anells pels terrats!
+MsgMain/Mission/Mission_RC_DT_00	Aconsegueix les monedes blaves sense enfonsar-te!
+MsgMain/Mission/Mission_RC_DT_01	Aconsegueix les monedes blaves de la sorra!
+MsgMain/Mission/Mission_RC_DT_03	Fes-te amb les monedes blaves escampades!
+MsgMain/Mission/Mission_RC_DT_04	Aconsegueix les monedes blaves de l'oasi sec!
+MsgMain/Mission/Mission_RC_DT_05	Aconsegueix les monedes blaves passejant pel basar!
+MsgMain/Mission/Mission_RC_DT_06	Solca els aires per aconseguir les monedes blaves!
+MsgMain/Mission/Mission_RC_DT_07	Recull les monedes blaves per l'oasi!
+MsgMain/Mission/Mission_RC_DT_08	Aconsegueix les monedes blaves sobre les cordes!
+MsgMain/Mission/Mission_WT_DT_00	Passa volant vora els temibles tornados!
+MsgMain/Mission/Mission_WT_DT_01	Supera l'emboscada dels Germans Martell!
+MsgMain/Mission/Mission_WT_DT_02	Puja esquivant els Chomps Cadena!
+MsgMain/Mission/Mission_WT_DT_03	Avança els Shy Guys competint riu amunt!
+MsgMain/Mission/Mission_WT_DT_04	Arriba a la meta a través del mar de sorra!
+MsgMain/Mission/Mission_WT_DT_05	Surt disparat i salta sobre la banderola!
+MsgMain/Mission/Mission_WT_DT_06	Fes bon ús del turbo per arribar a la meta!
+MsgMain/Mission/Mission_WT_DT_07	Segueix la ruta sinuosa fins a la meta!
+MsgMain/Mission/Mission_WT_DT_08	Supera el desafiament de nivell 2 dels Shy Guys!
+MsgMain/Mission/Mission_WT_DT_09	Supera el desafiament de nivell 1 dels Shy Guys!
+MsgMain/Mission/Mission_WT_DT_10	Arriba a la meta amb moltes rodes de tracció!
+MsgMain/Mission/Mission_WT_DT_11	Salva els desnivells de canonada en canonada!
+MsgMain/Mission/Mission_WT_DT_12	Corre la marató desèrtica a accelerada neta!
+MsgMain/Mission/Mission_WT_DT_13	Puja evitant els Tokotokos!
+MsgMain/Mission/Mission_WT_DT_14	Obre't pas pel laberint de blocs!
+MsgMain/Mission/Mission_WT_DT_15	Puja pels vaixells naufragats i arriba a la meta!
+MsgMain/Mission/Mission_WT_DT_16	Esquiva els Batadons!
+MsgMain/Mission/Mission_WT_DT_17	Recorre la llarga via fèrria fins a la meta!
+MsgMain/Mission/Mission_WT2_DT_00	Navega pel riu fins arribar al mar!
+MsgMain/Mission/Mission_WT2_DT_01	Avança saltant de columna en columna!
+MsgMain/Mission/Mission_WT2_DT_02	Condueix pel mur exterior per colar-te!
+MsgMain/Mission/Mission_WT2_DT_03	Recorre el pont fent gala de piruetes!
+MsgMain/Mission/Mission_WT2_DT_04	Esquiva les Fogolines al túnel!
+MsgMain/Mission/Mission_WT2_DT_05	Evita els Pokeys ballarins!
+MsgMain/Mission/Mission_WT2_DT_06	Vola fins a la banderola de meta de l'estació!
+MsgMain/Mission/Mission_WT2_DT_07	Supera el desafiament de nivell 3 dels Shy Guys!
+MsgMain/Mission/Mission_WT2_DT_08	Persegueix els Tokotokos!
+MsgMain/Mission/Mission_WT2_DT_09	Puja fins al cim per fugir del desert!
+MsgMain/Mission/Mission_WT2_DT_10	Creua el desert i els turons fins a la meta!
+MsgMain/Mission/Mission_WT2_DT_11	Fes piruetes arreu al Basar Shy Guy!
+MsgMain/Mission/Mission_WT2_DT_12	Travessa la tempesta d'aigua i monedes!
+MsgMain/Mission/Mission_WT3_DT_00	Supera la dura cursa desèrtica!
+MsgMain/Mission/Mission_RC_VL_02	Aconsegueix les monedes blaves per l'estreta senda!
+MsgMain/Mission/Mission_RC_VL_04	Aconsegueix les monedes blaves a les aigües termals!
+MsgMain/Mission/Mission_RC_VL_05	Agafa les monedes blaves i evita les Roques Punxudes!
+MsgMain/Mission/Mission_RC_VL_06	Evita els Matons i aconsegueix les monedes blaves!
+MsgMain/Mission/Mission_RC_VL_07	Aconsegueix les monedes blaves sobre les baranes!
+MsgMain/Mission/Mission_RC_VL_08	Fes-te amb les monedes blaves del cementiri!
+MsgMain/Mission/Mission_RC_VL_09	Recupera les monedes blaves escampades!
+MsgMain/Mission/Mission_RC_VL_11	Aconsegueix les monedes blaves de la gran escalinata!
+MsgMain/Mission/Mission_RC_VL_12	Salta per les baranes i aconsegueix les monedes!
+MsgMain/Mission/Mission_WT_VL_02	Vola sobre el llac de lava sense socarrimar-te!
+MsgMain/Mission/Mission_WT_VL_03	Evita els Rocorrampes o usa'ls per passar!
+MsgMain/Mission/Mission_WT_VL_04	Puja al tràiler i arrasa-ho tot!
+MsgMain/Mission/Mission_WT_VL_05	Obre't pas per la ruta infestada d'Ossets!
+MsgMain/Mission/Mission_WT_VL_06	Ves a les aigües termals evitant els Espinapeixos!
+MsgMain/Mission/Mission_WT_VL_07	Travessa l'horda de Neumatòncheres!
+MsgMain/Mission/Mission_WT_VL_08	Creua l'estructura del pont enfonsat!
+MsgMain/Mission/Mission_WT_VL_10	Llança't a la tempesta volcànica com a Bill Bala!
+MsgMain/Mission/Mission_WT_VL_11	Vola fins a la Fortalesa Aèria!
+MsgMain/Mission/Mission_WT_VL_12	Evita els atacs dels Germans Foc!
+MsgMain/Mission/Mission_WT2_VL_04	Posa a prova la teva resistència a la lava!
+MsgMain/Mission/Mission_WT2_VL_05	Accelera per la ruta dreta usant bolets!
+MsgMain/Mission/Mission_WT2_VL_06	Mantén l'equilibri sobre els cables!
+MsgMain/Mission/Mission_WT2_VL_07	Segueix la ruta esquerra sense usar bolets!
+MsgMain/Mission/Mission_WT2_VL_08	Recorre la zona de brolladors termals!
+MsgMain/Mission/Mission_WT2_VL_09	Completa la ruta de les Piranyes Piròmanes!
+MsgMain/Mission/Mission_WT2_VL_10	Recorre la zona magmàtica en helicòpter!
+MsgMain/Mission/Mission_WT2_VL_11	Recorre les parets encadenant piruetes!
+MsgMain/Mission/Mission_WT2_VL_12	Supera l'eslàlom de canonades i anells!
+MsgMain/Mission/Mission_WT2_VL_13	Evita les trepitjades elèctriques de sumo!
+MsgMain/Mission/Mission_WT2_VL_16	Creua pels buits de les estructures!
+MsgMain/Mission/Mission_WT2_VL_17	Arriba a la part superior de la fortalesa!
+MsgMain/Mission/Mission_WT2_VL_18	Puja per una grua i esquiva l'altra!
+MsgMain/Mission/Mission_WT2_VL_20	Aterra al forat després d'un llarg vol!
+MsgMain/Mission/Mission_WT3_VL_01	Pesca aperitius en una cursa pel Gran Dònut!
+MsgMain/Mission/Mission_WT_VL_00	Supera les múltiples línies de Tortopos!
+MsgMain/Mission/Mission_WT2_VL_00	Arriba a dalt de la torre sinuosa!
+MsgMain/Mission/Mission_WT2_VL_02	Corre contra el rellotge a la Fortalesa Aèria!
+MsgMain/Mission/Mission_RC_VL_01	Aconsegueix les monedes blaves per la zona culinària!
+MsgMain/Mission/Mission_WT_VL_01	Salta per la muralla del Castell de Bowser!
+MsgMain/Mission/Mission_WT2_VL_03	Evita la lava executant piruetes!
+MsgMain/Mission/Mission_WT3_VL_00	Competeix en un circuit ple de secuaços de Bowser!
+MsgMain/Mission/Mission_RC_VL_10	Mantén l'equilibri i aconsegueix les monedes blaves!
+MsgMain/Mission/Mission_RC_VL_15	Evita les boles de foc i aconsegueix les monedes blaves!
+MsgMain/Mission/Mission_WT2_VL_14	Demostra la teva habilitat per circular per parets!
+MsgMain/Mission/Mission_RC_FS_03	Aconsegueix les monedes blaves de la ruta en vuit!
+MsgMain/Mission/Mission_RC_FS_04	Aconsegueix les monedes blaves que vigilen les Florugues!
+MsgMain/Mission/Mission_RC_FS_05	Fes-te amb les monedes blaves sense enfonsar-te!
+MsgMain/Mission/Mission_RC_FS_06	Reuneix les monedes blaves esquivant el trànsit!
+MsgMain/Mission/Mission_RC_FS_07	Pesca les monedes blaves entre les Aquaranyes!
+MsgMain/Mission/Mission_RC_FS_08	Aconsegueix les monedes blaves del campament!
+MsgMain/Mission/Mission_RC_FS_09	Aconsegueix les monedes blaves del bosc fantasmal!
+MsgMain/Mission/Mission_WT_FS_02	Segueix el camí evitant els plàcids alces!
+MsgMain/Mission/Mission_WT_FS_03	Puja per la corda fins a la meta!
+MsgMain/Mission/Mission_WT_FS_04	Passa volant per sobre l'estàtua de Mario!
+MsgMain/Mission/Mission_WT_FS_05	Aprofita els pètals per arribar a la poma!
+MsgMain/Mission/Mission_WT_FS_06	Recorre el Circuit Mario saltant sense parar!
+MsgMain/Mission/Mission_WT_FS_07	Persegueix el tren i segueix per les vies!
+MsgMain/Mission/Mission_WT_FS_08	Evita els atacs dels Spikes i arriba a la meta!
+MsgMain/Mission/Mission_WT_FS_09	Practica acrobàcies i aterra fent piruetes!
+MsgMain/Mission/Mission_WT_FS_10	Gaudeix d'una escapada pel riu i el bosc!
+MsgMain/Mission/Mission_WT_FS_11	Deixa't conduir per les Heures Piranya!
+MsgMain/Mission/Mission_WT_FS_12	Ves a contracorrent amb el poder de les estrelles!
+MsgMain/Mission/Mission_WT_FS_13	Llisca per cable i rails fins a la meta!
+MsgMain/Mission/Mission_WT2_FS_05	Fuig a tota pastilla del bosc fantasmal!
+MsgMain/Mission/Mission_WT2_FS_06	Plana graciosament entre els arbres!
+MsgMain/Mission/Mission_WT2_FS_07	Recorre els ponts del pantà encantat!
+MsgMain/Mission/Mission_WT2_FS_08	Circula a contracorrent per arribar a la meta!
+MsgMain/Mission/Mission_WT2_FS_09	Supera el pantà gràcies a les superestrelles!
+MsgMain/Mission/Mission_WT2_FS_10	Esquiva el trànsit circulant fins i tot per parets!
+MsgMain/Mission/Mission_WT2_FS_11	Salta per la ruta estreta!
+MsgMain/Mission/Mission_WT2_FS_12	Baixa pel corrent fins a la Vila Arbòria!
+MsgMain/Mission/Mission_WT2_FS_13	Esquiva les Plantes Piranya que et barren el pas!
+MsgMain/Mission/Mission_WT2_FS_14	Esquiva el trànsit i els Placapums!
+MsgMain/Mission/Mission_WT3_FS_01	Circula per un homenatge a la Vall Fantasma 1!
+MsgMain/Mission/Mission_WT3_FS_02	Circula per un homenatge a la Vall Fantasma 2!
+MsgMain/Mission/Mission_WT3_FS_03	Circula per un homenatge a la Vall Fantasma 3!
+MsgMain/Mission/Mission_WT3_FS_05	Segueix una espessa ruta pel bosc!
+MsgMain/Mission/Mission_RC_FS_01	Aconsegueix les monedes blaves per la vall de lliris!
+MsgMain/Mission/Mission_WT_FS_01	Travessa la pluja de glans!
+MsgMain/Mission/Mission_WT2_FS_00	Guanya altura amb les Heures Piranya!
+MsgMain/Mission/Mission_WT2_FS_02	Esquiva les Florugues de camí a la meta!
+MsgMain/Mission/Mission_RC_FS_00	Aconsegueix les monedes blaves per la torre de control!
+MsgMain/Mission/Mission_WT_FS_00	Fes servir la rampa per fer un salt increïble!
+MsgMain/Mission/Mission_WT2_FS_01	Supera l'exigent repte contrarellotge!
+MsgMain/Mission/Mission_RC_FS_02	Puja a les grues en un recorregut de cinema!
+MsgMain/Mission/Mission_WT2_FS_03	Endinsa't en un univers de pel·lícula esgarrifós!
+MsgMain/Mission/Mission_WT2_FS_04	Recorre les baranes de la sala de cinema!
+MsgMain/Mission/Mission_WT3_FS_04	Fica't de ple a la pel·lícula i arriba a la meta!
+MsgMain/Mission/Mission_RC_IC_05	Aconsegueix les monedes blaves en un eslàlom!
+MsgMain/Mission/Mission_RC_IC_07	Aconsegueix les monedes blaves entre Pokeys Polars!
+MsgMain/Mission/Mission_RC_IC_09	Aconsegueix les monedes blaves de la desfilada de pingüins!
+MsgMain/Mission/Mission_RC_IC_10	Aconsegueix les monedes blaves entre anades i vingudes!
+MsgMain/Mission/Mission_RC_IC_11	Aconsegueix les monedes blaves entre Piranyes de Gel!
+MsgMain/Mission/Mission_RC_IC_12	Aconsegueix les monedes blaves dels ninots de neu!
+MsgMain/Mission/Mission_RC_IC_13	Aconsegueix les monedes blaves esquivant atacs!
+MsgMain/Mission/Mission_RC_IC_14	Aconsegueix les monedes blaves a base de piruetes!
+MsgMain/Mission/Mission_RC_IC_15	Evita els Fuzzys i aconsegueix les monedes blaves!
+MsgMain/Mission/Mission_RC_IC_16	Aconsegueix les monedes esquivant les boles de neu!
+MsgMain/Mission/Mission_WT2_IC_02	Sobrevola els pendents nevats!
+MsgMain/Mission/Mission_WT2_IC_03	Esquiva els pingüins per la pista glacial!
+MsgMain/Mission/Mission_WT2_IC_04	Baixa a tota velocitat pel camp nevat!
+MsgMain/Mission/Mission_WT2_IC_07	Corre contra el temps... i el vent!
+MsgMain/Mission/Mission_WT2_IC_08	Arriba a dalt del pic nevat!
+MsgMain/Mission/Mission_WT2_IC_09	Cola't per l'embús i arriba a la meta!
+MsgMain/Mission/Mission_WT2_IC_10	Puja al tren per arribar fins a la meta!
+MsgMain/Mission/Mission_WT2_IC_15	Obre't camí llançant boles de foc!
+MsgMain/Mission/Mission_WT2_IC_16	Creua l'exercici de patinatge dels Goombes!
+MsgMain/Mission/Mission_WT2_IC_17	Baixa esquivant les boles de neu!
+MsgMain/Mission/Mission_WT2_IC_18	Segueix la senda esquivant les boles de neu!
+MsgMain/Mission/Mission_WT2_IC_19	Travessa el trànsit i arriba a la pista d'esquí!
+MsgMain/Mission/Mission_WT2_IC_20	Usa els bolets per arribar a l'estació!
+MsgMain/Mission/Mission_WT2_IC_22	Supera els obstacles del llac!
+MsgMain/Mission/Mission_WT2_IC_23	Solca els aires darrere del tren de la neu!
+MsgMain/Mission/Mission_WT2_IC_24	Tempta la sort amb les closques verdes!
+MsgMain/Mission/Mission_WT2_IC_26	Segueix el pendent relliscós fins a la meta!
+MsgMain/Mission/Mission_WT2_IC_30	Supera el perill d'una ruta a mig construir!
+MsgMain/Mission/Mission_WT2_IC_31	Marca't un rècord planant llargues distàncies!
+MsgMain/Mission/Mission_WT3_IC_00	Circula per un homenatge al Llac Vainilla!
+MsgMain/Mission/Mission_RC_IC_02	Aconsegueix les monedes blaves de l'observatori!
+MsgMain/Mission/Mission_WT2_IC_05	Evita els atacs dels Germans Gèlids!
+MsgMain/Mission/Mission_WT2_IC_28	Supera el repte accelerant al màxim!
+MsgMain/Mission/Mission_WT_IC_02	Arriba al capdamunt del gelat giratori!
+MsgMain/Mission/Mission_WT2_IC_11	Escapa pel congost de gelat!
+MsgMain/Mission/Mission_WT2_IC_32	Fes servir un bolet a temps per creuar la meta!
+MsgMain/Mission/Mission_RC_IC_04	Aconsegueix les monedes blaves de DK Alpí!
+MsgMain/Mission/Mission_WT2_IC_12	Posa't a prova en el desafiament especial núm. 5!
+MsgMain/Mission/Mission_WT2_IC_13	Arriba a la meta recorrent les graderies buides!
+MsgMain/Mission/Mission_WT2_IC_14	Irromp a la competició de snowboard!
+MsgMain/Mission/Mission_RC_PL_01	Aconsegueix les monedes blaves a la caverna!
+MsgMain/Mission/Mission_WT_PL_02	Puja pel pont dels Marxímotes Alats!
+MsgMain/Mission/Mission_WT2_PL_03	Salta, salta, salta... i torna a saltar!
+MsgMain/Mission/Mission_WT2_PL_04	Posa't a prova en el desafiament especial núm. 3!
+MsgMain/Mission/Mission_RC_PL_04	Aconsegueix les monedes blaves del jardí zen!
+MsgMain/Mission/Mission_WT_PL_05	Troba la pau pujant per les cascades!
+MsgMain/Mission/Mission_WT2_PL_07	Fes sonar la campana de l'harmonia!
+MsgMain/Mission/Mission_RC_RT_03	Condueix amb classe i aconsegueix les monedes blaves!
+MsgMain/Mission/Mission_RC_RT_04	Aconsegueix les monedes blaves del remolí!
+MsgMain/Mission/Mission_RC_RT_05	Afronta el temporal i aconsegueix les monedes blaves!
+MsgMain/Mission/Mission_RC_RT_06	Respira l'aire marí i recull monedes blaves!
+MsgMain/Mission/Mission_RC_RT_07	Aconsegueix les monedes blaves dels Goombes ociosos!
+MsgMain/Mission/Mission_RC_RT_08	Aconsegueix les monedes blaves a la festa a la platja!
+MsgMain/Mission/Mission_WT_RT_02	Puja a les Mantes Rampa per arribar a la meta!
+MsgMain/Mission/Mission_WT_RT_03	La sirena canta des de l'altra banda: vés-hi!
+MsgMain/Mission/Mission_WT_RT_04	Vola en direcció a Ciutat Salina!
+MsgMain/Mission/Mission_WT_RT_05	Arriba a la banderola de meta sense despenyar-te!
+MsgMain/Mission/Mission_WT_RT_06	Fes servir les teves millors tècniques sobre l'aigua!
+MsgMain/Mission/Mission_WT_RT_07	Deixa't dur pels tornados de les ventades!
+MsgMain/Mission/Mission_WT_RT_08	Supera la barrera dels Germans Bumerang!
+MsgMain/Mission/Mission_WT_RT_09	Sobrevola el molí de vent!
+MsgMain/Mission/Mission_WT_RT_10	Dirigeix-te com un llamp cap a la platja!
+MsgMain/Mission/Mission_WT2_RT_04	Salta com un Cheep Cheep a l'aigua!
+MsgMain/Mission/Mission_WT2_RT_05	Recorre les illes fins arribar a la meta!
+MsgMain/Mission/Mission_WT2_RT_06	Solca les ones davant dels Besulbos!
+MsgMain/Mission/Mission_WT2_RT_07	Fes servir la ploma amb mestria i arriba a la meta!
+MsgMain/Mission/Mission_WT2_RT_08	Fes servir les flors com a ascensor!
+MsgMain/Mission/Mission_WT2_RT_09	Busca la brisa marina més enllà dels molins!
+MsgMain/Mission/Mission_WT2_RT_10	Supera el mar enfurismat!
+MsgMain/Mission/Mission_WT2_RT_11	Recorre els terrats de Ciutat Salina!
+MsgMain/Mission/Mission_WT2_RT_12	Baixa en ziga-zaga fins a la meta!
+MsgMain/Mission/Mission_WT2_RT_13	Segueix les canonades i els blocs suspesos!
+MsgMain/Mission/Mission_WT2_RT_14	Munta a l'esquena dels Hidradracs!
+MsgMain/Mission/Mission_WT3_RT_00	Participa en la cursa per l'illa deserta!
+MsgMain/Mission/Mission_RC_RT_01	Aconsegueix les monedes blaves entre restes de vaixells!
+MsgMain/Mission/Mission_WT_RT_01	Segueix la senda de monedes fins a la meta!
+MsgMain/Mission/Mission_WT2_RT_01	Vola sense pausa de torre en torre!
+MsgMain/Mission/Mission_RC_RT_00	Aconsegueix les monedes blaves de l'atraient sirena!
+MsgMain/Mission/Mission_WT_RT_00	Accelera travessant caixes amb bolets!
+MsgMain/Mission/Mission_WT2_RT_00	Pren la drecera cap a la meta sense mullar-te!
+MsgMain/Mission/Mission_WT2_RT_02	Vola fins a la zona més exclusiva de la torre!
+MsgMain/Mission/Mission_WT2_RT_03	Travessa la ciutat accelerant amb bolets!
+MsgMain/Mission/Mission_WT2_RT_15	Travessa la desfilada aquàtica de Shy Guys!
+MsgMain/Mission/Mission_RC_JG_02	Aconsegueix les monedes blaves gràcies als cocodrils!
+MsgMain/Mission/Mission_RC_JG_03	Aconsegueix les monedes blaves per les cordes fluixes!
+MsgMain/Mission/Mission_RC_JG_05	Les Heures Piranya guien cap a les monedes blaves!
+MsgMain/Mission/Mission_RC_JG_06	Fes-te amb les monedes blaves per la jungla!
+MsgMain/Mission/Mission_RC_JG_07	Aconsegueix les monedes blaves del cel de la sabana!
+MsgMain/Mission/Mission_RC_JG_08	Aconsegueix les monedes blaves de liana en liana!
+MsgMain/Mission/Mission_RC_JG_09	Pren les monedes blaves a les Plantes Piranya!
+MsgMain/Mission/Mission_RC_JG_10	Recull les monedes blaves evitant les girafes!
+MsgMain/Mission/Mission_RC_JG_11	Fes mitja volta i aconsegueix les monedes blaves!
+MsgMain/Mission/Mission_RC_JG_12	Aconsegueix les monedes blaves pel safari fluvial!
+MsgMain/Mission/Mission_RC_JG_13	Aconsegueix les monedes blaves pels guèisers!
+MsgMain/Mission/Mission_WT_JG_02	Solca els cels i sobrevola la vall fluvial!
+MsgMain/Mission/Mission_WT_JG_03	Arriba a la meta entre núvols i blocs gegants!
+MsgMain/Mission/Mission_WT_JG_04	Que no t'arrosseguin les estampides de bisons!
+MsgMain/Mission/Mission_WT_JG_05	Condueix amb traça per esquivar les zebres!
+MsgMain/Mission/Mission_WT_JG_06	Aprofita les plomes per arribar a la meta!
+MsgMain/Mission/Mission_WT_JG_07	Vola per sobre de les cascades!
+MsgMain/Mission/Mission_WT_JG_08	Fes prova d'audàcia i salta per la cascada!
+MsgMain/Mission/Mission_WT_JG_09	Fes servir els triceràtops com a plataforma!
+MsgMain/Mission/Mission_WT_JG_10	Arriba a la meta passant sobre els elefants!
+MsgMain/Mission/Mission_WT_JG_11	Compta amb els cocodrils per sortir-te'n!
+MsgMain/Mission/Mission_WT_JG_12	Accepta el repte de circular per una cascada!
+MsgMain/Mission/Mission_WT_JG_13	Travessa la cascada evitant les deixalles!
+MsgMain/Mission/Mission_WT2_JG_04	Obre't pas entre els vaixells de turistes!
+MsgMain/Mission/Mission_WT2_JG_05	Vola sense por; els tiranosaures rex no mosseguen!
+MsgMain/Mission/Mission_WT2_JG_06	Recorre el llarg llom dels braquiosaures!
+MsgMain/Mission/Mission_WT2_JG_08	Vola alt fins al gegantesc bloc aeri!
+MsgMain/Mission/Mission_WT2_JG_09	Recorre la sabana saltant de roca en roca!
+MsgMain/Mission/Mission_WT2_JG_11	Recorre la sabana i les seves cascades!
+MsgMain/Mission/Mission_WT2_JG_12	Obre't pas entre els dinosaures de la jungla!
+MsgMain/Mission/Mission_WT2_JG_13	Puja al tràiler que va fugint!
+MsgMain/Mission/Mission_WT2_JG_14	Puja pel embolicat camí de muntanya!
+MsgMain/Mission/Mission_WT3_JG_00	Disputa una cursa de resistència per la sabana!
+MsgMain/Mission/Mission_WT3_JG_01	Esquiva els dinosaures per terra i aire!
+MsgMain/Mission/Mission_RC_JG_01	Aconsegueix les monedes blaves a les ruïnes de l'or!
+MsgMain/Mission/Mission_WT_JG_01	Rebota sobre els núvols!
+MsgMain/Mission/Mission_WT2_JG_03	Recorre el dur sender que porta a les ruïnes!
+MsgMain/Mission/Mission_RC_JG_00	Aconsegueix les monedes blaves de la dinocúpula!
+MsgMain/Mission/Mission_WT2_JG_00	Solca els cels i creua la dinocúpula!
+MsgMain/Mission/Mission_WT2_JG_01	Posa't a prova en el desafiament especial núm. 4!
+MsgMain/Mission/Mission_WT2_JG_02	Confia del tot en el llom dels dinosaures!
+MsgMain/Mission/Mission_WT2_JG_10	Vola més i més alt entre els núvols!
+MsgMain/Mission/Mission_RC_BS_04	Aconsegueix les monedes blaves a botzinada neta!
+MsgMain/Mission/Mission_RC_BS_05	Traça un vuit per aconseguir les monedes blaves!
+MsgMain/Mission/Mission_RC_BS_06	Recupera les monedes blaves del remolí!
+MsgMain/Mission/Mission_RC_BS_08	Aconsegueix les monedes blaves sense perdre l'equilibri!
+MsgMain/Mission/Mission_RC_BS_09	Pilota amb precisió i aconsegueix les monedes blaves!
+MsgMain/Mission/Mission_RC_BS_10	Aconsegueix les monedes blaves i, de passada, aperitius!
+MsgMain/Mission/Mission_WT_BS_03	Accelera i puja per la rampa abans que exploti!
+MsgMain/Mission/Mission_WT_BS_04	Arriba a la meta amb l'ajuda d'altres vehicles!
+MsgMain/Mission/Mission_WT_BS_05	Posa rumb a la ciutat sobre el tren exprés!
+MsgMain/Mission/Mission_WT_BS_07	Puja fins al més gran dels trofeus!
+MsgMain/Mission/Mission_WT_BS_08	Puja, puja i puja per gaudir de les vistes!
+MsgMain/Mission/Mission_WT2_BS_04	Supera el repte acrobàtic del port espacial!
+MsgMain/Mission/Mission_WT2_BS_05	Vola per la ruta secreta de barrils canó!
+MsgMain/Mission/Mission_WT2_BS_06	Segueix la ruta fluvial cap a la ciutat!
+MsgMain/Mission/Mission_WT2_BS_07	Aprofita un vol gratuït a la ciutat!
+MsgMain/Mission/Mission_WT2_BS_08	Arriba a la banderola amb precisió mil·limètrica!
+MsgMain/Mission/Mission_WT2_BS_10	Que no et freni el trànsit dins dels túnels!
+MsgMain/Mission/Mission_WT2_BS_11	Supera la trepidant prova del pont!
+MsgMain/Mission/Mission_WT2_BS_12	Arriba a la meta entre bancs de peixos!
+MsgMain/Mission/Mission_WT2_BS_13	Posa rumb a la platja urbana!
+MsgMain/Mission/Mission_WT2_BS_14	Supera el recorregut amb forma de vuit!
+MsgMain/Mission/Mission_WT2_BS_15	Posa't a prova en el desafiament especial núm. 1!
+MsgMain/Mission/Mission_WT2_BS_16	Completa un plàcid passeig fins a la meta!
+MsgMain/Mission/Mission_WT2_BS_17	Arriba a la Platja Koopa a salt net!
+MsgMain/Mission/Mission_WT2_BS_18	Passa les balenes de camí a l'Estadi Peach!
+MsgMain/Mission/Mission_WT2_BS_19	Embarca't en un perillós viatge a la ciutat!
+MsgMain/Mission/Mission_WT2_BS_20	Supera el recorregut d'intrigants Ermicons!
+MsgMain/Mission/Mission_WT2_BS_21	Recorre els carrers plens de dinosaures!
+MsgMain/Mission/Mission_WT3_BS_02	Competeix en una cursa platgera!
+MsgMain/Mission/Mission_RC_BS_03	Aconsegueix les monedes blaves entre els obstacles!
+MsgMain/Mission/Mission_WT2_BS_03	Llisca per les cordes fins al cim!
+MsgMain/Mission/Mission_WT3_BS_01	Circula per un homenatge a la Platja Koopa 1!
+MsgMain/Mission/Mission_RC_BS_01	Aconsegueix les monedes de la rampa de llançament!
+MsgMain/Mission/Mission_WT_BS_01	Torna als fonaments del Port Espacial DK!
+MsgMain/Mission/Mission_WT2_BS_01	Rememora el DONKEY KONG clàssic!
+MsgMain/Mission/Mission_RC_BS_00	Aconsegueix les monedes blaves al parc sinuós!
+MsgMain/Mission/Mission_RC_BS_02	Aconsegueix les monedes blaves usant les baranes!
+MsgMain/Mission/Mission_WT_BS_00	Evita els secuaços de Bowser i arriba a la meta!
+MsgMain/Mission/Mission_WT_BS_02	Ves a tota pastilla a l'aparcament de la platja!
+MsgMain/Mission/Mission_WT2_BS_00	Recorre els terrats de Ciutat Corona!
+MsgMain/Mission/Mission_WT2_BS_02	Derrapa amb mestria per l'aparcament!
+MsgMain/Mission/Mission_WT3_BS_00	Fes gala de resistència pels carrers de la ciutat!
+MsgMain/Mission/Mission_RC_PL_05	Aconsegueix les monedes blaves entre fulles que cauen!
+MsgMain/Mission/Mission_RC_PL_06	Aconsegueix les monedes blaves del cablejat elèctric!
+MsgMain/Mission/Mission_RC_PL_07	Aconsegueix les monedes blaves entre Marxímotes Alats!
+MsgMain/Mission/Mission_RC_PL_08	Busca les monedes blaves pel prat!
+MsgMain/Mission/Mission_RC_PL_09	Aconsegueix les monedes blaves entre murs rocosos!
+MsgMain/Mission/Mission_RC_PL_10	Reuneix les monedes blaves per les cordes fluixes!
+MsgMain/Mission/Mission_RC_PL_11	Baixa pel riu i aconsegueix les monedes blaves!
+MsgMain/Mission/Mission_RC_PL_12	Bot! Deixa't caure! Aconsegueix les monedes blaves!
+MsgMain/Mission/Mission_RC_PL_13	Aconsegueix les monedes blaves entre bales de palla!
+MsgMain/Mission/Mission_RC_PL_14	Aconsegueix les monedes blaves... sense oblidar l'última!
+MsgMain/Mission/Mission_RC_PL_15	Aconsegueix les monedes blaves per la ruta escènica!
+MsgMain/Mission/Mission_RC_PL_16	Aconsegueix les monedes a la Gruta Dent de Lleó!
+MsgMain/Mission/Mission_RC_PL_17	Aconsegueix les monedes blaves al so dels blocs!
+MsgMain/Mission/Mission_WT_PL_06	Supera el llac sense que se't mengin els peixos!
+MsgMain/Mission/Mission_WT_PL_07	Arriba a la meta fent servir les rampes!
+MsgMain/Mission/Mission_WT_PL_08	Passa sota els Senyalarcs en el moment just!
+MsgMain/Mission/Mission_WT_PL_09	Tasta el menjar per emportar del local de Yoshi!
+MsgMain/Mission/Mission_WT_PL_10	Travessa el trànsit en hora punta!
+MsgMain/Mission/Mission_WT_PL_11	Fes bon ús dels vehicles dels canals!
+MsgMain/Mission/Mission_WT_PL_12	Escurça camí envestint amb el tràiler!
+MsgMain/Mission/Mission_WT_PL_13	Recull els objectes que deixen anar els Super Koopas!
+MsgMain/Mission/Mission_WT_PL_14	Fes drecera pels jardins de l'Estadi Peach!
+MsgMain/Mission/Mission_WT_PL_16	Supera el pas de muntanya dins del temps!
+MsgMain/Mission/Mission_WT_PL_17	Baixa a tota pastilla en direcció al llac!
+MsgMain/Mission/Mission_WT_PL_19	Arriba per l'aire a les Cascades Cheep Cheep!
+MsgMain/Mission/Mission_WT_PL_20	Circula riu amunt a tota pastilla!
+MsgMain/Mission/Mission_WT2_PL_09	Creua el congost amb molta cura!
+MsgMain/Mission/Mission_WT2_PL_10	Pren una drecera no exempta de perill!
+MsgMain/Mission/Mission_WT2_PL_11	Salta a temps... al ritme dels blocs nota!
+MsgMain/Mission/Mission_WT2_PL_12	Dirigeix l'Heura Piranya cap a la meta!
+MsgMain/Mission/Mission_WT2_PL_13	Demostra la teva habilitat recorrent pendents!
+MsgMain/Mission/Mission_WT2_PL_14	Agafa el tren al vol... literalment!
+MsgMain/Mission/Mission_WT2_PL_15	Brilla amb el poder de les superestrelles!
+MsgMain/Mission/Mission_WT2_PL_16	Domina els nervis per pujar fins al cim!
+MsgMain/Mission/Mission_WT2_PL_17	Puja al vaixell i no deixis que ningú t'aturi!
+MsgMain/Mission/Mission_WT2_PL_18	Persegueix qui gosi destrossar el prat!
+MsgMain/Mission/Mission_WT2_PL_19	Evita les mossegades dels Chomps Cadena!
+MsgMain/Mission/Mission_WT2_PL_20	Segueix el desviament cap al Mont Xocolata!
+MsgMain/Mission/Mission_WT2_PL_22	Avança per l'aigua i per l'aire!
+MsgMain/Mission/Mission_WT3_PL_00	Circula per un homenatge a l'Illa Xocolata 2!
+MsgMain/Mission/Mission_WT3_PL_01	Circula per un homenatge a l'Illa Xocolata 1!
+MsgMain/Mission/Mission_WT3_PL_03	Participa en una cursa amb els vilatans!
+MsgMain/Mission/Mission_WT3_PL_04	Compte amb els Hidradracs quan vagis pel llac!
+MsgMain/Mission/Mission_RC_Island_00	Aconsegueix les monedes blaves al mar de riqueses!
+MsgMain/Mission/Mission_WT_PL_18	Evita els despreniments de roques i xocolata!
+MsgMain/Mission/Mission_WT2_PL_21	Accelera al màxim pel xocolata líquid!
+MsgMain/Mission/Mission_WT_PL_00	Cola't a la prova de prototips!
+MsgMain/Mission/Mission_WT2_PL_00	Posa't a prova en el desafiament especial núm. 2!
+MsgMain/Mission/Mission_WT2_PL_01	Explora la Fàbrica de Toad!
+MsgMain/Mission/Mission_WT2_PL_02	Enfila't al més alt de la grua!
+MsgMain/Mission/Mission_RC_PL_02	Entra a la canonada i agafa les monedes blaves!
+MsgMain/Mission/Mission_WT_PL_03	Supera el recorregut ple de vaques!
+MsgMain/Mission/Mission_WT2_PL_05	Llança't cap a la meta botant pel prat!
+MsgMain/Mission/Mission_RC_PL_03	Reuneix les monedes blaves per la torre de control!
+MsgMain/Mission/Mission_WT_PL_04	Solca els cels sobre l'Estadi Peach!
+MsgMain/Mission/Mission_WT2_PL_06	Avança amb empenta cap al cim de l'arc!
