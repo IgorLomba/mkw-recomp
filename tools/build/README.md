@@ -33,6 +33,13 @@ uv run tools/build/build.py --dist --runtime-only --sysroot build/sysroot --out 
 uv run tools/build/dist.py && uv run tools/build/release.py --version 0.1.0
 ```
 
+## A packed dump
+
+From a `.nup` or `.nx` file instead of the `exefs/` and `romfs/` folders: `build/mkw --unpack GAME.nup game exefs` (or
+`GAME.nx`) gives `game/exefs` (40 MB), and the RomFS is read in place with `build/mkw --romfs GAME.nup` (`MKW_ROMFS`,
+`romfs =` in `mkw.ini`). `tools/shaders/extract.py --romfs GAME.nup` reads a `.nup` too; for a `.nx`, unpack its shader
+folders first (`build/mkw --unpack GAME.nx DIR romfs/Effect romfs/Layout romfs/Lib`).
+
 ## Windows
 
 `build/mkw.exe` is built from Linux:

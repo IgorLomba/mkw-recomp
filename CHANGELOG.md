@@ -35,7 +35,7 @@ Galician and Basque, 5.1 sound, and fixes for crashes and freezes reported since
 - 16 GB machines keep their pipeline workers (#132).
 - The game stopped on some error screens (#147): they are logged instead of opening the console's error applet.
 - Long freezes on the title or at start (#111 and others): shaders the translator now structures instead of running
-  them as a slow switch; a start that died building pipelines, or a failed present, no longer breaks every next start.
+  them as a slow switch (after updating, the setup's shader step runs again); a start that died building pipelines, or a failed present, no longer breaks every next start.
 - Starting on Windows takes 20 s less (#128): the game files are indexed per folder.
 - Game files set up by another version are set up again, also after updating by hand (#50).
 - Saves survive an antivirus or OneDrive holding the file, and only one copy of the game runs per profile.
@@ -44,7 +44,9 @@ Galician and Basque, 5.1 sound, and fixes for crashes and freezes reported since
   another thread).
 - From contributors: the window's picture takes the lines it is shown at (#130), the start no longer waits forever for
   a pipeline the driver never returns (#131), and a faster shader lookup (#129), by @guillo1990; replay chunks ended on
-  their own thread (#141, by @riyadhHDA); development runs capped and stoppable (#145, by @EdouardSence).
+  their own thread (#141, by @riyadhHDA); development runs capped and stoppable (#145, by @EdouardSence); Adreno
+  GPUs (Turnip) reach the menus and races without blue lines, and Linux on AArch64 builds from source (#170, #171,
+  #173, by @titooo7; no AArch64 package yet).
 - Diagnostics: a log line when the game waits too long for its frame, saying what the submission was doing (#138), and
   GPU breadcrumbs on more commands (#43).
 

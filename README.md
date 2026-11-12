@@ -15,16 +15,11 @@ Nintendo SDK functions (`nn::*`) are replaced by name with our own code.
 
 Early, and moving fast. On 12/11/2026:
 
-- It boots, plays the intro movies, goes through the menus and races, on Linux and on Windows.
+- It boots, plays the intro movies, goes through the menus and races, on Linux and on Windows (x86-64); Linux on
+  AArch64 builds from source (no package yet; tested on an Adreno 740 handheld).
 - The start screen sets the game up from your copy on your machine (generates and compiles the C, translates the
   shaders, warms up the pipeline cache) and holds every setting: display, graphics quality, controls, hacks.
-- Races, from players' logs: 60 fps on an RX 7900 XTX at 4K and an RX 9070 XT; about 47 fps on an RTX 3060 at 1080p;
-  30-35 fps on an RTX 3050 Laptop at 720p and our Radeon 660M at 720p; below 30 on 4 GB cards (GTX 1650 SUPER, GTX
-  1050 Ti, RX 5500 XT) at 1080p. Frame rate on Automatic (the console's) drops to 30 when 60 is out of reach; a
-  frame over 33 ms runs the race slower than real time. See [Performance](#performance).
-- Frame generation (Settings > Screen > Frame generation, off by default): frames made between the game's, so a race
-  at 30 fps is shown at 60, or at 60 on a 240 Hz monitor at 240. Smoother, not faster: the game's own frame rate stays
-  the same, the picture is up to one frame later, and fast motion and the minimap can smear.
+- Races run at 60 fps on high-end GPUs and at 30 on mid-range ones; see [Performance](#performance).
 - Known problems: a few menus (mode, character and vehicle select) still need work, the kart's shadow misses a frame
   now and then, some audio cuts during movies, and on some AMD drivers the GPU can hang. There is no online play.
 
@@ -41,9 +36,7 @@ The main open work, in order; the details are in [docs/roadmap.md](docs/roadmap.
   validation errors.
 - **Every menu checked** against the console: mode, character and vehicle select are next.
 - **No GPU hangs** and less GPU memory, then loading without stutter and a Linux package for non-rolling distributions.
-- **Later game versions**: 1.8.0 is set up from its own dump (first support, 11/11/2026: the ultrawide aspect, the
-  shadow map size and the fixed seed are 1.0.0 only for now). Each version is a different executable to recompile,
-  and since the game cannot be shared, it needs a contributor who owns that version ([#19](https://github.com/adriadam10/mkw-recomp/issues/19)).
+- **1.8.0 on par with 1.0.0**: its ultrawide aspect, shadow map size and fixed seed ([#19](https://github.com/adriadam10/mkw-recomp/issues/19)).
 
 \* Measured on 09/11/2026 on our test machine: Radeon 660M APU (Ryzen 5 7535HS), Linux, 720p internal resolution.
 
@@ -52,11 +45,17 @@ The main open work, in order; the details are in [docs/roadmap.md](docs/roadmap.
 Measured frame times, each with its date, are in [docs/performance.md](docs/performance.md). To add your machine,
 open a [performance report](https://github.com/adriadam10/mkw-recomp/issues/new?template=performance.yml): it goes
 into the table with the date of the report. The times are the game's own frames: frame generation shows more frames
-but does not shorten them.
+but does not shorten them. 16.7 ms is 60 fps; Frame rate on Automatic (the console's) drops to 30 fps when 60 is out of
+reach, and a frame over 33.3 ms runs the race slower than real time.
 
 | Date | GPU | Internal resolution | Race frame time |
 |---|---|---|---|
+| 11/11/2026 | RX 7900 XTX (Windows) | 2160p | 16.7 ms |
+| 11/11/2026 | RX 9070 XT (Linux, RADV) | 720p to 2160p | 16.7 ms |
+| 10/11/2026 | RTX 3060 (Windows) | 1080p | ~21 ms |
+| 11/11/2026 | RTX 3050 Laptop (Windows) | 720p | 26.7 ms |
 | 09/11/2026 | Radeon 660M (Linux, RADV) | 720p | 31-33 ms |
+| 11/11/2026 | GTX 1650 SUPER (Windows) | 1080p | ~41 ms |
 | 09/11/2026 | GTX 1050 Ti (Windows) | 1080p | 42-45 ms |
 
 ## Playing
@@ -81,6 +80,24 @@ but does not shorten them.
 Requirements: x86-64 CPU with AVX2, a GPU with Vulkan 1.3 (`VK_EXT_mesh_shader` recommended; without it, task and
 mesh shaders run as compute), 16 GB of RAM recommended.
 
+## Extra features
+
+Beyond the console, all optional and off (or at the console's value) by default:
+
+- **Display**: internal resolution above or below the console's, 21:9 and 32:9 (races show more at the sides), AMD FSR 1 scaling, HDR on HDR
+  screens, VSync, mailbox or immediate presentation.
+- **Frame generation**: frames made between the game's (a race at 30 fps shown at 60, or at 240 on a 240 Hz screen).
+  Smoother, not faster: the picture is up to one frame later, and fast motion and the minimap can smear.
+- **Graphics**: texture filtering and quality, detail distance and shadow quality above or below the console's.
+- **Sound**: 5.1 surround.
+- **Controls**: every key and button rebindable, mouse camera, Nintendo, Xbox or PlayStation button icons, motion
+  steering, vibration strength; local multiplayer with one controller each.
+- **Hacks**: turbo (hold or toggle F2), skip movies, unlock everything, the same randomness every time, straight to
+  time trial or free roam.
+- **Languages**: the menus in 19 languages; the game itself also in Catalan, Galician and Basque.
+- **Game files**: a dump as folders or as one `.nup` or `.nx` file, used where it is; updates from the start screen.
+- **Performance overlay** (FPS, or CPU, GPU and memory in full) and a one-click system info for bug reports.
+
 ## Building from source
 
 Linux, with `uv`, `clang`, `lld`, `ninja`, SDL3, Opus, libvpx, zstd, xxHash, the Vulkan headers and VMA 3.4.0 (details in
@@ -94,10 +111,8 @@ uv run tools/build/build.py              # build/mkw; --target windows builds mk
 build/mkw
 ```
 
-From a packed dump: `build/mkw --unpack GAME.nup game exefs` (or `GAME.nx`) gives `game/exefs` (40 MB), and the RomFS
-is read in place with `build/mkw --romfs GAME.nup` (`MKW_ROMFS`, `romfs =` in `mkw.ini`); `tools/shaders/extract.py
---romfs GAME.nup` reads a `.nup` too (a `.nx`'s shader folders: `build/mkw --unpack GAME.nx DIR romfs/Effect
-romfs/Layout romfs/Lib`).
+From a packed dump (`.nup`, `.nx`) and for Linux on AArch64: [tools/build/README.md](tools/build/README.md#a-packed-dump)
+and [its AArch64 section](tools/build/README.md#linux-aarch64).
 
 Translating the shaders needs the SM86 encoding specification, generated from NVIDIA's `nvdisasm` (not shipped):
 see [tools/shaders/README.md](tools/shaders/README.md). Everything generated goes to `build/`, never to git.
