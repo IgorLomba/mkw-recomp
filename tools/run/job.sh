@@ -9,7 +9,8 @@ set -euo pipefail
 mode=$1 name=$2; shift 2
 runner=${JOB_RUNNER:-$HOME/.agents/scripts/job}
 if [[ -x $runner ]]; then
-    exec "$runner" "$mode" "$name" "$@"
+    # a run or replay is a measurement: a full CPU share, not the runner's idle default for background batches
+    JOB_CPU=${JOB_CPU:-100} exec "$runner" "$mode" "$name" "$@"
 fi
 # Without a runner, a systemd user unit when there is one, with the runner's cap: JOB_MEM (default 7G) and no swap,
 # so a run that outgrows it is killed instead of pushing the desktop into swap. 11/11/2026: a run started with nohup,

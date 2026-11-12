@@ -1,0 +1,6 @@
+# Heavy commands of this repo (~/.agents/hooks/heavy-job-guard.sh): they go through ~/.agents/scripts/job, which
+# gives them a memory cap and CPUWeight=idle, so a shader batch does not take the desktop Adrià works on (12/11/2026:
+# glsl_hash, flow_check and translate.py ran with nice only, which ananicy-cpp undoes for python). One ERE per line.
+uv[[:space:]]+run[[:space:]]+([^;&|]*[[:space:]])?tools/shaders/(translate|glsl_hash|flow_check|census|retry_shas|retry_failed|decode_check|operand_check)\.py
+xargs[[:space:]]([^;&|]*[[:space:]])?-P
+parallel[[:space:]]
