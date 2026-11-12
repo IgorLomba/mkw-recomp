@@ -18,4 +18,4 @@ uint64_t ov_bfttf_size(const uint8_t *p, uint64_t len); // decoded font size of 
 
 // ---- ov_socket.c
 int ov_lan(void);                                    // MKW_LAN set: sockets and nifm's local mode are live
-int ov_lan_address(uint8_t ip[4], uint8_t mask[4]);   // MKW_LAN_IP or the primary IPv4 and its mask; -1 with none
+int ov_lan_address(uint8_t ip[4], uint8_t mask[4]);   // MKW_LAN_IP, else the first interface up with a local address; -1 with none

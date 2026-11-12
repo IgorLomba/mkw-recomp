@@ -379,6 +379,15 @@ static void probe_socket(void) {
     CHECK((int64_t)CALL("socket::SendTo", sa, U(buf), 3, 0x80, U(ab), 16) == 3, "SendTo with MSG_DONTWAIT");
     *fromlen = 16;
     CHECK((int64_t)CALL("socket::RecvFrom", sb, U(buf), 64, 0, U(from), U(fromlen)) == 3, "RecvFrom 2");
+    // LAN only: an internet address is refused before anything is sent (8.8.8.8:53, a public one), and so is a bind to it
+    const uint8_t pub[4] = {8, 8, 8, 8};
+    memset(from, 0, 16);
+    from[0] = 16, from[1] = AF, from[3] = 53;
+    memcpy(from + 4, pub, 4);
+    CHECK((int64_t)CALL("socket::SendTo", sa, U(buf), 3, 0, U(from), 16) == -1 && CALL("socket::GetLastErrno") == 101,
+          "SendTo an internet address: refused, ENETUNREACH");
+    CHECK((int)CALL("socket::Bind", sb, U(from), 16) == -1 && CALL("socket::GetLastErrno") == 101,
+          "Bind to an internet address: refused");
     int sh = (int)CALL("socket::Shutdown", sa, 2);   // a datagram socket with no peer: 0, or ENOTCONN (107)
     CHECK(sh == 0 || CALL("socket::GetLastErrno") == 107, "Shutdown: %d", sh);
 #ifndef _WIN32

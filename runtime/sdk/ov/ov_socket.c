@@ -16,18 +16,22 @@
 // small numbers a console gives. A call that can wait (Poll with a timeout, RecvFrom on a blocking socket) gives its
 // virtual core up meanwhile (kern_core_away), as audio and NVN waits do, so a waiting network thread holds no core.
 //
+// MKW_LAN on, LAN only: Bind and SendTo refuse any address outside a local network (lan_only), and GetAddrInfo resolves
+// nothing, so no datagram can go to a server on the internet.
 // MKW_LAN off (the default) keeps main's stub, a console whose network is down: every socket call -1, errno ENETDOWN,
 // IsInitialized 1, no WSAStartup, so the online menu takes its no-connection path as before (issue #63).
 //
 // eventfd exists only on Linux; Windows answers ENOSYS. In main only gRPC's wakeup_fd_eventfd.cc (main+0x10208c0, the
 // online services) calls EventFd*, after its availability check (main+0x1020a30); Pia never does.
 #include <stdint.h>
+#include <stdlib.h>
 #include <string.h>
 
 #ifdef _WIN32
 #include <winsock2.h>
 #include <ws2tcpip.h>
 #include <mstcpip.h>
+#include <iphlpapi.h>
 #ifndef SIO_UDP_CONNRESET
 #define SIO_UDP_CONNRESET _WSAIOW(IOC_VENDOR, 12)
 #endif
@@ -40,6 +44,7 @@ typedef SOCKET HostSock;
 #include <fcntl.h>
 #include <arpa/inet.h>
 #include <ifaddrs.h>
+#include <net/if.h>
 #include <netinet/in.h>
 #include <poll.h>
 #include <sys/eventfd.h>
@@ -192,6 +197,28 @@ static void addr_out(const struct sockaddr_in *h, uint8_t *b, uint32_t *len) {
     *len = 16;
 }
 
+// LAN only: Bind and SendTo take only addresses that never leave a local network, so LAN play cannot reach any server
+// on the internet (Nintendo's or another), whatever the game asks: any (bind), loopback, the private ranges of RFC 1918,
+// shared address space (RFC 6598, the virtual LANs of Tailscale and the like), link-local, multicast and broadcast. The
+// game's online services stay off in any case (GetAddrInfo resolves nothing, nifm reports no internet).
+static int lan_only(struct in_addr a) {
+    uint32_t h = ntohl(a.s_addr);
+    return h == 0 || (h >> 24) == 127 || (h >> 24) == 10 || (h >> 20) == 0xac1 || (h >> 16) == 0xc0a8 ||
+           (h >> 22) == (100u << 2 | 1) || (h >> 16) == 0xa9fe || (h >> 28) == 0xe || h == 0xffffffffu;
+}
+
+// 0, or -1 with ENETUNREACH (logged, a few times) for an address outside a local network
+static int lan_check(const struct sockaddr_in *a, const char *call) {
+    if (lan_only(a->sin_addr)) return 0;
+    static volatile int32_t n;
+    if (plat_inc32(&n) <= 8) {
+        char t[INET_ADDRSTRLEN] = "?";
+        inet_ntop(AF_INET, &a->sin_addr, t, sizeof t);
+        rt_log("socket: %s to %s refused: LAN play reaches only local network addresses", call, t);
+    }
+    return fail(G_ENETUNREACH), -1;
+}
+
 static int msg_flags(int f, int *dontwait) {
     int h = 0;
     if (f & B_MSG_OOB) h |= MSG_OOB;
@@ -290,7 +317,7 @@ static void ov_bind(Cpu *c) {
     struct sockaddr_in a;
     int r = -1;
     LAN_OR_DOWN(c);
-    if (!slot_get((int)arg_x(c, 0), &sl) && !addr_in(arg_p(c, 1), (uint32_t)arg_x(c, 2), &a)) {
+    if (!slot_get((int)arg_x(c, 0), &sl) && !addr_in(arg_p(c, 1), (uint32_t)arg_x(c, 2), &a) && !lan_check(&a, "Bind")) {
         r = bind(sl.s, (struct sockaddr *)&a, sizeof a);
         if (r < 0) fail(host_errno());
     }
@@ -394,7 +421,7 @@ static void ov_sendto(Cpu *c) {
     int dontwait, hf = msg_flags((int)arg_x(c, 3), &dontwait);
     struct sockaddr_in a, *to = NULL;
     if (arg_p(c, 4)) {
-        if (addr_in(arg_p(c, 4), (uint32_t)arg_x(c, 5), &a)) {
+        if (addr_in(arg_p(c, 4), (uint32_t)arg_x(c, 5), &a) || lan_check(&a, "SendTo")) {
             ret_x(c, (uint64_t)-1);
             return;
         }
@@ -515,43 +542,57 @@ static void ov_eventfd_write(Cpu *c) {
     ret_x(c, (uint64_t)(int64_t)r);
 }
 
-// ---- the LAN address nifm reports (ov_net.c): MKW_LAN_IP, else the address a datagram to a public one would leave
-// from (connect on a datagram socket sends nothing), with its interface's mask. Pia builds its broadcast from both.
+// ---- the LAN address nifm reports (ov_net.c): MKW_LAN_IP, else the first interface that is up with a local network
+// address (lan_only, not loopback), read from the system's interface list (nothing is sent), with its mask. Pia
+// builds its broadcast from both.
+static int lan_pick(struct in_addr a, struct in_addr want) {
+    return want.s_addr ? a.s_addr == want.s_addr : (ntohl(a.s_addr) >> 24) != 127 && lan_only(a) && a.s_addr;
+}
+
 int ov_lan_address(uint8_t ip[4], uint8_t mask[4]) {
-    struct in_addr a = {0};
-    const char *want = cfg_get("MKW_LAN_IP");
+    struct in_addr want = {0}, a = {0}, m = {0};
+    const char *e = cfg_get("MKW_LAN_IP");
+    if (e && *e && inet_pton(AF_INET, e, &want) != 1) rt_log("nifm: MKW_LAN_IP %s is not an IPv4 address", e);
 #ifdef _WIN32
     WSADATA wsa;
     if (WSAStartup(MAKEWORD(2, 2), &wsa)) return -1;
-#endif
-    if (want && *want) {
-        if (inet_pton(AF_INET, want, &a) != 1) rt_log("nifm: MKW_LAN_IP %s is not an IPv4 address", want);
-    } else {
-        HostSock s = socket(AF_INET, SOCK_DGRAM, 0);
-        struct sockaddr_in d = {.sin_family = AF_INET, .sin_port = htons(9), .sin_addr.s_addr = htonl(0x08080808)};
-        struct sockaddr_in me;
-        socklen_t len = sizeof me;
-        if (s != HOST_BAD && !connect(s, (struct sockaddr *)&d, sizeof d) &&
-            !getsockname(s, (struct sockaddr *)&me, &len))
-            a = me.sin_addr;
-        if (s != HOST_BAD) host_close(s);
+    ULONG size = 16 << 10;
+    IP_ADAPTER_ADDRESSES *list = malloc(size);
+    if (list && GetAdaptersAddresses(AF_INET, GAA_FLAG_SKIP_ANYCAST | GAA_FLAG_SKIP_MULTICAST | GAA_FLAG_SKIP_DNS_SERVER,
+                                     NULL, list, &size) == ERROR_BUFFER_OVERFLOW) {
+        free(list);
+        list = malloc(size);
+        if (list && GetAdaptersAddresses(AF_INET, GAA_FLAG_SKIP_ANYCAST | GAA_FLAG_SKIP_MULTICAST |
+                                         GAA_FLAG_SKIP_DNS_SERVER, NULL, list, &size) != NO_ERROR)
+            free(list), list = NULL;
     }
-    if (!a.s_addr) return -1;
-    memcpy(ip, &a, 4);
-    const uint8_t c24[4] = {255, 255, 255, 0};
-    memcpy(mask, c24, 4);   // ponytail: Windows keeps /24 (home LANs); GetAdaptersAddresses if one is not
-#ifndef _WIN32
+    for (IP_ADAPTER_ADDRESSES *i = list; i && !a.s_addr; i = i->Next) {
+        if (i->OperStatus != IfOperStatusUp || i->IfType == IF_TYPE_SOFTWARE_LOOPBACK) continue;
+        for (IP_ADAPTER_UNICAST_ADDRESS *u = i->FirstUnicastAddress; u && !a.s_addr; u = u->Next) {
+            struct in_addr x = ((struct sockaddr_in *)u->Address.lpSockaddr)->sin_addr;
+            if (!lan_pick(x, want)) continue;
+            uint8_t bits = u->OnLinkPrefixLength > 32 ? 24 : u->OnLinkPrefixLength;
+            a = x, m.s_addr = htonl(bits ? 0xffffffffu << (32 - bits) : 0);
+        }
+    }
+    free(list);
+#else
     struct ifaddrs *list, *i;
     if (!getifaddrs(&list)) {
-        for (i = list; i; i = i->ifa_next)
-            if (i->ifa_addr && i->ifa_netmask && i->ifa_addr->sa_family == AF_INET &&
-                ((struct sockaddr_in *)i->ifa_addr)->sin_addr.s_addr == a.s_addr) {
-                memcpy(mask, &((struct sockaddr_in *)i->ifa_netmask)->sin_addr, 4);
-                break;
-            }
+        for (i = list; i && !a.s_addr; i = i->ifa_next)
+            if (i->ifa_addr && i->ifa_netmask && i->ifa_addr->sa_family == AF_INET && (i->ifa_flags & IFF_UP) &&
+                lan_pick(((struct sockaddr_in *)i->ifa_addr)->sin_addr, want))
+                a = ((struct sockaddr_in *)i->ifa_addr)->sin_addr, m = ((struct sockaddr_in *)i->ifa_netmask)->sin_addr;
         freeifaddrs(list);
     }
 #endif
+    if (!a.s_addr && want.s_addr) a = want, m.s_addr = htonl(0xffffff00u);   // MKW_LAN_IP not on an interface: /24
+    if (!a.s_addr) {
+        rt_log("nifm: no network interface with a local network address: no LAN");
+        return -1;
+    }
+    memcpy(ip, &a, 4);
+    memcpy(mask, &m, 4);
     return 0;
 }
 
