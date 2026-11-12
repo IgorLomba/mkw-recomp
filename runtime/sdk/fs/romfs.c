@@ -275,31 +275,72 @@ static void overlay_init(void) {
 }
 
 // ---- start
+#ifndef _WIN32
 #include <ftw.h>
 #include <sys/stat.h>
+#endif
 
 static size_t loose_root_len;
 typedef struct { char *name; uint64_t size; } LooseFile;
 static LooseFile *loose_files;
 static size_t loose_n, loose_cap;
 
-static int loose_visit(const char *path, const struct stat *st, int type, struct FTW *ftw) {
-    (void)ftw;
-    if (type != FTW_F) return 0;
-    const char *rel = path + loose_root_len;
-    while (*rel == '/') rel++;
-    if (*rel == '.') return 0;   // the dump tool's .listing files are not game files
+static void loose_add(const char *rel, uint64_t size) {
     if (loose_n == loose_cap) {
         loose_cap = loose_cap ? loose_cap * 2 : 65536;
         loose_files = realloc(loose_files, loose_cap * sizeof *loose_files);
         need(loose_files != NULL, "loose index memory");
     }
     loose_files[loose_n].name = strdup(rel);
-    loose_files[loose_n].size = (uint64_t)st->st_size;
+    loose_files[loose_n].size = size;
     need(loose_files[loose_n].name != NULL, "loose index memory");
     loose_n++;
+}
+
+#ifdef _WIN32
+// mingw-w64's nftw stats every file (19-41 s for the 205 780 files); a directory listing already holds each size
+// (plat_fs_list: FindFirstFileExW with large fetches). Links are not entered, as with FTW_PHYS.
+typedef struct { char path[4096]; size_t len, rel; } LooseWalk;   // rel: where the RomFS path starts in path
+
+static int loose_entry(const char *name, int kind, uint64_t size, void *ctx) {
+    LooseWalk *w = ctx;
+    size_t n = strlen(name), len = w->len;
+    if (len < w->rel && *name == '.') return 1;   // the dump tool's .listing files are not game files
+    need(len + 1 + n < sizeof w->path, "RomFS path");
+    w->path[len] = '/';
+    memcpy(w->path + len + 1, name, n + 1);
+    if (kind == PLAT_FS_FILE) loose_add(w->path + w->rel, size);
+    else if (kind == PLAT_FS_DIR) {
+        w->len = len + 1 + n;
+        if (plat_fs_list(w->path, loose_entry, w) != PLAT_FS_OK) rt_fatal("RomFS: cannot list %s", w->path);
+    }
+    w->len = len;
+    w->path[len] = 0;
+    return 1;
+}
+
+static int loose_walk(void) {
+    static LooseWalk w;
+    w.len = loose_root_len;
+    while (w.len && (loose_root[w.len - 1] == '/' || loose_root[w.len - 1] == '\\')) w.len--;
+    memcpy(w.path, loose_root, w.len);
+    w.path[w.len] = 0;
+    w.rel = w.len + 1;
+    return plat_fs_list(w.path, loose_entry, &w);
+}
+#else
+static int loose_visit(const char *path, const struct stat *st, int type, struct FTW *ftw) {
+    (void)ftw;
+    if (type != FTW_F) return 0;
+    const char *rel = path + loose_root_len;
+    while (*rel == '/') rel++;
+    if (*rel == '.') return 0;   // the dump tool's .listing files are not game files
+    loose_add(rel, (uint64_t)st->st_size);
     return 0;
 }
+
+static int loose_walk(void) { return nftw(loose_root, loose_visit, 64, FTW_PHYS); }
+#endif
 
 static int loose_order(const void *a, const void *b) {
     return strcmp(((const LooseFile *)a)->name, ((const LooseFile *)b)->name);
@@ -314,7 +355,7 @@ static void load_loose_index(const char *dir) {
     if (realpath(dir, real) && strlen(real) < sizeof loose_root) strcpy(loose_root, real);
 #endif
     loose_root_len = strlen(loose_root);
-    if (nftw(loose_root, loose_visit, 64, FTW_PHYS) != 0 || !loose_n)
+    if (loose_walk() != 0 || !loose_n)
         rt_fatal("RomFS directory %s missing or empty (set it with --romfs)", loose_root);
     qsort(loose_files, loose_n, sizeof *loose_files, loose_order);
     size_t strings = 0;

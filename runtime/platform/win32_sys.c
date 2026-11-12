@@ -253,7 +253,7 @@ int plat_fs_list(const char *dir, int (*cb)(const char *name, int kind, uint64_t
     if (!widen(dir, wd, WPATH)) return PLAT_FS_ERROR;
     swprintf(pat, WPATH + 4, L"%ls\\*", wd);
     WIN32_FIND_DATAW fd;
-    HANDLE h = FindFirstFileW(pat, &fd);
+    HANDLE h = FindFirstFileExW(pat, FindExInfoBasic, &fd, FindExSearchNameMatch, NULL, FIND_FIRST_EX_LARGE_FETCH);
     if (h == INVALID_HANDLE_VALUE) return fs_err(GetLastError());
     do {
         if (!wcscmp(fd.cFileName, L".") || !wcscmp(fd.cFileName, L"..")) continue;
