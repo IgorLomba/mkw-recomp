@@ -294,6 +294,9 @@ void mem_untrap(uint64_t a, uint64_t n) {
     plat_mutex_unlock(&frz_lock);
 }
 
+void mem_hold_layout(void) { plat_mutex_lock(&frz_lock); }
+void mem_release_layout(void) { plat_mutex_unlock(&frz_lock); }
+
 int mem_trapped(uint64_t a) { return trapped && a < RT_ADDRESS_LIMIT && __atomic_load_n(&trapped[a / PAGE], __ATOMIC_RELAXED) == 1; }
 
 void mem_trap_stats(uint64_t *now, uint64_t *trapped_pages, uint64_t *access_fills, uint64_t *other_fills) {

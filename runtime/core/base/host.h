@@ -174,6 +174,10 @@ int mem_trap(uint64_t a, uint64_t n, const void *src);     // [a, a+n) (watched)
 void mem_untrap(uint64_t a, uint64_t n);                   // fills the trapped pages of [a, a+n) and forgets the
                                                            // sources inside it (before src goes)
 int mem_trapped(uint64_t a);                               // the page of a is trapped (its bytes are still the source's)
+void mem_hold_layout(void);                                // no commit, decommit or protection change until
+void mem_release_layout(void);                             // mem_release_layout (a scan reading committed pages); a
+                                                           // fault on a frozen page waits for it, so no trapped page
+                                                           // may be read in between
 // Base traps (memory_btrap.c): pages of a range standing for the shadow's merge base until something writes them.
 void mem_base_hook(void (*fn)(uint64_t page));             // called under frz_lock before a base-trapped page changes
 int mem_base_trap(uint64_t lo, uint64_t hi, uint64_t *bits);   // whole pages of [lo, hi) (page aligned) read-only;

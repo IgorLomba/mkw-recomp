@@ -157,6 +157,11 @@ uint64_t cap_mem_delta(CapOut *o) {
     static Work *w;
     static uint64_t cap;
     uint64_t n = 0;
+    // Pages listed as committed stay so until their bytes are written out: the game decommits heap pages on its
+    // threads meanwhile (a capture from present 2 read a page given back in page_hash, frames 86 and 114). Not for the
+    // snapshot, which reads trapped pages: their fault takes the same lock.
+    int held = snapped;
+    if (held) mem_hold_layout();
     for (int i = 0; i < nregions; i++) w = collect(&regions[i], &n, w, &cap);
     volatile uint64_t next = 0;
     Job j = {w, n, &next};
@@ -179,6 +184,7 @@ uint64_t cap_mem_delta(CapOut *o) {
         }
     }
     flush_run(o);
+    if (held) mem_release_layout();
     snapped = 1;
     return written;
 }
@@ -190,9 +196,12 @@ int cap_mem_snapshot(CapOut *o) {
     return 1;
 }
 
+// Whole pages: a record may start inside one (cap_record.c: a pool object).
 void cap_mem_commit(uint64_t addr, uint64_t len) {
-    for (uint64_t a = addr, end; a < addr + len; a = end) {
-        int st = plat_mem_state(a, addr + len, &end);
+    uint64_t lim = align_dn(addr + len + PAGE - 1, PAGE);
+    addr = align_dn(addr, PAGE);
+    for (uint64_t a = addr, end; a < lim; a = end) {
+        int st = plat_mem_state(a, lim, &end);
         if (st == PLAT_MEM_FREE) rt_fatal("cap: guest page %#llx is not reserved here", (unsigned long long)a);
         if (st == PLAT_MEM_RESERVED && !plat_mem_commit(a, end - a))
             rt_fatal("cap: cannot commit %#llx+%#llx", (unsigned long long)a, (unsigned long long)(end - a));
