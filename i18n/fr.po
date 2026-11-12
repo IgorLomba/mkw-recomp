@@ -666,6 +666,18 @@ msgctxt "UI_MENU_MOUSE_SENS_DESC"
 msgid "How fast the mouse turns the camera."
 msgstr "La vitesse à laquelle la souris tourne la caméra."
 
+msgctxt "UI_MENU_SWITCH2"
+msgid "Switch 2 controllers (Bluetooth)"
+msgstr "Manettes Switch 2 (Bluetooth)"
+
+msgctxt "UI_MENU_SWITCH2_DESC"
+msgid ""
+"Joy-Con 2 and Pro Controller 2 over Bluetooth, on Linux. To pair one, hold its Sync button with "
+"the game open. Applies at the next start."
+msgstr ""
+"Joy-Con 2 et Manette Pro 2 en Bluetooth, sous Linux. Pour en appairer une, maintenez son bouton "
+"Sync avec le jeu ouvert. S'applique au prochain lancement."
+
 msgctxt "UI_MENU_STICK_DEADZONE"
 msgid "Stick dead zone"
 msgstr "Zone morte du stick"

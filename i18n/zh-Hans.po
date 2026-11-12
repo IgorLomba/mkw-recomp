@@ -610,6 +610,16 @@ msgctxt "UI_MENU_MOUSE_SENS_DESC"
 msgid "How fast the mouse turns the camera."
 msgstr "鼠标转动镜头的速度。"
 
+msgctxt "UI_MENU_SWITCH2"
+msgid "Switch 2 controllers (Bluetooth)"
+msgstr "Switch 2 手柄（蓝牙）"
+
+msgctxt "UI_MENU_SWITCH2_DESC"
+msgid ""
+"Joy-Con 2 and Pro Controller 2 over Bluetooth, on Linux. To pair one, hold its Sync button with "
+"the game open. Applies at the next start."
+msgstr "在 Linux 上通过蓝牙使用 Joy-Con 2 和 Pro 手柄 2。要配对手柄，请在游戏打开时按住其同步按钮。下次启动时生效。"
+
 msgctxt "UI_MENU_STICK_DEADZONE"
 msgid "Stick dead zone"
 msgstr "摇杆死区"

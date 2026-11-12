@@ -19,6 +19,7 @@
 #include "input_map.h"
 #include "input_script.h"
 #include "input_wsys.h"
+#include "switch2.h"
 #include "nvn_api.h"
 #include "ui/menu/menu.h"
 #include "vk.h"
@@ -250,6 +251,7 @@ static void start(void) {
     else state = 1;
     if (state == 1) {
         attach_virtual_pads();
+        switch2_start();   // Switch 2 controllers over Bluetooth, as virtual gamepads (MKW_SWITCH2)
         scan_pads();
         if (!pad) rt_log("input: no gamepad (keyboard only until one is connected)");
     }
