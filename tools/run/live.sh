@@ -5,6 +5,9 @@
 # Usage: tools/run/live.sh NAME [SECONDS]   (default 900; then the run is killed). Extra env (MKW_*) passes
 # through; the defaults are those of the race runs (720p romfs overlay, 768 MiB of sparse tiles, BC1 off).
 # Stop: tools/run/ctl.sh NAME stop. Log: build/run/NAME.log, FIFO: build/run/NAME.ctl.
+# LIVE_WRAP: a command build/mkw runs under, e.g. an HDR display for a machine without one:
+#   LIVE_WRAP="gamescope --backend headless -W 1280 -H 720 --hdr-enabled --hdr-debug-force-support --" (gamescope's
+#   Vulkan layer on with ENABLE_GAMESCOPE_WSI=1, exported before live.sh).
 set -euo pipefail
 cd "$(dirname "$0")/../.."
 n=${1:?usage: live.sh NAME [SECONDS]}; secs=${2:-900}
@@ -38,6 +41,6 @@ export MKW_TRACE=${MKW_TRACE:-gfx,present}
 export MKW_BACKGROUND_WINDOW=${MKW_BACKGROUND_WINDOW:-1} MKW_ASSUME_FOCUS=${MKW_ASSUME_FOCUS:-1}
 tools/run/kwin-rule.sh --ensure >/dev/null   # the rule that keeps that window minimized and without focus
 # job start runs a systemd service, which does not inherit this shell's environment: the MKW_* go by env.
-mapfile -t vars < <(env | grep -E '^MKW_')
-JOB_MEM=${JOB_MEM:-7G} tools/run/job.sh start "$n" env "${vars[@]}" bash -c "timeout -s KILL $secs build/mkw > build/run/$n.log 2>&1"
+mapfile -t vars < <(env | grep -E '^(MKW_|ENABLE_GAMESCOPE_WSI=)')
+JOB_MEM=${JOB_MEM:-7G} tools/run/job.sh start "$n" env "${vars[@]}" bash -c "timeout -s KILL $secs ${LIVE_WRAP:-} build/mkw > build/run/$n.log 2>&1"
 echo "live: $n up; commands: tools/run/ctl.sh $n frame|shot PATH|dump DIR [ubo]|flight|press <ticks> <button> [hold]|stop"

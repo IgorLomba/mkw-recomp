@@ -99,6 +99,10 @@ const char *const text_en[UI_TEXT_COUNT] = {
                                  "Deck's 16:10 screen), keep the picture's proportions with black bars, or stretch it "
                                  "over the whole window.",
     [UI_MENU_PICTURE_FIT_KEEP] = "Keep (bars)", [UI_MENU_PICTURE_FIT_STRETCH] = "Stretch",
+    [UI_MENU_HDR] = "HDR",
+    [UI_MENU_HDR_DESC] = "Automatic shows the game's own HDR picture when the display is in HDR (on Windows, Settings > "
+                         "Display > Use HDR), as the console does; its brightness follows the system's HDR settings. Off "
+                         "always shows the standard picture. Applies at once.",
     [UI_MENU_SHARPNESS] = "FSR sharpness",
     [UI_MENU_SHARPNESS_DESC] = "Sharpening after FSR scaling; 0 turns it off.",
 

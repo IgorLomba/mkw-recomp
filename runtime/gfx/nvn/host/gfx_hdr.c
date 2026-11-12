@@ -9,6 +9,7 @@
 // an HDR screen; the picture is then wrong.
 // References: Hookshot and nx2navi (Switch 2 recompilations) answer nn::vi the same way for their games (format 1,
 // HDR10) and pick the swapchain by its colour space; no code of them is taken.
+#include <math.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
@@ -81,4 +82,33 @@ void gfx_hdr_metadata(VkSwapchainKHR sc) {
                           .maxLuminance = (float)g_peak, .minLuminance = 0.0f,
                           .maxContentLightLevel = (float)g_peak, .maxFrameAverageLightLevel = (float)g_white};
     set(c->device, 1, &sc, &m);
+}
+
+// PQ (SMPTE ST 2084) code value 0..1 to nits
+static float pq_nits(float e) {
+    const float m1 = 0.1593017578125f, m2 = 78.84375f, c1 = 0.8359375f, c2 = 18.8515625f, c3 = 18.6875f;
+    float p = powf(e, 1.0f / m2);
+    return 10000.0f * powf(fmaxf(p - c1, 0.0f) / (c2 - c3 * p), 1.0f / m1);
+}
+
+// 10-bit PQ Rec. 2020 pixels (A2B10G10R10: R in the low bits; a2r: A2R10G10B10) to sRGB bytes with paper white at 1.0:
+// shots, captures and thumbnails of an HDR picture. From totk-pc-recomp runtime/vk_hdr.c vk_hdr_to_srgb8 (MIT).
+void gfx_hdr_to_srgb8(const uint8_t *in, uint8_t *out, size_t px, int a2r) {
+    uint16_t peak, white;
+    gfx_hdr_output(&peak, &white);
+    // Rec. 2020 to Rec. 709 (the inverse of ITU-R BT.2087's matrix)
+    static const float m[9] = {1.6605f, -0.5876f, -0.0728f, -0.1246f, 1.1329f, -0.0083f, -0.0182f, -0.1006f, 1.1187f};
+    for (size_t i = 0; i < px; i++) {
+        uint32_t v;
+        memcpy(&v, in + 4 * i, 4);
+        float c[3] = {(float)(v & 1023), (float)(v >> 10 & 1023), (float)(v >> 20 & 1023)};
+        if (a2r) { float t = c[0]; c[0] = c[2]; c[2] = t; }
+        for (int k = 0; k < 3; k++) c[k] = pq_nits(c[k] / 1023.0f) / (float)white;
+        for (int k = 0; k < 3; k++) {
+            float l = fminf(fmaxf(m[3 * k] * c[0] + m[3 * k + 1] * c[1] + m[3 * k + 2] * c[2], 0.0f), 1.0f);
+            float s = l <= 0.0031308f ? 12.92f * l : 1.055f * powf(l, 1.0f / 2.4f) - 0.055f;
+            out[4 * i + k] = (uint8_t)(s * 255.0f + 0.5f);
+        }
+        out[4 * i + 3] = 255;
+    }
 }

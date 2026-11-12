@@ -134,6 +134,12 @@ static void present_image(const tex_t *t, const int crop[4], uint64_t at_ns, uin
         }
         return;
     }
+    // The window's format says whether the game draws HDR (RGB10A2 0x3d or RGBA16F 0x29 instead of RGBA8 0x25 when
+    // nn::vi says HDR10, gfx_hdr.c): logged at each change
+    static uint32_t last_fmt;
+    if (t->d.format != __atomic_exchange_n(&last_fmt, t->d.format, __ATOMIC_RELAXED))
+        rt_log("vk: present of NVN format %#x (Vulkan %d) from frame %llu", t->d.format, (int)img->format,
+               (unsigned long long)frame);
     PresentJob j = {.image = img->image, .format = img->format, .w = (int)img->width, .h = (int)img->height, .frame = frame,
                     .at = at_ns, .queued = queued, .value = value};
     if (crop) {

@@ -100,6 +100,7 @@ double vk_present_refresh_hz(void) { return __atomic_load_n(&g_rate_mhz, __ATOMI
 static PlatRMutex g_pl;
 static VkSwapchainKHR g_sc;
 static VkFormat g_sc_fmt;
+static int g_sc_hdr;   // HDR10 (gfx_hdr.c): the game's PQ picture; the menu, captures and thumbnails convert
 static VkExtent2D g_sc_ext;
 static int g_scaler;                        // the last present: 0 the game image 1:1, 1 scaled by the blit, 2 by FSR
 static uint32_t g_sc_n;
@@ -354,6 +355,7 @@ static int create_swapchain(void) {
     if (old) vkDestroySwapchainKHR(c->device, old, NULL);
     gfx_hdr_metadata(g_sc);
     g_sc_fmt = sf.format;
+    g_sc_hdr = sf.colorSpace == VK_COLOR_SPACE_HDR10_ST2084_EXT;
     g_sc_ext = ext;
     g_sc_n = MAX_IMAGES;
     vkGetSwapchainImagesKHR(c->device, g_sc, &g_sc_n, g_sc_img);
@@ -437,12 +439,14 @@ static int ensure_thumbs(void) {
         }
         g_th_ptr = info.pMappedData;
     }
-    if (g_th_img && g_th_fmt != g_sc_fmt) {
+    // an HDR10 swapchain blits into RGBA8: its PQ codes in 8 bits, turned into sRGB when read (vk_thumbs_read)
+    VkFormat tf = g_sc_hdr ? VK_FORMAT_R8G8B8A8_UNORM : g_sc_fmt;
+    if (g_th_img && g_th_fmt != tf) {
         vmaDestroyImage(c->vma, g_th_img, g_th_img_alloc);   // the previous present's fence was waited for: idle
         g_th_img = VK_NULL_HANDLE;
     }
     if (!g_th_img) {
-        VkImageCreateInfo ci = {.sType = VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO, .imageType = VK_IMAGE_TYPE_2D, .format = g_sc_fmt,
+        VkImageCreateInfo ci = {.sType = VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO, .imageType = VK_IMAGE_TYPE_2D, .format = tf,
                                 .extent = {FLIGHT_THUMB_W, FLIGHT_THUMB_H, 1}, .mipLevels = 1, .arrayLayers = 1,
                                 .samples = VK_SAMPLE_COUNT_1_BIT, .tiling = VK_IMAGE_TILING_OPTIMAL,
                                 .usage = VK_IMAGE_USAGE_TRANSFER_SRC_BIT | VK_IMAGE_USAGE_TRANSFER_DST_BIT,
@@ -454,7 +458,7 @@ static int ensure_thumbs(void) {
             rt_log("gfx: flight thumbnails off: no %ux%u image", FLIGHT_THUMB_W, FLIGHT_THUMB_H);
             return 0;
         }
-        g_th_fmt = g_sc_fmt;
+        g_th_fmt = tf;
     }
     return 1;
 }
@@ -495,10 +499,18 @@ int vk_thumbs_read(uint64_t frame, uint8_t *rgba) {
             VkCtx *c = vk_ctx();
             vmaInvalidateAllocation(c->vma, g_th_alloc, TH_BYTES * ring, TH_BYTES);
             memcpy(rgba, g_th_ptr + TH_BYTES * ring, TH_BYTES);
-            ok = g_th_fmt == VK_FORMAT_B8G8R8A8_UNORM || g_th_fmt == VK_FORMAT_B8G8R8A8_SRGB ? 2 : 1;
+            ok = g_th_fmt == VK_FORMAT_B8G8R8A8_UNORM || g_th_fmt == VK_FORMAT_B8G8R8A8_SRGB ? 2 : g_sc_hdr ? 3 : 1;
         }
     }
     plat_rmutex_unlock(&g_pl);
+    if (ok == 3) {   // 8-bit PQ codes: back to 10 bits, then to sRGB at paper white
+        for (size_t i = 0; i < TH_BYTES; i += 4) {
+            uint32_t v = (uint32_t)rgba[i] * 1023 / 255 | ((uint32_t)rgba[i + 1] * 1023 / 255) << 10 |
+                         ((uint32_t)rgba[i + 2] * 1023 / 255) << 20;
+            memcpy(rgba + i, &v, 4);
+        }
+        gfx_hdr_to_srgb8(rgba, rgba, TH_BYTES / 4, 0);
+    }
     if (ok == 2)
         for (size_t i = 0; i < TH_BYTES; i += 4) {
             uint8_t t = rgba[i];
@@ -522,13 +534,24 @@ int vk_present_captured(const uint8_t **px, int *w, int *h, VkFormat *fmt) {
     return ok;
 }
 
+// ctl "screen PATH": the next present saves its swapchain image as the menu's test shots do
+static char g_screen_path[512];
+static volatile int32_t g_screen_on;
+void vk_present_screen_shot(const char *path) {
+    plat_rmutex_lock(&g_pl);
+    snprintf(g_screen_path, sizeof g_screen_path, "%s", path);
+    plat_rmutex_unlock(&g_pl);
+    __atomic_store_n(&g_screen_on, 1, __ATOMIC_RELEASE);
+}
+
 // The captured swapchain image as a PNG (the menu's test hook), RGBA with opaque alpha.
 static void save_capture(const char *path) {
     size_t n = (size_t)g_cap_w * (size_t)g_cap_h * 4;
     uint8_t *px = malloc(n);
     if (!px) return;
     int bgra = g_sc_fmt == VK_FORMAT_B8G8R8A8_UNORM || g_sc_fmt == VK_FORMAT_B8G8R8A8_SRGB;
-    for (size_t i = 0; i < n; i += 4) {
+    if (g_sc_hdr) gfx_hdr_to_srgb8(g_cap_ptr, px, n / 4, g_sc_fmt == VK_FORMAT_A2R10G10B10_UNORM_PACK32);
+    else for (size_t i = 0; i < n; i += 4) {
         px[i] = g_cap_ptr[i + (bgra ? 2 : 0)];
         px[i + 1] = g_cap_ptr[i + 1];
         px[i + 2] = g_cap_ptr[i + (bgra ? 0 : 2)];
@@ -536,7 +559,7 @@ static void save_capture(const char *path) {
     }
     rt_write_png(path, px, (uint32_t)g_cap_w, (uint32_t)g_cap_h);
     free(px);
-    rt_log("gfx: menu test shot %s (%dx%d)", path, g_cap_w, g_cap_h);
+    rt_log("gfx: swapchain shot %s (%dx%d)", path, g_cap_w, g_cap_h);
 }
 
 // The rectangle {x, y, w, h} of a dw x dh swapchain image the cw x ch picture goes into: the whole image with
@@ -600,10 +623,12 @@ static void present_image(VkImage src, VkImageLayout layout, VkFormat fmt, int w
     window_settings_live();
     // The menu overlay: laid out before recording (its first frame starts the ImGui back end and uploads the font)
     const char *menu_shot = NULL;
-    MenuTarget mt = {c->instance, c->phys, c->device, c->gfx_family, c->gfx_queue, g_sc_fmt, g_sc_ext.width,
+    MenuTarget mt = {c->instance, c->phys, c->device, c->gfx_family, c->gfx_queue,
+                     g_sc_hdr ? VK_FORMAT_R8G8B8A8_UNORM : g_sc_fmt, g_sc_ext.width,
                      g_sc_ext.height, cw, ch, g_scaler};
     int overlay = src && g_sc_view[idx] &&
                   menu_overlay_frame(__atomic_load_n(&gfx_counters.frames, __ATOMIC_RELAXED), &mt, &menu_shot);
+    if (!menu_shot && __atomic_exchange_n(&g_screen_on, 0, __ATOMIC_ACQ_REL)) menu_shot = g_screen_path;
     int cap = src && (g_capture || menu_shot) && ensure_capture_buffer();
     int thumb = src && g_th_n && ensure_thumbs();
 
@@ -653,18 +678,25 @@ static void present_image(VkImage src, VkImageLayout layout, VkFormat fmt, int w
     VkImageLayout last = VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL;
     VkPipelineStageFlags2 last_stage = VK_PIPELINE_STAGE_2_TRANSFER_BIT;
     VkAccessFlags2 last_write = VK_ACCESS_2_TRANSFER_WRITE_BIT;
+    // On an HDR10 swapchain the menu draws into an RGBA8 image cleared to 0, then goes onto the PQ picture at paper
+    // white (vk_hdr_ui.c): its sRGB bytes straight into a PQ image would put its white at 10 000 nits
+    VkImageView menu_view = overlay && g_sc_hdr ? vk_hdr_ui_target(cb, g_sc_ext.width, g_sc_ext.height) : VK_NULL_HANDLE;
+    if (overlay && g_sc_hdr && !menu_view) overlay = 0;
     if (overlay) {
         sync_barrier(cb, dst, last, VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL, last_stage, last_write,
                      VK_PIPELINE_STAGE_2_COLOR_ATTACHMENT_OUTPUT_BIT,
                      VK_ACCESS_2_COLOR_ATTACHMENT_READ_BIT | VK_ACCESS_2_COLOR_ATTACHMENT_WRITE_BIT);
-        VkRenderingAttachmentInfo ca = {.sType = VK_STRUCTURE_TYPE_RENDERING_ATTACHMENT_INFO, .imageView = g_sc_view[idx],
+        VkRenderingAttachmentInfo ca = {.sType = VK_STRUCTURE_TYPE_RENDERING_ATTACHMENT_INFO,
+                                        .imageView = menu_view ? menu_view : g_sc_view[idx],
                                         .imageLayout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL,
-                                        .loadOp = VK_ATTACHMENT_LOAD_OP_LOAD, .storeOp = VK_ATTACHMENT_STORE_OP_STORE};
+                                        .loadOp = menu_view ? VK_ATTACHMENT_LOAD_OP_CLEAR : VK_ATTACHMENT_LOAD_OP_LOAD,
+                                        .storeOp = VK_ATTACHMENT_STORE_OP_STORE};
         VkRenderingInfo ri = {.sType = VK_STRUCTURE_TYPE_RENDERING_INFO, .renderArea = {{0, 0}, g_sc_ext}, .layerCount = 1,
                               .colorAttachmentCount = 1, .pColorAttachments = &ca};
         vkCmdBeginRendering(cb, &ri);
         menu_overlay_draw(cb);
         vkCmdEndRendering(cb);
+        if (menu_view) vk_hdr_ui_compose(cb, g_sc_view[idx], g_sc_fmt, g_sc_ext.width, g_sc_ext.height);
         last = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
         last_stage = VK_PIPELINE_STAGE_2_COLOR_ATTACHMENT_OUTPUT_BIT;
         last_write = VK_ACCESS_2_COLOR_ATTACHMENT_WRITE_BIT;
@@ -769,6 +801,7 @@ void gfx_window_release_vk(void) {
         g_flip_n = 0;   // their blits are done (device idle); the swapchain goes away unpresented
         menu_vk_release();
         vk_fsr_release();
+        vk_hdr_ui_release();
         vk_fg_release();
         free_capture();
         free_thumbs();

@@ -158,6 +158,11 @@ static void tab_screen(float scale) {
     opt_group(UI_MENU_GRAPHICS);
     static const UiTextId fit[] = {UI_MENU_PICTURE_FIT_KEEP, UI_MENU_PICTURE_FIT_STRETCH};
     opt_choice("MKW_PICTURE_FIT", UI_MENU_PICTURE_FIT, fit, 2, UI_MENU_PICTURE_FIT_DESC);
+    {   // the game's own HDR picture on an HDR display (gfx/nvn/host/gfx_hdr.c), live
+        static const char *const vals[] = {"auto", "off"};
+        const char *names[2] = {menu_text(UI_MENU_FPS_AUTO), menu_text(UI_MENU_PERF_OFF)};
+        opt_choice_list("MKW_HDR", UI_MENU_HDR, vals, names, 2, UI_MENU_HDR_DESC);
+    }
     opt_end();
 }
 

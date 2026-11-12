@@ -96,6 +96,12 @@ void vk_present_blit(VkImage src, VkImageLayout layout, VkFormat fmt, int w, int
 int vk_fsr_record(VkCommandBuffer cb, unsigned slot, VkImage src, VkFormat fmt, int sw, int sh, const int crop[4],
                   VkImage dst, int dx, int dy, uint32_t dw, uint32_t dh);
 void vk_fsr_release(void);   // before the device goes away
+// The F1 menu on an HDR10 swapchain (vk_hdr_ui.c): vk_hdr_ui_target is the RGBA8 image of w x h the menu draws into
+// (COLOR_ATTACHMENT_OPTIMAL, to be cleared to 0; VK_NULL_HANDLE when it cannot be made), vk_hdr_ui_compose blends it
+// onto dst_view, a swapchain image of format fmt in COLOR_ATTACHMENT_OPTIMAL, at the system's paper white.
+VkImageView vk_hdr_ui_target(VkCommandBuffer cb, uint32_t w, uint32_t h);
+void vk_hdr_ui_compose(VkCommandBuffer cb, VkImageView dst_view, VkFormat fmt, uint32_t w, uint32_t h);
+void vk_hdr_ui_release(void);   // before the device goes away
 // Queues the oldest present vk_present_blit or vk_present_blit_ahead left waiting.
 void vk_present_flip(void);
 // vk_present_blit for frame generation: presents already waiting stay waiting, so the frames of one game frame are
@@ -133,6 +139,7 @@ void vk_sync_parts_flush(void);   // queue lock held: the parts waiting for the 
 void gfx_fit_rect(int cw, int ch, int dw, int dh, int out[4]);
 void vk_present_capture(int on);
 int vk_present_captured(const uint8_t **px, int *w, int *h, VkFormat *fmt);
+void vk_present_screen_shot(const char *path);   // the next swapchain image to path as PNG (ctl "screen")
 
 // The window system's part of device creation (gfx_window_sdl.c): the instance
 // extensions a surface needs (their count, at most max), and whether a queue family of pd can present to it.

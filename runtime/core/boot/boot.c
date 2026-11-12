@@ -188,9 +188,10 @@ void rt_write_png(const char *path, const uint8_t *rgba, uint32_t w, uint32_t h)
 
 static void save_shot(const tex_t *t, const char *path) {
     int fmt = t->d.format;
-    int bgra = fmt == NVN_FORMAT_BGRA8 || fmt == NVN_FORMAT_BGRA8_SRGB;
-    if (!bgra && fmt != NVN_FORMAT_RGBA8 && fmt != NVN_FORMAT_RGBA8_SRGB)
-        rt_fatal("boot: --shot supports 8-bit RGBA and BGRA targets, the presented texture has NVN format %#x", fmt);
+    int bgra = fmt == NVN_FORMAT_BGRA8 || fmt == NVN_FORMAT_BGRA8_SRGB, pq = fmt == NVN_FORMAT_RGB10A2;
+    if (!bgra && !pq && fmt != NVN_FORMAT_RGBA8 && fmt != NVN_FORMAT_RGBA8_SRGB)
+        rt_fatal("boot: --shot supports 8-bit RGBA and BGRA and the HDR RGB10A2 targets, the presented texture has NVN "
+                 "format %#x", fmt);
     uint32_t w = t->d.width, h = t->d.height;
     uint8_t *px = malloc(4ull * w * h);
     if (!px) rt_fatal("boot: out of memory for the shot");
@@ -199,6 +200,28 @@ static void save_shot(const tex_t *t, const char *path) {
     NVNcopyRegion r = {.width = (int)w, .height = (int)h, .depth = 1};
     if (gfx_replay_async()) gfx_backend()->finish();   // the presented frame may still be queued for the replay
     gfx_backend()->read_texels(t, &view, &r, px, 4ull * w, 4ull * w * h);
+    if (pq) {   // the game's HDR picture (gfx_hdr.c): its code values logged, the picture saved at paper white
+        uint32_t hist[1024] = {0}, top = 0;
+        for (uint64_t i = 0; i < 4ull * w * h; i += 4) {
+            uint32_t v;
+            memcpy(&v, px + i, 4);
+            uint32_t m = v & 1023;
+            if ((v >> 10 & 1023) > m) m = v >> 10 & 1023;
+            if ((v >> 20 & 1023) > m) m = v >> 20 & 1023;
+            hist[m]++;
+            if (m > top) top = m;
+        }
+        uint64_t half = (uint64_t)w * h / 2, p99 = (uint64_t)w * h * 99 / 100, acc = 0;
+        uint32_t med = 0, hi = 0;
+        for (uint32_t k = 0; k < 1024; k++) {
+            if (acc <= half && acc + hist[k] > half) med = k;
+            if (acc <= p99 && acc + hist[k] > p99) hi = k;
+            acc += hist[k];
+        }
+        rt_log("boot: shot of RGB10A2, brightest channel of each pixel in 10-bit codes: median %u, p99 %u, max %u", med,
+               hi, top);
+        gfx_hdr_to_srgb8(px, px, (size_t)w * h, 0);
+    }
     if (bgra)
         for (uint64_t i = 0; i < 4ull * w * h; i += 4) {
             uint8_t x = px[i];

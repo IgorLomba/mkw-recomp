@@ -21,6 +21,7 @@ void gfx_window_start(void);                               // window thread, Vul
 void gfx_window_early(void);                               // the window at boot, black until the first image
 void gfx_vsync_bind(uint64_t system_event);                // nn::vi vsync event; signalled at 60 Hz
 int gfx_hdr_output(uint16_t *peak, uint16_t *white);       // 1: the window shows HDR10 (peak, paper white nits)
+void gfx_hdr_to_srgb8(const uint8_t *in, uint8_t *out, size_t px, int a2r);   // 10-bit PQ to sRGB bytes at paper white
 int gfx_window_focused(void);
 int gfx_window_lines(void);   // lines of the picture the window will show (monitor in fullscreen); 0 unknown
 int gfx_window_shape(int *w, int *h);   // its width and lines; 0 unknown (w and h then untouched)

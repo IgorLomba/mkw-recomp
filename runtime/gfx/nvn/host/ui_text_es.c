@@ -103,6 +103,10 @@ const char *const text_es[UI_TEXT_COUNT] = {
                                  "pantalla 16:10 de la Steam Deck), mantener la proporción con franjas negras o "
                                  "estirar la imagen a toda la ventana.",
     [UI_MENU_PICTURE_FIT_KEEP] = "Mantener (franjas)", [UI_MENU_PICTURE_FIT_STRETCH] = "Estirar",
+    [UI_MENU_HDR] = "HDR",
+    [UI_MENU_HDR_DESC] = "«Automático» muestra la imagen HDR del propio juego cuando la pantalla está en HDR (en Windows, "
+                         "Configuración > Pantalla > Usar HDR), como hace la consola; su brillo sigue los ajustes de HDR "
+                         "del sistema. «No» muestra siempre la imagen estándar. Se aplica al momento.",
     [UI_MENU_SHARPNESS] = "Nitidez de FSR",
     [UI_MENU_SHARPNESS_DESC] = "Enfoque tras el escalado FSR; 0 lo quita.",
 
