@@ -157,6 +157,19 @@ def generate(exefs: Path, work: Path, jobs: int) -> None:
          "--patches", str(ROOT / "recomp/patches-mkw.txt")])  # fmt: skip
 
 
+def code_key(files: list[Path]) -> str:
+    """Generate's and compile's keys besides the ExeFS and game_id: the code that makes their output. Before, they were
+    game_id alone, so an update that changed only recomp/ (or the glue and flags) kept the old game code."""
+    h = hashlib.sha256()
+    for f in files:
+        h.update(f.read_bytes())
+    return h.hexdigest()[:16]
+
+
+GENERATOR = [*sorted((ROOT / "recomp").glob("*.py")), ROOT / "recomp/patches-mkw.txt"]
+COMPILER = [*GENERATOR, ROOT / "tools/build/build.py", Path(__file__).with_name("gamecode.py")]
+
+
 # ---- shaders and the overlay
 def translator_key() -> str:
     """The shader step's key: every file the translation's output depends on (the translator, the decoder, extract.py
@@ -286,8 +299,8 @@ def main() -> None:
         keys = {
             "exefs": str(exefs_src),
             "romfs": f"{args.romfs} {romfs_src}",
-            "generate": f"{build.game_id()} {exefs_src}",
-            "compile": f"{build.game_id()} {exefs_src} {args.target}",
+            "generate": f"{build.game_id()} {exefs_src} {code_key(GENERATOR)}",
+            "compile": f"{build.game_id()} {exefs_src} {args.target} {code_key(COMPILER)}",
             "shaders": f"{exefs_src} {romfs_src} {translator_key()}",
             "warm": f"{build.game_id()} {romfs_src}",
         }
