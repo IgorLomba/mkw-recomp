@@ -382,16 +382,32 @@ int storage_rewritten(const Tex *e, uint32_t since, uint32_t *now) {
 // Without a write watch (vk_mem_changed -1: a kernel without userfaultfd, as the Odin 2's SteamOS ARM 7.2) every check
 // uploaded the texture again: three 8192x8192 ASTC textures 627 times each at the first menus (run7, 10/11/2026), ~100
 // ms of every frame. The storage's hash, once per submission, tells a rewrite apart: 1 when it is unchanged since the
-// last upload (recorded there). MKW_TEX_HASH_UNTRACKED=1 on any GPU, 0 never; on by default on Qualcomm only, so other
-// GPUs without a write watch upload again as before.
-static int same_storage(Tex *e) {
+// last upload. MKW_TEX_HASH_UNTRACKED=1 on any GPU, 0 never; on by default on Qualcomm only, so other GPUs without a
+// write watch upload again as before.
+// The check runs once per submission: a rewrite of the storage later in the same submission is uploaded at the next
+// one. That is the point (the 627 re-uploads were checks within a few submissions), and a texture the game rewrites
+// mid-submission without a write watch reads the bytes of that submission's start.
+static int hash_untracked(void) {
     static int on = -1;
     if (on < 0) {
         const char *c = cfg_get("MKW_TEX_HASH_UNTRACKED");
         VkCtx *x = vk_ctx();
         on = c && *c ? atoi(c) != 0 : x && x->props.vendorID == 0x5143;
     }
-    if (!on) return 0;
+    return on;
+}
+
+// Before a texture's first upload: its storage's hash, so the first check after it compares with what was uploaded
+// instead of with 0 (an upload more for every texture). Taken before, a write while uploading only costs one upload
+// more; taken after, it would hide that write.
+static void note_storage(Tex *e) {
+    if (!hash_untracked() || !e->t.mem) return;
+    e->shash_epoch = submit_epoch;
+    e->shash = vk_texpre_hash(e->t.mem, e->t.L.size);
+}
+
+static int same_storage(Tex *e) {
+    if (!hash_untracked()) return 0;
     if (e->shash_epoch == submit_epoch) return 1;   // checked (and uploaded if needed) in this submission
     e->shash_epoch = submit_epoch;
     uint64_t h = vk_texpre_hash(e->t.mem, e->t.L.size);
@@ -406,6 +422,7 @@ void make_fresh(Tex *e) {
     uint64_t size = e->t.L.size;
     if (!e->uploaded) {
         vk_mem_changed(e->pub.addr, size, 0, &e->wgen);   // resets the write bits before the storage is read
+        note_storage(e);
         upload(e);
         return;
     }
@@ -426,7 +443,11 @@ void make_fresh_snap(Tex *e) {
     n_checks++;
     int ch = vk_mem_changed_snap(e->pub.addr, e->t.L.size, e->uploaded ? e->wgen : 0, submit_epoch, &now);
     e->wgen = now;
-    if (!e->uploaded) { upload(e); return; }
+    if (!e->uploaded) {
+        note_storage(e);
+        upload(e);
+        return;
+    }
     e->last_ch = ch;
     if (ch < 0 && e->t.mem && same_storage(e)) return;   // not tracked: the hash decides
     if (ch) upload(e);
