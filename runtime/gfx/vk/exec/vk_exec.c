@@ -251,8 +251,8 @@ void vk_exec_pass_begin(VkExec *ex) {
     ex->in_pass = 1;
 }
 
-// Set while maybe_split ends a pass only to go on in a new command buffer: the targets are half drawn, MKW_RTSTATS
-// leaves them for the real end of the pass.
+// Set while a pass ends only to resume (maybe_split's new command buffer, an inline command such as MKW_DUMP_DRAWS's
+// snapshots or MKW_TEX_ALIAS's copies): the targets are half drawn, MKW_RTSTATS leaves them for the real end of the pass.
 static _Thread_local int split_ending;
 
 void vk_exec_pass_end(VkExec *ex) {
@@ -285,7 +285,9 @@ VkCommandBuffer vk_exec_inline_begin(int *reopen) {
     *reopen = 0;
     if (!ex || !ex->cb) return VK_NULL_HANDLE;
     *reopen = ex->in_pass;
+    split_ending = ex->in_pass;
     vk_exec_barrier(ex);   // ends the pass; feedback-layout targets go back to GENERAL
+    split_ending = 0;
     return ex->cb;
 }
 
