@@ -1,5 +1,5 @@
-// --probe-services: every override of ov_system.c, ov_input.c, ov_media.c, swkbd.c and
-// ov_gfx.c called the way guest code calls it: by its synthetic address through rt_call / rt_dispatch, with AAPCS64
+// --probe-services: every override of ov_system.c, ov_input.c, ov_media.c, swkbd.c,
+// ov_gfx.c and nvn2.c's native images called the way guest code calls it: by its synthetic address through rt_call / rt_dispatch, with AAPCS64
 // arguments, on the guest main thread. Checks that each one matches a relocation of the loaded modules, then the
 // values: language, operation mode, notification messages, account, time round trips, controllers, codec state,
 // graphics records, the system events behind nfp and vi, the software keyboard with arguments built by the guest SDK
@@ -151,7 +151,22 @@ static Ov ovs[] = {
     {"vi.QueryDisplayHdrPaperWhite", "_ZN2nn2vi25QueryDisplayHdrPaperWhiteEPtPKNS0_7DisplayE"},
     {"vi.SetLayerNextHdrStandard", "_ZN2nn2vi52SetLayerNextHdrStandardContentLuminanceRangeMetadataEPNS0_5LayerEtt"},
     {"vi.SetLayerNextHdrExtended", "_ZN2nn2vi52SetLayerNextHdrExtendedContentLuminanceRangeMetadataEPNS0_5LayerEtt"},
+    {"vi.QueryDisplayVrrSupported", "_ZN2nn2vi24QueryDisplayVrrSupportedEPbPKNS0_7DisplayE"},
+    {"vi.SetDisplayVrrCapability", "_ZN2nn2vi23SetDisplayVrrCapabilityEPNS0_7DisplayEb"},
+    {"vi.SetLayerExtendedSwapInterval", "_ZN2nn2vi28SetLayerExtendedSwapIntervalEPNS0_5LayerEii"},
+    {"vi.ClearLayerExtendedSwapInterval", "_ZN2nn2vi30ClearLayerExtendedSwapIntervalEPNS0_5LayerE"},
     {"nvnBootstrapLoader", "nvnBootstrapLoader", 1},
+    // nvn2.c: native images
+    {"nimg.SetDefaults", "_Z32nvnNativeImageBuilderSetDefaultsP21NVNnativeImageBuilder"},
+    {"nimg.SetDevice", "_Z30nvnNativeImageBuilderSetDeviceP21NVNnativeImageBuilderP9NVNdevice"},
+    {"nimg.SetFormat", "_Z30nvnNativeImageBuilderSetFormatP21NVNnativeImageBuilder9NVNformat"},
+    {"nimg.SetMemoryPermission",
+     "_Z40nvnNativeImageBuilderSetMemoryPermissionP21NVNnativeImageBuilder30NVNnativeImageMemoryPermission"},
+    {"nimg.SetNativeImageHandle",
+     "_Z41nvnNativeImageBuilderSetNativeImageHandleP21NVNnativeImageBuilderN2nn2gs17NativeImageHandleE"},
+    {"nimg.Initialize", "_Z24nvnNativeImageInitializeP14NVNnativeImagePK21NVNnativeImageBuilder"},
+    {"nimg.Finalize", "_Z22nvnNativeImageFinalizeP14NVNnativeImage"},
+    {"nimg.TextureInitialize", "_Z35nvnTextureInitializeFromNativeImageP10NVNtextureP14NVNnativeImage"},
 #define OV(key, name) {key, name},
 #include "ov_mkw_list.h"
 #undef OV
@@ -174,6 +189,7 @@ static const struct { const char *child, *key, *fatal, *env; } fatals[] = {
     OTHER_CODEC("codec::InitializeAv1Decoder"), OTHER_CODEC("codec::InitializeAv1Decoder(work)"),
     OTHER_CODEC("codec::InitializeVp8Decoder"), OTHER_CODEC("codec::InitializeVp8Decoder(work)"),
 #undef OTHER_CODEC
+    {"native-image", "nimg.TextureInitialize", "FATAL: nvn2: TextureInitializeFromNativeImage with an uninitialized"},
 };
 #define NFATAL ((int)(sizeof fatals / sizeof *fatals))
 
@@ -651,8 +667,43 @@ static void probe_media_gfx(void) {
     CHECK(CALL("vi.QueryDisplayHdrPaperWhite", U(hdr + 10), U(display)) == 0, "QueryDisplayHdrPaperWhite");
     CHECK(CALL("vi.SetLayerNextHdrStandard", U(layer), 0, 203) == 0 &&
           CALL("vi.SetLayerNextHdrExtended", U(layer), 0, 1000) == 0, "SetLayerNextHdr*ContentLuminanceRangeMetadata");
+    // VRR: a display without it; the extended swap interval is taken and ignored
+    hdr[0] = 0xff;
+    CHECK(CALL("vi.QueryDisplayVrrSupported", U(hdr), U(display)) == 0 && hdr[0] == 0, "QueryDisplayVrrSupported");
+    CHECK(CALL("vi.SetDisplayVrrCapability", U(display), 1) == 0 &&
+          CALL("vi.SetLayerExtendedSwapInterval", U(layer), 1, 2) == 0 &&
+          CALL("vi.ClearLayerExtendedSwapInterval", U(layer)) == 0, "VRR capability and extended swap interval");
     printf("codec/nv/vi: Opus decoder state kept, allocators and work memory recorded, display %p layer %p window %p, "
            "vsync event %s\n", display, layer, window, vsync ? "bound (auto-clear)" : "FAILED");
+}
+
+// ---- native images (nvn2.c): the builder's fields reach the image, and a texture over it takes the size its handle
+// carries (width << 16 | height) and the builder's format, with no storage. An uninitialized image: a child's fatal.
+static uint64_t proc(const char *name, uint64_t a0) {
+    uint64_t at = nvn_proc_address(name);
+    if (!at) rt_fatal("probe-services: no NVN proc %s", name);
+    return rt_call(gc, at, 1, a0);
+}
+
+static void probe_native_images(void) {
+    enum { RGBA8 = 0x25 };
+    uint8_t *b = guest_alloc(0x80), *img = guest_alloc(0x80), *tex = guest_alloc(0x200);
+    memset(b, 0xa5, 0x80);
+    CALL("nimg.SetDefaults", U(b));
+    CALL("nimg.SetDevice", U(b), U(guest_alloc(0x10)));
+    CALL("nimg.SetFormat", U(b), RGBA8);
+    CALL("nimg.SetMemoryPermission", U(b), 1);
+    CALL("nimg.SetNativeImageHandle", U(b), 384u << 16 | 216u);
+    CHECK((uint8_t)CALL("nimg.Initialize", U(img), U(b)) == 1, "NativeImageInitialize");
+    CHECK((uint8_t)CALL("nimg.TextureInitialize", U(tex), U(img)) == 1, "TextureInitializeFromNativeImage");
+    uint64_t w = proc("nvnTextureGetWidth", U(tex)), h = proc("nvnTextureGetHeight", U(tex));
+    uint64_t fmt = proc("nvnTextureGetFormat", U(tex));
+    CHECK(w == 384 && h == 216 && fmt == RGBA8, "texture from a native image: %llux%llu format %#llx",
+          (unsigned long long)w, (unsigned long long)h, (unsigned long long)fmt);
+    proc("nvnTextureFinalize", U(tex));
+    CALL("nimg.Finalize", U(img));
+    printf("native images: a %llux%llu texture of format %#llx from the builder's handle\n", (unsigned long long)w,
+           (unsigned long long)h, (unsigned long long)fmt);
 }
 
 // ---- software keyboard (swkbd.c): ShowKeyboardArg built by the SDK's own setters, as the horse naming does
@@ -865,6 +916,7 @@ static void probe_main(Cpu *c) {
     CHECK((uint32_t)CALL("pl.GetSharedFontLoadState", 0) == 1, "shared font load state");
     probe_input();
     probe_media_gfx();
+    probe_native_images();
     probe_swkbd();
     probe_menu_text();
     probe_menu_gate();
@@ -909,6 +961,7 @@ static void child_main(Cpu *c) {
     if (!strcmp(child_mode, "opus")) CALL("codec.Decode", U(buf), U(buf + 8), U(buf + 16), U(buf + 64), 0x100, U(buf + 0x800), 16);
     else if (!strcmp(child_mode, "font-address")) CALL("pl.GetSharedFontAddress", 0);
     else if (!strcmp(child_mode, "font-size")) CALL("pl.GetSharedFontSize", 0);
+    else if (!strcmp(child_mode, "native-image")) CALL("nimg.TextureInitialize", U(buf), U(buf + 0x800));
     else if (!strncmp(child_mode, "codec::", 7)) CALL(child_mode, U(buf), U(buf + 0x100), 0x100, 0x100, 64, 64, 1, 0);
     else rt_fatal("probe-services: unknown child case %s", child_mode);
     printf("child %s: the call returned\n", child_mode);

@@ -91,6 +91,7 @@ OV("syncpt::sdk::CreateSyncPointEvent", "_ZN2nn6syncpt3sdk20CreateSyncPointEvent
 OV("syncpt::sdk::DestroySyncPointEvent", "_ZN2nn6syncpt3sdk21DestroySyncPointEventEPNS1_18SyncPointEventTypeE")
 OV("syncpt::sdk::InitializeMultiWaitHolder", "_ZN2nn6syncpt3sdk25InitializeMultiWaitHolderEPNS_2os19MultiWaitHolderTypeEPNS1_18SyncPointEventTypeE")
 OV("syncpt::sdk::RequestSyncPointEvent", "_ZN2nn6syncpt3sdk21RequestSyncPointEventEPNS1_18SyncPointEventTypeERKNS1_15SyncPointHandleE")
+OV("syncpt::sdk::TryWaitSyncPoint", "_ZN2nn6syncpt3sdk16TryWaitSyncPointERKNS1_15SyncPointHandleE")
 OV("syncpt::sdk::TryWaitSyncPointEvent", "_ZN2nn6syncpt3sdk21TryWaitSyncPointEventEPKNS1_18SyncPointEventTypeE")
 OV("socket::Bind", "_ZN2nn6socket4BindEiPKNS0_8SockAddrEj")
 OV("socket::Bind(sockaddr)", "_ZN2nn6socket4BindEiPK8sockaddrj")

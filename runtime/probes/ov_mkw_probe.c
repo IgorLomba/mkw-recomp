@@ -272,6 +272,11 @@ static void probe_codec(void) {
         for (int t = 0; t < 400 && !done; t++)
             if (!(done = (int)(CALL("syncpt::sdk::TryWaitSyncPointEvent", sp) & 1))) plat_sleep_ms(5);
         CHECK(done, "frame %d: the sync point event was not signalled in 2 s", k);
+        // 1.8.0's poll of the same handle: done once the frame is decoded, not for a frame further on
+        uint64_t *ahead = ovp_alloc(16);
+        ahead[0] = handle[0], ahead[1] = handle[1] + 1000;
+        CHECK((CALL("syncpt::sdk::TryWaitSyncPoint", U(handle)) & 1) && !(CALL("syncpt::sdk::TryWaitSyncPoint", U(ahead)) & 1),
+              "frame %d: TryWaitSyncPoint", k);
         uint16_t *dims = ovp_alloc(16);
         int64_t *pts = ovp_alloc(16);
         uint8_t *eos_out = ovp_alloc(16);
