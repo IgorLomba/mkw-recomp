@@ -83,7 +83,7 @@ int kern_svc(Cpu *c, uint32_t imm) {
     switch (imm) {
     case 0x08: {   // CreateThread(-> w1 handle; x1 entry, x2 arg, x3 stack top, w4 priority, w5 core)
         int prio = (int)x[4], core = (int)x[5];
-        if (!x[1] || !x[3] || prio < 28 || prio > 59 || core < -3 || core > 2) {
+        if (!x[1] || !x[3] || prio < 28 || prio > 59 || core < -3 || core >= NCORE) {
             x[0] = R_BAD_STATE;
             return 1;
         }
@@ -196,11 +196,20 @@ int kern_svc(Cpu *c, uint32_t imm) {
     case 0x0F: {   // SetThreadCoreMask(w0 handle, w1 ideal core, x2 mask): -1 process default, -2/-3 keep the ideal core
         lock();
         RtThread *t = h_get((uint32_t)x[0], O_THREAD);
+        int core = (int)x[1];
+        uint64_t mask = core == -1 ? 1ull << MAIN_CORE : x[2];   // -1: the process's ideal core, alone
+        // the checks of Atmosphère's kern_svc_thread.cpp SetThreadCoreMask
+        uint32_t bad = (mask & ~APP_MASK) || core < -3 || core >= NCORE ? R_INVALID_CORE
+                       : !mask || (core >= 0 && !(mask >> core & 1)) ? R_INVALID_COMBINATION : R_OK;
+        if (t && bad) {
+            x[0] = bad;
+            unlock();
+            return 1;
+        }
         if (t) {
-            int core = (int)x[1];
             if (core >= 0) t->core = core;
             else if (core == -1) t->core = MAIN_CORE;
-            if (x[2]) t->mask = x[2];
+            t->mask = mask;
             if (t == tcur && t->cur_core >= 0 && !core_allowed(t, t->cur_core)) {   // move off a forbidden core
                 core_put(t);
                 core_take(t);

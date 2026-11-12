@@ -426,6 +426,37 @@ static void test_cores(Cpu *c) {
     CHECK(ok || !gate, "virtual cores");
 }
 
+// ---- core arguments: CreateThread and SetThreadCoreMask take every application core (0-5) and nothing outside
+static uint32_t try_create(Cpu *c, int core, uint32_t *h) {
+    uint8_t *stack = mem_kernel_alloc(STACK, 16);
+    c->x[1] = a_core_worker;
+    c->x[2] = 0;
+    c->x[3] = ga(stack + STACK);
+    c->x[4] = 44;
+    c->x[5] = (uint64_t)(int64_t)core;
+    rt_svc(c, 0x08, 0);
+    *h = (uint32_t)c->x[1];
+    return (uint32_t)c->x[0];
+}
+
+static void test_core_args(Cpu *c) {
+    int before = failures;
+    uint32_t h, bad;
+    CHECK(try_create(c, PROBE_CORES - 1, &h) == 0, "CreateThread on core %d", PROBE_CORES - 1);
+    CHECK(try_create(c, PROBE_CORES, &bad) != 0, "CreateThread on core %d accepted", PROBE_CORES);
+    CHECK(sv(c, 0x0F, h, 4, 1u << 4 | 1u << 3, 0) == 0, "SetThreadCoreMask(core 4, mask 0x18)");
+    CHECK(sv(c, 0x0E, 0, 0, h, 0) == 0 && c->x[1] == 4 && c->x[2] == 0x18, "GetThreadCoreMask after it: core %llu mask %#llx",
+          (unsigned long long)c->x[1], (unsigned long long)c->x[2]);
+    CHECK(sv(c, 0x0F, h, 3, 1u << 4, 0) != 0, "SetThreadCoreMask with the core outside the mask accepted");
+    CHECK(sv(c, 0x0F, h, 0, 1u << 6 | 1, 0) != 0, "SetThreadCoreMask with a core outside the process accepted");
+    CHECK(sv(c, 0x0F, h, 6, 1u << 6, 0) != 0, "SetThreadCoreMask on core 6 accepted");
+    CHECK(sv(c, 0x0F, h, -2, 0, 0) != 0, "SetThreadCoreMask with an empty mask accepted");
+    CHECK(sv(c, 0x0E, 0, 0, h, 0) == 0 && c->x[1] == 4 && c->x[2] == 0x18, "a refused SetThreadCoreMask changed the thread");
+    CHECK(sv(c, 0x16, h, 0, 0, 0) == 0, "CloseHandle(thread %#x)", h);
+    printf("core arguments: cores 0-%d accepted, %d and masks outside refused: %s\n", PROBE_CORES - 1, PROBE_CORES,
+           failures == before ? "ok" : "FAIL");
+}
+
 // ---- fibers: two fibers switch to each other; each checks its callee-saved registers, sp and tpidr survive
 typedef struct { uint64_t self, other; int id; } FiberJob;
 static volatile int32_t g_switches, g_runs[3];
@@ -622,6 +653,7 @@ static void probe_main(Cpu *c) {
     test_arbiter(c);
     test_events(c);
     test_cores(c);
+    test_core_args(c);
     test_fibers(c);
     test_exit(c);
     test_lifted_ticks(c);

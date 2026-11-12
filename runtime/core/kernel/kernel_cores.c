@@ -89,6 +89,9 @@ void core_put(RtThread *t) {
     t->cur_core = -1;
     t->preempt = 0;
     g_core_owner[c] = NULL;
+    // t may exit and be freed next (thread_finish): no waiter's ap_try may still read it
+    for (RtThread *w = g_core_wait; w; w = w->cnext)
+        if (w->target == t) w->target = NULL;
     core_grant(c);
 }
 
