@@ -71,7 +71,11 @@ Galician and Basque, 5.1 sound, and fixes for crashes and freezes reported since
 
 From these packages, before publishing:
 
-- (to fill at release)
+- The whole setup on Linux (Radeon 660M, RADV) and on Windows 11 (GTX 1050 Ti), with its one-minute warm-up: about 16
+  minutes on Linux and 31 on Windows, where the shader step took 10 minutes (14 with 0.1.8).
+- The game from the Linux package reading its files straight from a `.nup` and from a `.nx` dump.
+- The AArch64 AppImage is built by the same release workflow but has not been run yet: we have no ARM machine. If you
+  play on one, please tell us how far it gets (#176).
 
 ## 0.1.8
 
