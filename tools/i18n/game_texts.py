@@ -208,19 +208,27 @@ def read_translation(lang: str) -> dict[str, str]:
     return out
 
 
-def check_tags(lang: str, source: dict[str, str], texts: dict[str, str]) -> None:
-    """Every translated label exists in the base language and keeps its tags, in order."""
+def mismatched(source: dict[str, str], texts: dict[str, str]) -> list[str]:
+    """The translated labels the base language lacks or whose tags differ from it (tags compared in order)."""
     bad = [k for k in texts if k not in source]
-    bad += [k for k in texts if k in source and TAG.findall(texts[k]) != TAG.findall(source[k])]
-    if bad:
-        raise SystemExit(f"{lang}.tsv: unknown labels or changed tags: {', '.join(bad[:10])}")
+    return bad + [k for k in texts if k in source and TAG.findall(texts[k]) != TAG.findall(source[k])]
 
 
-def build(lang: str, out: Path, romfs: Path | None = None) -> None:
+def build(lang: str, out: Path, romfs: Path | None = None, strict: bool = True) -> None:
+    """strict (the build command, on the copy the translation is made from): a mismatch stops. Not strict (the
+    setup): the translation was made on one game version and the player may have another (1.8.0 drops or retags
+    labels of 1.0.0, so the setup stopped at its last step for every 1.8.0 dump); those texts stay in the base
+    language, as a label the translation leaves out does."""
     base = BASE[lang]
     folder = (romfs or game_dir() / "romfs") / "Mals" / base
     texts = read_translation(lang)
-    check_tags(lang, dict(folder_lines(folder, tags=True)), texts)
+    bad = mismatched(dict(folder_lines(folder, tags=True)), texts)
+    if bad and strict:
+        raise SystemExit(f"{lang}.tsv: unknown labels or changed tags: {', '.join(bad[:10])}")
+    if bad:
+        print(f"{lang}: {len(bad)} of {len(texts)} texts do not match this copy of the game, left in {base}",
+              file=sys.stderr)
+        texts = {k: v for k, v in texts.items() if k not in set(bad)}
     manifest = []
     for arc in sorted(folder.glob("*.msarc")):
         orig = arc.read_bytes()
@@ -247,7 +255,7 @@ def build(lang: str, out: Path, romfs: Path | None = None) -> None:
 def build_all(game: Path, romfs: Path) -> None:
     """Every translation into game/lang/<lang>/ (the setup's last step, tools/prepare/prepare.py)."""
     for path in sorted(TRANSLATIONS.glob("*.tsv")):
-        build(path.stem, game / "lang" / path.stem, romfs)
+        build(path.stem, game / "lang" / path.stem, romfs, strict=False)
 
 
 def main() -> int:
