@@ -20,6 +20,7 @@ typedef struct {
     VkPipelineCache cache;
     uint32_t max_push;
     int draw_cache;                    // MKW_DRAW_CACHE: no push sets, uniform buffers dynamic (vk_exec_dcache.c)
+    uint32_t smem_limit;               // workgroup memory for spirv_clamp_shared (MKW_VK_SHARED_LIMIT lowers it)
     uint32_t max_dyn_ubo;              // maxDescriptorSetUniformBuffersDynamic
     int indep;                         // stage-independent layouts (vk_caps.gpl): vertex set 0, fragment set 1
     int push_stage;                    // GFX_STAGE_* whose set is pushed with independent layouts

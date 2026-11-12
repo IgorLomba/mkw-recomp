@@ -321,3 +321,95 @@ uint32_t *spirv_alpha_test(const uint32_t *w, uint64_t n, int func, float ref, u
     *out_n = at;
     return o;
 }
+
+// Workgroup memory against the device's maxComputeSharedMemorySize, for the translator's smem (the largest workgroup
+// uint array, sized from the program's control section). MKW declares 48 KiB in 168 compute programs; Adreno 7xx has
+// 32 KiB, and Turnip's compiler ends the process on such a shader (ir3.c ir3_get_reg_independent_max_waves: no workgroup
+// fits, "impossible to have enough concurrent waves", exit(1)), so the array is cut to fit. The 168 index smem by the
+// thread's global index (gl_WorkGroupID.x * 64 + local, times 48 bytes, up to 1024 items): every workgroup past the 10th
+// reached past the cut end, into other workgroups' memory on Adreno (flashing blue vertical lines in races, Odin 2).
+// The translator indexes an array over 32 KiB modulo SMEM_WRAP, a constant with a sentinel value, rewritten here in
+// every module that has it: to the words kept where the array is cut (each workgroup's 3 KiB window then wraps inside
+// it), else to the next power of two at least the array's words, a no-op modulo the compiler turns into a mask.
+// NULL when nothing changes or the layout is not the translator's; *from / *to: the bytes declared and kept.
+#define SMEM_WRAP_SENTINEL 0x7ffe5a3bu
+
+uint32_t *spirv_clamp_shared(const uint32_t *w, uint64_t n, uint32_t limit, uint64_t *out_n, uint32_t *from,
+                             uint32_t *to) {
+    enum { OP_TYPE_BOOL = 20, OP_TYPE_ARRAY = 28, OP_TYPE_STRUCT = 30, SC_WORKGROUP = 4 };
+    if (n < 5 || !limit) return NULL;
+    uint32_t bound = w[3];
+    if (bound >= (1u << 22)) return NULL;
+    uint64_t *size = calloc(bound, sizeof *size);
+    uint32_t *val = calloc(bound, sizeof *val), *arr_elem = calloc(bound, sizeof *arr_elem),
+             *ptr_to = calloc(bound, sizeof *ptr_to);
+    uint8_t *is_u32 = calloc(bound, 1), *other_ptr = calloc(bound, 1);
+    uint32_t *o = NULL, wg_vars[16], nwg = 0, sentinel = 0;
+    if (!size || !val || !arr_elem || !ptr_to || !is_u32 || !other_ptr) goto out;
+    for (uint64_t i = 5; i < n;) {
+        uint32_t op = w[i] & 0xffff, l = w[i] >> 16;
+        if (!l || i + l > n) goto out;
+        const uint32_t *a = w + i + 1;
+        if (op == SPV_OP_FUNCTION) break;
+        if ((op == SPV_OP_TYPE_INT || op == SPV_OP_TYPE_FLOAT) && l >= 3 && a[0] < bound) {
+            size[a[0]] = a[1] / 8;
+            is_u32[a[0]] = op == SPV_OP_TYPE_INT && a[1] == 32;
+        } else if (op == OP_TYPE_BOOL && l >= 2 && a[0] < bound) size[a[0]] = 4;
+        else if (op == SPV_OP_TYPE_VECTOR && l >= 4 && a[0] < bound && a[1] < bound) size[a[0]] = size[a[1]] * a[2];
+        else if (op == SPV_OP_CONSTANT && l == 4 && a[1] < bound) {
+            val[a[1]] = a[2];
+            sentinel |= a[2] == SMEM_WRAP_SENTINEL;
+        }
+        else if (op == OP_TYPE_ARRAY && l >= 4 && a[0] < bound && a[1] < bound && a[2] < bound) {
+            arr_elem[a[0]] = a[1];
+            size[a[0]] = size[a[1]] * val[a[2]];
+        } else if (op == OP_TYPE_STRUCT && l >= 2 && a[0] < bound) {
+            for (uint32_t m = 1; m + 1 < l; m++) size[a[0]] += a[m] < bound ? size[a[m]] : 0;
+        } else if (op == SPV_OP_TYPE_POINTER && l >= 4 && a[0] < bound && a[2] < bound) {
+            ptr_to[a[0]] = a[2];
+            if (a[1] != SC_WORKGROUP) other_ptr[a[2]] = 1;
+        } else if (op == SPV_OP_VARIABLE && l >= 4 && a[2] == SC_WORKGROUP && a[0] < bound && nwg < 16) {
+            wg_vars[nwg++] = ptr_to[a[0]];
+        }
+        i += l;
+    }
+    uint64_t total = 0;
+    uint32_t big = 0;
+    for (uint32_t k = 0; k < nwg; k++) {
+        total += size[wg_vars[k]];
+        uint32_t t = wg_vars[k];
+        if (t && arr_elem[t] && is_u32[arr_elem[t]] && !other_ptr[t] && (!big || size[t] > size[big])) big = t;
+    }
+    int cut = total > limit && big && total - size[big] < limit;
+    if (!cut && !sentinel) goto out;
+    uint32_t keep = cut ? (uint32_t)((limit - (total - size[big])) / 4) : 0, wrap = big ? 1 : 0x80000000u;
+    if (cut) wrap = keep;
+    else
+        while (wrap < size[big] / 4 && wrap < 0x80000000u) wrap <<= 1;
+    o = malloc((n + 4) * 4);
+    if (!o) goto out;
+    memcpy(o, w, 5 * 4);
+    o[3] = cut ? bound + 1 : bound;
+    uint64_t on = 5;
+    for (uint64_t i = 5; i < n;) {
+        uint32_t op = w[i] & 0xffff, l = w[i] >> 16;
+        if (cut && op == OP_TYPE_ARRAY && w[i + 1] == big) {
+            o[on++] = 4u << 16 | SPV_OP_CONSTANT, o[on++] = arr_elem[big], o[on++] = bound, o[on++] = keep;
+            memcpy(o + on, w + i, l * 4);
+            o[on + 3] = bound;
+        } else if (op == SPV_OP_CONSTANT && l == 4 && w[i + 1] < bound && is_u32[w[i + 1]] &&
+                   w[i + 3] == SMEM_WRAP_SENTINEL) {
+            memcpy(o + on, w + i, l * 4);   // glsl/common.py SMEM_WRAP_SENTINEL
+            o[on + 3] = wrap;
+        } else {
+            memcpy(o + on, w + i, l * 4);
+        }
+        on += l;
+        i += l;
+    }
+    *out_n = on;
+    *from = (uint32_t)total, *to = cut ? (uint32_t)(total - size[big] + (uint64_t)keep * 4) : (uint32_t)total;
+out:
+    free(size), free(val), free(arr_elem), free(ptr_to), free(is_u32), free(other_ptr);
+    return o;
+}
