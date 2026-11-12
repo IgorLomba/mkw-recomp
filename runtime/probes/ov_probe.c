@@ -961,10 +961,11 @@ int probe_services(void) {
     ldr_load(rt_config()->exefs);
 
     // Names bound by the loader: each override and observer probed here must match a relocation.
-    int bound = 0, obs_bound = 0;
+    int bound = 0, obs_bound = 0, nloaded = 0;
     for (int i = 0; i < 4096; i++) {
         const char *n = hostfn_name(RT_HOSTFN_BASE + 16ull * (uint64_t)i);
         if (!n) break;
+        nloaded = i + 1;
         for (int k = 0; k < NOV; k++)
             if (!strcmp(ovs[k].name, n) && !ovs[k].bound) ovs[k].bound = 1, bound++;
         for (int k = 0; k < NOBS; k++)
@@ -977,12 +978,19 @@ int probe_services(void) {
     CHECK(obs_bound == NOBS, "%d of %d observers match a JUMP_SLOT", obs_bound, NOBS);
 
     // Every linked override is either probed here or belongs to another probe or owner (nn::fs: fs probe, fibers: kernel probe,
-    // memcpy: the graphics write-back in nvn_api_core.c, the audio service objects: audio probe).
-    int linked = hostfn_table_size(0), others = 0;
+    // memcpy: the graphics write-back in nvn_api_core.c, the audio service objects: audio probe). One the loaded game does
+    // not import belongs to another game version (1.8.0's nn::chat and native images against a 1.0.0 dump): not this
+    // run's to probe.
+    int linked = hostfn_table_size(0), others = 0, other_version = 0;
     for (int i = 0; i < linked; i++) {
         const char *n = hostfn_table_name(0, i);
-        int mine = 0;
+        int mine = 0, imported = 0;
         for (int k = 0; k < NOV; k++) mine |= !strcmp(ovs[k].name, n);
+        for (int j = 0; j < nloaded && !imported; j++) imported = !strcmp(hostfn_name(RT_HOSTFN_BASE + 16ull * (uint64_t)j), n);
+        if (!mine && !imported) {
+            other_version++;
+            continue;
+        }
         int theirs = !strncmp(n, "_ZN2nn2fs", 9) || !strcmp(n, "memcpy") ||
                      !strcmp(n, "_ZN2nn5audio26CreateAudioRendererManagerEb") ||
                      !strcmp(n, KERN_SYM_INITIALIZE_FIBER) ||
@@ -991,8 +999,8 @@ int probe_services(void) {
         others += theirs;
         CHECK(mine || theirs, "override %s is linked but not probed", n);
     }
-    printf("bound: %d of %d overrides and %d of %d observers match relocations of the loaded modules\n", bound, NOV,
-           obs_bound, NOBS);
+    printf("bound: %d of %d overrides and %d of %d observers match relocations of the loaded modules (%d overrides of "
+           "another game version)\n", bound, NOV, obs_bound, NOBS, other_version);
 
     bind_addresses();
     hostfn_seal();
