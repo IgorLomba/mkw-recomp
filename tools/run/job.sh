@@ -11,6 +11,17 @@ runner=${JOB_RUNNER:-$HOME/.agents/scripts/job}
 if [[ -x $runner ]]; then
     exec "$runner" "$mode" "$name" "$@"
 fi
+# Without a runner, a systemd user unit when there is one, with the runner's cap: JOB_MEM (default 7G) and no swap,
+# so a run that outgrows it is killed instead of pushing the desktop into swap. 11/11/2026: a run started with nohup,
+# no cap, stalled the whole desktop (grey screen, forced reboot) at its boot; the unit also lets ctl.sh stop it.
+if command -v systemd-run > /dev/null && systemctl --user is-system-running > /dev/null 2>&1; then
+    unit=(--user --quiet --collect -p MemoryMax="${JOB_MEM:-7G}" -p MemorySwapMax=0)
+    for v in DISPLAY WAYLAND_DISPLAY XDG_RUNTIME_DIR XDG_SESSION_TYPE; do [[ -n ${!v:-} ]] && unit+=(-E "$v"); done
+    case $mode in
+        run) exec systemd-run "${unit[@]}" --scope --unit="job-$name-$$" "$@" ;;
+        start) exec systemd-run "${unit[@]}" --same-dir --unit="job-$name" "$@" ;;
+    esac
+fi
 case $mode in
     run) exec "$@" ;;
     start) nohup "$@" > /dev/null 2>&1 < /dev/null & ;;
