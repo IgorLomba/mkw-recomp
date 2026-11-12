@@ -137,6 +137,7 @@ static inline RtThread *cur(uint32_t svc) {
     return tcur;
 }
 static inline uint32_t ld32(uint64_t a) { return __atomic_load_n((uint32_t *)(uintptr_t)a, __ATOMIC_SEQ_CST); }
+static inline uint64_t ld64(uint64_t a) { return __atomic_load_n((uint64_t *)(uintptr_t)a, __ATOMIC_SEQ_CST); }
 
 // Defined in one kernel file, used by another.
 int st_of(int kind);   // kernel.c

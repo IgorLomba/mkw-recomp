@@ -312,19 +312,24 @@ int kern_svc(Cpu *c, uint32_t imm) {
         return 1;
     }
 
-    case 0x34: {   // WaitForAddress(x0 address, w1 type, w2 value, x3 timeout): 0 if less, 1 decrement if less, 2 if equal
+    case 0x34: {   // WaitForAddress(x0 address, w1 type, x2 value, x3 timeout): 0 if less, 1 decrement if less, 2 if
+                   // equal, 3 if the 64-bit word is equal (nn::os::WaitForAddress(long const*, long))
         RtThread *t = cur(imm);
         uint64_t addr = x[0];
         int type = (int)x[1];
         int32_t val = (int32_t)x[2];
-        if (type < 0 || type > 2) {
+        if (addr & (type == 3 ? 7 : 3)) {   // Atmosphère's kern_svc_address_arbiter.cpp checks this first
+            x[0] = KERN_R_INVALID_ADDRESS;
+            return 1;
+        }
+        if (type < 0 || type > 3) {
             x[0] = R_INVALID_ENUM;
             return 1;
         }
         AddrQueue q = addr_queue(addr);
         plat_mutex_lock(q.m);
         uint32_t r, v = ld32(addr);
-        int ok = type == 2 ? (int32_t)v == val : (int32_t)v < val;
+        int ok = type == 3 ? ld64(addr) == x[2] : type == 2 ? (int32_t)v == val : (int32_t)v < val;
         if (ok && type == 1)
             while (!cas32(addr, &v, v - 1))
                 if (!((int32_t)v < val)) {

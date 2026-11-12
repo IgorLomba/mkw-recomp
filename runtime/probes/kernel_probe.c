@@ -314,8 +314,14 @@ static void test_arbiter(Cpu *c) {
     uint32_t r = sv(c, 0x34, arb, 2, 5, 5000000);
     double ms = ms_since(t0);
     CHECK(r == KERN_R_TIMEOUT && ms >= 5.0, "wait type 2 with a 5 ms timeout: %#x after %.2f ms", r, ms);
-    CHECK(sv(c, 0x34, arb, 3, 0, 0) == KERN_R_INVALID_ENUM && sig(c, 3, 0, 0) == KERN_R_INVALID_ENUM, "type 3");
-    printf("address arbiter: wait types 0-2 (less, decrement-less, equal), signal types 0-2 (wake, increment, modify by "
+    // wait type 3, if the 64-bit word is equal: the upper half counts, the address is 8-aligned
+    static volatile uint64_t w64 __attribute__((aligned(8)));
+    w64 = 0x100000005ull;
+    CHECK(sv(c, 0x34, ga(&w64), 3, 5, 0) == KERN_R_BAD_STATE, "wait type 3 compared only the low half");
+    CHECK(sv(c, 0x34, ga(&w64), 3, 0x100000005ull, 0) == KERN_R_TIMEOUT, "wait type 3 equal, timeout 0");
+    CHECK(sv(c, 0x34, ga(&w64) + 4, 3, 0, 0) == KERN_R_INVALID_ADDRESS, "wait type 3 on a 4-aligned address");
+    CHECK(sv(c, 0x34, arb, 4, 0, 0) == KERN_R_INVALID_ENUM && sig(c, 3, 0, 0) == KERN_R_INVALID_ENUM, "type 4 / signal 3");
+    printf("address arbiter: wait types 0-3 (less, decrement-less, equal, equal 64-bit), signal types 0-2 (wake, increment, modify by "
            "waiters), 5 ms timeout after %.2f ms: %s\n", ms, failures == before ? "ok" : "FAIL");
 }
 
