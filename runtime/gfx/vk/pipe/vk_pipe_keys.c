@@ -635,6 +635,28 @@ static void warm_builder(void *arg) {
     return;
 }
 
+// A mark next to the keys while the boot builds them, naming the GPU and driver. One left by a start that died there
+// (a driver that crashes on one of these pipelines would kill every start) skips the prewarm on that GPU and driver
+// from then on: the pipelines are built as the game draws them. Another driver tries again. (NX2navi's idea.)
+static int prewarm_mark(char *path, size_t cap) {
+    const VkPhysicalDeviceProperties *p = &vk_ctx()->props;
+    char who[320];
+    snprintf(who, sizeof who, "%04x:%04x %s driver %u\n", p->vendorID, p->deviceID, p->deviceName, p->driverVersion);
+    snprintf(path, cap, "%s", K.path);
+    char *dot = strrchr(path, '.');
+    if (dot) snprintf(dot, cap - (size_t)(dot - path), ".prewarm");
+    uint64_t n = 0;
+    char *old = (char *)plat_file_read(path, &n);
+    int same = old && n == strlen(who) && !memcmp(old, who, n);
+    free(old);
+    if (same) {
+        rt_log("vk_pipeline: prewarm skipped: the last start died building pipelines on this GPU and driver (%s)", path);
+        return 0;
+    }
+    if (!plat_file_write_atomic(path, who, strlen(who))) rt_log("vk_pipeline: cannot write %s", path);
+    return 1;
+}
+
 void vk_pipeline_prewarm(void) {
     const char *gpu = rt_config()->gpu;
     if (!A.on || (gpu && !strcmp(gpu, "null"))) return;
@@ -648,12 +670,15 @@ void vk_pipeline_prewarm(void) {
         rt_log("vk_pipeline: prewarm: no pipeline keys (%s)", K.path[0] ? K.path : "<none>");
         return;
     }
+    char mark[sizeof K.path + 16];
+    if (!prewarm_mark(mark, sizeof mark)) return;
     const KeyRec *r = (const KeyRec *)K.file;
     size_t n = K.file_n, m = 0;
     uint8_t (*ids)[32] = malloc(2 * n * 32);
     const GfxShader **sh = calloc(2 * n, sizeof *sh);
     if (!ids || !sh) {
         free(ids), free(sh);
+        plat_file_delete(mark);
         return;
     }
     for (size_t i = 0; i < n; i++) {
@@ -753,6 +778,7 @@ void vk_pipeline_prewarm(void) {
     free(K.file);
     K.file = NULL;
     plat_mutex_unlock(&P.lock);
+    plat_file_delete(mark);   // the boot got through: a stall above left the rest to the background, not a crash
 }
 
 // ensure_init's hook: without a prewarm (MKW_PIPE_PREBUILD=0, or the device came up first elsewhere) the records

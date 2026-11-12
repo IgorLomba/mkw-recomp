@@ -249,12 +249,16 @@ static VkPresentModeKHR pick_present_mode(VkPhysicalDevice pd) {
     vkGetPhysicalDeviceSurfacePresentModesKHR(pd, g_surface, &n, m);
     VkPresentModeKHR got = VK_PRESENT_MODE_FIFO_KHR;
     for (uint32_t i = 0; i < n; i++) if (m[i] == want) got = want;
+    // Mailbox missing (several AMD drivers): relaxed FIFO, where a frame that misses its vblank is shown at once (a
+    // tear) instead of waiting for the next one, which halves a 60 fps game near its budget (NX2navi's idea).
+    for (uint32_t i = 0; got != want && want == VK_PRESENT_MODE_MAILBOX_KHR && i < n; i++)
+        if (m[i] == VK_PRESENT_MODE_FIFO_RELAXED_KHR) got = m[i];
     const char *name = got == VK_PRESENT_MODE_MAILBOX_KHR ? "mailbox" : got == VK_PRESENT_MODE_IMMEDIATE_KHR ? "immediate" : "fifo";
     __atomic_store_n(&g_present_got, name, __ATOMIC_RELEASE);
     static int logged = -1;   // the mode last logged: a change from the menu shows in the log
     if ((int)got != logged) {
         logged = (int)got;
-        rt_log("gfx: present mode %s (MKW_VK_PRESENT=%s)", name, e);
+        rt_log("gfx: present mode %s%s (MKW_VK_PRESENT=%s)", name, got == VK_PRESENT_MODE_FIFO_RELAXED_KHR ? " relaxed" : "", e);
     }
     return got;
 }
@@ -603,7 +607,15 @@ static void present_image(VkImage src, VkImageLayout layout, VkFormat fmt, int w
         if (!create_swapchain()) goto out;
         r = vkAcquireNextImageKHR(c->device, g_sc, 1000000000ull, g_acquire[slot], VK_NULL_HANDLE, &idx);
     }
-    if (r != VK_SUCCESS && r != VK_SUBOPTIMAL_KHR) goto out;     // lost, not ready: skip the frame
+    static int acquire_fails;   // in a row: a timeout or a failure that keeps coming means the swapchain went bad
+    if (r != VK_SUCCESS && r != VK_SUBOPTIMAL_KHR) {             // lost, not ready: skip the frame
+        if (++acquire_fails == 3) {
+            rt_log("gfx: three acquires failed in a row (%d): making the swapchain again", (int)r);
+            plat_xchg32(&g_dirty, 1);
+        }
+        goto out;
+    }
+    acquire_fails = 0;
     if (r == VK_SUBOPTIMAL_KHR) plat_xchg32(&g_dirty, 1);
     vkResetFences(c->device, 1, &g_fence[slot]);
     if (g_th_pending[slot]) {   // that fence has signalled: the thumbnail its submission wrote is complete
@@ -739,7 +751,17 @@ static void present_image(VkImage src, VkImageLayout layout, VkFormat fmt, int w
         g_flip_q[g_flip_n++] = idx;   // (at most g_ahead: flushed above)
         if (!defer) flip_locked();
     } else {
+        // The fence was reset and the acquire semaphore is signaled: without a batch that waits on the one and
+        // signals the other, this slot's next fence wait times out every time and the picture stays frozen
+        // (NX2navi's idea). The image acquired goes unpresented, so the swapchain is made again.
         rt_log("gfx: present submit failed (%d)", (int)r);
+        VkSubmitInfo2 empty = {.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO_2, .waitSemaphoreInfoCount = 1,
+                               .pWaitSemaphoreInfos = &wait};
+        vk_queue_lock();
+        VkResult re = vkQueueSubmit2(c->gfx_queue, 1, &empty, g_fence[slot]);
+        vk_queue_unlock();
+        if (re != VK_SUCCESS) rt_log("gfx: the empty batch after it failed too (%d)", (int)re);
+        plat_xchg32(&g_dirty, 1);
     }
     g_frame++;
     if (cap) {
