@@ -87,8 +87,15 @@ static int layer_present(const char *name) {
 }
 
 static int create_instance(void) {
-    const char *ext[8];
+    const char *ext[9];
     uint32_t n_ext = (uint32_t)gfx_window_vk_extensions(ext, 7);
+    uint32_t ni = 0;   // HDR10 swapchains (gfx_hdr.c) need the colour spaces of VK_EXT_swapchain_colorspace
+    vkEnumerateInstanceExtensionProperties(NULL, &ni, NULL);
+    VkExtensionProperties *ie = calloc(ni ? ni : 1, sizeof *ie);
+    vkEnumerateInstanceExtensionProperties(NULL, &ni, ie);
+    if (has_ext(ie, ni, VK_EXT_SWAPCHAIN_COLOR_SPACE_EXTENSION_NAME))
+        g_vk.has_colorspace = 1, ext[n_ext++] = VK_EXT_SWAPCHAIN_COLOR_SPACE_EXTENSION_NAME;
+    free(ie);
     const char *layers[] = {"VK_LAYER_KHRONOS_validation"};
     int validate = cfg_bool("MKW_VK_VALIDATION");
     if (validate && !layer_present(layers[0])) {
@@ -300,6 +307,10 @@ static int create_device(void) {
         CHAIN(placed, VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAP_MEMORY_PLACED_FEATURES_EXT);
     }
     if (has_ext(ep, ne, VK_EXT_MEMORY_BUDGET_EXTENSION_NAME)) { g_vk.has_memory_budget = 1; ext[n_ext++] = VK_EXT_MEMORY_BUDGET_EXTENSION_NAME; }
+    if (g_vk.has_colorspace && has_ext(ep, ne, VK_EXT_HDR_METADATA_EXTENSION_NAME)) {
+        g_vk.has_hdr_metadata = 1;
+        ext[n_ext++] = VK_EXT_HDR_METADATA_EXTENSION_NAME;
+    }
     if (has_ext(ep, ne, VK_AMD_BUFFER_MARKER_EXTENSION_NAME)) { g_vk.has_buffer_marker = 1; ext[n_ext++] = VK_AMD_BUFFER_MARKER_EXTENSION_NAME; }
     // The breadcrumbs' fallback where the buffer marker is missing (NVIDIA's drivers have both: GTX 1050 Ti on Windows,
     // RTX 5070 Ti 620.70 on Linux, 09/11/2026); only with the breadcrumbs on: enabling it may cost even unused.

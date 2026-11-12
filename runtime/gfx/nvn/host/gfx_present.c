@@ -308,9 +308,9 @@ static int create_swapchain(void) {
     if (nf > 64) nf = 64;
     vkGetPhysicalDeviceSurfaceFormatsKHR(c->phys, g_surface, &nf, fmts);
     if (!nf) return 0;
-    // UNORM: the blit writes the bytes the game wrote (no sRGB encode).
+    // UNORM: the blit writes the bytes the game wrote (no sRGB encode); in HDR10 the game's own PQ picture.
     VkSurfaceFormatKHR sf = fmts[0];
-    int found = 0;
+    int found = gfx_hdr_pick(fmts, nf, &sf);
     for (uint32_t i = 0; i < nf && !found; i++)
         if (fmts[i].format == VK_FORMAT_B8G8R8A8_UNORM && fmts[i].colorSpace == VK_COLOR_SPACE_SRGB_NONLINEAR_KHR) { sf = fmts[i]; found = 1; }
     for (uint32_t i = 0; i < nf && !found; i++)
@@ -352,6 +352,7 @@ static int create_swapchain(void) {
         g_sc_view[i] = VK_NULL_HANDLE;
     }
     if (old) vkDestroySwapchainKHR(c->device, old, NULL);
+    gfx_hdr_metadata(g_sc);
     g_sc_fmt = sf.format;
     g_sc_ext = ext;
     g_sc_n = MAX_IMAGES;
@@ -560,6 +561,7 @@ static void present_image(VkImage src, VkImageLayout layout, VkFormat fmt, int w
     VkCtx *c = vk_ctx();
     plat_rmutex_lock(&g_pl);
     if (defer != 2 || g_flip_n >= g_ahead) flip_locked();   // (no more acquired images than the swapchain spares)
+    if (gfx_hdr_cfg_changed()) plat_xchg32(&g_dirty, 1);   // MKW_HDR switched in the menu: HDR10 or SDR from now on
     if (!g_sc || plat_cas32(&g_dirty, 0, 0)) {
         if (!wsys_minimized() && !create_swapchain() && !g_sc) goto out;
     }

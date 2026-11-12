@@ -3,7 +3,7 @@
 // of MacNativeGames' NVN entry (third_party/d2r_gfx/gfx/nvn/hle_nvn.c:115-118); no code of it is copied.
 // Graphics bring-up:
 //   nv::*        record the game's allocator callbacks and graphics work memory (guest addresses) for the NVN layer
-//   nn::vi::*    display, layer and native window identities; the vsync event is bound here
+//   nn::vi::*    display, layer and native window identities; the vsync event is bound here; HDR status (gfx_hdr.c)
 //   nvnBootstrapLoader   the end of --boot (rt_boot_event "nvn"); otherwise the synthetic address of an NVN proc (nvn_procs.c)
 #include <stdint.h>
 
@@ -114,6 +114,41 @@ static void ov_vsync_event(Cpu *c) {
     ret_x(c, 0);
 }
 
+// Result nn::vi::QueryDisplayHdrStatus(bool *on, HdrOutputFormat *format, u16 *peak_nits, const Display *display):
+// HDR10 (format 1) when the window shows it (gfx_hdr.c). MKW asks every frame from main+0x3a9e28, behind its own gate
+// (display object + 0x1cd); unreplaced, the SDK's call read a Display of zeros.
+static void ov_hdr_status(Cpu *c) {
+    uint8_t *on = arg_p(c, 0);
+    uint32_t *format = arg_p(c, 1);
+    uint16_t *peak = arg_p(c, 2), p, w;
+    int hdr = gfx_hdr_output(&p, &w);
+    static int logged = -1;
+    if (logged != hdr) logged = hdr, rt_log("vi: QueryDisplayHdrStatus -> %s (peak %u nits)", hdr ? "HDR10" : "SDR", p);
+    if (on) *on = (uint8_t)hdr;
+    if (format) *format = hdr ? 1u : 0u;
+    if (peak) *peak = p;
+    ret_x(c, 0);
+}
+
+// Result nn::vi::QueryDisplayHdrPaperWhite(u16 *nits, const Display *display)
+static void ov_hdr_paper_white(Cpu *c) {
+    uint16_t *nits = arg_p(c, 0), p, w;
+    gfx_hdr_output(&p, &w);
+    if (nits) *nits = w;
+    ret_x(c, 0);
+}
+
+// Result nn::vi::SetLayerNextHdr{Standard,Extended}ContentLuminanceRangeMetadata(Layer *, u16 min, u16 max): the
+// game's own range for its next frame; logged when it changes
+static void ov_hdr_range(Cpu *c, const char *which) {
+    static uint32_t last[2];
+    uint32_t v = (uint32_t)(arg_x(c, 1) & 0xffff) << 16 | (uint32_t)(arg_x(c, 2) & 0xffff), *l = &last[*which == 'e'];
+    if (*l != v) *l = v, rt_log("vi: %s content luminance %u-%u nits", which, v >> 16, v & 0xffff);
+    ret_x(c, 0);
+}
+static void ov_hdr_standard(Cpu *c) { ov_hdr_range(c, "standard"); }
+static void ov_hdr_extended(Cpu *c) { ov_hdr_range(c, "extended"); }
+
 // void *nvnBootstrapLoader(const char *name): the first NVN call
 static void ov_nvn_bootstrap(Cpu *c) {
     const char *name = arg_p(c, 0);
@@ -138,3 +173,7 @@ HOST_OVERRIDE("_ZN2nn2vi11CreateLayerEPPNS0_5LayerEPNS0_7DisplayE", ov_create_la
 HOST_OVERRIDE("_ZN2nn2vi15GetNativeWindowEPPvPNS0_5LayerE", ov_native_window);
 HOST_OVERRIDE("_ZN2nn2vi20GetDisplayVsyncEventEPNS_2os15SystemEventTypeEPNS0_7DisplayE", ov_vsync_event);
 HOST_OVERRIDE("nvnBootstrapLoader", ov_nvn_bootstrap);
+HOST_OVERRIDE("_ZN2nn2vi21QueryDisplayHdrStatusEPbPNS0_15HdrOutputFormatEPtPKNS0_7DisplayE", ov_hdr_status);
+HOST_OVERRIDE("_ZN2nn2vi25QueryDisplayHdrPaperWhiteEPtPKNS0_7DisplayE", ov_hdr_paper_white);
+HOST_OVERRIDE("_ZN2nn2vi52SetLayerNextHdrStandardContentLuminanceRangeMetadataEPNS0_5LayerEtt", ov_hdr_standard);
+HOST_OVERRIDE("_ZN2nn2vi52SetLayerNextHdrExtendedContentLuminanceRangeMetadataEPNS0_5LayerEtt", ov_hdr_extended);

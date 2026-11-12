@@ -188,6 +188,7 @@ static void handle(const SDL_Event *e) {
         density_update();
         gfx_window_mark_dirty();
         break;
+    case SDL_EVENT_WINDOW_HDR_STATE_CHANGED:   // the system turned HDR on or off: the swapchain follows (gfx_hdr.c)
     case SDL_EVENT_WINDOW_DISPLAY_CHANGED:
     case SDL_EVENT_WINDOW_DISPLAY_SCALE_CHANGED:
     case SDL_EVENT_DISPLAY_CURRENT_MODE_CHANGED:
@@ -322,6 +323,17 @@ VkSurfaceKHR wsys_surface(VkInstance inst) {
 void wsys_client_size(int *w, int *h) {
     *w = *h = 0;
     if (g_win) SDL_GetWindowSizeInPixels(g_win, w, h);
+}
+
+int wsys_hdr(float *sdr_white, float *headroom) {
+    *sdr_white = *headroom = 0;
+    if (!g_win) return -1;
+    SDL_PropertiesID p = SDL_GetWindowProperties(g_win);
+    if (!p || !SDL_HasProperty(p, SDL_PROP_WINDOW_HDR_ENABLED_BOOLEAN)) return -1;
+    if (!SDL_GetBooleanProperty(p, SDL_PROP_WINDOW_HDR_ENABLED_BOOLEAN, false)) return 0;
+    *sdr_white = SDL_GetFloatProperty(p, SDL_PROP_WINDOW_SDR_WHITE_LEVEL_FLOAT, 0.0f);
+    *headroom = SDL_GetFloatProperty(p, SDL_PROP_WINDOW_HDR_HEADROOM_FLOAT, 0.0f);
+    return 1;
 }
 
 int wsys_minimized(void) { return g_win && (SDL_GetWindowFlags(g_win) & (SDL_WINDOW_MINIMIZED | SDL_WINDOW_HIDDEN)); }

@@ -38,7 +38,7 @@ static const char *const known[] = {
     "BIND_ZL", "BIND_ZR", "BUTTON_ICONS", "CORE_DIAG", "CRIT", "CRIT_OUT", "CTL", "DESC_TEMPLATE", "DETAIL_DISTANCE", "DEVICE_PROFILE", "DUMP", "DUMP_BUF", "DUMP_DIR", "DUMP_LOG",
     "EXEFS", "FEEDBACK", "FG_BIAS", "FG_DUMP", "FG_DUMP_DIR", "FG_LAMBDA", "FG_PROBE", "FIX_C0", "FIX_ZERO", "FLIGHT", "FLIGHT_AT", "FLIGHT_DIR", "FLIGHT_FRAMES", "FLIGHT_SPIKE_MS",
     "FLIGHT_THUMBS", "FPS", "FRAMEGEN", "FREEZE_IDLE", "GLYPH_DUMP", "FREE_CORES", "FULLSCREEN", "GPL", "GPL_DRAW_BUILD", "GPU",
-    "GPU_CRUMBS", "GPU_CRUMBS_DRAW", "GPU_INDEX", "GPU_MEM_LIMIT", "GPU_NAME", "INPUT", "INPUT_RECORD", "INPUT_SCRIPT", "LANG",
+    "GPU_CRUMBS", "GPU_CRUMBS_DRAW", "HDR_FAKE", "GPU_INDEX", "GPU_MEM_LIMIT", "GPU_NAME", "INPUT", "INPUT_RECORD", "INPUT_SCRIPT", "LANG",
     "LOCALE", "MEMORY", "MESH_COMPUTE", "MENU_LANG", "MENU_TEST",
     "MENU_TEST_DIR", "MENU_TEST_SET", "MINIMAL_LAYOUT", "MIRROR_GAP", "MOTION", "MOUSE_SENS",
     "ONE_PER_CORE", "OPERATION_MODE", "PAD_LAYOUT", "PERF_OVERLAY", "PERF_SLOW_MS", "PICTURE_FIT", "PIPELINE_CACHE", "PIPE_MEMO", "PIPE_PREBUILD", "PIPE_SKIP", "PIPE_STALL", "PIPE_SYNC", "PIPE_TRACE", "PIPE_WAIT", "PIPE_WORKERS",
@@ -56,7 +56,7 @@ static const char *const known[] = {
 // The mkw.ini section a key cfg_set may write goes to when the file lacks it (mkw.ini.example's sections).
 static const struct { const char *key, *section; } sections[] = {
     {"FULLSCREEN", "display"}, {"WINDOW_SIZE", "display"}, {"PERF_OVERLAY", "display"}, {"VK_PRESENT", "display"},
-    {"GPU_INDEX", "display"}, {"UPSCALER", "display"}, {"SHARPNESS", "display"}, {"PICTURE_FIT", "display"},
+    {"GPU_INDEX", "display"}, {"UPSCALER", "display"}, {"HDR", "display"}, {"SHARPNESS", "display"}, {"PICTURE_FIT", "display"},
     {"DEVICE_PROFILE", "display"}, {"RESOLUTION", "display"}, {"ASPECT", "display"}, {"FPS", "display"}, {"FRAMEGEN", "display"},
     {"QUALITY", "graphics"}, {"ANISO", "graphics"}, {"TEX_QUALITY", "graphics"}, {"DETAIL_DISTANCE", "graphics"}, {"SHADOW_SIZE", "graphics"},
     {"MENU_LANG", "language"}, {"LANG", "language"}, {"OPERATION_MODE", "language"},
@@ -93,7 +93,7 @@ static const CfgMeta metas[] = {
     {"PERF_OVERLAY", "off", "off|fps|full", LIVE}, {"FPS", "auto", "auto|30|60", LIVE},
     {"FRAMEGEN", "off", "off|auto|2|3|4", LIVE},
     {"UPSCALER", "fsr", "fsr|bilinear", LIVE}, {"SHARPNESS", "80", "0..100", LIVE},
-    {"PICTURE_FIT", "keep", "keep|stretch", LIVE},
+    {"PICTURE_FIT", "keep", "keep|stretch", LIVE}, {"HDR", "off", "auto|off", LIVE},   // auto by default once the present composes the menu and captures in HDR10
     {"DEVICE_PROFILE", "auto", "auto|desktop|deck", RESTART},
     {"RESOLUTION", "original", "original|540|720|900|1080|1440|2160", RESTART},
     {"ASPECT", "16:9", "16:9|window|21:9|32:9", RESTART},

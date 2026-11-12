@@ -42,7 +42,9 @@ typedef struct VkCtx {
         has_mesh,                           // VK_EXT_mesh_shader with taskShader and meshShader (MKW's 25 task/mesh)
         has_astc_ldr,                       // textureCompressionASTC_LDR (enabled when reported)
         has_calibrated,                     // VK_KHR_calibrated_timestamps, with MKW_TRACE_TL=1 only
-        has_placed;                         // VK_EXT_map_memory_placed with unmap-reserve: pools as driver memory
+        has_placed,                         // VK_EXT_map_memory_placed with unmap-reserve: pools as driver memory
+        has_colorspace,                     // VK_EXT_swapchain_colorspace (instance): HDR10 swapchains (gfx_hdr.c)
+        has_hdr_metadata;                   // VK_EXT_hdr_metadata: the HDR10 swapchain's mastering metadata
                                             // mapped at their guest address (vk_memory.c placed_pool)
     // Feedback loops (maxwell.md 1.9, vk_exec_draw.c feedback_prepare): a draw samples a target of its open pass that
     // an earlier draw of the pass wrote. MKW_FEEDBACK=0: VK_FEEDBACK_OFF (sampled in GENERAL without a barrier, the
