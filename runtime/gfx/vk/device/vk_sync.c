@@ -403,9 +403,27 @@ VkCommandBuffer vk_sync_split_with(const VkCommandBuffer *extra, int nextra) {
     int ss = (rt_trace & RT_TRACE_PERF) != 0;
     uint64_t q0 = ss ? kern_now_ns() : 0, q1;
     rec_end();   // every command of the part is in cb
-    vk_ts_end(nextra ? extra[nextra - 1] : cb, cur_fence);   // the part's GPU time spans the chunks after it
+    // The extra command buffers (MKW_REPLAY_PAR's chunks) come from the pools of the threads that recorded them, and
+    // those threads ended them: this thread must not record into them or end them, because their thread may already be
+    // recording its next chunk from the same pool, and a VkCommandPool is used by one thread at a time (Vulkan's
+    // external synchronization). Doing it here made the validation layer report "THREADING ERROR: VkCommandPool is
+    // simultaneously used" in vkCmdWriteTimestamp and vkEndCommandBuffer, and amdvlk64.dll crash (c0000005) after ~3
+    // minutes of race (RX 7900 GRE, AMD 26.10.1, 11/11/2026). The part's GPU time still spans the chunks after it: its
+    // end timestamp goes into a command buffer of this thread's own pool, submitted after them.
+    VkCommandBuffer tail = VK_NULL_HANDLE;
+    if (nextra && vk_ts_pending()) {
+        int ti = claim_slot(c, cur_fence);   // first, on its own: it may move slots (cb was read before)
+        tail = slots[ti].cb;
+        VkCommandBufferBeginInfo tbi = {.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO,
+                                        .flags = VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT};
+        vkBeginCommandBuffer(tail, &tbi);
+        if (vk_guard_on()) vk_guard_cb_begin(tail);
+        vk_ts_end(tail, cur_fence);
+        vkEndCommandBuffer(tail);
+    } else {
+        vk_ts_end(cb, cur_fence);   // with chunks but untimed, this only forgets the part's (unused) pair
+    }
     vkEndCommandBuffer(cb);
-    for (int i = 0; i < nextra; i++) vkEndCommandBuffer(extra[i]);
     if (ss) q1 = kern_now_ns(), ss_ns[SS_SPLIT_END] += q1 - q0, q0 = q1;
     vk_queue_lock();
     vk_sparse_order(cur_fence, 2);   // its sparse binds first: the uploads may copy into the levels they bind
@@ -413,13 +431,15 @@ VkCommandBuffer vk_sync_split_with(const VkCommandBuffer *extra, int nextra) {
     vk_upload_flush(0);   // the uploads this part asked for precede it in queue order
     VkCommandBuffer pro = prologue(c, cur_fence);
     if (ss) q1 = kern_now_ns(), ss_ns[SS_SPLIT_PRO] += q1 - q0, q0 = q1;
-    VkCommandBufferSubmitInfo cbi[2 + VK_SPLIT_EXTRA] = {
+    VkCommandBufferSubmitInfo cbi[3 + VK_SPLIT_EXTRA] = {
         {.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_SUBMIT_INFO, .commandBuffer = pro},
         {.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_SUBMIT_INFO, .commandBuffer = cb}};
     if (nextra > VK_SPLIT_EXTRA) rt_fatal("vk: %d command buffers after a part (at most %d)", nextra, VK_SPLIT_EXTRA);
     for (int i = 0; i < nextra; i++)
         cbi[2 + i] = (VkCommandBufferSubmitInfo){.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_SUBMIT_INFO, .commandBuffer = extra[i]};
-    VkSubmitInfo2 si = {.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO_2, .commandBufferInfoCount = (pro ? 2u : 1u) + (uint32_t)nextra,
+    if (tail) cbi[2 + nextra] = (VkCommandBufferSubmitInfo){.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_SUBMIT_INFO, .commandBuffer = tail};
+    VkSubmitInfo2 si = {.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO_2,
+                        .commandBufferInfoCount = (pro ? 2u : 1u) + (uint32_t)nextra + (tail ? 1u : 0u),
                         .pCommandBufferInfos = pro ? cbi : cbi + 1};
     VkSemaphoreSubmitInfo sig[2] = {{.sType = VK_STRUCTURE_TYPE_SEMAPHORE_SUBMIT_INFO, .semaphore = part_sem,
                                      .value = part_val + 1, .stageMask = VK_PIPELINE_STAGE_2_ALL_COMMANDS_BIT}};
