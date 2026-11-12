@@ -19,6 +19,7 @@ import struct
 import flow
 from program import Insn, Sph
 
+from glsl import subroutines
 from glsl.alu import AluOps
 from glsl.common import FMUL_SCALE, MUFU, PT, RZ, TURNS, URZ, Unsupported, pred, reg
 from glsl.head import (
@@ -382,7 +383,15 @@ def translate(
     # A CALL in a program without RET never comes back: a jump (DrivePassShaderDefault 294, 256 KB, whose switch form
     # took RADV 4 GB to compile in run92). Structured like a BRA then.
     call_jumps = not any(i.op == "RET" for i in insns)
-    structurable = not any(i.op in ("RET", "BRX", "BRXU") or (i.op == "CALL" and not call_jumps) for i in insns)
+    # Subroutines called from several places: a copy in each call in the structured form (glsl/subroutines.py)
+    inline = subroutines.calls(insns) or {}
+    rets = {r for _, r in inline.values()}
+    structurable = not any(
+        i.op in ("BRX", "BRXU")
+        or (i.op == "RET" and k not in rets)
+        or (i.op == "CALL" and not call_jumps and k not in inline)
+        for k, i in enumerate(insns)
+    )
     index = {i.pc: k for k, i in enumerate(insns)}
     for i in insns:
         if i.pc in targets:
@@ -455,6 +464,11 @@ def translate(
             body.append(f"        {stmt}")
         stmts.append(stmt if i.op not in ("BRA", "CALL") or len(stmts) not in branches else "")
     structured = None
+    if structurable and inline:
+        if subroutines.returns(insns, stmts, inline):
+            stmts, branches = subroutines.splice(stmts, branches, inline)
+        else:
+            structurable = False  # a RET that may go elsewhere: only the switch follows it
     if structurable and branches:
         try:
             structured = flow.structure(stmts, branches)

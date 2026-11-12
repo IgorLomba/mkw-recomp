@@ -9,6 +9,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "sm86/translate"))
 import flow  # noqa: E402
 import flow_sim  # noqa: E402
+from glsl import subroutines  # noqa: E402
 
 
 def program(n: int, branches: dict) -> list[str]:
@@ -43,3 +44,16 @@ def test_no_tail_to_copy():
     with pytest.raises(flow.Fail):
         flow._dup_tails(stmts, branches, flow_sim.markers(stmts), flow_sim.named(branches), False)
     assert flow.structure(stmts, branches)
+
+
+def test_subroutine_copied_into_each_call():
+    # VS c4b1e702 (12/11/2026), cut down: a helper after the EXIT called twice, with jumps inside it to its last
+    # instruction and to its RET. Each call gets a copy whose jumps stay in it, and the RET falls out after the call.
+    #  0 a | 1 CALL 6 | 2 b | 3 CALL 6 | 4 c | 5 EXIT
+    #  6 d | 7 @P BRA 9 | 8 @Q BRA 10 | 9 f | 10 RET
+    stmts = ["a;", "{ pc = 96u; continue; }", "b;", "{ pc = 96u; continue; }", "c;", "return;", "d;", "", "", "f;", ""]
+    branches = {7: (9, "p"), 8: (10, "q")}
+    s2, b2 = subroutines.splice(stmts, branches, {1: (6, 10), 3: (6, 10)})
+    assert s2 == ["a;", "", "d;", "", "", "f;", "b;", "", "d;", "", "", "f;", "c;", "return;", *[""] * 5]
+    assert b2 == {3: (5, "p"), 4: (6, "q"), 9: (11, "p"), 10: (12, "q")}
+    assert not any("switch" in x for x in flow.structure(s2, b2))

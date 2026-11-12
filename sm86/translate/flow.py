@@ -30,9 +30,10 @@ def structure(stmts: list[str], branches: dict[int, tuple[int, str | None]]) -> 
             return lines
     except Fail:
         pass
-    for joins_only in (True, False):  # the tails fall-through also reaches first, then every one
+    # the tails fall-through also reaches first, then every one, then also the longer ones that fall into a join
+    for joins_only, falls in ((True, False), (False, False), (False, True)):
         try:
-            d_stmts, d_branches, d_mk, d_nb = _dup_tails(stmts, branches, mk, nb, joins_only)
+            d_stmts, d_branches, d_mk, d_nb = _dup_tails(stmts, branches, mk, nb, joins_only, falls)
             lines = _structure(d_stmts, d_branches)
             if not flow_sim.diff(mk, nb, _structure(d_mk, d_nb), 4):
                 return lines
@@ -42,10 +43,16 @@ def structure(stmts: list[str], branches: dict[int, tuple[int, str | None]]) -> 
 
 
 TAIL_MAX = 16  # instructions copied per jump at most
+FALL_MAX = 32  # the same for a tail that falls into a join (third pass)
 
 
 def _dup_tails(
-    stmts: list[str], branches: dict[int, tuple[int, str | None]], mk: list[str], nb: dict, joins_only: bool
+    stmts: list[str],
+    branches: dict[int, tuple[int, str | None]],
+    mk: list[str],
+    nb: dict,
+    joins_only: bool,
+    falls: bool = False,
 ):
     """A forward jump into a join that runs a few instructions and jumps on, `@P BRA t ... t: x; BRA j`, gets its own
     copy of [t, BRA j): `@!P skip; x; BRA j`. ptxas merges equal tails of if / else chains so, and the jump then lands
@@ -53,16 +60,23 @@ def _dup_tails(
     Windows driver after 30 s in 10 logs of #111's group, 12/11/2026). The copies keep their instruction's marker and
     each jump its condition's name, so flow_sim compares the result with the original graph. Fail when nothing applies.
     joins_only: only the tails the instruction before also falls into (a jump that lands only where other jumps do,
-    as in FS 9f0b96fd…, needs the second pass). Returns the new stmts and branches, and the same for flow_sim (mk, nb)."""
+    as in FS 9f0b96fd…, needs the second pass). falls: also a tail of up to FALL_MAX that ends by falling into a join
+    (`t: x; j:` with j another jump's target), copied with a jump to j: VS 06040b9f…, whose then-part jumps 20
+    instructions into its else-part, one of the 21 programs that took AMD's compiler 2-6 s (12/11/2026). Returns the
+    new stmts and branches, and the same for flow_sim (mk, nb)."""
+    targets = {t for t, _ in branches.values()}
+    most = FALL_MAX if falls else TAIL_MAX
     tails: dict[int, tuple[int, int, int]] = {}  # jump -> (t, u, j): copy [t, u), then jump to j
     for k, (t, c) in branches.items():
         if t <= k + 1 or t >= len(stmts) or joins_only and t - 1 in branches and branches[t - 1][1] is None:
             continue  # backward, next, past the end, or (first pass) no fall-through into t
         u = t
-        while u < len(stmts) and u not in branches and u - t <= TAIL_MAX:
+        while u < len(stmts) and u not in branches and not (falls and u > t and u in targets) and u - t <= most:
             u += 1
-        if u in branches and branches[u][1] is None and branches[u][0] > u and u > t:
+        if u in branches and branches[u][1] is None and branches[u][0] > u and u > t and u - t <= TAIL_MAX:
             tails[k] = (t, u, branches[u][0])
+        elif falls and u in targets and u > t and u - t <= most:
+            tails[k] = (t, u, u)
     if not tails:
         raise Fail
     pos: dict[int, int] = {}  # original index -> new index
