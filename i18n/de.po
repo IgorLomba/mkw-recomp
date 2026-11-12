@@ -544,6 +544,17 @@ msgctxt "UI_MENU_MODE_HANDHELD"
 msgid "Handheld"
 msgstr "Handheld"
 
+msgctxt "UI_MENU_LAN"
+msgid "LAN play"
+msgstr "LAN-Spiel"
+
+msgctxt "UI_MENU_LAN_DESC"
+msgid ""
+"The title menu's Wireless Play becomes LAN Play, to race other PCs on the same local network (UDP "
+"ports 49152 and 35000). It only reaches local network addresses, never the internet. Applies at "
+"the next start."
+msgstr "Das Drahtlose Spiel im Titelmenü wird zum LAN-Spiel, um mit anderen PCs im selben lokalen Netzwerk zu fahren (UDP-Ports 49152 und 35000). Es erreicht nur Adressen im lokalen Netzwerk, nie das Internet. Gilt ab dem nächsten Start."
+
 msgctxt "UI_MENU_VOLUME"
 msgid "Volume"
 msgstr "Lautstärke"

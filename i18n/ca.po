@@ -541,6 +541,17 @@ msgctxt "UI_MENU_MODE_HANDHELD"
 msgid "Handheld"
 msgstr "Portàtil"
 
+msgctxt "UI_MENU_LAN"
+msgid "LAN play"
+msgstr "Joc en LAN"
+
+msgctxt "UI_MENU_LAN_DESC"
+msgid ""
+"The title menu's Wireless Play becomes LAN Play, to race other PCs on the same local network (UDP "
+"ports 49152 and 35000). It only reaches local network addresses, never the internet. Applies at "
+"the next start."
+msgstr "El joc sense fil del menú de títol passa a ser el joc en LAN, per córrer amb altres PC de la mateixa xarxa local (ports UDP 49152 i 35000). Només arriba a adreces de la xarxa local, mai a internet. S'aplica a la propera arrencada."
+
 msgctxt "UI_MENU_VOLUME"
 msgid "Volume"
 msgstr "Volum"

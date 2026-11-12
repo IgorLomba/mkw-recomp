@@ -1,6 +1,6 @@
 // nn::nifm for MKW: the console's network connection manager. By default it answers as a console with no network (the
 // runtime serves no network service): a request "completes" without a connection, so the game takes its offline path.
-// MKW_LAN=1 (a diagnostic knob until LAN play works end to end): a request in local network mode, the one the game
+// MKW_LAN=1 (Settings > Game > LAN play, off by default): a request in local network mode, the one the game
 // makes for its LAN lobby (SetLocalNetworkMode(mode == 3) at main+0x2247a74, then IsNetworkAvailable), is answered as
 // connected, with the host's address (ov_lan_address); Pia then talks over the host's sockets (ov_socket.c). An
 // internet request stays unavailable: there is no server to reach.

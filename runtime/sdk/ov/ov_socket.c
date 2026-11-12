@@ -111,10 +111,7 @@ static _Thread_local int last_errno;   // per host thread: each guest thread is 
 static void fail(int e) { last_errno = e; }
 
 #define B_ENETDOWN 50   // what main's stub answered: the console's BSD errno for a network that is down
-int ov_lan(void) {
-    const char *v = cfg_get("MKW_LAN");
-    return v && *v && strcmp(v, "0");
-}
+int ov_lan(void) { return cfg_bool("MKW_LAN"); }
 // MKW_LAN off: the call fails as main's stub did
 #define LAN_OR_DOWN(c)                                                                                                \
     do {                                                                                                               \

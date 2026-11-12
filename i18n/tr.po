@@ -538,6 +538,17 @@ msgctxt "UI_MENU_MODE_HANDHELD"
 msgid "Handheld"
 msgstr "Taşınabilir"
 
+msgctxt "UI_MENU_LAN"
+msgid "LAN play"
+msgstr "LAN oyunu"
+
+msgctxt "UI_MENU_LAN_DESC"
+msgid ""
+"The title menu's Wireless Play becomes LAN Play, to race other PCs on the same local network (UDP "
+"ports 49152 and 35000). It only reaches local network addresses, never the internet. Applies at "
+"the next start."
+msgstr "Başlık menüsündeki Kablosuz Oyun, aynı yerel ağdaki diğer PC'lerle yarışmak için LAN oyununa dönüşür (UDP bağlantı noktaları 49152 ve 35000). Yalnızca yerel ağ adreslerine ulaşır, asla internete değil. Bir sonraki başlatmada uygulanır."
+
 msgctxt "UI_MENU_VOLUME"
 msgid "Volume"
 msgstr "Ses düzeyi"

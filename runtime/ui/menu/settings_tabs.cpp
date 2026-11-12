@@ -248,6 +248,7 @@ static void tab_graphics(float scale) {
 static void tab_game(float scale) {
     opt_begin("##game", scale);
     row_game_lang();
+    opt_toggle("MKW_LAN", UI_MENU_LAN, UI_MENU_LAN_DESC);   // sdk/ov/ov_socket.c, the lan set of recomp/patches-mkw.txt
     opt_end();
 }
 

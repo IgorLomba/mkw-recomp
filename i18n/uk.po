@@ -539,6 +539,17 @@ msgctxt "UI_MENU_MODE_HANDHELD"
 msgid "Handheld"
 msgstr "Портативний"
 
+msgctxt "UI_MENU_LAN"
+msgid "LAN play"
+msgstr "Гра по LAN"
+
+msgctxt "UI_MENU_LAN_DESC"
+msgid ""
+"The title menu's Wireless Play becomes LAN Play, to race other PCs on the same local network (UDP "
+"ports 49152 and 35000). It only reaches local network addresses, never the internet. Applies at "
+"the next start."
+msgstr "Бездротова гра в титульному меню стає грою по LAN, щоб змагатися з іншими ПК у тій самій локальній мережі (UDP-порти 49152 і 35000). Звертається лише до адрес локальної мережі, ніколи до інтернету. Застосовується під час наступного запуску."
+
 msgctxt "UI_MENU_VOLUME"
 msgid "Volume"
 msgstr "Гучність"

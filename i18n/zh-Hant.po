@@ -495,6 +495,17 @@ msgctxt "UI_MENU_MODE_HANDHELD"
 msgid "Handheld"
 msgstr "掌機模式"
 
+msgctxt "UI_MENU_LAN"
+msgid "LAN play"
+msgstr "區域網路遊戲"
+
+msgctxt "UI_MENU_LAN_DESC"
+msgid ""
+"The title menu's Wireless Play becomes LAN Play, to race other PCs on the same local network (UDP "
+"ports 49152 and 35000). It only reaches local network addresses, never the internet. Applies at "
+"the next start."
+msgstr "標題選單的本地無線遊戲變為區域網路遊戲，可與同一區域網路中的其他電腦比賽（UDP 連接埠 49152 和 35000）。只連線區域網路位址，絕不連線網際網路。下次啟動時生效。"
+
 msgctxt "UI_MENU_VOLUME"
 msgid "Volume"
 msgstr "音量"
