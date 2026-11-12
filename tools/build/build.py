@@ -230,8 +230,10 @@ def ninja_file(target: Target, gen: Path, out: Path, rt_extra: list[str], dist: 
             "  depfile = $out.d\n  deps = gcc\n  description = cc $in"
         ),
         f"rule ar\n  command = rm -f $out && {target.ar} rcs $out $in\n  description = ar $out",
-        (f"rule solink\n  command = {target.cc} {' '.join(sys_flags or [])} -shared -fuse-ld=lld -o $out $in $solibs"
-         "\n  description = link $out"),
+        (
+            f"rule solink\n  command = {' '.join([target.cc, *(sys_flags or [])])} -shared -fuse-ld=lld -o $out $in $solibs"
+            "\n  description = link $out"
+        ),
         (
             f"rule link\n  command = {target.cxx} $ldflags -o $out $in {' '.join(target.link_libs)}"
             "\n  description = link $out"
@@ -324,7 +326,7 @@ def main() -> None:
     # zstd and xxhash.h of the sysroot sit in its usr/local (tools/build/sysroot.py), whose include clang already reads
     sys_flags = [f"--target={ARCH}-linux-gnu", f"--sysroot={args.sysroot.resolve()}"] if args.sysroot else []
     sys_ld = [*sys_flags, f"-L{args.sysroot.resolve()}/usr/local/lib"] if args.sysroot else []
-    cross = ARCH != HOST_ARCH and target is LINUX   # another CPU's build: its own dist and object folders
+    cross = ARCH != HOST_ARCH and target is LINUX  # another CPU's build: its own dist and object folders
     dist = ROOT / "build/dist" / (args.target + (f"-{ARCH}" if cross else "")) if args.dist else None
     args.out = args.out or ROOT / ("build/obj" + ("-dist" if dist else "") + ("-win" if target is WINDOWS else "")
                                    + (f"-{ARCH}" if cross else ""))  # fmt: skip
@@ -348,7 +350,10 @@ def main() -> None:
         (dist / "mkwgame.id").write_text(game_id())
     fp = ["-fno-omit-frame-pointer", "-mno-omit-leaf-frame-pointer"] if args.frame_pointers else []
     (args.out / "build.ninja").write_text(
-        ninja_file(target, args.gen, args.out, fp + sys_flags, dist, args.runtime_only, sys_ld, sys_flags)
+        # the lifted code and its library take the sysroot only for another CPU: an x86-64 release's stay as they were
+        ninja_file(
+            target, args.gen, args.out, fp + sys_flags, dist, args.runtime_only, sys_ld, sys_flags if cross else None
+        )
     )
     if target is LINUX and not dist:
         write_compile_db(args.out / "build.ninja")
