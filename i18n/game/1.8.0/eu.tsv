@@ -1,0 +1,83 @@
+# Texts 1.8.0 reworded or retagged: used over ../eu.tsv for a 1.8.0 copy or later (tools/i18n/game_texts.py)
+LayoutMsg/MenuTimeAttack_00/MenuTimeAttack_00:L_MenuBtn_02/T_Text_00	Errepikapenak ikusi
+LayoutMsg/TitleLogo_00/T_Press_00	Sakatu {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0F 012D 0000}
+MsgMain/Course(adjust)/Adjust_Name_Race_AirshipFortress_A_00	{0E 0000 0002 0002 005F}Aireko Gotorlekua
+MsgMain/Course(adjust)/Adjust_Name_Race_BigTree_A_00	{0E 0000 0002 0002 005F}Zuhaitz Herrixka
+MsgMain/Course(adjust)/Adjust_Name_Race_Cave_A_00	{0E 0000 0002 0002 005F}Lehoi-hortz Haitzuloa
+MsgMain/Course(adjust)/Adjust_Name_Race_Central_A_00	{0E 0000 0002 0002 005F}Peach Estadioa
+MsgMain/Course(adjust)/Adjust_Name_Race_ChocoMountain_A_00	{0E 0000 0002 0002 005F}Txokolate Mendia
+MsgMain/Course(adjust)/Adjust_Name_Race_Cinema_A_00	{0E 0000 0002 0002 005F}Boo Zinema
+MsgMain/Course(adjust)/Adjust_Name_Race_Coaster_A_00	{0E 0000 0002 0002 005F}Trenbide Kanoia
+MsgMain/Course(adjust)/Adjust_Name_Race_DesertHills_A_00	{0E 0000 0002 0002 005F}Eguzki-Eguzki Basamortua
+MsgMain/Course(adjust)/Adjust_Name_Race_DinoBones_A_00	{0E 0000 0002 0002 005F}Hezur Haitzuloa
+MsgMain/Course(adjust)/Adjust_Name_Race_DinoDinoJungle_A_00	{0E 0000 0002 0002 005F}Dino Dino Oihana
+MsgMain/Course(adjust)/Adjust_Name_Race_DKJungleParkway_A_00	{0E 0000 0002 0002 005F}Sabana Zipriztina
+MsgMain/Course(adjust)/Adjust_Name_Race_DKPass_A_00	{0E 0000 0002 0002 005F}DK Alpetarra
+MsgMain/Course(adjust)/Adjust_Name_Race_DonkeyKong_A_00	{0E 0000 0002 0002 005F}DK Espazio-portua
+MsgMain/Course(adjust)/Adjust_Name_Race_FirstCircuit_A_00	{0E 0000 0002 0002 005F}Mario Bros. Zirkuitua
+MsgMain/Course(adjust)/Adjust_Name_Race_IceBuildings_A_00	{0E 0000 0002 0002 005F}Zeru Izoztuak
+MsgMain/Course(adjust)/Adjust_Name_Race_KoopaTroopaBeach_A_00	{0E 0000 0002 0002 005F}Koopa Hondartza
+MsgMain/Course(adjust)/Adjust_Name_Race_LagoonCity_A_00	{0E 0000 0002 0002 005F}Gatz Hiria
+MsgMain/Course(adjust)/Adjust_Name_Race_Lava_A_00	{0E 0000 0002 0002 005F}Bowser-en Gaztelua
+MsgMain/Course(adjust)/Adjust_Name_Race_MooMooFarm_A_00	{0E 0000 0002 0002 005F}Mu-Mu Larrea
+MsgMain/Course(adjust)/Adjust_Name_Race_RaftingRiver_A_00	{0E 0000 0002 0002 005F}Cheep Cheep Ur-jauziak
+MsgMain/Course(adjust)/Adjust_Name_Race_Rainbow_A_00	{0E 0000 0002 0002 005F}Ostadar Bidea
+MsgMain/Course(adjust)/Adjust_Name_Race_SFCMarioCircuit_G_00	{0E 0000 0002 0002 005F}Mario Zirkuitua
+MsgMain/Course(adjust)/Adjust_Name_Race_ShyGuyBazaar_A_00	{0E 0000 0002 0002 005F}Shy Guy Bazarra
+MsgMain/Course(adjust)/Adjust_Name_Race_SnowMountain_A_00	{0E 0000 0002 0002 005F}Izar Begiratokia
+MsgMain/Course(adjust)/Adjust_Name_Race_StormClouds_A_00	{0E 0000 0002 0002 005F}? Bloke Tenplua
+MsgMain/Course(adjust)/Adjust_Name_Race_ToadFactory_A_00	{0E 0000 0002 0002 005F}Toad Fabrika
+MsgMain/Course(adjust)/Adjust_Name_Race_WarioShipyard_A_00	{0E 0000 0002 0002 005F}Wario-ren Galeoia
+MsgMain/Course(adjust)/Adjust_Name_Race_WarioStadium_A_00	{0E 0000 0002 0002 005F}Wario Estadioa
+MsgMain/Course(adjust)/Adjust_Name_Race_WestCity_D_00	{0E 0000 0002 0002 005F}Koroa Hiria
+MsgMain/Course(adjust)/Adjust_Name_Race_PeachBeach_D_00	{0E 0000 0002 0002 005F}Peach Hondartza
+MsgMain/CourseArea(adjust)/Name_AirshipFortress_00	{0E 0000 0002 0002 005F}Aireko Gotorlekua
+MsgMain/CourseArea(adjust)/Name_BigTree_00	{0E 0000 0002 0002 005F}Zuhaitz Herrixka
+MsgMain/CourseArea(adjust)/Name_Cave_00	{0E 0000 0002 0002 005F}Lehoi-hortz Haitzuloa
+MsgMain/CourseArea(adjust)/Name_Central_00	{0E 0000 0002 0002 005F}Peach Estadioa
+MsgMain/CourseArea(adjust)/Name_ChocoMountain_00	{0E 0000 0002 0002 005F}Txokolate Mendia
+MsgMain/CourseArea(adjust)/Name_Cinema_00	{0E 0000 0002 0002 005F}Boo Zinema
+MsgMain/CourseArea(adjust)/Name_Coaster	{0E 0000 0002 0002 005F}Trenbide Kanoia
+MsgMain/CourseArea(adjust)/Name_DesertHills_00	{0E 0000 0002 0002 005F}Eguzki-Eguzki Basamortua
+MsgMain/CourseArea(adjust)/Name_DinoBones_00	{0E 0000 0002 0002 005F}Hezur Haitzuloa
+MsgMain/CourseArea(adjust)/Name_DinoDinoJungle_00	{0E 0000 0002 0002 005F}Dino Dino Oihana
+MsgMain/CourseArea(adjust)/Name_DKJungleParkway_00	{0E 0000 0002 0002 005F}Sabana Zipriztina
+MsgMain/CourseArea(adjust)/Name_DKPass_00	{0E 0000 0002 0002 005F}DK Alpetarra
+MsgMain/CourseArea(adjust)/Name_DonkeyKong	{0E 0000 0002 0002 005F}DK Espazio-portua
+MsgMain/CourseArea(adjust)/Name_FirstCircuit	{0E 0000 0002 0002 005F}Mario Bros. Zirkuitua
+MsgMain/CourseArea(adjust)/Name_IceBuildings_00	{0E 0000 0002 0002 005F}Zeru Izoztuak
+MsgMain/CourseArea(adjust)/Name_KoopaTroopaBeach_00	{0E 0000 0002 0002 005F}Koopa Hondartza
+MsgMain/CourseArea(adjust)/Name_LagoonCity_00	{0E 0000 0002 0002 005F}Gatz Hiria
+MsgMain/CourseArea(adjust)/Name_Lava_00	{0E 0000 0002 0002 005F}Bowser-en Gaztelua
+MsgMain/CourseArea(adjust)/Name_MooMooFarm_00	{0E 0000 0002 0002 005F}Mu-Mu Larrea
+MsgMain/CourseArea(adjust)/Name_PeachBeach_00	{0E 0000 0002 0002 005F}Peach Hondartza
+MsgMain/CourseArea(adjust)/Name_RaftingRiver_00	{0E 0000 0002 0002 005F}Cheep Cheep Ur-jauziak
+MsgMain/CourseArea(adjust)/Name_Rainbow_00	{0E 0000 0002 0002 005F}Ostadar Bidea
+MsgMain/CourseArea(adjust)/Name_SFCMarioCircuit_00	{0E 0000 0002 0002 005F}Mario Zirkuitua
+MsgMain/CourseArea(adjust)/Name_ShyGuyBazaar_00	{0E 0000 0002 0002 005F}Shy Guy Bazarra
+MsgMain/CourseArea(adjust)/Name_SnowMountain_00	{0E 0000 0002 0002 005F}Izar Begiratokia
+MsgMain/CourseArea(adjust)/Name_StormClouds_00	{0E 0000 0002 0002 005F}? Bloke Tenplua
+MsgMain/CourseArea(adjust)/Name_ToadFactory_00	{0E 0000 0002 0002 005F}Toad Fabrika
+MsgMain/CourseArea(adjust)/Name_WarioShipyard_00	{0E 0000 0002 0002 005F}Wario-ren Galeoia
+MsgMain/CourseArea(adjust)/Name_WarioStadium	{0E 0000 0002 0002 005F}Wario Estadioa
+MsgMain/CourseArea(adjust)/Name_WestCity	{0E 0000 0002 0002 005F}Koroa Hiria
+MsgMain/GrandprixCupName/Name_GP09	{0E 0000 0002 0002 005F}Turbo Rallya
+MsgMain/GrandprixCupName/Name_GP10	{0E 0000 0002 0002 005F}Izotz Rallya
+MsgMain/GrandprixCupName/Name_GP11	{0E 0000 0002 0002 005F}Ilargi Rallya
+MsgMain/GrandprixCupName/Name_GP12	{0E 0000 0002 0002 005F}Arantza Rallya
+MsgMain/GrandprixCupName/Name_GP13	{0E 0000 0002 0002 005F}Gerezi Rallya
+MsgMain/GrandprixCupName/Name_GP14	{0E 0000 0002 0002 005F}Ezkur Rallya
+MsgMain/GrandprixCupName/Name_GP15	{0E 0000 0002 0002 005F}Hodei Rallya
+MsgMain/GrandprixCupName/Name_GP16	{0E 0000 0002 0002 005F}Bihotz Rallya
+MsgMain/Menu/2051	Sakatu {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0F 012D 0000}
+MsgMain/Menu/2120	{0E 0000 0002 0002 0046} {0E 0000 0002 0002 0064}1{0E 0000 0002 0002 0032}J
+MsgMain/Menu/2121	{0E 0000 0002 0002 0046} {0E 0000 0002 0002 0064}2{0E 0000 0002 0002 0032}J
+MsgMain/Menu/2122	{0E 0000 0002 0002 0046} {0E 0000 0002 0002 0064}3{0E 0000 0002 0002 0032}J
+MsgMain/Menu/2123	{0E 0000 0002 0002 0046} {0E 0000 0002 0002 0064}4{0E 0000 0002 0002 0032}J
+MsgMain/Menu/2263	Errepikapenak ikusi
+MsgMain/Menu/2271	Mamu-korrikalaria\ndeskargatu da!
+MsgMain/Race/9504	{0E 0000 0002 0002 004B}Sartu{0E 0000 0002 0002 0064} {0E 0000 0003 0002 0004}4{0E 0000 0003 0002 FFFF} {0E 0000 0002 0002 004B}onenen artean!
+MsgMain/Race/9508	{0E 0000 0002 0002 004B}Sartu{0E 0000 0002 0002 0064} {0E 0000 0003 0002 0004}8{0E 0000 0003 0002 FFFF} {0E 0000 0002 0002 004B}onenen artean!
+MsgMain/Race/9512	{0E 0000 0002 0002 004B}Sartu{0E 0000 0002 0002 0064} {0E 0000 0003 0002 0004}12{0E 0000 0003 0002 FFFF} {0E 0000 0002 0002 004B}onenen artean!
+MsgMain/Race/9516	{0E 0000 0002 0002 004B}Sartu{0E 0000 0002 0002 0064} {0E 0000 0003 0002 0004}16{0E 0000 0003 0002 FFFF} {0E 0000 0002 0002 004B}onenen artean!
+MsgMain/Race/9520	{0E 0000 0002 0002 004B}Sartu{0E 0000 0002 0002 0064} {0E 0000 0003 0002 0004}20{0E 0000 0003 0002 FFFF} {0E 0000 0002 0002 004B}onenen artean!

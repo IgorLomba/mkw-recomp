@@ -1274,3 +1274,272 @@ MsgMain/Sticker/10011	Caco Gazapo harrapatu duzu!
 MsgMain/Sticker/10012	Placapum misioa gaindituta!
 MsgMain/Sticker/10013	Misioa gaindituta!
 MsgMain/Sticker/10014	Kopa Berezia jokatu duzu!
+
+# New in 1.8.0 (labels 1.0.0 does not have)
+LayoutMsg/DemoMenuGameSelect_00/DemoMenuGameSelect_00:L_Btn_00/T_Btn_00	Grand Prix
+LayoutMsg/DemoMenuGameSelect_00/DemoMenuGameSelect_00:L_Btn_01/T_Btn_00	LAN partida
+LayoutMsg/DialogUseCamera_00/T_MainText_00	Kamera erabili nahi duzu?
+LayoutMsg/DialogUseCamera_00/T_SubText_00	Kamera online erabiltzeko, GameChat saio\nbatean sartu behar duzu. Bideo-irudiak eta\nmikrofonoaren soinua GameChateko beste\nparte-hartzaileei soilik bidaliko zaizkie.
+LayoutMsg/FaceSelect_00/T_Text_00	Lerrokatu markak aurpegiekin.
+LayoutMsg/FaceSelect_00/T_Text_01	Egiaztatu kamera.
+LayoutMsg/OnlineMenu_00/L_Btn_04/T_Btn_00	Ekitaldiak
+MsgMain/Help/Rule_07	Bob-omb bonbardaketa
+MsgMain/Help/Rule_107	Bob-omb bonbardaketa
+MsgMain/Help/Rule_207	Lehertu aurkariaren puxikak!
+MsgMain/Help/Rule_307	Bob-omb-ak erabilgarri dagoen objektu bakarra\nizango diren borroka. 10 arte eraman ditzakezu aldi berean.
+MsgMain/Help/Rule_407	Bob-omb-ak urrunago edo hurbilago helduko da\n{0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000} sakatuta zenbat denbora mantentzen duzunaren arabera.
+Ver110/Ver110/VideoChat_04	Egiaztatu kamera.
+Ver110/Ver110/VideoChat_06	Lerrokatu markak aurpegiekin.
+Ver110/Ver110/VideoChat_07	Handitu/Txikitu
+Ver110/Ver110/VideoChat_08	Eginda
+Ver110/Ver110/VideoChat_09	Mugitu
+Ver110/Ver110/VideoChat_10	Kamera erabili nahi duzu?
+Ver110/Ver110/VideoChat_11	Bai
+Ver110/Ver110/VideoChat_12	Ez
+Ver110/Ver110/VideoChat_13	Kamera online erabiltzeko, GameChat saio\nbatean sartu behar duzu. Bideo-irudiak eta\nmikrofonoaren soinua GameChateko beste\nparte-hartzaileei soilik bidaliko zaizkie.
+Ver110/Ver110/VideoChat_14	Sakatu C botoia\nGameChat irekitzeko.
+Ver120/Ver120/Championship_01	Ekitaldiak
+Ver120/Ver120/Championship_02	Bilatu ekitaldi bat
+Ver120/Ver120/Championship_03	Sartu ekitaldiaren IDa.
+Ver120/Ver120/Championship_04	Ekitaldi bat\naurkitu da!
+Ver120/Ver120/Championship_05	Ez da ekitaldirik\naurkitu sartutako\nIDarekin.
+Ver120/Ver120/Championship_06	Aldatu xehetasunak
+Ver120/Ver120/Championship_07	Ekitaldia hasi arte\npraktikatu nahi duzu?
+Ver120/Ver120/Championship_08	Ekitaldia amaitu da.
+Ver120/Ver120/Championship_09	Ezarritako\nlasterketa kopurua\nosatu duzu jada.
+Ver120/Ver120/Championship_10	Ekitaldia hasi da!
+Ver120/Ver120/Championship_12	64 lasterketa
+Ver120/Ver120/Championship_13	128 lasterketa
+Ver120/Ver120/Championship_14	Mugarik gabe
+Ver120/Ver120/Championship_15	Ezin izan da ekitaldian parte hartu.
+Ver120/Ver120/Championship_23	Lasterketa-muga
+Ver120/Ver120/Championship_24	Ronda-muga
+Ver120/Ver120/Championship_17	12 ronda
+Ver120/Ver120/Championship_18	16 ronda
+Ver120/Ver120/Championship_19	32 ronda
+Ver120/Ver120/Championship_20	64 ronda
+Ver120/Ver120/Championship_21	128 ronda
+Ver120/Ver120/Championship_22	Zirkuitu itxiak soilik
+Ver120/Ver120/Spectate_01	Aukeratu nori behatu.
+Ver120/Ver120/Spectate_02	Liderrari
+Ver120/Ver120/VSRace_01	Perretxikoak soilik
+Ver120/Ver120/TimeTrials_01	Mamua erronkatu
+Ver120/Ver120/TimeTrials_02	Errepikapena ikusi
+Ver130/Ver130/Join_01	Taldea beteta dago. Itxaron pixka bat...
+Ver130/Ver130/FreeRun_01	Hasi misioa
+Ver140/Bgm/BgmTitle_12	Bowser
+Ver140/Bgm/BgmTitle_61	Mamuen Harana
+Ver140/Bgm/BgmTitle_62	Bowser-en Gaztelua
+Ver140/Bgm/BgmTitle_63	Kredituak
+Ver140/Bgm/BgmTitle_64	Izenburu-pantaila (fusio-bertsioa)
+Ver140/Bgm/BgmTitle_65	Banilla Lakua
+Ver140/Bgm/BgmTitle_66	Izenburu-pantaila (jazz latinoko bertsioa)
+Ver140/Bgm/BgmTitle_67	Koopa Hondartza
+Ver140/Bgm/BgmTitle_68	Ostadar Bidea
+Ver140/Bgm/BgmTitle_69	Txokolate Uhartea (samba bertsioa)
+Ver140/Bgm/BgmTitle_70	Donut Larrea
+Ver140/Bgm/BgmTitle_71	Txokolate Uhartea (bossa nova bertsioa)
+Ver140/Bgm/BgmTitle_124	Ostadar Bidea
+Ver140/Bgm/BgmTitle_125	Seco-Seco Basamortua
+Ver140/Bgm/BgmTitle_126	Bowser-en Gaztelua
+Ver140/Bgm/BgmTitle_127	Kredituak
+Ver140/Bgm/BgmTitle_128	Sorbete Lurraldea
+Ver140/Bgm/BgmTitle_129	Perretxiko Zubia
+Ver140/Bgm/BgmTitle_130	Luigi-ren Zirkuitua
+Ver140/Bgm/BgmTitle_131	Bebe Parkea
+Ver140/Bgm/BgmTitle_132	Borroka Zirkuitua
+Ver140/Bgm/BgmTitle_133	Ostadar Bidea
+Ver140/Bgm/BgmTitle_134	Borroka Zirkuitua
+Ver140/Bgm/BgmTitle_135	Koopa Hondartza (rock bertsioa)
+Ver140/Bgm/BgmTitle_136	Emaitzen pantaila
+Ver140/Bgm/BgmTitle_137	Izenburu-pantaila
+Ver140/Bgm/BgmTitle_138	Mu-Mu Baserria
+Ver140/Bgm/BgmTitle_139	Kalimari Basamortua
+Ver140/Bgm/BgmTitle_140	Zirkuitu Elurtua (soul bertsioa)
+Ver140/Bgm/BgmTitle_141	Zirkuitu Elurtua (jazz fusioko bertsioa)
+Ver140/Bgm/BgmTitle_142	Koopa Hondartza (bertsio elektronikoa)
+Ver140/Bgm/BgmTitle_143	Toad Autobidea
+Ver140/Bgm/BgmTitle_144	Pertsonaia-aukeraketa
+Ver140/Bgm/BgmTitle_145	DK Oihaneko Pista
+Ver140/Bgm/BgmTitle_146	Ostadar Bidea
+Ver140/Bgm/BgmTitle_147	Daisy Muinoak
+Ver140/Bgm/BgmTitle_148	Kredituak
+Ver140/Bgm/BgmTitle_149	Roqui-Roque Mendia
+Ver140/Bgm/BgmTitle_150	Piraña Landare Hodiak
+Ver140/Bgm/BgmTitle_151	Estela Glaziarra
+Ver140/Bgm/BgmTitle_152	Toad Zirkuitua
+Ver140/Bgm/BgmTitle_153	DK Oihana
+Ver140/Bgm/BgmTitle_154	Zirkuitu Musikala
+Ver140/Bgm/BgmTitle_155	Arroila Goxoa (jazz bertsioa)
+Ver140/Bgm/BgmTitle_156	Izurde Badia (bertsio elektronikoa)
+Ver140/Bgm/BgmTitle_157	Jauregi Bihurria
+Ver140/Bgm/BgmTitle_158	Baso Magikoa
+Ver140/Bgm/BgmTitle_159	Toad Portua (rock bertsioa)
+Ver140/Bgm/BgmTitle_160	Izurde Badia (jazz fusioko bertsioa)
+Ver140/Bgm/BgmTitle_161	Aireportu Eguzkitsua (lounge pop bertsioa)
+Ver140/Bgm/BgmTitle_162	Roca Picuda Basamortua
+Ver140/Bgm/BgmTitle_163	Toad Portua (bertsio elektronikoa)
+Ver140/Bgm/BgmTitle_164	Aireportu Eguzkitsua (bertsio elektronikoa)
+Ver140/Bgm/BgmTitle_165	Herensuge Bidea
+Ver140/Bgm/BgmTitle_166	Bowser-en Gaztelua
+Ver140/Bgm/BgmTitle_167	Arroila Goxoa (bertsio elektronikoa)
+Ver140/Bgm/BgmTitle_168	Ur Parkea
+Ver140/Bgm/BgmTitle_169	Borroka Estadioa
+Ver140/Bgm/BgmTitle_170	Wario Gailurra
+Ver140/Bgm/BgmTitle_171	Shy Guy Ur-jauziak
+Ver140/Bgm/BgmTitle_172	Ostadar Bidea
+Ver140/Bgm/BgmTitle_173	Zeruko Bidea
+Ver140/Bgm/BgmTitle_174	Tilín-Tolón Geltokia
+Ver140/Bgm/BgmTitle_175	Diskoestadioa
+Ver140/Bgm/BgmTitle_177	Huesitos Dunak
+Ver140/Bgm/BgmTitle_178	Roca Picuda Aztarnak
+Ver140/Bgm/BgmTitle_179	Mario Zirkuitua
+Ver140/Bgm/BgmTitle_181	Polo Basea
+Ver140/Bgm/BgmTitle_182	8ko Zirkuitua
+Ver140/Bgm/BgmTitle_183	Luigi-ren Jauregia
+Ver140/Bgm/BgmTitle_184	Tictac Erlojua
+Ver140/Bgm/BgmTitle_185	Yoshi-ren Ur-jauziak
+Ver140/Bgm/BgmTitle_186	Perretxiko Muinoak
+Ver140/Bgm/BgmTitle_187	Kredituak
+Ver140/Bgm/BgmTitle_188	Ostadar Bidea
+Ver140/Bgm/BgmTitle_189	Waluigi Pinball (rock bertsioa)
+Ver140/Bgm/BgmTitle_191	Borroka Zirkuitua
+Ver140/Bgm/BgmTitle_192	Cheep Cheep Hondartza
+Ver140/Bgm/BgmTitle_193	Waluigi Pinball (funk bertsioa)
+Ver140/Bgm/BgmTitle_194	Peach-en Lorategia
+Ver140/Bgm/BgmTitle_195	Daisy-ren Zirkuitua (bertsio akustikoa)
+Ver140/Bgm/BgmTitle_196	Daisy-ren Zirkuitua (bertsio elektronikoa)
+Ver140/Bgm/BgmTitle_197	A Kredituak
+Ver140/Bgm/BgmTitle_198	Ilargi Argiaren Zirkuitua
+Ver140/Bgm/BgmTitle_199	Astigar Bidea
+Ver140/Bgm/BgmTitle_200	Perretxiko Arroila
+Ver140/Bgm/BgmTitle_201	Kokotz Zentroa
+Ver140/Bgm/BgmTitle_202	Delfino Kaia
+Ver140/Bgm/BgmTitle_203	Chomp Kateen Erruleta
+Ver140/Bgm/BgmTitle_204	DK Gailurra
+Ver140/Bgm/BgmTitle_205	Orro Sumendia
+Ver140/Bgm/BgmTitle_206	Seco-Seco Aztarnak
+Ver140/Bgm/BgmTitle_207	Ostadar Bidea
+Ver140/Bgm/BgmTitle_208	Luigi-ren Zirkuitua
+Ver140/Bgm/BgmTitle_209	Wario-ren Meategia
+Ver140/Bgm/BgmTitle_210	Gazta Lurraldea
+Ver140/Bgm/BgmTitle_211	Shy Guy Hondartza
+Ver140/Bgm/BgmTitle_212	Peach Pista
+Ver140/Bgm/BgmTitle_213	Ostadar Bidea
+Ver140/Bgm/BgmTitle_214	Bowser-en Gaztelua
+Ver140/Bgm/BgmTitle_215	Lazoaren Bidea
+Ver140/Bgm/BgmTitle_216	Ertzeko Parkea
+Ver140/Bgm/BgmTitle_217	Yoshi-ren Basamortua
+Ver140/Bgm/BgmTitle_218	Bangkok-eko ilunabarra
+Ver140/Bgm/BgmTitle_219	Opari Herrixka
+Ver140/Bgm/BgmTitle_220	Los Angeles-en abiadura betean
+Ver140/Bgm/BgmTitle_221	Ninja Jauregia
+Ver140/Bgm/BgmTitle_222	Vancouver-eko itzulia
+Ver140/Bgm/BgmTitle_223	Tokio Zirkuitua
+Ver140/Bgm/BgmTitle_224	Komun Azeleratua
+Ver140/Bgm/BgmTitle_225	Singapur-eko azeleratzea
+Ver140/Bgm/BgmTitle_226	Piraña Landare Txirrista
+Ver140/Bgm/BgmTitle_227	Izenburu-pantaila
+Ver140/Bgm/BgmTitle_235	Borroka Zirkuitua 
+Ver140/Bgm/BgmTitle_236	Aireko Gotorlekua
+Ver140/Bgm/BgmTitle_237	Zuhaitz Herrixka
+Ver140/Bgm/BgmTitle_238	Lehoi-hortz Haitzuloa
+Ver140/Bgm/BgmTitle_239	Peach Estadioa
+Ver140/Bgm/BgmTitle_240	Txokolate Mendia
+Ver140/Bgm/BgmTitle_241	Boo Zinema
+Ver140/Bgm/BgmTitle_242	Trenbide Kanoia
+Ver140/Bgm/BgmTitle_243	Eguzki-Eguzki Basamortua
+Ver140/Bgm/BgmTitle_244	Hezur Haitzuloa
+Ver140/Bgm/BgmTitle_245	Dino Dino Oihana
+Ver140/Bgm/BgmTitle_246	Sabana Zipriztina
+Ver140/Bgm/BgmTitle_247	DK Alpetarra
+Ver140/Bgm/BgmTitle_248	DK Espazio-portua
+Ver140/Bgm/BgmTitle_249	Mario Bros. Zirkuitua
+Ver140/Bgm/BgmTitle_250	Zeru Izoztuak
+Ver140/Bgm/BgmTitle_251	Koopa Hondartza
+Ver140/Bgm/BgmTitle_252	Gatz Hiria
+Ver140/Bgm/BgmTitle_253	Bowser-en Gaztelua
+Ver140/Bgm/BgmTitle_254	Mu-Mu Larrea
+Ver140/Bgm/BgmTitle_255	Peach Hondartza
+Ver140/Bgm/BgmTitle_256	Cheep Cheep Ur-jauziak
+Ver140/Bgm/BgmTitle_257	Ostadar Bidea
+Ver140/Bgm/BgmTitle_258	Mario Zirkuitua
+Ver140/Bgm/BgmTitle_259	Shy Guy Bazarra
+Ver140/Bgm/BgmTitle_260	Izar Begiratokia
+Ver140/Bgm/BgmTitle_261	? Bloke Tenplua
+Ver140/Bgm/BgmTitle_262	Toad Fabrika
+Ver140/Bgm/BgmTitle_263	Wario-ren Galeoia
+Ver140/Bgm/BgmTitle_264	Wario Estadioa
+Ver140/Bgm/BgmTitle_265	Koroa Hiria
+Ver140/Bgm/BgmTitle_267	Ikusle modua
+Ver140/Bgm/BgmTitle_268	Errepikapena
+Ver140/Bgm/BgmTitle_269	Ostadar Bidera
+Ver140/Bgm/BgmTitle_270	Txokolate Uhartea
+Ver140/Bgm/BgmTitle_271	Mario Zirkuitua
+Ver140/Bgm/BgmTitle_272	Mamuen Harana
+Ver140/Bgm/BgmTitle_273	Banilla Lakua
+Ver140/Bgm/BgmTitle_274	Koopa Hondartza
+Ver140/Ver140/ItemSwitch_01	Pertsonalizatuak
+Ver140/Ver140/ItemSwitch_02	Ausazkoak
+Ver140/Ver140/ItemSwitch_03	Guztiak
+Ver140/Ver140/ItemSwitch_04	Bat ere ez
+Ver140/Ver140/BGMVolume_01	Bolumena (musika)
+Ver140/Ver140/BGMVolume_02	Normala
+Ver140/Ver140/BGMVolume_03	Altua
+Ver140/Ver140/Accompany_01	Taldea soilik
+Ver140/Ver140/Accompany_02	Denak
+Ver140/Ver140/Accompany_03	Beste pertsonekin online\nsartu nahi duzu talde hau\nmantenduz?
+Ver140/Ver140/Accompany_04	4 pertsonak soilik\nsar daitezke beste\njokalariekin online.
+Ver140/Ver140/Accompany_05	Jokalari gehiagorekin sartuko zara online.
+Ver160/Ver160/BattleRule_01	Bob-omb bonbardaketa
+Ver170/Ver170/PhotoMode170_00	Pegatinak
+Ver170/Ver170/PhotoMode170_02	Berrezarri
+Ver170/Ver170/PhotoMode_Dialog_Reset_00	Aldaketa guztiak\nbaztertu nahi dituzu?
+Ver170/Ver170/PhotoMode_Dialog_Reset_01	Bai
+Ver170/Ver170/PhotoMode_Dialog_Reset_02	Ez
+Ver170/Ver170/PhotoSticker_01	Amaitu
+Ver170/Ver170/PhotoSticker_03	Pegatina-menua
+Ver170/Ver170/PhotoSticker_06	Atzera
+Ver170/Ver170/PhotoSticker_08	Tamaina
+Ver170/Ver170/PhotoSticker_10	Okerdura
+Ver170/Ver170/PhotoSticker_12	Itsatsi
+Ver170/Ver170/Name_GP17	{0E 0000 0002 0002 005F}Zulogailu Rallya
+Ver170/Ver170/Name_GP18	{0E 0000 0002 0002 005F}Bumeran Rallya
+Ver170/Ver170/SpectatingMode_01	Ikusle modua
+Ver170/Ver170/SpectatingMode_02	Ikusle modura\naldatu nahi duzu?\nEz duzu jokatzerik izango\nmodu hau erabiltzen duzun bitartean.
+Ver170/Ver170/SpectatingMode_03	Ikusle modutik\nirten nahi duzu?
+Ver170/Ver170/SpectatingMode_04	Taldea beteta dago.\nSaiatu berriro lekurik\ndagoenean.
+Ver170/Ver170/SpectatingMode_05	Prozesuak huts egin du.
+Ver170/Ver170/SpectatingMode_06	Ezin da «Denak»\naukera hautatu\nikusle moduan\ndagoen norbait dagoelako.
+Ver170/Ver170/SpectatingMode_07	Ez dira jokalari\nnahikorik geratzen.
+Ver180/Ver180/Name_GP19	{0E 0000 0002 0002 005F}Helikoptero Rallya
+Ver180/Ver180/Name_GP20	{0E 0000 0002 0002 005F}Arbi Rallya
+Ver180/Ver180/Name_Race_SFCMarioCircuit_A_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Mario Zirkuitua 1
+Ver180/Ver180/Name_Race_SFCMarioCircuit_B_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Mario Zirkuitua 2
+Ver180/Ver180/Name_Race_SFCMarioCircuit_C_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Mario Zirkuitua 3
+Ver180/Ver180/Name_Race_Cinema_B_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Mamuen Harana 1
+Ver180/Ver180/Name_Race_Cinema_C_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Mamuen Harana 2
+Ver180/Ver180/Name_Race_Cinema_D_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Mamuen Harana 3
+Ver180/Ver180/Name_Race_ChocoMountain_B_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Txokolate Uhartea 1
+Ver180/Ver180/Name_Race_ChocoMountain_C_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Txokolate Uhartea 2
+Ver180/Ver180/Name_Race_IceBuildings_B_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Banilla Lakua 1
+Ver180/Ver180/Name_Race_KoopaTroopaBeach_C_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Koopa Hondartza 1
+Ver180/Ver180/Adjust_Name_Race_SFCMarioCircuit_A_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Mario Zirkuitua 1
+Ver180/Ver180/Adjust_Name_Race_SFCMarioCircuit_B_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Mario Zirkuitua 2
+Ver180/Ver180/Adjust_Name_Race_SFCMarioCircuit_C_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Mario Zirkuitua 3
+Ver180/Ver180/Adjust_Name_Race_Cinema_B_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Mamuen Harana 1
+Ver180/Ver180/Adjust_Name_Race_Cinema_C_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Mamuen Harana 2
+Ver180/Ver180/Adjust_Name_Race_Cinema_D_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Mamuen Harana 3
+Ver180/Ver180/Adjust_Name_Race_ChocoMountain_B_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Txokolate Uhartea 1
+Ver180/Ver180/Adjust_Name_Race_ChocoMountain_C_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Txokolate Uhartea 2
+Ver180/Ver180/Adjust_Name_Race_IceBuildings_B_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Banilla Lakua 1
+Ver180/Ver180/Adjust_Name_Race_KoopaTroopaBeach_C_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Koopa Hondartza 1
+Ver180/Ver180/PhotoMode_Filter_00	Iragazkia
+Ver180/Ver180/PhotoMode_Filter_01	Iragazkia: 1
+Ver180/Ver180/PhotoMode_Filter_02	Iragazkia: 2
+Ver180/Ver180/PhotoMode_Filter_03	Iragazkia: 3
+Ver180/Ver180/PhotoMode_Filter_04	Iragazkia: 4
+Ver180/Ver180/PhotoMode_Filter_05	Iragazkia: 5
+Ver180/Ver180/PhotoMode_Filter_06	Iragazkia: 6
+Ver180/Ver180/PhotoMode_Filter_07	Iragazkia: 7
+Ver180/Ver180/PhotoMode_Filter_08	Iragazkia: 8

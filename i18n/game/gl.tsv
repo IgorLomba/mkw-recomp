@@ -1274,3 +1274,272 @@ MsgMain/Sticker/10011	Atrapaches o Caco Gazapo!
 MsgMain/Sticker/10012	Misión Placapum superada!
 MsgMain/Sticker/10013	Misión superada!
 MsgMain/Sticker/10014	Disputaches a Copa Especial!
+
+# New in 1.8.0 (labels 1.0.0 does not have)
+LayoutMsg/DemoMenuGameSelect_00/DemoMenuGameSelect_00:L_Btn_00/T_Btn_00	Grand Prix
+LayoutMsg/DemoMenuGameSelect_00/DemoMenuGameSelect_00:L_Btn_01/T_Btn_00	Partida LAN
+LayoutMsg/DialogUseCamera_00/T_MainText_00	Queres usar a cámara?
+LayoutMsg/DialogUseCamera_00/T_SubText_00	Para usar a cámara en liña, tes que unirte\na unha sesión de GameChat. As imaxes\nde vídeo e o son do micrófono só\nse enviarán a outros participantes de GameChat.
+LayoutMsg/FaceSelect_00/T_Text_00	Aliñade as marcas coas caras.
+LayoutMsg/FaceSelect_00/T_Text_01	Comproba a cámara.
+LayoutMsg/OnlineMenu_00/L_Btn_04/T_Btn_00	Eventos
+MsgMain/Help/Rule_07	Bob-ombardeo
+MsgMain/Help/Rule_107	Bob-ombardeo
+MsgMain/Help/Rule_207	Rebenta os globos do rival!
+MsgMain/Help/Rule_307	Unha batalla onde os Bob-ombs serán o único\nobxecto dispoñible. Podes levar ata 10 á vez.
+MsgMain/Help/Rule_407	O Bob-omb chegará máis ou menos lonxe segundo\no tempo que manteñas premido {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}.
+Ver110/Ver110/VideoChat_04	Comproba a cámara.
+Ver110/Ver110/VideoChat_06	Aliñade as marcas coas caras.
+Ver110/Ver110/VideoChat_07	Ampliar/Reducir
+Ver110/Ver110/VideoChat_08	Feito
+Ver110/Ver110/VideoChat_09	Mover
+Ver110/Ver110/VideoChat_10	Queres usar a cámara?
+Ver110/Ver110/VideoChat_11	Si
+Ver110/Ver110/VideoChat_12	Non
+Ver110/Ver110/VideoChat_13	Para usar a cámara en liña, tes que unirte\na unha sesión de GameChat. As imaxes\nde vídeo e o son do micrófono só\nse enviarán a outros participantes de GameChat.
+Ver110/Ver110/VideoChat_14	Preme o botón C\npara abrir GameChat.
+Ver120/Ver120/Championship_01	Eventos
+Ver120/Ver120/Championship_02	Buscar un evento
+Ver120/Ver120/Championship_03	Introduce o ID do evento.
+Ver120/Ver120/Championship_04	Atopouse\nun evento!
+Ver120/Ver120/Championship_05	Non se atopou\nningún evento co\nID introducido.
+Ver120/Ver120/Championship_06	Alternar detalles
+Ver120/Ver120/Championship_07	Queres practicar ata que\ncomece o evento?
+Ver120/Ver120/Championship_08	O evento rematou.
+Ver120/Ver120/Championship_09	Xa completaches\no número de carreiras\nestablecido.
+Ver120/Ver120/Championship_10	O evento comezou!
+Ver120/Ver120/Championship_12	64 carreiras
+Ver120/Ver120/Championship_13	128 carreiras
+Ver120/Ver120/Championship_14	Sen límite
+Ver120/Ver120/Championship_15	Non foi posible participar no evento.
+Ver120/Ver120/Championship_23	Límite de carreiras
+Ver120/Ver120/Championship_24	Límite de roldas
+Ver120/Ver120/Championship_17	12 roldas
+Ver120/Ver120/Championship_18	16 roldas
+Ver120/Ver120/Championship_19	32 roldas
+Ver120/Ver120/Championship_20	64 roldas
+Ver120/Ver120/Championship_21	128 roldas
+Ver120/Ver120/Championship_22	Só circuítos pechados
+Ver120/Ver120/Spectate_01	Escolle a quen observar.
+Ver120/Ver120/Spectate_02	Ao líder
+Ver120/Ver120/VSRace_01	Só cogomelos
+Ver120/Ver120/TimeTrials_01	Retar pantasma
+Ver120/Ver120/TimeTrials_02	Ver repetición
+Ver130/Ver130/Join_01	O grupo está completo. Agarda un pouco...
+Ver130/Ver130/FreeRun_01	Comezar a misión
+Ver140/Bgm/BgmTitle_12	Bowser
+Ver140/Bgm/BgmTitle_61	Val Pantasma
+Ver140/Bgm/BgmTitle_62	Castelo de Bowser
+Ver140/Bgm/BgmTitle_63	Créditos
+Ver140/Bgm/BgmTitle_64	Pantalla do título (versión fusión)
+Ver140/Bgm/BgmTitle_65	Lago Vainilla
+Ver140/Bgm/BgmTitle_66	Pantalla do título (versión jazz latino)
+Ver140/Bgm/BgmTitle_67	Praia Koopa
+Ver140/Bgm/BgmTitle_68	Senda Arco da Vella
+Ver140/Bgm/BgmTitle_69	Illa Chocolate (versión samba)
+Ver140/Bgm/BgmTitle_70	Prado Donut
+Ver140/Bgm/BgmTitle_71	Illa Chocolate (versión bossa nova)
+Ver140/Bgm/BgmTitle_124	Senda Arco da Vella
+Ver140/Bgm/BgmTitle_125	Deserto Seco-Seco
+Ver140/Bgm/BgmTitle_126	Castelo de Bowser
+Ver140/Bgm/BgmTitle_127	Créditos
+Ver140/Bgm/BgmTitle_128	Terra Sorbete
+Ver140/Bgm/BgmTitle_129	Ponte Cogomelo
+Ver140/Bgm/BgmTitle_130	Circuíto de Luigi
+Ver140/Bgm/BgmTitle_131	Parque Bebé
+Ver140/Bgm/BgmTitle_132	Circuíto de Batalla
+Ver140/Bgm/BgmTitle_133	Senda Arco da Vella
+Ver140/Bgm/BgmTitle_134	Circuíto de Batalla
+Ver140/Bgm/BgmTitle_135	Praia Koopa (versión rock)
+Ver140/Bgm/BgmTitle_136	Pantalla de resultados
+Ver140/Bgm/BgmTitle_137	Pantalla do título
+Ver140/Bgm/BgmTitle_138	Granxa Mu-Mu
+Ver140/Bgm/BgmTitle_139	Deserto Kalimari
+Ver140/Bgm/BgmTitle_140	Circuíto Nevado (versión soul)
+Ver140/Bgm/BgmTitle_141	Circuíto Nevado (versión jazz fusión)
+Ver140/Bgm/BgmTitle_142	Praia Koopa (versión electrónica)
+Ver140/Bgm/BgmTitle_143	Autoestrada Toad
+Ver140/Bgm/BgmTitle_144	Selección de personaxe
+Ver140/Bgm/BgmTitle_145	Pista da Xungla DK
+Ver140/Bgm/BgmTitle_146	Senda Arco da Vella
+Ver140/Bgm/BgmTitle_147	Outeiros Daisy
+Ver140/Bgm/BgmTitle_148	Créditos
+Ver140/Bgm/BgmTitle_149	Montaña Roqui-Roque
+Ver140/Bgm/BgmTitle_150	Tubaxes Planta Piraña
+Ver140/Bgm/BgmTitle_151	Glaciar de Estela
+Ver140/Bgm/BgmTitle_152	Circuíto Toad
+Ver140/Bgm/BgmTitle_153	Xungla DK
+Ver140/Bgm/BgmTitle_154	Circuíto Musical
+Ver140/Bgm/BgmTitle_155	Barranco Larpeiro (versión jazz)
+Ver140/Bgm/BgmTitle_156	Cala Golfiño (versión electrónica)
+Ver140/Bgm/BgmTitle_157	Mansión Retorta
+Ver140/Bgm/BgmTitle_158	Bosque Máxico
+Ver140/Bgm/BgmTitle_159	Porto Toad (versión rock)
+Ver140/Bgm/BgmTitle_160	Cala Golfiño (versión jazz fusión)
+Ver140/Bgm/BgmTitle_161	Aeroporto Soleado (versión lounge pop)
+Ver140/Bgm/BgmTitle_162	Deserto Roca Picuda
+Ver140/Bgm/BgmTitle_163	Porto Toad (versión electrónica)
+Ver140/Bgm/BgmTitle_164	Aeroporto Soleado (versión electrónica)
+Ver140/Bgm/BgmTitle_165	Ruta Dragón
+Ver140/Bgm/BgmTitle_166	Castelo de Bowser
+Ver140/Bgm/BgmTitle_167	Barranco Larpeiro (versión electrónica)
+Ver140/Bgm/BgmTitle_168	Parque Acuático
+Ver140/Bgm/BgmTitle_169	Estadio de Batalla
+Ver140/Bgm/BgmTitle_170	Cume Wario
+Ver140/Bgm/BgmTitle_171	Fervenzas Shy Guy
+Ver140/Bgm/BgmTitle_172	Senda Arco da Vella
+Ver140/Bgm/BgmTitle_173	Ruta Celeste
+Ver140/Bgm/BgmTitle_174	Estación Tilín-Tolón
+Ver140/Bgm/BgmTitle_175	Discoestadio
+Ver140/Bgm/BgmTitle_177	Dunas Huesitos
+Ver140/Bgm/BgmTitle_178	Ruínas Roca Picuda
+Ver140/Bgm/BgmTitle_179	Circuíto Mario
+Ver140/Bgm/BgmTitle_181	Base Polar
+Ver140/Bgm/BgmTitle_182	Circuíto en 8
+Ver140/Bgm/BgmTitle_183	Mansión de Luigi
+Ver140/Bgm/BgmTitle_184	Reloxo Tictac
+Ver140/Bgm/BgmTitle_185	Fervenzas de Yoshi
+Ver140/Bgm/BgmTitle_186	Outeiros Cogomelo
+Ver140/Bgm/BgmTitle_187	Créditos
+Ver140/Bgm/BgmTitle_188	Senda Arco da Vella
+Ver140/Bgm/BgmTitle_189	Pinball Waluigi (versión rock)
+Ver140/Bgm/BgmTitle_191	Circuíto de Batalla
+Ver140/Bgm/BgmTitle_192	Praia Cheep Cheep
+Ver140/Bgm/BgmTitle_193	Pinball Waluigi (versión funk)
+Ver140/Bgm/BgmTitle_194	Xardín de Peach
+Ver140/Bgm/BgmTitle_195	Circuíto de Daisy (versión acústica)
+Ver140/Bgm/BgmTitle_196	Circuíto de Daisy (versión electrónica)
+Ver140/Bgm/BgmTitle_197	Créditos A
+Ver140/Bgm/BgmTitle_198	Circuíto Luz de Lúa
+Ver140/Bgm/BgmTitle_199	Senda do Bordo
+Ver140/Bgm/BgmTitle_200	Barranco Cogomelo
+Ver140/Bgm/BgmTitle_201	Centro Coqueiro
+Ver140/Bgm/BgmTitle_202	Peirao Delfino
+Ver140/Bgm/BgmTitle_203	Ruleta Chomp Cadeas
+Ver140/Bgm/BgmTitle_204	Cume DK
+Ver140/Bgm/BgmTitle_205	Volcán Rosmón
+Ver140/Bgm/BgmTitle_206	Ruínas Seco-Seco
+Ver140/Bgm/BgmTitle_207	Senda Arco da Vella
+Ver140/Bgm/BgmTitle_208	Circuíto de Luigi
+Ver140/Bgm/BgmTitle_209	Mina de Wario
+Ver140/Bgm/BgmTitle_210	Terra de Queixo
+Ver140/Bgm/BgmTitle_211	Praia Shy Guy
+Ver140/Bgm/BgmTitle_212	Pista Peach
+Ver140/Bgm/BgmTitle_213	Senda Arco da Vella
+Ver140/Bgm/BgmTitle_214	Castelo de Bowser
+Ver140/Bgm/BgmTitle_215	Ruta do Lazo
+Ver140/Bgm/BgmTitle_216	Parque da Ribeira
+Ver140/Bgm/BgmTitle_217	Deserto de Yoshi
+Ver140/Bgm/BgmTitle_218	Solpor en Bangkok
+Ver140/Bgm/BgmTitle_219	Aldea dos Agasallos
+Ver140/Bgm/BgmTitle_220	A todo gas en Los Ángeles
+Ver140/Bgm/BgmTitle_221	Mansión Ninja
+Ver140/Bgm/BgmTitle_222	Volta por Vancouver
+Ver140/Bgm/BgmTitle_223	Circuíto Tokio
+Ver140/Bgm/BgmTitle_224	Escusado Acelerado
+Ver140/Bgm/BgmTitle_225	Acelerón en Singapur
+Ver140/Bgm/BgmTitle_226	Tobogán Planta Piraña
+Ver140/Bgm/BgmTitle_227	Pantalla do título
+Ver140/Bgm/BgmTitle_235	Circuíto de Batalla 
+Ver140/Bgm/BgmTitle_236	Fortaleza Aérea
+Ver140/Bgm/BgmTitle_237	Aldea Arbórea
+Ver140/Bgm/BgmTitle_238	Gruta Dente de León
+Ver140/Bgm/BgmTitle_239	Estadio Peach
+Ver140/Bgm/BgmTitle_240	Monte Chocolate
+Ver140/Bgm/BgmTitle_241	Cine Boo
+Ver140/Bgm/BgmTitle_242	Canón Ferroviario
+Ver140/Bgm/BgmTitle_243	Deserto Sol-Sol
+Ver140/Bgm/BgmTitle_244	Caverna Ósea
+Ver140/Bgm/BgmTitle_245	Xungla Dino Dino
+Ver140/Bgm/BgmTitle_246	Sabana Salpicante
+Ver140/Bgm/BgmTitle_247	DK Alpino
+Ver140/Bgm/BgmTitle_248	Porto Espacial DK
+Ver140/Bgm/BgmTitle_249	Circuíto Mario Bros.
+Ver140/Bgm/BgmTitle_250	Ceos Xeados
+Ver140/Bgm/BgmTitle_251	Praia Koopa
+Ver140/Bgm/BgmTitle_252	Cidade Salina
+Ver140/Bgm/BgmTitle_253	Castelo de Bowser
+Ver140/Bgm/BgmTitle_254	Pradaría Mu-Mu
+Ver140/Bgm/BgmTitle_255	Praia Peach
+Ver140/Bgm/BgmTitle_256	Cascadas Cheep Cheep
+Ver140/Bgm/BgmTitle_257	Senda Arco da Vella
+Ver140/Bgm/BgmTitle_258	Circuíto Mario
+Ver140/Bgm/BgmTitle_259	Bazar Shy Guy
+Ver140/Bgm/BgmTitle_260	Miradoiro Estelar
+Ver140/Bgm/BgmTitle_261	Templo do Bloque ?
+Ver140/Bgm/BgmTitle_262	Fábrica de Toad
+Ver140/Bgm/BgmTitle_263	Galeón de Wario
+Ver140/Bgm/BgmTitle_264	Estadio Wario
+Ver140/Bgm/BgmTitle_265	Cidade Coroa
+Ver140/Bgm/BgmTitle_267	Modo espectador
+Ver140/Bgm/BgmTitle_268	Repetición
+Ver140/Bgm/BgmTitle_269	Cara á Senda Arco da Vella
+Ver140/Bgm/BgmTitle_270	Illa Chocolate
+Ver140/Bgm/BgmTitle_271	Circuíto Mario
+Ver140/Bgm/BgmTitle_272	Val Pantasma
+Ver140/Bgm/BgmTitle_273	Lago Vainilla
+Ver140/Bgm/BgmTitle_274	Praia Koopa
+Ver140/Ver140/ItemSwitch_01	Personalizados
+Ver140/Ver140/ItemSwitch_02	Aleatorios
+Ver140/Ver140/ItemSwitch_03	Todos
+Ver140/Ver140/ItemSwitch_04	Ningún
+Ver140/Ver140/BGMVolume_01	Volume (música)
+Ver140/Ver140/BGMVolume_02	Normal
+Ver140/Ver140/BGMVolume_03	Alto
+Ver140/Ver140/Accompany_01	Só o grupo
+Ver140/Ver140/Accompany_02	Todo o mundo
+Ver140/Ver140/Accompany_03	Queres unirte en liña a outras\npersoas mantendo\neste grupo?
+Ver140/Ver140/Accompany_04	Só 4 persoas\npoden unirse a outros\nxogadores en liña.
+Ver140/Ver140/Accompany_05	Vas unirte a máis xogadores en liña.
+Ver160/Ver160/BattleRule_01	Bob-ombardeo
+Ver170/Ver170/PhotoMode170_00	Pegatinas
+Ver170/Ver170/PhotoMode170_02	Restablecer
+Ver170/Ver170/PhotoMode_Dialog_Reset_00	Queres descartar\ntodos os cambios?
+Ver170/Ver170/PhotoMode_Dialog_Reset_01	Si
+Ver170/Ver170/PhotoMode_Dialog_Reset_02	Non
+Ver170/Ver170/PhotoSticker_01	Rematar
+Ver170/Ver170/PhotoSticker_03	Menú de pegatinas
+Ver170/Ver170/PhotoSticker_06	Atrás
+Ver170/Ver170/PhotoSticker_08	Tamaño
+Ver170/Ver170/PhotoSticker_10	Inclinación
+Ver170/Ver170/PhotoSticker_12	Pegar
+Ver170/Ver170/Name_GP17	{0E 0000 0002 0002 005F}Rally Trado
+Ver170/Ver170/Name_GP18	{0E 0000 0002 0002 005F}Rally Búmerang
+Ver170/Ver170/SpectatingMode_01	Modo espectador
+Ver170/Ver170/SpectatingMode_02	Queres pasar\nao modo espectador?\nNon poderás xogar mentres\nuses este modo.
+Ver170/Ver170/SpectatingMode_03	Queres saír\ndo modo espectador?
+Ver170/Ver170/SpectatingMode_04	O grupo está completo.\nTéntao de novo cando\nhaxa algunha praza libre.
+Ver170/Ver170/SpectatingMode_05	O proceso fallou.
+Ver170/Ver170/SpectatingMode_06	Non se pode escoller\na opción «Todo o mundo»\nporque hai alguén\nen modo espectador.
+Ver170/Ver170/SpectatingMode_07	Non quedan\nxogadores suficientes.
+Ver180/Ver180/Name_GP19	{0E 0000 0002 0002 005F}Rally Helicóptero
+Ver180/Ver180/Name_GP20	{0E 0000 0002 0002 005F}Rally Nabo
+Ver180/Ver180/Name_Race_SFCMarioCircuit_A_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Circuíto Mario 1
+Ver180/Ver180/Name_Race_SFCMarioCircuit_B_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Circuíto Mario 2
+Ver180/Ver180/Name_Race_SFCMarioCircuit_C_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Circuíto Mario 3
+Ver180/Ver180/Name_Race_Cinema_B_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Val Pantasma 1
+Ver180/Ver180/Name_Race_Cinema_C_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Val Pantasma 2
+Ver180/Ver180/Name_Race_Cinema_D_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Val Pantasma 3
+Ver180/Ver180/Name_Race_ChocoMountain_B_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Illa Chocolate 1
+Ver180/Ver180/Name_Race_ChocoMountain_C_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Illa Chocolate 2
+Ver180/Ver180/Name_Race_IceBuildings_B_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Lago Vainilla 1
+Ver180/Ver180/Name_Race_KoopaTroopaBeach_C_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Praia Koopa 1
+Ver180/Ver180/Adjust_Name_Race_SFCMarioCircuit_A_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Circuíto Mario 1
+Ver180/Ver180/Adjust_Name_Race_SFCMarioCircuit_B_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Circuíto Mario 2
+Ver180/Ver180/Adjust_Name_Race_SFCMarioCircuit_C_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Circuíto Mario 3
+Ver180/Ver180/Adjust_Name_Race_Cinema_B_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Val Pantasma 1
+Ver180/Ver180/Adjust_Name_Race_Cinema_C_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Val Pantasma 2
+Ver180/Ver180/Adjust_Name_Race_Cinema_D_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Val Pantasma 3
+Ver180/Ver180/Adjust_Name_Race_ChocoMountain_B_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Illa Chocolate 1
+Ver180/Ver180/Adjust_Name_Race_ChocoMountain_C_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Illa Chocolate 2
+Ver180/Ver180/Adjust_Name_Race_IceBuildings_B_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Lago Vainilla 1
+Ver180/Ver180/Adjust_Name_Race_KoopaTroopaBeach_C_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Praia Koopa 1
+Ver180/Ver180/PhotoMode_Filter_00	Filtro
+Ver180/Ver180/PhotoMode_Filter_01	Filtro: 1
+Ver180/Ver180/PhotoMode_Filter_02	Filtro: 2
+Ver180/Ver180/PhotoMode_Filter_03	Filtro: 3
+Ver180/Ver180/PhotoMode_Filter_04	Filtro: 4
+Ver180/Ver180/PhotoMode_Filter_05	Filtro: 5
+Ver180/Ver180/PhotoMode_Filter_06	Filtro: 6
+Ver180/Ver180/PhotoMode_Filter_07	Filtro: 7
+Ver180/Ver180/PhotoMode_Filter_08	Filtro: 8

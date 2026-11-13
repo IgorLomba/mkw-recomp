@@ -1278,3 +1278,272 @@ MsgMain/Mission/Mission_WT2_PL_05	Llança't cap a la meta botant pel prat!
 MsgMain/Mission/Mission_RC_PL_03	Reuneix les monedes blaves per la torre de control!
 MsgMain/Mission/Mission_WT_PL_04	Solca els cels sobre l'Estadi Peach!
 MsgMain/Mission/Mission_WT2_PL_06	Avança amb empenta cap al cim de l'arc!
+
+# New in 1.8.0 (labels 1.0.0 does not have)
+LayoutMsg/DemoMenuGameSelect_00/DemoMenuGameSelect_00:L_Btn_00/T_Btn_00	Grand Prix
+LayoutMsg/DemoMenuGameSelect_00/DemoMenuGameSelect_00:L_Btn_01/T_Btn_00	Partida LAN
+LayoutMsg/DialogUseCamera_00/T_MainText_00	Vols fer servir la càmera?
+LayoutMsg/DialogUseCamera_00/T_SubText_00	Per fer servir la càmera en línia, t'has d'unir\na una sessió de GameChat. Les imatges\nde vídeo i el so del micròfon només\ns'enviaran a altres participants de GameChat.
+LayoutMsg/FaceSelect_00/T_Text_00	Alineeu les marques amb les cares.
+LayoutMsg/FaceSelect_00/T_Text_01	Comprova la càmera.
+LayoutMsg/OnlineMenu_00/L_Btn_04/T_Btn_00	Esdeveniments
+MsgMain/Help/Rule_07	Bob-ombardeig
+MsgMain/Help/Rule_107	Bob-ombardeig
+MsgMain/Help/Rule_207	Rebenta els globus del rival!
+MsgMain/Help/Rule_307	Una batalla on els Bob-ombs seran l'únic\nobjecte disponible. En pots portar fins a 10 alhora.
+MsgMain/Help/Rule_407	El Bob-omb arribarà més o menys lluny segons\nel temps que mantinguis premut {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0E 0000 0001 0002 FFFF}{0F 012D 0000}.
+Ver110/Ver110/VideoChat_04	Comprova la càmera.
+Ver110/Ver110/VideoChat_06	Alineeu les marques amb les cares.
+Ver110/Ver110/VideoChat_07	Ampliar/Reduir
+Ver110/Ver110/VideoChat_08	Fet
+Ver110/Ver110/VideoChat_09	Moure
+Ver110/Ver110/VideoChat_10	Vols fer servir la càmera?
+Ver110/Ver110/VideoChat_11	Sí
+Ver110/Ver110/VideoChat_12	No
+Ver110/Ver110/VideoChat_13	Per fer servir la càmera en línia, t'has d'unir\na una sessió de GameChat. Les imatges\nde vídeo i el so del micròfon només\ns'enviaran a altres participants de GameChat.
+Ver110/Ver110/VideoChat_14	Prem el botó C\nper obrir GameChat.
+Ver120/Ver120/Championship_01	Esdeveniments
+Ver120/Ver120/Championship_02	Cercar un esdeveniment
+Ver120/Ver120/Championship_03	Introdueix l'ID de l'esdeveniment.
+Ver120/Ver120/Championship_04	S'ha trobat\nun esdeveniment!
+Ver120/Ver120/Championship_05	No s'ha trobat\ncap esdeveniment amb\nl'ID introduït.
+Ver120/Ver120/Championship_06	Alternar detalls
+Ver120/Ver120/Championship_07	Vols practicar fins que\ncomenci l'esdeveniment?
+Ver120/Ver120/Championship_08	L'esdeveniment ha conclòs.
+Ver120/Ver120/Championship_09	Ja has completat\nel nombre de curses\nestablert.
+Ver120/Ver120/Championship_10	L'esdeveniment ha començat!
+Ver120/Ver120/Championship_12	64 curses
+Ver120/Ver120/Championship_13	128 curses
+Ver120/Ver120/Championship_14	Sense límit
+Ver120/Ver120/Championship_15	No ha estat possible participar en l'esdeveniment.
+Ver120/Ver120/Championship_23	Límit de curses
+Ver120/Ver120/Championship_24	Límit de rondes
+Ver120/Ver120/Championship_17	12 rondes
+Ver120/Ver120/Championship_18	16 rondes
+Ver120/Ver120/Championship_19	32 rondes
+Ver120/Ver120/Championship_20	64 rondes
+Ver120/Ver120/Championship_21	128 rondes
+Ver120/Ver120/Championship_22	Només circuits tancats
+Ver120/Ver120/Spectate_01	Tria a qui observar.
+Ver120/Ver120/Spectate_02	Al líder
+Ver120/Ver120/VSRace_01	Només bolets
+Ver120/Ver120/TimeTrials_01	Desafiar fantasma
+Ver120/Ver120/TimeTrials_02	Veure repetició
+Ver130/Ver130/Join_01	El grup està complet. Espera una mica...
+Ver130/Ver130/FreeRun_01	Començar la missió
+Ver140/Bgm/BgmTitle_12	Bowser
+Ver140/Bgm/BgmTitle_61	Vall Fantasma
+Ver140/Bgm/BgmTitle_62	Castell de Bowser
+Ver140/Bgm/BgmTitle_63	Crèdits
+Ver140/Bgm/BgmTitle_64	Pantalla del títol (versió fusió)
+Ver140/Bgm/BgmTitle_65	Llac Vainilla
+Ver140/Bgm/BgmTitle_66	Pantalla del títol (versió jazz llatí)
+Ver140/Bgm/BgmTitle_67	Platja Koopa
+Ver140/Bgm/BgmTitle_68	Senda Arc Iris
+Ver140/Bgm/BgmTitle_69	Illa Xocolata (versió samba)
+Ver140/Bgm/BgmTitle_70	Prat Dònut
+Ver140/Bgm/BgmTitle_71	Illa Xocolata (versió bossa nova)
+Ver140/Bgm/BgmTitle_124	Senda Arc Iris
+Ver140/Bgm/BgmTitle_125	Desert Seco-Seco
+Ver140/Bgm/BgmTitle_126	Castell de Bowser
+Ver140/Bgm/BgmTitle_127	Crèdits
+Ver140/Bgm/BgmTitle_128	Terra Sorbet
+Ver140/Bgm/BgmTitle_129	Pont Bolet
+Ver140/Bgm/BgmTitle_130	Circuit de Luigi
+Ver140/Bgm/BgmTitle_131	Parc Bebè
+Ver140/Bgm/BgmTitle_132	Circuit de Batalla
+Ver140/Bgm/BgmTitle_133	Senda Arc Iris
+Ver140/Bgm/BgmTitle_134	Circuit de Batalla
+Ver140/Bgm/BgmTitle_135	Platja Koopa (versió rock)
+Ver140/Bgm/BgmTitle_136	Pantalla de resultats
+Ver140/Bgm/BgmTitle_137	Pantalla del títol
+Ver140/Bgm/BgmTitle_138	Granja Mu-Mu
+Ver140/Bgm/BgmTitle_139	Desert Kalimari
+Ver140/Bgm/BgmTitle_140	Circuit Nevat (versió soul)
+Ver140/Bgm/BgmTitle_141	Circuit Nevat (versió jazz fusió)
+Ver140/Bgm/BgmTitle_142	Platja Koopa (versió electrònica)
+Ver140/Bgm/BgmTitle_143	Autopista Toad
+Ver140/Bgm/BgmTitle_144	Selecció de personatge
+Ver140/Bgm/BgmTitle_145	Pista de la Jungla DK
+Ver140/Bgm/BgmTitle_146	Senda Arc Iris
+Ver140/Bgm/BgmTitle_147	Turons Daisy
+Ver140/Bgm/BgmTitle_148	Crèdits
+Ver140/Bgm/BgmTitle_149	Muntanya Roqui-Roque
+Ver140/Bgm/BgmTitle_150	Canonades Planta Piranya
+Ver140/Bgm/BgmTitle_151	Glacera d'Estela
+Ver140/Bgm/BgmTitle_152	Circuit Toad
+Ver140/Bgm/BgmTitle_153	Jungla DK
+Ver140/Bgm/BgmTitle_154	Circuit Musical
+Ver140/Bgm/BgmTitle_155	Barranc Llaminer (versió jazz)
+Ver140/Bgm/BgmTitle_156	Cala Dofí (versió electrònica)
+Ver140/Bgm/BgmTitle_157	Mansió Retorçuda
+Ver140/Bgm/BgmTitle_158	Bosc Màgic
+Ver140/Bgm/BgmTitle_159	Port Toad (versió rock)
+Ver140/Bgm/BgmTitle_160	Cala Dofí (versió jazz fusió)
+Ver140/Bgm/BgmTitle_161	Aeroport Assolellat (versió lounge pop)
+Ver140/Bgm/BgmTitle_162	Desert Roca Picuda
+Ver140/Bgm/BgmTitle_163	Port Toad (versió electrònica)
+Ver140/Bgm/BgmTitle_164	Aeroport Assolellat (versió electrònica)
+Ver140/Bgm/BgmTitle_165	Ruta Drac
+Ver140/Bgm/BgmTitle_166	Castell de Bowser
+Ver140/Bgm/BgmTitle_167	Barranc Llaminer (versió electrònica)
+Ver140/Bgm/BgmTitle_168	Parc Aquàtic
+Ver140/Bgm/BgmTitle_169	Estadi de Batalla
+Ver140/Bgm/BgmTitle_170	Cim Wario
+Ver140/Bgm/BgmTitle_171	Cascades Shy Guy
+Ver140/Bgm/BgmTitle_172	Senda Arc Iris
+Ver140/Bgm/BgmTitle_173	Ruta Celeste
+Ver140/Bgm/BgmTitle_174	Estació Tilín-Tolón
+Ver140/Bgm/BgmTitle_175	Discoestadi
+Ver140/Bgm/BgmTitle_177	Dunes Huesitos
+Ver140/Bgm/BgmTitle_178	Ruïnes Roca Picuda
+Ver140/Bgm/BgmTitle_179	Circuit Mario
+Ver140/Bgm/BgmTitle_181	Base Polar
+Ver140/Bgm/BgmTitle_182	Circuit en 8
+Ver140/Bgm/BgmTitle_183	Mansió de Luigi
+Ver140/Bgm/BgmTitle_184	Rellotge Tictac
+Ver140/Bgm/BgmTitle_185	Cascades de Yoshi
+Ver140/Bgm/BgmTitle_186	Turons Bolet
+Ver140/Bgm/BgmTitle_187	Crèdits
+Ver140/Bgm/BgmTitle_188	Senda Arc Iris
+Ver140/Bgm/BgmTitle_189	Pinball Waluigi (versió rock)
+Ver140/Bgm/BgmTitle_191	Circuit de Batalla
+Ver140/Bgm/BgmTitle_192	Platja Cheep Cheep
+Ver140/Bgm/BgmTitle_193	Pinball Waluigi (versió funk)
+Ver140/Bgm/BgmTitle_194	Jardí de Peach
+Ver140/Bgm/BgmTitle_195	Circuit de Daisy (versió acústica)
+Ver140/Bgm/BgmTitle_196	Circuit de Daisy (versió electrònica)
+Ver140/Bgm/BgmTitle_197	Crèdits A
+Ver140/Bgm/BgmTitle_198	Circuit Llum de Lluna
+Ver140/Bgm/BgmTitle_199	Senda de l'Auró
+Ver140/Bgm/BgmTitle_200	Barranc Bolet
+Ver140/Bgm/BgmTitle_201	Centre Cocoter
+Ver140/Bgm/BgmTitle_202	Moll Delfino
+Ver140/Bgm/BgmTitle_203	Ruleta Chomp Cadenes
+Ver140/Bgm/BgmTitle_204	Cim DK
+Ver140/Bgm/BgmTitle_205	Volcà Grunyidor
+Ver140/Bgm/BgmTitle_206	Ruïnes Seco-Seco
+Ver140/Bgm/BgmTitle_207	Senda Arc Iris
+Ver140/Bgm/BgmTitle_208	Circuit de Luigi
+Ver140/Bgm/BgmTitle_209	Mina de Wario
+Ver140/Bgm/BgmTitle_210	Terra de Formatge
+Ver140/Bgm/BgmTitle_211	Platja Shy Guy
+Ver140/Bgm/BgmTitle_212	Pista Peach
+Ver140/Bgm/BgmTitle_213	Senda Arc Iris
+Ver140/Bgm/BgmTitle_214	Castell de Bowser
+Ver140/Bgm/BgmTitle_215	Ruta del Llaç
+Ver140/Bgm/BgmTitle_216	Parc de la Ribera
+Ver140/Bgm/BgmTitle_217	Desert de Yoshi
+Ver140/Bgm/BgmTitle_218	Capvespre a Bangkok
+Ver140/Bgm/BgmTitle_219	Vila dels Regals
+Ver140/Bgm/BgmTitle_220	A tot gas a Los Angeles
+Ver140/Bgm/BgmTitle_221	Mansió Ninja
+Ver140/Bgm/BgmTitle_222	Volta per Vancouver
+Ver140/Bgm/BgmTitle_223	Circuit Tòquio
+Ver140/Bgm/BgmTitle_224	Excusat Accelerat
+Ver140/Bgm/BgmTitle_225	Accelerada a Singapur
+Ver140/Bgm/BgmTitle_226	Tobogan Planta Piranya
+Ver140/Bgm/BgmTitle_227	Pantalla del títol
+Ver140/Bgm/BgmTitle_235	Circuit de Batalla 
+Ver140/Bgm/BgmTitle_236	Fortalesa Aèria
+Ver140/Bgm/BgmTitle_237	Vila Arbòria
+Ver140/Bgm/BgmTitle_238	Gruta Dent de Lleó
+Ver140/Bgm/BgmTitle_239	Estadi Peach
+Ver140/Bgm/BgmTitle_240	Mont Xocolata
+Ver140/Bgm/BgmTitle_241	Cinema Boo
+Ver140/Bgm/BgmTitle_242	Canyó Ferroviari
+Ver140/Bgm/BgmTitle_243	Desert Sol-Sol
+Ver140/Bgm/BgmTitle_244	Caverna Òssia
+Ver140/Bgm/BgmTitle_245	Jungla Dino Dino
+Ver140/Bgm/BgmTitle_246	Sabana Esquitxant
+Ver140/Bgm/BgmTitle_247	DK Alpí
+Ver140/Bgm/BgmTitle_248	Port Espacial DK
+Ver140/Bgm/BgmTitle_249	Circuit Mario Bros.
+Ver140/Bgm/BgmTitle_250	Cels Gelats
+Ver140/Bgm/BgmTitle_251	Platja Koopa
+Ver140/Bgm/BgmTitle_252	Ciutat Salina
+Ver140/Bgm/BgmTitle_253	Castell de Bowser
+Ver140/Bgm/BgmTitle_254	Prat Mu-Mu
+Ver140/Bgm/BgmTitle_255	Platja Peach
+Ver140/Bgm/BgmTitle_256	Cascades Cheep Cheep
+Ver140/Bgm/BgmTitle_257	Senda Arc Iris
+Ver140/Bgm/BgmTitle_258	Circuit Mario
+Ver140/Bgm/BgmTitle_259	Basar Shy Guy
+Ver140/Bgm/BgmTitle_260	Mirador Estel·lar
+Ver140/Bgm/BgmTitle_261	Temple del Bloc ?
+Ver140/Bgm/BgmTitle_262	Fàbrica de Toad
+Ver140/Bgm/BgmTitle_263	Galió de Wario
+Ver140/Bgm/BgmTitle_264	Estadi Wario
+Ver140/Bgm/BgmTitle_265	Ciutat Corona
+Ver140/Bgm/BgmTitle_267	Mode espectador
+Ver140/Bgm/BgmTitle_268	Repetició
+Ver140/Bgm/BgmTitle_269	Cap a la Senda Arc Iris
+Ver140/Bgm/BgmTitle_270	Illa Xocolata
+Ver140/Bgm/BgmTitle_271	Circuit Mario
+Ver140/Bgm/BgmTitle_272	Vall Fantasma
+Ver140/Bgm/BgmTitle_273	Llac Vainilla
+Ver140/Bgm/BgmTitle_274	Platja Koopa
+Ver140/Ver140/ItemSwitch_01	Personalitzats
+Ver140/Ver140/ItemSwitch_02	Aleatoris
+Ver140/Ver140/ItemSwitch_03	Tots
+Ver140/Ver140/ItemSwitch_04	Cap
+Ver140/Ver140/BGMVolume_01	Volum (música)
+Ver140/Ver140/BGMVolume_02	Normal
+Ver140/Ver140/BGMVolume_03	Alt
+Ver140/Ver140/Accompany_01	Només el grup
+Ver140/Ver140/Accompany_02	Tothom
+Ver140/Ver140/Accompany_03	Vols unir-te en línia a altres\npersones mantenint\naquest grup?
+Ver140/Ver140/Accompany_04	Només 4 persones\npoden unir-se a altres\njugadors en línia.
+Ver140/Ver140/Accompany_05	Et vas a unir a més jugadors en línia.
+Ver160/Ver160/BattleRule_01	Bob-ombardeig
+Ver170/Ver170/PhotoMode170_00	Adhesius
+Ver170/Ver170/PhotoMode170_02	Restablir
+Ver170/Ver170/PhotoMode_Dialog_Reset_00	Vols descartar\ntots els canvis?
+Ver170/Ver170/PhotoMode_Dialog_Reset_01	Sí
+Ver170/Ver170/PhotoMode_Dialog_Reset_02	No
+Ver170/Ver170/PhotoSticker_01	Acabar
+Ver170/Ver170/PhotoSticker_03	Menú d'adhesius
+Ver170/Ver170/PhotoSticker_06	Enrere
+Ver170/Ver170/PhotoSticker_08	Mida
+Ver170/Ver170/PhotoSticker_10	Inclinació
+Ver170/Ver170/PhotoSticker_12	Enganxar
+Ver170/Ver170/Name_GP17	{0E 0000 0002 0002 005F}Ral·li Trepant
+Ver170/Ver170/Name_GP18	{0E 0000 0002 0002 005F}Ral·li Bumerang
+Ver170/Ver170/SpectatingMode_01	Mode espectador
+Ver170/Ver170/SpectatingMode_02	Vols passar\nal mode espectador?\nNo podràs jugar mentre\nfacis servir aquest mode.
+Ver170/Ver170/SpectatingMode_03	Vols sortir\ndel mode espectador?
+Ver170/Ver170/SpectatingMode_04	El grup està complet.\nTorna-ho a provar quan\nhi hagi alguna vacant.
+Ver170/Ver170/SpectatingMode_05	El procés ha fallat.
+Ver170/Ver170/SpectatingMode_06	No es pot triar\nl'opció «Tothom»\nperquè hi ha algú\nen mode espectador.
+Ver170/Ver170/SpectatingMode_07	No queden\nprou jugadors.
+Ver180/Ver180/Name_GP19	{0E 0000 0002 0002 005F}Ral·li Helicòpter
+Ver180/Ver180/Name_GP20	{0E 0000 0002 0002 005F}Ral·li Nap
+Ver180/Ver180/Name_Race_SFCMarioCircuit_A_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Circuit Mario 1
+Ver180/Ver180/Name_Race_SFCMarioCircuit_B_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Circuit Mario 2
+Ver180/Ver180/Name_Race_SFCMarioCircuit_C_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Circuit Mario 3
+Ver180/Ver180/Name_Race_Cinema_B_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Vall Fantasma 1
+Ver180/Ver180/Name_Race_Cinema_C_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Vall Fantasma 2
+Ver180/Ver180/Name_Race_Cinema_D_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Vall Fantasma 3
+Ver180/Ver180/Name_Race_ChocoMountain_B_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Illa Xocolata 1
+Ver180/Ver180/Name_Race_ChocoMountain_C_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Illa Xocolata 2
+Ver180/Ver180/Name_Race_IceBuildings_B_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Llac Vainilla 1
+Ver180/Ver180/Name_Race_KoopaTroopaBeach_C_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Platja Koopa 1
+Ver180/Ver180/Adjust_Name_Race_SFCMarioCircuit_A_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Circuit Mario 1
+Ver180/Ver180/Adjust_Name_Race_SFCMarioCircuit_B_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Circuit Mario 2
+Ver180/Ver180/Adjust_Name_Race_SFCMarioCircuit_C_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Circuit Mario 3
+Ver180/Ver180/Adjust_Name_Race_Cinema_B_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Vall Fantasma 1
+Ver180/Ver180/Adjust_Name_Race_Cinema_C_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Vall Fantasma 2
+Ver180/Ver180/Adjust_Name_Race_Cinema_D_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Vall Fantasma 3
+Ver180/Ver180/Adjust_Name_Race_ChocoMountain_B_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Illa Xocolata 1
+Ver180/Ver180/Adjust_Name_Race_ChocoMountain_C_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Illa Xocolata 2
+Ver180/Ver180/Adjust_Name_Race_IceBuildings_B_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Llac Vainilla 1
+Ver180/Ver180/Adjust_Name_Race_KoopaTroopaBeach_C_00	{0E 0000 0002 0002 004B}SNES{0E 0000 0002 0002 0064} Platja Koopa 1
+Ver180/Ver180/PhotoMode_Filter_00	Filtre
+Ver180/Ver180/PhotoMode_Filter_01	Filtre: 1
+Ver180/Ver180/PhotoMode_Filter_02	Filtre: 2
+Ver180/Ver180/PhotoMode_Filter_03	Filtre: 3
+Ver180/Ver180/PhotoMode_Filter_04	Filtre: 4
+Ver180/Ver180/PhotoMode_Filter_05	Filtre: 5
+Ver180/Ver180/PhotoMode_Filter_06	Filtre: 6
+Ver180/Ver180/PhotoMode_Filter_07	Filtre: 7
+Ver180/Ver180/PhotoMode_Filter_08	Filtre: 8

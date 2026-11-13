@@ -195,8 +195,32 @@ def folder_lines(folder: Path, tags: bool = False) -> list[tuple[str, str]]:
     return lines
 
 
-def read_translation(lang: str) -> dict[str, str]:
-    path = TRANSLATIONS / f"{lang}.tsv"
+def game_version(exefs: Path) -> int:
+    """RtGame.version of the copy (100: 1.0.0, 180: 1.8.0), 0 when its exefs is missing or of a build not listed."""
+    sys.path.insert(0, str(ROOT / "recomp"))
+    from versions import detect
+
+    try:
+        return detect(exefs).number
+    except (OSError, ValueError):
+        return 0
+
+
+def read_translation(lang: str, version: int = 0) -> dict[str, str]:
+    """<lang>.tsv, then each <version>/<lang>.tsv up to the copy's version (i18n/game/1.8.0/ca.tsv: the texts 1.8.0
+    reworded or retagged, which keep their 1.0.0 translation in <lang>.tsv for a 1.0.0 copy)."""
+    sys.path.insert(0, str(ROOT / "recomp"))
+    from versions import VERSIONS
+
+    numbers = {v.name: v.number for v in VERSIONS}
+    out = read_tsv(TRANSLATIONS / f"{lang}.tsv")
+    for sub in sorted((d for d in TRANSLATIONS.iterdir() if d.name in numbers), key=lambda d: numbers[d.name]):
+        if numbers[sub.name] <= version and (sub / f"{lang}.tsv").is_file():
+            out |= read_tsv(sub / f"{lang}.tsv")
+    return out
+
+
+def read_tsv(path: Path) -> dict[str, str]:
     out = {}
     for n, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
         if not line or line.startswith("#"):
@@ -214,17 +238,20 @@ def mismatched(source: dict[str, str], texts: dict[str, str]) -> list[str]:
     return bad + [k for k in texts if k in source and TAG.findall(texts[k]) != TAG.findall(source[k])]
 
 
-def build(lang: str, out: Path, romfs: Path | None = None, strict: bool = True) -> None:
+def build(lang: str, out: Path, romfs: Path | None = None, strict: bool = True, version: int = 0) -> None:
     """strict (the build command, on the copy the translation is made from): a mismatch stops. Not strict (the
     setup): the translation was made on one game version and the player may have another (1.8.0 drops or retags
     labels of 1.0.0, so the setup stopped at its last step for every 1.8.0 dump); those texts stay in the base
     language, as a label the translation leaves out does."""
     base = BASE[lang]
     folder = (romfs or game_dir() / "romfs") / "Mals" / base
-    texts = read_translation(lang)
-    bad = mismatched(dict(folder_lines(folder, tags=True)), texts)
-    if bad and strict:
-        raise SystemExit(f"{lang}.tsv: unknown labels or changed tags: {', '.join(bad[:10])}")
+    texts = read_translation(lang, version)
+    source = dict(folder_lines(folder, tags=True))
+    bad = mismatched(source, texts)
+    # labels of another version (1.8.0 dropped some of 1.0.0, and has new ones) are expected: only changed tags stop
+    retagged = [k for k in bad if k in source]
+    if retagged and strict:
+        raise SystemExit(f"{lang}: changed tags: {', '.join(retagged[:10])}")
     if bad:
         print(
             f"{lang}: {len(bad)} of {len(texts)} texts do not match this copy of the game, left in {base}",
@@ -257,8 +284,9 @@ def build(lang: str, out: Path, romfs: Path | None = None, strict: bool = True) 
 
 def build_all(game: Path, romfs: Path) -> None:
     """Every translation into game/lang/<lang>/ (the setup's last step, tools/prepare/prepare.py)."""
+    version = game_version(game / "exefs")
     for path in sorted(TRANSLATIONS.glob("*.tsv")):
-        build(path.stem, game / "lang" / path.stem, romfs, strict=False)
+        build(path.stem, game / "lang" / path.stem, romfs, strict=False, version=version)
 
 
 def main() -> int:
@@ -291,10 +319,11 @@ def main() -> int:
                 sys.stdout.write(text)
     elif args.cmd == "todo":
         path = TRANSLATIONS / f"{args.lang}.tsv"
-        done = read_translation(args.lang) if path.exists() else {}
+        done = read_translation(args.lang, game_version(game_dir() / "exefs")) if path.exists() else {}
         sys.stdout.write("".join(f"{k}\t{v}\n" for k, v in folder_lines(mals / BASE[args.lang], True) if k not in done))
     else:
-        build(args.lang, args.out or ROOT / "build" / "lang" / args.lang, mals.parent)
+        build(args.lang, args.out or ROOT / "build" / "lang" / args.lang, mals.parent,
+              version=game_version(game_dir() / "exefs"))  # fmt: skip
     return 0
 
 

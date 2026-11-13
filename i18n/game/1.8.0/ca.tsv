@@ -1,0 +1,83 @@
+# Texts 1.8.0 reworded or retagged: used over ../ca.tsv for a 1.8.0 copy or later (tools/i18n/game_texts.py)
+LayoutMsg/MenuTimeAttack_00/MenuTimeAttack_00:L_MenuBtn_02/T_Text_00	Veure repeticions
+LayoutMsg/TitleLogo_00/T_Press_00	Prem {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0F 012D 0000}
+MsgMain/Course(adjust)/Adjust_Name_Race_AirshipFortress_A_00	{0E 0000 0002 0002 005F}Fortalesa Aèria
+MsgMain/Course(adjust)/Adjust_Name_Race_BigTree_A_00	{0E 0000 0002 0002 005F}Vila Arbòria
+MsgMain/Course(adjust)/Adjust_Name_Race_Cave_A_00	{0E 0000 0002 0002 005F}Gruta Dent de Lleó
+MsgMain/Course(adjust)/Adjust_Name_Race_Central_A_00	{0E 0000 0002 0002 005F}Estadi Peach
+MsgMain/Course(adjust)/Adjust_Name_Race_ChocoMountain_A_00	{0E 0000 0002 0002 005F}Mont Xocolata
+MsgMain/Course(adjust)/Adjust_Name_Race_Cinema_A_00	{0E 0000 0002 0002 005F}Cinema Boo
+MsgMain/Course(adjust)/Adjust_Name_Race_Coaster_A_00	{0E 0000 0002 0002 005F}Canyó Ferroviari
+MsgMain/Course(adjust)/Adjust_Name_Race_DesertHills_A_00	{0E 0000 0002 0002 005F}Desert Sol-Sol
+MsgMain/Course(adjust)/Adjust_Name_Race_DinoBones_A_00	{0E 0000 0002 0002 005F}Caverna Òssia
+MsgMain/Course(adjust)/Adjust_Name_Race_DinoDinoJungle_A_00	{0E 0000 0002 0002 005F}Jungla Dino Dino
+MsgMain/Course(adjust)/Adjust_Name_Race_DKJungleParkway_A_00	{0E 0000 0002 0002 005F}Sabana Esquitxant
+MsgMain/Course(adjust)/Adjust_Name_Race_DKPass_A_00	{0E 0000 0002 0002 005F}DK Alpí
+MsgMain/Course(adjust)/Adjust_Name_Race_DonkeyKong_A_00	{0E 0000 0002 0002 005F}Port Espacial DK
+MsgMain/Course(adjust)/Adjust_Name_Race_FirstCircuit_A_00	{0E 0000 0002 0002 005F}Circuit Mario Bros.
+MsgMain/Course(adjust)/Adjust_Name_Race_IceBuildings_A_00	{0E 0000 0002 0002 005F}Cels Gelats
+MsgMain/Course(adjust)/Adjust_Name_Race_KoopaTroopaBeach_A_00	{0E 0000 0002 0002 005F}Platja Koopa
+MsgMain/Course(adjust)/Adjust_Name_Race_LagoonCity_A_00	{0E 0000 0002 0002 005F}Ciutat Salina
+MsgMain/Course(adjust)/Adjust_Name_Race_Lava_A_00	{0E 0000 0002 0002 005F}Castell de Bowser
+MsgMain/Course(adjust)/Adjust_Name_Race_MooMooFarm_A_00	{0E 0000 0002 0002 005F}Prat Mu-Mu
+MsgMain/Course(adjust)/Adjust_Name_Race_RaftingRiver_A_00	{0E 0000 0002 0002 005F}Cascades Cheep Cheep
+MsgMain/Course(adjust)/Adjust_Name_Race_Rainbow_A_00	{0E 0000 0002 0002 005F}Senda Arc Iris
+MsgMain/Course(adjust)/Adjust_Name_Race_SFCMarioCircuit_G_00	{0E 0000 0002 0002 005F}Circuit Mario
+MsgMain/Course(adjust)/Adjust_Name_Race_ShyGuyBazaar_A_00	{0E 0000 0002 0002 005F}Basar Shy Guy
+MsgMain/Course(adjust)/Adjust_Name_Race_SnowMountain_A_00	{0E 0000 0002 0002 005F}Mirador Estel·lar
+MsgMain/Course(adjust)/Adjust_Name_Race_StormClouds_A_00	{0E 0000 0002 0002 005F}Temple del Bloc ?
+MsgMain/Course(adjust)/Adjust_Name_Race_ToadFactory_A_00	{0E 0000 0002 0002 005F}Fàbrica de Toad
+MsgMain/Course(adjust)/Adjust_Name_Race_WarioShipyard_A_00	{0E 0000 0002 0002 005F}Galió de Wario
+MsgMain/Course(adjust)/Adjust_Name_Race_WarioStadium_A_00	{0E 0000 0002 0002 005F}Estadi Wario
+MsgMain/Course(adjust)/Adjust_Name_Race_WestCity_D_00	{0E 0000 0002 0002 005F}Ciutat Corona
+MsgMain/Course(adjust)/Adjust_Name_Race_PeachBeach_D_00	{0E 0000 0002 0002 005F}Platja Peach
+MsgMain/CourseArea(adjust)/Name_AirshipFortress_00	{0E 0000 0002 0002 005F}Fortalesa Aèria
+MsgMain/CourseArea(adjust)/Name_BigTree_00	{0E 0000 0002 0002 005F}Vila Arbòria
+MsgMain/CourseArea(adjust)/Name_Cave_00	{0E 0000 0002 0002 005F}Gruta Dent de Lleó
+MsgMain/CourseArea(adjust)/Name_Central_00	{0E 0000 0002 0002 005F}Estadi Peach
+MsgMain/CourseArea(adjust)/Name_ChocoMountain_00	{0E 0000 0002 0002 005F}Mont Xocolata
+MsgMain/CourseArea(adjust)/Name_Cinema_00	{0E 0000 0002 0002 005F}Cinema Boo
+MsgMain/CourseArea(adjust)/Name_Coaster	{0E 0000 0002 0002 005F}Canyó Ferroviari
+MsgMain/CourseArea(adjust)/Name_DesertHills_00	{0E 0000 0002 0002 005F}Desert Sol-Sol
+MsgMain/CourseArea(adjust)/Name_DinoBones_00	{0E 0000 0002 0002 005F}Caverna Òssia
+MsgMain/CourseArea(adjust)/Name_DinoDinoJungle_00	{0E 0000 0002 0002 005F}Jungla Dino Dino
+MsgMain/CourseArea(adjust)/Name_DKJungleParkway_00	{0E 0000 0002 0002 005F}Sabana Esquitxant
+MsgMain/CourseArea(adjust)/Name_DKPass_00	{0E 0000 0002 0002 005F}DK Alpí
+MsgMain/CourseArea(adjust)/Name_DonkeyKong	{0E 0000 0002 0002 005F}Port Espacial DK
+MsgMain/CourseArea(adjust)/Name_FirstCircuit	{0E 0000 0002 0002 005F}Circuit Mario Bros.
+MsgMain/CourseArea(adjust)/Name_IceBuildings_00	{0E 0000 0002 0002 005F}Cels Gelats
+MsgMain/CourseArea(adjust)/Name_KoopaTroopaBeach_00	{0E 0000 0002 0002 005F}Platja Koopa
+MsgMain/CourseArea(adjust)/Name_LagoonCity_00	{0E 0000 0002 0002 005F}Ciutat Salina
+MsgMain/CourseArea(adjust)/Name_Lava_00	{0E 0000 0002 0002 005F}Castell de Bowser
+MsgMain/CourseArea(adjust)/Name_MooMooFarm_00	{0E 0000 0002 0002 005F}Prat Mu-Mu
+MsgMain/CourseArea(adjust)/Name_PeachBeach_00	{0E 0000 0002 0002 005F}Platja Peach
+MsgMain/CourseArea(adjust)/Name_RaftingRiver_00	{0E 0000 0002 0002 005F}Cascades Cheep Cheep
+MsgMain/CourseArea(adjust)/Name_Rainbow_00	{0E 0000 0002 0002 005F}Senda Arc Iris
+MsgMain/CourseArea(adjust)/Name_SFCMarioCircuit_00	{0E 0000 0002 0002 005F}Circuit Mario
+MsgMain/CourseArea(adjust)/Name_ShyGuyBazaar_00	{0E 0000 0002 0002 005F}Basar Shy Guy
+MsgMain/CourseArea(adjust)/Name_SnowMountain_00	{0E 0000 0002 0002 005F}Mirador Estel·lar
+MsgMain/CourseArea(adjust)/Name_StormClouds_00	{0E 0000 0002 0002 005F}Temple del Bloc ?
+MsgMain/CourseArea(adjust)/Name_ToadFactory_00	{0E 0000 0002 0002 005F}Fàbrica de Toad
+MsgMain/CourseArea(adjust)/Name_WarioShipyard_00	{0E 0000 0002 0002 005F}Galió de Wario
+MsgMain/CourseArea(adjust)/Name_WarioStadium	{0E 0000 0002 0002 005F}Estadi Wario
+MsgMain/CourseArea(adjust)/Name_WestCity	{0E 0000 0002 0002 005F}Ciutat Corona
+MsgMain/GrandprixCupName/Name_GP09	{0E 0000 0002 0002 005F}Ral·li Turbo
+MsgMain/GrandprixCupName/Name_GP10	{0E 0000 0002 0002 005F}Ral·li Gel
+MsgMain/GrandprixCupName/Name_GP11	{0E 0000 0002 0002 005F}Ral·li Lluna
+MsgMain/GrandprixCupName/Name_GP12	{0E 0000 0002 0002 005F}Ral·li Espines
+MsgMain/GrandprixCupName/Name_GP13	{0E 0000 0002 0002 005F}Ral·li Cireres
+MsgMain/GrandprixCupName/Name_GP14	{0E 0000 0002 0002 005F}Ral·li Gla
+MsgMain/GrandprixCupName/Name_GP15	{0E 0000 0002 0002 005F}Ral·li Núvol
+MsgMain/GrandprixCupName/Name_GP16	{0E 0000 0002 0002 005F}Ral·li Cor
+MsgMain/Menu/2051	Prem {0E 012D 0000 0004 0000 0000}{0E 0000 0001 0002 0010}{0F 012D 0000}
+MsgMain/Menu/2120	{0E 0000 0002 0002 0046} {0E 0000 0002 0002 0064}1{0E 0000 0002 0002 0032}J
+MsgMain/Menu/2121	{0E 0000 0002 0002 0046} {0E 0000 0002 0002 0064}2{0E 0000 0002 0002 0032}J
+MsgMain/Menu/2122	{0E 0000 0002 0002 0046} {0E 0000 0002 0002 0064}3{0E 0000 0002 0002 0032}J
+MsgMain/Menu/2123	{0E 0000 0002 0002 0046} {0E 0000 0002 0002 0064}4{0E 0000 0002 0002 0032}J
+MsgMain/Menu/2263	Veure repeticions
+MsgMain/Menu/2271	S'ha baixat\nel corredor fantasma!
+MsgMain/Race/9504	{0E 0000 0002 0002 004B}Entra entre els{0E 0000 0002 0002 0064} {0E 0000 0003 0002 0004}4{0E 0000 0003 0002 FFFF} {0E 0000 0002 0002 004B}millors!
+MsgMain/Race/9508	{0E 0000 0002 0002 004B}Entra entre els{0E 0000 0002 0002 0064} {0E 0000 0003 0002 0004}8{0E 0000 0003 0002 FFFF} {0E 0000 0002 0002 004B}millors!
+MsgMain/Race/9512	{0E 0000 0002 0002 004B}Entra entre els{0E 0000 0002 0002 0064} {0E 0000 0003 0002 0004}12{0E 0000 0003 0002 FFFF} {0E 0000 0002 0002 004B}millors!
+MsgMain/Race/9516	{0E 0000 0002 0002 004B}Entra entre els{0E 0000 0002 0002 0064} {0E 0000 0003 0002 0004}16{0E 0000 0003 0002 FFFF} {0E 0000 0002 0002 004B}millors!
+MsgMain/Race/9520	{0E 0000 0002 0002 004B}Entra entre els{0E 0000 0002 0002 0064} {0E 0000 0003 0002 0004}20{0E 0000 0003 0002 FFFF} {0E 0000 0002 0002 004B}millors!
