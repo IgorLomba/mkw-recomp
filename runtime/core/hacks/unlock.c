@@ -36,7 +36,8 @@ static const Category cats[] = {
     {"stickers", unlock_sticker_ids, &unlock_sticker_ids_n,
      {0xB8A3BA35, 0x2A7A4}, {0xE85996AD, 0x8E0}, {0, 0}, 5000, 1},
 };
-static const Array cup_open = {0x55A6E00E, 0xF5B0};
+static const Array cup_progress = {0x55A6E00E, 0xF5B0};
+static const Array cup_open_in_gp = {0x9A164573, 0};   // offset_100 0: not known for 1.0.0
 
 typedef struct { uint32_t list, state, mask, cap; } Located;
 
@@ -56,7 +57,7 @@ static uint32_t locate_array(const uint8_t *b, uint64_t n, const Array *a, uint3
             for (uint32_t e = KEY_TABLE; e + 8 <= table_end && !count_at; e += 8)
                 if (rd(b, e) == a->key_hash) count_at = rd(b, e + 4);
     }
-    if (!count_at && n == SAVE_SIZE_100) count_at = a->offset_100 - 4;
+    if (!count_at && n == SAVE_SIZE_100 && a->offset_100) count_at = a->offset_100 - 4;
     if (!count_at || count_at % 4 || (uint64_t)count_at + 4 > n) return 0;
     *cap = rd(b, count_at);
     if ((uint64_t)count_at + 4 + 4ull * *cap > n) return 0;
@@ -92,8 +93,9 @@ static int own_all(uint8_t *b, const Category *c, const Located *at) {
 
 int unlock_save(uint8_t *b, uint64_t n) {
     Located at[sizeof cats / sizeof *cats];
-    uint32_t cups = 0, cup_slots = 0;
-    int ok = n <= UINT32_MAX && (cups = locate_array(b, n, &cup_open, &cup_slots)) && cup_slots > SPECIAL_CUP_SLOT;
+    uint32_t progress = 0, cup_slots = 0;
+    int ok = n <= UINT32_MAX && (progress = locate_array(b, n, &cup_progress, &cup_slots)) &&
+             cup_slots > SPECIAL_CUP_SLOT;
     for (size_t k = 0; ok && k < sizeof cats / sizeof *cats; k++) ok = locate_category(b, n, &cats[k], &at[k]);
     if (!ok) {
         rt_log("unlock: account.sav (%llu bytes) is not a layout this knows: left as it is", (unsigned long long)n);
@@ -106,8 +108,12 @@ int unlock_save(uint8_t *b, uint64_t n) {
         total += a;
         pos += snprintf(note + pos, sizeof note - (size_t)pos, "%s%s +%d", k ? "," : "", cats[k].name, a);
     }
-    uint32_t sc = cups + 4 * SPECIAL_CUP_SLOT;
+    uint32_t sc = progress + 4 * SPECIAL_CUP_SLOT;
     if (!rd(b, sc)) wr(b, sc, 2), total++;
+    uint32_t flag_slots = 0, flags = locate_array(b, n, &cup_open_in_gp, &flag_slots);
+    uint32_t special_bit = 1u << SPECIAL_CUP_SLOT;
+    if (flags && flag_slots > SPECIAL_CUP_SLOT && !(rd(b, flags) & special_bit))
+        wr(b, flags, rd(b, flags) | special_bit), total++;
     rt_log("unlock: %s, Special Cup open (MKW_UNLOCK_ALL)", note);
     return total;
 }
