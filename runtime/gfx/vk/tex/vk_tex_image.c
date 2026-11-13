@@ -179,6 +179,33 @@ static int block_views_ok(const VkImageCreateInfo *ci) {
            ci->arrayLayers <= q->maxArrayLayers;
 }
 
+// Whether the driver takes an image of this format, type, usage, flags and view format list, whatever its size: the
+// usages each format allows one by one can still be refused together (#174: R8G8_UNORM with STORAGE and its sRGB twin,
+// which has no storage, in the list, on Intel's ANV: VK_ERROR_FORMAT_NOT_SUPPORTED and the image made anyway).
+// Answers kept (64), so the replay thread asks the driver once per kind of image.
+static int usage_ok(const VkImageCreateInfo *ci) {
+    static struct { VkFormat f; VkImageType t; VkImageUsageFlags u; VkImageCreateFlags fl; int list, ok; } seen[64];
+    static int nseen;
+    static PlatMutex lk = PLAT_MUTEX_INIT;
+    int ok = -1;
+    plat_mutex_lock(&lk);
+    for (int i = 0; i < nseen && ok < 0; i++)
+        if (seen[i].f == ci->format && seen[i].t == ci->imageType && seen[i].u == ci->usage && seen[i].fl == ci->flags &&
+            seen[i].list == (ci->pNext != NULL))
+            ok = seen[i].ok;
+    plat_mutex_unlock(&lk);
+    if (ok >= 0) return ok;
+    VkPhysicalDeviceImageFormatInfo2 fi = {.sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_FORMAT_INFO_2,
+                                           .pNext = ci->pNext, .format = ci->format, .type = ci->imageType,
+                                           .tiling = ci->tiling, .usage = ci->usage, .flags = ci->flags};
+    VkImageFormatProperties2 p = {.sType = VK_STRUCTURE_TYPE_IMAGE_FORMAT_PROPERTIES_2};
+    ok = vkGetPhysicalDeviceImageFormatProperties2(vk_ctx()->phys, &fi, &p) == VK_SUCCESS;
+    plat_mutex_lock(&lk);
+    if (nseen < 64) seen[nseen++] = (typeof(seen[0])){ci->format, ci->imageType, ci->usage, ci->flags, ci->pNext != NULL, ok};
+    plat_mutex_unlock(&lk);
+    return ok;
+}
+
 // UNDEFINED -> GENERAL; new depth / stencil images start cleared (LAS textures.c: the game copies depth
 // without stencil, and the stencil of those images must not be whatever the memory held).
 void init_image(Tex *e, VkCommandBuffer cb) {
@@ -455,6 +482,16 @@ Tex *create_tex(const tex_t *t, const TexKey *k, int defer_init) {
                !block_views && (ci.flags & VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT) && format_list_on();
     if (list && listed[1]) ci.pNext = &fl;
     else if (list) ci.flags &= ~(VkImageCreateFlags)VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT;
+    // the optional usages (storage on any format that allows it, the feedback loop) go first when refused together
+    static const VkImageUsageFlags optional[] = {VK_IMAGE_USAGE_STORAGE_BIT, VK_IMAGE_USAGE_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT};
+    static volatile int32_t n_dropped;
+    for (int i = 0; i < 2 && !usage_ok(&ci); i++) {
+        if (!(ci.usage & optional[i])) continue;
+        log_limited(&n_dropped, "texture format %#x (VkFormat %d): usage %#x refused with usage %#x; left out", d->format,
+                    (int)ci.format, (unsigned)ci.usage, (unsigned)optional[i]);
+        ci.usage = usage &= ~optional[i];
+        if (optional[i] == VK_IMAGE_USAGE_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT) fb_usage = 0;
+    }
     Tex *e = calloc(1, sizeof *e);
     if (!e) rt_fatal("vk: out of memory for a texture");
     e->key = *k;

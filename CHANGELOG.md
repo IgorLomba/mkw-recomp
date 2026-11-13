@@ -26,6 +26,8 @@ its issue, #N), `### Tested` (what was run from the packages before publishing) 
   redo the game code and the shaders, since the setup now recognises the same game by its version, not its folder.
 - 21:9 at 2160p (5040x2160) no longer gives a black screen with sound (#213): the game's output pool did not fit its
   memory at that size, and the port now gives it its own.
+- Images whose usages the driver refuses together are created without the optional ones (#174: an `R8G8_UNORM` image
+  on Intel's Linux driver was made with a combination it does not support).
 - NVIDIA's shader tools are downloaded again when they arrive cut or damaged (#207), and if they keep arriving damaged
   the setup says so (an antivirus, proxy, VPN or unstable connection) instead of only showing two checksums.
 
