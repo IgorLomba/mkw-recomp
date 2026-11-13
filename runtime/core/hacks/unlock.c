@@ -37,7 +37,7 @@ static const Category cats[] = {
      {0xB8A3BA35, 0x2A7A4}, {0xE85996AD, 0x8E0}, {0, 0}, 5000, 1},
 };
 static const Array cup_progress = {0x55A6E00E, 0xF5B0};
-static const Array cup_open_in_gp = {0x9A164573, 0};   // offset_100 0: not known for 1.0.0
+static const Array cup_open_in_gp = {0x9A164573, 0x72C};   // in 1.0.0's table too (50 slots, a 1.0.0 save)
 
 typedef struct { uint32_t list, state, mask, cap; } Located;
 
