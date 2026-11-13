@@ -44,6 +44,7 @@ what = "the game window lost the focus during the boot, and the game read a mana
 [[signature]]
 issue = 88
 all = ["AMD proprietary driver", "Device lost detected; 0 addresses"]
+fixed = "v0.1.8"
 what = "AMD's Windows driver loses the device in a mesh shader dispatch a few seconds into the title"
 
 [[signature]]
@@ -66,3 +67,34 @@ what = "the game swapped two players' controllers (`nn::hid::SwapNpadAssignment`
 issue = 177
 all = ["python312.dll conflicts"]
 what = "the setup's tools took another Python's `PYTHONPATH` or `PYTHONHOME` and failed at generate (\"Module use of python312.dll conflicts with this version of Python\")"
+
+[[signature]]
+issue = 174
+all = ["vendor 0x8086", "ccfd8df60515649e38fc902d961d4b8c396461b05b48c71988079c051c8d5156"]
+what = "Intel's GPUs hang in a compute program that reaches `barrier()` after an early return (the 1x1x1 dispatch after the 512x512 pass)"
+
+[[signature]]
+issue = 50
+all = ["driver radv", "task/mesh draws as mesh shaders", "upload submit failed (-4)"]
+what = "RADV loses the device at the title with the game's mesh shaders run natively (`mesh_compute = 1` in `mkw.ini` avoids it on several cards)"
+
+[[signature]]
+issue = 152
+all = ["device 0x1638", "upload submit failed (-4)"]
+what = "AMD's Vega 7 integrated GPU (Ryzen 5000/7000 APUs) loses the device while the first textures are uploaded"
+
+[[signature]]
+issue = 195
+all = ["game version 1.8.0", "Product_100.sarc.zs missing"]
+what = "on game version 1.8.0 the internal resolution setting has no effect (the game keeps its own resolution)"
+
+[[signature]]
+issue = 207
+all = ["cuda_nvcc-windows-x86_64-12.8.93-archive.zip: sha256"]
+what = "NVIDIA's shader compiler download reached the setup damaged (a different checksum on each try: antivirus, proxy or a broken connection)"
+
+[[signature]]
+issue = 222
+all = ["max_workers must be <= 61"]
+fixed = "v0.1.10"
+what = "the setup's shader step failed on Windows PCs with more than 61 CPU threads"
