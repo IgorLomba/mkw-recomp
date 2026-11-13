@@ -228,7 +228,9 @@ def everywhere(romfs: Path, exefs: Path, everything: bool = False):
         tops = [romfs] if everything else [romfs / d for d in SHADER_DIRS]
         files = [str(p) for top in tops for p in top.rglob("*") if p.is_file() and "Shader" not in p.parts]
     files += [str(p) for p in sorted(exefs.glob("*")) if p.name in ("main", "sdk") or p.name.startswith("subsdk")]
-    with ProcessPoolExecutor(os.cpu_count()) as pool:
+    # Windows' ProcessPoolExecutor takes at most 61 workers: a dual Xeon with 80 threads stopped here (#222)
+    workers = min(os.cpu_count() or 1, 61) if os.name == "nt" else os.cpu_count()
+    with ProcessPoolExecutor(workers) as pool:
         for found in pool.map(scan_one, files, chunksize=64):
             yield from found
 

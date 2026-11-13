@@ -144,7 +144,8 @@ def mem_available_gb() -> float:
 def shader_jobs() -> int:
     """Every core, as far as memory goes: a worker and its glslc take ~0.25 GB (four took 1.0 GB, 06/11/2026) and up
     to 0.75 GB on the largest programs (translate.py). Half the cores, as before, left 8 of 12 idle: 40 min."""
-    return max(1, min(os.cpu_count() or 1, int(mem_available_gb() / 0.75)))
+    cores = min(os.cpu_count() or 1, 61) if os.name == "nt" else os.cpu_count() or 1  # Windows' pool limit (#222)
+    return max(1, min(cores, int(mem_available_gb() / 0.75)))
 
 
 def mem_gb() -> float:

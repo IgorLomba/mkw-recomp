@@ -19,6 +19,8 @@ its issue, #N), `### Tested` (what was run from the packages before publishing) 
   (#177) when another Python's `PYTHONPATH` or `PYTHONHOME` is set on the machine.
 - An update whose changes only touch how the game code is compiled no longer stops the setup at "compile" with
   `generated/layout.json` missing: the code is generated again first.
+- The setup no longer fails at the shaders on Windows PCs with more than 61 CPU threads ("max_workers must be <= 61",
+  #222): it uses up to 61 there.
 
 ## 0.1.9
 
