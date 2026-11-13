@@ -265,6 +265,33 @@ NVN_API(nvnMemoryPoolBuilderSetStorage) {
 }
 // void nvnMemoryPoolBuilderSetFlags(NVNmemoryPoolBuilder *b, int flags)
 NVN_API(nvnMemoryPoolBuilderSetFlags) { ((pool_builder_t *)arg_p(c, 0))->flags = (uint32_t)arg_x(c, 1); }
+// Storage for a GPU-only pool the game gives none (#213): at 21:9 and 2160 lines the output targets' pool (0x7d82000
+// bytes, flags 0x21) no longer fits the game's heap, its allocation returns NULL and the game initializes the pool
+// with it; every target in it was then left without an image and the screen black. Its CPU never reads such a pool,
+// so where the storage comes from does not matter to the game. Kept for the next one when the pool is finalized:
+// plat_mem_alloc never frees.
+static struct { void *mem; uint64_t size; int used; } own_storage[4];
+
+static void *own_storage_take(uint64_t size) {
+    void *m = NULL;
+    plat_mutex_lock(&pool_lock);
+    for (int i = 0; i < 4 && !m; i++)
+        if (own_storage[i].mem && !own_storage[i].used && own_storage[i].size >= size)
+            own_storage[i].used = 1, m = own_storage[i].mem;
+    for (int i = 0; i < 4 && !m; i++)
+        if (!own_storage[i].mem && (m = plat_mem_alloc((size_t)size)))
+            own_storage[i].mem = m, own_storage[i].size = size, own_storage[i].used = 1;
+    plat_mutex_unlock(&pool_lock);
+    return m;
+}
+
+static void own_storage_give_back(const void *mem) {
+    plat_mutex_lock(&pool_lock);
+    for (int i = 0; i < 4; i++)
+        if (own_storage[i].mem == mem) own_storage[i].used = 0;
+    plat_mutex_unlock(&pool_lock);
+}
+
 // NVNboolean nvnMemoryPoolInitialize(NVNmemoryPool *p, const NVNmemoryPoolBuilder *b)
 // Pool setup imports, mirrors and maps memory in the back end (the driver, VirtualAlloc): up to 20 ms on the game's
 // loader threads, which held a virtual core through it while job workers waited (MKW_CORE_DIAG). The thread gives
@@ -279,6 +306,10 @@ NVN_API(nvnMemoryPoolInitialize) {
     o->mem = o->game_mem = s->mem;
     o->size = s->size;
     int ok = pool_place(o);
+    if (ok && !o->mem && (o->flags & NVN_MEMORY_POOL_FLAGS_CPU_NO_ACCESS) && o->size &&
+        (o->mem = own_storage_take(o->size)))
+        rt_log("nvn: MemoryPoolInitialize: GPU-only pool without storage (flags %#x size %#llx): the runtime's own",
+               o->flags, (unsigned long long)o->size);
     if (ok && !o->mem) {
         rt_log("nvn: MemoryPoolInitialize: pool without storage, flags %#x size %#llx", o->flags,
                (unsigned long long)o->size);
@@ -306,6 +337,7 @@ NVN_API(nvnMemoryPoolFinalize) {
     if (pool_gpu_visible(o)) index_del(o);
     gfx_backend()->pool_fini(o);
     if (nvn_gpu_only((uintptr_t)o->mem)) gva_free((uintptr_t)o->mem);
+    if (!o->game_mem) own_storage_give_back(o->mem);
     o->mem = o->game_mem;
     o->span = 0;
     o->magic = 0;

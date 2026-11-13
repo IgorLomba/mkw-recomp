@@ -24,6 +24,8 @@ its issue, #N), `### Tested` (what was run from the packages before publishing) 
 - Moving or renaming the folder of your game files no longer stops the update's setup with "no exefs/main and romfs/"
   (#188): the start screen says the files are no longer there and asks for the folder again, and choosing it does not
   redo the game code and the shaders, since the setup now recognises the same game by its version, not its folder.
+- 21:9 at 2160p (5040x2160) no longer gives a black screen with sound (#213): the game's output pool did not fit its
+  memory at that size, and the port now gives it its own.
 - NVIDIA's shader tools are downloaded again when they arrive cut or damaged (#207), and if they keep arriving damaged
   the setup says so (an antivirus, proxy, VPN or unstable connection) instead of only showing two checksums.
 
