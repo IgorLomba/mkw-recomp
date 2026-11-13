@@ -1829,6 +1829,11 @@ msgctxt "UI_SETUP_ERR_NO_SETUP"
 msgid "the setup tools are missing (setup/ next to the program): extract the release again"
 msgstr "falten les eines de preparació (setup/ al costat del programa): extreu de nou la versió"
 
+#. %s: the folder of the last setup's game files, which no longer exists.
+msgctxt "UI_SETUP_ERR_MOVED"
+msgid "your game files are no longer in %s: if you moved or renamed that folder, choose it again"
+msgstr "els fitxers del joc ja no són a %s: si has mogut o canviat el nom d'aquesta carpeta, torna-la a triar"
+
 msgctxt "UI_LAUNCH_STEP_CHECK"
 msgid "Check the copy"
 msgstr "Comprovar la còpia"

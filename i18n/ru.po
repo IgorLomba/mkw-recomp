@@ -1816,6 +1816,11 @@ msgctxt "UI_SETUP_ERR_NO_SETUP"
 msgid "the setup tools are missing (setup/ next to the program): extract the release again"
 msgstr "нет инструментов подготовки (setup/ рядом с программой): распакуйте релиз заново"
 
+#. %s: the folder of the last setup's game files, which no longer exists.
+msgctxt "UI_SETUP_ERR_MOVED"
+msgid "your game files are no longer in %s: if you moved or renamed that folder, choose it again"
+msgstr "файлов игры больше нет в %s: если вы переместили или переименовали эту папку, выберите её снова"
+
 msgctxt "UI_LAUNCH_STEP_CHECK"
 msgid "Check the copy"
 msgstr "Проверка копии"

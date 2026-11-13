@@ -21,6 +21,9 @@ its issue, #N), `### Tested` (what was run from the packages before publishing) 
   `generated/layout.json` missing: the code is generated again first.
 - The setup no longer fails at the shaders on Windows PCs with more than 61 CPU threads ("max_workers must be <= 61",
   #222): it uses up to 61 there.
+- Moving or renaming the folder of your game files no longer stops the update's setup with "no exefs/main and romfs/"
+  (#188): the start screen says the files are no longer there and asks for the folder again, and choosing it does not
+  redo the game code and the shaders, since the setup now recognises the same game by its version, not its folder.
 - NVIDIA's shader tools are downloaded again when they arrive cut or damaged (#207), and if they keep arriving damaged
   the setup says so (an antivirus, proxy, VPN or unstable connection) instead of only showing two checksums.
 

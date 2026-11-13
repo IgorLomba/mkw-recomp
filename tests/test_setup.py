@@ -39,6 +39,7 @@ def test_resume_without_source(tmp_path: Path) -> None:
     game = tmp_path / ODD / "game"
     game.mkdir(parents=True)
     copy = tmp_path / ODD / "copy"
+    copy.mkdir()
     state = {"version": 1, "done": {"exefs": str(copy / "exefs"), "romfs": f"link {copy / 'romfs'}"}}
     (game / "setup-state.json").write_text(json.dumps(state))
     p = run_prepare("--game", str(game))
@@ -47,6 +48,24 @@ def test_resume_without_source(tmp_path: Path) -> None:
     assert str(copy) in p.stdout, p.stdout
     saved = json.loads((game / "setup-state.json").read_text())
     assert saved.get("source", str(copy)) == str(copy)
+
+
+def test_resume_from_moved_folder(tmp_path: Path) -> None:
+    # issue #188: the last setup's folder renamed; the start screen names it and asks for it again
+    game = tmp_path / ODD / "game"
+    game.mkdir(parents=True)
+    gone = tmp_path / ODD / "renamed away"
+    (game / "setup-state.json").write_text(json.dumps({"version": 1, "source": str(gone), "done": {}}))
+    p = run_prepare("--game", str(game))
+    assert p.returncode == 1 and f"error moved {gone}" in p.stdout, p.stdout + p.stderr
+
+
+def test_keys_from_before_kept() -> None:
+    # a step done under its key with the source folders (before 0.1.10) is not redone; another key still is
+    state = {"done": {"shaders": "/old/exefs /old/romfs t1", "compile": "/old/exefs c1"}}
+    prepare.migrate_keys(state, {"shaders": "1.0.0 t1", "compile": "1.0.0 c2"},
+                         {"shaders": "/old/exefs /old/romfs t1", "compile": "/old/exefs c2"})  # fmt: skip
+    assert state["done"] == {"shaders": "1.0.0 t1", "compile": "/old/exefs c1"}
 
 
 def test_resume_without_earlier_setup(tmp_path: Path) -> None:

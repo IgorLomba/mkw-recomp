@@ -24,8 +24,8 @@ linked (the runtime reads its RomFS in place).
 
 Output: one event per line on stdout, for the start screen: "step <name>", "progress <done> <total>", "skip <name>",
 "done", "error <code> <detail>". Exit codes: 0 done, 1 failed, 2 bad command line. The start screen shows its own
-translated text per code with the detail inside: source (no earlier setup to repeat), nogame (the folder, without
-exefs/main and romfs/), encrypted (exefs/main, not an NSO), version (main's build id), romfs (its file count), failed
+translated text per code with the detail inside: source (no earlier setup to repeat), moved (the last setup's folder,
+gone: moved or renamed, #188), nogame (the folder, without exefs/main and romfs/), encrypted (exefs/main, not an NSO), version (main's build id), romfs (its file count), failed
 (a tool's English message) and io (the system's); logs/setup.log gets the English message whole.
 
 Usage: python prepare.py --source DIR|FILE.nup --game DIR [--romfs copy|link] [--jobs N] [--cc CMD] [--glslc PATH]
@@ -234,6 +234,14 @@ def code_key(files: list[Path]) -> str:
     return h.hexdigest()[:16]
 
 
+def migrate_keys(state: dict, keys: dict[str, str], before: dict[str, str]) -> None:
+    """A step done under its key from before 0.1.10 (with the source folders, `before`) is taken as done under the new
+    one: else the first update after the change would set up everything again."""
+    for step, old in before.items():
+        if state["done"].get(step) == old:
+            state["done"][step] = keys[step]
+
+
 def regenerate_if_cleaned(state: dict, keys: dict[str, str], work: Path) -> None:
     """Undoes generate when compile must run and cleanup already removed generated/: a compile whose key changed alone
     (an update that touched only tools/build/build.py, as the first after 0.1.9) stopped on the missing layout.json."""
@@ -366,6 +374,9 @@ def main() -> None:
             emit("error", "source", "no earlier setup in this folder")
             sys.exit(2)
         args.source = Path(last)
+        if not args.source.exists():
+            emit("error", "moved", last)
+            sys.exit(1)
         args.romfs = args.romfs or state.get("romfs_mode") or state["done"].get("romfs", "copy").split(" ", 1)[0]
     args.romfs = args.romfs or "copy"
     src = args.source.resolve()
@@ -383,14 +394,24 @@ def main() -> None:
         cc = args.cc.split() if args.cc else default_cc(game, args.target)
         exefs_src, romfs_src, version = check(src, game)
         romfs = game / "romfs" if args.romfs == "copy" else romfs_src
+        # The version (from exefs/main's build id) says which game a step built from; the folder only matters to the
+        # steps that copy from it or point mkw.ini at it. With the folder in every key, moving or renaming it redid
+        # generate, compile and the shaders (#188: 16 min on Linux, 31 on Windows)
         keys = {
             "exefs": str(exefs_src),
+            "romfs": f"copy {version.name}" if args.romfs == "copy" else f"link {romfs_src}",
+            "generate": f"{build.game_id()} {version.name} {code_key(GENERATOR)}",
+            "compile": f"{build.game_id()} {version.name} {args.target} {code_key(COMPILER)}",
+            "shaders": f"{version.name} {translator_key()}",
+            "warm": f"{build.game_id()} {version.name}",
+        }
+        migrate_keys(state, keys, {
             "romfs": f"{args.romfs} {romfs_src}",
             "generate": f"{build.game_id()} {exefs_src} {version.name} {code_key(GENERATOR)}",
             "compile": f"{build.game_id()} {exefs_src} {version.name} {args.target} {code_key(COMPILER)}",
             "shaders": f"{exefs_src} {romfs_src} {translator_key()}",
             "warm": f"{build.game_id()} {romfs_src}",
-        }
+        })  # fmt: skip
         regenerate_if_cleaned(state, keys, work)
         for step in STEPS[1:]:
             # The start screen sets up again when its version differs (launcher.cpp): an update by hand (a new

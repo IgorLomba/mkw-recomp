@@ -1837,6 +1837,11 @@ msgid "the setup tools are missing (setup/ next to the program): extract the rel
 msgstr ""
 "les outils de préparation manquent (setup/ à côté du programme) : extrayez de nouveau la version"
 
+#. %s: the folder of the last setup's game files, which no longer exists.
+msgctxt "UI_SETUP_ERR_MOVED"
+msgid "your game files are no longer in %s: if you moved or renamed that folder, choose it again"
+msgstr "vos fichiers du jeu ne sont plus dans %s : si vous avez déplacé ou renommé ce dossier, choisissez-le à nouveau"
+
 msgctxt "UI_LAUNCH_STEP_CHECK"
 msgid "Check the copy"
 msgstr "Vérifier la copie"

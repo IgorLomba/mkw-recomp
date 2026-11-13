@@ -1775,6 +1775,11 @@ msgctxt "UI_SETUP_ERR_NO_SETUP"
 msgid "the setup tools are missing (setup/ next to the program): extract the release again"
 msgstr "설정 도구가 없습니다 (프로그램 옆의 setup/ 폴더). 릴리스를 다시 압축 해제하세요"
 
+#. %s: the folder of the last setup's game files, which no longer exists.
+msgctxt "UI_SETUP_ERR_MOVED"
+msgid "your game files are no longer in %s: if you moved or renamed that folder, choose it again"
+msgstr "게임 파일이 더 이상 %s에 없습니다. 그 폴더를 옮기거나 이름을 바꿨다면 다시 선택하세요"
+
 msgctxt "UI_LAUNCH_STEP_CHECK"
 msgid "Check the copy"
 msgstr "사본 확인"

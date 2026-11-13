@@ -1747,6 +1747,11 @@ msgctxt "UI_SETUP_ERR_NO_SETUP"
 msgid "the setup tools are missing (setup/ next to the program): extract the release again"
 msgstr "缺少设置工具（程序旁的 setup/）：请重新解压发行包"
 
+#. %s: the folder of the last setup's game files, which no longer exists.
+msgctxt "UI_SETUP_ERR_MOVED"
+msgid "your game files are no longer in %s: if you moved or renamed that folder, choose it again"
+msgstr "游戏文件已不在 %s 中：如果你移动或重命名了该文件夹，请重新选择"
+
 msgctxt "UI_LAUNCH_STEP_CHECK"
 msgid "Check the copy"
 msgstr "检查副本"
