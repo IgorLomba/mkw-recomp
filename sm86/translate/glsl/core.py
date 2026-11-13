@@ -61,6 +61,7 @@ class Builder(AluOps, MemOps, TexOps, ThreadOps):
         self.lmem_bytes = 0  # local memory (LDL/STL): the furthest constant extent, 0 = none
         self.task = False  # a task program (VS header, ISBEWR to its payload): set by translate()
         self.mesh = False  # a mesh program (ISBEWR.SKEW per-vertex writes): set by translate()
+        self.zombie = False  # a compute program with BAR: a predicated EXIT keeps the lane going (exited): translate()
         self.images: dict[tuple[int, int], str] = {}
         self.ssbos: set[int] = set()  # driver bank 0 offsets of the storage buffer addresses read
         self.ssbos_written: set[int] = set()  # those a STG, ATOMG or RED stores into (reflection flag 1)
@@ -274,7 +275,7 @@ class Builder(AluOps, MemOps, TexOps, ThreadOps):
         if op in ("ISBEWR", "ISBERD") and self.mesh:
             return self.mesh_isbe(i)
         if op == "EXIT":
-            return self.exit()
+            return self.exit(i)
         raise Unsupported(i.cls)
 
 
@@ -350,6 +351,11 @@ def compute_shape(control: bytes) -> tuple[int, int, int, int]:
     return x or 1, y or 1, z or 1, smem
 
 
+# What an exited lane of a program with BAR must not do (Builder.zombie): the writes others see. Its registers, local
+# memory and the loads stay: robustBufferAccess keeps its out-of-range reads harmless.
+ZOMBIE_SKIPS = frozenset({"STG", "STS", "ATOMG", "ATOMS", "ATOM", "RED", "SUST", "SURED", "SUATOM"})
+
+
 def translate(
     sph: Sph | None, insns: list[Insn], stage: str, shape: tuple[int, int, int, int] | None = None, c1: bytes = b""
 ) -> tuple[str, dict]:
@@ -363,6 +369,11 @@ def translate(
     # a VS header with payload writes only (no per-vertex SKEW writes, no index bytes) is a task program
     b.task = stage == "vs" and bool(writes) and all(i.sym("base") == "ATTR" and i.sym("skew") != "SKEW" for i in writes)
     b.mesh = any(i.sym("skew") == "SKEW" for i in writes)
+    # On the console a warp that exited no longer counts for BAR.SYNC; in Vulkan a hardware thread whose lanes all
+    # returned never reaches the barrier and the workgroup waits for it forever (#174: Intel hung at the title in the
+    # skinning programs, `if (gid >= count) return;` before a loop with barrier()). There a predicated EXIT marks the
+    # lane exited instead: it goes on through the barriers with its stores and atomics skipped, and out of the votes.
+    b.zombie = stage == "cs" and any(i.op == "BAR" for i in insns)
     if stage == "tes?" and not b.mesh:
         raise Unsupported(f"stage {stage}")
     targets = {0}
@@ -459,6 +470,8 @@ def translate(
             for n in {int(x) for x in re.findall(r"\br(\d+) = ", stmt or "")} - b.fold_new:
                 b.fold.pop(n, None)  # written outside dst() (pairs, vectors): no longer what the fold knew
         if stmt:
+            if b.zombie and i.op in ZOMBIE_SKIPS:
+                stmt = f"if (!exited) {{ {stmt} }}"
             if i.v("Pg", PT) != PT or i.v("Pg@not", 0):
                 stmt = f"if ({pred(i.v('Pg'), i.v('Pg@not'))}) {{ {stmt} }}"
             elif i.v("UPg", PT) != PT or i.v("UPg@not", 0):
@@ -487,6 +500,8 @@ def translate(
     # computing one position (a depth pre-pass and an EQUAL colour pass) must get the same bits, as on the console;
     # fused differently, the MKW bushes failed the EQUAL test and stayed black (01/11/2026).
     decl = [f"    precise uint {regs};", f"    bool {preds};", "    uint loops = 0u;"]
+    if b.zombie:
+        decl.append("    bool exited = false;")
     if stage == "vs" and not (b.task or b.mesh):
         decl.append("    gl_PointSize = support.point_size;")   # first: a program that writes its own overrides it
         # The position components a program does not write are (0, 0, 0, 1) on the console; Vulkan leaves them

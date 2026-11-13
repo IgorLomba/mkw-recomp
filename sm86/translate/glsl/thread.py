@@ -143,7 +143,12 @@ class ThreadOps:
         """VOTE(U).ALL/ANY/EQ: the ballot of Pp to Rd (URd), the vote to Pu (UPu)."""
         self.uses_subgroup = True
         p = pred(i.v("Pp"), i.v("Pp@not"))
-        v = {"ALL": f"subgroupAll({p})", "ANY": f"subgroupAny({p})", "EQ": f"subgroupAllEqual({p})"}.get(
+        # an exited lane (Builder.zombie) is not active on the console: out of the ballot and the votes. EQ keeps it
+        # in (none of MKW's programs with BAR votes EQ after an EXIT)
+        eq_p, all_p = p, f"({p}) || exited" if self.zombie else p
+        if self.zombie:
+            p = f"({p}) && !exited"
+        v = {"ALL": f"subgroupAll({all_p})", "ANY": f"subgroupAny({p})", "EQ": f"subgroupAllEqual({eq_p})"}.get(
             i.sym("voteop")
         )
         if v is None:
@@ -209,9 +214,12 @@ class ThreadOps:
             raise Unsupported(f"mesh ISBEWR.{i.sym('sz')} [{off:#x}]")
         return f"{{ uint ib = {addr} - 4u; if (ib < MESH_PRIMS * 3u) mib[ib] = {reg(b)} & 0xffu; }}"
 
-    def exit(self) -> str:
+    def exit(self, i: Insn) -> str:
         if self.stage != "ps":
-            return "return;"
+            # a predicated EXIT of a program with BAR (Builder.zombie): the lane goes on as exited; the unconditional
+            # one at the end still returns, as every lane reaching it does
+            predicated = i.v("Pg", PT) != PT or i.v("Pg@not", 0)
+            return "exited = true;" if self.zombie and predicated else "return;"
         # Each target with any component takes four registers, component c in base + c, written or not (Ryujinx
         # EmitterContext.PrepareForReturn, MIT; eden-nx2 exit_program.cpp): packing the written ones read the wrong
         # register in 117 FS with a partial mask (4617398a, omap 0b1001: w in R3, was R1).
