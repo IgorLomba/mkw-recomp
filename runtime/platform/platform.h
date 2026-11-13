@@ -383,7 +383,7 @@ const char *plat_user_locale(void);
 uint32_t plat_thread_id(void);                            // id of the calling thread, for unique file names
 // The host's time zone as an IANA name ("Europe/Madrid") into out; 0 when the system gives none.
 int plat_time_zone(char *out, size_t cap);
-// A system font file with the glyphs of a catalog language ("ja", "ko", "zh-Hans", "zh-Hant"): the menu shows each
+// A system font file with the glyphs of a language ("ja", "ko", "zh-Hans", "zh-Hant", "th"): the menu shows each
 // language's name in its own script. Copies the UTF-8 path into out; 0 when the system has none.
 int plat_font_path(const char *lang, char *out, size_t cap);
 // The operating system and its build ("Windows 10.0.28000") into out; 0 when unknown.

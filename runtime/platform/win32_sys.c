@@ -507,6 +507,7 @@ int plat_font_path(const char *lang, char *out, size_t cap) {
         {"ko", {L"malgun.ttf", L"gulim.ttc", NULL}},
         {"zh-Hans", {L"msyh.ttc", L"simsun.ttc", NULL}},
         {"zh-Hant", {L"msjh.ttc", L"mingliu.ttc", NULL}},
+        {"th", {L"LeelawUI.ttf", L"tahoma.ttf", NULL}},
     };
     wchar_t dir[MAX_PATH], w[WPATH];
     UINT n = GetWindowsDirectoryW(dir, MAX_PATH);

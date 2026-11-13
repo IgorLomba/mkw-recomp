@@ -517,6 +517,17 @@ void fs_trace(const char *what, const char *path) {
 
 uint64_t romfs_file_count(void) { return file_count; }
 
+// Mals/<region><lang>/...: the game's own texts of a language (USen, EUpl, a Thai folder since 1.7.0), by its two
+// lowercase letters; the index is sorted, so the folder run starts at the first "Mals/" row.
+int romfs_has_language(const char *lang) {
+    for (uint64_t i = lower("Mals/"); i < file_count; i++) {
+        const char *n = entry_name(entry(i));
+        if (strncmp(n, "Mals/", 5)) break;
+        if (strlen(n) > 10 && n[9] == '/' && !strncmp(n + 7, lang, 2)) return 1;
+    }
+    return 0;
+}
+
 const char *romfs_entry(uint64_t i, uint64_t *offset, uint64_t *size) {
     if (i >= file_count) return NULL;
     Entry e = entry(i);

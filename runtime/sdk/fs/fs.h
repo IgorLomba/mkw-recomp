@@ -38,6 +38,7 @@ uint32_t romfs_entry_type(int *out, const char *path);
 // stops). FS_R_PATH_NOT_FOUND when nothing lies under it.
 uint32_t romfs_list(const char *path, int (*add)(const char *name, int is_dir, uint64_t size, void *ctx), void *ctx);
 uint64_t romfs_file_count(void);                           // files in the index (fs_init first)
+int romfs_has_language(const char *lang);                  // the index has Mals/<region><lang>/ ("pl", "th"): 1.5.0 and 1.7.0
 // ---- romfs_res.c
 const char *romfs_resolution_overlay(void);   // MKW_RESOLUTION's overlay, NULL for the game's own
 void romfs_resolution_external(void);         // the overlay came from MKW_ROMFS_PATCHES instead

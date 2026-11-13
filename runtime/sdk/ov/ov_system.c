@@ -83,6 +83,8 @@ static const char *switch_language(const char *tag) {
     if (!strcmp(lang, "es")) return *region && strcmp(region, "ES") ? "es-419" : "es";
     // Spain's other languages, which the game does not ship: its Spanish (the menu has their own rows)
     if (!strcmp(lang, "ca") || !strcmp(lang, "gl") || !strcmp(lang, "eu")) return "es";
+    // Languages later updates added (Polish 1.5.0, Thai 1.7.0): only when this copy of the game has their texts
+    if ((!strcmp(lang, "pl") || !strcmp(lang, "th")) && romfs_has_language(lang)) return !strcmp(lang, "pl") ? "pl" : "th";
     if (!strcmp(lang, "zh"))
         return !strcmp(script, "Hant") || !strcmp(region, "TW") || !strcmp(region, "HK") || !strcmp(region, "MO")
                    ? "zh-Hant" : "zh-Hans";
@@ -125,7 +127,7 @@ const char *ov_text_language(void) {
 // The game's language as a Switch language code (MKW_LANG, else MKW_LOCALE, else the Windows user locale).
 const char *ov_language(void) {
     static const char *const codes[] = {"ja", "en-US", "fr", "de", "it", "es", "zh-CN", "ko", "nl", "pt", "ru",
-                                        "zh-TW", "en-GB", "fr-CA", "es-419", "zh-Hans", "zh-Hant", "pt-BR"};
+                                        "zh-TW", "en-GB", "fr-CA", "es-419", "zh-Hans", "zh-Hant", "pt-BR", "pl", "th"};
     const char *code = cfg_get("MKW_LANG");   // no fixed default: MKW_LOCALE or the Windows user locale decides when unset
     if (code && *code && rebuilt_base(code)) return rebuilt_base(code);
     if (code && *code) {

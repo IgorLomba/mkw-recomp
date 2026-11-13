@@ -57,7 +57,7 @@ void menu_look_style(ImGuiStyle &s) {
 static const ImWchar kRanges[] = {0x0020, 0x017F, 0x0400, 0x052F, 0x2010, 0x2027, 0};
 static const struct { const char *lang; UiTextId name; } kCjk[] = {
     {"ja", UI_MENU_LANGNAME_JA}, {"ko", UI_MENU_LANGNAME_KO}, {"zh-Hans", UI_MENU_LANGNAME_ZH_HANS},
-    {"zh-Hant", UI_MENU_LANGNAME_ZH_HANT},
+    {"zh-Hant", UI_MENU_LANGNAME_ZH_HANT}, {"th", UI_MENU_LANGNAME_TH},
 };
 
 static const char *g_font_lang;   // the menu language the atlas was built for

@@ -117,7 +117,9 @@ typedef enum {
     // menu languages the game does not ship (its texts then in es for ca, gl, eu; in English for pl, tr, uk)
     UI_MENU_LANGNAME_ES_419, UI_MENU_LANGNAME_CA, UI_MENU_LANGNAME_GL, UI_MENU_LANGNAME_EU, UI_MENU_LANGNAME_PL,
     UI_MENU_LANGNAME_TR, UI_MENU_LANGNAME_UK,
-    UI_MENU_LANGNAME_LAST = UI_MENU_LANGNAME_UK,
+    // game language added by update 1.7.0 (Polish came in 1.5.0): offered when the RomFS ships its Mals folder
+    UI_MENU_LANGNAME_TH,
+    UI_MENU_LANGNAME_LAST = UI_MENU_LANGNAME_TH,
 
     // Advanced
     UI_MENU_ADV_WARNING,

@@ -12,7 +12,8 @@
     [UI_MENU_LANGNAME_ZH_HANS] = "简体中文", [UI_MENU_LANGNAME_ZH_HANT] = "繁體中文", [UI_MENU_LANGNAME_KO] = "한국어", \
     [UI_MENU_LANGNAME_ES_419] = "Español (Latinoamérica)", [UI_MENU_LANGNAME_CA] = "Català", \
     [UI_MENU_LANGNAME_GL] = "Galego", [UI_MENU_LANGNAME_EU] = "Euskara", [UI_MENU_LANGNAME_PL] = "Polski", \
-    [UI_MENU_LANGNAME_TR] = "Türkçe", [UI_MENU_LANGNAME_UK] = "Українська"
+    [UI_MENU_LANGNAME_TR] = "Türkçe", [UI_MENU_LANGNAME_UK] = "Українська", \
+    [UI_MENU_LANGNAME_TH] = "ไทย"
 
 extern const char *const text_en[UI_TEXT_COUNT], *const text_ru[UI_TEXT_COUNT], *const text_es[UI_TEXT_COUNT],
     *const text_ja[UI_TEXT_COUNT], *const text_fr[UI_TEXT_COUNT], *const text_de[UI_TEXT_COUNT],

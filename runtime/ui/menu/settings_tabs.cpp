@@ -14,6 +14,7 @@
 
 extern "C" {
 #include "cfg.h"
+#include "fs.h"
 #include "input.h"
 #include "input_map.h"
 #include "platform/platform.h"
@@ -100,19 +101,27 @@ static void row_game_lang(void) {
         {"zh-CN", UI_MENU_LANGNAME_ZH_HANS}, {"zh-TW", UI_MENU_LANGNAME_ZH_HANT}, {"ko", UI_MENU_LANGNAME_KO},
         // ours, rebuilt over the game's Spanish (tools/i18n/game_texts.py)
         {"ca", UI_MENU_LANGNAME_CA}, {"gl", UI_MENU_LANGNAME_GL}, {"eu", UI_MENU_LANGNAME_EU},
+        // added by updates (Polish 1.5.0, Thai 1.7.0): listed only when this copy of the game ships them
+        {"pl", UI_MENU_LANGNAME_PL}, {"th", UI_MENU_LANGNAME_TH},
     };
-    enum { N = sizeof langs / sizeof *langs + 1 };
-    const char *vals[N], *names[N];
+    int n_langs = 0;
+    for (const auto &l : langs)
+        if ((strcmp(l.code, "pl") && strcmp(l.code, "th")) || romfs_has_language(l.code)) n_langs++;
+    const int N = n_langs + 1;
+    const char *vals[sizeof langs / sizeof *langs + 1], *names[sizeof langs / sizeof *langs + 1];
     vals[0] = "";
     names[0] = menu_text(UI_MENU_GAME_LANG_AUTO);
     const char *now = cfg_value("MKW_LANG");
     int cur = *now ? -1 : 0;
     // Prefer a dedicated row over a shared UI catalog. Aliases such as en-GB still show their language.
-    for (int i = 1; i < N; i++) {
-        vals[i] = langs[i - 1].code;
-        names[i] = menu_text(langs[i - 1].name);
+    int i = 1;
+    for (const auto &l : langs) {
+        if ((!strcmp(l.code, "pl") || !strcmp(l.code, "th")) && !romfs_has_language(l.code)) continue;
+        vals[i] = l.code;
+        names[i] = menu_text(l.name);
         if (!strcmp(now, vals[i])) cur = i;
         else if (cur < 0 && !strcmp(ui_text_lang(now), ui_text_lang(vals[i]))) cur = i;
+        i++;
     }
     opt_choice_list("MKW_LANG", UI_MENU_GAME_LANG, vals, names, N, UI_MENU_GAME_LANG_DESC, cur);
 }

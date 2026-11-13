@@ -8,6 +8,9 @@ its issue, #N), `### Tested` (what was run from the packages before publishing) 
 
 ### Changes
 
+- **Polish and Thai in the game** (discussion #193): the languages the game's own updates added (Polish in 1.5.0, Thai
+  in 1.7.0) are listed in Settings > Game > Language when the dump has them (1.8.0), and a system set to one of them
+  picks it; a 1.0.0 dump stays as before.
 - Settings > Sound > Mute in background: no sound while the game window is not in front (off by default).
 - Settings > Controls > Stick dead zone (8 % by default): round instead of per axis, and the tilt past it starts from
   zero, so small moves just outside it are no longer lost; raise it if the kart drifts with the stick at rest.

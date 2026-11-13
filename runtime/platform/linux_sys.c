@@ -117,6 +117,19 @@ int plat_font_path(const char *lang, char *out, size_t cap) {
         "/usr/share/fonts/noto/NotoSansCJK-Regular.ttc",
         "/usr/share/fonts/truetype/noto/NotoSansCJK-Regular.ttc",
     };
+    // Thai is not in the CJK collection: Noto Sans Thai (the variable font or the static one), then Tahoma-compatible
+    static const char *thai[] = {
+        "/usr/share/fonts/noto/NotoSansThai-Regular.ttf",
+        "/usr/share/fonts/noto/NotoSansThai[wdth,wght].ttf",
+        "/usr/share/fonts/truetype/noto/NotoSansThai-Regular.ttf",
+        "/usr/share/fonts/google-noto/NotoSansThai-Regular.ttf",
+        "/usr/share/fonts/opentype/noto/NotoSansThai-Regular.otf",
+    };
+    if (!strcmp(lang, "th")) {
+        for (size_t i = 0; i < sizeof thai / sizeof *thai; i++)
+            if (plat_file_exists(thai[i])) return snprintf(out, cap, "%s", thai[i]) < (int)cap;
+        return 0;
+    }
     if (strcmp(lang, "ja") && strcmp(lang, "ko") && strcmp(lang, "zh-Hans") && strcmp(lang, "zh-Hant")) return 0;
     for (size_t i = 0; i < sizeof files / sizeof *files; i++)
         if (plat_file_exists(files[i])) return snprintf(out, cap, "%s", files[i]) < (int)cap;
