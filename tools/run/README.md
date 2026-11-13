@@ -5,7 +5,7 @@ through `job.sh`.
 
 | Script | What it does | Usage |
 |---|---|---|
-| `job.sh` | Runs a heavy command (a game run, a replay) through the host's job runner when there is one (`JOB_RUNNER`, memory cap and one at a time), else a systemd user unit capped at `JOB_MEM` without swap, else directly | `tools/run/job.sh run\|start NAME CMD...` |
+| `job.sh` | Runs a heavy command (a game run, a replay) through the host's job runner when there is one (`JOB_RUNNER`, or `job-runner` on PATH: memory cap and one at a time), else a systemd user unit capped at `JOB_MEM` without swap, else directly | `tools/run/job.sh run\|start NAME CMD...` |
 | `watch.sh` | Follows a run's log and prints the lines matching a pattern, plus FATAL and guard stops; exits when the run ends (the command of a Monitor) | `tools/run/watch.sh NAME [PATTERN]` |
 | `live.sh` | A run that stays alive to be inspected through its control FIFO (`MKW_CTL`, `runtime/core/base/ctl.c`), with the race runs' settings | `tools/run/live.sh NAME [SECONDS]` |
 | `lan2.sh` | Two `live.sh`-style runs on one PC for LAN play (`MKW_LAN=1`), each in its own network namespace inside a user namespace (no root), joined by a veth pair: A at 10.77.0.1, B at 10.77.0.2, B with its profile copy `build/profile-b`; one job unit caps the pair (`JOB_MEM`, 14G) | `tools/run/lan2.sh NAME [SECONDS]`, then `ctl.sh NAME-a`/`NAME-b ...`, `ctl.sh NAME stop` |
