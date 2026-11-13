@@ -275,7 +275,10 @@ def main() -> int:
     b.add_argument("-o", "--out", type=Path)
     sub.add_parser("list", help="the folders the game has")
     args = ap.parse_args()
-    mals = game_dir() / "romfs" / "Mals"
+    # a packed copy (game/romfs a .nup): its Mals/ unpacked once under build/ (~200 MB)
+    sys.path.insert(0, str(ROOT / "tools/prepare"))
+    from nup import romfs_dir
+    mals = romfs_dir(game_dir() / "romfs", "Mals", ROOT / "build/romfs-mals" / game_dir().resolve().name) / "Mals"
     if args.cmd == "list":
         print(" ".join(sorted(p.name for p in mals.iterdir() if p.is_dir())))
     elif args.cmd == "dump":
@@ -291,7 +294,7 @@ def main() -> int:
         done = read_translation(args.lang) if path.exists() else {}
         sys.stdout.write("".join(f"{k}\t{v}\n" for k, v in folder_lines(mals / BASE[args.lang], True) if k not in done))
     else:
-        build(args.lang, args.out or ROOT / "build" / "lang" / args.lang)
+        build(args.lang, args.out or ROOT / "build" / "lang" / args.lang, mals.parent)
     return 0
 
 

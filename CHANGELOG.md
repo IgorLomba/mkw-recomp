@@ -31,6 +31,7 @@ its issue, #N), `### Tested` (what was run from the packages before publishing) 
   console, instead of leaving the rest of its group waiting for it forever.
 - Images whose usages the driver refuses together are created without the optional ones (#174: an `R8G8_UNORM` image
   on Intel's Linux driver was made with a combination it does not support).
+- The setup also takes a folder with a loose `exefs/` and `romfs` as a `.nup` package (or a link to one).
 - NVIDIA's shader tools are downloaded again when they arrive cut or damaged (#207), and if they keep arriving damaged
   the setup says so (an antivirus, proxy, VPN or unstable connection) instead of only showing two checksums.
 

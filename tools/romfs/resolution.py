@@ -26,7 +26,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools/shaders"))
+sys.path.insert(0, str(ROOT / "tools/prepare"))
 from extract import sarc_members
+from nup import romfs_read
 
 ARCHIVE = "System/GymlArchive/general_format.Product_100.sarc.zs"
 SCENE_SCALE = 0.65  # rendered scene lines / For3D lines (measured: 464 of 720, 932 of 1440)
@@ -68,7 +70,7 @@ def main() -> None:
     args = ap.parse_args()
     if args.r3d_internal:
         args.r3d = math.ceil(args.r3d_internal / SCENE_SCALE)
-    orig = (args.romfs / ARCHIVE).read_bytes()
+    orig = romfs_read(args.romfs, ARCHIVE)
     sarc = bytearray(zstd.decompress(orig))
     member = sarc_members(bytes(sarc))[MEMBER]
     at = bytes(sarc).index(member)

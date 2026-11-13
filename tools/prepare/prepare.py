@@ -120,7 +120,8 @@ def find_game(src: Path) -> tuple[Path, Path]:
         raise Failed(f"{src} is not a .nup or .nx package", "nogame", str(src))
     for depth in range(3):
         for d in [src, *src.glob("/".join(["*"] * depth))] if depth else [src]:
-            if (d / "exefs/main").is_file() and (d / "romfs").is_dir():
+            # romfs/ loose, or a .nup (or a link to one) next to a loose exefs/: a packed copy with its exefs for tools
+            if (d / "exefs/main").is_file() and ((d / "romfs").is_dir() or is_nup(d / "romfs")):
                 return d / "exefs", d / "romfs"
     raise Failed(f"no exefs/main and romfs/ in {src}", "nogame", str(src))
 

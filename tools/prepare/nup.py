@@ -5,6 +5,9 @@ them in place, and the runtime reads the RomFS from one too (runtime/sdk/fs/nup.
 
 Usage: uv run tools/prepare/nup.py list GAME.nup
        uv run tools/prepare/nup.py extract GAME.nup DIR [--part exefs|romfs]   (DIR/exefs, DIR/romfs)
+       uv run tools/prepare/nup.py pack DIR GAME.nup --title 0400C3F00006E000 [--version 0]
+            DIR/exefs and DIR/romfs into one package, stored raw (no zstd, so the runtime reads the RomFS in place):
+            one file instead of ~206 000 for a dump kept loose (Adrià 13/11/2026)
 As a module: Nup(path).files("romfs") -> {path: Entry}, .read(entry) -> bytes, .extract("exefs", dir).
 """
 
@@ -100,9 +103,10 @@ class Nup:
             raise ValueError(f"{self.path}: a file at {e.offset:#x} has {len(data)} bytes, its table says {e.size}")
         return data
 
-    def extract(self, part: str, dst: Path, progress=None) -> None:
-        """The part's files into dst; files already there with the right size are kept (resume). progress(done, total)."""
-        files = self.files(part)
+    def extract(self, part: str, dst: Path, progress=None, prefix: str = "") -> None:
+        """The part's files (those under prefix) into dst; files already there with the right size are kept (resume).
+        progress(done, total)."""
+        files = {k: e for k, e in self.files(part).items() if k.startswith(prefix)}
         with open(self.path, "rb") as f:
             for n, (name, e) in enumerate(files.items(), 1):
                 out = Path(dst, name)
@@ -126,6 +130,91 @@ class Nup:
                     progress(n, len(files))
 
 
+def romfs_read(romfs: Path, rel: str) -> bytes:
+    """One RomFS file of a game copy whose romfs is a folder or a .nup (game/romfs links to the package since the
+    copies were packed, 13/11/2026)."""
+    if not is_nup(romfs):
+        return (romfs / rel).read_bytes()
+    n = Nup(romfs)
+    return n.read(n.files("romfs")[rel])
+
+
+def romfs_dir(romfs: Path, sub: str, cache: Path) -> Path:
+    """romfs as a folder holding sub: itself when loose, else sub unpacked from the package once into cache/sub."""
+    if not is_nup(romfs):
+        return romfs
+    Nup(romfs).extract("romfs", cache, prefix=sub.rstrip("/") + "/")
+    return cache
+
+
+def pack(src: Path, dst: Path, title_id: int, version: int, progress=None) -> None:
+    """src/exefs and src/romfs into dst as a package both readers take (this module and runtime/sdk/fs/nup.c), laid out
+    as a dumped one: a 0x80-byte header, the TOC at 0x80 (its offset is a u32, so before the data), the dirs breadth
+    first from the root (""), exefs and romfs, each dir's children contiguous. Files raw; the 32-byte hash is left zero
+    (neither reader checks it). Written to dst.part, renamed when whole."""
+    dirs: list[tuple[str, Path]] = [("", src), ("exefs", src / "exefs"), ("romfs", src / "romfs")]
+    files: list[Path] = []
+    kids: list[list[tuple[str, int]]] = []  # per dir: ("d" | "f", index)
+    for d, (_, path) in enumerate(dirs):
+        if d == 0:
+            kids.append([("d", 1), ("d", 2)])
+            continue
+        entries = sorted(path.iterdir(), key=lambda p: p.name)
+        mine = []
+        for p in entries:
+            if p.is_dir():
+                dirs.append((p.name, p))
+                mine.append(("d", len(dirs) - 1))
+        for p in entries:
+            if p.is_file():
+                files.append(p)
+                mine.append(("f", len(files) - 1))
+        kids.append(mine)
+    pool = bytearray()
+
+    def name(s: str) -> tuple[int, int]:
+        b = s.encode("utf-8")
+        pool.extend(b)
+        return len(pool) - len(b), len(b)
+
+    nd, nf, nchild = len(dirs), len(files), sum(len(k) for k in kids)
+    dir_names = [name(n) for n, _ in dirs]
+    file_names = [name(p.name) for p in files]
+    pool_off = 0x30 + 0x40 + nd * 24 + nf * 80 + nchild * 4
+    toc_size = pool_off + len(pool)
+    data = (0x80 + toc_size + 0xFFF) & ~0xFFF
+    offsets, at = [], data
+    for p in files:
+        offsets.append(at)
+        at = (at + p.stat().st_size + 15) & ~15
+    toc = bytearray(b"TOC\x01")
+    toc = (toc + struct.pack("<IQQQQ", 1, nd, nf, pool_off, len(pool))).ljust(0x30, b"\0")
+    toc += struct.pack("<QIIII", title_id, 0, 1, 2, version).ljust(0x40, b"\0")
+    first = 0
+    for (off, n), k in zip(dir_names, kids, strict=True):
+        toc += struct.pack("<4I8x", off, n, first, len(k))
+        first += len(k)
+    for (off, n), p, at_ in zip(file_names, files, offsets, strict=True):
+        size = p.stat().st_size
+        toc += struct.pack("<IIQQQ", off, n, size, at_, size) + bytes(32) + b"\0" * 16
+    for k in kids:
+        toc += b"".join(struct.pack("<I", i if kind == "d" else nd + i) for kind, i in k)
+    toc += pool
+    part = dst.with_name(dst.name + ".part")
+    with open(part, "wb") as o:
+        o.write((MAGIC + struct.pack("<II", 0x10080, 0x80) + struct.pack("<Q", toc_size)).ljust(0x80, b"\0"))
+        o.write(toc)
+        for n, (p, at_) in enumerate(zip(files, offsets, strict=True), 1):
+            o.seek(at_)
+            with open(p, "rb") as f:
+                while buf := f.read(CHUNK):
+                    o.write(buf)
+            if progress and (n % 2000 == 0 or n == nf):
+                progress(n, nf)
+        o.truncate(at)
+    part.replace(dst)
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -134,7 +223,16 @@ def main() -> None:
     ex.add_argument("nup", type=Path)
     ex.add_argument("out", type=Path)
     ex.add_argument("--part", choices=("exefs", "romfs"), action="append")
+    pk = sub.add_parser("pack")
+    pk.add_argument("src", type=Path)
+    pk.add_argument("out", type=Path)
+    pk.add_argument("--title", required=True, help="title id, hex (Mario Kart World: 0400C3F00006E000)")
+    pk.add_argument("--version", type=int, default=0, help="title version (1.0.0: 0; 1.8.0: 917504)")
     a = ap.parse_args()
+    if a.cmd == "pack":
+        pack(a.src, a.out, int(a.title, 16), a.version, lambda d, t: print(f"  {d}/{t}", end="\r", file=sys.stderr))
+        print(f"{a.out}: done{' ' * 20}")
+        return
     n = Nup(a.nup)
     print(f"title {n.title_id} v{n.version}: {len(n.files('exefs'))} exefs and {len(n.files('romfs'))} romfs files")
     if a.cmd == "extract":

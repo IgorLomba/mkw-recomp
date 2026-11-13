@@ -148,3 +148,21 @@ def test_fetch_retries_damaged_downloads(tmp_path: Path, monkeypatch: pytest.Mon
     (tmp_path / "pkg.zip").unlink()
     with pytest.raises(SystemExit, match="arrived damaged 3 times"):
         spec.fetch("x/pkg.zip", want, tmp_path)
+
+
+def test_nup_pack_reads_back(tmp_path: Path) -> None:
+    # a loose dump packed into one .nup (nup.py pack) reads back the same through the module the setup uses
+    sys.path.insert(0, str(ROOT / "tools/prepare"))
+    import nup
+
+    src = tmp_path / ODD
+    files = {"exefs/main": b"NSO0" + bytes(100), "romfs/a.bin": b"x" * 5000, "romfs/Sub Dir/b": b"yz", "romfs/c": b""}
+    for name, data in files.items():
+        (src / name).parent.mkdir(parents=True, exist_ok=True)
+        (src / name).write_bytes(data)
+    out = tmp_path / "g.nup"
+    nup.pack(src, out, 0x0400C3F00006E000, 0)
+    n = nup.Nup(out)
+    assert n.title_id == "0400C3F00006E000" and n.version == 0
+    got = {f"{part}/{k}": n.read(e) for part in ("exefs", "romfs") for k, e in n.files(part).items()}
+    assert got == files
