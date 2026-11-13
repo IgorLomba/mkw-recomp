@@ -1,0 +1,1825 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: mkw-recomp\nLanguage: th\nMIME-Version: 1.0\nContent-Type: text/plain; "
+"charset=UTF-8\nContent-Transfer-Encoding: 8bit\n"
+
+#. The software keyboard's starting text: at most 9 UTF-16 units, no '@' '%' '\'.
+msgctxt "UI_SWKBD_DEFAULT_NAME"
+msgid "Player"
+msgstr "ผู้เล่น"
+
+msgctxt "UI_MENU_TITLE"
+msgid "Settings"
+msgstr "การตั้งค่า"
+
+msgctxt "UI_MENU_TAB_SCREEN"
+msgid "Screen"
+msgstr "หน้าจอ"
+
+msgctxt "UI_MENU_TAB_GAME"
+msgid "Game"
+msgstr "เกม"
+
+msgctxt "UI_MENU_TAB_SOUND"
+msgid "Sound"
+msgstr "เสียง"
+
+msgctxt "UI_MENU_TAB_CONTROLS"
+msgid "Controls"
+msgstr "การควบคุม"
+
+msgctxt "UI_MENU_TAB_MENU"
+msgid "Menu"
+msgstr "เมนู"
+
+msgctxt "UI_MENU_TAB_ADVANCED"
+msgid "Advanced"
+msgstr "ขั้นสูง"
+
+msgctxt "UI_MENU_TAB_GRAPHICS"
+msgid "Graphics"
+msgstr "กราฟิก"
+
+msgctxt "UI_MENU_TAB_HACKS"
+msgid "Hacks"
+msgstr "แฮ็ก"
+
+msgctxt "UI_MENU_HACKS_WARNING"
+msgid ""
+"Experimental: shortcuts the console does not have, for playing and testing faster. They can "
+"change how the game behaves."
+msgstr "ทดลอง: ทางลัดที่เครื่องคอนโซลไม่มี ไว้เล่นและทดสอบให้เร็วขึ้น อาจเปลี่ยนการทำงานของเกม"
+
+msgctxt "UI_MENU_TURBO"
+msgid "Turbo"
+msgstr "เทอร์โบ"
+
+msgctxt "UI_MENU_TURBO_DESC"
+msgid ""
+"The whole game runs faster: menus, movies, loads and races. Hold or press F2. The screen shows at "
+"most 60 frames a second."
+msgstr "ทั้งเกมทำงานเร็วขึ้น: เมนู ภาพยนตร์ การโหลด และการแข่ง กดค้างหรือกด F2 หน้าจอแสดงสูงสุด 60 เฟรมต่อวินาที"
+
+msgctxt "UI_MENU_TURBO_HOLD"
+msgid "Hold F2"
+msgstr "กดค้าง F2"
+
+msgctxt "UI_MENU_TURBO_TOGGLE"
+msgid "F2 on/off"
+msgstr "F2 เปิด/ปิด"
+
+msgctxt "UI_MENU_TURBO_SPEED"
+msgid "Turbo speed"
+msgstr "ความเร็วเทอร์โบ"
+
+msgctxt "UI_MENU_TURBO_SPEED_DESC"
+msgid "How many times faster. A slow PC may not reach it."
+msgstr "เร็วขึ้นกี่เท่า พีซีที่ช้าอาจไปไม่ถึง"
+
+msgctxt "UI_MENU_SKIP_MOVIES"
+msgid "Skip movies"
+msgstr "ข้ามภาพยนตร์"
+
+msgctxt "UI_MENU_SKIP_MOVIES_DESC"
+msgid "Skips the cup and course openings as soon as they start."
+msgstr "ข้ามฉากเปิดของคัพและสนามทันทีที่เริ่ม"
+
+msgctxt "UI_MENU_SEED"
+msgid "Same randomness every time"
+msgstr "สุ่มเหมือนเดิมทุกครั้ง"
+
+msgctxt "UI_MENU_SEED_DESC"
+msgid ""
+"The game draws the same random numbers in every session: the same title course, the same items. "
+"For testing."
+msgstr "เกมสุ่มตัวเลขชุดเดิมในทุกเซสชัน: สนามหน้าไตเติลเดิม ไอเทมเดิม สำหรับการทดสอบ"
+
+msgctxt "UI_MENU_FREEZE_KEYS"
+msgid "Freeze keys"
+msgstr "ปุ่มหยุดภาพ"
+
+msgctxt "UI_MENU_FREEZE_KEYS_DESC"
+msgid ""
+"F3 stops the game on the frame on screen and starts it again; F4 moves it on by one frame. To "
+"look at a moment closely."
+msgstr "F3 หยุดเกมที่เฟรมบนหน้าจอและเล่นต่อ F4 เดินหน้าทีละหนึ่งเฟรม ไว้ดูช่วงเวลาใกล้ ๆ"
+
+msgctxt "UI_MENU_UNLOCK_ALL"
+msgid "Unlock everything"
+msgstr "ปลดล็อกทั้งหมด"
+
+msgctxt "UI_MENU_UNLOCK_ALL_DESC"
+msgid ""
+"Every driver and outfit, vehicle and sticker, and the Special Cup. It goes into your save when "
+"the game saves: turning it off does not lock them again."
+msgstr "ตัวละครและชุดทุกแบบ ยานพาหนะและสติกเกอร์ และสเปเชียลคัพ จะถูกบันทึกลงเซฟเมื่อเกมบันทึก: ปิดตัวเลือกนี้แล้วจะไม่ล็อกกลับ"
+
+msgctxt "UI_MENU_QUICK_RACE"
+msgid "Straight to"
+msgstr "ไปที่"
+
+msgctxt "UI_MENU_QUICK_RACE_DESC"
+msgid ""
+"Goes through the menus by itself at start. Time trial: Mario, standard kart and the course the "
+"game offers (always the same with «Same randomness every time»), no rivals. Free roam: the open "
+"world. The controller still works."
+msgstr "ผ่านเมนูเองตอนเริ่ม ไทม์ไทรอัล: มาริโอ คาร์ทมาตรฐาน และสนามที่เกมเสนอ (เหมือนเดิมเสมอเมื่อเปิด «สุ่มเหมือนเดิมทุกครั้ง») ไม่มีคู่แข่ง ท่องโลกอิสระ: โลกเปิด ยังใช้จอยได้ตามปกติ"
+
+msgctxt "UI_MENU_QUICK_RACE_TT"
+msgid "Time trial"
+msgstr "ไทม์ไทรอัล"
+
+msgctxt "UI_MENU_QUICK_RACE_FREE"
+msgid "Free roam"
+msgstr "ท่องโลกอิสระ"
+
+msgctxt "UI_MENU_ANISO"
+msgid "Texture filtering"
+msgstr "การกรองพื้นผิว"
+
+msgctxt "UI_MENU_ANISO_DESC"
+msgid ""
+"Sharpness of textures seen far away or at a low angle, such as the road ahead. Game uses what "
+"each texture asks for. Impact on frame rate: low."
+msgstr "ความคมของพื้นผิวที่อยู่ไกลหรือมองในมุมต่ำ เช่นถนนข้างหน้า เกมใช้ค่าที่พื้นผิวแต่ละอันขอ ผลต่อเฟรมเรต: น้อย"
+
+msgctxt "UI_MENU_ANISO_GAME"
+msgid "Game"
+msgstr "เกม"
+
+msgctxt "UI_MENU_TEX_QUALITY"
+msgid "Texture quality"
+msgstr "คุณภาพพื้นผิว"
+
+msgctxt "UI_MENU_TEX_QUALITY_DESC"
+msgid ""
+"Detail of the game's own textures. Half and Quarter skip their finest levels: less memory traffic "
+"on the graphics card, blurrier surfaces up close. Impact on frame rate: low."
+msgstr "ความละเอียดของพื้นผิวในเกม ครึ่งและหนึ่งในสี่ข้ามระดับที่ละเอียดที่สุด: ใช้แบนด์วิดท์หน่วยความจำการ์ดจอน้อยลง แต่พื้นผิวใกล้ ๆ เบลอลง ผลต่อเฟรมเรต: น้อย"
+
+msgctxt "UI_MENU_TEX_QUALITY_FULL"
+msgid "Full"
+msgstr "เต็ม"
+
+msgctxt "UI_MENU_TEX_QUALITY_HALF"
+msgid "Half"
+msgstr "ครึ่ง"
+
+msgctxt "UI_MENU_TEX_QUALITY_QUARTER"
+msgid "Quarter"
+msgstr "หนึ่งในสี่"
+
+msgctxt "UI_MENU_DETAIL"
+msgid "Detail distance"
+msgstr "ระยะรายละเอียด"
+
+msgctxt "UI_MENU_DETAIL_DESC"
+msgid ""
+"How far objects keep their detailed models before switching to simpler ones. Console is the "
+"Switch 2's. Impact on frame rate: low."
+msgstr "วัตถุคงโมเดลละเอียดไว้ไกลแค่ไหนก่อนเปลี่ยนเป็นโมเดลที่ง่ายกว่า คอนโซลคือค่าของ Switch 2 ผลต่อเฟรมเรต: น้อย"
+
+msgctxt "UI_MENU_DETAIL_LOW"
+msgid "Low"
+msgstr "ต่ำ"
+
+msgctxt "UI_MENU_DETAIL_MEDIUM"
+msgid "Medium"
+msgstr "ปานกลาง"
+
+msgctxt "UI_MENU_DETAIL_CONSOLE"
+msgid "Console"
+msgstr "คอนโซล"
+
+msgctxt "UI_MENU_DETAIL_HIGH"
+msgid "High"
+msgstr "สูง"
+
+msgctxt "UI_MENU_DETAIL_ULTRA"
+msgid "Very high"
+msgstr "สูงมาก"
+
+msgctxt "UI_MENU_SHADOW"
+msgid "Shadow quality"
+msgstr "คุณภาพเงา"
+
+msgctxt "UI_MENU_SHADOW_DESC"
+msgid ""
+"Size of the map the game draws shadows from. Smaller is lighter for the graphics card, with "
+"blurrier shadow edges. Console is 3072 docked and 2048 handheld. Impact on frame rate: low."
+msgstr "ขนาดแผนที่ที่เกมใช้วาดเงา เล็กลงเบากว่าสำหรับการ์ดจอ แต่ขอบเงาเบลอลง ค่าคอนโซลคือ 3072 เมื่อเสียบแท่นและ 2048 เมื่อเล่นพกพา ผลต่อเฟรมเรต: น้อย"
+
+msgctxt "UI_MENU_CONTINUE"
+msgid "Continue"
+msgstr "เล่นต่อ"
+
+msgctxt "UI_MENU_QUIT"
+msgid "Quit game"
+msgstr "ออกจากเกม"
+
+msgctxt "UI_MENU_ON"
+msgid "On"
+msgstr "เปิด"
+
+msgctxt "UI_MENU_OFF"
+msgid "Off"
+msgstr "ปิด"
+
+msgctxt "UI_MENU_AUTO"
+msgid "Automatic"
+msgstr "อัตโนมัติ"
+
+msgctxt "UI_MENU_DEFAULT_MARK"
+msgid "default"
+msgstr "ค่าเริ่มต้น"
+
+msgctxt "UI_MENU_AFTER_RESTART"
+msgid "after restart"
+msgstr "หลังรีสตาร์ต"
+
+msgctxt "UI_MENU_SET_BY_ENV"
+msgid "set by environment variable"
+msgstr "ตั้งโดยตัวแปรสภาพแวดล้อม"
+
+msgctxt "UI_MENU_SAVE_FAILED"
+msgid "could not save settings"
+msgstr "บันทึกการตั้งค่าไม่ได้"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_VERSION"
+msgid "MKW Recomp %s, game %s"
+msgstr "MKW Recomp %s, เกม %s"
+
+msgctxt "UI_MENU_FULLSCREEN"
+msgid "Fullscreen"
+msgstr "เต็มจอ"
+
+msgctxt "UI_MENU_FULLSCREEN_DESC"
+msgid "Fills the screen with the game; F11 toggles it."
+msgstr "แสดงเกมเต็มหน้าจอ กด F11 เพื่อสลับ"
+
+msgctxt "UI_MENU_WINDOW_SIZE"
+msgid "Window size"
+msgstr "ขนาดหน้าต่าง"
+
+msgctxt "UI_MENU_WINDOW_SIZE_DESC"
+msgid "Size of the game window when not fullscreen."
+msgstr "ขนาดหน้าต่างเกมเมื่อไม่ได้เล่นเต็มจอ"
+
+msgctxt "UI_MENU_QUALITY"
+msgid "Quality"
+msgstr "คุณภาพ"
+
+msgctxt "UI_MENU_QUALITY_DESC"
+msgid ""
+"Sets the rows below at once. Console looks like the Switch 2; Low and Medium are lighter for the "
+"graphics card, High and Very high sharper. Changing a row makes it Custom. The internal "
+"resolution is what changes the frame rate most."
+msgstr "ตั้งแถวด้านล่างพร้อมกัน คอนโซลให้ภาพเหมือน Switch 2 ต่ำและปานกลางเบากว่าสำหรับการ์ดจอ สูงและสูงมากคมกว่า การเปลี่ยนแถวใดแถวหนึ่งจะเป็นกำหนดเอง ความละเอียดภายในเปลี่ยนเฟรมเรตได้มากที่สุด"
+
+msgctxt "UI_MENU_QUALITY_CUSTOM"
+msgid "Custom"
+msgstr "กำหนดเอง"
+
+msgctxt "UI_MENU_RESOLUTION"
+msgid "Internal resolution"
+msgstr "ความละเอียดภายใน"
+
+msgctxt "UI_MENU_RESOLUTION_DESC"
+msgid ""
+"Lines the game renders its scenes at, then scaled to the window. Lower is faster: 720p suits "
+"integrated graphics. Original is the console's (up to 1440p)."
+msgstr "จำนวนเส้นที่เกมเรนเดอร์ฉาก แล้วขยายให้พอดีหน้าต่าง ยิ่งต่ำยิ่งเร็ว: 720p เหมาะกับกราฟิกออนบอร์ด ต้นฉบับคือของคอนโซล (สูงสุด 1440p)"
+
+msgctxt "UI_MENU_RESOLUTION_ORIGINAL"
+msgid "Original"
+msgstr "ต้นฉบับ"
+
+msgctxt "UI_MENU_ASPECT"
+msgid "Aspect ratio"
+msgstr "อัตราส่วนภาพ"
+
+msgctxt "UI_MENU_ASPECT_DESC"
+msgid ""
+"Wider than 16:9 shows more of the course at the sides, for ultrawide screens. 16:9 is the "
+"console's; Window takes the window's or monitor's shape. Menus stay stretched for now."
+msgstr "กว้างกว่า 16:9 จะเห็นสนามด้านข้างมากขึ้น สำหรับจอ ultrawide 16:9 คือของคอนโซล หน้าต่างใช้รูปทรงของหน้าต่างหรือจอภาพ ตอนนี้เมนูยังถูกยืดอยู่"
+
+msgctxt "UI_MENU_ASPECT_WINDOW"
+msgid "Window"
+msgstr "หน้าต่าง"
+
+msgctxt "UI_MENU_PRESENT"
+msgid "Presentation"
+msgstr "การแสดงผล"
+
+msgctxt "UI_MENU_PRESENT_DESC"
+msgid "How finished frames reach the screen."
+msgstr "วิธีที่เฟรมที่เสร็จแล้วไปถึงหน้าจอ"
+
+msgctxt "UI_MENU_PRESENT_MAILBOX"
+msgid "Mailbox"
+msgstr "Mailbox"
+
+msgctxt "UI_MENU_PRESENT_VSYNC"
+msgid "VSync"
+msgstr "VSync"
+
+msgctxt "UI_MENU_PRESENT_IMMEDIATE"
+msgid "Immediate"
+msgstr "ทันที"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_PRESENT_IN_USE"
+msgid "in use: %s"
+msgstr "ใช้อยู่: %s"
+
+msgctxt "UI_MENU_GPU"
+msgid "Graphics card"
+msgstr "การ์ดจอ"
+
+msgctxt "UI_MENU_GPU_DESC"
+msgid "The Vulkan device that draws the game."
+msgstr "อุปกรณ์ Vulkan ที่วาดเกม"
+
+msgctxt "UI_MENU_GPU_AUTO"
+msgid "Automatic"
+msgstr "อัตโนมัติ"
+
+msgctxt "UI_MENU_PERF_OVERLAY"
+msgid "Performance overlay"
+msgstr "โอเวอร์เลย์ประสิทธิภาพ"
+
+msgctxt "UI_MENU_PERF_OVERLAY_DESC"
+msgid ""
+"Frame rate in the top right corner. Full adds frame times with a graph, CPU, GPU and memory load, "
+"temperatures and the render thread's waits. F10 cycles the modes."
+msgstr "แสดงเฟรมเรตที่มุมขวาบน แบบเต็มเพิ่มเวลาเฟรมพร้อมกราฟ โหลด CPU, GPU และหน่วยความจำ อุณหภูมิ และเวลารอของเธรดเรนเดอร์ F10 สลับโหมด"
+
+msgctxt "UI_MENU_PERF_OFF"
+msgid "Off"
+msgstr "ปิด"
+
+msgctxt "UI_MENU_PERF_FPS"
+msgid "FPS"
+msgstr "FPS"
+
+msgctxt "UI_MENU_PERF_FULL"
+msgid "Full"
+msgstr "เต็ม"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_PERF_LINE_FPS"
+msgid "%.0f fps"
+msgstr "%.0f fps"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_PERF_LINE_FPS_FG"
+msgid "%.0f/%.0f fps"
+msgstr "%.0f/%.0f fps"
+
+msgctxt "UI_MENU_FPS"
+msgid "Frame rate"
+msgstr "เฟรมเรต"
+
+msgctxt "UI_MENU_FPS_DESC"
+msgid ""
+"Frames per second the game aims for. Automatic is the console's: 60, or 30 when a frame takes too "
+"long. If your computer cannot hold 60, choose 30 so the race runs at its real speed."
+msgstr "จำนวนเฟรมต่อวินาทีที่เกมตั้งเป้า อัตโนมัติคือแบบคอนโซล: 60 หรือ 30 เมื่อเฟรมใช้เวลานานเกินไป ถ้าคอมพิวเตอร์ไม่ถึง 60 ให้เลือก 30 เพื่อให้การแข่งเดินด้วยความเร็วจริง"
+
+msgctxt "UI_MENU_FPS_AUTO"
+msgid "Automatic"
+msgstr "อัตโนมัติ"
+
+msgctxt "UI_MENU_FRAMEGEN"
+msgid "Frame generation"
+msgstr "การสร้างเฟรม"
+
+msgctxt "UI_MENU_FRAMEGEN_DESC"
+msgid ""
+"Shows frames made between the game's own: 2x turns 30 fps into 60. Automatic makes as many as "
+"your monitor's refresh rate has room for. Adds up to one frame of delay, and fast motion can "
+"smear. Not on the console."
+msgstr "แสดงเฟรมที่สร้างแทรกระหว่างเฟรมของเกม: 2x เปลี่ยน 30 fps เป็น 60 อัตโนมัติสร้างเท่าที่อัตรารีเฟรชของจอรับได้ เพิ่มความหน่วงได้ถึงหนึ่งเฟรม และการเคลื่อนไหวเร็วอาจเบลอ คอนโซลไม่มี"
+
+msgctxt "UI_MENU_GRAPHICS"
+msgid "Picture"
+msgstr "ภาพ"
+
+msgctxt "UI_MENU_UPSCALER"
+msgid "Scaling to the window"
+msgstr "การขยายภาพเข้าหน้าต่าง"
+
+msgctxt "UI_MENU_UPSCALER_DESC"
+msgid ""
+"How the picture is scaled when the window is larger than the game resolution. FSR keeps edges and "
+"detail sharper than bilinear."
+msgstr "วิธีขยายภาพเมื่อหน้าต่างใหญ่กว่าความละเอียดของเกม FSR คงขอบและรายละเอียดได้คมกว่า bilinear"
+
+msgctxt "UI_MENU_UPSCALER_FSR"
+msgid "AMD FSR 1"
+msgstr "AMD FSR 1"
+
+msgctxt "UI_MENU_UPSCALER_BILINEAR"
+msgid "Bilinear"
+msgstr "Bilinear"
+
+msgctxt "UI_MENU_PICTURE_FIT"
+msgid "Picture shape"
+msgstr "รูปทรงภาพ"
+
+msgctxt "UI_MENU_PICTURE_FIT_DESC"
+msgid ""
+"When the window's shape differs from the game resolution's (a 16:9 game on the Steam Deck's 16:10 "
+"screen), keep the picture's proportions with black bars, or stretch it over the whole window."
+msgstr "เมื่อรูปทรงหน้าต่างต่างจากความละเอียดของเกม (เกม 16:9 บนจอ 16:10 ของ Steam Deck) จะคงสัดส่วนภาพด้วยแถบดำ หรือยืดให้เต็มหน้าต่าง"
+
+msgctxt "UI_MENU_PICTURE_FIT_KEEP"
+msgid "Keep (bars)"
+msgstr "คงสัดส่วน (แถบดำ)"
+
+msgctxt "UI_MENU_PICTURE_FIT_STRETCH"
+msgid "Stretch"
+msgstr "ยืด"
+
+msgctxt "UI_MENU_HDR"
+msgid "HDR"
+msgstr "HDR"
+
+msgctxt "UI_MENU_HDR_DESC"
+msgid ""
+"Automatic shows the game's own HDR picture when the display is in HDR (on Windows, Settings > "
+"Display > Use HDR), as the console does; its brightness follows the system's HDR settings. Off "
+"always shows the standard picture. Applies at once."
+msgstr "อัตโนมัติจะแสดงภาพ HDR ของเกมเมื่อจอเปิด HDR อยู่ (บน Windows: การตั้งค่า > จอแสดงผล > ใช้ HDR) เหมือนคอนโซล ความสว่างเป็นไปตามการตั้งค่า HDR ของระบบ ปิดจะแสดงภาพมาตรฐานเสมอ มีผลทันที"
+
+msgctxt "UI_MENU_SHARPNESS"
+msgid "FSR sharpness"
+msgstr "ความคม FSR"
+
+msgctxt "UI_MENU_SHARPNESS_DESC"
+msgid "Sharpening after FSR scaling; 0 turns it off."
+msgstr "เพิ่มความคมหลังขยายด้วย FSR; 0 คือปิด"
+
+msgctxt "UI_MENU_GAME_LANG"
+msgid "Game language"
+msgstr "ภาษาของเกม"
+
+msgctxt "UI_MENU_GAME_LANG_DESC"
+msgid "Language of the game's text and voices."
+msgstr "ภาษาของข้อความและเสียงในเกม"
+
+msgctxt "UI_MENU_GAME_LANG_AUTO"
+msgid "Automatic"
+msgstr "อัตโนมัติ"
+
+msgctxt "UI_MENU_OPERATION_MODE"
+msgid "Console mode"
+msgstr "โหมดคอนโซล"
+
+msgctxt "UI_MENU_OPERATION_MODE_DESC"
+msgid ""
+"Whether the game thinks it runs docked or handheld. Docked, it draws the scene smaller and "
+"enlarges it with its own scaler; handheld, at the full internal resolution with smaller shadows: "
+"sharper, but more work for the graphics card."
+msgstr "ให้เกมคิดว่าตัวเองเสียบแท่นหรือเล่นพกพา เมื่อเสียบแท่นจะวาดฉากให้เล็กลงแล้วขยายด้วยตัวขยายของเกม เมื่อพกพาจะวาดที่ความละเอียดภายในเต็มพร้อมเงาที่เล็กกว่า: คมกว่า แต่การ์ดจอทำงานหนักกว่า"
+
+msgctxt "UI_MENU_MODE_DOCKED"
+msgid "Docked"
+msgstr "เสียบแท่น"
+
+msgctxt "UI_MENU_MODE_HANDHELD"
+msgid "Handheld"
+msgstr "พกพา"
+
+msgctxt "UI_MENU_LAN"
+msgid "LAN play"
+msgstr "เล่นผ่าน LAN"
+
+msgctxt "UI_MENU_LAN_DESC"
+msgid ""
+"The title menu's Wireless Play becomes LAN Play, to race other PCs on the same local network (UDP "
+"ports 49152 and 35000). It only reaches local network addresses, never the internet. Applies at "
+"the next start."
+msgstr "«เล่นไร้สาย» ในเมนูไตเติลจะกลายเป็นเล่นผ่าน LAN เพื่อแข่งกับพีซีเครื่องอื่นในเครือข่ายภายในเดียวกัน (พอร์ต UDP 49152 และ 35000) เชื่อมต่อได้เฉพาะที่อยู่ในเครือข่ายภายใน ไม่ออกอินเทอร์เน็ต มีผลเมื่อเริ่มครั้งหน้า"
+
+msgctxt "UI_MENU_VOLUME"
+msgid "Volume"
+msgstr "ระดับเสียง"
+
+msgctxt "UI_MENU_VOLUME_DESC"
+msgid "Master volume of the game."
+msgstr "ระดับเสียงรวมของเกม"
+
+msgctxt "UI_MENU_SPEAKERS"
+msgid "Speakers"
+msgstr "ลำโพง"
+
+msgctxt "UI_MENU_SPEAKERS_STEREO"
+msgid "Stereo"
+msgstr "สเตอริโอ"
+
+msgctxt "UI_MENU_SPEAKERS_51"
+msgid "5.1 surround"
+msgstr "เซอร์ราวด์ 5.1"
+
+msgctxt "UI_MENU_BACKGROUND_MUTE"
+msgid "Mute in background"
+msgstr "ปิดเสียงเมื่อไม่ได้โฟกัส"
+
+msgctxt "UI_MENU_BACKGROUND_MUTE_DESC"
+msgid "No sound while the game window is not in front."
+msgstr "ไม่มีเสียงเมื่อหน้าต่างเกมไม่ได้อยู่ด้านหน้า"
+
+msgctxt "UI_MENU_SPEAKERS_DESC"
+msgid ""
+"Automatic gives the game's 5.1 surround mix when the system's sound output has 6 channels or "
+"more, and stereo otherwise. Applies at the next start."
+msgstr "อัตโนมัติจะใช้มิกซ์เซอร์ราวด์ 5.1 ของเกมเมื่อเอาต์พุตเสียงของระบบมี 6 ช่องขึ้นไป นอกนั้นใช้สเตอริโอ มีผลเมื่อเริ่มครั้งหน้า"
+
+msgctxt "UI_MENU_MOTION"
+msgid "Motion controls"
+msgstr "ควบคุมด้วยการเคลื่อนไหว"
+
+msgctxt "UI_MENU_MOTION_DESC"
+msgid "Steering by tilting the controller."
+msgstr "เลี้ยวด้วยการเอียงจอย"
+
+msgctxt "UI_MENU_RUMBLE_STRENGTH"
+msgid "Vibration strength"
+msgstr "ความแรงการสั่น"
+
+msgctxt "UI_MENU_RUMBLE_STRENGTH_DESC"
+msgid "How strong the controller vibrates."
+msgstr "จอยสั่นแรงแค่ไหน"
+
+msgctxt "UI_MENU_RUMBLE_CURVE"
+msgid "Vibration curve"
+msgstr "เส้นโค้งการสั่น"
+
+msgctxt "UI_MENU_RUMBLE_CURVE_DESC"
+msgid "Lower values make weak vibration stronger."
+msgstr "ค่าที่ต่ำลงทำให้การสั่นเบา ๆ แรงขึ้น"
+
+msgctxt "UI_MENU_RUMBLE_TRIGGERS"
+msgid "Trigger vibration (Xbox)"
+msgstr "การสั่นที่ทริกเกอร์ (Xbox)"
+
+msgctxt "UI_MENU_RUMBLE_TRIGGERS_DESC"
+msgid "Vibrates the triggers of an Xbox controller too."
+msgstr "สั่นที่ทริกเกอร์ของจอย Xbox ด้วย"
+
+msgctxt "UI_MENU_PAD_LAYOUT"
+msgid "Button layout"
+msgstr "การจัดวางปุ่ม"
+
+msgctxt "UI_MENU_PAD_LAYOUT_DESC"
+msgid ""
+"Which button is A. Nintendo: the right one, as on a Switch. Xbox: the bottom one, as labelled on "
+"an Xbox controller (cross on a PlayStation controller). Automatic picks Nintendo for controllers "
+"with Nintendo labels and Xbox for the others."
+msgstr "ปุ่มไหนคือ A Nintendo: ปุ่มขวา เหมือน Switch Xbox: ปุ่มล่าง ตามที่พิมพ์บนจอย Xbox (กากบาทบนจอย PlayStation) อัตโนมัติเลือก Nintendo สำหรับจอยที่มีป้าย Nintendo และ Xbox สำหรับจอยอื่น"
+
+msgctxt "UI_MENU_PAD_LAYOUT_AUTO"
+msgid "Automatic"
+msgstr "อัตโนมัติ"
+
+msgctxt "UI_MENU_PAD_LAYOUT_NINTENDO"
+msgid "Nintendo (A right)"
+msgstr "Nintendo (A ขวา)"
+
+msgctxt "UI_MENU_PAD_LAYOUT_XBOX"
+msgid "Xbox (A bottom)"
+msgstr "Xbox (A ล่าง)"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_PAD_LAYOUT_IN_USE"
+msgid "in use: %s"
+msgstr "ใช้อยู่: %s"
+
+msgctxt "UI_MENU_MOUSE_SENS"
+msgid "Mouse camera sensitivity"
+msgstr "ความไวกล้องของเมาส์"
+
+msgctxt "UI_MENU_MOUSE_SENS_DESC"
+msgid "How fast the mouse turns the camera."
+msgstr "เมาส์หมุนกล้องเร็วแค่ไหน"
+
+msgctxt "UI_MENU_SWITCH2"
+msgid "Switch 2 controllers (Bluetooth)"
+msgstr "จอย Switch 2 (Bluetooth)"
+
+msgctxt "UI_MENU_SWITCH2_DESC"
+msgid ""
+"Joy-Con 2 and Pro Controller 2 over Bluetooth. To pair one, hold its Sync button with the game "
+"open. Applies at the next start."
+msgstr "Joy-Con 2 และ Pro Controller 2 ผ่าน Bluetooth หากต้องการจับคู่ ให้กดปุ่ม Sync ค้างไว้ขณะเปิดเกม มีผลเมื่อเริ่มครั้งหน้า"
+
+msgctxt "UI_MENU_STICK_DEADZONE"
+msgid "Stick dead zone"
+msgstr "โซนเดดของสติ๊ก"
+
+msgctxt "UI_MENU_STICK_DEADZONE_DESC"
+msgid ""
+"How far a stick must tilt before it counts. Raise it if the kart drifts with the stick at rest."
+msgstr "ต้องเอียงสติ๊กแค่ไหนจึงนับ เพิ่มค่านี้ถ้าคาร์ทไถลทั้งที่ปล่อยสติ๊ก"
+
+msgctxt "UI_MENU_BUTTON_ICONS"
+msgid "Button icons"
+msgstr "ไอคอนปุ่ม"
+
+msgctxt "UI_MENU_BUTTON_ICONS_DESC"
+msgid ""
+"Which buttons the game's prompts show. Automatic follows the device you used last: the "
+"controller's own buttons (Xbox or PlayStation), or your keys and mouse. The icons follow your "
+"remapped buttons."
+msgstr "ปุ่มที่คำแนะนำในเกมแสดง อัตโนมัติตามอุปกรณ์ที่ใช้ล่าสุด: ปุ่มของจอยเอง (Xbox หรือ PlayStation) หรือคีย์บอร์ดและเมาส์ ไอคอนตามปุ่มที่คุณกำหนดใหม่"
+
+msgctxt "UI_MENU_ICONS_NINTENDO"
+msgid "Nintendo"
+msgstr "Nintendo"
+
+msgctxt "UI_MENU_ICONS_XBOX"
+msgid "Xbox"
+msgstr "Xbox"
+
+msgctxt "UI_MENU_ICONS_PLAYSTATION"
+msgid "PlayStation"
+msgstr "PlayStation"
+
+msgctxt "UI_MENU_ICONS_KEYBOARD"
+msgid "Keyboard"
+msgstr "คีย์บอร์ด"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_ICONS_IN_USE"
+msgid "in use: %s"
+msgstr "ใช้อยู่: %s"
+
+msgctxt "UI_BINDS_HELP"
+msgid ""
+"Select a cell and press A or Enter, then the key, mouse button or controller button. Delete or X "
+"clears a cell. A key in use moves here; a controller button swaps with the one it replaces."
+msgstr "เลือกช่องแล้วกด A หรือ Enter จากนั้นกดปุ่มคีย์บอร์ด ปุ่มเมาส์ หรือปุ่มจอย Delete หรือ X ล้างช่อง ปุ่มคีย์บอร์ดที่ถูกใช้อยู่จะย้ายมาที่นี่ ปุ่มจอยจะสลับกับปุ่มที่มันแทนที่"
+
+msgctxt "UI_BINDS_COL_KEY1"
+msgid "Key 1"
+msgstr "ปุ่ม 1"
+
+msgctxt "UI_BINDS_COL_KEY2"
+msgid "Key 2"
+msgstr "ปุ่ม 2"
+
+msgctxt "UI_BINDS_COL_PAD"
+msgid "Controller"
+msgstr "จอย"
+
+msgctxt "UI_BINDS_GROUP_BUTTONS"
+msgid "Buttons"
+msgstr "ปุ่ม"
+
+msgctxt "UI_BINDS_GROUP_MOVE"
+msgid "Movement"
+msgstr "การเคลื่อนที่"
+
+msgctxt "UI_BINDS_GROUP_CAMERA"
+msgid "Camera"
+msgstr "กล้อง"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_BINDS_PRESS_KEY"
+msgid "Press a key or mouse button for %s"
+msgstr "กดปุ่มคีย์บอร์ดหรือปุ่มเมาส์สำหรับ %s"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_BINDS_PRESS_PAD"
+msgid "Press a controller button for %s"
+msgstr "กดปุ่มจอยสำหรับ %s"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_BINDS_CANCEL_HINT"
+msgid "Esc cancels, or wait %d s"
+msgstr "Esc เพื่อยกเลิก หรือรอ %d วินาที"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_BINDS_TAKEN"
+msgid "%s was taken from %s"
+msgstr "%s ถูกดึงมาจาก %s"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_BINDS_SWAPPED"
+msgid "%s swapped with %s"
+msgstr "%s สลับกับ %s"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_NOTICE_PADS_MISSING"
+msgid "%d players need a controller each: %d connected. The keyboard only counts for player 1."
+msgstr "ผู้เล่น %d คนต้องมีจอยคนละตัว: เชื่อมต่ออยู่ %d คีย์บอร์ดนับเฉพาะผู้เล่น 1"
+
+msgctxt "UI_BINDS_RESET"
+msgid "Reset all buttons"
+msgstr "รีเซ็ตปุ่มทั้งหมด"
+
+msgctxt "UI_BINDS_RESET_DESC"
+msgid ""
+"Back to the default keys and controller buttons. The button layout above applies again: remapped "
+"controller buttons stay where you put them until this reset."
+msgstr "กลับเป็นปุ่มคีย์บอร์ดและปุ่มจอยเริ่มต้น การจัดวางปุ่มด้านบนจะมีผลอีกครั้ง: ปุ่มจอยที่กำหนดใหม่จะอยู่ที่เดิมจนกว่าจะรีเซ็ตนี้"
+
+msgctxt "UI_BIND_A"
+msgid "A"
+msgstr "A"
+
+msgctxt "UI_BIND_B"
+msgid "B"
+msgstr "B"
+
+msgctxt "UI_BIND_X"
+msgid "X"
+msgstr "X"
+
+msgctxt "UI_BIND_Y"
+msgid "Y"
+msgstr "Y"
+
+msgctxt "UI_BIND_LCLICK"
+msgid "Left stick click"
+msgstr "กดสติ๊กซ้าย"
+
+msgctxt "UI_BIND_RCLICK"
+msgid "Right stick click"
+msgstr "กดสติ๊กขวา"
+
+msgctxt "UI_BIND_L"
+msgid "L"
+msgstr "L"
+
+msgctxt "UI_BIND_R"
+msgid "R"
+msgstr "R"
+
+msgctxt "UI_BIND_ZL"
+msgid "ZL"
+msgstr "ZL"
+
+msgctxt "UI_BIND_ZR"
+msgid "ZR"
+msgstr "ZR"
+
+msgctxt "UI_BIND_PLUS"
+msgid "Plus"
+msgstr "บวก"
+
+msgctxt "UI_BIND_MINUS"
+msgid "Minus"
+msgstr "ลบ"
+
+msgctxt "UI_BIND_LEFT"
+msgid "D-pad left"
+msgstr "ปุ่มทิศทางซ้าย"
+
+msgctxt "UI_BIND_UP"
+msgid "D-pad up"
+msgstr "ปุ่มทิศทางขึ้น"
+
+msgctxt "UI_BIND_RIGHT"
+msgid "D-pad right"
+msgstr "ปุ่มทิศทางขวา"
+
+msgctxt "UI_BIND_DOWN"
+msgid "D-pad down"
+msgstr "ปุ่มทิศทางลง"
+
+msgctxt "UI_BIND_LSTICK_LEFT"
+msgid "Steer left"
+msgstr "เลี้ยวซ้าย"
+
+msgctxt "UI_BIND_LSTICK_UP"
+msgid "Stick up"
+msgstr "สติ๊กขึ้น"
+
+msgctxt "UI_BIND_LSTICK_RIGHT"
+msgid "Steer right"
+msgstr "เลี้ยวขวา"
+
+msgctxt "UI_BIND_LSTICK_DOWN"
+msgid "Stick down"
+msgstr "สติ๊กลง"
+
+msgctxt "UI_BIND_RSTICK_LEFT"
+msgid "Camera left"
+msgstr "กล้องซ้าย"
+
+msgctxt "UI_BIND_RSTICK_UP"
+msgid "Camera up"
+msgstr "กล้องขึ้น"
+
+msgctxt "UI_BIND_RSTICK_RIGHT"
+msgid "Camera right"
+msgstr "กล้องขวา"
+
+msgctxt "UI_BIND_RSTICK_DOWN"
+msgid "Camera down"
+msgstr "กล้องลง"
+
+msgctxt "UI_BIND_DESC_A"
+msgid "Accelerate; confirm in menus."
+msgstr "เร่งเครื่อง; ยืนยันในเมนู"
+
+msgctxt "UI_BIND_DESC_B"
+msgid "Brake, reverse; back in menus."
+msgstr "เบรก ถอยหลัง; ย้อนกลับในเมนู"
+
+msgctxt "UI_BIND_DESC_X"
+msgid "Rear view."
+msgstr "มองหลัง"
+
+msgctxt "UI_BIND_DESC_Y"
+msgid "World map (free roam)."
+msgstr "แผนที่โลก (ท่องโลกอิสระ)"
+
+msgctxt "UI_BIND_DESC_LCLICK"
+msgid "No action in the game's control list."
+msgstr "ไม่มีการกระทำในรายการควบคุมของเกม"
+
+msgctxt "UI_BIND_DESC_RCLICK"
+msgid "No action in the game's control list."
+msgstr "ไม่มีการกระทำในรายการควบคุมของเกม"
+
+msgctxt "UI_BIND_DESC_L"
+msgid "Use an item."
+msgstr "ใช้ไอเทม"
+
+msgctxt "UI_BIND_DESC_R"
+msgid "Hop, drift, charge jump, trick."
+msgstr "กระโดด ดริฟต์ ชาร์จกระโดด ทริก"
+
+msgctxt "UI_BIND_DESC_ZL"
+msgid "Use an item."
+msgstr "ใช้ไอเทม"
+
+msgctxt "UI_BIND_DESC_ZR"
+msgid "Hop, drift, charge jump, trick."
+msgstr "กระโดด ดริฟต์ ชาร์จกระโดด ทริก"
+
+msgctxt "UI_BIND_DESC_PLUS"
+msgid "Pause, settings."
+msgstr "หยุดเกม การตั้งค่า"
+
+msgctxt "UI_BIND_DESC_MINUS"
+msgid "Photo mode."
+msgstr "โหมดถ่ายภาพ"
+
+msgctxt "UI_BIND_DESC_DPAD"
+msgid "Down rewinds; all four move in menus."
+msgstr "ลงเพื่อย้อนเวลา; ทั้งสี่ทิศใช้เลื่อนในเมนู"
+
+msgctxt "UI_BIND_DESC_MOVE"
+msgid "Steers like the left stick. The controller's left stick always works too."
+msgstr "เลี้ยวเหมือนสติ๊กซ้าย สติ๊กซ้ายของจอยก็ใช้ได้เสมอ"
+
+msgctxt "UI_BIND_DESC_CAMERA"
+msgid ""
+"Turns the camera like the right stick. The mouse and the controller's right stick always work too."
+msgstr "หมุนกล้องเหมือนสติ๊กขวา เมาส์และสติ๊กขวาของจอยก็ใช้ได้เสมอ"
+
+msgctxt "UI_KEY_SPACE"
+msgid "Space"
+msgstr "Space"
+
+msgctxt "UI_KEY_TAB"
+msgid "Tab"
+msgstr "Tab"
+
+msgctxt "UI_KEY_LSHIFT"
+msgid "Left Shift"
+msgstr "Shift ซ้าย"
+
+msgctxt "UI_KEY_LCTRL"
+msgid "Left Ctrl"
+msgstr "Ctrl ซ้าย"
+
+msgctxt "UI_KEY_UP"
+msgid "Up arrow"
+msgstr "ลูกศรขึ้น"
+
+msgctxt "UI_KEY_DOWN"
+msgid "Down arrow"
+msgstr "ลูกศรลง"
+
+msgctxt "UI_KEY_LEFT"
+msgid "Left arrow"
+msgstr "ลูกศรซ้าย"
+
+msgctxt "UI_KEY_RIGHT"
+msgid "Right arrow"
+msgstr "ลูกศรขวา"
+
+msgctxt "UI_KEY_MOUSE_L"
+msgid "Left mouse"
+msgstr "เมาส์ซ้าย"
+
+msgctxt "UI_KEY_MOUSE_R"
+msgid "Right mouse"
+msgstr "เมาส์ขวา"
+
+msgctxt "UI_KEY_MOUSE_M"
+msgid "Middle mouse"
+msgstr "เมาส์กลาง"
+
+msgctxt "UI_KEY_MOUSE_X1"
+msgid "Mouse 4"
+msgstr "เมาส์ 4"
+
+msgctxt "UI_KEY_MOUSE_X2"
+msgid "Mouse 5"
+msgstr "เมาส์ 5"
+
+msgctxt "UI_KEY_ENTER"
+msgid "Enter"
+msgstr "Enter"
+
+msgctxt "UI_KEY_BACKSPACE"
+msgid "Backspace"
+msgstr "Backspace"
+
+msgctxt "UI_KEY_RSHIFT"
+msgid "Right Shift"
+msgstr "Shift ขวา"
+
+msgctxt "UI_KEY_RCTRL"
+msgid "Right Ctrl"
+msgstr "Ctrl ขวา"
+
+msgctxt "UI_KEY_LALT"
+msgid "Alt"
+msgstr "Alt"
+
+msgctxt "UI_KEY_CAPSLOCK"
+msgid "Caps Lock"
+msgstr "Caps Lock"
+
+msgctxt "UI_KEY_INSERT"
+msgid "Insert"
+msgstr "Insert"
+
+msgctxt "UI_KEY_DELETE"
+msgid "Delete"
+msgstr "Delete"
+
+msgctxt "UI_KEY_HOME"
+msgid "Home"
+msgstr "Home"
+
+msgctxt "UI_KEY_END"
+msgid "End"
+msgstr "End"
+
+msgctxt "UI_KEY_PAGEUP"
+msgid "Page Up"
+msgstr "Page Up"
+
+msgctxt "UI_KEY_PAGEDOWN"
+msgid "Page Down"
+msgstr "Page Down"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_KEY_NUM_FMT"
+msgid "Num %s"
+msgstr "Num %s"
+
+msgctxt "UI_PAD_SOUTH"
+msgid "Bottom button"
+msgstr "ปุ่มล่าง"
+
+msgctxt "UI_PAD_EAST"
+msgid "Right button"
+msgstr "ปุ่มขวา"
+
+msgctxt "UI_PAD_WEST"
+msgid "Left button"
+msgstr "ปุ่มซ้าย"
+
+msgctxt "UI_PAD_NORTH"
+msgid "Top button"
+msgstr "ปุ่มบน"
+
+msgctxt "UI_PAD_LSTICK"
+msgid "Left stick"
+msgstr "สติ๊กซ้าย"
+
+msgctxt "UI_PAD_RSTICK"
+msgid "Right stick"
+msgstr "สติ๊กขวา"
+
+msgctxt "UI_PAD_L"
+msgid "Left bumper"
+msgstr "บัมเปอร์ซ้าย"
+
+msgctxt "UI_PAD_R"
+msgid "Right bumper"
+msgstr "บัมเปอร์ขวา"
+
+msgctxt "UI_PAD_START"
+msgid "Start"
+msgstr "Start"
+
+msgctxt "UI_PAD_BACK"
+msgid "Back"
+msgstr "Back"
+
+msgctxt "UI_PAD_DPAD_LEFT"
+msgid "D-pad left"
+msgstr "ปุ่มทิศทางซ้าย"
+
+msgctxt "UI_PAD_DPAD_UP"
+msgid "D-pad up"
+msgstr "ปุ่มทิศทางขึ้น"
+
+msgctxt "UI_PAD_DPAD_RIGHT"
+msgid "D-pad right"
+msgstr "ปุ่มทิศทางขวา"
+
+msgctxt "UI_PAD_DPAD_DOWN"
+msgid "D-pad down"
+msgstr "ปุ่มทิศทางลง"
+
+msgctxt "UI_PAD_ZL"
+msgid "Left trigger"
+msgstr "ทริกเกอร์ซ้าย"
+
+msgctxt "UI_PAD_ZR"
+msgid "Right trigger"
+msgstr "ทริกเกอร์ขวา"
+
+msgctxt "UI_PAD_CROSS"
+msgid "Cross"
+msgstr "กากบาท"
+
+msgctxt "UI_PAD_CIRCLE"
+msgid "Circle"
+msgstr "วงกลม"
+
+msgctxt "UI_PAD_SQUARE"
+msgid "Square"
+msgstr "สี่เหลี่ยม"
+
+msgctxt "UI_PAD_TRIANGLE"
+msgid "Triangle"
+msgstr "สามเหลี่ยม"
+
+msgctxt "UI_MENU_MENU_LANG"
+msgid "Menu language"
+msgstr "ภาษาของเมนู"
+
+msgctxt "UI_MENU_MENU_LANG_DESC"
+msgid "Language of this menu and the overlay."
+msgstr "ภาษาของเมนูนี้และโอเวอร์เลย์"
+
+msgctxt "UI_MENU_MENU_LANG_AUTO"
+msgid "Automatic (from the system)"
+msgstr "อัตโนมัติ (ตามระบบ)"
+
+msgctxt "UI_MENU_ADV_WARNING"
+msgid "These settings are for testing and troubleshooting. Change them only when you know why."
+msgstr "การตั้งค่าเหล่านี้ไว้ทดสอบและแก้ปัญหา เปลี่ยนเมื่อรู้เหตุผลเท่านั้น"
+
+msgctxt "UI_MENU_GROUP_SCHED"
+msgid "Scheduling"
+msgstr "การจัดตารางงาน"
+
+msgctxt "UI_MENU_GROUP_SHADERS"
+msgid "Shaders and pipelines"
+msgstr "เชเดอร์และไปป์ไลน์"
+
+msgctxt "UI_MENU_GROUP_TEXMEM"
+msgid "Textures and memory"
+msgstr "พื้นผิวและหน่วยความจำ"
+
+msgctxt "UI_MENU_GROUP_FIXES"
+msgid "Render fixes"
+msgstr "การแก้ไขการเรนเดอร์"
+
+msgctxt "UI_MENU_GROUP_VULKAN"
+msgid "Vulkan"
+msgstr "Vulkan"
+
+msgctxt "UI_MENU_GROUP_DIAG"
+msgid "Diagnostics"
+msgstr "การวินิจฉัย"
+
+msgctxt "UI_MENU_ASYNC_PREEMPT"
+msgid "Virtual core preemption"
+msgstr "การแทรกคอร์เสมือน"
+
+msgctxt "UI_MENU_ASYNC_PREEMPT_DESC"
+msgid "Lets a game thread interrupt another one on the same virtual core."
+msgstr "ให้เธรดของเกมขัดจังหวะอีกเธรดบนคอร์เสมือนเดียวกันได้"
+
+msgctxt "UI_MENU_PREEMPT_OFF"
+msgid "Off"
+msgstr "ปิด"
+
+msgctxt "UI_MENU_PREEMPT_ON"
+msgid "On"
+msgstr "เปิด"
+
+msgctxt "UI_MENU_PREEMPT_INHERIT"
+msgid "Inheritance only"
+msgstr "เฉพาะการสืบทอด"
+
+msgctxt "UI_MENU_REPLAY_ASYNC"
+msgid "GPU frame prep on its own thread"
+msgstr "เตรียมเฟรม GPU บนเธรดแยก"
+
+msgctxt "UI_MENU_REPLAY_ASYNC_DESC"
+msgid ""
+"Prepares frames for the GPU on a separate thread instead of the game thread. Adds up to one frame "
+"of latency."
+msgstr "เตรียมเฟรมสำหรับ GPU บนเธรดแยกแทนเธรดของเกม เพิ่มความหน่วงได้ถึงหนึ่งเฟรม"
+
+msgctxt "UI_MENU_FREE_CORES"
+msgid "Virtual core gate"
+msgstr "ประตูคอร์เสมือน"
+
+msgctxt "UI_MENU_FREE_CORES_DESC"
+msgid "Lets only one thread run per virtual core, as on the console."
+msgstr "ให้รันได้เพียงหนึ่งเธรดต่อคอร์เสมือน เหมือนคอนโซล"
+
+msgctxt "UI_MENU_TIMER_1MS"
+msgid "1 ms Windows timer"
+msgstr "ตัวจับเวลา Windows 1 ms"
+
+msgctxt "UI_MENU_TIMER_1MS_DESC"
+msgid "Raises the system timer resolution to 1 ms for steadier frame pacing."
+msgstr "เพิ่มความละเอียดตัวจับเวลาระบบเป็น 1 ms เพื่อจังหวะเฟรมที่นิ่งขึ้น"
+
+msgctxt "UI_MENU_PIPE_WAIT"
+msgid "Waiting draw handling"
+msgstr "การจัดการดรอว์ที่รอ"
+
+msgctxt "UI_MENU_PIPE_WAIT_DESC"
+msgid ""
+"Default keeps the current scheduling with a reserved worker for waiting draws; Old (draw) uses "
+"the previous scheduling."
+msgstr "ค่าเริ่มต้นคงการจัดตารางปัจจุบันพร้อมเวิร์กเกอร์สำรองสำหรับดรอว์ที่รอ เก่า (draw) ใช้การจัดตารางก่อนหน้า"
+
+msgctxt "UI_MENU_PIPE_WAIT_DEFAULT"
+msgid "Default"
+msgstr "ค่าเริ่มต้น"
+
+msgctxt "UI_MENU_PIPE_WAIT_DRAW"
+msgid "Old (draw)"
+msgstr "เก่า (draw)"
+
+msgctxt "UI_MENU_PIPE_SKIP"
+msgid "Draws skipped while a pipeline builds"
+msgstr "ดรอว์ที่ข้ามขณะสร้างไปป์ไลน์"
+
+msgctxt "UI_MENU_PIPE_SKIP_DESC"
+msgid "Which draws are dropped instead of waiting for their pipeline."
+msgstr "ดรอว์ชนิดใดที่ถูกทิ้งแทนการรอไปป์ไลน์ของมัน"
+
+msgctxt "UI_MENU_PIPE_SKIP_STRICT"
+msgid "Strict"
+msgstr "เข้มงวด"
+
+msgctxt "UI_MENU_PIPE_SKIP_ANY"
+msgid "Any"
+msgstr "ทุกชนิด"
+
+msgctxt "UI_MENU_PIPE_SKIP_FULLSCREEN"
+msgid "Fullscreen passes"
+msgstr "พาสเต็มจอ"
+
+msgctxt "UI_MENU_PIPE_PREBUILD"
+msgid "Pipeline prebuild"
+msgstr "สร้างไปป์ไลน์ล่วงหน้า"
+
+msgctxt "UI_MENU_PIPE_PREBUILD_DESC"
+msgid "Builds known pipelines ahead of time."
+msgstr "สร้างไปป์ไลน์ที่รู้จักไว้ล่วงหน้า"
+
+msgctxt "UI_MENU_GPL"
+msgid "Graphics pipeline library"
+msgstr "ไลบรารีไปป์ไลน์กราฟิก"
+
+msgctxt "UI_MENU_GPL_DESC"
+msgid "Uses the Vulkan pipeline library extension; turn off if your driver misbehaves with it."
+msgstr "ใช้ส่วนขยายไลบรารีไปป์ไลน์ของ Vulkan ปิดถ้าไดรเวอร์ทำงานผิดปกติกับมัน"
+
+msgctxt "UI_MENU_ASTC"
+msgid "ASTC texture decoding"
+msgstr "การถอดรหัสพื้นผิว ASTC"
+
+msgctxt "UI_MENU_ASTC_DESC"
+msgid "Where compressed ASTC textures are decoded."
+msgstr "ที่ที่ใช้ถอดรหัสพื้นผิว ASTC ที่บีบอัด"
+
+msgctxt "UI_MENU_ASTC_AUTO"
+msgid "Automatic"
+msgstr "อัตโนมัติ"
+
+msgctxt "UI_MENU_ASTC_GPU"
+msgid "GPU shader"
+msgstr "เชเดอร์ GPU"
+
+msgctxt "UI_MENU_ASTC_NATIVE"
+msgid "Native"
+msgstr "เนทีฟ"
+
+msgctxt "UI_MENU_ASTC_CPU"
+msgid "CPU"
+msgstr "CPU"
+
+msgctxt "UI_MENU_MEMORY"
+msgid "GPU memory mode"
+msgstr "โหมดหน่วยความจำ GPU"
+
+msgctxt "UI_MENU_MEMORY_DESC"
+msgid "How game memory is shared with the GPU."
+msgstr "วิธีแชร์หน่วยความจำของเกมกับ GPU"
+
+msgctxt "UI_MENU_MEMORY_AUTO"
+msgid "Automatic"
+msgstr "อัตโนมัติ"
+
+msgctxt "UI_MENU_MEMORY_IMPORT"
+msgid "Import"
+msgstr "นำเข้า"
+
+msgctxt "UI_MENU_MEMORY_MIRROR"
+msgid "Mirror"
+msgstr "มิเรอร์"
+
+msgctxt "UI_MENU_MEMORY_VERIFY"
+msgid "Verify"
+msgstr "ตรวจสอบ"
+
+msgctxt "UI_MENU_TEX_ALIAS"
+msgid "Texture aliasing"
+msgstr "การใช้พื้นผิวซ้อนทับ"
+
+msgctxt "UI_MENU_TEX_ALIAS_DESC"
+msgid ""
+"A new texture created over a live texture's memory starts with that content instead of empty."
+msgstr "พื้นผิวใหม่ที่สร้างทับหน่วยความจำของพื้นผิวที่ยังใช้อยู่จะเริ่มด้วยเนื้อหานั้นแทนที่จะว่างเปล่า"
+
+msgctxt "UI_MENU_FIX_C0"
+msgid "Constant buffer fix"
+msgstr "แก้บัฟเฟอร์ค่าคงที่"
+
+msgctxt "UI_MENU_FIX_C0_DESC"
+msgid ""
+"Fills the driver-reserved constant bank c0 (storage sizes, dispatch size, point size, base "
+"instance) instead of reading zeros."
+msgstr "เติมแบงก์ค่าคงที่ c0 ที่ไดรเวอร์สงวนไว้ (ขนาดสตอเรจ ขนาด dispatch ขนาดจุด base instance) แทนการอ่านเป็นศูนย์"
+
+msgctxt "UI_MENU_FIX_ZERO"
+msgid "Zero new GPU memory"
+msgstr "ล้างหน่วยความจำ GPU ใหม่เป็นศูนย์"
+
+msgctxt "UI_MENU_FIX_ZERO_DESC"
+msgid "New GPU memory pools start zero-filled, as Switch memory does."
+msgstr "พูลหน่วยความจำ GPU ใหม่เริ่มด้วยค่าศูนย์ เหมือนหน่วยความจำของ Switch"
+
+msgctxt "UI_MENU_BIND_SKIP"
+msgid "Skip repeated binds"
+msgstr "ข้ามการผูกซ้ำ"
+
+msgctxt "UI_MENU_BIND_SKIP_DESC"
+msgid "Optimisation: skips bindings that did not change."
+msgstr "ปรับให้เร็วขึ้น: ข้ามการผูกที่ไม่เปลี่ยน"
+
+msgctxt "UI_MENU_SHADER_MEMO"
+msgid "Shader memo"
+msgstr "แคชเชเดอร์"
+
+msgctxt "UI_MENU_SHADER_MEMO_DESC"
+msgid "Optimisation: remembers shader lookups."
+msgstr "ปรับให้เร็วขึ้น: จำผลการค้นหาเชเดอร์"
+
+msgctxt "UI_MENU_PIPE_MEMO"
+msgid "Pipeline memo"
+msgstr "แคชไปป์ไลน์"
+
+msgctxt "UI_MENU_PIPE_MEMO_DESC"
+msgid "Optimisation: reuses the previous draw's pipeline when its state repeats."
+msgstr "ปรับให้เร็วขึ้น: ใช้ไปป์ไลน์ของดรอว์ก่อนหน้าซ้ำเมื่อสถานะซ้ำกัน"
+
+msgctxt "UI_MENU_TEX_MEMO"
+msgid "Texture binding memo"
+msgstr "แคชการผูกพื้นผิว"
+
+msgctxt "UI_MENU_TEX_MEMO_DESC"
+msgid "Optimisation: remembers texture descriptors between draws."
+msgstr "ปรับให้เร็วขึ้น: จำ descriptor ของพื้นผิวระหว่างดรอว์"
+
+msgctxt "UI_MENU_DESC_TEMPLATE"
+msgid "Descriptor templates"
+msgstr "เทมเพลต descriptor"
+
+msgctxt "UI_MENU_DESC_TEMPLATE_DESC"
+msgid "Optimisation: updates descriptors in bulk."
+msgstr "ปรับให้เร็วขึ้น: อัปเดต descriptor เป็นชุด"
+
+msgctxt "UI_MENU_PUSH_SKIP"
+msgid "Skip repeated push constants"
+msgstr "ข้าม push constant ซ้ำ"
+
+msgctxt "UI_MENU_PUSH_SKIP_DESC"
+msgid "Optimisation: skips push constants that did not change."
+msgstr "ปรับให้เร็วขึ้น: ข้าม push constant ที่ไม่เปลี่ยน"
+
+msgctxt "UI_MENU_SPLIT_DRAWS"
+msgid "Early GPU submission"
+msgstr "ส่งงาน GPU ก่อนเวลา"
+
+msgctxt "UI_MENU_SPLIT_DRAWS_DESC"
+msgid ""
+"Submits GPU work in parts every N draws between passes so the GPU starts earlier; 0 turns it off."
+msgstr "ส่งงาน GPU เป็นส่วน ๆ ทุก N ดรอว์ระหว่างพาส เพื่อให้ GPU เริ่มเร็วขึ้น; 0 คือปิด"
+
+msgctxt "UI_MENU_VK_VALIDATION"
+msgid "Validation layer"
+msgstr "เลเยอร์ตรวจสอบ"
+
+msgctxt "UI_MENU_VK_VALIDATION_DESC"
+msgid "Checks every Vulkan call and slows the game down a lot."
+msgstr "ตรวจทุกการเรียก Vulkan และทำให้เกมช้าลงมาก"
+
+msgctxt "UI_MENU_VK_VALIDATION_MISSING"
+msgid "The validation layer is not installed."
+msgstr "ยังไม่ได้ติดตั้งเลเยอร์ตรวจสอบ"
+
+msgctxt "UI_MENU_VK_DYN_VERTEX"
+msgid "Dynamic vertex state"
+msgstr "สถานะเวอร์เท็กซ์แบบไดนามิก"
+
+msgctxt "UI_MENU_VK_DYN_VERTEX_DESC"
+msgid "Forces dynamic vertex input on or off; the default depends on the GPU."
+msgstr "บังคับเปิดหรือปิดอินพุตเวอร์เท็กซ์แบบไดนามิก ค่าเริ่มต้นขึ้นอยู่กับ GPU"
+
+msgctxt "UI_MENU_VK_SUBGROUP_PIN"
+msgid "Pin subgroup size"
+msgstr "ตรึงขนาด subgroup"
+
+msgctxt "UI_MENU_VK_SUBGROUP_PIN_DESC"
+msgid "Fixes the shader subgroup size."
+msgstr "กำหนดขนาด subgroup ของเชเดอร์ให้คงที่"
+
+msgctxt "UI_MENU_TRACE"
+msgid "Performance log"
+msgstr "บันทึกประสิทธิภาพ"
+
+msgctxt "UI_MENU_TRACE_DESC"
+msgid "Writes frame timings to a file."
+msgstr "เขียนเวลาของเฟรมลงไฟล์"
+
+msgctxt "UI_MENU_FLIGHT"
+msgid "Flight recorder"
+msgstr "เครื่องบันทึกเหตุการณ์"
+
+msgctxt "UI_MENU_FLIGHT_DESC"
+msgid "Keeps a short history and saves it when a frame freezes."
+msgstr "เก็บประวัติสั้น ๆ และบันทึกเมื่อเฟรมค้าง"
+
+msgctxt "UI_MENU_FLIGHT_SPIKE_MS"
+msgid "Freeze threshold (ms)"
+msgstr "เกณฑ์เฟรมค้าง (ms)"
+
+msgctxt "UI_MENU_FLIGHT_SPIKE_MS_DESC"
+msgid "Frame time that counts as a freeze."
+msgstr "เวลาเฟรมที่นับว่าค้าง"
+
+msgctxt "UI_MENU_INPUT_RECORD"
+msgid "Input recording"
+msgstr "บันทึกอินพุต"
+
+msgctxt "UI_MENU_INPUT_RECORD_DESC"
+msgid "Writes your inputs to a file for bug reports."
+msgstr "เขียนอินพุตของคุณลงไฟล์เพื่อใช้รายงานบั๊ก"
+
+msgctxt "UI_MENU_OPEN_LOG"
+msgid "Open log folder"
+msgstr "เปิดโฟลเดอร์ล็อก"
+
+msgctxt "UI_MENU_OPEN_LOG_DESC"
+msgid "Shows the folder with the log files."
+msgstr "แสดงโฟลเดอร์ที่เก็บไฟล์ล็อก"
+
+msgctxt "UI_MENU_COPY_INFO"
+msgid "Copy system info"
+msgstr "คัดลอกข้อมูลระบบ"
+
+msgctxt "UI_MENU_COPY_INFO_DESC"
+msgid "Copies GPU, driver, CPU, RAM and changed settings to the clipboard."
+msgstr "คัดลอก GPU ไดรเวอร์ CPU RAM และการตั้งค่าที่เปลี่ยนไปยังคลิปบอร์ด"
+
+msgctxt "UI_MENU_COPY_INFO_DONE"
+msgid "Copied"
+msgstr "คัดลอกแล้ว"
+
+msgctxt "UI_MENU_ACTION_FAILED"
+msgid "did not work"
+msgstr "ไม่สำเร็จ"
+
+msgctxt "UI_MENU_RESET"
+msgid "Reset all settings to defaults"
+msgstr "รีเซ็ตการตั้งค่าทั้งหมดเป็นค่าเริ่มต้น"
+
+msgctxt "UI_MENU_RESET_DESC"
+msgid "Applies to every tab."
+msgstr "มีผลกับทุกแท็บ"
+
+msgctxt "UI_MENU_RESET_CONFIRM"
+msgid "Reset every setting to its default?"
+msgstr "รีเซ็ตทุกการตั้งค่าเป็นค่าเริ่มต้น?"
+
+msgctxt "UI_MENU_RESET_YES"
+msgid "Reset"
+msgstr "รีเซ็ต"
+
+msgctxt "UI_MENU_RESET_NO"
+msgid "Cancel"
+msgstr "ยกเลิก"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FPS"
+msgid "%.0f FPS"
+msgstr "%.0f FPS"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FRAME_MS"
+msgid "%.1f ms"
+msgstr "%.1f ms"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_GAME_PCT"
+msgid "game %.0f%%"
+msgstr "เกม %.0f%%"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_MAX_MS"
+msgid "max %.1f ms"
+msgstr "สูงสุด %.1f ms"
+
+msgctxt "UI_MENU_OV_GPU"
+msgid "GPU"
+msgstr "GPU"
+
+msgctxt "UI_MENU_OV_CPU"
+msgid "CPU"
+msgstr "CPU"
+
+msgctxt "UI_MENU_OV_RAM"
+msgid "RAM"
+msgstr "RAM"
+
+msgctxt "UI_MENU_OV_VRAM"
+msgid "VRAM"
+msgstr "VRAM"
+
+msgctxt "UI_MENU_OV_NONE"
+msgid "-"
+msgstr "-"
+
+msgctxt "UI_MENU_OV_REPLAY"
+msgid "GPU frame prep"
+msgstr "เตรียมเฟรม GPU"
+
+msgctxt "UI_MENU_OV_GPU_TIME"
+msgid "GPU busy per frame"
+msgstr "GPU ทำงานต่อเฟรม"
+
+msgctxt "UI_MENU_OV_PIPE_WAIT"
+msgid "Pipeline waits"
+msgstr "การรอไปป์ไลน์"
+
+msgctxt "UI_MENU_OV_TEX_UPLOADS"
+msgid "Texture uploads"
+msgstr "การอัปโหลดพื้นผิว"
+
+msgctxt "UI_MENU_OV_MAIN_CPU"
+msgid "Game main thread CPU"
+msgstr "CPU เธรดหลักของเกม"
+
+msgctxt "UI_MENU_OV_RENDER_CPU"
+msgid "Render thread CPU"
+msgstr "CPU เธรดเรนเดอร์"
+
+msgctxt "UI_MENU_OV_SLOW"
+msgid "Frames over 33 ms"
+msgstr "เฟรมที่เกิน 33 ms"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_PER_MIN"
+msgid "%.0f last minute"
+msgstr "%.0f ในนาทีที่ผ่านมา"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_PCT"
+msgid "%.0f%%"
+msgstr "%.0f%%"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_TEMP"
+msgid "%.0f °C"
+msgstr "%.0f °C"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_POWER"
+msgid "%.0f W"
+msgstr "%.0f W"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_MHZ"
+msgid "%.0f MHz"
+msgstr "%.0f MHz"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_GB"
+msgid "%.1f GB"
+msgstr "%.1f GB"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_GB_OF"
+msgid "/ %.1f GB"
+msgstr "/ %.1f GB"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_GAME_GB"
+msgid "game %.1f GB"
+msgstr "เกม %.1f GB"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_MS"
+msgid "%.2f ms"
+msgstr "%.2f ms"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_PER_FRAME"
+msgid "%.1f per frame"
+msgstr "%.1f ต่อเฟรม"
+
+msgctxt "UI_MENU_OV_WINDOW"
+msgid "Window"
+msgstr "หน้าต่าง"
+
+msgctxt "UI_MENU_OV_OUTPUT"
+msgid "Game image"
+msgstr "ภาพของเกม"
+
+msgctxt "UI_MENU_OV_INTERNAL"
+msgid "Internal resolution"
+msgstr "ความละเอียดภายใน"
+
+msgctxt "UI_MENU_OV_SCALING"
+msgid "Scaling"
+msgstr "การขยายภาพ"
+
+msgctxt "UI_MENU_OV_PRESENT"
+msgid "Presentation"
+msgstr "การแสดงผล"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_SIZE"
+msgid "%ux%u"
+msgstr "%ux%u"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_MENU_OV_FMT_FSR"
+msgid "AMD FSR 1, sharpness %d%%"
+msgstr "AMD FSR 1 ความคม %d%%"
+
+msgctxt "UI_MENU_OV_SCALE_NONE"
+msgid "none (1:1)"
+msgstr "ไม่มี (1:1)"
+
+msgctxt "UI_MENU_OV_SCALE_BILINEAR"
+msgid "bilinear"
+msgstr "bilinear"
+
+msgctxt "UI_LAUNCH_SUBTITLE"
+msgid "Static recompilation for PC"
+msgstr "การคอมไพล์สแตติกสำหรับพีซี"
+
+msgctxt "UI_LAUNCH_PLAY"
+msgid "Play"
+msgstr "เล่น"
+
+msgctxt "UI_LAUNCH_SETTINGS"
+msgid "Settings"
+msgstr "การตั้งค่า"
+
+msgctxt "UI_LAUNCH_FILES"
+msgid "Game files"
+msgstr "ไฟล์เกม"
+
+msgctxt "UI_LAUNCH_QUIT"
+msgid "Quit"
+msgstr "ออก"
+
+msgctxt "UI_LAUNCH_BACK"
+msgid "Back"
+msgstr "กลับ"
+
+msgctxt "UI_LAUNCH_FILES_READY"
+msgid "Game files ready (version 1.0.0 or 1.8.0)"
+msgstr "ไฟล์เกมพร้อมแล้ว (เวอร์ชัน 1.0.0 หรือ 1.8.0)"
+
+msgctxt "UI_LAUNCH_FILES_MISSING"
+msgid "Game files not set up"
+msgstr "ยังไม่ได้ตั้งค่าไฟล์เกม"
+
+msgctxt "UI_LAUNCH_FILES_FOLDER"
+msgid "Game folder"
+msgstr "โฟลเดอร์เกม"
+
+msgctxt "UI_LAUNCH_FILES_HELP"
+msgid ""
+"The game does not come with the port: it needs your own copy of Mario Kart World 1.0.0 or 1.8.0, "
+"dumped from your console (the exefs and romfs folders). The setup checks its version, builds the "
+"game code on this computer and translates the shaders."
+msgstr "เกมไม่ได้มาพร้อมพอร์ต: ต้องใช้สำเนา Mario Kart World 1.0.0 หรือ 1.8.0 ของคุณเอง ที่ดัมพ์จากคอนโซลของคุณ (โฟลเดอร์ exefs และ romfs) การตั้งค่าจะตรวจเวอร์ชัน สร้างโค้ดเกมบนคอมพิวเตอร์เครื่องนี้ และแปลเชเดอร์"
+
+msgctxt "UI_LAUNCH_NO_TOOLS"
+msgid "The setup tools are missing: the setup/ folder that comes with the program."
+msgstr "ไม่พบเครื่องมือตั้งค่า: โฟลเดอร์ setup/ ที่มากับโปรแกรม"
+
+msgctxt "UI_LAUNCH_SOURCE"
+msgid "Your copy"
+msgstr "สำเนาของคุณ"
+
+msgctxt "UI_LAUNCH_PICK"
+msgid "Choose folder"
+msgstr "เลือกโฟลเดอร์"
+
+msgctxt "UI_LAUNCH_PICK_NUP"
+msgid "Choose .nup or .nx file"
+msgstr "เลือกไฟล์ .nup หรือ .nx"
+
+msgctxt "UI_LAUNCH_ROMFS_MODE"
+msgid "RomFS (23 GB)"
+msgstr "RomFS (23 GB)"
+
+msgctxt "UI_LAUNCH_ROMFS_COPY"
+msgid "Copy into the game folder"
+msgstr "คัดลอกเข้าโฟลเดอร์เกม"
+
+msgctxt "UI_LAUNCH_ROMFS_LINK"
+msgid "Use it where it is"
+msgstr "ใช้ที่เดิม"
+
+msgctxt "UI_LAUNCH_SETUP"
+msgid "Set up"
+msgstr "ตั้งค่า"
+
+msgctxt "UI_LAUNCH_SETUP_AGAIN"
+msgid "Set up again"
+msgstr "ตั้งค่าอีกครั้ง"
+
+msgctxt "UI_LAUNCH_CANCEL"
+msgid "Cancel"
+msgstr "ยกเลิก"
+
+msgctxt "UI_LAUNCH_SETUP_DONE"
+msgid "Set up finished: the game is ready."
+msgstr "ตั้งค่าเสร็จแล้ว: เกมพร้อมเล่น"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_SETUP_FAILED"
+msgid "Set up failed: %s"
+msgstr "ตั้งค่าไม่สำเร็จ: %s"
+
+#. No %s: the detail is not shown.
+msgctxt "UI_SETUP_ERR_SOURCE"
+msgid "there is no earlier setup in this folder: choose the folder of your copy"
+msgstr "ไม่มีการตั้งค่าก่อนหน้าในโฟลเดอร์นี้: เลือกโฟลเดอร์สำเนาของคุณ"
+
+#. %s: the folder the player chose.
+msgctxt "UI_SETUP_ERR_NOGAME"
+msgid "no exefs/main and romfs/ in %s: choose the folder of your copy of the game"
+msgstr "ไม่มี exefs/main และ romfs/ ใน %s: เลือกโฟลเดอร์สำเนาเกมของคุณ"
+
+#. %s: the path of the exefs/main file.
+msgctxt "UI_SETUP_ERR_ENCRYPTED"
+msgid "%s is encrypted: the game's exefs must be decrypted"
+msgstr "%s ถูกเข้ารหัส: ต้องถอดรหัส exefs ของเกม"
+
+#. %s: the build id of the player's exefs/main (hexadecimal).
+msgctxt "UI_SETUP_ERR_VERSION"
+msgid ""
+"the game is not Mario Kart World 1.0.0 or 1.8.0 (build id %s): only those versions are supported"
+msgstr "เกมไม่ใช่ Mario Kart World 1.0.0 หรือ 1.8.0 (build id %s): รองรับเฉพาะเวอร์ชันเหล่านั้น"
+
+#. %s: how many files the player's RomFS has.
+msgctxt "UI_SETUP_ERR_ROMFS"
+msgid "the RomFS has only %s files: the copy is incomplete, copy it again"
+msgstr "RomFS มีเพียง %s ไฟล์: สำเนาไม่สมบูรณ์ ให้คัดลอกใหม่"
+
+#. %s: the failing tool's message, in English. logs/setup.log is a file name: keep it.
+msgctxt "UI_SETUP_ERR_FAILED"
+msgid "%s (more in logs/setup.log)"
+msgstr "%s (ดูเพิ่มเติมใน logs/setup.log)"
+
+#. %s: the system's error message, in English. logs/setup.log is a file name: keep it.
+msgctxt "UI_SETUP_ERR_IO"
+msgid "file error: %s (more in logs/setup.log)"
+msgstr "ไฟล์ผิดพลาด: %s (ดูเพิ่มเติมใน logs/setup.log)"
+
+msgctxt "UI_SETUP_ERR_STOPPED"
+msgid "the setup stopped (more in logs/setup.log)"
+msgstr "การตั้งค่าหยุดลง (ดูเพิ่มเติมใน logs/setup.log)"
+
+msgctxt "UI_SETUP_ERR_CANCELLED"
+msgid "cancelled"
+msgstr "ยกเลิกแล้ว"
+
+msgctxt "UI_SETUP_ERR_NO_SETUP"
+msgid "the setup tools are missing (setup/ next to the program): extract the release again"
+msgstr "ไม่พบเครื่องมือตั้งค่า (setup/ ข้างโปรแกรม): แตกไฟล์รีลีสใหม่อีกครั้ง"
+
+msgctxt "UI_LAUNCH_STEP_CHECK"
+msgid "Check the copy"
+msgstr "ตรวจสำเนา"
+
+msgctxt "UI_LAUNCH_STEP_EXEFS"
+msgid "Copy exefs"
+msgstr "คัดลอก exefs"
+
+msgctxt "UI_LAUNCH_STEP_ROMFS"
+msgid "RomFS"
+msgstr "RomFS"
+
+msgctxt "UI_LAUNCH_STEP_GENERATE"
+msgid "Generate the game code"
+msgstr "สร้างโค้ดเกม"
+
+msgctxt "UI_LAUNCH_STEP_COMPILE"
+msgid "Compile the game code"
+msgstr "คอมไพล์โค้ดเกม"
+
+msgctxt "UI_LAUNCH_STEP_SHADERS"
+msgid "Translate the shaders"
+msgstr "แปลเชเดอร์"
+
+msgctxt "UI_LAUNCH_STEP_WARM"
+msgid "Warm up the graphics (one minute)"
+msgstr "วอร์มอัปกราฟิก (หนึ่งนาที)"
+
+msgctxt "UI_LAUNCH_STEP_CLEANUP"
+msgid "Clean up"
+msgstr "ล้างไฟล์ชั่วคราว"
+
+msgctxt "UI_LAUNCH_STEP_KEPT"
+msgid "kept"
+msgstr "คงไว้"
+
+msgctxt "UI_LAUNCH_SHORTCUT"
+msgid "Desktop shortcut"
+msgstr "ทางลัดบนเดสก์ท็อป"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_SHORTCUT_DONE"
+msgid "Shortcut made: %s"
+msgstr "สร้างทางลัดแล้ว: %s"
+
+msgctxt "UI_LAUNCH_SHORTCUT_FAILED"
+msgid "Could not make the shortcut"
+msgstr "สร้างทางลัดไม่ได้"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_UPDATE"
+msgid "Update to %s (%d MB)"
+msgstr "อัปเดตเป็น %s (%d MB)"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_UPDATE_FETCHING"
+msgid "Downloading %s"
+msgstr "กำลังดาวน์โหลด %s"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_UPDATE_FAILED"
+msgid "Update failed: %s"
+msgstr "อัปเดตไม่สำเร็จ: %s"
+
+#. printf format: keep every %... conversion, in the same order.
+msgctxt "UI_LAUNCH_UPDATED"
+msgid "Updated to %s: setting up again what it changed"
+msgstr "อัปเดตเป็น %s แล้ว: กำลังตั้งค่าส่วนที่เปลี่ยนอีกครั้ง"
+
+msgctxt "UI_LAUNCH_NO_GAME_DATA"
+msgid "Your own copy of the game · No game data included"
+msgstr "สำเนาเกมของคุณเอง · ไม่มีข้อมูลเกมแนบมา"
+
+msgctxt "UI_MENU_UPDATE_CHECK"
+msgid "Check for updates"
+msgstr "ตรวจสอบอัปเดต"
+
+msgctxt "UI_MENU_UPDATE_CHECK_DESC"
+msgid ""
+"At start, ask GitHub for a newer release of the port and offer it on the start screen (a few "
+"seconds at most, nothing offline)."
+msgstr "ตอนเริ่ม ถาม GitHub หารีลีสใหม่ของพอร์ตและเสนอที่หน้าเริ่มต้น (ไม่กี่วินาทีที่มากที่สุด ออฟไลน์จะไม่ทำอะไร)"

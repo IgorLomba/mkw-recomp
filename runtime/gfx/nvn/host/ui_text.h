@@ -200,7 +200,7 @@ typedef enum {
 // UTF-8 text for id in the language of ov_language(); English when the catalog has no row for that language.
 const char *ui_text(UiTextId id);
 // The same for an explicit catalog language ("en", "ja", "fr", "de", "it", "es", "nl", "pt", "pt-BR", "ru",
-// "zh-Hans", "zh-Hant", "ko", "es-419", "ca", "gl", "eu", "pl", "tr", "uk"); an empty entry gives the English text.
+// "zh-Hans", "zh-Hant", "ko", "es-419", "ca", "gl", "eu", "pl", "tr", "uk", "th"); an empty entry gives the English text.
 const char *ui_text_in(const char *lang, UiTextId id);
 // 1 when the row of lang has its own text for id (no fallback to English), for the probe.
 int ui_text_defined(const char *lang, UiTextId id);

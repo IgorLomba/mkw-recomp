@@ -21,4 +21,4 @@ extern const char *const text_en[UI_TEXT_COUNT], *const text_ru[UI_TEXT_COUNT], 
     *const text_pt_br[UI_TEXT_COUNT], *const text_zh_hans[UI_TEXT_COUNT], *const text_zh_hant[UI_TEXT_COUNT],
     *const text_ko[UI_TEXT_COUNT], *const text_es_419[UI_TEXT_COUNT], *const text_ca[UI_TEXT_COUNT],
     *const text_gl[UI_TEXT_COUNT], *const text_eu[UI_TEXT_COUNT], *const text_pl[UI_TEXT_COUNT],
-    *const text_tr[UI_TEXT_COUNT], *const text_uk[UI_TEXT_COUNT];
+    *const text_tr[UI_TEXT_COUNT], *const text_uk[UI_TEXT_COUNT], *const text_th[UI_TEXT_COUNT];
