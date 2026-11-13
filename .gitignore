@@ -16,3 +16,6 @@ __pycache__/
 *.xci
 *.nca
 *.nso
+
+# Local agent tooling settings (private, never published)
+.agents-*
