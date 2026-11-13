@@ -21,6 +21,8 @@ its issue, #N), `### Tested` (what was run from the packages before publishing) 
   `generated/layout.json` missing: the code is generated again first.
 - The setup no longer fails at the shaders on Windows PCs with more than 61 CPU threads ("max_workers must be <= 61",
   #222): it uses up to 61 there.
+- NVIDIA's shader tools are downloaded again when they arrive cut or damaged (#207), and if they keep arriving damaged
+  the setup says so (an antivirus, proxy, VPN or unstable connection) instead of only showing two checksums.
 
 ## 0.1.9
 

@@ -72,18 +72,44 @@ PTX = """.version 8.7
 """
 
 
-def fetch(rel: str, want: str, cache: Path) -> Path:
-    dst = cache / rel.rsplit("/", 1)[1]
-    if not dst.is_file():
-        part = dst.with_name(dst.name + ".part")
-        with urllib.request.urlopen(f"{REDIST}/{rel}") as r, open(part, "wb") as f:
+FETCH_TRIES = 3
+
+
+def download(url: str, part: Path) -> str:
+    """The file at url into part; a short read or a broken connection is the reason, else ""."""
+    try:
+        with urllib.request.urlopen(url, timeout=60) as r, open(part, "wb") as f:
+            size = int(r.headers.get("Content-Length") or 0)
             shutil.copyfileobj(r, f)
-        part.replace(dst)
-    got = hashlib.sha256(dst.read_bytes()).hexdigest()
-    if got != want:
-        dst.unlink()
-        sys.exit(f"{dst.name}: sha256 {got}, expected {want}")
-    return dst
+    except OSError as e:
+        return f"download stopped ({e})"
+    got = part.stat().st_size
+    return f"{got} of {size} bytes arrived" if size and got != size else ""
+
+
+def fetch(rel: str, want: str, cache: Path) -> Path:
+    """The pinned package, downloaded again when it arrives short or with another sha256: each try of #207 got a
+    different checksum, which a connection cut or rewritten on the way gives and NVIDIA's file (checked) does not."""
+    dst = cache / rel.rsplit("/", 1)[1]
+    if dst.is_file() and hashlib.sha256(dst.read_bytes()).hexdigest() == want:
+        return dst
+    dst.unlink(missing_ok=True)
+    part = dst.with_name(dst.name + ".part")
+    why = ""
+    for n in range(1, FETCH_TRIES + 1):
+        why = download(f"{REDIST}/{rel}", part)
+        if not why:
+            got = hashlib.sha256(part.read_bytes()).hexdigest()
+            if got == want:
+                part.replace(dst)
+                return dst
+            why = f"{part.stat().st_size} bytes with sha256 {got}, expected {want}"
+        print(f"{dst.name}: try {n} of {FETCH_TRIES}: {why}", file=sys.stderr)
+    part.unlink(missing_ok=True)
+    sys.exit(
+        f"{dst.name}: the download from NVIDIA arrived damaged {FETCH_TRIES} times ({why}); an antivirus, proxy, "
+        f"VPN or unstable connection on this PC changes or cuts it: pause them and run the setup again"
+    )
 
 
 def tool(name: str, cache: Path) -> Path:

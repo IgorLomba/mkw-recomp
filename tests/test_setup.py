@@ -108,3 +108,24 @@ def test_regenerate_if_cleaned(tmp_path: Path) -> None:
     state = {"done": {"generate": "g", "compile": "c2"}}
     prepare.regenerate_if_cleaned(state, keys, tmp_path / "none")
     assert state["done"]["generate"] == "g"
+
+
+def test_fetch_retries_damaged_downloads(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    # issue #207: each try got another checksum; a damaged download is fetched again, and after the last a clear error
+    import hashlib
+
+    good = b"nvidia package"
+    arrivals = [b"nvidia pa", b"nvidia packagX", good]
+
+    def download(url: str, part: Path) -> str:
+        part.write_bytes(arrivals.pop(0))
+        return ""
+
+    monkeypatch.setattr(spec, "download", download)
+    want = hashlib.sha256(good).hexdigest()
+    assert spec.fetch("x/pkg.zip", want, tmp_path).read_bytes() == good
+    assert not (tmp_path / "pkg.zip.part").exists()
+    arrivals[:] = [b"bad"] * spec.FETCH_TRIES
+    (tmp_path / "pkg.zip").unlink()
+    with pytest.raises(SystemExit, match="arrived damaged 3 times"):
+        spec.fetch("x/pkg.zip", want, tmp_path)
