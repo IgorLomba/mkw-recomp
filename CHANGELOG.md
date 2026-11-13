@@ -17,6 +17,8 @@ its issue, #N), `### Tested` (what was run from the packages before publishing) 
   zero, so small moves just outside it are no longer lost; raise it if the kart drifts with the stick at rest.
 - The setup no longer fails at "generate" with "Module use of python312.dll conflicts with this version of Python"
   (#177) when another Python's `PYTHONPATH` or `PYTHONHOME` is set on the machine.
+- An update whose changes only touch how the game code is compiled no longer stops the setup at "compile" with
+  `generated/layout.json` missing: the code is generated again first.
 
 ## 0.1.9
 

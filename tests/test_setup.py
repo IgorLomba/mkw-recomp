@@ -91,3 +91,20 @@ def test_find_game_packages(tmp_path: Path) -> None:
     (tmp_path / "g.zip").write_bytes(b"PK\x03\x04" + bytes(60))
     with pytest.raises(prepare.Failed):
         prepare.find_game(tmp_path / "g.zip")
+
+
+def test_regenerate_if_cleaned(tmp_path: Path) -> None:
+    # an update that changes only the compile key, after cleanup removed generated/: generate runs again
+    keys = {"generate": "g", "compile": "c2"}
+    state = {"done": {"generate": "g", "compile": "c1"}}
+    prepare.regenerate_if_cleaned(state, keys, tmp_path)
+    assert "generate" not in state["done"]
+    # generated/ still there, or compile already done: generate stays skipped
+    (tmp_path / "generated").mkdir()
+    (tmp_path / "generated/layout.json").write_text("[]")
+    state = {"done": {"generate": "g", "compile": "c1"}}
+    prepare.regenerate_if_cleaned(state, keys, tmp_path)
+    assert state["done"]["generate"] == "g"
+    state = {"done": {"generate": "g", "compile": "c2"}}
+    prepare.regenerate_if_cleaned(state, keys, tmp_path / "none")
+    assert state["done"]["generate"] == "g"

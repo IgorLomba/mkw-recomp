@@ -234,6 +234,13 @@ def code_key(files: list[Path]) -> str:
     return h.hexdigest()[:16]
 
 
+def regenerate_if_cleaned(state: dict, keys: dict[str, str], work: Path) -> None:
+    """Undoes generate when compile must run and cleanup already removed generated/: a compile whose key changed alone
+    (an update that touched only tools/build/build.py, as the first after 0.1.9) stopped on the missing layout.json."""
+    if state["done"].get("compile") != keys["compile"] and not (work / "generated/layout.json").is_file():
+        state["done"].pop("generate", None)
+
+
 GENERATOR = [*sorted((ROOT / "recomp").glob("*.py")), *sorted((ROOT / "recomp").glob("patches-mkw*.txt"))]  # each version's table
 COMPILER = [*GENERATOR, ROOT / "tools/build/build.py", Path(__file__).with_name("gamecode.py")]
 
@@ -384,6 +391,7 @@ def main() -> None:
             "shaders": f"{exefs_src} {romfs_src} {translator_key()}",
             "warm": f"{build.game_id()} {romfs_src}",
         }
+        regenerate_if_cleaned(state, keys, work)
         for step in STEPS[1:]:
             # The start screen sets up again when its version differs (launcher.cpp): an update by hand (a new
             # AppImage or zip over the old) kept the old steps (#50: 0.1.8 played with 0.1.7's shaders). Kept once the
